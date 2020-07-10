@@ -1,0 +1,55 @@
+// Global Section Styles
+
+section, .hs-section {
+  // padding: 70px 0;
+
+  h2.hs-section-heading {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 6rem;
+    text-shadow: $hs-text-shadow-light-spread;
+  }
+  h3.hs-section-subheading {
+    margin-bottom: 4rem;
+    font-size: 4rem;
+    font-style: italic;
+    font-weight: 300;
+    color: #fed136;
+    text-shadow: $hs-text-shadow-light-spread;
+    text-transform: none;
+    @include script-font;
+  }
+}
+
+@media (min-width: 768px) {
+  section, .hs-section {
+    min-height: 100vh;
+    padding: 150px 0;
+  }
+}
+
+.hs-card__row {
+  height: 400px;
+}
+
+.hs-dev-logo {
+  max-width: 165px;
+  max-height: 96px;
+  // max-height: 96px;
+  vertical-align: middle;
+}
+
+.hs-logo-row {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  // width: 100%;
+  height: 96px;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  // background: rgba(71, 66, 55, 0.15);
+  .hs-dev-logo {
+    vertical-align: middle;
+  }
+}
