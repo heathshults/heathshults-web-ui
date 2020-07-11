@@ -5,6 +5,15 @@
   background-attachment: fixed;
   background-position: left top;
   background-size: cover;
+  .hs-section-heading, .hs-section-subheading {
+    color: #fff;
+  }
+  .hs-section-heading {
+    font-size: 6rem;
+  }
+  .hs-section-subheading {
+    font-size: 4rem;
+  }
   .portfolio-item {
     max-width: 25rem;
     margin-left: auto;
@@ -93,3 +102,4 @@
         }
     }
 }
+

@@ -2,14 +2,14 @@ doctype html
 head
   meta(charset='utf-8')
   meta(http-equiv='X-UA-Compatible' content='IE=edge')
-  meta(name='viewport' content='width=device-width, initial-scale=1')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
   meta(name='description' content='Portfolio website for Heath Shults - Web Developer Manager & Director')
   meta(name='author' content='')
   title Heath Shults - Web Developer+
   script(type='module' src='/build/heathenscript-ui-components.esm.js')
   script(nomodule='' src='/build/heathenscript-ui-components.js')
   // Bootstrap Core CSS
-  link(href='/assets/vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet')
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css' integrity='sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk' crossorigin='anonymous')
   // Custom Fonts
   link(href='/assets/vendor/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css')
   link(href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css')
@@ -30,11 +30,39 @@ head
   //if lt IE 9
     script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
     script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+  style.
+    .navbar-custom {
+    position: fixed;
+    top: 0;
+    z-index: 1072;
+    width: 100%;
+    }
+    .site-logo {
+    margin-top: -5px;
+    font-size: 2rem !important;
+    }
+    .nav-item {
+    /* @include heading-font */
+    flex: 1 1 auto;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    white-space: nowrap;
+    }
+    .navbar-nav .nav-link:link {
+    font-size: .9rem;
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: 1px;
+    }
+    .navbar-nav .nav-link:hover {
+    color: #fed136;
+    }
 // Navigation
 nav#mainNav.navbar.navbar-expand-lg.navbar-custom.fixed-top.d-flex.align-items-center
   .container
     .row.w-100
-      .col-md-3
+      .col-md-3.p-0
+        // Brand and toggle get grouped for better mobile display
         a.navbar-brand.site-logo.js-scroll-trigger(href='#page-top')
           i.fa.fa-fw(aria-hidden='true') &#xF1FA;
           | HeathShults.com
@@ -44,19 +72,19 @@ nav#mainNav.navbar.navbar-expand-lg.navbar-custom.fixed-top.d-flex.align-items-c
       .col-md-7
         #navbarResponsive.d-flex.align-items-center.collapse.navbar-collapse
           ul.navbar-nav.navbar-right.w-100.h-100.ml-auto.d-flex.align-items-center.justify-content-between
+            li.hidden(style='width: 0;')
+              a.nav-link(href='#page-top')
             li.nav-item
               a.nav-link.js-scroll-trigger(href='#skills') My Skills
             li.nav-item
-              a.nav-link.js-scroll-trigger(href='#portfolio')
-                | My
-                | Portfolio
+              a.nav-link.js-scroll-trigger(href='#portfolio') My Portfolio
             li.nav-item
               a.nav-link.js-scroll-trigger(href='#about') About Me
             li.nav-item
               a.nav-link.js-scroll-trigger(href='#contact') Contact
-        // /.navbar-collapse
       .col-md-2.align-items-center.collapse.navbar-collapse
-        a#mode_widget.mode-widget.w-100.h-100.mr-auto.d-flex.align-items-center(style='background-color: transparent !important;')
+        a#mode_widget.mode-widget.w-100.h-100.mr-auto.d-flex.align-items-center(href='javascript:void(0)' style='background-color: transparent !important;')
+      // /.navbar-collapse
 // Header
 header.d-flex.align-items-stretch.hs-header
   .container
@@ -201,7 +229,27 @@ section#skills.hs-section.hs-skills
             span.lead.mx-auto
               | I think
               span.font-bold-regular DEVICE SCREENS
-              |                 first!
+              |  first!
+      //
+        <div class="col-md-4">
+        <div class="hs-card">
+        <div class="hs-card__header">
+        <span class="fa-stack fa-4x">
+        <i class="fa fa-circle fa-stack-2x color-white"></i>
+        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="service-heading">Screen First Approach!</h4>
+        </div>
+        <div class="hs-card__body">
+        <p class="hs-text-muted">User experience is key! You must look
+        your best on all size screens. <span class="font-bold-regular">SCREEN FIRST DESIGN</span> keepS <span class="font-bold-regular">YOUR BUSINESS</span> looking great!
+        </p>
+        </div>
+        <div class="hs-card__footer">
+        <span class="lead mx-auto">I think <span class="font-bold-regular">DEVICE SCREENS</span> first!</span>
+        </div>
+        </div>
+        </div>
       // CARD 03
       .col-md-4
         .hs-card
@@ -252,9 +300,7 @@ section#skills.hs-section.hs-skills
           .hs-card__footer
             span.lead.mx-auto
               | Elegance:
-              span.font-bold-regular
-                | Simplisticly
-                | Powerfull
+              span.font-bold-regular Simplisticly Powerfull
     .row.mt-4
       // CARD 04
       .col-md-4
@@ -433,17 +479,17 @@ section#portfolio.hs-portfolio.hs-section
                 .col-md-6.pl-3
                   strong Company:
                   br
-                  |                     Fannie Mae, Inc.
+                  |                         Fannie Mae, Inc.
                 .col-md-6.pl-3
                   strong Position:
                   br
-                  |                     Interaction Designer
+                  |                         Interaction Designer
               .row
                 .col-md-12
                   p.hs-paragraph
                   h5 Description:
-                  |                     Corporate system to guide &amp; govern graphic design, componant usage,
-                  |                     code quality to preserve branding consistency.
+                  |                           Corporate system to guide &amp; govern graphic design, componant usage,
+                  |                           code quality to preserve branding consistency.
                   p
             //
           hs-card-footer(color-tone='dark')
@@ -477,17 +523,17 @@ section#portfolio.hs-portfolio.hs-section
                 .col-md-6.pl-3
                   strong Company:
                   br
-                  |                     Blue Star Sports
+                  |                         Blue Star Sports
                 .col-md-6.pl-3
                   strong Position:
                   br
-                  |                     UI Engineer
+                  |                         UI Engineer
               .row
                 .col-md-12
                   p.hs-paragraph
                   h5 Description:
-                  |                     Little league football player tracking system. The NFL can track and observe
-                  |                     promising players with good stats for recruiting purposes.
+                  |                           Little league football player tracking system. The NFL can track and observe
+                  |                           promising players with good stats for recruiting purposes.
                   p
             //
           hs-card-footer(color-tone='dark')
@@ -521,11 +567,11 @@ section#portfolio.hs-portfolio.hs-section
                 .col-md-6.pl-3
                   strong Company:
                   br
-                  |                     BPAA, Inc.
+                  |                         BPAA, Inc.
                 .col-md-6.pl-3
                   strong Position:
                   br
-                  |                     Director Technology
+                  |                         Director Technology
               .row.hs-border-top-white
                 .col-md-12
                   p.hs-paragraph
@@ -573,22 +619,15 @@ section#about.bg-white.about
                 h4.subheading My Humble Path
               .timeline-body
                 p.hs-text-muted
-                  | When I began I simply wanted to do Graphics. After creating
-                  | many website
-                  | designs I decided to learn web development. After college I was fortunate enough
-                  | to land jobs with
-                  | big clients such as Ford, Mercury and Chevrolet. It wasn&apos;t long before I was
-                  | well known in the
-                  | Dallas area. Soon after I became Web Development Manager at BPAA and eventually
-                  | Director of
-                  | Technology - Web Development. I have learned every skill from requirements
-                  | gathering, to Aginle
-                  | Scrum to being an expert at front end development.&nbsp; If my skills interest
-                  | you please contact
+                  | When I began I simply wanted to do Graphics. After creating many website
+                  | designs I decided to learn web development. After college I was fortunate enough to land jobs with
+                  | big clients such as Ford, Mercury and Chevrolet. It wasn&apos;t long before I was well known in the
+                  | Dallas area. Soon after I became Web Development Manager at BPAA and eventually Director of
+                  | Technology - Web Development. I have learned every skill from requirements gathering, to Aginle
+                  | Scrum to being an expert at front end development.&nbsp; If my skills interest you please contact
                   | me at
                   a(href='mailto:heatheshults@gmail.com') heatheshults@gmail.com
-                  |  to
-                  |                     discuss opportunities.
+                  |  to discuss opportunities.
 // Contact Section
 section#contact.contact
   .container
@@ -646,9 +685,7 @@ footer.footer
     .row
       .col-md-12.p-5
         p(style='font-size: 1.5rem; font-weight: 700;')
-          a(href='http://www.freepik.com')
-            | THANK YOU
-            | Freepik!
+          a(href='http://www.freepik.com') THANK YOU Freepik!
 // Portfolio Modals
 // Use the modals below to showcase details about your portfolio projects!
 // Portfolio Modal 1
@@ -661,7 +698,7 @@ hs-modal#modBowlopolis(dismissible='' full='')
     hs-card-body
       p.hs-paragraph
         | My Roles: UX Design &bull; UI Developer &bull; Quality Assurance
-      |         carousel
+      |           carousel
     hs-card-footer(color-tone='dark')
       .hs-input-group
         button.hs-button.hs-button--block.hs-button--brand(onclick="javascript:closeModal('#modBowlopolis')") Close
@@ -688,15 +725,18 @@ script.
   function closeModal(modal) {
   document.querySelector(modal).close();
   }
-script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
-script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js')
-// Third party plugin JS
-script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js')
-// Contact form JS
-script(src='assets/mail/jqBootstrapValidation.js')
-script(src='assets/mail/contact_me.js')
-// Core theme JS
-script(src='js/scripts.js')
+// jQuery
+script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous')
+// for popups
+script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js' integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo' crossorigin='anonymous')
+// Bootstrap Core JavaScript
+script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js' integrity='sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI' crossorigin='anonymous')
+// Plugin JavaScript
+script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js')
+// Contact Form JavaScript
+script(src='https://cdnjs.cloudflare.com/ajax/libs/jqBootstrapValidation/1.3.6/jqBootstrapValidation.min.js')
+// <script src="js/contact_me.js"></script>
+// Theme JavaScript
 script(src='/assets/js/HeathScript.built.js' type='module')
 // <script src="hScript.bundle.js"></script>
 script.
@@ -705,11 +745,86 @@ script.
   var theBars = document.querySelectorAll('.hs-ranking-bar')
   theBars.forEach(aBar => {
   var barWidth = $(aBar).attr('aria-valuenow')
-  $(aBar).attr('style', `width: ${barWidth}%`);
+  $(aBar).attr('style',`width: ${barWidth}%`);
   });
   // // ====== SHOWMORE ==== //
-  let ShowMoreSettings = {
+  let ShowMoreSettings =  {
   fbInitButtonText: 'Show More',
   fbOpenButtonText: 'Show Less',
   boxHeight: '100vh'
   };
+  // theModals.forEach(modal => {
+  //   modal.addEventListener('click', (e)=>{
+  //     var targetModalID =  modal.getAttribute('data-target')
+  //     console.log(targetModalID)
+  //     console.log(document.getElementById(targetModalID))
+  //     var tmodal = document.getElementById(targetModalID)
+  //     tmodal.classList.toggle('is-open')
+  //     // .classList.toggleClass('is-open')
+  //   })
+  // })
+  // ====== NAV JS ====== //
+  // $('a.js-scroll-trigger').bind('click', function(event) {
+  //   var $anchor = $(this);
+  //   $('html, body').stop().animate({
+  //       scrollTop: ($($anchor.attr('href')).offset().top - 50)
+  //   }, 1250, 'easeInOutExpo');
+  //   event.preventDefault();
+  //   });
+  // Highlight the top nav as scrolling occurs
+  // $('body').scrollspy({
+  //     target: '.navbar-fixed-top',
+  //     offset: 51
+  // });
+  // Closes the Responsive Menu on Menu Item Click
+  // $('.navbar-collapse .navbar-nav .nav-item .nav-link').click(function(){
+  //         $('.navbar-toggle:visible').click();
+  // });
+  // Offset for Main Navigation
+  // $('#mainNav').affix({
+  //     offset: {
+  //         top: 100
+  //     }
+  // })
+  // ** ====== MODE WIDHET ====== ** //
+  // var $dm_btn = $('#mode_widget')
+  // var lsGetMode = localStorage.getItem('dark_mode')
+  // set button text
+  // $(document).ready(()=>{
+  //   if (lsGetMode === 'fasle') {
+  //     setModeText(true)
+  //     //$dm_btn.html('<span class="which-mode">Dark Mode<span id="mode_icon" class="fa fa-moon-o mode-icon"></span></span>')
+  //   } else {
+  //     setModeText(false)
+  //     // $dm_btn.html('<span class="which-mode">Light Mode<span id="mode_icon" class="fa fa-sun-o mode-icon"></span></span>')
+  //   }
+  // })
+  // function setModeText(mode) {
+  //   if (mode === 'true') {
+  //     $dm_btn.html('<span class="which-mode"> Dark Mode<span id="mode_icon" class="fa fa-moon-o mode-icon"></span><span class="tiny-text">Enabled</span></span>')
+  //   } else {
+  //     $dm_btn.html('<span class="which-mode"> Light Mode<span id="mode_icon" class="fa fa-sun-o mode-icon"></span><span class="tiny-text">Enabled</span></span>')
+  //   }
+  // }
+  // function setMode(mode) {
+  //       localStorage.setItem('dark_mode', `${mode}`)
+  //       document.querySelector('#darkmode').disabled = mode;
+  //       if (mode === 'true') {
+  //       document.querySelector('#darkmode').disabled = false;
+  //       $dm_btn.html('<span class="which-mode"> Dark Mode<span id="mode_icon" class="fa fa-moon-o mode-icon"></span><span class="tiny-text">Enabled</span></span>')
+  //       // document.querySelector('link[href="css/theme-dark-mode.css"]').disabled = false;
+  //     } else {
+  //       $dm_btn.html('<span class="which-mode"> Light Mode<span id="mode_icon" class="fa fa-sun-o mode-icon"></span><span class="tiny-text">Enabled</span></span>')
+  //     }
+  //   return setModeText(mode)
+  // }
+  // Theme switcher
+  // $dm_btn.bind('click', (event) => {
+  //     event.preventDefault()
+  //     if (localStorage.getItem('dark_mode') === 'true') {
+  //       setMode('false'), console.log('set to false')
+  //     } else {
+  //       setMode('true'), console.log('set to true')
+  //     }
+  //     return
+  // })

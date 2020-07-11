@@ -1,50 +1,60 @@
 // Global styling for this template
 body {
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 p {
-    line-height: 1.75;
+  line-height: 1.75;
 }
 
 .page-section {
-    padding: 6rem 0;
-    h2.section-heading {
-        font-size: 2.5rem;
-        margin-top: 0;
-        margin-bottom: 1rem;
-    }
-    h3.section-subheading {
-        font-size: 1rem;
-        font-weight: 400;
-        font-style: italic;
-        font-family: $subheadings-font-family;
-        margin-bottom: 4rem;
-    }
+  padding: 6rem 0;
+
+  h2.hs-section-heading {
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  h3.hs-section-subheading {
+    font-size: 1rem;
+    font-weight: 400;
+    font-style: italic;
+    font-family: $subheadings-font-family;
+    margin-bottom: 4rem;
+  }
 }
 
 @include media-breakpoint-up(md) {
-    section {
-        padding: 9rem 0;
-    }
+  section {
+    padding: 9rem 0;
+  }
 }
 
 // Highlight color customization
 
 ::-moz-selection {
-    background: $primary;
-    text-shadow: none;
+  text-shadow: none;
+  background: $primary;
 }
 
 ::selection {
-    background: $primary;
-    text-shadow: none;
+  text-shadow: none;
+  background: $primary;
 }
 
+
+
+img::-moz-selection {
+  background: transparent;
+}
+
+
+
 img::selection {
-    background: transparent;
+  background: transparent;
 }
 
 img::-moz-selection {
-    background: transparent;
+  background: transparent;
 }

@@ -1,5 +1,5 @@
 
-.hs-radio-group { 
+.hs-radio-group {
   display: flex;
   justify-content: flex-start;
   width: 300px;
@@ -20,10 +20,8 @@
   background: #2382ca;
   border: 1px solid darken(#0267b5, 5%);
   border-radius: 0px;
-  -webkit-box-shadow: -1px -1px 4px 2px rgba(0, 0, 0, 0.23) inset;
-  -moz-box-shadow: -1px -1px 4px 2px rgba(0, 0, 0, 0.23) inset;
   box-shadow: -1px -1px 4px 2px rgba(0, 0, 0, 0.23) inset;
- 
+
 
 
   .hs-ranking-bar {
@@ -35,25 +33,21 @@
     padding: 1px 5px;
     font-size: 10px;
     font-weight: 700;
-    color: $white;
+    color: $hs-white;
     text-align: left;
     background-image: linear-gradient(45deg, #0267b5 25%, #0076d1 25%, #0076d1 50%, #0267b5 50%, #0267b5 75%, #0076d1 75%, #0076d1 100%);
     background-size: 39.60px 39.60px;
     border: 1px solid #0267b5;
     border-right: 4px solid #0267b5;
     border-radius: 0px;
-    // background: $color_light_lime;
+    // background: $hs-color_light_lime;
     // background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
     // background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
-    // background-image: -hs-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+    // background-image: linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
     // background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
-    -webkit-transition: 0.4s linear;
-    -moz-transition: 0.4s linear;
-    -hs-transition: 0.4s linear;
     transition: 0.4s linear;
-    -webkit-transition-property: width, background-color;
-    -moz-transition-property: width, background-color;
-    -hs-transition-property: width, background-color;
+    transition: 0.4s linear;
+    transition-property: width, background-color;
     transition-property: width, background-color;
     // -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
     // box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
@@ -62,45 +56,35 @@
 .hs-radio.five:checked ~ .hs-ranking > .hs-ranking-bar {
   width: 5%;
   background-color: #f63a0f;
-  -webkit-transition-property: width, background-color;
-  -moz-transition-property: width, background-color;
-  -hs-transition-property: width, background-color;
+  transition-property: width, background-color;
   transition-property: width, background-color;
 }
 
 .hs-radio.twentyfive:checked ~ .hs-ranking > .hs-ranking-bar {
   width: 25%;
   background-color: #f27011;
-  -webkit-transition-property: width, background-color;
-  -moz-transition-property: width, background-color;
-  -hs-transition-property: width, background-color;
+  transition-property: width, background-color;
   transition-property: width, background-color;
 }
 
 .hs-radio.fifty:checked ~ .hs-ranking > .hs-ranking-bar {
   width: 50%;
   background-color: #f2b01e;
-  -webkit-transition-property: width, background-color;
-  -moz-transition-property: width, background-color;
-  -hs-transition-property: width, background-color;
+  transition-property: width, background-color;
   transition-property: width, background-color;
 }
 
 .hs-radio.seventyfive:checked ~ .hs-ranking > .hs-ranking-bar {
   width: 75%;
   background-color: #f2d31b;
-  -webkit-transition-property: width, background-color;
-  -moz-transition-property: width, background-color;
-  -hs-transition-property: width, background-color;
+  transition-property: width, background-color;
   transition-property: width, background-color;
 }
 
 .hs-radio.onehundred:checked ~ .hs-ranking > .hs-ranking-bar {
   width: 100%;
   background-color: #86e01e;
-  -webkit-transition-property: width, background-color;
-  -moz-transition-property: width, background-color;
-  -hs-transition-property: width, background-color;
+  transition-property: width, background-color;
   transition-property: width, background-color;
 }
 
@@ -118,7 +102,7 @@
   margin: 0 2px 0 7px;
   font-size: 10px;
   font-weight: 700;
-  color: $gray-light;
+  color: $hs-gray-light;
   border: 2px solid #0267b5;
   //border-bottom: none;
   border-radius: 3px;
@@ -130,8 +114,8 @@
     bottom: -6px;
     left: 55%;
     content:'';
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
     border-top: 6px solid #f8f8f8;
@@ -143,15 +127,15 @@
     bottom: -8px;
     left: 54%;
     content:'';
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-left: 8px solid transparent;
     border-right:8px solid transparent;
     border-top: 8px solid #0267b5;
     z-index: 99;
     // transform: translateX(-50%);
   }
- 
+
 }
 
 .hs-radio:checked + .hs-label {
@@ -160,7 +144,7 @@
   padding-top: 4px;
   color: white;
   background: rgb(64, 64, 64);
-  border: 1px solid $white;
+  border: 1px solid $hs-white;
   &::before {
     bottom: -6px;
     border-top: 6px solid #404040;

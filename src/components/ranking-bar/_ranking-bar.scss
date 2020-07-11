@@ -2,54 +2,53 @@
   width: 400px;
   margin: 60px auto;
   text-align: center;
+
   .hs-ranking {
     width: 400px;
     margin: 0 auto;
   }
 }
+
 .hs-ranking {
   padding: 3px;
   margin-top: 6px;
   font-size: 10px;
   text-align: left;
   text-transform: uppercase;
-  background: $gray;
-  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  background: $hs-gray;
+  //Instead of the line below you could use @include border-radius($hs-radius, $hs-vertical-radius)
   border-radius: 0px;
-  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  //Instead of the line below you could use @include box-shadow($hs-shadow-1, $hs-shadow-2, $hs-shadow-3, $hs-shadow-4, $hs-shadow-5, $hs-shadow-6, $hs-shadow-7, $hs-shadow-8, $hs-shadow-9, $hs-shadow-10)
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5), 0 1px rgba(255, 255, 255, 0.16);
 }
+
 .hs-ranking-bar {
   position: relative;
   height: 10px;
   padding-left: 10px;
   font-size: 9px;
   font-weight: 700;
+  line-height: 10px;
   color: #2e2e2e;
-  background-image: -hs-linear-gradient(right, #e8921e, #f2d32f, #86e01e);
   background-image: linear-gradient(to right, #e8921e, #f2d32f, #86e01e);
-  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
   border-radius: 0px;
-  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
-  -hs-transition: 0.4s linear;
-  //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
   transition: 0.4s linear;
-  -hs-transition-property: width, background-color;
-  //Instead of the line below you could use @include transition-property($property-1, $property-2, $property-3, $property-4, $property-5, $property-6, $property-7, $property-8, $property-9, $property-10)
   transition-property: width, background-color;
+
   &::before {
     position: absolute;
-    top: -19px;
+    top: -21px;
     right: -6px;
     z-index: 99;
     display: inline-block;
-    padding: 4px 8px 2px 8px;
-    color: $white;
+    padding: 4px 8px 4px 8px;
+    color: $hs-white;
     content: attr(data-level);
     background-color: #404040;
     // transform: translateX(-50%);
   }
+
   &::after {
     position: absolute;
     top: -2px;
@@ -64,41 +63,49 @@
     // transform: translateX(-50%);
   }
 }
-.radio {
+
+.hs-radio {
   display: none;
+
   &:checked + .label {
     color: white;
     background: rgba(0, 0, 0, 0.25);
   }
 }
-.label {
+
+.hs-label {
   display: inline-block;
   padding: 3px 8px;
   margin: 0 5px 20px;
   color: #aaa;
-  //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
-  text-shadow: 0 1px  black;
+  //Instead of the line below you could use @include text-shadow($hs-shadow-1, $hs-shadow-2, $hs-shadow-3, $hs-shadow-4, $hs-shadow-5, $hs-shadow-6, $hs-shadow-7, $hs-shadow-8, $hs-shadow-9, $hs-shadow-10)
+  text-shadow: 0 1px black;
   cursor: pointer;
   visibility: hidden;
-  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  //Instead of the line below you could use @include border-radius($hs-radius, $hs-vertical-radius)
   border-radius: 0px;
 }
+
 #five:checked ~ .hs-ranking > .hs-ranking-bar {
   width: 5%;
   background-color: #f63a0f;
 }
+
 #twentyfive:checked ~ .hs-ranking > .hs-ranking-bar {
   width: 25%;
   background-color: #f27011;
 }
+
 #fifty:checked ~ .hs-ranking > .hs-ranking-bar {
   width: 50%;
   background-color: #f2b01e;
 }
+
 #seventyfive:checked ~ .hs-ranking > .hs-ranking-bar {
   width: 75%;
   background-color: #f2d31b;
 }
+
 #onehundred:checked ~ .hs-ranking > .hs-ranking-bar {
   width: 100%;
   background-color: #86e01e;

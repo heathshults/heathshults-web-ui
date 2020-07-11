@@ -1,0 +1,21 @@
+
+// Services Section
+.services, .hs-skills {
+  color: map-get($hs-default-colors, text-onLight);
+  background-image: url('/assets/img/bg/camera-missing.jpg');
+  //  background-image: url('/img/bg/team-coders-dim-blur.jpg');
+  background-attachment: fixed;
+  background-position: bottom center;
+  background-size: cover;
+  .hs-section-heading {
+    font-size: 6rem;
+    color: $hs-white;
+  }
+  // .hs-section-subheading {
+  //   color: #eeecec;
+  //   @include script-font;
+  // }
+  .hs-card {
+    background: $hs-white;
+  }
+}

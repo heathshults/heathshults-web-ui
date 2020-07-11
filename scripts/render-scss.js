@@ -12,9 +12,9 @@ const srcDir = path.resolve('../', 'src')
 const distDir =  path.resolve('../', 'dist')
 var appRoot = require('app-root-path');
 const mainStyleSheetIn = `${appRoot}/src/scss/styles.scss`
-const mainStyleSheetOut = `${appRoot}/src/scss/styles.scss`
+const mainStyleSheetOut = `${appRoot}/dist/assets/css/HeathStyle.built.css`
 const darkStyleSheetIn = `${appRoot}/src/scss/theme-dark-mode.scss`
-const darkStyleSheetOut = `${appRoot}/src/scss/theme-dark-mode.scss`
+const darkStyleSheetOut = `${appRoot}/dist/assets/css/theme-dark-mode.scss`
 console.log(`Main: ${mainStyleSheetIn}`)
 // const stylesPath = `${srcDir}/scss/styles.scss`;
 // exports.stylesPath = stylesPath;
@@ -50,7 +50,7 @@ module.exports = function renderSCSS(callback) {
   const postCSSpath = `${appRoot}/node_modules/.bin`
   const cssInOutPath = `${appRoot}/dist/assets/css`
   try{
-    exec(`node ${postCSSpath}/postcss --use autoprefixer --map --output ${mainStyleSheetOut} ${mainStyleSheetOut} && ${postCSSpath}/postcss --use autoprefixer --map --output ${darkStyleSheetOut} ${darkStyleSheetOut}`, (error, stdout, stderr) => {
+    exec(`node ${postCSSpath}/postcss --use autoprefixer --autoprefixer.browsers "> 5% -m -o ${mainStyleSheetOut} ${mainStyleSheetOut} && ${postCSSpath}/postcss --use autoprefixer --autoprefixer.browsers "> 5% -m -o ${darkStyleSheetOut} ${darkStyleSheetOut}`, (error, stdout, stderr) => {
       if (error) {
           console.log(`error: ${error.message}`);
           return;
