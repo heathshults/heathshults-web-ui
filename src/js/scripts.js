@@ -1,8 +1,36 @@
-(function ($) {
+/*!
+    * Start Bootstrap - Agency v6.0.2 (https://startbootstrap.com/template-overviews/agency)
+    * Copyright 2013-2020 Start Bootstrap
+    * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-agency/blob/master/LICENSE)
+    */
+   (function ($) {
     "use strict"; // Start of use strict
 
     // Smooth scrolling using jQuery easing
-    $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
+    // $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
+    //     if (
+    //         location.pathname.replace(/^\//, "") ==
+    //             this.pathname.replace(/^\//, "") &&
+    //         location.hostname == this.hostname
+    //     ) {
+    //         var target = $(this.hash);
+    //         target = target.length
+    //             ? target
+    //             : $("[name=" + this.hash.slice(1) + "]");
+    //         if (target.length) {
+    //             $("html, body").animate(
+    //                 {
+    //                     scrollTop: target.offset().top - 72,
+    //                 },
+    //                 1000,
+    //                 "easeInOutExpo"
+    //             );
+    //             return false;
+    //         }
+    //     }
+    // }); // Deprecated
+
+    $('a.js-scroll-trigger[href*="#"]:not([href="#"])').on('click', function () {
         if (
             location.pathname.replace(/^\//, "") ==
                 this.pathname.replace(/^\//, "") &&
@@ -26,7 +54,10 @@
     });
 
     // Closes responsive menu when a scroll trigger link is clicked
-    $(".js-scroll-trigger").click(function () {
+    // $(".js-scroll-trigger").click(function () {
+    //     $(".navbar-collapse").collapse("hide");
+    // });  // Deprecated
+    $(".js-scroll-trigger").on('click', function () {
         $(".navbar-collapse").collapse("hide");
     });
 
@@ -47,5 +78,6 @@
     // Collapse now if page is not at top
     navbarCollapse();
     // Collapse the navbar when page is scrolled
-    $(window).scroll(navbarCollapse);
+    // $(window).scroll(navbarCollapse); //deprecated
+    $(window).on('scroll', navbarCollapse);
 })(jQuery); // End of use strict

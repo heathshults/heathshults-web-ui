@@ -2,4 +2,4 @@
 
 const renderSCSS = require('./render-scss');
 
-renderSCSS();
+renderSCSS(() => { console.log('Finished building CSS!')});

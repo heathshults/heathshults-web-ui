@@ -12,11 +12,11 @@ let {src, dest, gulp, task, watch, series, parallel} = require('gulp');
 var browserSync = require('browser-sync')
 var header = require('gulp-header')
 var browserify = require('browserify')
-var babelify = require('babelify') 
+var babelify = require('babelify')
 // var cleanCSS = require('gulp-clean-css')
 var rename = require('gulp-rename')
 var uglify = require('gulp-uglify')
-var pkg = require('./package.json')
+var pkg = require('../package.json')
 var connect = require('gulp-connect-php')
 var plumber = require('gulp-plumber')
 var open = require('open')
@@ -30,19 +30,19 @@ var ejs = require('gulp-ejs')
 var log = require('fancy-log')
 
 var srcPath = path.resolve('../', 'src')
-var wwwPath =  path.resolve('../', 'www')
+var distPath =  path.resolve('../', 'dist')
 
 let p = {
-  
+
   src_js: `${srcPath}/assets/js`,
   src_scss: `${srcPath}/scss`,
   src_html: src,
   src_img: `${srcPath}/assets/img`,
- 
-  www_js: `${wwwPath}/assets/js`,
-  www_css: `${wwwPath}/assets/css`,
-  www_html: wwwPath,
-  www_img: `${wwwPath}/assets/img`
+
+  dist_js: `${distPath}/assets/js`,
+  dist_css: `${distPath}/assets/css`,
+  dist_html: distPath,
+  dist_img: `${distPath}/assets/img`
 }
 
 let assets = '{jpg,png,gif,svg,mp4}'
@@ -59,7 +59,7 @@ let assets = '{jpg,png,gif,svg,mp4}'
 //     .pipe(header(banner, {
 //       pkg
 //     }))
-//     .pipe(dest(p.www_css), {
+//     .pipe(dest(p.dist_css), {
 //       sourcemap: '.',
 //       overwrite: true
 //     })
@@ -112,7 +112,7 @@ let assets = '{jpg,png,gif,svg,mp4}'
 // }
 // exports.minify_css = minify_css
 
-// // create css variable fallback properties 
+// // create css variable fallback properties
 // function css_variable_fallbacks() {
 //   src('www/*.css').pipe(
 //     postcss([
@@ -122,7 +122,7 @@ let assets = '{jpg,png,gif,svg,mp4}'
 //     dest('.')
 //   );
 // }
-// exports.css_variable_fallbacks = 
+// exports.css_variable_fallbacks =
 
 // // Minify JS
 // function minify_js(cb) {
@@ -161,7 +161,7 @@ function ejsit(done) {
       extname: ".html"
     }))
     .pipe(debug({ title: 'compiled html: ' }))
-    .pipe(dest(wwwPath, { overwrite: true, cwd: process.cwd() })), done()
+    .pipe(dest(distPath, { overwrite: true, cwd: process.cwd() })), done()
 }
 exports.ejsit = ejsit
 
@@ -173,7 +173,7 @@ function jsify(cb){
   .require(`${srcPath}/index.js`, { entry: true })
   .bundle()
   .on("error", function (err) { console.log("Error: " + err.message); })
-  .pipe(fs.createWriteStream(`${wwwPath}/assets/js/HeathScript.built.js`))
+  .pipe(fs.createWriteStream(`${distPath}/assets/js/HeathScript.built.js`))
   , cb();
 }
 exports.jsify = jsify
@@ -196,7 +196,7 @@ exports.jsify = jsify
 
 function sassy(done) {
   try {
-    exec(`sass ${srcPath}/scss/HeathStyle.scss ${wwwPath}/assets/css/HeathStyle.built.css`, (error, stdout, stderr) => {
+    exec(`sass ${srcPath}/scss/styles.scss ${distPath}/assets/css/HeathStyle.built.css`, (error, stdout, stderr) => {
       if (error) {
           console.log(`error: ${error.message}`);
           return;
@@ -208,7 +208,7 @@ function sassy(done) {
   }
 
   try{
-    exec(`sass ${srcPath}/scss/theme-dark-mode.scss ${wwwPath}/assets/css/theme-dark-mode.built.css`, (error, stdout, stderr) => {
+    exec(`sass ${srcPath}/scss/theme-dark-mode.scss ${distPath}/assets/css/theme-dark-mode.built.css`, (error, stdout, stderr) => {
       if (error) {
           console.log(`error: ${error.message}`);
           return;
@@ -230,7 +230,7 @@ function copy_img(cb) {
   ])
     // .pipe(plumber())
     // .pipe(changed('www/'))
-    .pipe(dest(`${wwwPath}/assets/img`), {
+    .pipe(dest(`${distPath}/assets/img`), {
       overwrite: true
     })
     .pipe(debug({ title: 'copied' })), cb();
@@ -245,11 +245,11 @@ exports.copy_img = copy_img
 function copy_vendor(cb) {
   src([`${srcPath}/node_modules/bootstrap/dist/**/*`, '!**/npm.js', '!**/bootstrap-theme.*'])
   .pipe(debug({ title: 'copied' }))
-    .pipe(dest(`${wwwPath}/assets/vendor/bootstrap`))
+    .pipe(dest(`${distPath}/assets/vendor/bootstrap`))
 
   src([`${srcPath}/node_modules/jquery/dist/jquery.js`, 'node_modules/jquery/dist/jquery.min.js'])
   .pipe(debug({ title: 'copied' }))
-    .pipe(dest(`${wwwPath}/assets/vendor/jquery`))
+    .pipe(dest(`${distPath}/assets/vendor/jquery`))
 
   src([
       `${srcPath}/node_modules/font-awesome/**`,
@@ -261,23 +261,23 @@ function copy_vendor(cb) {
     ])
     .pipe(plumber())
     .pipe(debug({ title: 'copied' }))
-    .pipe(dest(`${wwwPath}/assets/vendor/font-awesome`))
+    .pipe(dest(`${distPath}/assets/vendor/font-awesome`))
 
     src([`${srcPath}/assets/lib`])
     .pipe(debug({ title: 'copied' }))
-    .pipe(dest(`${wwwPath}/assets/lib`), {overwrite: true})
+    .pipe(dest(`${distPath}/assets/lib`), {overwrite: true})
 
     src([`${srcPath}/assets/content/**/*`])
     .pipe(debug({ title: 'copied' }))
-    .pipe(dest(`${wwwPath}/assets/content`), {overwrite: true})
+    .pipe(dest(`${distPath}/assets/content`), {overwrite: true})
 
     src([`${srcPath}/assets/components/**/*.{html,css,js,json,php}`])
     .pipe(debug({ title: 'copied' }))
-    .pipe(dest(`${wwwPath}/assets/content`), {overwrite: true})
-    
+    .pipe(dest(`${distPath}/assets/content`), {overwrite: true})
+
     src([`${srcPath}/assets/vendor/**/*`])
     .pipe(debug({ title: 'copied' }))
-    .pipe(dest(`${wwwPath}/assets/vendor`), {overwrite: true}), cb()
+    .pipe(dest(`${distPath}/assets/vendor`), {overwrite: true}), cb()
   //   var file = ''
   // if (typeof cb === 'function') {
   //   cb(null, file);
@@ -289,8 +289,8 @@ exports.copy_vendor = copy_vendor
 function copy_html(cb) {
   src(`${srcPath}/layouts/**/*.html`)
   .pipe(plumber())
-    // .pipe(changed(wwwPath))
-    .pipe(dest(wwwPath), {
+    // .pipe(changed(distPath))
+    .pipe(dest(distPath), {
       overwrite: true
     })
     .pipe(debug({
@@ -306,10 +306,10 @@ exports.copy_html = copy_html
 function copy_css(cb) {
   src(`${srcPath}/assets/css/**/*.{css,map}`)
     .pipe(plumber())
-    //.pipe(changed(`${wwwPath}/css`))
+    //.pipe(changed(`${distPath}/css`))
     .pipe(debug({ title: 'copied' }))
-    .pipe(dest(`${wwwPath}/assets/css`)), cb()
-  // () => { 
+    .pipe(dest(`${distPath}/assets/css`)), cb()
+  // () => {
   //   let file = ''
   //   if (typeof cb === 'function') {
   //     cb(null, file);
@@ -322,10 +322,10 @@ exports.copy_css = copy_css
 function copy_js(cb) {
   src(`${srcPath}/assets/js/**/*.{js,json,map}`)
     .pipe(plumber())
-    //.pipe(changed(`${wwwPath}/js`))
+    //.pipe(changed(`${distPath}/js`))
     .pipe(debug({ title: 'copied' }))
-    .pipe(dest(`${wwwPath}/assets/js`)), cb()
-  // () => { 
+    .pipe(dest(`${distPath}/assets/js`)), cb()
+  // () => {
   //   let file = ''
   //   if (typeof cb === 'function') {
   //     cb(null, file);
@@ -344,7 +344,7 @@ function copy_components(cb) {
   }), cb()
   // src('src/components/**/*.{js,json,html,css}')
   //   .pipe(plumber())
-     //.pipe(changed(`${wwwPath}/js`))
+     //.pipe(changed(`${distPath}/js`))
     //  .pipe(debug({ title: 'copied' }))
     // .pipe(dest('www/')), cb()
     // () => {
@@ -361,7 +361,7 @@ function copy_assets(cb) {
   src(`${srcPath}/assets/**/*.${assets}`)
     .pipe(plumber())
     .pipe(debug({ title: 'copied' }))
-    .pipe(dest(`${wwwPath}/assets/`)),
+    .pipe(dest(`${distPath}/assets/`)),
     () => {
       let file = ''
       if (typeof cb === 'function') {
@@ -383,14 +383,14 @@ function watchers(cb) {
     browserSync.init({
       // proxy: '127.0.0.1:8000',
       server: {
-        baseDir: `${wwwPath}`,
+        baseDir: `${distPath}`,
         open: 'true',
         watch: true,
         notify: false,
         injectChanges: true
       }
     })
-    
+
   // })
   , cb()
 
@@ -409,7 +409,7 @@ exports.watchers = watchers
 function serve(cb) {
     browserSync.init({
         server: {
-            baseDir: `${wwwPath}`
+            baseDir: `${distPath}`
         },
     })
 if (typeof cb === 'function') {
@@ -420,8 +420,8 @@ if (typeof cb === 'function') {
 exports.serve = serve
 
 function connect_sync(cb) {
- 
-  connect.server({base: `${wwwPath}`}, function (){
+
+  connect.server({base: `${distPath}`}, function (){
     browserSync({
       proxy: '127.0.0.1:8000',
       open: 'localhost',
@@ -429,7 +429,7 @@ function connect_sync(cb) {
       injectChanges: true,
       files: [
         {
-            match: [`${wwwPath}/**/*.php`, `${wwwPath}/**/*.css`, `${wwwPath}/**/*.{jpg,png,gif,svg}`, `${wwwPath}/**/*.js`, `${wwwPath}/**/*.html`],
+            match: [`${distPath}/**/*.php`, `${distPath}/**/*.css`, `${distPath}/**/*.{jpg,png,gif,svg}`, `${distPath}/**/*.js`, `${distPath}/**/*.html`],
             fn: function (event, file) {
                browserSync.reload()
             },
@@ -478,13 +478,13 @@ function watchers2(cb) {
     readDelay: 500,
     verbose: true
   }, copy_assets, browserSync.reload)
-  // let file = ''  
+  // let file = ''
   // if (typeof cb === 'function') {
   //       cb(null, file);
   //       called = true;
   //     };
 }
-exports.watchers2 = watchers2 
+exports.watchers2 = watchers2
 
 // // Run everything
 // exports.build = series(sassy, minify_css, minify_js, copy_vendors)

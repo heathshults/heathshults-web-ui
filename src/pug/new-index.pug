@@ -1,0 +1,715 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  meta(name='description' content='Portfolio website for Heath Shults - Web Developer Manager & Director')
+  meta(name='author' content='')
+  title Heath Shults - Web Developer+
+  script(type='module' src='/build/heathenscript-ui-components.esm.js')
+  script(nomodule='' src='/build/heathenscript-ui-components.js')
+  // Bootstrap Core CSS
+  link(href='/assets/vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet')
+  // Custom Fonts
+  link(href='/assets/vendor/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css')
+  link(href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css')
+  link(href='https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Nothing+You+Could+Do&family=Sedgwick+Ave+Display&display=swap' rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;0,900;1,100&display=swap' rel='stylesheet')
+  // Theme CSS
+  link(href='/assets/css/HeathStyle.built.css' rel='stylesheet')
+  link#darkmode(disabled='' rel='stylesheet' href='/assets/css/theme-dark-mode.built.css')
+  script.
+    var lsGetMode = localStorage.getItem('dark_mode')
+    var dm_btn = document.getElementById('mode_widget')
+    if (lsGetMode === "true") {
+    document.querySelector('#darkmode').disabled = false;
+    // document.querySelector('link[href="css/theme-dark-mode.css"]').disabled = false;
+    }
+  // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+  //if lt IE 9
+    script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+    script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+// Navigation
+nav#mainNav.navbar.navbar-expand-lg.navbar-custom.fixed-top.d-flex.align-items-center
+  .container
+    .row.w-100
+      .col-md-3
+        a.navbar-brand.site-logo.js-scroll-trigger(href='#page-top')
+          i.fa.fa-fw(aria-hidden='true') &#xF1FA;
+          | HeathShults.com
+        button.navbar-toggler.navbar-toggler-right(type='button' data-toggle='collapse' data-target='#navbarResponsive' aria-controls='navbarResponsive' aria-expanded='false' aria-label='Toggle navigation')
+          | Menu
+          i.fas.fa-bars.ml-1
+      .col-md-7
+        #navbarResponsive.d-flex.align-items-center.collapse.navbar-collapse
+          ul.navbar-nav.navbar-right.w-100.h-100.ml-auto.d-flex.align-items-center.justify-content-between
+            li.nav-item
+              a.nav-link.js-scroll-trigger(href='#skills') My Skills
+            li.nav-item
+              a.nav-link.js-scroll-trigger(href='#portfolio')
+                | My
+                | Portfolio
+            li.nav-item
+              a.nav-link.js-scroll-trigger(href='#about') About Me
+            li.nav-item
+              a.nav-link.js-scroll-trigger(href='#contact') Contact
+        // /.navbar-collapse
+      .col-md-2.align-items-center.collapse.navbar-collapse
+        a#mode_widget.mode-widget.w-100.h-100.mr-auto.d-flex.align-items-center(style='background-color: transparent !important;')
+// Header
+header.d-flex.align-items-stretch.hs-header
+  .container
+    .hs-intro-text
+      p(style='height: 65px;')
+        span.hs-intro-lead-in Hello, I&apos;m Heath.
+      p(style='height: 95px;')
+        span.hs-intro-heading It&apos;s Nice To Meet You
+      p
+        a.js-scroll-trigger.btn.btn-xl(href='#skills') Please... Come inside.
+      #m
+      script.
+// Services Section
+section#skills.hs-section.hs-skills
+  .container
+    .row
+      .col-lg-12.text-center.text-color--white
+        h2.hs-section-heading My Skills
+        h3.hs-section-subheading
+          strong.font-bold-regular KEEPING IT HONEST
+        //
+          <h3 class="section-subheading hs-text-muted"><strong class="font-bold-regular">SIMPLE</strong>,
+          <strong class="font-bold-regular">ELEGANT</strong> &amp;
+          <strong class="font-bold-regular">CLEAN</strong>.</h3>
+    .row
+      .col-lg-12.text-center.text-color--white
+    .row.text-center.hs-card__row.mt-4
+      // CARD 01
+      .col-md-4
+        .hs-card
+          .hs-card__header
+            .hs-logo-row
+              img.hs-dev-logo(src='/assets/img/logos/dmHTML5_Logo_512.png' alt='HTML5' height='65')
+              img.hs-dev-logo(src='/assets/img/logos/markdown-150.png' alt='Markdown' height='45')
+            // <h4 class="service-heading lead">HTML5 • Markdown</h4>
+          .hs-card__body
+            p.hs-text-muted
+              strong HTML5 Skill Level
+            .hs-ranking-bar-stacker
+              .hs-radio-group.hidden-gone
+                input#html_five.hs-radio.five(type='radio' disabled='' name='html_hs-ranking' value='5')
+                label.hs-label(for='five') OK
+                input#html_twentyfive.hs-radio.twentyfive(type='radio' disabled='' name='html_hs-ranking' value='25')
+                label.hs-label(for='twentyfive') Good
+                input#html_fifty.hs-radio.fifty(type='radio' disabled='' name='html_hs-ranking' value='50')
+                label.hs-label(for='fifty') Very Good
+                input#html_seventyfive.hs-radio.seventyfive(type='radio' disabled='' name='html_hs-ranking' value='75')
+                label.hs-label(for='seventyfive') Advanced
+                input#html_onehundred.hs-radio.onehundred(type='radio' disabled='' name='html_hs-ranking' value='100' checked='')
+                label.hs-label(for='onehundred') Expert
+              // </div>
+              .hs-ranking
+                .hs-ranking-bar.bg-heavy-yellow1(role='hs-rankingbar' data-level='Expert' aria-valuenow='100' aria-valuemin='0' aria-valuemax='100')
+                  | HTML5 100%
+            .hs-divider.d-flex.align-items-center
+            p.hs-hs-text-muted
+              strong Markdaown Skill Level
+            .hs-ranking-bar-stacker(style='margin-top: 20px;')
+              .hs-radio-group.hidden-gone
+                input#md_five.hs-radio.five(type='radio' disabled='' name='hs-ranking' value='5')
+                label.hs-label(for='five') OK
+                input#md_twentyfive.hs-radio.twentyfive(type='radio' disabled='' name='hs-ranking' value='25')
+                label.hs-label(for='twentyfive') Good
+                input#md_fifty.hs-radio.fifty(type='radio' disabled='' name='hs-ranking' value='50')
+                label.hs-label(for='fifty') Very Good
+                input#md_seventyfive.hs-radio.seventyfive(type='radio' disabled='' name='hs-ranking' value='75' checked='')
+                label.hs-label(for='seventyfive') Advanced
+                input#md_onehundred.hs-radio.onehundred(type='radio' disabled='' name='hs-ranking' value='100')
+                label.hs-label(for='onehundred') Expert
+              .hs-ranking
+                .hs-ranking-bar.bg-heavy-yellow1(role='hs-rankingbar' data-level='Advanced' aria-valuenow='86' aria-valuemin='0' aria-valuemax='100')
+                  | Markdown
+          // /.card-body
+          .hs-card__footer
+            span.lead.mx-auto
+              | Clean &gt; Clear &gt;
+              span.font-bold-regular Simplistic
+        //
+          <div class="hs-card">
+          <div class="hs-card__header">
+          <span class="fa-stack fa-4x color-white">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">E-Commerce</h4>
+          </div>
+          <div class="hs-card__body">
+          <p class="hs-text-muted">From concept &amp; strategy, to design &amp; development, through launch &amp; beyond.
+          I work with you every step of the way and keep the engine on track.</p>
+          </div>
+          <div class="hs-card__footer">
+          <span class="lead mx-auto">Let's make a <span class="font-bold-regular">MILLION</span> or TWO!</span>
+          </div>
+          </div>
+      // CARD 02
+      .col-md-4
+        .hs-card
+          .hs-card__header
+            .hs-logo-row
+              img.hs-dev-logo(src='/assets/img/logos/dm-css3-150.png' alt='CSS3' height='65')
+              img.hs-dev-logo(src='/assets/img/logos/Sass-150.png' alt='SASS' height='55')
+            // <h4 class="service-heading lead">CSS • Modular SCSS</h4>
+          .hs-card__body
+            p.hs-text-muted
+              strong CSS Skill Level
+            .hs-ranking-bar-stacker
+              .hs-radio-group.hidden-gone
+                input#css_five.hs-radio.five(type='radio' disabled='' name='css_hs-ranking' value='5')
+                label.hs-label(for='five') OK
+                input#css_twentyfive.hs-radio.twentyfive(type='radio' disabled='' name='css_hs-ranking' value='25')
+                label.hs-label(for='twentyfive') Good
+                input#css_fifty.hs-radio.fifty(type='radio' disabled='' name='css_hs-ranking' value='50')
+                label.hs-label(for='fifty') Very Good
+                input#css_seventyfive.hs-radio.seventyfive(type='radio' disabled='' name='css_hs-ranking' value='75')
+                label.hs-label(for='seventyfive') Advanced
+                input#css_onehundred.hs-radio.onehundred(type='radio' disabled='' name='css_hs-ranking' value='100' checked='')
+                label.hs-label(for='onehundred') Expert
+              // </div>
+              .hs-ranking
+                .hs-ranking-bar.bg-heavy-yellow1(role='hs-rankingbar' data-level='Expert' aria-valuenow='100' aria-valuemin='0' aria-valuemax='100')
+                  | CSS 100%
+            .hs-divider.d-flex.align-items-center
+            p.hs-hs-text-muted
+              strong SASS Skill Level
+            .hs-ranking-bar-stacker(style='margin-top: 20px;')
+              .hs-radio-group.hidden-gone
+                input#scss_five.hs-radio.five(type='radio' disabled='' name='scss_hs-ranking' value='5')
+                label.hs-label(for='five') OK
+                input#scss_twentyfive.hs-radio.twentyfive(type='radio' disabled='' name='scss_hs-ranking' value='25')
+                label.hs-label(for='twentyfive') Good
+                input#scss_fifty.hs-radio.fifty(type='radio' disabled='' name='scss_hs-ranking' value='50')
+                label.hs-label(for='fifty') Very Good
+                input#scss_seventyfive.hs-radio.seventyfive(type='radio' disabled='' name='scss_hs-ranking' value='75' checked='')
+                label.hs-label(for='seventyfive') Advanced
+                input#scss_onehundred.hs-radio.onehundred(type='radio' disabled='' name='scss_hs-ranking' value='100' checked='')
+                label.hs-label(for='onehundred') Expert
+              // </div>
+              .hs-ranking
+                .hs-ranking-bar.bg-heavy-yellow1(role='hs-rankingbar' data-level='Expert' aria-valuenow='100' aria-valuemin='0' aria-valuemax='100')
+                  | SCSS 100%
+          .hs-card__footer
+            span.lead.mx-auto
+              | I think
+              span.font-bold-regular DEVICE SCREENS
+              |                 first!
+      // CARD 03
+      .col-md-4
+        .hs-card
+          .hs-card__header
+            .hs-logo-row
+              img.hs-dev-logo.mr-2(src='/assets/img/logos/js-logo.jpg' alt='javascript' height='65')
+              img.hs-dev-logo(src='/assets/img/logos/dm-AngularJS_logo.svg.png' alt='AngularJS')
+            // <h4 class="service-heading lead">JavaScript • Angular</h4>
+          .hs-card__body
+            p.hs-text-muted
+              strong JavaScript Skill Level
+            .hs-ranking-bar-stacker
+              .hs-radio-group.hidden-gone
+                input#21_five.hs-radio.five(type='radio' disabled='' name='21_hs-ranking' value='5')
+                label.hs-label(for='five') OK
+                input#21_twentyfive.hs-radio.twentyfive(type='radio' disabled='' name='21_hs-ranking' value='25')
+                label.hs-label(for='twentyfive') Good
+                input#21_fifty.hs-radio.fifty(type='radio' disabled='' name='21_hs-ranking' value='50')
+                label.hs-label(for='fifty') Very Good
+                input#21_seventyfive.hs-radio.seventyfive(type='radio' disabled='' name='21_hs-ranking' value='75' checked='')
+                label.hs-label(for='seventyfive') Advanced
+                input#21_onehundred.hs-radio.onehundred(type='radio' disabled='' name='21_hs-ranking' value='100')
+                label.hs-label(for='onehundred') Expert
+              // </div>
+              .hs-ranking
+                .hs-ranking-bar.bg-heavy-yellow1(role='hs-rankingbar' data-level='Advanced' aria-valuenow='80' aria-valuemin='0' aria-valuemax='100')
+                  | JAVASCRIPT
+            .hs-divider.d-flex.align-items-center
+            p.hs-hs-text-muted
+              strong Angular Skill Level
+            .hs-ranking-bar-stacker.mt-4
+              .hs-radio-group.hidden-gone
+                input#22_five.hs-radio.five(type='radio' disabled='' name='22_hs-ranking' value='5')
+                label.hs-label(for='22_five') OK
+                input#22_twentyfive.hs-radio.twentyfive(type='radio' disabled='' name='22_hs-ranking' value='25')
+                label.hs-label(for='22_twentyfive') Good
+                input#22_fifty.hs-radio.fifty(type='radio' disabled='' name='22_hs-ranking' value='50' checked='')
+                label.hs-label(for='22_fifty') Very Good
+                input#22_seventyfive.hs-radio.seventyfive(type='radio' disabled='' name='22_hs-ranking' value='75')
+                label.hs-label(for='22_seventyfive') Advanced
+                input#22_onehundred.hs-radio.onehundred(type='radio' disabled='' name='22_hs-ranking' value='100')
+                label.hs-label(for='22_onehundred') Expert
+              // </div>
+              .hs-ranking
+                .hs-ranking-bar.bg-heavy-yellow1(role='hs-rankingbar' data-level='Almost Advanced' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100')
+                  | ANGULAR
+          // /.card-body
+          .hs-card__footer
+            span.lead.mx-auto
+              | Elegance:
+              span.font-bold-regular
+                | Simplisticly
+                | Powerfull
+    .row.mt-4
+      // CARD 04
+      .col-md-4
+        .hs-card
+          .hs-card__header
+            .hs-logo-row
+              img.hs-dev-logo.mr-4(src='/assets/img/logos/dm-Node.png' alt='Node JS' height='75')
+              img.hs-dev-logo(src='/assets/img/logos/php.png' alt='PHP' height='65')
+            // <h4 class="service-heading lead">HTML5 • Markdown</h4>
+          .hs-card__body(style='align-items: initial; align-self: stretch;')
+            p.hs-text-muted
+              strong Node JS Skill Level
+            .hs-ranking-bar-stacker
+              .hs-radio-group.hidden-gone
+                input#54_five.hs-radio.five(type='radio' disabled='' name='54_hs-ranking' value='5')
+                label.hs-label(for='54_five') OK
+                input#54_twentyfive.hs-radio.twentyfive(type='radio' disabled='' name='54_hs-ranking' value='25')
+                label.hs-label(for='54_twentyfive') Good
+                input#54_fifty.hs-radio.fifty(type='radio' disabled='' name='54_hs-ranking' value='50')
+                label.hs-label(for='54_fifty') Very Good
+                input#54_seventyfive.hs-radio.seventyfive(type='radio' disabled='' name='54_hs-ranking' value='75' checked='')
+                label.hs-label(for='54_seventyfive') Advanced
+                input#54_onehundred.hs-radio.onehundred(type='radio' disabled='' name='54_hs-ranking' value='100')
+                label.hs-label(for='54_onehundred') Expert
+              // </div>
+              .hs-ranking
+                .hs-ranking-bar.bg-heavy-yellow1(role='hs-rankingbar' data-level='Advanced' aria-valuenow='80' aria-valuemin='0' aria-valuemax='100')
+                  | Node JS
+            .hs-divider.d-flex.align-items-center
+            p.hs-hs-text-muted
+              strong PHP Skill Level
+            .hs-ranking-bar-stacker(style='margin-top: 20px;')
+              .hs-radio-group.hidden-gone
+                input#58_five.hs-radio.five(type='radio' disabled='' name='58_skill' value='5')
+                label.hs-label(for='58_five') OK
+                input#58_twentyfive.hs-radio.twentyfive(type='radio' disabled='' name='58_skill' value='25')
+                label.hs-label(for='58_twentyfive') Good
+                input#58_fifty.hs-radio.fifty(type='radio' disabled='' name='58_skill' value='50')
+                label.hs-label(for='58_fifty') Very Good
+                input#58_seventyfive.hs-radio.seventyfive(type='radio' disabled='' name='58_skill' value='75' checked='')
+                label.hs-label(for='58_seventyfive') Advanced
+                input#58_onehundred.hs-radio.onehundred(type='radio' disabled='' name='58_skill' value='100')
+                label.hs-label(for='58_onehundred') Expert
+              // </div>
+              .hs-ranking
+                .hs-ranking-bar.bg-heavy-yellow1(role='hs-rankingbar' data-level='Good' aria-valuenow='70' aria-valuemin='0' aria-valuemax='100')
+                  | PHP
+          // /.card-body
+          .hs-card__footer
+            span.lead.mx-auto
+              | Clean &gt; Clear &gt;
+              span.font-bold-regular Simplistic
+        // /.card
+      // /.col-md-4
+      // CARD 05
+      .col-md-4
+        .hs-card
+          .hs-card__header
+            .hs-logo-row
+              img.hs-dev-logo.mr-4(src='/assets/img/logos/dm-mysql.png' alt='mySQL' height='96')
+              img.hs-dev-logo.ml-4(src='/assets/img/logos/dm-sql-server.png' alt='SQL Server' height='76' style='margin-top: -30px;')
+            // <h4 class="service-heading lead">HTML5 • Markdown</h4>
+          .hs-card__body(style='align-items: initial; align-self: stretch;')
+            p.hs-text-muted
+              strong MySQL Skill Level
+            .hs-ranking-bar-stacker
+              .hs-radio-group.hidden-gone
+                input#60_five.hs-radio.five(type='radio' disabled='' name='60_hs-ranking' value='5')
+                label.hs-label(for='60_five') OK
+                input#60_twentyfive.hs-radio.twentyfive(type='radio' disabled='' name='60_hs-ranking' value='25')
+                label.hs-label(for='60_twentyfive') Good
+                input#60_fifty.hs-radio.fifty(type='radio' disabled='' name='60_hs-ranking' value='50' checked='')
+                label.hs-label(for='60_fifty') Very Good
+                input#60_seventyfive.hs-radio.seventyfive(type='radio' disabled='' name='60_hs-ranking' value='75')
+                label.hs-label(for='60_seventyfive') Advanced
+                input#60_onehundred.hs-radio.onehundred(type='radio' disabled='' name='60_hs-ranking' value='100')
+                label.hs-label(for='60_onehundred') Expert
+              // </div>
+              .hs-ranking
+                .hs-ranking-bar.bg-heavy-yellow1(role='hs-rankingbar' data-level='Good' aria-valuenow='65' aria-valuemin='0' aria-valuemax='100')
+                  | MySQL
+            .hs-divider.d-flex.align-items-center
+            p.hs-text-muted
+              strong SQL Server Skill Level
+            .hs-ranking-bar-stacker(style='margin-top: 20px;')
+              .hs-radio-group.hidden-gone
+                input#63_five.hs-radio.five(type='radio' disabled='' name='63_skill' value='5')
+                label.hs-label(for='63_five') OK
+                input#63_twentyfive.hs-radio.twentyfive(type='radio' disabled='' name='63_skill' value='25')
+                label.hs-label(for='63_twentyfive') Good
+                input#63_fifty.hs-radio.fifty(type='radio' disabled='' name='63_skill' value='50' checked='')
+                label.hs-label(for='63_fifty') Very Good
+                input#63_seventyfive.hs-radio.seventyfive(type='radio' disabled='' name='63_skill' value='75')
+                label.hs-label(for='63_seventyfive') Advanced
+                input#63_onehundred.hs-radio.onehundred(type='radio' disabled='' name='63_skill' value='100')
+                label.hs-label(for='63_onehundred') Expert
+              // </div>
+              .hs-ranking
+                .hs-ranking-bar.bg-heavy-yellow1(role='hs-rankingbar' data-level='Good' aria-valuenow='70' aria-valuemin='0' aria-valuemax='100')
+                  | SQL Server
+          // /.card-body
+          .hs-card__footer
+            span.lead.mx-auto
+              | Relational yet
+              span.font-bold-regular RATIONAL
+        // /.card
+      // CARD 06
+      .col-md-4
+        .hs-card
+          .hs-card__header
+            .hs-logo-row
+              img.hs-dev-logo.mr-4(src='/assets/img/logos/dm-webpack-javascript-logo.png' alt='webpack' height='49')
+              img.hs-dev-logo(src='/assets/img/logos/gulp.svg' alt='gulp' height='55')
+          .hs-card__body
+            p.hs-text-muted
+              strong Webpack Skill Level
+            .hs-ranking-bar-stacker
+              .hs-radio-group.hidden-gone
+                input#webpack_five.hs-radio.five(type='radio' disabled='' name='webpack_hs-ranking' value='5')
+                label.hs-label(for='five') OK
+                input#webpack_twentyfive.hs-radio.twentyfive(type='radio' disabled='' name='webpack_hs-ranking' value='25')
+                label.hs-label(for='twentyfive') Good
+                input#webpack_fifty.hs-radio.fifty(type='radio' disabled='' name='webpack_hs-ranking' value='50')
+                label.hs-label(for='fifty') Very Good
+                input#webpack_seventyfive.hs-radio.seventyfive(type='radio' disabled='' name='webpack_hs-ranking' value='90' checked='')
+                label.hs-label(for='seventyfive') Advanced
+                input#webpack_onehundred.hs-radio.onehundred(type='radio' disabled='' name='webpack_hs-ranking' value='100')
+                label.hs-label(for='onehundred') Expert
+              // </div>
+              .hs-ranking
+                .hs-ranking-bar.bg-heavy-yellow1(role='hs-rankingbar' data-level='Near Advanced' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100')
+                  | Webpack
+            .hs-divider.d-flex.align-items-center
+            p.hs-hs-text-muted
+              strong Gulp Skill Level
+            .hs-ranking-bar-stacker(style='margin-top: 20px;')
+              .hs-radio-group.hidden-gone
+                input#git_five.hs-radio.five(type='radio' disabled='' name='git_hs-ranking' value='5')
+                label.hs-label(for='five') OK
+                input#git_twentyfive.hs-radio.twentyfive(type='radio' disabled='' name='git_hs-ranking' value='25')
+                label.hs-label(for='twentyfive') Good
+                input#git_fifty.hs-radio.fifty(type='radio' disabled='' name='git_hs-ranking' value='50')
+                label.hs-label(for='fifty') Very Good
+                input#git_seventyfive.hs-radio.seventyfive(type='radio' disabled='' name='git_hs-ranking' value='75')
+                label.hs-label(for='seventyfive') Advanced
+                input#git_onehundred.hs-radio.onehundred(type='radio' disabled='' name='git_hs-ranking' value='100' checked='')
+                label.hs-label(for='onehundred') Expert
+              // </div>
+              .hs-ranking
+                .hs-ranking-bar.bg-heavy-yellow1(role='hs-rankingbar' data-level='Advanced' aria-valuenow='95' aria-valuemin='0' aria-valuemax='100')
+                  | Gulp.js 100%
+          .hs-card__footer
+            span.lead.mx-auto
+              | Bringing it all
+              span.font-bold-regular TOGETHER
+      // /.card
+// Portfolio Grid Section
+section#portfolio.hs-portfolio.hs-section
+  .container
+    .row
+      .col-lg-12.text-center.text-color--white
+        h2.hs-section-heading Portfolio
+        h3.hs-section-subheading.hs-text-muted
+          | &sext; Design System &bull; Web Components &bull; Websites &bull; CRM &sext;
+    .row.mt-5
+      .col-md-4.col-sm-6.hs-portfolio-item
+        hs-card(color-tone='light')
+          hs-card-img-header(img-width='100%' img-height='260px' img-path='/assets/img/portfolio/Fannie-Mae/blueprint-card-header.jpg')
+          hs-card-body
+            //
+            .hs-info-table
+              .row
+                .col-md-12
+                  h3.hs-body-h3 Blueprint Design System
+              .row.bg-less-heavy-yellow--trans50
+                .col-md-6.pl-3
+                  strong Company:
+                  br
+                  |                     Fannie Mae, Inc.
+                .col-md-6.pl-3
+                  strong Position:
+                  br
+                  |                     Interaction Designer
+              .row
+                .col-md-12
+                  p.hs-paragraph
+                  h5 Description:
+                  |                     Corporate system to guide &amp; govern graphic design, componant usage,
+                  |                     code quality to preserve branding consistency.
+                  p
+            //
+          hs-card-footer(color-tone='dark')
+            .row.m-0.d-flex.w-100
+              .col-md-12.p-3.hs-logo-row--footer
+                ul.flex-container.space-between
+                  li.flex-item
+                    img.hs-skill-logo(src='assets/img/logos/dmHTML5_Logo_512.png' width='35' alt='HTML5 logo')
+                  li.flex-item
+                    img.hs-skill-logo(src='assets/img/logos/Sass-150.png' width='35' alt='sass logo')
+                  li.flex-item
+                    img.hs-skill-logo(src='assets/img/logos/dm-css3-150.png' width='35' alt='css logo')
+                  li.flex-item
+                    img.hs-skill-logo(src='assets/img/logos/js-logo.jpg' width='35' alt='javascript logo')
+                  li.flex-item
+                    img.hs-skill-logo(src='assets/img/logos/dm-Node.png' width='35' alt='node js logo')
+                  li.flex-item
+                    img.hs-skill-logo(src='assets/img/logos/gulp-150.png' width='35' alt='gulp logo')
+                  li.flex-item
+                    img.hs-skill-logo(src='assets/img/logos/dm-Git-logo.png' width='35' alt='git logo')
+      .col-md-4.col-sm-6.hs-portfolio-item
+        hs-card(color-tone='light')
+          hs-card-img-header(img-width='100%' img-height='260px' img-path='/assets/img/portfolio/BlueStarSports/BSS-card-heading.jpg')
+          hs-card-body
+            //
+            .hs-info-table
+              .row
+                .col-md-12
+                  h3.hs-body-h3 USA Football Database Project
+              .row.bg-less-heavy-yellow--trans50
+                .col-md-6.pl-3
+                  strong Company:
+                  br
+                  |                     Blue Star Sports
+                .col-md-6.pl-3
+                  strong Position:
+                  br
+                  |                     UI Engineer
+              .row
+                .col-md-12
+                  p.hs-paragraph
+                  h5 Description:
+                  |                     Little league football player tracking system. The NFL can track and observe
+                  |                     promising players with good stats for recruiting purposes.
+                  p
+            //
+          hs-card-footer(color-tone='dark')
+            .row.m-0.d-flex.w-100
+              .col-md-12.p-3.hs-logo-row--footer
+                ul.flex-container.space-between
+                  li.flex-item
+                    img.hs-skill-logo(src='assets/img/logos/dmHTML5_Logo_512.png' width='35' alt='HTML5 logo')
+                  li.flex-item
+                    img.hs-skill-logo(src='assets/img/logos/Sass-150.png' width='35' alt='sass logo')
+                  li.flex-item
+                    img.hs-skill-logo(src='assets/img/logos/dm-css3-150.png' width='35' alt='css logo')
+                  li.flex-item
+                    img.hs-skill-logo(src='assets/img/logos/js-logo.jpg' width='35' alt='javascript logo')
+                  li.flex-item
+                    img.hs-skill-logo(src='assets/img/logos/dm-Node.png' width='35' alt='node js logo')
+                  li.flex-item
+                    img.hs-skill-logo(src='assets/img/logos/gulp-150.png' width='35' alt='gulp logo')
+                  li.flex-item
+                    img.hs-skill-logo(src='assets/img/logos/dm-Git-logo.png' width='35' alt='git logo')
+      .col-md-4.col-sm-6.hs-portfolio-item
+        hs-card(color-tone='light')
+          hs-card-img-header(img-width='100%' img-height='260px' img-path='/assets/img/portfolio/bowlopolis/bolopolis-headerImg.png' click-target='modBowlopolis')
+          hs-card-body
+            //
+            .hs-info-table
+              .row
+                .col-md-12
+                  h3.hs-body-h3 Youth Program, Website &amp; Game
+              .row.bg-less-heavy-yellow--trans50
+                .col-md-6.pl-3
+                  strong Company:
+                  br
+                  |                     BPAA, Inc.
+                .col-md-6.pl-3
+                  strong Position:
+                  br
+                  |                     Director Technology
+              .row.hs-border-top-white
+                .col-md-12
+                  p.hs-paragraph
+                  h5 Description:
+                  span.hs-text-muted
+                    | 80% Hands on UI/UX Engineering. This projects
+                    | included website, game and cartoon production.
+                  p
+            //
+          hs-card-footer(color-tone='dark')
+            .row.m-0.d-flex.w-100
+              .col-md-12.p-3.hs-logo-row--footer
+                ul.flex-container.space-between
+                  li.flex-item
+                    img.hs-skill-logo(src='assets/img/logos/dmHTML5_Logo_512.png' width='35' alt='HTML5 logo')
+                  li.flex-item
+                    img.hs-skill-logo(src='assets/img/logos/Sass-150.png' width='35' alt='sass logo')
+                  li.flex-item
+                    img.hs-skill-logo(src='assets/img/logos/dm-css3-150.png' width='35' alt='css logo')
+                  li.flex-item
+                    img.hs-skill-logo(src='assets/img/logos/js-logo.jpg' width='35' alt='javascript logo')
+                  li.flex-item
+                    img.hs-skill-logo(src='assets/img/logos/dm-Node.png' width='35' alt='node js logo')
+                  li.flex-item
+                    img.hs-skill-logo(src='assets/img/logos/gulp-150.png' width='35' alt='gulp logo')
+                  li.flex-item
+                    img.hs-skill-logo(src='assets/img/logos/dm-Git-logo.png' width='35' alt='git logo')
+      // Portfolio Items
+// About Section
+section#about.bg-white.about
+  .container
+    .row
+      .col-lg-12.text-center
+        h2.section-heading About
+        h3.section-subheading.hs-text-muted Here is a little about me....
+    .row
+      .col-lg-12
+        ul.timeline
+          li
+            .timeline-image
+              img.img-circle.img-responsive(src='/assets/img/about/1.jpg' alt='')
+            .timeline-panel
+              .timeline-heading
+                h4 1998-2017
+                h4.subheading My Humble Path
+              .timeline-body
+                p.hs-text-muted
+                  | When I began I simply wanted to do Graphics. After creating
+                  | many website
+                  | designs I decided to learn web development. After college I was fortunate enough
+                  | to land jobs with
+                  | big clients such as Ford, Mercury and Chevrolet. It wasn&apos;t long before I was
+                  | well known in the
+                  | Dallas area. Soon after I became Web Development Manager at BPAA and eventually
+                  | Director of
+                  | Technology - Web Development. I have learned every skill from requirements
+                  | gathering, to Aginle
+                  | Scrum to being an expert at front end development.&nbsp; If my skills interest
+                  | you please contact
+                  | me at
+                  a(href='mailto:heatheshults@gmail.com') heatheshults@gmail.com
+                  |  to
+                  |                     discuss opportunities.
+// Contact Section
+section#contact.contact
+  .container
+    .row
+      .col-lg-12.text-center
+        h2.section-heading Contact Me
+        h3.section-subheading.hs-text-muted Get the job done right the first time.
+    .row
+      .col-lg-12
+        form#contactForm(name='sentMessage' novalidate='')
+          .row
+            .col-md-6
+              .form-group
+                input#name.form-control(type='text' placeholder='Your Name *' required='' data-validation-required-message='Please enter your name.')
+                p.help-block.text-danger
+              .form-group
+                input#email.form-control(type='email' placeholder='Your Email *' required='' data-validation-required-message='Please enter your email address.')
+                p.help-block.text-danger
+              .form-group
+                input#phone.form-control(type='tel' placeholder='Your Phone *' required='' data-validation-required-message='Please enter your phone number.')
+                p.help-block.text-danger
+            .col-md-6
+              .form-group
+                textarea#message.form-control(placeholder='Your Message *' required='' data-validation-required-message='Please enter a message.')
+                p.help-block.text-danger
+            .clearfix
+            .col-lg-12.text-center
+              #success
+              button.btn.btn-xl(type='submit') Send Message
+footer.footer
+  .container
+    .row
+      .col-md-4
+        span.copyright
+          | Copyright &copy; HeathShults.com
+          script.
+            document.write(new Date().getFullYear());
+      .col-md-4
+        ul.list-inline.social-buttons
+          li
+            a(href='#')
+              i.fa.fa-twitter
+          li
+            a(href='#')
+              i.fa.fa-facebook
+          li
+            a(href='#')
+              i.fa.fa-linkedin
+      .col-md-4
+        ul.list-inline.quicklinks
+          li
+            a(href='#') Privacy Policy
+          li
+            a(href='#') Terms of Use
+    .row
+      .col-md-12.p-5
+        p(style='font-size: 1.5rem; font-weight: 700;')
+          a(href='http://www.freepik.com')
+            | THANK YOU
+            | Freepik!
+// Portfolio Modals
+// Use the modals below to showcase details about your portfolio projects!
+// Portfolio Modal 1
+hs-modal#modBowlopolis(dismissible='' full='')
+  hs-card(color-tone='light')
+    hs-card-header
+      h2.hs-heading.dark
+        span.hs-text-xl USA Football
+        .hs-heading__sub.text-center Little League Football Database
+    hs-card-body
+      p.hs-paragraph
+        | My Roles: UX Design &bull; UI Developer &bull; Quality Assurance
+      |         carousel
+    hs-card-footer(color-tone='dark')
+      .hs-input-group
+        button.hs-button.hs-button--block.hs-button--brand(onclick="javascript:closeModal('#modBowlopolis')") Close
+        button.hs-button.hs-button--block.hs-button--info Button
+hs-modal#modBowlopolis(dismissible='' full='')
+  hs-card(color-tone='light')
+    hs-card-header
+      h2.hs-heading.dark
+        span.hs-text-xl Bowlopolis
+        .hs-heading__sub.text-center Sub-heading
+    hs-card-body
+      p.hs-paragraph
+        | Web design/development &amp; game development for retention/frequency.
+      p.hs-paragraph
+        img.img-responsive.img-centered(src='/assets/img/portfolio/bowlopolis/bowlopolis.png' alt='')
+    hs-card-footer(color-tone='dark')
+      .hs-input-group
+        button.hs-button.hs-button--block.hs-button--brand(onclick="javascript:closeModal('#modBowlopolis')") Close
+        button.hs-button.hs-button--block.hs-button--info Button
+script.
+  function showModal(modal) {
+  document.querySelector(modal).show();
+  }
+  function closeModal(modal) {
+  document.querySelector(modal).close();
+  }
+script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js')
+// Third party plugin JS
+script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js')
+// Contact form JS
+script(src='assets/mail/jqBootstrapValidation.js')
+script(src='assets/mail/contact_me.js')
+// Core theme JS
+script(src='js/scripts.js')
+script(src='/assets/js/HeathScript.built.js' type='module')
+// <script src="hScript.bundle.js"></script>
+script.
+  //  onclick="javascript:showModal('#modBowlopolis');"
+  // // ====== RANKING BARS
+  var theBars = document.querySelectorAll('.hs-ranking-bar')
+  theBars.forEach(aBar => {
+  var barWidth = $(aBar).attr('aria-valuenow')
+  $(aBar).attr('style', `width: ${barWidth}%`);
+  });
+  // // ====== SHOWMORE ==== //
+  let ShowMoreSettings = {
+  fbInitButtonText: 'Show More',
+  fbOpenButtonText: 'Show Less',
+  boxHeight: '100vh'
+  };
