@@ -1,20 +1,25 @@
 // Import variables
-@import "./variables.scss";
+@import "./variables";
 
 // Import Bootstrap
-@import "bootstrap/scss/bootstrap.scss";
+@import "bootstrap/scss/bootstrap";
 
 // Global CSS
-@import "./global.scss";
+@import "./global";
 
 // Components
-@import "./components/buttons.scss";
-@import "./components/navbar.scss";
+@import "../components/card/hs-card";
+@import "../components/ranking-bar/_ranking-bar";
+@import "./components/buttons";
+@import "./components/navbar";
 
 // Sections
-@import "./sections/masthead.scss";
-@import "./sections/portfolio.scss";
-@import "./sections/timeline.scss";
-@import "./sections/team.scss";
-@import "./sections/contact.scss";
-@import "./sections/footer.scss";
+@import "./sections/masthead";
+@import "./sections/portfolio";
+@import "./sections/timeline";
+@import "./sections/skills";
+@import "./sections/contact";
+@import "./sections/footer";
+
+// Theme
+@import "./theme";

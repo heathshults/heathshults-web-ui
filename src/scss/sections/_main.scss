@@ -1,4 +1,4 @@
-/** 
+/**
   v1.5
 */
 // :root {
@@ -267,7 +267,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: all .15s ease-out;
 }
 
-.js-page-scroll.btn.btn-xl {
+.js-scroll-trigger.btn.btn-xl {
   color: #000;
 }
 .navbar-left {
@@ -690,7 +690,7 @@ section, .hs-section {
     }
   }
 }
-/* stylelint-disable-line */ 
+/* stylelint-disable-line */
 hs-modal hs-card hs-card-footer {
   position: fixed;
   bottom: 0;
@@ -699,7 +699,7 @@ hs-modal hs-card hs-card-footer {
     color: $hs-white;
     background-color: $hs-blueGray-light;
     border: 1px solid $hs-blueGray-darker;
-  } 
+  }
 }
 
 hs-card-header .hs-heading {
@@ -1232,21 +1232,21 @@ img::selection {
   display: flex;
 }
 
-.flex-start { 
-  justify-content: flex-start; 
+.flex-start {
+  justify-content: flex-start;
 }
 
-.flex-end { 
-  justify-content: flex-end; 
-}  
+.flex-end {
+  justify-content: flex-end;
+}
 
-.center { 
-  justify-content: center; 
-}  
+.center {
+  justify-content: center;
+}
 
 
-.space-between { 
-  justify-content: space-between; 
+.space-between {
+  justify-content: space-between;
 }
 
 .space-around {
@@ -1254,8 +1254,8 @@ img::selection {
 }
 
 
-.space-evenly { 
-  justify-content: space-evenly; 
+.space-evenly {
+  justify-content: space-evenly;
 }
 
 .flex-item {
