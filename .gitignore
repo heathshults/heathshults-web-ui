@@ -1,3 +1,10 @@
 node_modules
-.DS_Store
+src/DevBox
+www
+**/*/_notes
 dist/**/*
+.dist
+.backup
+.sass-cache
+.vscode
+.DS_Store

@@ -15,8 +15,9 @@ function renderAssets(done) {
   src(`${sourcePath}/img/**/*`).pipe(dest(`${destPath}/img`))
   src(`${sourcePath}/mail/**/*`).pipe(dest(`${destPath}/mail`))
   src(`${sourcePath}/vendor/**/*`).pipe(dest(`${destPath}/vendor`))
+  src(`${sourcePath}/js/heathenscript-ui-components/**/*.{js,json}`).pipe(dest(`${destPath}/assets/js`))
   .pipe(debug({title: 'Copied: '}))
     // sh.cp('-R', sourcePath, destPath)
 };
 exports.renderAssets = renderAssets
-renderAssets()
+// renderAssets()
