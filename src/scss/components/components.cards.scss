@@ -103,6 +103,68 @@
       }
     }
   }
+  .hs-card__body {
+    padding: $card-body-padding;
+    text-align: center;
+
+    .bg-less-heavy-yellow--trans50 > div[class^="col-"] {
+      padding-left: .9rem;
+    }
+    h3.hs-body-h3 {
+      margin-top: 0;
+      font-size: 2.5rem;
+    }
+  }
+  .hs-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: $card-footer-padding;
+    overflow: hidden;
+
+    .hs-lead,
+    .hs-footer-lead {
+      margin-right: auto;
+      margin-left: auto;
+      font-size: 2.5rem;
+      font-weight: 700;
+
+      text-align: center;
+      @include script-font;
+    }
+
+    &.light {
+      background-color: $white;
+      border-top: solid 1px $gray;
+      color: #252525;
+    }
+
+    &.dark {
+      width: 100%;
+      padding: $card-footer-padding;
+      color: $white;
+      background-color: $blueGray-dark;
+
+      .hs-lead,
+      .hs-footer-lead {
+        color: $white;
+      }
+    }
+
+    .hs-logo-row--footer {
+      align-items: center;
+      width: 100%;
+      padding: $card-body-padding;
+      text-align: center;
+
+      .hs-skill-logo {
+        max-width: 100%;
+        margin: .75em;
+      }
+    }
+
+  }
 }
 
 .hs-card__body {
@@ -308,31 +370,31 @@ h3.hs-body-h3 {
   list-style: none;
 }
 
-.flex-start { 
+.flex-start {
   justify-content: flex-start;
 }
 
-.flex-end { 
-  justify-content: flex-end; 
-}  
+.flex-end {
+  justify-content: flex-end;
+}
 
-.center { 
-  justify-content: center; 
-}  
-
-
-.space-between { 
-  justify-content: space-between; 
-}  
-
-
-.space-around { 
-  justify-content: space-around; 
+.center {
+  justify-content: center;
 }
 
 
-.space-evenly { 
-  justify-content: space-evenly; 
+.space-between {
+  justify-content: space-between;
+}
+
+
+.space-around {
+  justify-content: space-around;
+}
+
+
+.space-evenly {
+  justify-content: space-evenly;
 }
 
 .flex-item {

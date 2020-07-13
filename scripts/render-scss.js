@@ -4,67 +4,121 @@ const fs = require('fs');
 const path = require('path');
 const postcss = require('postcss')
 const { exec } = require('child_process')
-// const sass = require('sass');
-// const sh = require('shelljs');
-// const { accredation } = require("./intellectualAccredation");
-
-const srcDir = path.resolve('../', 'src')
-const distDir =  path.resolve('../', 'dist')
 var appRoot = require('app-root-path');
+const banner = require('./goCreds')
+
+// vars
 const mainStyleSheetIn = `${appRoot}/src/scss/styles.scss`
 const mainStyleSheetOut = `${appRoot}/dist/assets/css/HeathStyle.built.css`
 const darkStyleSheetIn = `${appRoot}/src/scss/theme-dark-mode.scss`
-const darkStyleSheetOut = `${appRoot}/dist/assets/css/theme-dark-mode.scss`
-console.log(`Main: ${mainStyleSheetIn}`)
-// const stylesPath = `${srcDir}/scss/styles.scss`;
-// exports.stylesPath = stylesPath;
-// const destPath = path.resolve(path.dirname(__filename), '../dist/css/HeathStyle.built.css');
+const darkStyleSheetOut = `${appRoot}/dist/assets/css/theme-dark-mode.css`
+const postCSSpath = `${appRoot}/node_modules/.bin`
+const cssInOutPath = `${appRoot}/dist/assets/css`
+console.log(mainStyleSheetOut)
+console.log(darkStyleSheetOut)
+console.log('starting outside...')
 
-module.exports = function renderSCSS(callback) {
+var theStyleSheets = [
+  {
+    inFile: mainStyleSheetIn,
+    outFile: mainStyleSheetOut
+  },
+  {
+    inFile: darkStyleSheetIn,
+    outFile: darkStyleSheetOut
+  }
+]
 
-  try {
-    exec(`sass ${mainStyleSheetIn} ${mainStyleSheetOut}`, (error, stdout, stderr) => {
+var result
+
+function renderSCSS(callback) {
+  console.log('starting inside...');
+
+  theStyleSheets.forEach((sheet, index) => {
+    var diditcred
+    var inStyleSheet = sheet.inFile
+    var outStyleSheet = sheet.outFile
+
+    console.log(inStyleSheet, outStyleSheet)
+
+    exec(`sass ${inStyleSheet} ${outStyleSheet}`, (error, stdout, stderr) => {
       if (error) {
-          console.log(`error: ${error.message}`);
-          console.log(`stderr: ${stderr}`);
-          return;
-      } else {console.log('Sass compiled: HeathStyle.built.css:/n' + stdout)}
+          console.log("ERROR compileMain: \n stdout: " + stdout + "\n Error Message: " + error.message);
+          return error
+
+      } else {
+
+        diditcred = addCredBanner(outStyleSheet)
+        diditcred = 'Success' ? result =  'Success' + console.log('Sass compiled: ' + outStyleSheet) : result = diditcred
+        return result
+
+      }
     })
-  }
-  catch(e) {
-    console.log('HeathenError: ' + e)
+  })
+
+  // add credit banner
+  function addCredBanner(styleSheet) {
+    console.log('starting cred banner...')
+    var credsResult = banner.goCreds(styleSheet);
+    return credsResult
   }
 
-  try{
-    exec(`sass ${darkStyleSheetIn} ${darkStyleSheetOut}`, (error, stdout, stderr) => {
-      if (error) {
-          console.log(`error: ${error.message}`);
-          return;
-      } else {console.log('Sass compiled: theme-dark-mode.built.css')}
-    })
-  }
-  catch(e) {
-    console.log('HeathenError: ' + e)
-  }
-
-  const postCSSpath = `${appRoot}/node_modules/.bin`
-  const cssInOutPath = `${appRoot}/dist/assets/css`
-  try{
-    exec(`node ${postCSSpath}/postcss --use autoprefixer --autoprefixer.browsers "> 5% -m -o ${mainStyleSheetOut} ${mainStyleSheetOut} && ${postCSSpath}/postcss --use autoprefixer --autoprefixer.browsers "> 5% -m -o ${darkStyleSheetOut} ${darkStyleSheetOut}`, (error, stdout, stderr) => {
-      if (error) {
-          console.log(`error: ${error.message}`);
-          return;
-      } else {console.log('AutoPrefixed: all css')}
-    })
-  }
-  catch(e) {
-    console.log('HeathenError: ' + e)
-  }
-
-  if (typeof callback == "function") callback();
+  console.log('done = callback')
+  if (typeof callback == "function") callback(result);
 
 }
+exports.renderSCSS = renderSCSS
 
+renderSCSS()
+
+  // autoprefix it
+  // function autoprefixem(styleSheet) {
+  //   console.log('starting autoprefixer...')
+  //   // run autoprefixer
+  //   exec(`node ${postCSSpath}/postcss --use autoprefixer --autoprefixer.browsers "> 5%" -m -o ${styleSheet} ${styleSheet}`, (error, stdout, stderr) => {
+  //     if (error) {
+  //       console.log("ERROR Autoprefix 'em: \n " + stderr + "\n Error Message: " + error.message);
+  //       return error
+
+  //     } else {
+  //       console.log('AutoPrefixed: '+ styleSheet)
+  //       return 'Success'
+  //     }
+  //   })
+  // }
+
+
+
+    // if (credsResult === 'Success') {
+    //   console.log('Credits added to: '+styleSheet)
+    //   return credsResult
+
+    // } else {
+    //   console.log('Error in goCreds function: '+ credsResult)
+    //   return credsResult
+    // }
+
+
+
+// function goCreds(filePath) {
+//   if (typeof accredation !== 'undefined') {
+//     fs.readFile(filePath, 'utf-8', function (err, data) {
+//       if (err) {
+//         console.log(err);
+//       } else {
+//         console.log(data);
+//         writeIt(data);
+//       }
+//     });
+//     function writeIt(css) {
+//       if (css)
+//         fs.writeFileSync(filePath, accredation + css);
+
+//       console.log(css.toString());
+//     }
+//   }
+//   return;
+// }
 
     // const results = sass.renderSync({
     //     data: accredation,

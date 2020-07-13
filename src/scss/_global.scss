@@ -1,7 +1,7 @@
 // Global styling for this template
-body {
-  overflow-x: hidden;
-}
+// body {
+//   overflow-x: hidden;
+// }
 
 p {
   line-height: 1.75;
@@ -11,17 +11,17 @@ p {
   padding: 6rem 0;
 
   h2.hs-section-heading {
-    font-size: 2.5rem;
     margin-top: 0;
     margin-bottom: 1rem;
+    font-size: 2.5rem;
   }
 
   h3.hs-section-subheading {
-    font-size: 1rem;
-    font-weight: 400;
-    font-style: italic;
-    font-family: $subheadings-font-family;
     margin-bottom: 4rem;
+    font-family: $subheadings-font-family;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 400;
   }
 }
 
@@ -32,7 +32,6 @@ p {
 }
 
 // Highlight color customization
-
 ::-moz-selection {
   text-shadow: none;
   background: $primary;
@@ -43,18 +42,10 @@ p {
   background: $primary;
 }
 
-
-
 img::-moz-selection {
   background: transparent;
 }
-
-
 
 img::selection {
-  background: transparent;
-}
-
-img::-moz-selection {
   background: transparent;
 }
