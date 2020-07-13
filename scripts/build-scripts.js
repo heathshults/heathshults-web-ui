@@ -1,5 +1,5 @@
 'use strict';
 
-const renderScripts = require('./render-scripts');
+const rs = require('./render-scripts');
 
-renderScripts();
+rs.jsify();

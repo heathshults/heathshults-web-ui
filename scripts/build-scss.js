@@ -1,5 +1,11 @@
 'use strict';
 
-const renderSCSS = require('./render-scss');
+const rs = require('./render-scss');
 
-renderSCSS(() => { console.log('Finished building CSS!')});
+// rs.renderSCSS(() => { console.log('Finished building CSS!')});
+var buildResult = rs.renderSCSS();
+if (buildResult === 'Success') {
+  console.log('Finished building CSS!')
+} else {
+  console.log('Error in SCSS Render: ' + buildResult)
+}

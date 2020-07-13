@@ -6,8 +6,8 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <!-- Compiled Components-->
-        <script src="assets/js/heathscript-ui/heathenscript-ui-components/heathenscript-ui-components.js" crossorigin="anonymous"></script>
-        <script src="assets/js/heathscript-ui/heathenscript-ui-components/heathenscript-ui-components.esm.js" crossorigin="anonymous"></script>
+        <script src="assets/js/heathenscript-ui-components/heathenscript-ui-components.js" crossorigin="anonymous"></script>
+        <script src="assets/js/heathenscript-ui-components/heathenscript-ui-components.esm.js" crossorigin="anonymous"></script>
         <title>Heath Shults - Web Developer+</title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -380,94 +380,152 @@
         <!-- Portfolio Grid-->
         <section class="page-section bg-light" id="portfolio">
             <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Portfolio</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
                 <div class="row">
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="assets/img/portfolio/01-thumbnail.jpg" alt="" />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Threads</div>
-                                <div class="portfolio-caption-subheading text-muted">Illustration</div>
-                            </div>
-                        </div>
+                    <div class="col-lg-12 text-center text-color--white">
+                        <h2 class="hs-section-heading">Portfolio</h2>
+                        <h3 class="hs-section-subheading hs-text-muted">&sext; Design System &bull; Web Components &bull; Websites &bull; CRM &sext;</h3>
                     </div>
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-4 col-sm-6 hs-portfolio-item">
+                        <hs-card color-tone="light">
+                            <hs-card-img-header img-width="100%" img-height="260px" img-path="/assets/img/portfolio/Fannie-Mae/blueprint-card-header.jpg"></hs-card-img-header>
+                            <hs-card-body>
+                                <!---->
+                                <div class="hs-info-table">
+                                    <div class="row">
+                                        <div class="col-md-12"><h3 class="hs-body-h3">Blueprint Design System</h3></div>
+                                    </div>
+                                    <div class="row bg-less-heavy-yellow--trans50">
+                                        <div class="col-md-6 pl-3">
+                                            <strong>Company:</strong>
+                                            <br />
+                                            Fannie Mae, Inc.
+                                        </div>
+                                        <div class="col-md-6 pl-3">
+                                            <strong>Position:</strong>
+                                            <br />
+                                            Interaction Designer
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5>Description:</h5>
+                                            <p class="hs-paragraph">Corporate system to guide &amp; govern graphic design, componant usage, code quality to preserve branding consistency.</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/02-thumbnail.jpg" alt="" />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Explore</div>
-                                <div class="portfolio-caption-subheading text-muted">Graphic Design</div>
-                            </div>
-                        </div>
+                                <!---->
+                            </hs-card-body>
+                            <hs-card-footer color-tone="dark">
+                                <div class="row m-0 d-flex w-100">
+                                    <div class="col-md-12 p-3 hs-logo-row--footer">
+                                        <ul class="flex-container space-between">
+                                            <li class="flex-item"><img class="hs-skill-logo" src="assets/img/logos/dmHTML5_Logo_512.png" width="35" alt="HTML5 logo" /></li>
+                                            <li class="flex-item"><img class="hs-skill-logo" src="assets/img/logos/Sass-150.png" width="35" alt="sass logo" /></li>
+                                            <li class="flex-item"><img class="hs-skill-logo" src="assets/img/logos/dm-css3-150.png" width="35" alt="css logo" /></li>
+                                            <li class="flex-item"><img class="hs-skill-logo" src="assets/img/logos/js-logo.jpg" width="35" alt="javascript logo" /></li>
+                                            <li class="flex-item"><img class="hs-skill-logo" src="assets/img/logos/dm-Node.png" width="35" alt="node js logo" /></li>
+                                            <li class="flex-item"><img class="hs-skill-logo" src="assets/img/logos/gulp-150.png" width="35" alt="gulp logo" /></li>
+                                            <li class="flex-item"><img class="hs-skill-logo" src="assets/img/logos/dm-Git-logo.png" width="35" alt="git logo" /></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </hs-card-footer>
+                        </hs-card>
                     </div>
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                    <div class="col-md-4 col-sm-6 hs-portfolio-item">
+                        <hs-card color-tone="light">
+                            <hs-card-img-header img-width="100%" img-height="260px" img-path="/assets/img/portfolio/BlueStarSports/BSS-card-heading.jpg"></hs-card-img-header>
+                            <hs-card-body>
+                                <!---->
+                                <div class="hs-info-table">
+                                    <div class="row">
+                                        <div class="col-md-12"><h3 class="hs-body-h3">USA Football Database Project</h3></div>
+                                    </div>
+                                    <div class="row bg-less-heavy-yellow--trans50">
+                                        <div class="col-md-6 pl-3">
+                                            <strong>Company:</strong>
+                                            <br />
+                                            Blue Star Sports
+                                        </div>
+                                        <div class="col-md-6 pl-3">
+                                            <strong>Position:</strong>
+                                            <br />
+                                            UI Engineer
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5>Description:</h5>
+                                            <p class="hs-paragraph">Little league football player tracking system. The NFL can track and observe promising players with good stats for recruiting purposes.</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/03-thumbnail.jpg" alt="" />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Finish</div>
-                                <div class="portfolio-caption-subheading text-muted">Identity</div>
-                            </div>
-                        </div>
+                            </hs-card-body>
+                            <hs-card-footer color-tone="dark">
+                                <div class="row m-0 d-flex w-100">
+                                    <div class="col-md-12 p-3 hs-logo-row--footer">
+                                        <ul class="flex-container space-between">
+                                            <li class="flex-item"><img class="hs-skill-logo" src="assets/img/logos/dmHTML5_Logo_512.png" width="35" alt="HTML5 logo" /></li>
+                                            <li class="flex-item"><img class="hs-skill-logo" src="assets/img/logos/Sass-150.png" width="35" alt="sass logo" /></li>
+                                            <li class="flex-item"><img class="hs-skill-logo" src="assets/img/logos/dm-css3-150.png" width="35" alt="css logo" /></li>
+                                            <li class="flex-item"><img class="hs-skill-logo" src="assets/img/logos/js-logo.jpg" width="35" alt="javascript logo" /></li>
+                                            <li class="flex-item"><img class="hs-skill-logo" src="assets/img/logos/dm-Node.png" width="35" alt="node js logo" /></li>
+                                            <li class="flex-item"><img class="hs-skill-logo" src="assets/img/logos/gulp-150.png" width="35" alt="gulp logo" /></li>
+                                            <li class="flex-item"><img class="hs-skill-logo" src="assets/img/logos/dm-Git-logo.png" width="35" alt="git logo" /></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </hs-card-footer>
+                        </hs-card>
                     </div>
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                    <div class="col-md-4 col-sm-6 hs-portfolio-item">
+                        <hs-card color-tone="light">
+                            <hs-card-img-header img-width="100%" img-height="260px" img-path="/assets/img/portfolio/bowlopolis/bolopolis-headerImg.png" click-target="modBowlopolis"></hs-card-img-header>
+                            <hs-card-body>
+                                <!---->
+                                <div class="hs-info-table">
+                                    <div class="row">
+                                        <div class="col-md-12"><h3 class="hs-body-h3">Youth Program, Website &amp; Game</h3></div>
+                                    </div>
+                                    <div class="row bg-less-heavy-yellow--trans50">
+                                        <div class="col-md-6 pl-3">
+                                            <strong>Company:</strong>
+                                            <br />
+                                            BPAA, Inc.
+                                        </div>
+                                        <div class="col-md-6 pl-3">
+                                            <strong>Position:</strong>
+                                            <br />
+                                            Director Technology
+                                        </div>
+                                    </div>
+                                    <div class="row hs-border-top-white">
+                                        <div class="col-md-12">
+                                            <h5>Description:</h5>
+                                            <p class="hs-paragraph"><span class="hs-text-muted">80% Hands on UI/UX Engineering. This projects included website, game and cartoon production.</span></p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/04-thumbnail.jpg" alt="" />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Lines</div>
-                                <div class="portfolio-caption-subheading text-muted">Branding</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                <!---->
+                            </hs-card-body>
+                            <hs-card-footer color-tone="dark">
+                                <div class="row m-0 d-flex w-100">
+                                    <div class="col-md-12 p-3 hs-logo-row--footer">
+                                        <ul class="flex-container space-between">
+                                            <li class="flex-item"><img class="hs-skill-logo" src="assets/img/logos/dmHTML5_Logo_512.png" width="35" alt="HTML5 logo" /></li>
+                                            <li class="flex-item"><img class="hs-skill-logo" src="assets/img/logos/Sass-150.png" width="35" alt="sass logo" /></li>
+                                            <li class="flex-item"><img class="hs-skill-logo" src="assets/img/logos/dm-css3-150.png" width="35" alt="css logo" /></li>
+                                            <li class="flex-item"><img class="hs-skill-logo" src="assets/img/logos/js-logo.jpg" width="35" alt="javascript logo" /></li>
+                                            <li class="flex-item"><img class="hs-skill-logo" src="assets/img/logos/dm-Node.png" width="35" alt="node js logo" /></li>
+                                            <li class="flex-item"><img class="hs-skill-logo" src="assets/img/logos/gulp-150.png" width="35" alt="gulp logo" /></li>
+                                            <li class="flex-item"><img class="hs-skill-logo" src="assets/img/logos/dm-Git-logo.png" width="35" alt="git logo" /></li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/05-thumbnail.jpg" alt="" />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Southwest</div>
-                                <div class="portfolio-caption-subheading text-muted">Website Design</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="assets/img/portfolio/06-thumbnail.jpg" alt="" />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Window</div>
-                                <div class="portfolio-caption-subheading text-muted">Photography</div>
-                            </div>
-                        </div>
+                            </hs-card-footer>
+                        </hs-card>
                     </div>
                 </div>
             </div>
@@ -841,6 +899,6 @@
         <script src="assets/mail/jqBootstrapValidation.js"></script>
         <script src="assets/mail/contact_me.js"></script>
         <!-- Core theme JS-->
-        <script src="assets/js/scripts.js"></script>
+        <script src="assets/js/HeathScript.built.js"></script>
     </body>
 </html>
