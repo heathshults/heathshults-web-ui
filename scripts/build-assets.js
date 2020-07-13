@@ -1,5 +1,5 @@
 'use strict';
 
-const renderAssets = require('./render-assets');
+const ra = require('./render-assets');
 
-renderAssets();
+ra.renderAssets();
