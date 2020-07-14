@@ -9,11 +9,11 @@ const banner = require('./goCreds')
 
 // vars
 const mainStyleSheetIn = `${appRoot}/src/scss/styles.scss`
-const mainStyleSheetOut = `${appRoot}/dist/assets/css/HeathStyle.built.css`
+const mainStyleSheetOut = `${appRoot}/www/assets/css/HeathStyle.built.css`
 const darkStyleSheetIn = `${appRoot}/src/scss/theme-dark-mode.scss`
-const darkStyleSheetOut = `${appRoot}/dist/assets/css/theme-dark-mode.css`
+const darkStyleSheetOut = `${appRoot}/www/assets/css/theme-dark-mode.css`
 const postCSSpath = `${appRoot}/node_modules/.bin`
-const cssInOutPath = `${appRoot}/dist/assets/css`
+const cssInOutPath = `${appRoot}/www/assets/css`
 console.log(mainStyleSheetOut)
 console.log(darkStyleSheetOut)
 console.log('starting outside...')

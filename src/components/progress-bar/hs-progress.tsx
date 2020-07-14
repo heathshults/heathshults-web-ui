@@ -12,7 +12,7 @@ export class HSProgress {
 
   @Prop() size: string = '';
 
-  @Event({ eventName: 'change' }) onNotSame: EventEmitter;
+  @Event({ eventName: 'notSame' }) onNotSame: EventEmitter;
 
   @Listen('changebar') onChangeBar(ev) {
     const progress = this.element.children[0];
