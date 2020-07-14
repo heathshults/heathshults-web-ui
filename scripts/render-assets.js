@@ -17,6 +17,6 @@ function renderAssets(done) {
   src(`${sourcePath}/js/vendor/**/*`).pipe(dest(`${destPath}/js/vendor`))
   .pipe(debug({title: 'Copied: '}))
     // sh.cp('-R', sourcePath, destPath)
-};
+}
 exports.renderAssets = renderAssets
 // renderAssets()
