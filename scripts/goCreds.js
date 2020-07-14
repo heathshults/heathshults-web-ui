@@ -35,7 +35,7 @@ function goCreds(filePath) {
       if (css) {
         fs.writeFileSync(filePath, accredation + css);
 
-        console.log(accredation);
+        console.log('Credits completed...');
 
         return console.log('success')
       } else {
