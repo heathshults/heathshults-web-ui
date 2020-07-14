@@ -236,7 +236,7 @@ declare namespace LocalJSX {
         "winHeight"?: any;
     }
     interface HsProgress {
-        "onChange"?: (event: CustomEvent<any>) => void;
+        "onNotSame"?: (event: CustomEvent<any>) => void;
         "rounded"?: boolean;
         "size"?: string;
     }

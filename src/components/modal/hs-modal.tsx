@@ -22,7 +22,7 @@ export class HSModal {
   dismissible: boolean = false;
 
   @Prop() winHeight: any = window.innerHeight;
-  @Prop() overlay: any; 
+  @Prop() overlay: any;
 
   @State() _isOpen: boolean = false;
 
@@ -32,12 +32,12 @@ export class HSModal {
     this.onClose.emit();
     this.handleOverlay();
   }
-  
+
   componentWillLoad() {
     this._isOpen = this.open;
-    
+
   }
-  @Method() handleOverlay() {
+  @Method() async handleOverlay() {
     this.overlay = this.elem.shadowRoot.querySelector('#overlay') as HTMLElement;
     this.overlay.classList.toggle('hs-modal-backdrop--visible');
 
@@ -72,24 +72,24 @@ export class HSModal {
   }
 
   render() {
-    
+
     const ghostClass = this.ghost ? `hs-modal--ghost` : '';
     const fullClass = this.full ? `hs-modal--full` : '';
     const modalIsOpenClass = this._isOpen ? 'hs-modal--visible' : '';
-    const overlayIsOpenClass = this._isOpen ? 'hs-modal-backdrop--visible' : ''; 
+    const overlayIsOpenClass = this._isOpen ? 'hs-modal-backdrop--visible' : '';
 
     return [
 
         <div id="overlay" aria-hidden onClick={() => this.dismiss()} class={`hs-modal-backdrop ${overlayIsOpenClass}`} ></div>,
-        
+
         <div role="dialog" class={`hs-modal ${ghostClass} ${fullClass} ${modalIsOpenClass}`}>
-          
+
           {this.dismissible && (
             <button type="button" class="hs-button hs-button--close" onClick={() => this.close()}>
               &times;
             </button>
           )}
-         
+
           <slot />
 
         </div>
