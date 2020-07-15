@@ -18,6 +18,7 @@ function makeDirectory(path) {
   nfs.mkdir(path, 0777, true, function (err) {
     if (err) {
       console.log(err);
+      return `Error making path: ${err}`
     } else {
       console.log(`Created: ${path}`);
       return 'Success'
