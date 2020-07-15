@@ -2,4 +2,4 @@
 
 const rs = require('./render-scripts');
 
-rs.jsify();
+rs.processJS;
