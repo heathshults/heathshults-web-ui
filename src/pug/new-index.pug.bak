@@ -6,16 +6,21 @@ head
   meta(name='description' content='Portfolio website for Heath Shults - Web Developer Manager & Director')
   meta(name='author' content='')
   title Heath Shults - Web Developer+
-  script(type='module' src='/build/heathenscript-ui-components.esm.js')
-  script(nomodule='' src='/build/heathenscript-ui-components.js')
+
+  // Compiled Components
+  script(src='/assets/js/heathenscript-ui-components/heathenscript-ui-components.esm.js')
+  script(src='/assets/js/heathenscript-ui-components/heathenscript-ui-components.js')
+
   // Bootstrap Core CSS
   link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css' integrity='sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk' crossorigin='anonymous')
+
   // Custom Fonts
   link(href='/assets/vendor/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css')
   link(href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css')
   link(href='https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Nothing+You+Could+Do&family=Sedgwick+Ave+Display&display=swap' rel='stylesheet')
   link(href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet')
   link(href='https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;0,900;1,100&display=swap' rel='stylesheet')
+
   // Theme CSS
   link(href='/assets/css/HeathStyle.built.css' rel='stylesheet')
   link#darkmode(disabled='' rel='stylesheet' href='/assets/css/theme-dark-mode.built.css')

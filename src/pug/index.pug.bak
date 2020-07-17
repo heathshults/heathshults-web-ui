@@ -9,8 +9,8 @@ html(lang='en')
         meta(name='author', content='')
 
         // Compiled Components
-        script(src='assets/js/heathenscript-ui-components/heathenscript-ui-components.js')
-        script(src='assets/js/heathenscript-ui-components/heathenscript-ui-components.esm.js')
+        script(src='/assets/js/heathenscript-ui-components/heathenscript-ui-components.esm.js')
+        script(src='/assets/js/heathenscript-ui-components/heathenscript-ui-components.js')
 
         title Heath Shults - Web Developer+
 
