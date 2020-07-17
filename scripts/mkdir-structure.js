@@ -1,7 +1,6 @@
 /* eslint-disable no-octal */
 var nfs = require('node-fs');
 var path = require('path')
-var rootPath = path.resolve(__dirname, '../')
 /**
  *  @name mkdir directories
  *  @version  1.0.0
@@ -27,7 +26,7 @@ function makeDirectory(path) {
 }
 exports.makeDirectory = makeDirectory
 
-// makeDirectory('www/assets/js')
+makeDirectory('www/assets/js')
 
 
 
