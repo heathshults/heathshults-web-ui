@@ -38,7 +38,7 @@ function HeathenScriptJS(path) {
   }
   exports.makeDirectory = makeDirectory
 
-  processJS(path)
+  // processJS(path)
 
   /**
    * @name processJS

@@ -26,7 +26,7 @@ function makeDirectory(path) {
 }
 exports.makeDirectory = makeDirectory
 
-makeDirectory('www/assets/js')
+// makeDirectory('www/assets/js')
 
 
 
