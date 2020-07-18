@@ -11050,4 +11050,11 @@ img::selection {
   background: transparent;
 }
 
+.hs-info-table {
+  font-size: 0.9rem;
+  background: #ffe659;
+  border: 2px solid #e2b900;
+  padding: 0.5rem;
+}
+
 /*# sourceMappingURL=HeathStyle.built.css.map */
