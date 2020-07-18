@@ -1,15 +1,10 @@
 'use strict';
 const path = require('path');
-const {
-  src,
-  dest,
-  series
-} = require('gulp')
+const { src, dest } = require('gulp')
 const debug = require('gulp-debug')
 
 const sourcePath = path.resolve(__dirname, '../src/assets');
 const destPath = path.resolve(__dirname, '../www/assets');
-const compPath = path.resolve(__dirname, '../src/js/heathenscript-ui-components/')
 const srcJS = path.resolve(__dirname, '../src/js/')
 
 
@@ -83,45 +78,19 @@ function copy_vendor(cb) {
 exports.copy_vendor = copy_vendor
 copy_vendor()
 
-function copy_uiComponents(cb) {
-  console.log(sourcePath)
-  src(`${compPath}/**/*.{js,ejs,mjs,cjs,jsx,json}`)
-    .pipe(debug({
-      title: 'Copied UI Component: '
-    }))
-    .pipe(dest(`${destPath}/js/heathenscript-ui-components/`))
-  if (typeof cb === 'function') {
-    cb()
-  }
-}
-exports.copy_uiComponents = copy_uiComponents
-copy_uiComponents()
 
-function copy_jsLib(cb) {
-  src(`${srcJS}/lib/**/*.{js,ejs,mjs,cjs,jsx,json}`)
-  .pipe(dest(`${destPath}/js/lib`))
-  .pipe(debug({
-    title: 'Copied js/lib: '
-  }));
+  // if (typeof cb === 'function') {
+  //   cb()
+  // }
 
-  src(`${srcJS}/js/vendor/**/*.{js,ejs,mjs,cjs,jsx,json}`)
-  .pipe(dest(`${destPath}/js/vendor`))
-  .pipe(debug({
-    title: 'Copied js/vendor: '
-  }));
-  if (typeof cb === 'function') {
-    cb()
-  }
-}
-exports.copy_jsLib = copy_jsLib
 
 function copy_js(cb) {
   src([
-      `${sourcePath}/js/**/*`,
-      `!${sourcePath}/js/scripts.js`,
-      `!${sourcePath}/js/jqBootstrapValidation.js`,
-      `!${sourcePath}/js/contact_me.js`,
-      `!${sourcePath}/js/HeathScript.js`,
+      `${srcJS}/**/*`,
+      `!${srcJS}/scripts.js`,
+      `!${srcJS}/jqBootstrapValidation.js`,
+      `!${srcJS}/contact_me.js`,
+      `!${srcJS}/HeathScript.js`
     ])
     .pipe(dest(`${destPath}/js/`))
     .pipe(debug({
@@ -135,4 +104,4 @@ exports.copy_js = copy_js
 copy_js()
 
 
-exports.copy_assets = series(copy_assets_content, copy_js, copy_css, copy_images, copy_mail, copy_uiComponents, copy_vendor)
+// exports.copy_assets = series(copy_assets_content, copy_js, copy_css, copy_images, copy_mail, copy_vendor)

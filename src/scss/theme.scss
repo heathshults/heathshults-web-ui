@@ -120,10 +120,10 @@
 
 // DarkMode Widget
 .mode-widget {
-  // width: 116px;
   position: relative;
   align-self: stretch;
-  // width: 150px;
+  min-width: 116px;
+  max-width: 150px;
   height: 100%;
   // padding: 0 1.2rem;
   font-size: 100%;
@@ -131,6 +131,7 @@
   color: $hs-theme-primary;
   text-decoration: none;
   letter-spacing: 1px;
+  background-color: transparent;
   border: 0 !important;
   outline: 0;
   transition: all .15s ease-out;
@@ -437,4 +438,10 @@ img::-moz-selection {
 
 img::selection {
   background: transparent;
+}
+.hs-info-table {
+  font-size: .9rem;
+  background: $hs-color_yellow--light;
+  border: 2px solid $hs-color_yellow--dark;
+  padding: .5rem;
 }

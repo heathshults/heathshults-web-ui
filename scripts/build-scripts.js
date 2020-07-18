@@ -1,9 +1,6 @@
-
+const path = require('path')
 const rjs = require('./render-scripts.js')
 
-var renderJS = rjs.HeathenScriptJS()
-if (renderJS=== 'Success') {
-  return 'Success'
-} else {
-  return 'JS Compile Failed'
-}
+var inFile = path.resolve(__dirname, '../src/index.js')
+rjs.HeathenScriptJS(inFile)
+
