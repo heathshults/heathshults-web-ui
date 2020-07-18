@@ -5,7 +5,7 @@
 // const postcss = require('postcss')
 const { exec } = require('child_process')
 var appRoot = require('app-root-path');
-const banner = require('./goCreds')
+// const banner = require('./goCreds')
 
 // vars
 const mainStyleSheetIn = `${appRoot}/src/scss/styles.scss`
@@ -34,8 +34,8 @@ var result
 function renderSCSS(callback) {
   console.log('starting inside...');
 
-  theStyleSheets.forEach((sheet, index) => {
-    var diditcred
+  theStyleSheets.forEach((sheet) => {
+    // var diditcred
     var inStyleSheet = sheet.inFile
     var outStyleSheet = sheet.outFile
 
@@ -44,27 +44,27 @@ function renderSCSS(callback) {
     exec(`sass ${inStyleSheet} ${outStyleSheet}`, (error, stdout, stderr) => {
       if (error) {
           console.log("ERROR compileMain: \n stdout: " + stderr + "\n Error Message: " + error.message);
-          return error
+          return 'SCSS compile error'+error
 
-      } else {
+      } //else {
+      return true
+        // diditcred = addCredBanner(outStyleSheet)
+        // diditcred = 'Success' ? result =  'Success' + console.log('Sass compiled: ' + outStyleSheet) : result = diditcred
+        // return result
 
-        diditcred = addCredBanner(outStyleSheet)
-        diditcred = 'Success' ? result =  'Success' + console.log('Sass compiled: ' + outStyleSheet) : result = diditcred
-        return result
-
-      }
+     // }
     })
   })
 
   // add credit banner
-  function addCredBanner(styleSheet) {
-    console.log('starting cred banner...')
-    var credsResult = banner.goCreds(styleSheet);
-    return credsResult
-  }
+  // function addCredBanner(styleSheet) {
+  //   console.log('starting cred banner...')
+  //   var credsResult = banner.goCreds(styleSheet);
+  //   return credsResult
+  // }
 
-  console.log('done = callback')
-  if (typeof callback == "function") callback(result);
+  console.log('CSS compiled')
+  return true
 
 }
 exports.renderSCSS = renderSCSS

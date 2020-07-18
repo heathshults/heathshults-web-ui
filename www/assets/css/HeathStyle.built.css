@@ -1,8 +1,3 @@
-/*!
-* Heathen's Profile - HeathenScript v2.0.0 (https://heathshults.com/)
-* Copyright 2020-2020 Heath Shults
-* Licensed under MIT (https://github.com/heathshults.com/heath-shults-web/blob/master/LICENSE)
-*/
 @charset "UTF-8";
 /*
  * CSS CUSTOM VARIABLE FUNCTION
@@ -10765,12 +10760,15 @@ section#contact form#contactForm :-ms-input-placeholder {
 .mode-widget {
   position: relative;
   align-self: stretch;
+  min-width: 116px;
+  max-width: 150px;
   height: 100%;
   font-size: 100%;
   font-weight: 400;
   color: #fed136;
   text-decoration: none;
   letter-spacing: 1px;
+  background-color: transparent;
   border: 0 !important;
   outline: 0;
   transition: all 0.15s ease-out;
