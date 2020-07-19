@@ -1,6 +1,8 @@
 const path = require('path')
-const rjs = require('./render-scripts.js')
+const rs = require('./render-scripts.js')
 
-var inFile = path.resolve(__dirname, '../src/index.js')
-rjs.HeathenScriptJS(inFile)
+var destPath = path.resolve(__dirname, '../www/assets/js/')
+
+
+rs.HeathenScriptJS(destPath)
 

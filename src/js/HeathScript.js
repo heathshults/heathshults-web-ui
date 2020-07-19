@@ -62,7 +62,7 @@ $(".js-scroll-trigger").click(function () {
 
  // Collapse Navbar
  var navbarCollapse = function () {
-  if ($("#mainNav").offset().top > 100) {
+  if ($("#mainNav").offset().top > 90) {
       $("#mainNav").addClass("navbar-shrink");
   } else {
       $("#mainNav").removeClass("navbar-shrink");
@@ -112,7 +112,7 @@ $(window).scroll(navbarCollapse);
     return setModeText(mode)
   }
 
-  // Theme switcher 
+  // Theme switcher
   $dm_btn.bind('click', (event) => {
     event.preventDefault()
     if (localStorage.getItem('dark_mode') === 'true') {
@@ -142,5 +142,5 @@ $(window).scroll(navbarCollapse);
     fbButtonBorderColor: '#000000',
     fbButtonBorderColorFocus: '#333333',
   }
-   
+
 })(jQuery); // End of use strict
