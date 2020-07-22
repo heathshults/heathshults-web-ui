@@ -1,9 +1,8 @@
 'use strict';
-const path = require('path');
-const renderFile = path.resolve(__dirname, './render-pug.js')
-const renderPug = require(`${renderFile}`)
+const ren = require('./render-pug.js')
 
-renderPug.renderPug()
+
+ren.renderPug()
 
 
 

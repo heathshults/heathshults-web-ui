@@ -65,7 +65,6 @@
   background: $hs-bg-black-to-transparent;
   border-color: transparent;
 
-
 }
 
 .hs-header {
@@ -438,9 +437,15 @@ img::-moz-selection {
 img::selection {
   background: transparent;
 }
+.hs-card-content {
+  padding: .5rem;
+  font-size: .9rem;
+  // background: $hs-color_yellow--light;
+  border: 2px solid transparent;
+}
 .hs-info-table {
+  padding: .5rem;
   font-size: .9rem;
   background: $hs-color_yellow--light;
-  border: 2px solid $hs-color_yellow--dark;
-  padding: .5rem;
+  border: 2px solid transparent;
 }

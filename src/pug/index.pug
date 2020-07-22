@@ -461,10 +461,11 @@ html(lang='en')
                   hs-card-img-header(img-width='100%' img-height='260px' img-path='/assets/img/portfolio/bowlopolis/bolopolis-headerImg.png' click-target='modBowlopolis')
                   hs-card-body
                     //
-                    .hs-info-table
+                    .hs-card-content
                       .row
                         .col-md-12
                           h3.hs-body-h3 Youth Program, Website &amp; Game
+                    .hs-info-table
                       .row.bg-less-heavy-yellow--trans50
                         .col-md-6.pl-3
                           strong Company:
@@ -765,3 +766,12 @@ html(lang='en')
 
         // Core theme JS
         script(src='assets/js/HeathScript.built.js')
+
+script.
+  // ====== RANKING BARS
+  var theBars = document.querySelectorAll('.hs-ranking-bar')
+  theBars.forEach(aBar => {
+  // eslint-disable-next-line no-undef
+  var barWidth = $(aBar).attr('aria-valuenow')
+  $(aBar).attr('style', `width: ${barWidth}%`);
+  });

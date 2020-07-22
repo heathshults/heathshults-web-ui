@@ -1132,13 +1132,15 @@
                 click-target="modBowlopolis"
               ></hs-card-img-header
               ><hs-card-body
-                ><!----><div class="hs-info-table"
+                ><!----><div class="hs-card-content"
                   ><div class="row"
                     ><div class="col-md-12"
                       ><h3 class="hs-body-h3"
                         >Youth Program, Website &amp; Game</h3
                       ></div
                     ></div
+                  ></div
+                ><div class="hs-info-table"
                   ><div class="row bg-less-heavy-yellow--trans50"
                     ><div class="col-md-6 pl-3"
                       ><strong>Company:</strong><br />
@@ -1670,5 +1672,13 @@
     ><!-- Third party plugin JS--><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script
     ><!-- Contact form JS--><script src="assets/mail/jqBootstrapValidation.js"></script
     ><script src="assets/mail/contact_me.js"></script
-    ><!-- Core theme JS--><script src="assets/js/HeathScript.built.js"></script></body
-></html>
+    ><!-- Core theme JS--><script src="assets/js/HeathScript.built.js"></script></body></html
+><script>
+  // ====== RANKING BARS
+  var theBars = document.querySelectorAll(".progress-bar");
+  theBars.forEach((aBar) => {
+    // eslint-disable-next-line no-undef
+    var barWidth = $(aBar).attr("aria-valuenow");
+    $(aBar).attr("style", `width: ${barWidth}%`);
+  });
+</script>

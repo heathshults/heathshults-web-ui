@@ -10,9 +10,11 @@
     "build:scripts": "node scripts/build-scripts.js",
     "build:scss": "node scripts/build-scss.js",
     "clean": "node scripts/clean.js",
+    "gbuild": "gulp copy_all",
     "serve": "gulp --gulpfile scripts/start.js connect_sync",
     "watch": "node scripts/watch.js",
-    "start": "npm-run-all --sequential build watch serve",
+    "gwatch": "gulp watchers",
+    "start": "npm-run-all --sequential gbuild gwatch",
     "start:debug": "npm run build && node scripts/start-debug.js"
   },
   "description": "Heath Shults - a coder - a thinker and a father.",
