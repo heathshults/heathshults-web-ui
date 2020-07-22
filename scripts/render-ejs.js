@@ -7,7 +7,7 @@ const debug = require('gulp-debug')
 const log = require('fancy-log')
 
 const srcPath = path.resolve(__dirname, '../src')
-const distPath =  path.resolve(__dirname, '../www')
+const wwwPath =  path.resolve(__dirname, '../www')
 
 function ejsit() {
   src(`${srcPath}/*.ejs`)
@@ -15,7 +15,7 @@ function ejsit() {
     .pipe(ejs().on('error', log))
     .pipe(rename({ extname: ".html" }))
     .pipe(debug({ title: 'compiled html: ' }))
-    .pipe(dest(distPath))
+    .pipe(dest(wwwPath))
   return
 }
 exports.ejsit = ejsit

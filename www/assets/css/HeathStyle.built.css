@@ -11050,11 +11050,17 @@ img::selection {
   background: transparent;
 }
 
+.hs-card-content {
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  border: 2px solid transparent;
+}
+
 .hs-info-table {
+  padding: 0.5rem;
   font-size: 0.9rem;
   background: #ffe659;
-  border: 2px solid #e2b900;
-  padding: 0.5rem;
+  border: 2px solid transparent;
 }
 
 /*# sourceMappingURL=HeathStyle.built.css.map */

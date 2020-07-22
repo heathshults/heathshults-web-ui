@@ -9,7 +9,6 @@ const chalk = require('chalk');
 // var babelify = require('babelify')
 var inFile = path.resolve(__dirname, '../src/index.js')
 var outFile = path.resolve(__dirname, '../www/assets/js/HeathScript.built.js')
-var destPath = path.resolve(__dirname, '../www/assets/js/')
 var outPath = path.resolve(__dirname, '../www/assets/js/')
 
 
