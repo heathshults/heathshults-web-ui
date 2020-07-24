@@ -8,7 +8,7 @@
   'use strict'; // Start of use strict
 
   // ====== RANKING BARS
-  var theBars = document.querySelectorAll('.progress-bar')
+  var theBars = document.querySelectorAll('.hs-ranking-bar')
   theBars.forEach(aBar => {
     // eslint-disable-next-line no-undef
     var barWidth = $(aBar).attr('aria-valuenow')
@@ -75,25 +75,25 @@ $(window).scroll(navbarCollapse);
 
 
   // ** ====== MODE WIDHET ====== ** //
-  var $dm_btn = $('#mode_widget')
+  var dm_btn = document.querySelector('#mode_widget')
   var lsGetMode = localStorage.getItem('dark_mode')
 
   // set button text
-  $(document).ready(() => {
+$(document).ready(() => {
     if (lsGetMode === 'fasle') {
       setModeText(true)
-      //$dm_btn.html('<span class="which-mode">Dark Mode<span id="mode_icon" class="fa fa-moon-o mode-icon"></span></span>')
+      //dm_btn.html('<span class="which-mode">Dark Mode<span id="mode_icon" class="fa fa-moon-o mode-icon"></span></span>')
     } else {
       setModeText(false)
-      // $dm_btn.html('<span class="which-mode">Light Mode<span id="mode_icon" class="fa fa-sun-o mode-icon"></span></span>')
+      // dm_btn.html('<span class="which-mode">Light Mode<span id="mode_icon" class="fa fa-sun-o mode-icon"></span></span>')
     }
   })
 
   function setModeText(mode) {
     if (mode === 'true') {
-      $dm_btn.html('<span class="which-mode"> Dark Mode<span id="mode_icon" class="fa fa-moon-o mode-icon"></span></span>')
+      dm_btn.innerHTML = '<span class="which-mode"> Dark Mode<span id="mode_icon" class="fa fa-moon-o mode-icon"></span></span>'
     } else {
-      $dm_btn.html('<span class="which-mode"> Light Mode<span id="mode_icon" class="fa fa-sun-o mode-icon"></span></span>')
+      dm_btn.innerHTML = '<span class="which-mode"> Light Mode<span id="mode_icon" class="fa fa-sun-o mode-icon"></span></span>'
     }
   }
 
@@ -103,17 +103,17 @@ $(window).scroll(navbarCollapse);
 
     if (mode === 'true') {
       document.querySelector('#darkmode').disabled = false;
-      $dm_btn.html('<span class="which-mode"> Dark Mode<span id="mode_icon" class="fa fa-moon-o mode-icon"></span></span>')
+      dm_btn.innerHTML = '<span class="which-mode"> Dark Mode<span id="mode_icon" class="fa fa-moon-o mode-icon"></span></span>'
 
       // document.querySelector('link[href="css/theme-dark-mode.css"]').disabled = false;
     } else {
-      $dm_btn.html('<span class="which-mode"> Light Mode<span id="mode_icon" class="fa fa-sun-o mode-icon"></span></span>')
+      dm_btn.innerHTML = '<span class="which-mode"> Light Mode<span id="mode_icon" class="fa fa-sun-o mode-icon"></span></span>'
     }
     return setModeText(mode)
   }
 
   // Theme switcher
-  $dm_btn.bind('click', (event) => {
+  dm_btn.bind('click', (event) => {
     event.preventDefault()
     if (localStorage.getItem('dark_mode') === 'true') {
       setMode('false'), console.log('set to false')

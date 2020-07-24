@@ -376,11 +376,11 @@ html(lang='en')
                   hs-card-img-header(img-width='100%' img-height='260px' img-path='/assets/img/portfolio/Fannie-Mae/blueprint-card-header.jpg')
                   hs-card-body
                     //
-                    .hs-info-table
+                    .hs-card-content
                       .row
                         .col-md-12
                           h3.hs-body-h3 Blueprint Design System
-                      .row.bg-less-heavy-yellow--trans50
+                      .row.hs-info-table
                         .col-md-6.pl-3
                           strong Company:
                           br
@@ -419,11 +419,11 @@ html(lang='en')
                   hs-card-img-header(img-width='100%' img-height='260px' img-path='/assets/img/portfolio/BlueStarSports/BSS-card-heading.jpg')
                   hs-card-body
                     //
-                    .hs-info-table
+                    .hs-card-content
                       .row
                         .col-md-12
                           h3.hs-body-h3 USA Football Database Project
-                      .row.bg-less-heavy-yellow--trans50
+                      .row.hs-info-table
                         .col-md-6.pl-3
                           strong Company:
                           br
@@ -465,8 +465,8 @@ html(lang='en')
                       .row
                         .col-md-12
                           h3.hs-body-h3 Youth Program, Website &amp; Game
-                    .hs-info-table
-                      .row.bg-less-heavy-yellow--trans50
+
+                      .row.hs-info-table
                         .col-md-6.pl-3
                           strong Company:
                           br

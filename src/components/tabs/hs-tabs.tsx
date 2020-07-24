@@ -12,8 +12,8 @@ export class Tabs {
   @State()
   tabs: any[];
 
-  @Event({ eventName: 'change' })
-  onNowDifferent: EventEmitter;
+  @Event({ eventName: 'updated' })
+  onUpdated: EventEmitter;
 
   componentWillLoad() {
     this.tabs = Array.from(this.elem.querySelectorAll('hs-tab'));
@@ -32,7 +32,7 @@ export class Tabs {
         return tab;
       });
       this.tabs[tabIndex].open = true;
-      this.onNowDifferent.emit({ idx: tabIndex });
+      this.onUpdated.emit({ idx: tabIndex });
     }
   }
 

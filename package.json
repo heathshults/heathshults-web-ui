@@ -2,19 +2,37 @@
   "title": "HeathenScript",
   "name": "heath-shults-web",
   "version": "2.0.0",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "files": [
+    "dist/",
+    "loader/"
+  ],
   "scripts": {
+    "comp:build": "node_modules/.bin/stencil build --docs --watch",
+    "comp:serve": "node_modules/.bin/stencil build --dev --watch --serve",
+    "comp:test": "node_modules/.bin/stencil test --spec --e2e",
+    "comp:test:watch": "node_modules/.bin/stencil test --spec --e2e --watchAll",
+    "comp:generate": "node_modules/.bin/stencil generate",
     "build": "npm-run-all --parallel build:ejs build:scss build:scripts build:assets",
-    "build:assets": "node scripts/build-assets.js",
-    "build:ejs": "node scripts/render-ejs.js",
+    "build:assets": "node ./scripts/build-assets.js",
+    "build:ejs": "node scripts/build-ejs.js",
     "build:pug": "node scripts/build-pug.js",
     "build:scripts": "node scripts/build-scripts.js",
     "build:scss": "node scripts/build-scss.js",
     "clean": "node scripts/clean.js",
-    "gbuild": "gulp copy_all",
+    "gbuild": "gulp setup_develop",
     "serve": "gulp --gulpfile scripts/start.js connect_sync",
     "watch": "node scripts/watch.js",
     "gwatch": "gulp watchers",
-    "start": "npm-run-all --sequential gbuild gwatch",
+    "test": "jest --no-cache",
+    "test.watch": "jest --watch --no-cache",
+    "start": "npm-run-all --sequential build:assets build:ejs build:scss build:scripts gwatch",
     "start:debug": "npm run build && node scripts/start-debug.js"
   },
   "description": "Heath Shults - a coder - a thinker and a father.",
@@ -38,9 +56,16 @@
     "url": "https://github.com/heathshults/heathshults.com.git"
   },
   "dependencies": {
+    "@blaze/atoms": "^11.0.3",
+    "@blaze/css": "^9.2.0",
+    "@blaze/molecules": "^1.2.1",
+    "@types/hammerjs": "^2.0.36",
+    "blueimp-file-upload": "^10.3.0",
     "bootstrap": "4.5.0",
-    "gulp-pug": "^4.0.1",
-    "postcss-cli": "^7.1.1"
+    "classnames": "^2.2.5",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.6-alpha.6",
+    "hammerjs": "^2.0.8"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
@@ -51,9 +76,12 @@
     "@babel/register": "^7.9.0",
     "@babel/traverse": "^7.9.6",
     "@stencil/core": "^1.16.2",
+    "@stencil/dev-server": "latest",
     "@stencil/postcss": "^1.0.1",
     "@stencil/sass": "^1.3.2",
+    "@stencil/utils": "latest",
     "@types/autoprefixer": "^9.7.2",
+    "@types/jest": "^26.0.7",
     "@types/node": "^13.13.14",
     "@types/react": "^16.9.41",
     "@typescript-eslint/eslint-plugin": "^2.29.0",
@@ -101,10 +129,12 @@
     "gulp-header": "^2.0.9",
     "gulp-plumber": "^1.2.1",
     "gulp-prettier": "^3.0.0",
+    "gulp-pug": "^4.0.1",
     "gulp-rename": "^2.0.0",
     "gulp-uglify": "^3.0.2",
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.3.0",
+    "jest": "^26.1.0",
     "jquery": "^3.5.1",
     "jshint": "^2.11.0",
     "jshint-loader": "^0.8.4",
@@ -120,6 +150,7 @@
     "open": "^7.0.4",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss": "^7.0.32",
+    "postcss-cli": "^7.1.1",
     "postcss-custom-properties": "^9.1.1",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
@@ -127,6 +158,7 @@
     "precss": "^4.0.0",
     "prettier": "2.0.5",
     "pug": "3.0.0",
+    "puppeteer": "^5.2.1",
     "require-dir": "^1.2.0",
     "resolve-url-loader": "^3.1.1",
     "sane": "^4.1.0",
@@ -159,6 +191,19 @@
   "browserify": {
     "transform": [
       "babelify"
+    ]
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json",
+      "jsx"
     ]
   }
 }

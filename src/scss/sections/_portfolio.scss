@@ -10,9 +10,13 @@
   }
   .hs-section-heading {
     font-size: 4rem;
+    @include heading-font;
+    font-weight: 700;
   }
   .hs-section-subheading {
+    font-family: $subheadings-font-family;
     font-size: 2rem;
+    font-style: italic;
   }
   .portfolio-item {
     max-width: 25rem;

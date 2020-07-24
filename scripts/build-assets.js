@@ -1,3 +1,3 @@
-const ra = require('./scripts/render-assets.js')
-ra.runPromises()
+const ra = require('./render-assets.js')
+ra.runAssetsPromises()
 

@@ -21,8 +21,11 @@
     letter-spacing: $headings-letter-spacing;
     &.js-scroll-trigger {
       &.site-logo {
+        display: inline-flex;
+        height: 50px;
         font-size: 1.6rem;
         font-weight: 400;
+        line-height: .7;
         color: $hs-theme-primary;
         @include script-font;
 
@@ -118,12 +121,12 @@
 }
 
 // DarkMode Widget
-.mode-widget {
+.hs-mode-widget {
   position: relative;
-  align-self: stretch;
+  align-self: center;
   min-width: 116px;
   max-width: 150px;
-  height: 100%;
+  // height: 100%;
   // padding: 0 1.2rem;
   font-size: 100%;
   font-weight: 400;
@@ -131,6 +134,7 @@
   text-decoration: none;
   letter-spacing: 1px;
   background-color: transparent;
+  margin-top: -10px;
   border: 0 !important;
   outline: 0;
   transition: all .15s ease-out;
@@ -398,10 +402,11 @@ p {
 .page-section {
   padding: 6rem 0;
 
-  h2.hs-section-heading {
+  .hs-section-heading {
     margin-top: 0;
     margin-bottom: 1rem;
     font-size: 2.5rem;
+    @include heading-font;
   }
 
   h3.hs-section-subheading {
@@ -440,12 +445,42 @@ img::selection {
 .hs-card-content {
   padding: .5rem;
   font-size: .9rem;
-  // background: $hs-color_yellow--light;
+  background: $white;
   border: 2px solid transparent;
 }
 .hs-info-table {
   padding: .5rem;
-  font-size: .9rem;
-  background: $hs-color_yellow--light;
-  border: 2px solid transparent;
+  font-size: .75rem;
+  background: $hs-theme-primary--trans50;
+  border: 2px solid $hs-theme-primary;
+  opacity: .8;
+}
+.hs-brand-symbol {
+  padding-bottom: 10px;
+  font-size: 2.4rem;
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 60%;
+    padding-right: 50px;
+    text-transform: uppercase;
+    @include heading-font;
+  }
+  .form-inline {
+    margin-top: -26px !important;
+  }
+  #mainNav.navbar-shrink {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: #1a1d20;
+    background-image: none;
+    box-shadow: 1px 4px 8px 3px rgba(0, 0, 0, .4);
+    transition: all .25s ease-in-out;
+  }
+}
+.navbar .container {
+  display: inline-flex;
 }

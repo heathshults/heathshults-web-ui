@@ -54,6 +54,7 @@ let p = {
 }
 
 let assets = '{jpg,png,gif,svg,mp4}'
+//#region region
 
 // Compiles sassy files from /sassy into /css
 // NOTE: This theme uses sassy by default. To swtich to sassy you will need to update this gulpfile by changing the 'less' tasks to run 'sass'!
@@ -161,6 +162,8 @@ let assets = '{jpg,png,gif,svg,mp4}'
 // }
 // exports.minify_js = minify_js
 
+//#endregion
+
 function ejsit(done) {
   return src(`${srcPath}/*.ejs`)
     .pipe(plumber())
@@ -184,22 +187,19 @@ function jsify(cb){
   , cb();
 }
 exports.jsify = jsify
-
-// function js(done) {
-//   try {
-//     exec('./node_modules/.bin/webpack --config webpack-js.js --mode development --display-error-details --verbose --watch --colors', (error, stdout, stderr) => {
-//       if (error) {
-//           console.log(`error: ${error.message}`);
-//           return;
-//       }
-//     })
-//   }
-//   catch(e) {
-//     console.log('HeathenError: ' + e)
-//   }
-//   done()
-// }
-// exports.js = js
+function renderJS(cb) {
+  console.log(chalk.yellow('starting JS renderrer...'))
+  exec('node scripts/build-scripts.js', (error, stdout, stderr) => {
+    if (error) {
+        console.log(chalk.red("ERROR renderJS: \n stdout: " + stderr + "\n Error Message: " + error.message));
+        return 'renderJS error'+error
+    }
+    console.log(chalk.green('JS Rendererred: HeathScript.built.js'))
+    return true
+  })
+  if (typeof cb === 'function') cb()
+}
+exports.renderJS = renderJS
 
 function sassy(done) {
   try {
@@ -228,6 +228,20 @@ function sassy(done) {
   done()
 }
 exports.sassy = sassy
+
+function compileCSS(cb) {
+  exec('node scripts/build-scss.js', (error, stdout, stderr) => {
+      if (error) {
+          console.log("ERROR compileMain: \n stdout: " + stderr + "\n Error Message: " + error.message);
+          return 'SCSS compile error'+error
+      }
+      return true
+
+  })
+
+  if (typeof cb === 'function') cb(null)
+}
+exports.compileCSS = compileCSS
 
 function copy_img(cb) {
   src([
@@ -365,31 +379,30 @@ function copy_components(cb) {
 exports.copy_components = copy_components
 
 function copy_assets(cb) {
-  src(`${srcPath}/assets/**/*.${assets}`)
-    .pipe(plumber())
-    .pipe(debug({ title: 'copied' }))
-    .pipe(dest(`${wwwPath}/assets/`)),
-    () => {
-      let file = ''
-      if (typeof cb === 'function') {
-        cb(null, file);
-        called = true;
-      }
-    }
+  ra.copy_assets_content('first')
+    .then(ra.copy_css)
+    .then(ra.copy_images)
+    .then(ra.copy_mail)
+    .then(ra.copy_vendor)
+    .then(ra.copy_js)
+    .then(renderer());
+    if (typeof cb === 'function') cb(null)
+
 }
 exports.copy_assets = copy_assets
 
-function copy_all(cb) { series(sassy, jsify, copy_js, copy_vendor, ejsit, copy_img ), cb() }
-exports.copy_all = copy_all
+function renderer(cb) {
+  series(compileCSS, jsify, ejsit)
+  if (typeof cb === 'function') cb()
+}
+exports.renderer = renderer
 
-function copy_dev(cb) { series(copy_css, copy_js, copy_vendor, copy_img ), cb() }
+function copy_dev(cb) {
+  series(copy_css, copy_js, copy_vendor, copy_img )
+  if (typeof cb === 'function') cb()
+}
 exports.copy_dev = copy_dev
 
-function get_assets(cb) {
-  ra.runAssetsPromises()
-  cb()
-}
-exports.get_assets = get_assets
 
 function watchers(cb) {
   // connect.server({base: 'www/'}, function (){
@@ -409,11 +422,11 @@ function watchers(cb) {
 
   // eslint-disable-next-line no-sequences
   watch(`${srcPath}/*.ejs`, ejsit), cb()
-  watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], copy_img), cb()
-  watch([`${srcPath}/scss/**/*.scss`], sassy), cb()
-  watch([`${srcPath}/assets/**/*.css`], copy_css), cb()
-  watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], copy_js), cb()
-  watch([`${srcPath}/assets/js/**/*.js`], jsify), cb()
+  watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_img), cb()
+  watch([`${srcPath}/scss/**/*.scss`], compileCSS), cb()
+  watch([`${srcPath}/assets/**/*.css`], ra.copy_css), cb()
+  watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], ra.copy_js), cb()
+  watch([`${srcPath}/assets/js/HeathScript.js`], renderJS), cb()
   // watch(`${srcPath}/components/**/*.{js,json,html,css}`, copy_components), cb()
 }
 exports.watchers = watchers
@@ -502,5 +515,5 @@ exports.watchers2 = watchers2
 // // Run everything
 // exports.build = series(sassy, minify_css, minify_js, copy_vendors)
 
-exports.setup_develop = series(sassy, jsify, copy_js, copy_vendor, ejsit, copy_img, copy_css)
-exports.build = series(copy_all)
+exports.setup_develop = series(compileCSS, renderJS, copy_assets, ejsit)
+exports.build = series(copy_assets)
