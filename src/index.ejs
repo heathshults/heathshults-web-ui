@@ -11,7 +11,7 @@
 
     <title>Heath Shults - Web Developer+</title>
     <script type="module" src="/build/heathenscript-ui-components.esm.js"></script>
-    <script nomodule src="src/js/heathenscript-ui-components/heathenscript-ui-components.js"></script>
+    <script nomodule src="/build/heathenscript-ui-components.js"></script>
 
     <!-- Bootstrap Core CSS -->
     <!-- <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
@@ -23,6 +23,8 @@
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;0,900;1,100&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- Theme CSS -->
     <link href="/assets/css/HeathStyle.built.css" rel="stylesheet">
     <link disabled id="darkmode" rel="stylesheet" href="/assets/css/theme-dark-mode.built.css">
@@ -44,82 +46,54 @@
 
   <body id="page-top" class="index">
      <!-- Navigation -->
-    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top d-flex align-items-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-            </button>
-            <a class="navbar-brand site-logo js-page-scroll" href="#page-top"><i class="fa fa-fw" aria-hidden="true"></i>HeathShults.com</a>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <!-- <div class="collapse navbar-collapse d-flex justify-content-space-between" id="bs-example-navbar-collapse-1"> -->
-          <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
-            <!-- <span class="navbar-header js-page-scroll d-inline-flex">
-              <button type="button" class="navbar-toggle" data-toggle="collapse"
-                data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-              </button>
-              <a class="navbar-brand js-page-scroll cursive d-flex align-items-center" href="#page-top">
-                <i class="fa fa-fw" aria-hidden="true"></i>HeathShults.com</a>
-            </span> -->
-
-              <ul class="nav navbar-nav navbar-right mt-2">
-                <li class="hidden ">
-                  <a href="#page-top" class="nav-link"></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link js-page-scroll" href="#skills">My Skills</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link js-page-scroll" href="#portfolio">My Portfolio</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link js-page-scroll" href="#about">About Me</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link js-page-scroll" href="#contact">Contact</a>
-                </li>
-
-            </ul>
-
-          </div>
-          <!-- /.navbar-collapse -->
-        </div>
-        <div class="col-md-3">
-          <ul class="nav navbar-nav navbar-right mt-2">
-            <li class="nav-item">
-                <button id="mode_widget" class="mode-widget" style="background-color: transparent !important;">
-                  <!-- <span class="which-mode">Dark Mode<span id="ninja" class="fa fa-moon-o mode-icon"></span></span> -->
-                </button>
-
-              </li>
-              <!-- <li>
-                <span class="navbar-text">
-                  <i class="fa fa-arrow-circle-left font-size-110"></i> Latest Project on this Website.
-                </span>
-
-            </li> -->
-            </ul>
+     <nav class="navbar navbar-expand-lg navbar-dark fixed-top hs-bg-grad-black-trans" id="mainNav">
+       <div class="container">
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+         aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+         <a class="navbar-brand js-scroll-trigger site-logo" href="#page-top"><span
+             ><span
+               class="hs-brand-symbol">@</span><span>HeathShults.com</span></a></span></a>
+         <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+           <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
+           <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>
+           <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+           <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>
+           <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+         </ul>
+         <div class="form-inline my-2 my-lg-0">
+           <button class="hs-mode-widget" id="mode_widget"></button>
+           <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+         </div>
+       </div>
+       </div>
+     </nav>
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark fixed-top hs-bg-grad-black-trans" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger site-logo" href="#page-top">
+          <span style="flex: 1 1 auto; height: 50px; "><span class="hs-brand-symbol">@</span><span>HeathShults.com</span></a></span>
+          <button class="navbar-toggler navbar-toggler-right" type="button"
+            data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+            aria-label="Toggle navigation">Menu<i class="fas fa-bars ml-1"></i>
+          </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav text-uppercase ml-auto">
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+            <li class="nav-item"><a class="nav-link hs-mode-widget" id="mode_widget"></a></li>
+          </ul>
         </div>
       </div>
-    </div>
-
-
-
-
-
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-
-
-
-      <!-- /.container-fluid -->
-    </nav>
+    </nav> -->
+                <!-- <ul class="navbar-nav text-uppercase">
+                  <li class="nav-item"><button class="hs-mode-widget" id="mode_widget"></button></li>
+                </ul> -->
 
     <!-- Header -->
     <header class="d-flex align-items-stretch hs-header">
@@ -638,14 +612,14 @@
               <hs-card-img-header img-width="100%" img-height="260px" img-path="/assets/img/portfolio/Fannie-Mae/blueprint-card-header.jpg"></hs-card-img-header>
               <hs-card-body>
 
-                <!--  -->
-                  <div class="hs-info-table">
+                <div class="hs-card-content">
+
                     <div class="row">
                       <div class="col-md-12">
                         <h3 class="hs-body-h3">Blueprint Design System</h3>
                       </div>
                     </div>
-                    <div class="row bg-less-heavy-yellow--trans50">
+                    <div class="row hs-info-table">
                       <div class="col-md-6 pl-3">
                         <strong>Company: </strong><br>
                         Fannie Mae, Inc.
@@ -664,8 +638,9 @@
                         </p>
                       </div>
                     </div>
-                  </div>
-                <!--  -->
+
+                </div>
+
               </hs-card-body>
               <hs-card-footer color-tone="dark">
                 <div class="row m-0 d-flex w-100">
@@ -704,13 +679,13 @@
               <hs-card-body>
 
                 <!--  -->
-                  <div class="hs-info-table">
+                  <div class="hs-card-content">
                     <div class="row">
                       <div class="col-md-12">
                         <h3 class="hs-body-h3">USA Football Database Project</h3>
                       </div>
                     </div>
-                    <div class="row bg-less-heavy-yellow--trans50">
+                    <div class="row hs-info-table">
                       <div class="col-md-6 pl-3">
                         <strong>Company: </strong><br>
                         Blue Star Sports
@@ -773,13 +748,13 @@
                 ></hs-card-img-header>
               <hs-card-body>
                 <!--  -->
-                  <div class="hs-info-table">
+                  <div class="hs-card-content">
                     <div class="row">
                       <div class="col-md-12">
                         <h3 class="hs-body-h3">Youth Program, Website &amp; Game</h3>
                       </div>
                     </div>
-                    <div class="row bg-less-heavy-yellow--trans50">
+                    <div class="row hs-info-table">
                       <div class="col-md-6 pl-3">
                         <strong>Company: </strong><br>
                         BPAA, Inc.
@@ -880,12 +855,12 @@
 
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="hs-section-contact hs-section">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading">Contact Me</h2>
-            <h3 class="section-subheading hs-text-muted">Get the job done right the first time.</h3>
+            <h2 class="hs-section-heading">Contact Me</h2>
+            <h3 class="hs-section-subheading hs-text-muted mb-2">Get the job done right the first time.</h3>
           </div>
         </div>
         <div class="row">
@@ -1057,7 +1032,7 @@
             fbInitButtonText: 'Show More',
             fbOpenButtonText: 'Show Less',
             boxHeight: '100vh'
-      }
+      };
 
       // theModals.forEach(modal => {
       //   modal.addEventListener('click', (e)=>{
@@ -1098,27 +1073,27 @@
         // })
 
         // ** ====== MODE WIDHET ====== ** //
-  // var $dm_btn = $('#mode_widget')
-  // var lsGetMode = localStorage.getItem('dark_mode')
+        // var $dm_btn = $('#mode_widget')
+        // var lsGetMode = localStorage.getItem('dark_mode')
 
-  // set button text
-  // $(document).ready(()=>{
-  //   if (lsGetMode === 'fasle') {
-  //     setModeText(true)
-  //     //$dm_btn.html('<span class="which-mode">Dark Mode<span id="mode_icon" class="fa fa-moon-o mode-icon"></span></span>')
-  //   } else {
-  //     setModeText(false)
-  //     // $dm_btn.html('<span class="which-mode">Light Mode<span id="mode_icon" class="fa fa-sun-o mode-icon"></span></span>')
-  //   }
-  // })
+        // // set button text
+        // $(document).ready(()=>{
+        //   if (lsGetMode === 'fasle') {
+        //     setModeText(true)
+        //     //$dm_btn.html('<span class="which-mode">Dark Mode<span id="mode_icon" class="fa fa-moon-o mode-icon"></span></span>')
+        //   } else {
+        //     setModeText(false)
+        //     // $dm_btn.html('<span class="which-mode">Light Mode<span id="mode_icon" class="fa fa-sun-o mode-icon"></span></span>')
+        //   }
+        // })
 
-  // function setModeText(mode) {
-  //   if (mode === 'true') {
-  //     $dm_btn.html('<span class="which-mode"> Dark Mode<span id="mode_icon" class="fa fa-moon-o mode-icon"></span><span class="tiny-text">Enabled</span></span>')
-  //   } else {
-  //     $dm_btn.html('<span class="which-mode"> Light Mode<span id="mode_icon" class="fa fa-sun-o mode-icon"></span><span class="tiny-text">Enabled</span></span>')
-  //   }
-  // }
+        // function setModeText(mode) {
+        //   if (mode === 'true') {
+        //     $dm_btn.html('<span class="which-mode"> Dark Mode<span id="mode_icon" class="fa fa-moon-o mode-icon"></span><span class="tiny-text">Enabled</span></span>')
+        //   } else {
+        //     $dm_btn.html('<span class="which-mode"> Light Mode<span id="mode_icon" class="fa fa-sun-o mode-icon"></span><span class="tiny-text">Enabled</span></span>')
+        //   }
+        // }
 
   // function setMode(mode) {
   //       localStorage.setItem('dark_mode', `${mode}`)
@@ -1148,8 +1123,6 @@
 
 
     </script>
-    <script id="__bs_script__">//<![CDATA[
-    document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.26.7'><\/script>".replace("HOST", location.hostname));//]]></script>
   </body>
 
 </html>

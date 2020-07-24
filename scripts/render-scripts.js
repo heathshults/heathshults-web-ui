@@ -17,54 +17,44 @@ var outPath = path.resolve(__dirname, '../www/assets/js/')
 const { exec } = require('child_process');
 
 function HeathenScriptJS(jsdest) {
-  outPath = path.resolve(__dirname, jsdest);
 
-  if (!jsdest) {
-    return
-
-  } else {
-    var go = () => {
-      console.log(chalk.blue('starting up heathenScriptJS'));
-      makeDirectory(outPath)
-      .then(processJS(outFile))
-    }
+  console.log(chalk.blue('checking directories...'));
+  if (jsdest) {
+    outPath = path.resolve(__dirname, jsdest);
   }
+  makeDirectory(outPath)
+    .then(processJS(inFile))
 
-  /**
+    /**
    * create js directory if not exist
    *
    * @param {*} path  string
    */
-  console.log(chalk.blue(`outPath: ${outPath}`))
   // makeDirectory(outPath)
   function makeDirectory(path, cb) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         try {
-          if (typeof outPath !== 'undefined') {
-
-            console.log(chalk.blue(`makeDirectory() is creating: ${path}`))
-
-            nfs.mkdir(path, 0777, true, function (err) {
-
-              if (err) {
-                console.log(chalk.red(`makeDirectory() Error: ${err}`));
-                return `Error making path: ${err}`
-
-              } else {
-                console.log(chalk.green(`Created path: ${outPath}`));
-              }
-              return
-            });
-            return true
+          fs.mkdirSync(path);
+          resolve(true)
+        } catch (err) {
+          if (err.code === 'EEXIST') { // curDir already exists!
+            console.log(chalk.red('path exists'))
+            return path;
           }
-          resolve(cb)
-        } catch (error) {
-          console.log(chalk.red(`Error in makeDirectory(): ${error}`))
-          reject()
+          // To avoid `EISDIR` error on Mac and `EACCES`-->`ENOENT` and `EPERM` on Windows.
+          if (err.code === 'ENOENT') { // Throw the original parentDir error on curDir `ENOENT` failure.
+            throw new Error(`EACCES: permission denied, mkdir '${path}'`);
+          }
+
+          const caughtErr = ['EACCES', 'EPERM', 'EISDIR'].indexOf(err.code) > -1;
+          if (!caughtErr || caughtErr && path === path.resolve(path)) {
+            throw err; // Throw if it's just the last created dir.
+          }
+          reject(false)
         }
       }, 2000)
-
+      return processJS(outFile)
     })
   }
 

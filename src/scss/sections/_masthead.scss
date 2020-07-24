@@ -42,7 +42,8 @@ header.masthead,
     font-weight: 700;
     line-height: 3.25rem;
     text-align: center;
-    text-shadow: $hs-text-shadow-light-spread;
+    // text-shadow: $hs-text-shadow-light-spread;
+    text-shadow: rgba(0, 0, 0, 1) 0px 0px 15px, rgba(0, 0, 0, 1) 0px 0px 10px;
     white-space: nowrap;
   }
   // .js-scroll-trigger {
@@ -78,18 +79,20 @@ header.masthead,
 
       .masthead-subheading,
       .hs-intro-lead-in {
+        margin-bottom: 2rem;
         font-size: 2.25rem;
         font-style: italic;
         line-height: 2.25rem;
-        margin-bottom: 2rem;
+        text-shadow: rgba(0, 0, 0, 1) 0px 0px 15px, rgba(0, 0, 0, 1) 0px 0px 10px;
       }
 
       .masthead-heading,
       .hs-intro-heading {
+        margin-bottom: 4rem;
         font-size: 4.5rem;
         font-weight: 700;
         line-height: 4.5rem;
-        margin-bottom: 4rem;
+        text-shadow: rgba(0, 0, 0, 1) 0px 0px 15px, rgba(0, 0, 0, 1) 0px 0px 10px;
       }
     }
   }
