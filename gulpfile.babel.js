@@ -403,36 +403,63 @@ function copy_dev(cb) {
 }
 exports.copy_dev = copy_dev
 
+function serve(cb) {
+  return new Promise((resolve, reject) => {
+    try {
+      setTimeout(() => {
+        // connect.server({base: 'www/'}, function (){
+        browserSync.init({
+          // proxy: '127.0.0.1:8000',
+          server: {
+            baseDir: `${wwwPath}`,
+            open: 'true',
+            watch: true,
+            notify: false,
+            injectChanges: true
+          }
+        })
+        resolve()
+      },2000 )
+    }
+    catch(e) {
+      console.log('Error in browsersync: '+e)
+      reject()
+    }
+  })
+    // })
+}
+exports.serve = serve
 
 function watchers(cb) {
-  // connect.server({base: 'www/'}, function (){
-    browserSync.init({
-      // proxy: '127.0.0.1:8000',
-      server: {
-        baseDir: `${wwwPath}`,
-        open: 'true',
-        watch: true,
-        notify: false,
-        injectChanges: true
-      }
-    })
+  return new Promise((resolve, reject) => {
+    try {
+      setTimeout(() => {
+        // eslint-disable-next-line no-sequences
+        watch(`${srcPath}/*.ejs`, ejsit), cb()
+        watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_img), cb()
+        watch([`${srcPath}/scss/**/*.scss`], compileCSS), cb()
+        watch([`${srcPath}/assets/**/*.css`], ra.copy_css), cb()
+        watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], ra.copy_js), cb()
+        watch([`${srcPath}/assets/js/HeathScript.js`], renderJS), cb()
+        // watch(`${srcPath}/components/**/*.{js,json,html,css}`, copy_components), cb()
+        resolve(cb)
+      },2000 )
+    }
+    catch(e) {
+      console.log('Error in watchers: '+e)
+      reject()
+    }
 
-  // })
-  , cb()
+    // })
 
-  // eslint-disable-next-line no-sequences
-  watch(`${srcPath}/*.ejs`, ejsit), cb()
-  watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_img), cb()
-  watch([`${srcPath}/scss/**/*.scss`], compileCSS), cb()
-  watch([`${srcPath}/assets/**/*.css`], ra.copy_css), cb()
-  watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], ra.copy_js), cb()
-  watch([`${srcPath}/assets/js/HeathScript.js`], renderJS), cb()
-  // watch(`${srcPath}/components/**/*.{js,json,html,css}`, copy_components), cb()
+
+    if (typeof cb === 'function') {cb()}
+  })
 }
 exports.watchers = watchers
 
 // Configure the browserSync task
-function serve(cb) {
+function serveSync(cb) {
     browserSync.init({
         server: {
             baseDir: `${wwwPath}`
@@ -443,7 +470,7 @@ if (typeof cb === 'function') {
     called = true;
   }
 }
-exports.serve = serve
+exports.serveSync = serveSync
 
 function connect_sync(cb) {
 

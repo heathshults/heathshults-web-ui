@@ -9,27 +9,36 @@ var open = require('open')
 var srcPath = path.resolve('../', 'src')
 var wwwPath =  path.resolve('../', 'www')
 
-function connect_sync() {
-  connect.server({base: wwwPath, port: 8800}, function (){
-    browserSync({
-      proxy: '127.0.0.1:8800',
-      port: 3000
-    });
-  });
+function phpSyncServer(cb) {
+  return new Promise((resolve, reject) => {
+    try {
+      setTimeout(() => {
+        connect.server({base: wwwPath, port: 8800}, function (){
+          browserSync({
+            proxy: '127.0.0.1:8800',
+            port: 3000
+          });
+        });
 
 
-  watch(`${srcPath}/**/*`).on('change', function () {
-    browserSync.reload()
-  });
+        watch(`${srcPath}/**/*`).on('change', function () {
+          browserSync.reload()
+        });
+        watch(`${srcPath}/**/*.php`).on('change', function () {
+          browserSync.reload();
+        });
+        () =>  open('http://localhost:3000') ;
+        resolve(cb)
+      }, 4000)
 
-  // watch(`${srcPath}/**/*.php`).on('change', function () {
-  //   browserSync.reload();
-  // });
 
-  (async () => {
-    open('http://localhost:3000')
-  })();
-
+    }
+    catch(e) {
+      console.log('Error in browsersync task: '+e)
+      reject(cb)
+    }
+  })
 }
-exports.connect_sync = connect_sync
-connect_sync()
+
+exports.phpSyncServer = phpSyncServer
+phpSyncServer()

@@ -10676,7 +10676,7 @@ header.masthead .hs-intro-text .hs-intro-heading,
 section#contact, hs-section-contact {
   min-height: 530px;
   background-color: #614d35;
-  background-image: url("../../assets/img/bg/western-bg.png");
+  background-image: url("../../assets/img/bg/dtown.jpg");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position-x: center;
@@ -11247,6 +11247,11 @@ img::selection {
 }
 .navbar .container {
   display: inline-flex;
+}
+
+.form-control {
+  background-color: rgba(255, 255, 255, 0.65);
+  border: 2px solid #fff;
 }
 
 /*# sourceMappingURL=HeathStyle.built.css.map */
