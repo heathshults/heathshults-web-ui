@@ -33,7 +33,7 @@
     "gejs": "gulp ejsit",
     "test": "jest --no-cache",
     "test.watch": "jest --watch --no-cache",
-    "start": "npm-run-all --parallel build:assets gejs build:scss build:scripts  --sequential serve gwatch",
+    "start": "npm-run-all --parallel build:assets gejs build:scss build:scripts  --sequential gwatch",
     "start:debug": "npm run build && node scripts/start-debug.js"
   },
   "description": "Heath Shults - a coder - a thinker and a father.",

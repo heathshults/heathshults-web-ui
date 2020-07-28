@@ -20,7 +20,7 @@ var onError = (err) => {
   this.emit('end')
 }
 
-function runAssetsPromises() {
+function runAssetsPromises(cb) {
   console.log('running sequential with promises.')
   copy_assets_content('first')
     .then(copy_css)
@@ -28,6 +28,7 @@ function runAssetsPromises() {
     .then(copy_mail)
     .then(copy_vendor)
     .then(copy_js)
+    if (typeof cb === 'function') cb()
 }
 exports.runAssetsPromises = runAssetsPromises
 // runPromises()
@@ -46,8 +47,8 @@ function copy_assets_content(cb) {
       console.log(chalk.green('Finished: copy_assets_content()'))
       resolve(cb)
     } catch (error) {
-      console.log(chalk.red('Error in copy_assets_content(): ' + error))
-      reject()
+
+      reject(console.log(chalk.red('Error in copy_assets_content(): ' + error)))
     }
   })
 }
@@ -87,29 +88,29 @@ function copy_images(cb) {
         .pipe(changed(`${wwwPath}/img`))
         .pipe(ngAnnotate())
         .pipe(dest(`${wwwPath}/img`))
-        .pipe(debug({
-          title: 'Copied images: '
-        }))
-        .pipe(dest(`${wwwPath}/img/portfolio`))
-        .pipe(debug({
-          title: 'Copied images: '
-        }));
+        // .pipe(debug({
+        //   title: 'Copied images: '
+        // }))
+        // .pipe(dest(`${wwwPath}/img/portfolio`))
+        // .pipe(debug({
+        //   title: 'Copied images: '
+        // }));
 
-      src(`${srcPath}/img/portfolio/**/*.{png,jpg,gif,svg}`)
-        .pipe(changed(`${wwwPath}/img/portfolio`))
-        .pipe(ngAnnotate())
-        .pipe(dest(`${wwwPath}/img/portfolio`))
-        .pipe(debug({
-          title: 'Copied images: '
-        }));
+      // src(`${srcPath}/img/portfolio/**/*.{png,jpg,gif,svg}`)
+      //   .pipe(changed(`${wwwPath}/img/portfolio`))
+      //   .pipe(ngAnnotate())
+      //   .pipe(dest(`${wwwPath}/img/portfolio`))
+      //   .pipe(debug({
+      //     title: 'Copied images: '
+      //   }));
       // if (typeof cb === 'function') {
       //   cb()
       // }
       console.log(chalk.green('copy_img() complete!'))
       resolve(cb)
     } catch (error) {
-      console.log(chalk.red('Error in copy_assets_content(): ' + error))
-      reject()
+      console.error(chalk.red('Error in copy_assets_content(): ' + error))
+      reject('Rejected copy_assets_content(): '+error)
     }
   })
 }
@@ -134,8 +135,8 @@ function copy_mail(cb) {
         resolve(cb)
       }, 2000)
     } catch (error) {
-      console.log(chalk.red('Error in copy_assets_content(): ' + error))
-      reject()
+      console.error(chalk.red('Error in copy_assets_content(): ' + error))
+      reject(`Rejected copy_assets_content(): ${error}`)
     }
   })
 }
@@ -159,7 +160,7 @@ function copy_vendor(cb) {
           .pipe(changed(`${wwwPath}/assets/vendor/bootstrap`))
           .pipe(ngAnnotate())
           .pipe(debug({
-            title: 'copied'
+            title: 'Copied bootstrap'
           }))
           .pipe(dest(`${wwwPath}/assets/vendor/bootstrap`))
 
@@ -167,7 +168,7 @@ function copy_vendor(cb) {
           .pipe(changed(`${wwwPath}/assets/vendor/jquery`))
           .pipe(ngAnnotate())
           .pipe(debug({
-            title: 'copied'
+            title: 'Copied jquery'
           }))
           .pipe(dest(`${wwwPath}/assets/vendor/jquery`))
 
@@ -182,16 +183,16 @@ function copy_vendor(cb) {
           .pipe(changed(`${wwwPath}/assets/vendor/font-awesome`))
           .pipe(ngAnnotate())
           .pipe(debug({
-            title: 'copied'
+            title: 'Copied font-awesome'
           }))
           .pipe(dest(`${wwwPath}/assets/vendor/font-awesome`))
 
         console.log(chalk.green('copy_vendor() complete!'))
         resolve(cb)
       }, 2000)
-    } catch (error) {
-      console.log(chalk.red('Error in copy_assets_content(): ' + error))
-      reject(cb)
+    } catch(error) {
+      console.error(chalk.red('Error in copy_assets_content(): ' + error))
+      reject('Rejected copy_assets_content(): ' + error)
     }
   })
 }
@@ -209,26 +210,26 @@ function copy_js(cb) {
     try {
       setTimeout(() => {
         src([
-            `${srcJS}/**/*`,
-            `!${srcJS}/scripts.js`,
-            `!${srcJS}/jqBootstrapValidation.js`,
-            `!${srcJS}/contact_me.js`,
-            `!${srcJS}/HeathScript.js`
-          ])
-          .pipe(changed(`${wwwPath}/js`))
-          .pipe(ngAnnotate())
+          `${srcJS}/**/*`,
+          `!${srcJS}/scripts.js`,
+          `!${srcJS}/jqBootstrapValidation.js`,
+          `!${srcJS}/contact_me.js`,
+          `!${srcJS}/HeathScript.js`,
+          `!${srcJS}/modules/**/*`
+        ])
+
           .pipe(dest(`${wwwPath}/js`))
           .pipe(debug({
             title: 'Copied JS: '
           }))
-        // if (typeof cb === 'function') {
-        //   cb()
-        // }
+        if (typeof cb === 'function') {
+          cb()
+        }
         resolve(cb)
       }, 2000)
-    } catch (error) {
-      console.log(chalk.red('Error in copy_assets_content(): ' + error))
-      reject()
+    } catch(error) {
+      console.log(chalk.red('Error in copy_js(): ' + error))
+      reject('Rejected copy_js(): ' + error)
     }
   })
 }
