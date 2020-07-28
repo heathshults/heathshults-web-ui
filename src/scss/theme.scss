@@ -442,18 +442,22 @@ img::-moz-selection {
 img::selection {
   background: transparent;
 }
-.hs-card-content {
-  padding: .5rem;
-  font-size: .9rem;
-  background: $white;
-  border: 2px solid transparent;
-}
-.hs-info-table {
-  padding: .5rem;
-  font-size: .75rem;
-  background: $hs-theme-primary--trans50;
-  border: 2px solid $hs-theme-primary;
-  opacity: .8;
+hs-card-body {
+  .hs-card-content {
+    padding: .5rem;
+    font-size: .9rem;
+    text-align: left;
+    background: $white;
+    border: 2px solid transparent;
+
+    .hs-info-table {
+      padding: .5rem;
+      font-size: .75rem;
+      background: $hs-theme-primary--trans50;
+      border: 2px solid $hs-theme-primary;
+      opacity: .8;
+    }
+  }
 }
 .hs-brand-symbol {
   padding-bottom: 10px;
