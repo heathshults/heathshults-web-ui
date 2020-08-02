@@ -6,7 +6,7 @@ const rename = require('gulp-rename')
 const debug = require('gulp-debug')
 const log = require('fancy-log')
 
-const srcPath = path.resolve(__dirname, '../src')
+const srcPath = path.resolve(__dirname, '../src/views')
 const wwwPath =  path.resolve(__dirname, '../www')
 
 function ejsit() {
@@ -19,4 +19,4 @@ function ejsit() {
   return
 }
 exports.ejsit = ejsit
-// ejsit()
+ejsit()

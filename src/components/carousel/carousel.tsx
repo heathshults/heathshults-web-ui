@@ -165,7 +165,7 @@ export class HSCarousel {
   getCarouselPointers(count: number) {
     let pointers = [];
     for(let k = 0; k<count; k++){
-      pointers.push(<div class={cls(`carousel-pagination-pointer pointer_${k}`, {active: this.current === k})}/>);
+      pointers.push(<div class={cls(`hs-carousel-pagination-pointer pointer_${k}`, {active: this.current === k})}/>);
     }
     return pointers;
   }
@@ -174,12 +174,12 @@ export class HSCarousel {
     let thumbs = [];
     for(let i = 0; i<count; i++){
       thumbs.push(
-        <div class={cls(`thumb thumb_${i}`, {active: this.current === i})}>
-          <a class="thumb-link" href="#" data-slideto={i} onClick={e => {
+        <div class={cls(`hs-thumb thumb_${i}`, {active: this.current === i})}>
+          <a class="hs-thumb-link" href="#" data-slideto={i} onClick={e => {
             e.preventDefault();
             this.slideTo(i);
           }}>
-            <img class="thumb-image" src={this.slides[i].dataset.thumb} />
+            <img class="hs-thumb-image" src={this.slides[i].dataset.thumb} />
           </a>
         </div>
       );
@@ -211,15 +211,15 @@ export class HSCarousel {
           <slot />
         </div>
       </div>,
-      this.showPointers && <div class={cls('carousel-pagination', {'carousel-pagination__above': this.showThumbnails,})}>
+      this.showPointers && <div class={cls('hs-carousel-pagination', {'carousel-pagination__above': this.showThumbnails,})}>
         {this.getCarouselPointers(this.slideCount)}
       </div>,
-      this.showThumbnails && <div class="thumbs">
+      this.showThumbnails && <div class="hs-thumbs">
         {this.getThumbs(this.slideCount)}
       </div>,
-      this.showButtons && <div class="carousel-buttons">
-        <a href="" class="next carousel-arrow" onClick={this.goToNext}></a>
-        <a href="" class="prev carousel-arrow" onClick={this.goToPrevious}></a>
+      this.showButtons && <div class="hs-carousel-buttons">
+        <a href="" class="hs-next hs-carousel-arrow" onClick={this.goToNext}></a>
+        <a href="" class="hs-prev hs-carousel-arrow" onClick={this.goToPrevious}></a>
       </div>
     ];
     return html;
