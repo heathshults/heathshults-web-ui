@@ -17,7 +17,12 @@ export const config: Config = {
     {
       type: 'www',
       serviceWorker: null // disable service workers
-    }//,
+    },
+    {
+      type: 'www',
+      copy: [
+        { src: 'www/build/', dest: 'www/assets/js/hs-components' }
+     //,
     // {
     //   type: 'www',
     //   copy: [

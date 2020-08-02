@@ -165,7 +165,7 @@ let assets = '{jpg,png,gif,svg,mp4}'
 //#endregion
 
 function ejsit(done) {
-  return src(`${srcPath}/*.ejs`)
+  return src(`${srcPath}/views/**/*.ejs`)
     .pipe(plumber())
     .pipe(ejs().on('error', log))
     .pipe(rename({ extname: ".html" }))

@@ -10193,6 +10193,7 @@ h3 {
 
 .hs-slide {
   min-width: 100%;
+  max-width: 100%;
   overflow: hidden;
 }
 .hs-slide > img {
@@ -10206,7 +10207,7 @@ h3 {
   height: 100%;
 }
 
-.carousel-pagination {
+.hs-carousel-pagination {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -10219,22 +10220,22 @@ h3 {
   height: 35px;
 }
 
-.carousel-pagination-pointer {
+.hs-carousel-pagination-pointer {
   width: 5px;
   height: 5px;
   margin-right: 6px;
   border: 1px solid #bbb;
   border-radius: 100%;
 }
-.carousel-pagination-pointer.active {
+.hs-carousel-pagination-pointer.active {
   background: #bbb;
 }
 
-.carousel-pagination__above {
+.hs-carousel-pagination__above {
   bottom: 85px;
 }
 
-.thumbs {
+.hs-thumbs {
   position: absolute;
   bottom: 50px;
   left: 0;
@@ -10247,7 +10248,7 @@ h3 {
   height: 35px;
 }
 
-.thumb {
+.hs-thumb {
   width: 70px;
   height: 70px;
   margin-right: 10px;
@@ -10256,16 +10257,16 @@ h3 {
   opacity: 0.4;
   transition: opacity 0.3s;
 }
-.thumb .thumb-image {
+.hs-thumb .hs-thumb-image {
   max-width: 100%;
 }
-.thumb.active {
+.hs-thumb.active {
   background: #bbb;
   border-color: #bbb;
   opacity: 1;
 }
 
-.carousel-buttons {
+.hs-carousel-buttons {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -10278,22 +10279,22 @@ h3 {
   height: 35px;
 }
 
-.carousel-arrow {
+.hs-carousel-arrow {
   position: absolute;
   font-size: 22px;
 }
 
-.next {
+.hs-next {
   right: 10px;
 }
-.next::before {
+.hs-next::before {
   content: "⇢";
 }
 
-.prev {
+.hs-prev {
   left: 10px;
 }
-.prev::before {
+.hs-prev::before {
   content: "⇠";
 }
 
