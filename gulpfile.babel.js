@@ -446,7 +446,7 @@ function watchers(cb) {
         })
         // eslint-disable-next-line no-sequences
         var callback = ()=>{if (typeof cb === 'function') {cb()}}
-        watch(`${srcPath}/*.ejs`, ejsit), callback
+        watch(`${srcPath}/views/*.ejs`, ejsit), callback
         watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_img), callback
         watch([`${srcPath}/scss/**/*.scss`], compileCSS), callback
         watch([`${srcPath}/assets/**/*.css`], ra.copy_css), callback
