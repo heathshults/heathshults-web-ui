@@ -10,8 +10,8 @@
     <meta name="author" content="">
 
     <title>Heath Shults - Web Developer+</title>
-    <script type="module" src="/assets/js/hs-components/build/heathenscript-ui-components.esm.js"></script>
-    <script nomodule src="/assets/js/hs-components/heathenscript-ui-components.js"></script>
+    <script type="module" src="/assets/js/heathenscript-ui-components/heathenscript-ui-components.esm.js"></script>
+    <script nomodule src="/assets/js/heathenscript-ui-components/heathenscript-ui-components.js"></script>
 
     <!-- Bootstrap Core CSS -->
     <!-- <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
@@ -25,7 +25,7 @@
 
     <!-- Theme CSS -->
     <link href="/assets/css/HeathStyle.built.css" rel="stylesheet">
-    <link disabled id="darkmode" rel="stylesheet" href="/assets/css/theme-dark-mode.built.css">
+    <link disabled id="darkmode" rel="stylesheet" href="/assets/css/theme-dark-mode.css">
 
     <script>
        var lsGetMode = localStorage.getItem('dark_mode')
@@ -35,11 +35,50 @@
         // document.querySelector('link[href="css/theme-dark-mode.css"]').disabled = false;
       }
     </script>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link href="/assets/css/swiper.css" rel="stylesheet">
+    <!-- https://swiperjs.com/demos/#centered_slides -->
+      <!-- Demo styles -->
+      <style>
+        html,
+        body {
+          position: relative;
+          height: 100%;
+        }
+
+        /* body {
+          background: #eee;
+          font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+          font-size: 14px;
+          color: #000;
+          margin: 0;
+          padding: 0;
+        } */
+
+        .swiper-container {
+          width: 100%;
+          height: 100%;
+        }
+
+        .swiper-slide {
+          text-align: center;
+          font-size: 18px;
+          background: #fff;
+
+          /* Center slide text vertically */
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          -webkit-justify-content: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          -webkit-align-items: center;
+          align-items: center;
+        }
+      </style>
   </head>
 
   <body id="page-top" class="index">
@@ -87,11 +126,13 @@
         </div>
       </div>
     </header>
+
+
     <section class="hs-section" style="min-height: 600px;">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center text-color--white">
-            <h2 class="hs-section-heading">HS-CAROUSEL</h2>
+            <h2 class="hs-section-heading">HS-FLIPPER</h2>
             <h3 class="hs-section-subheading"><strong class="font-bold-regular">simple & simple</strong></h3>
           </div>
         </div>
@@ -102,15 +143,7 @@
         <div class="row text-center hs-card__row mt-4">
           <!-- Carousel 01 -->
           <div class="col-md-12">
-            <hs-flipper flip-events="click" flip-back-events="click" flip-duration="350"
-              flip-timing-function="ease-in-out">
-              <div slot="front">
-                <img src="https://i.imgur.com/fSZVrxp.png">
-              </div>
-              <div slot="back">
-                <img src="https://i.imgur.com/lAx4qDA.png">
-              </div>
-            </hs-flipper>
+            flipper
           </div>
         </div>
       </div>
@@ -135,20 +168,37 @@ spacer here....
         <div class="row text-center hs-card__row mt-4">
           <!-- Carousel 01 -->
           <div class="col-md-12">
-            <hs-carousel auto-play="false" show-buttons="true" show-thumbnails="true">
-              <div class="hs-slide" data-thumb="https://pa.namshicdn.com/product/68/8181/1-cart.jpg">
-                <img src="https://pa.namshicdn.com/product/68/8181/1-zoom.jpg">
-              </div>
-              <div class="hs-slide" data-thumb="https://pa.namshicdn.com/product/68/8181/2-cart.jpg">
-                <img src="https://pa.namshicdn.com/product/68/8181/2-zoom.jpg">
-              </div>
-              <div class="hs-slide" data-thumb="https://pa.namshicdn.com/product/68/8181/3-cart.jpg">
-                <img src="https://pa.namshicdn.com/product/68/8181/3-zoom.jpg">
-              </div>
-              <div class="hs-slide" data-thumb="https://pa.namshicdn.com/product/68/8181/4-cart.jpg">
-                <img src="https://pa.namshicdn.com/product/68/8181/4-zoom.jpg">
-              </div>
-            </hs-carousel>
+
+             <!-- Swiper -->
+             <div class="swiper-container">
+               <div class="swiper-wrapper">
+                 <div class="swiper-slide">Slide 1</div>
+                 <div class="swiper-slide">Slide 2</div>
+                 <div class="swiper-slide">Slide 3</div>
+                 <div class="swiper-slide">Slide 4</div>
+                 <div class="swiper-slide">Slide 5</div>
+                 <div class="swiper-slide">Slide 6</div>
+                 <div class="swiper-slide">Slide 7</div>
+                 <div class="swiper-slide">Slide 8</div>
+                 <div class="swiper-slide">Slide 9</div>
+                 <div class="swiper-slide">Slide 10</div>
+               </div>
+               <!-- Add Pagination -->
+               <div class="swiper-pagination"></div>
+             </div>
+             <script src="assets/js/swiper.js"></script>
+             <script>
+               var swiper = new Swiper('.swiper-container', {
+                 slidesPerView: 4,
+                 spaceBetween: 30,
+                 centeredSlides: true,
+                 pagination: {
+                   el: '.swiper-pagination',
+                   clickable: true,
+                 },
+               });
+             </script>
+
           </div>
         </div>
       </div>
