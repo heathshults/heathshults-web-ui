@@ -10,8 +10,8 @@
     <meta name="author" content="">
 
     <title>Heath Shults - Web Developer+</title>
-    <script type="module" src="/assets/js/heathenscript-ui-components/heathenscript-ui-components.esm.js"></script>
-    <script nomodule src=/assets/js/heathenscript-ui-components/heathenscript-ui-components.js"> </script>
+    <script type="module" src="/build/heathenscript-ui-components.esm.js"></script>
+    <script nomodule src=/build/heathenscript-ui-components.js"> </script>
 
     <!-- Bootstrap Core CSS -->
     <!-- <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
@@ -608,6 +608,7 @@
         </div>
         <div class="row mt-5">
           <div class="col-md-4 col-sm-6 hs-portfolio-item">
+
             <hs-card color-tone="light">
               <hs-card-img-header img-width="100%" img-height="260px" img-path="/assets/img/portfolio/Fannie-Mae/blueprint-card-header.jpg"></hs-card-img-header>
               <hs-card-body>
@@ -619,6 +620,9 @@
                         <h3 class="hs-body-h3">Blueprint Design System</h3>
                       </div>
                     </div>
+
+
+                    <div class="collapse" id="blueprintDS">
                     <div class="row hs-info-table">
                       <div class="col-md-6 pl-3">
                         <strong>Company: </strong><br>
@@ -638,7 +642,12 @@
                         </p>
                       </div>
                     </div>
-
+                    </div>
+                    <div class="text-center">
+                      <button class="hs-btn-showmore" type="button" data-toggle="collapse" data-target="#blueprintDS"
+                        aria-expanded="false" aria-controls="#blueprintDS">
+                        Show more
+                      </button></div>
                 </div>
 
               </hs-card-body>
@@ -991,15 +1000,7 @@
     </hs-modal>
 
 
-    <script>
-      function showModal(modal) {
-        document.querySelector(modal).show();
-      }
 
-      function closeModal(modal) {
-        document.querySelector(modal).close();
-      }
-    </script>
 
     <!-- jQuery  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
@@ -1019,6 +1020,41 @@
     <!-- <script src="hScript.bundle.js"></script> -->
 
     <script>
+      function showModal(modal) {
+        document.querySelector(modal).show();
+      }
+
+      function closeModal(modal) {
+        document.querySelector(modal).close();
+      }
+      $(document).ready(()=> {
+        $(".hs-btn-showmore").text('show more')
+
+
+
+        $(".hs-btn-showmore").click(function () {
+          var targetID = $(this).attr('data-target')
+          $(targetID).slideToggle('slow')
+
+          $(this).text(function(i, v){
+            return v === 'show more' ? 'show less' : 'show more'
+          })
+        });
+      })
+      // toggle card content
+      // $(document).ready(()=> {
+      //   $('.hs-btn-showmore').on('click', function (event, callback) {
+      //     var targetID = $(this).attr('data-target')
+      //     $(targetID).slideToggle('slow')
+
+      //     $(this).text(function(i, v){
+      //     return v === 'show more' ? 'show less' : 'show more!'
+      //     })
+      //   });
+
+      // });
+    </script>
+    <script>
       //  onclick="javascript:showModal('#modBowlopolis');"
       // // ====== RANKING BARS
       var theBars = document.querySelectorAll('.hs-ranking-bar')
@@ -1031,7 +1067,7 @@
       let ShowMoreSettings =  {
             fbInitButtonText: 'Show More',
             fbOpenButtonText: 'Show Less',
-            boxHeight: '100vh'
+            boxHeight: '0px'
       };
 
       // theModals.forEach(modal => {

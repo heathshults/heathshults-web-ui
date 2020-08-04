@@ -503,7 +503,7 @@ $card-item-accordion-control-background-color: map-get($colors, grey-background)
 $card-item-accordion-control-color: map-get($colors, $text-color) !default;
 
 $card-img-header-width: 100% !default;
-$card-img-header-height: 260px !default;
+$card-img-header-height: 100% !default;
 //
 // Dividers
 //

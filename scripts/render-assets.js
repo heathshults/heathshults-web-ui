@@ -60,21 +60,22 @@ function copy_css(cb) {
     try {
       setTimeout(() => {
         src(`${srcPath}/css/**/*`)
-          .pipe(changed(`${wwwPath}/css`))
-          .pipe(ngAnnotate())
+        .pipe(plumber(error => onError(error)))
+          // .pipe(changed(`${wwwPath}/css`))
+          // .pipe(ngAnnotate())
           .pipe(dest(`${wwwPath}/css`))
-          .pipe(debug({
-            title: 'Copied css: '
-          }))
-        // if (typeof cb === 'function') {
-        //   cb()
-        // }
+          // .pipe(debug({
+          //   title: 'Copied css: '
+          // }))
+        // if (typeof cb === 'function') {cb()}
+        //
+        //
         console.log(chalk.green('copy_css() complete!'))
         resolve(cb)
       }, 2000)
     } catch (error) {
       console.log(chalk.red('Error in copy_assets_content(): ' + error))
-      reject()
+      reject(()=>{ if (typeof cb === 'function') {cb()} })
     }
   })
 }

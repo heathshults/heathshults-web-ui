@@ -7,14 +7,14 @@ import { Component, Element, Prop, Event, EventEmitter, Listen, h } from '@stenc
 })
 export class HSCardImgHeader {
   @Element() imgHeaderEl: HTMLDivElement;
-  
+
 
   @Prop() cardHeader: any;
   @Prop() overlay: HTMLLinkElement;
   @Prop() imgElem: any;
   @Prop() imgPath: string;
   @Prop() imgWidth?: string = '100%';
-  @Prop() imgHeight?: string = '260px';
+  @Prop() imgHeight?: string = '100%';
   @Prop() clickTarget?: string;
 
   modalLancher: EventEmitter;
@@ -28,11 +28,11 @@ export class HSCardImgHeader {
     // showModal(`#${this.clickTarget}`)
     //@ts-ignore: does not exist on type
     this.clickTarget ? document.querySelector(target).show() : alert('no target parameter')
-    
+
   }
 
   componentWillLoad() {
-   
+
   }
 
 
