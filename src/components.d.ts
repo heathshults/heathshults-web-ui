@@ -7,6 +7,8 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface HsCard {
+        "cardHeight": string;
+        "cardWidth": string;
         "colorTone": string;
     }
     interface HsCardBody {
@@ -25,27 +27,6 @@ export namespace Components {
         "imgPath": string;
         "imgWidth"?: string;
         "overlay": HTMLLinkElement;
-    }
-    interface HsCarousel {
-        "autoPlay": boolean;
-        "autoPlayTimer": number;
-        "childsClassName": string;
-        "directory": string;
-        "infinite": boolean;
-        "itemsPerSlide": number;
-        "setPan": (enabled: boolean) => Promise<void>;
-        "showButtons": boolean;
-        "showPointers": boolean;
-        "showThumbnails": boolean;
-        "slideTo": (n: number) => Promise<void>;
-        "threshold": number;
-        "timing": number;
-    }
-    interface HsCarouselItem {
-        "active": boolean;
-        "disabled": boolean;
-        "header": string;
-        "type": string;
     }
     interface HsFlipper {
         "flipperBackEvents": string;
@@ -139,18 +120,6 @@ declare global {
         prototype: HTMLHsCardImgHeaderElement;
         new (): HTMLHsCardImgHeaderElement;
     };
-    interface HTMLHsCarouselElement extends Components.HsCarousel, HTMLStencilElement {
-    }
-    var HTMLHsCarouselElement: {
-        prototype: HTMLHsCarouselElement;
-        new (): HTMLHsCarouselElement;
-    };
-    interface HTMLHsCarouselItemElement extends Components.HsCarouselItem, HTMLStencilElement {
-    }
-    var HTMLHsCarouselItemElement: {
-        prototype: HTMLHsCarouselItemElement;
-        new (): HTMLHsCarouselItemElement;
-    };
     interface HTMLHsFlipperElement extends Components.HsFlipper, HTMLStencilElement {
     }
     var HTMLHsFlipperElement: {
@@ -229,8 +198,6 @@ declare global {
         "hs-card-footer": HTMLHsCardFooterElement;
         "hs-card-header": HTMLHsCardHeaderElement;
         "hs-card-img-header": HTMLHsCardImgHeaderElement;
-        "hs-carousel": HTMLHsCarouselElement;
-        "hs-carousel-item": HTMLHsCarouselItemElement;
         "hs-flipper": HTMLHsFlipperElement;
         "hs-media-body": HTMLHsMediaBodyElement;
         "hs-media-image": HTMLHsMediaImageElement;
@@ -247,6 +214,8 @@ declare global {
 }
 declare namespace LocalJSX {
     interface HsCard {
+        "cardHeight"?: string;
+        "cardWidth"?: string;
         "colorTone"?: string;
     }
     interface HsCardBody {
@@ -266,27 +235,6 @@ declare namespace LocalJSX {
         "imgWidth"?: string;
         "onLaunchModal"?: (event: CustomEvent<any>) => void;
         "overlay"?: HTMLLinkElement;
-    }
-    interface HsCarousel {
-        "autoPlay"?: boolean;
-        "autoPlayTimer"?: number;
-        "childsClassName"?: string;
-        "directory"?: string;
-        "infinite"?: boolean;
-        "itemsPerSlide"?: number;
-        "onAfterCarouselInit"?: (event: CustomEvent<any>) => void;
-        "onAfterCarouselItem"?: (event: CustomEvent<any>) => void;
-        "showButtons"?: boolean;
-        "showPointers"?: boolean;
-        "showThumbnails"?: boolean;
-        "threshold"?: number;
-        "timing"?: number;
-    }
-    interface HsCarouselItem {
-        "active"?: boolean;
-        "disabled"?: boolean;
-        "header"?: string;
-        "type"?: string;
     }
     interface HsFlipper {
         "flipperBackEvents"?: string;
@@ -352,8 +300,6 @@ declare namespace LocalJSX {
         "hs-card-footer": HsCardFooter;
         "hs-card-header": HsCardHeader;
         "hs-card-img-header": HsCardImgHeader;
-        "hs-carousel": HsCarousel;
-        "hs-carousel-item": HsCarouselItem;
         "hs-flipper": HsFlipper;
         "hs-media-body": HsMediaBody;
         "hs-media-image": HsMediaImage;
@@ -377,8 +323,6 @@ declare module "@stencil/core" {
             "hs-card-footer": LocalJSX.HsCardFooter & JSXBase.HTMLAttributes<HTMLHsCardFooterElement>;
             "hs-card-header": LocalJSX.HsCardHeader & JSXBase.HTMLAttributes<HTMLHsCardHeaderElement>;
             "hs-card-img-header": LocalJSX.HsCardImgHeader & JSXBase.HTMLAttributes<HTMLHsCardImgHeaderElement>;
-            "hs-carousel": LocalJSX.HsCarousel & JSXBase.HTMLAttributes<HTMLHsCarouselElement>;
-            "hs-carousel-item": LocalJSX.HsCarouselItem & JSXBase.HTMLAttributes<HTMLHsCarouselItemElement>;
             "hs-flipper": LocalJSX.HsFlipper & JSXBase.HTMLAttributes<HTMLHsFlipperElement>;
             "hs-media-body": LocalJSX.HsMediaBody & JSXBase.HTMLAttributes<HTMLHsMediaBodyElement>;
             "hs-media-image": LocalJSX.HsMediaImage & JSXBase.HTMLAttributes<HTMLHsMediaImageElement>;

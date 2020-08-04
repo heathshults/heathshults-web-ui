@@ -6,30 +6,6 @@ import autoprefixer from 'autoprefixer';
 export const config: Config = {
   namespace: 'heathenscript-ui-components',
   globalStyle: 'src/components/global/global.scss',
-  outputTargets: [
-    {
-      type: 'dist',
-      esmLoaderPath: '../loader'
-    },
-    {
-      type: 'docs-readme'
-    },
-    {
-      type: 'www',
-      serviceWorker: null // disable service workers
-    },
-    {
-      type: 'www',
-      copy: [
-        { src: 'www/build/', dest: 'www/assets/js/hs-components' }
-     //,
-    // {
-    //   type: 'www',
-    //   copy: [
-    //     { src: 'components/demo.html' }
-    //   ]
-    // }
-  ],
   plugins: [
     sass(),
     postcss({
@@ -46,5 +22,18 @@ export const config: Config = {
       //   'src/globals/mixins.pcss'
       // ]
     })
+  ],
+  outputTargets: [
+    {
+      type: 'dist',
+      esmLoaderPath: '../loader'
+    },
+    {
+      type: 'docs-readme'
+    },
+    {
+      type: 'www',
+      serviceWorker: null // disable service workers
+    }
   ]
-};
+}
