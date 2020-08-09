@@ -10,13 +10,14 @@
 
 .hs-card {
   position: relative;
-  display: block;
-  width: 100%;
+  display: inline-block;
+  max-width: 100%;
   padding: $card-padding;
   overflow: hidden;
   background: transparent;
   border-radius: $card-border-radius;
   box-shadow: $card-box-shadow;
+
 
   > .hs-image:not(:first-child) {
     padding: $spacing-medium 0 0;
@@ -133,9 +134,9 @@
     }
 
     &.light {
+      color: #252525;
       background-color: $hs-white;
       border-top: solid 1px$hs-gray;
-      color: #252525;
     }
 
     &.dark {
@@ -242,6 +243,20 @@ h3.hs-body-h3 {
     border-right: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+  }
+}
+.hs-card-size {
+  &--lg {
+    max-width: 340px;
+    height: 600px;
+  }
+  &--md {
+    max-width: 400px;
+    height: 620px;
+  }
+  &--sm {
+    max-width: 265px;
+    height: 150px;
   }
 }
 
