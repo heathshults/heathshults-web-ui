@@ -2,26 +2,24 @@ import { Component, h, Element, Prop } from '@stencil/core';
 
 @Component({
   tag: 'hs-card',
-  styleUrl: '../../scss/components/components.cards.scss',
+  styleUrl: 'components.cards.css',
   shadow: true
 })
 
 export class HSCard {
-  @Element() el: HTMLElement;
+  @Element() el: HTMLElement
   @Prop() cardWidth: string = ''
   @Prop() cardHeight: string = ''
   @Prop() colorTone: string;
+  @Prop() cardId: string;
+  @Prop() cardSize: string;
 
   componentWillLoad() {
-    console.log('Component is about to be rendered');
-    let theCard: HTMLElement = this.el.shadowRoot.querySelector('.hs-card')
-    theCard.setAttribute('style', `width: ${this.cardWidth}; height: ${this.cardHeight}; max-width: 100%; max-height: 100%'`)
   }
-
 
   render() {
     return (
-      <div class={`hs-card ${this.colorTone}`}>
+      <div id={this.cardId} class={`hs-card hs-card-size${this.cardSize} ${this.colorTone}`}>
         <slot />
       </div>
     );

@@ -8,6 +8,8 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface HsCard {
         "cardHeight": string;
+        "cardId": string;
+        "cardSize": string;
         "cardWidth": string;
         "colorTone": string;
     }
@@ -23,9 +25,9 @@ export namespace Components {
         "cardHeader": any;
         "clickTarget"?: string;
         "imgElem": any;
-        "imgHeight"?: string;
+        "imgHeight": string;
         "imgPath": string;
-        "imgWidth"?: string;
+        "imgWidth": string;
         "overlay": HTMLLinkElement;
     }
     interface HsFlipper {
@@ -215,6 +217,8 @@ declare global {
 declare namespace LocalJSX {
     interface HsCard {
         "cardHeight"?: string;
+        "cardId"?: string;
+        "cardSize"?: string;
         "cardWidth"?: string;
         "colorTone"?: string;
     }

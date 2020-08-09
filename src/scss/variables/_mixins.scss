@@ -84,6 +84,57 @@
   text-transform: uppercase;
 }
 
+@mixin responsive-box {
+  //@extend-elements
+  //original selectors
+  //.responsive-box .responsive-box-item, .responsive-box iframe, .responsive-box embed, .responsive-box object, .responsive-box video
+  %extend_1 {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+
+  .responsive-box {
+    position: relative;
+    display: block;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+
+    .responsive-box-item {
+      @extend %extend_1;
+    }
+
+    iframe {
+      @extend %extend_1;
+    }
+
+    embed {
+      @extend %extend_1;
+    }
+
+    object {
+      @extend %extend_1;
+    }
+
+    video {
+      @extend %extend_1;
+    }
+  }
+
+  .responsive-box-16by9 {
+    padding-bottom: 56.25%;
+  }
+
+  .responsive-box-4by3 {
+    padding-bottom: 75%;
+  }
+}
 // functions
 
 /*
