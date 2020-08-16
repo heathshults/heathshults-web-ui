@@ -27,8 +27,10 @@ export namespace Components {
         "imgElem": any;
         "imgHeight": string;
         "imgPath": string;
+        "imgSize": string;
         "imgWidth": string;
         "overlay": HTMLLinkElement;
+        "sizeClass"?: string;
     }
     interface HsFlipper {
         "flipperBackEvents": string;
@@ -236,9 +238,11 @@ declare namespace LocalJSX {
         "imgElem"?: any;
         "imgHeight"?: string;
         "imgPath"?: string;
+        "imgSize"?: string;
         "imgWidth"?: string;
         "onLaunchModal"?: (event: CustomEvent<any>) => void;
         "overlay"?: HTMLLinkElement;
+        "sizeClass"?: string;
     }
     interface HsFlipper {
         "flipperBackEvents"?: string;
