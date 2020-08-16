@@ -21,7 +21,7 @@
         "declaration-no-important": null,
         "font-family-name-quotes": null,
         "font-family-no-missing-generic-family-keyword": null,
-        "font-weight-notation": "numeric",
+        "font-weight-notation":null,
         "function-url-no-scheme-relative": true,
         "function-url-quotes": "always",
         "length-zero-no-unit": null,
@@ -43,7 +43,7 @@
           ]
         ],
         "order/properties-order": [
-          "dollar-variables",  
+          "dollar-variables",
           "position",
             "top",
             "right",

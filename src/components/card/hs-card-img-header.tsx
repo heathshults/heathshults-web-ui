@@ -2,7 +2,7 @@ import { Component, Element, Prop, Event, EventEmitter, Listen, h } from '@stenc
 
 @Component({
   tag: 'hs-card-img-header',
-  styleUrl: 'components.cards.css',
+  styleUrl: '../../scss/components/components.cards.scss',
   shadow: true
 })
 export class HSCardImgHeader {
