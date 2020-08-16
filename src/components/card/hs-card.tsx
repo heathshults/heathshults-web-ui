@@ -2,7 +2,7 @@ import { Component, h, Element, Prop } from '@stencil/core';
 
 @Component({
   tag: 'hs-card',
-  styleUrl: 'components.cards.css',
+  styleUrl: '../../scss/components/components.cards.scss',
   shadow: true
 })
 
