@@ -36,7 +36,7 @@
     "start": "npm-run-all --sequential --parallel build:assets gejs build:scss build:scripts  --sequential gwatch",
     "start:debug": "npm run build && node scripts/start-debug.js"
   },
-  "description": "Heath Shults - a coder - a thinker and a father.",
+  "description": "Heath Shults - .coder - .thinker - .father",
   "keywords": [
     "css",
     "sass",
