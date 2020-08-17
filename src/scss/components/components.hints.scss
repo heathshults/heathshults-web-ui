@@ -17,7 +17,7 @@
 }
 
 .hs-field:focus ~ .hs-hint,
-.hs-label__field:focus ~ .hs-hint {
+.hs-label_field:focus ~ .hs-hint {
   transform: scale(0.9);
   opacity: 1;
 }

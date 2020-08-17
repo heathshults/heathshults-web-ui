@@ -73,10 +73,10 @@
   @include button-ghost($button-ghost-error-color, $button-ghost-error-hover-color);
 }
 
-.hs-button__icon-left {
+.hs-button_icon-left {
   padding-right: $button-icon-left-padding;
 }
 
-.hs-button__icon-right {
+.hs-button_icon-right {
   padding-left: $button-icon-right-padding;
 }

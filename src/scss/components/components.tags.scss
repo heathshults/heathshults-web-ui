@@ -11,7 +11,7 @@
   width: 100%;
 }
 
-.hs-tags__container {
+.hs-tags_container {
   display: inline-block;
   max-width: $tags-container-width;
   padding-right: $spacing-xsmall;
@@ -25,7 +25,7 @@
   padding: $tag-padding;
 }
 
-.hs-tag__close {
+.hs-tag_close {
   position: absolute;
   top: 7px;
   right: 5px;
@@ -33,7 +33,7 @@
   font-weight: $tag-close-font-weight;
 }
 
-.hs-tags__field-container {
+.hs-tags_field-container {
   position: absolute;
   display: inline-block;
   width: $tags-field-container-width;

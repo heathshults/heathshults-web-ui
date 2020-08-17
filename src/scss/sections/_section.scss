@@ -28,7 +28,7 @@ section, .hs-section {
   }
 }
 
-.hs-card__row {
+.hs-card_row {
   height: 400px;
 }
 
@@ -68,7 +68,7 @@ hs-modal hs-card hs-card-footer {
 hs-card-header .hs-heading {
   &.dark {
     color: $hs-theme-primary;
-    .hs-heading__sub {
+    .hs-heading_sub {
       color: $hs-blueGray-medium;
     }
   }

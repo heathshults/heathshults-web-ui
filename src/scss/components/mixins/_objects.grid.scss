@@ -21,34 +21,34 @@
   align-items: flex-end;
 }
 
-@mixin grid__cell {
+@mixin grid_cell {
   flex: 1;
   padding-right: $grid-gutter;
   padding-left: $grid-gutter;
 }
 
-@mixin grid__cell--no-gutter {
+@mixin grid_cell--no-gutter {
   padding-right: 0.001em;
   padding-left: 0.001em;
 }
 
-@mixin grid__cell--top {
+@mixin grid_cell--top {
   align-self: flex-start;
 }
 
-@mixin grid__cell--center {
+@mixin grid_cell--center {
   align-self: center;
 }
 
-@mixin grid__cell--bottom {
+@mixin grid_cell--bottom {
   align-self: flex-end;
 }
 
-@mixin grid__cell--width-fixed {
+@mixin grid_cell--width-fixed {
   flex: 0 1 auto;
 }
 
-@mixin grid__cell--fit {
+@mixin grid_cell--fit {
   flex: 1;
 }
 
@@ -56,33 +56,33 @@
   flex-wrap: wrap;
 }
 
-@mixin grid__cell--full {
+@mixin grid_cell--full {
   flex: 0 0 100%;
   max-width: 100%;
   margin-left: 0;
 }
 
-@mixin grid__cell--auto {
+@mixin grid_cell--auto {
   flex: auto;
 }
 
-@mixin grid__cell--hidden {
+@mixin grid_cell--hidden {
   @include display-none;
 }
 
-@mixin grid__cell--visible {
+@mixin grid_cell--visible {
   @include display-initial;
 }
 
-@mixin grid__cell--width($width) {
+@mixin grid_cell--width($width) {
   flex: 0 0 $width;
   max-width: $width;
 }
 
-@mixin grid__cells {
+@mixin grid_cells {
   @each $width, $fraction in $grid-widths {
     &--width-#{$width} {
-      @include grid__cell--width($fraction * 100%);
+      @include grid_cell--width($fraction * 100%);
     }
 
     &--offset-#{$width} {
@@ -91,14 +91,14 @@
   }
 }
 
-@mixin grid__responsive-cells($screen-width) {
+@mixin grid_responsive-cells($screen-width) {
   @each $width, $fraction in $grid-widths {
     &--hidden\@#{$screen-width} {
-      @include grid__cell--hidden;
+      @include grid_cell--hidden;
     }
 
     &--visible\@#{$screen-width} {
-      @include grid__cell--visible;
+      @include grid_cell--visible;
     }
 
     &--width-#{$width}\@#{$screen-width} {
@@ -111,7 +111,7 @@
     }
 
     &--width-fixed\@#{$screen-width} {
-      @include grid__cell--width-fixed;
+      @include grid_cell--width-fixed;
     }
   }
 }

@@ -14,7 +14,8 @@
     "loader/"
   ],
   "scripts": {
-    "comp:build": "node_modules/.bin/stencil build --docs --watch",
+    "comp:build:nowatch": "node_modules/.bin/stencil build --docs-readme",
+    "comp:build": "node_modules/.bin/stencil build --docs-readme --watch",
     "comp:serve": "node_modules/.bin/stencil build --dev --watch --serve",
     "comp:test": "node_modules/.bin/stencil test --spec --e2e",
     "comp:test:watch": "node_modules/.bin/stencil test --spec --e2e --watchAll",
@@ -33,7 +34,7 @@
     "gejs": "gulp ejsit",
     "test": "jest --no-cache",
     "test.watch": "jest --watch --no-cache",
-    "start": "npm-run-all --sequential --parallel build:assets gejs build:scss build:scripts  --sequential gwatch",
+    "start": "npm-run-all --sequential comp:build:nowatch --parallel build:scripts  build:assets gejs build:scss --sequential gwatch",
     "start:debug": "npm run build && node scripts/start-debug.js"
   },
   "description": "Heath Shults - .coder - .thinker - .father",
@@ -85,6 +86,7 @@
     "@types/gulp-changed": "0.0.33",
     "@types/jest": "^26.0.7",
     "@types/node": "^13.13.14",
+    "@types/puppeteer": "2.0.1",
     "@types/react": "^16.9.41",
     "@typescript-eslint/eslint-plugin": "^2.29.0",
     "@typescript-eslint/parser": "^2.29.0",
@@ -139,6 +141,7 @@
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.3.0",
     "jest": "^26.1.0",
+    "jest-cli": "26.0.1",
     "jquery": "^3.5.1",
     "jshint": "^2.11.0",
     "jshint-loader": "^0.8.4",

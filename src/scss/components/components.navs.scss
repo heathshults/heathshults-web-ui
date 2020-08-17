@@ -27,8 +27,8 @@ nav.hs-nav,
     left: auto;
   }
 
-  .hs-nav__item,
-  .hs-nav__content {
+  .hs-nav_item,
+  .hs-nav_content {
     display: block;
     height: $nav-height;
     padding: 0 $nav-item-padding;
@@ -40,53 +40,53 @@ nav.hs-nav,
     }
   }
 
-  .hs-nav__item {
-    @include nav__item--color;
+  .hs-nav_item {
+    @include nav_item--color;
 
     text-decoration: none;
   }
 
-  .hs-nav__item--active {
-    @include nav__item--active;
+  .hs-nav_item--active {
+    @include nav_item--active;
   }
 
-  .hs-nav__item--brand {
-    @include nav__item--color($nav-item-brand-hover-background-color, $nav-item-brand-hover-color);
+  .hs-nav_item--brand {
+    @include nav_item--color($nav-item-brand-hover-background-color, $nav-item-brand-hover-color);
 
-    &.hs-nav__item--active {
-      @include nav__item--active($nav-item-brand-active-background-color, $nav-item-brand-active-color);
+    &.hs-nav_item--active {
+      @include nav_item--active($nav-item-brand-active-background-color, $nav-item-brand-active-color);
     }
   }
 
-  .hs-nav__item--info {
-    @include nav__item--color($nav-item-info-hover-background-color, $nav-item-info-hover-color);
+  .hs-nav_item--info {
+    @include nav_item--color($nav-item-info-hover-background-color, $nav-item-info-hover-color);
 
-    &.hs-nav__item--active {
-      @include nav__item--active($nav-item-info-active-background-color, $nav-item-info-active-color);
+    &.hs-nav_item--active {
+      @include nav_item--active($nav-item-info-active-background-color, $nav-item-info-active-color);
     }
   }
 
-  .hs-nav__item--warning {
-    @include nav__item--color($nav-item-warning-hover-background-color, $nav-item-warning-hover-color);
+  .hs-nav_item--warning {
+    @include nav_item--color($nav-item-warning-hover-background-color, $nav-item-warning-hover-color);
 
-    &.hs-nav__item--active {
-      @include nav__item--active($nav-item-warning-active-background-color, $nav-item-warning-active-color);
+    &.hs-nav_item--active {
+      @include nav_item--active($nav-item-warning-active-background-color, $nav-item-warning-active-color);
     }
   }
 
-  .hs-nav__item--success {
-    @include nav__item--color($nav-item-success-hover-background-color, $nav-item-success-hover-color);
+  .hs-nav_item--success {
+    @include nav_item--color($nav-item-success-hover-background-color, $nav-item-success-hover-color);
 
-    &.hs-nav__item--active {
-      @include nav__item--active($nav-item-success-active-background-color, $nav-item-success-active-color);
+    &.hs-nav_item--active {
+      @include nav_item--active($nav-item-success-active-background-color, $nav-item-success-active-color);
     }
   }
 
-  .hs-nav__item--error {
-    @include nav__item--color($nav-item-error-hover-background-color, $nav-item-error-hover-color);
+  .hs-nav_item--error {
+    @include nav_item--color($nav-item-error-hover-background-color, $nav-item-error-hover-color);
 
-    &.hs-nav__item--active {
-      @include nav__item--active($nav-item-error-active-background-color, $nav-item-error-active-color);
+    &.hs-nav_item--active {
+      @include nav_item--active($nav-item-error-active-background-color, $nav-item-error-active-color);
     }
   }
 }

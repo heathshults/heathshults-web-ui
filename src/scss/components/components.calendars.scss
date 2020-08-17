@@ -7,7 +7,7 @@
   @include grid;
   @include grid--wrap;
   @include grid--center;
-  @include grid__cell--no-gutter;
+  @include grid_cell--no-gutter;
   z-index: $z-over-control;
   max-width: $calendar-max-width;
   padding: $calendar-padding;
@@ -17,8 +17,8 @@
   border-radius: $calendar-border-radius;
 }
 
-.hs-calendar__control,
-.hs-calendar__date {
+.hs-calendar_control,
+.hs-calendar_date {
   @include button-color($calendar-control-background-color, $calendar-control-color);
   display: inline;
   flex: 0 0 12%;
@@ -36,16 +36,16 @@
   }
 }
 
-.hs-calendar__header {
-  @include grid__cell;
-  @include grid__cell--no-gutter;
-  @include grid__cell--width(71.5%);
+.hs-calendar_header {
+  @include grid_cell;
+  @include grid_cell--no-gutter;
+  @include grid_cell--width(71.5%);
   padding: $calendar-header-padding;
 }
 
-.hs-calendar__day {
-  @include grid__cell;
-  @include grid__cell--no-gutter;
+.hs-calendar_day {
+  @include grid_cell;
+  @include grid_cell--no-gutter;
   flex: 0 0 12%;
   max-width: 12%;
   margin: 1.1%;
@@ -53,21 +53,21 @@
   font-weight: $calendar-day-font-weight;
 }
 
-.hs-calendar__date--in-month {
+.hs-calendar_date--in-month {
   color: $calendar-control-date-in-month-color;
 }
 
-.hs-calendar__date[aria-current='date'] {
+.hs-calendar_date[aria-current='date'] {
   border-color: $calendar-today-border-color;
 }
 
-.hs-calendar__date--selected[aria-selected='true'],
-.hs-calendar__date--selected[aria-selected='true']:hover {
+.hs-calendar_date--selected[aria-selected='true'],
+.hs-calendar_date--selected[aria-selected='true']:hover {
   @include button-color($calendar-control-selected-background-color, $calendar-control-selected-color);
   border-color: $calendar-control-selected-border-color;
 }
 
-.hs-calendar__footer {
+.hs-calendar_footer {
   width: 100%;
   padding-top: $spacing-large;
 }

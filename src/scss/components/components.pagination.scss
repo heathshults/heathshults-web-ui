@@ -10,17 +10,17 @@ nav.hs-pagination,
   text-align: center;
 }
 
-.hs-pagination__pages {
+.hs-pagination_pages {
   display: flex;
   flex: 1 0 auto;
   justify-content: center;
 
-  .hs-pagination__control {
+  .hs-pagination_control {
     margin: 0 0.2em;
   }
 }
 
-.hs-pagination__control {
+.hs-pagination_control {
   @include button;
   @include button-ghost($pagination-control-color);
   flex: 0 0 auto;

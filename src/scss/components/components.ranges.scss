@@ -30,29 +30,29 @@
 
   &:not(:disabled):active {
     &::-webkit-slider-thumb {
-      @include range__thumb--active;
+      @include range_thumb--active;
     }
 
     &::-moz-range-thumb {
-      @include range__thumb--active;
+      @include range_thumb--active;
     }
 
     &::-ms-thumb {
-      @include range__thumb--active;
+      @include range_thumb--active;
     }
   }
 
   &:focus {
     &::-webkit-slider-thumb {
-      @include range__thumb--focus;
+      @include range_thumb--focus;
     }
 
     &::-moz-range-thumb {
-      @include range__thumb--focus;
+      @include range_thumb--focus;
     }
 
     &::-ms-thumb {
-      @include range__thumb--focus;
+      @include range_thumb--focus;
     }
   }
 
@@ -84,32 +84,32 @@
 }
 
 .hs-range::-webkit-slider-runnable-track {
-  @include range__track;
+  @include range_track;
 }
 
 .hs-range::-webkit-slider-thumb {
-  @include range__thumb;
-  @include range__thumb--webkit;
+  @include range_thumb;
+  @include range_thumb--webkit;
 }
 
 .hs-range::-moz-range-track {
-  @include range__track;
+  @include range_track;
 }
 
 .hs-range::-moz-range-thumb {
-  @include range__thumb;
+  @include range_thumb;
 }
 
 .hs-range::-ms-track {
-  @include range__track;
-  @include range__track--ms;
+  @include range_track;
+  @include range_track--ms;
 }
 
 .hs-range::-ms-fill-lower,
 .hs-range::-ms-fill-upper {
-  @include range__fill--ms;
+  @include range_fill--ms;
 }
 
 .hs-range::-ms-thumb {
-  @include range__thumb;
+  @include range_thumb;
 }

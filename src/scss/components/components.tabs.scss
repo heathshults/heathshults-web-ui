@@ -4,15 +4,15 @@
   display: block;
 }
 
-.hs-tabs__headings {
+.hs-tabs_headings {
   display: flex;
   text-align: $tab-headings-text-align;
 }
 
-.hs-tabs__nav {
+.hs-tabs_nav {
   overflow: hidden;
 
-  .hs-tabs__headings {
+  .hs-tabs_headings {
     margin-bottom: -1em;
     padding-bottom: 1em;
     overflow-x: auto;
@@ -44,6 +44,6 @@
   }
 }
 
-.hs-tabs__tab[role='tabpanel'] {
+.hs-tabs_tab[role='tabpanel'] {
   padding: $tab-padding;
 }

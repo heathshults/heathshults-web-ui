@@ -5,7 +5,7 @@
   background-color: $background-color;
 }
 
-@mixin nav__item--color($background-color: $nav-item-hover-background-color, $hover-color: $nav-item-hover-color) {
+@mixin nav_item--color($background-color: $nav-item-hover-background-color, $hover-color: $nav-item-hover-color) {
   &:not(:disabled) {
     &:hover {
       color: $hover-color;
@@ -23,7 +23,7 @@
   }
 }
 
-@mixin nav__item--active($background-color: $nav-item-active-background-color, $hover-color: $nav-item-active-color) {
+@mixin nav_item--active($background-color: $nav-item-active-background-color, $hover-color: $nav-item-active-color) {
   color: $hover-color;
   background-color: $background-color;
 }

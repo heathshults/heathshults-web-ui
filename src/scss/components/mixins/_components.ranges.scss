@@ -1,7 +1,7 @@
 @import 'settings';
 @import 'utilities.boxing';
 
-@mixin range__track {
+@mixin range_track {
   width: $range-width;
   height: $range-height;
   border: $range-border;
@@ -9,20 +9,20 @@
   box-shadow: $range-box-shadow;
 }
 
-@mixin range__track--ms {
+@mixin range_track--ms {
   color: transparent;
   background-color: transparent;
   border-color: transparent;
 }
 
-@mixin range__fill--ms {
+@mixin range_fill--ms {
   background-color: $range-background-color;
   border: $range-border;
   border-radius: $range-border-radius;
   box-shadow: $range-box-shadow;
 }
 
-@mixin range__thumb {
+@mixin range_thumb {
   width: $range-thumb-width;
   height: $range-thumb-height;
   margin: $range-thumb-margin;
@@ -32,16 +32,16 @@
   box-shadow: $range-thumb-box-shadow;
 }
 
-@mixin range__thumb--focus {
+@mixin range_thumb--focus {
   border-color: $range-thumb-focus-border-color;
   box-shadow: $range-thumb-focus-box-shadow;
 }
 
-@mixin range__thumb--webkit {
+@mixin range_thumb--webkit {
   -webkit-appearance: none;
 }
 
-@mixin range__thumb--active {
+@mixin range_thumb--active {
   transform: scale(1.4);
 }
 

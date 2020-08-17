@@ -7,53 +7,53 @@
   width: auto;
   user-select: none;
 
-  input:not(:checked) + .hs-toggle__track {
+  input:not(:checked) + .hs-toggle_track {
     background-color: $toggle-track-unchecked-background-color;
 
-    .hs-toggle__handle {
+    .hs-toggle_handle {
       transform: translateZ(0);
     }
   }
 
-  input:disabled + .hs-toggle__track {
+  input:disabled + .hs-toggle_track {
     background-color: $toggle-track-disabled-background-color;
     cursor: not-allowed;
 
-    .hs-toggle__handle {
+    .hs-toggle_handle {
       background-color: $toggle-handle-disabled-background-color;
       cursor: not-allowed;
     }
   }
 
-  input:focus + .hs-toggle__track {
+  input:focus + .hs-toggle_track {
     border-color: $toggle-focus-border-color;
     box-shadow: $toggle-focus-box-shadow;
 
-    .hs-toggle__handle {
+    .hs-toggle_handle {
       border-color: $toggle-focus-border-color;
       box-shadow: $toggle-focus-box-shadow;
     }
   }
 }
 
-.hs-toggle--brand .hs-toggle__track {
-  @include toggle__track--background-color($toggle-track-brand-background-color);
+.hs-toggle--brand .hs-toggle_track {
+  @include toggle_track--background-color($toggle-track-brand-background-color);
 }
 
-.hs-toggle--info .hs-toggle__track {
-  @include toggle__track--background-color($toggle-track-info-background-color);
+.hs-toggle--info .hs-toggle_track {
+  @include toggle_track--background-color($toggle-track-info-background-color);
 }
 
-.hs-toggle--warning .hs-toggle__track {
-  @include toggle__track--background-color($toggle-track-warning-background-color);
+.hs-toggle--warning .hs-toggle_track {
+  @include toggle_track--background-color($toggle-track-warning-background-color);
 }
 
-.hs-toggle--success .hs-toggle__track {
-  @include toggle__track--background-color($toggle-track-success-background-color);
+.hs-toggle--success .hs-toggle_track {
+  @include toggle_track--background-color($toggle-track-success-background-color);
 }
 
-.hs-toggle--error .hs-toggle__track {
-  @include toggle__track--background-color($toggle-track-error-background-color);
+.hs-toggle--error .hs-toggle_track {
+  @include toggle_track--background-color($toggle-track-error-background-color);
 }
 
 .hs-toggle input {
@@ -61,10 +61,10 @@
   opacity: 0;
 }
 
-.hs-toggle__track {
-  @include grid__cell;
-  @include grid__cell--width-fixed;
-  @include toggle__track--background-color;
+.hs-toggle_track {
+  @include grid_cell;
+  @include grid_cell--width-fixed;
+  @include toggle_track--background-color;
 
   position: relative;
   width: 1em;
@@ -73,7 +73,7 @@
   border-radius: $toggle-track-border-radius;
 }
 
-.hs-toggle__handle {
+.hs-toggle_handle {
   position: absolute;
   top: -0.25em;
   left: 0;

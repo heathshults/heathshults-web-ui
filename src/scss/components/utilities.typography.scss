@@ -87,12 +87,12 @@
   @include quotation--color($quotation-error-border-color);
 }
 
-.u-blockquote__body {
+.u-blockquote_body {
   @include paragraph;
   font-size: $quotation-font-size;
 }
 
-.u-blockquote__footer {
+.u-blockquote_footer {
   @include paragraph;
   color: $quotation-footer-color !important;
   font-style: $quotation-footer-font-style !important;

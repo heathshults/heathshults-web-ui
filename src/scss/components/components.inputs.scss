@@ -47,7 +47,7 @@
   border: $fieldset-border;
 }
 
-.hs-fieldset__legend {
+.hs-fieldset_legend {
   @include label;
   padding: $legend-padding;
 }

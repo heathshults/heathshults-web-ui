@@ -23,48 +23,48 @@
   &--full {
     @include grid--full;
 
-    > .hs-grid__cell {
-      @include grid__cell--full;
+    > .hs-grid_cell {
+      @include grid_cell--full;
     }
   }
 
   &--no-gutter {
-    > .hs-grid__cell {
-      @include grid__cell--no-gutter;
+    > .hs-grid_cell {
+      @include grid_cell--no-gutter;
     }
   }
 
-  &__cell {
-    @include grid__cell;
+  &_cell {
+    @include grid_cell;
 
-    @include grid__cells;
+    @include grid_cells;
 
     &--top {
-      @include grid__cell--top;
+      @include grid_cell--top;
     }
 
     &--center {
-      @include grid__cell--center;
+      @include grid_cell--center;
     }
 
     &--bottom {
-      @include grid__cell--bottom;
+      @include grid_cell--bottom;
     }
 
     &--no-gutter {
-      @include grid__cell--no-gutter;
+      @include grid_cell--no-gutter;
     }
 
     &--width-fixed {
-      @include grid__cell--width-fixed;
+      @include grid_cell--width-fixed;
     }
 
     &--hidden {
-      @include grid__cell--hidden;
+      @include grid_cell--hidden;
     }
 
     &--visible {
-      @include grid__cell--visible;
+      @include grid_cell--visible;
     }
   }
 }
