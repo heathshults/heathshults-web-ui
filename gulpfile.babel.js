@@ -403,6 +403,13 @@ function copy_dev(cb) {
 }
 exports.copy_dev = copy_dev
 
+function build_components(cb) {
+  exec('node_modules/.bin/stencil build --dev --docs-readme --debug')
+  if (typeof cb === 'function') cb()
+}
+exports.build_components = build_components
+
+
 function serve(cb) {
   return new Promise((resolve, reject) => {
     try {
@@ -452,6 +459,7 @@ function watchers(cb) {
         watch([`${srcPath}/assets/**/*.css`], ra.copy_css().then( callback ));
         watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], ra.copy_js().then(callback));
         watch([`${srcPath}/assets/js/HeathScript.js`], renderJS), callback;
+        watch([`${srcPath}/components/**/*`], build_components), callback;
         // watch(`${srcPath}/components/**/*.{js,json,html,css}`, copy_components), cb()
         resolve(callback)
       },2000 )

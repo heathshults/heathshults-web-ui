@@ -9,8 +9,8 @@
 
   &::before,
   &::after {
-    @include grid__cell;
-    @include grid__cell--auto;
+    @include grid_cell;
+    @include grid_cell--auto;
     border-top: 1px solid map-get($colors, grey-light-2);
     content: '';
   }
@@ -32,7 +32,7 @@
   }
 }
 
-.hs-divider__content {
+.hs-divider_content {
   padding-right: $grid-gutter;
   padding-left: $grid-gutter;
   text-align: center;

@@ -10,7 +10,7 @@
   }
 }
 
-.hs-tree__item[role='treeitem'] {
+.hs-tree_item[role='treeitem'] {
   @include tree-item;
 
   + .hs-tree[role='tree'] {
@@ -18,14 +18,14 @@
   }
 }
 
-.hs-tree__item[aria-expanded] {
+.hs-tree_item[aria-expanded] {
   &::before {
     color: $tree-item-expandable-indicator-color;
     content: '\276F';
   }
 }
 
-.hs-tree__item[aria-expanded='true'] {
+.hs-tree_item[aria-expanded='true'] {
   &::before {
     color: $tree-item-expanded-indicator-color;
     transform: rotate(90deg);

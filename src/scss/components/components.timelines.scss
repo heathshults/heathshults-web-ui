@@ -36,7 +36,7 @@
       content: '';
     }
 
-    &__body {
+    &_body {
       position: relative;
       top: -0.55em;
       margin: 0 0 0 1em;
@@ -80,12 +80,12 @@
         margin: 0 0 0 -0.25em;
       }
 
-      &__body {
+      &_body {
         left: 50%;
         width: 50%;
       }
 
-      &--left .hs-timeline-item__body {
+      &--left .hs-timeline-item_body {
         left: 0;
         margin: 0 0 0 -1em;
         text-align: right;
@@ -105,7 +105,7 @@
     }
 
     .hs-timeline-item--loading {
-      .hs-timeline-item__body {
+      .hs-timeline-item_body {
         color: map-get($colors, quiet);
       }
     }

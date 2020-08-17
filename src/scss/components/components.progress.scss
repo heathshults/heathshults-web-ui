@@ -16,7 +16,7 @@
     border-radius: $progress-rounded-border-radius;
   }
 
-  .hs-progress__bar[role='progressbar'] {
+  .hs-progress_bar[role='progressbar'] {
     @include progress--color;
     display: block;
     float: left;
@@ -31,23 +31,23 @@
       content: '-';
     }
 
-    &.hs-progress__bar--brand {
+    &.hs-progress_bar--brand {
       @include progress--color($progress-bar-brand-background-color, $progress-bar-brand-color);
     }
 
-    &.hs-progress__bar--info {
+    &.hs-progress_bar--info {
       @include progress--color($progress-bar-info-background-color, $progress-bar-info-color);
     }
 
-    &.hs-progress__bar--warning {
+    &.hs-progress_bar--warning {
       @include progress--color($progress-bar-warning-background-color, $progress-bar-warning-color);
     }
 
-    &.hs-progress__bar--success {
+    &.hs-progress_bar--success {
       @include progress--color($progress-bar-success-background-color, $progress-bar-success-color);
     }
 
-    &.hs-progress__bar--error {
+    &.hs-progress_bar--error {
       @include progress--color($progress-bar-error-background-color, $progress-bar-error-color);
     }
   }

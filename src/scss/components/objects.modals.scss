@@ -31,7 +31,7 @@
     background-color: transparent;
     box-shadow: none;
 
-    .hs-card__body {
+    .hs-card_body {
       position: relative;
     }
   }
@@ -81,7 +81,7 @@
       }
     }
 
-    .hs-card__body {
+    .hs-card_body {
       position: absolute;
       top: 3.5em;
       bottom: 4em;
@@ -92,7 +92,7 @@
       color: $hs-white;
     }
 
-    .hs-card__footer {
+    .hs-card_footer {
       position: absolute;
       bottom: 0;
       width: 100%;

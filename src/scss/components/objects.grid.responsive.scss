@@ -3,122 +3,122 @@
 
 .hs-grid {
   @include screen--xsmall-only {
-    &.hs-grid--xsmall-fit > .hs-grid__cell:not([class*='hs-grid__cell--width']) {
-      @include grid__cell--fit;
+    &.hs-grid--xsmall-fit > .hs-grid_cell:not([class*='hs-grid_cell--width']) {
+      @include grid_cell--fit;
     }
 
     &.hs-grid--xsmall-full {
       @include grid--full;
     }
 
-    &.hs-grid--xsmall-full > .hs-grid__cell {
-      @include grid__cell--full;
+    &.hs-grid--xsmall-full > .hs-grid_cell {
+      @include grid_cell--full;
     }
   }
 
   @include screen--small-only {
-    &.hs-grid--small-fit > .hs-grid__cell:not([class*='hs-grid__cell--width']) {
-      @include grid__cell--fit;
+    &.hs-grid--small-fit > .hs-grid_cell:not([class*='hs-grid_cell--width']) {
+      @include grid_cell--fit;
     }
 
     &.hs-grid--small-full {
       @include grid--full;
     }
 
-    &.hs-grid--small-full > .hs-grid__cell {
-      @include grid__cell--full;
+    &.hs-grid--small-full > .hs-grid_cell {
+      @include grid_cell--full;
     }
   }
 
   @include screen--medium-only {
-    &.hs-grid--medium-fit > .hs-grid__cell:not([class*='hs-grid__cell--width']) {
-      @include grid__cell--fit;
+    &.hs-grid--medium-fit > .hs-grid_cell:not([class*='hs-grid_cell--width']) {
+      @include grid_cell--fit;
     }
 
     &.hs-grid--medium-full {
       @include grid--full;
     }
 
-    &.hs-grid--medium-full > .hs-grid__cell {
-      @include grid__cell--full;
+    &.hs-grid--medium-full > .hs-grid_cell {
+      @include grid_cell--full;
     }
   }
 
   @include screen--large-only {
-    &.hs-grid--large-fit > .hs-grid__cell:not([class*='hs-grid__cell--width']) {
-      @include grid__cell--fit;
+    &.hs-grid--large-fit > .hs-grid_cell:not([class*='hs-grid_cell--width']) {
+      @include grid_cell--fit;
     }
 
     &.hs-grid--large-full {
       @include grid--full;
     }
 
-    &.hs-grid--large-full > .hs-grid__cell {
-      @include grid__cell--full;
+    &.hs-grid--large-full > .hs-grid_cell {
+      @include grid_cell--full;
     }
   }
 
   @include screen--xlarge-only {
-    &.hs-grid--xlarge-fit > .hs-grid__cell:not([class*='hs-grid__cell--width']) {
-      @include grid__cell--fit;
+    &.hs-grid--xlarge-fit > .hs-grid_cell:not([class*='hs-grid_cell--width']) {
+      @include grid_cell--fit;
     }
 
     &.hs-grid--xlarge-full {
       @include grid--full;
     }
 
-    &.hs-grid--xlarge-full > .hs-grid__cell {
-      @include grid__cell--full;
+    &.hs-grid--xlarge-full > .hs-grid_cell {
+      @include grid_cell--full;
     }
   }
 
   @include screen--super-only {
-    &.hs-grid--super-fit > .hs-grid__cell:not([class*='hs-grid__cell--width']) {
-      @include grid__cell--fit;
+    &.hs-grid--super-fit > .hs-grid_cell:not([class*='hs-grid_cell--width']) {
+      @include grid_cell--fit;
     }
 
     &.hs-grid--super-full {
       @include grid--full;
     }
 
-    &.hs-grid--super-full > .hs-grid__cell {
-      @include grid__cell--full;
+    &.hs-grid--super-full > .hs-grid_cell {
+      @include grid_cell--full;
     }
   }
 
   @include screen--xsmall-and-up {
-    &__cell {
-      @include grid__responsive-cells(xsmall);
+    &_cell {
+      @include grid_responsive-cells(xsmall);
     }
   }
 
   @include screen--small-and-up {
-    &__cell {
-      @include grid__responsive-cells(small);
+    &_cell {
+      @include grid_responsive-cells(small);
     }
   }
 
   @include screen--medium-and-up {
-    &__cell {
-      @include grid__responsive-cells(medium);
+    &_cell {
+      @include grid_responsive-cells(medium);
     }
   }
 
   @include screen--large-and-up {
-    &__cell {
-      @include grid__responsive-cells(large);
+    &_cell {
+      @include grid_responsive-cells(large);
     }
   }
 
   @include screen--xlarge-and-up {
-    &__cell {
-      @include grid__responsive-cells(xlarge);
+    &_cell {
+      @include grid_responsive-cells(xlarge);
     }
   }
 
   @include screen--super-and-up {
-    &__cell {
-      @include grid__responsive-cells(super);
+    &_cell {
+      @include grid_responsive-cells(super);
     }
   }
 }

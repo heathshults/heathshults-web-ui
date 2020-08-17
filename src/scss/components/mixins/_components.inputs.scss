@@ -27,7 +27,7 @@
   }
 }
 
-@mixin label__field {
+@mixin label_field {
   @include field;
   margin: $label-field-margin;
 }

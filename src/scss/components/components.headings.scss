@@ -1,13 +1,13 @@
 @import 'mixins/settings';
 
 .hs-heading,
-.hs-heading__sub {
+.hs-heading_sub {
   margin: $heading-margin;
   padding: $heading-padding;
   font-weight: $heading-font-weight;
 }
 
-.hs-heading__sub {
+.hs-heading_sub {
   padding: $heading-subheading-padding;
   font-size: $heading-subheading-font-size;
   opacity: $heading-subheading-opacity;

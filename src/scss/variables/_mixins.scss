@@ -14,11 +14,13 @@
   &.focus {
     color: $hs-color;
     background-color: darken($hs-background, 10%);
+    /* stylelint-disable-next-line */
         border-color: darken($hs-border, 25%);
   }
   &:hover {
     color: $hs-color;
     background-color: darken($hs-background, 10%);
+    /* stylelint-disable-next-line */
         border-color: darken($hs-border, 12%);
   }
   &:active,
@@ -26,6 +28,7 @@
   .open > &.dropdown-toggle {
     color: $hs-color;
     background-color: darken($hs-background, 10%);
+    /* stylelint-disable-next-line */
         border-color: darken($hs-border, 12%);
 
     &:hover,
@@ -33,7 +36,9 @@
     &.focus {
       color: $hs-color;
       background-color: darken($hs-background, 17%);
+      /* stylelint-disable */
           border-color: darken($hs-border, 25%);
+      /* stylelint-enable */
     }
   }
   &:active,
@@ -48,6 +53,7 @@
     &:focus,
     &.focus {
       background-color: $hs-background;
+      /* stylelint-disable-next-line */
           border-color: $hs-border;
     }
   }
@@ -61,7 +67,6 @@
 // Background Cover Mixin
 
 @mixin background-cover {
-  background-size: cover;
   background-size: cover;
 }
 
@@ -84,11 +89,21 @@
   text-transform: uppercase;
 }
 
+@mixin box-shadow-inset-blue {
+  box-shadow: $hs-shadow-inset-blue;
+}
+
+@mixin transition-ease-dot3s {
+  transition: all ease 0.3s;
+}
+
+@mixin border-radius-all-md {
+  border-radius: $hs-border-radius-md;
+}
+
 @mixin responsive-box {
   //@extend-elements
-  //original selectors
-  //.responsive-box .responsive-box-item, .responsive-box iframe, .responsive-box embed, .responsive-box object, .responsive-box video
-  %extend_1 {
+  %extend_responsive_box_defaults {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -107,23 +122,23 @@
     overflow: hidden;
 
     .responsive-box-item {
-      @extend %extend_1;
+      @extend %extend_responsive_box_defaults;
     }
 
     iframe {
-      @extend %extend_1;
+      @extend %extend_responsive_box_defaults;
     }
 
     embed {
-      @extend %extend_1;
+      @extend %extend_responsive_box_defaults;
     }
 
     object {
-      @extend %extend_1;
+      @extend %extend_responsive_box_defaults;
     }
 
     video {
-      @extend %extend_1;
+      @extend %extend_responsive_box_defaults;
     }
   }
 
@@ -152,7 +167,8 @@
  *  $hs-Var: name of the SASS variable, without its double hyphen prefix
  *  $hs-fallback: (optional, null by default): custom property fallback value
  */
-// $hs-colors: map-merge($hs-map1: $hs-hs-grays, $hs-map2: $hs-hs-dark-mode-colors);
+
+// $hs-colors: map-merge($hs-map1: $hs-grays, $hs-map2: $hs-dark-mode-colors);
 // $hs-keys: map-keys($hs-colors);
 
 // @function getV($hs-var, $hs-fallback: null) {
@@ -167,7 +183,7 @@
 // }
 
 // accessor functions
-// z-index: 
+// z-index:
 // usage: z-index(global, nav); z-index(dm-switcher, button)
 @function z-index($hs-keys...) {
   $hs-value: $hs-z-indexes;

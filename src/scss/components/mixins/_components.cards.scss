@@ -12,7 +12,7 @@
     background-color: darken($background-color, $color-tint);
   }
 
-  &.hs-card__item--active {
+  &.hs-card_item--active {
     background-color: darken($background-color, $color-tint);
   }
 
@@ -37,7 +37,7 @@
     background-color: darken($background-color, $color-tint);
   }
 
-  &.hs-card__control--active {
+  &.hs-card_control--active {
     background-color: darken($background-color, $color-tint);
   }
 }

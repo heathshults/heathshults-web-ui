@@ -2,22 +2,22 @@
 
 .hs-container {
   @include screen--xsmall-and-up {
-    @include containers__responsive(xsmall);
+    @include containers_responsive(xsmall);
   }
   @include screen--small-and-up {
-    @include containers__responsive(small);
+    @include containers_responsive(small);
   }
   @include screen--medium-and-up {
-    @include containers__responsive(medium);
+    @include containers_responsive(medium);
   }
   @include screen--large-and-up {
-    @include containers__responsive(large);
+    @include containers_responsive(large);
   }
   @include screen--xlarge-and-up {
-    @include containers__responsive(xlarge);
+    @include containers_responsive(xlarge);
   }
   @include screen--super-and-up {
-    @include containers__responsive(super);
+    @include containers_responsive(super);
   }
 
   margin: auto;

@@ -12,9 +12,9 @@
   border-spacing: 0;
 }
 
-.hs-table__caption {
+.hs-table_caption {
   @include grid;
-  @include grid__cell--full;
+  @include grid_cell--full;
   max-width: $table-caption-max-width;
   padding: $table-caption-padding;
   color: $table-caption-color;
@@ -22,21 +22,21 @@
   text-align: $table-caption-text-align;
 }
 
-.hs-table__row,
-.hs-table__head,
-.hs-table__body {
+.hs-table_row,
+.hs-table_head,
+.hs-table_body {
   display: flex;
   flex: 0 0 100%;
   flex-wrap: wrap;
   max-width: 100%;
 }
 
-.hs-table--striped :not(.hs-table__row--heading).hs-table__row:nth-of-type(odd) {
+.hs-table--striped :not(.hs-table_row--heading).hs-table_row:nth-of-type(odd) {
   color: $table-row-striped-color;
   background-color: $table-row-striped-background-color;
 }
 
-.hs-table__cell {
+.hs-table_cell {
   display: flex;
   flex: 1;
   padding: $table-cell-padding;
@@ -44,7 +44,7 @@
   text-align: $table-cell-text-align;
 }
 
-.hs-table__row--heading .hs-table__cell {
+.hs-table_row--heading .hs-table_cell {
   display: flex;
   flex: 1;
   color: $table-heading-color;
@@ -54,25 +54,25 @@
   border-bottom: $table-heading-border;
 }
 
-.hs-table--striped .hs-table__row--heading .hs-table__cell {
+.hs-table--striped .hs-table_row--heading .hs-table_cell {
   color: $table-heading-striped-color;
   background-color: $table-heading-striped-background-color;
 }
 
-.hs-table--clickable :not(.hs-table__row--heading).hs-table__row:hover .hs-table__cell,
-.hs-table__row--clickable:hover .hs-table__cell {
+.hs-table--clickable :not(.hs-table_row--heading).hs-table_row:hover .hs-table_cell,
+.hs-table_row--clickable:hover .hs-table_cell {
   color: $table-row-clickable-color;
   background-color: $table-row-clickable-background-color;
 }
 
-.hs-table__row--disabled {
+.hs-table_row--disabled {
   color: $table-row-disabled-color;
   background-color: $table-row-disabled-background-color;
   cursor: default;
 }
 
-.hs-table--clickable :not(.hs-table__row--heading).hs-table__row--disabled:hover .hs-table__cell,
-.hs-table__row--disabled:hover .hs-table__cell {
+.hs-table--clickable :not(.hs-table_row--heading).hs-table_row--disabled:hover .hs-table_cell,
+.hs-table_row--disabled:hover .hs-table_cell {
   color: $table-row-disabled-color;
   background-color: $table-row-disabled-background-color;
   cursor: not-allowed;
@@ -81,7 +81,7 @@
 .hs-table--condensed {
   font-size: $table-condensed-font-size;
 
-  .hs-table__cell {
+  .hs-table_cell {
     padding: $table-condensed-cell-padding;
   }
 }

@@ -124,14 +124,14 @@ h6 {
 //       transition: all 0.25s ease-out;
 //     }
 
-//     .mode-widget__link {
+//     .mode-widget_link {
 //       //padding-left: 28px !important;
 //       transition: all 0.25s ease-out;
 //       color: $hs-theme-primary;
 //     }
 //   }
 
-//   .mode-widget__link {
+//   .mode-widget_link {
 //     @include heading-font;
 
 //     font-weight: 400;
@@ -262,8 +262,8 @@ h6 {
   }
 
   .nav {
-    .nav__item {
-      .nav__link {
+    .nav_item {
+      .nav_link {
         @include heading-font;
 
         font-weight: 400;
@@ -998,7 +998,7 @@ body {
   webkit-tap-highlight-color: $hs-theme-primary;
 }
 
-.card__row {
+.card_row {
   display: flex;
   align-items: stretch;
   justify-content: center;
@@ -1016,7 +1016,7 @@ body {
     margin-right: .5rem;
   }
 
-  .card__header {
+  .card_header {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1040,11 +1040,11 @@ body {
     }
   }
 
-  .card__body {
+  .card_body {
     padding: 1.5rem 1rem 1rem 1rem;
   }
 
-  .card__footer {
+  .card_footer {
     display: flex;
     align-self: flex-end;
     // position: absolute;
@@ -1163,15 +1163,15 @@ body {
 // 	color: $hs-green-light !important;
 // }
 // button:not([style*="background-color:"]) {
-// 	background-color: map-get($hs-hs-dark-mode-colors, blueGray-darker) !important;
+// 	background-color: map-get($hs-dark-mode-colors, blueGray-darker) !important;
 // 	&:hover {
-// 		background-color: map-get($hs-hs-dark-mode-colors, blueGray-dark) !important;
+// 		background-color: map-get($hs-dark-mode-colors, blueGray-dark) !important;
 // 	}
 // 	&:active {
-// 		background-color: map-get($hs-hs-dark-mode-colors, blueGray-dark) !important;
+// 		background-color: map-get($hs-dark-mode-colors, blueGray-dark) !important;
 // 	}
 // 	&:focus {
-// 		background-color: map-get($hs-hs-dark-mode-colors, blueGray-dark) !important;
+// 		background-color: map-get($hs-dark-mode-colors, blueGray-dark) !important;
 // 	}
 // }
 // a:link {

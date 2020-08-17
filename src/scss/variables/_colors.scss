@@ -12,82 +12,92 @@ $yiq-contrasted-threshold: 205;
 
 // Variables
 
-$hs-color_red_orange:            #f63a0f !default;
-$hs-color_orange:                #f27011 !default;
-$hs-color_dark_yellow:           #f2b01e !default;
-$hs-color_yellow:                #f2d31b !default;
-$hs-color_yellow--light:         #ffe659 !default;
-$hs-color_yellow--dark:          #e2b900 !default;
-$hs-color_green:                 #4cd964 !default;
-$hs-color_lime:                  #86e01e !default;
-$hs-color_light_lime:            #e7ffcb !default;
-$hs-color_silver:                #aaa !default;
-$hs-color_purple:                #9a39d3 !default;
-$hs-color_turquoise:             #5ac8fa !default;
+$hs-color_red_orange:             #f63a0f !default;
+$hs-color_orange:                 #f27011 !default;
+$hs-color_dark_yellow:            #f2b01e !default;
+$hs-color_yellow:                 #f2d31b !default;
+$hs-color_yellow--light:          #ffe659 !default;
+$hs-color_yellow--dark:           #e2b900 !default;
+$hs-color_green:                  #4cd964 !default;
+$hs-color_lime:                   #86e01e !default;
+$hs-color_light_lime:             #e7ffcb !default;
+$hs-color_silver:                 #aaa !default;
+$hs-color_purple:                 #9a39d3 !default;
+$hs-color_turquoise:              #5ac8fa !default;
 
 
 // Gray and Brand Colors for use across theme
 
-$hs-theme-primary:               #fed136 !default;
-$hs-theme-primary--trans50:      rgba(254, 211, 54, 0.5) !default;
-$hs-theme-danger:                #e74c3c !default;
-$hs-theme-background-primary:    map-get($hs-default-colors, background-primary) !default;
-$hs-theme-background-secondary:  map-get($hs-default-colors, background-secondary) !default;
+$hs-theme-primary:                #fed136 !default;
+$hs-theme-primary--trans50:       rgba(254, 211, 54, 0.5) !default;
+$hs-theme-danger:                 #e74c3c !default;
+$hs-theme-background-primary:      map-get($hs-default-colors, background-primary) !default;
+$hs-theme-background-secondary:    map-get($hs-default-colors, background-secondary) !default;
 
-$hs-black:                       #000 !default;
-$hs-black_25:                    rgba(0, 0, 0, 0.25) !default;
-$hs-black_50:                    rgba(0, 0, 0, 0.5) !default;
-$hs-black_75:                    rgba(0, 0, 0, 0.75) !default;
+$hs-black:                        #000 !default;
+$hs-black_25:                     rgba(0, 0, 0, 0.25) !default;
+$hs-black_50:                     rgba(0, 0, 0, 0.5) !default;
+$hs-black_75:                     rgba(0, 0, 0, 0.75) !default;
 
 $hs-gray-base:			              #111 !default;
-$hs-gray-medium:                 #2f2f31 !default;
+$hs-gray-medium:                  #2f2f31 !default;
 $hs-gray-darker:		              lighten($hs-gray-base, 13.5%) !default; // #222
 $hs-gray-dark:			              lighten($hs-gray-base, 20%) !default;   // #333
-$hs-gray:				                lighten($hs-gray-base, 33.5%) !default; // #555
-$hs-gray-light:		              lighten($hs-gray-base, 46.7%) !default; // #777
-$hs-gray-lighter:		            #dedede !default; // #dedede
+$hs-gray:				                  lighten($hs-gray-base, 33.5%) !default; // #555
+$hs-gray-light:		                lighten($hs-gray-base, 46.7%) !default; // #777
+$hs-gray-lighter:		              #dedede !default; // #dedede
+$hs-gray-lighter-05:              #e9e9ed !default;
 $hs-gray-lightest:		            lighten($hs-gray-base, 93.5%) !default; // #eee
 
-$hs-white:                     #fff !default;
-$hs-white_5:                   #f8f8f8 !default;
-$hs-white_8:                   rgba(255, 255, 255, 0.08) !default;
-$hs-white_10:                  rgba(255, 255, 255, 0.1) !default;
-$hs-white_30:                  rgba(255, 255, 255, 0.3) !default;
+$hs-white:                      #fff !default;
+$hs-white_5:                    #f8f8f8 !default;
+$hs-white_8:                    rgba(255, 255, 255, 0.08) !default;
+$hs-white_10:                   rgba(255, 255, 255, 0.1) !default;
+$hs-white_30:                   rgba(255, 255, 255, 0.3) !default;
 
 // Dark Mode Colors
-$hs-blueGray-medium:           #507386 !default;
-$hs-blueGray-dark:             #0f161d !default;
-$hs-blueGray-very-dark:        #181a1b !default; // #181a1b
-$hs-blueGray-darker:           #0c0f11 !default;
-$hs-blueGray-darker--alpha75:  rgba(12, 15, 17, 0.75) !default;
-$hs-blueGray-light:            #2d373c !default;
-$hs-baige-medium:              #a79e8b !default;
-$hs-text-onDark:               map-get($hs-dark-mode-colors, text-onDark) !default;
-$hs-green-light:               #80cc94 !default;
-$hs-blue-light:                #0291ca !default;
-$hs-blue-light-muted:          #80b6cc !default;
-$hs-blue-lighter:              #78bad8 !default;
-$hs-blue-lighter-muted:        #8ec1d9 !default;
-$hs-blue-lightest:             #a8dfff !default;
-$hs-blue-lightest-muted:       #9bcbe6 !default;
-$hs-blue-dark:                 #1e364e !default;
+$hs-blueGray-medium:            #507386 !default;
+$hs-blueGray-dark:              #0f161d !default;
+$hs-blueGray-very-dark:         #181a1b !default; // #181a1b
+$hs-blueGray-darker:            #0c0f11 !default;
+$hs-blueGray-darker--alpha75:   rgba(12, 15, 17, 0.75) !default;
+$hs-blueGray-light:             #2d373c !default;
+$hs-baige-medium:               #a79e8b !default;
+$hs-text-onDark:                  map-get($hs-dark-mode-colors, text-onDark) !default;
+$hs-green-light:                #80cc94 !default;
+$hs-blue-light:                 #0291ca !default;
+$hs-blue-light-muted:           #80b6cc !default;
+$hs-blue-lighter:               #78bad8 !default;
+$hs-blue-lighter-muted:         #8ec1d9 !default;
+$hs-blue-lightest:              #a8dfff !default;
+$hs-blue-lightest-muted:        #9bcbe6 !default;
+$hs-blue-dark:                  #1e364e !default;
 $hs-link-primary:                 $hs-theme-primary !default;
 
-$hs-font-cursive-Caveat: 'Caveat', cursive !default;
-$hs-font-cursive-NYCD: 'Nothing You Could Do', cursive !default;
-$hs-font-cursive-Sedgwick: 'Sedgwick Ave Display', cursive !default;
+$hs-font-cursive-Caveat:          'Caveat', cursive !default;
+$hs-font-cursive-NYCD:            'Nothing You Could Do', cursive !default;
+$hs-font-cursive-Sedgwick:        'Sedgwick Ave Display', cursive !default;
 
-$hs-text-shadow-light: 0px 0px 4px rgba(0, 0, 0, .95) !default;
-$hs-text-shadow-light-spread:0px 4px 13px rgba(0, 0, 0, .75) !default;
-$hs-text-shadow-medium: 0px 0px 10px rgba(0, 0, 0, .85) !default;
+$hs-text-shadow-light:            0px 0px 4px rgba(0, 0, 0, .95) !default;
+$hs-text-shadow-light-spread:     0px 4px 13px rgba(0, 0, 0, .75) !default;
+$hs-text-shadow-medium:           0px 0px 10px rgba(0, 0, 0, .85) !default;
 
-$hs-box-shadow-glow: 0px 4px 16px 2px rgba(255, 255, 255, 0.5) !default;
+$hs-box-shadow-glow:              0px 4px 16px 2px rgba(255, 255, 255, 0.5) !default;
 
-$hs-shadow-sm: 0px 2px 4px 0px rgba(0, 0, 0, .5) !default;
-$hs-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !default;
-$hs-shadow-lg: 0px 4px 8px 3px rgba(0, 0, 0, .4) rgba(0, 0, 0, 0.4) !default;
-$hs-shadow-none: none !default;
+$hs-shadow-sm:                    0px 2px 4px 0px rgba(0, 0, 0, .5) !default;
+$hs-shadow:                       0 0.5rem 1rem rgba(0, 0, 0, 0.15) !default;
+$hs-shadow-lg:                    0px 4px 8px 3px rgba(0, 0, 0, .4) rgba(0, 0, 0, 0.4) !default;
+$hs-shadow-inset-blue:            inset 0 0 0 2px #5173ff !default;
+$hs-shadow-none:                  none !default;
+$hs-card-shadow:                  0 4px 6px 2px rgba(0, 0, 0, 0.3) !default;
 
-$hs-bg-black-to-transparent: linear-gradient(0deg, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 1) 100%) !default;
+$hs-bg-black-to-transparent:      linear-gradient(0deg, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 1) 100%) !default;
+
+$hs-border-radius-sm:             2px !default;
+$hs-border-radius-md:             4px !default;
+$hs-border-radius-lg:             8px !default;
+
+
+
 
 

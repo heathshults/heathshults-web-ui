@@ -19,7 +19,7 @@
   content: attr(data-text);
 }
 
-.hs-avatar__img[alt] {
+.hs-avatar_img[alt] {
   display: block;
   width: 100%;
   height: 100%;
@@ -27,7 +27,7 @@
   border-radius: $avatar-img-border-radius;
 }
 
-.hs-avatar__img[alt] + .hs-avatar__img[alt] {
+.hs-avatar_img[alt] + .hs-avatar_img[alt] {
   position: absolute;
   right: 0;
   bottom: 0;

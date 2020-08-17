@@ -14,11 +14,11 @@ ol.hs-list,
     padding: $list-nested-padding;
   }
 
-  .hs-list__item {
+  .hs-list_item {
     padding: $list-item-padding;
   }
 
-  .hs-list__item--unstyled {
+  .hs-list_item--unstyled {
     list-style: $list-item-unstyled-list-style;
   }
 
@@ -32,7 +32,7 @@ ol.hs-list,
     list-style: $list-unstyled-list-style;
     counter-reset: ordered;
 
-    .hs-list__item {
+    .hs-list_item {
       &::before {
         padding: $list-ordered-item-padding;
         content: counters(ordered, '.') ' ';
@@ -48,14 +48,14 @@ ol.hs-list,
       padding: $list-inline-padding;
     }
 
-    .hs-list__item {
+    .hs-list_item {
       display: inline-block;
       width: auto;
       padding-right: $list-inline-item-padding-right;
     }
 
     &:not(.hs-list--unstyled) {
-      .hs-list__item {
+      .hs-list_item {
         &::before {
           padding: $list-inline-item-bullet-padding;
           content: $list-inline-item-bullet-content;

@@ -155,7 +155,7 @@ h1, h2, h3, h4, h5, h6 {
     outline: none;
     transition: all .25s ease-out;
 
-    .mode-widget__link {
+    .mode-widget_link {
       color: $hs-theme-primary;
       //padding-left: 28px !important;
       transition: all .25s ease-out;
@@ -178,7 +178,7 @@ h1, h2, h3, h4, h5, h6 {
     color: #f1c876 !important;
   }
 
-  .mode-widget__link {
+  .mode-widget_link {
     @include heading-font;
     padding: .5rem;
     font-weight: 400;
@@ -548,7 +548,7 @@ section, .hs-section {
   }
 }
 
-.hs-card__row {
+.hs-card_row {
   height: 400px;
 }
 
@@ -705,7 +705,7 @@ hs-modal hs-card hs-card-footer {
 hs-card-header .hs-heading {
   &.dark {
     color: $hs-theme-primary;
-    .hs-heading__sub {
+    .hs-heading_sub {
       color: $hs-blueGray-medium;
     }
   }

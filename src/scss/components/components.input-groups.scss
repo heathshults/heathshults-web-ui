@@ -23,7 +23,7 @@
   }
 
   .hs-field {
-    @include grid__cell--fit;
+    @include grid_cell--fit;
 
     .hs-field {
       border-radius: 0;
@@ -44,7 +44,7 @@
     }
 
     &--fixed {
-      @include grid__cell--width-fixed;
+      @include grid_cell--width-fixed;
     }
   }
 }
@@ -113,7 +113,7 @@
 
   .hs-field,
   .hs-button {
-    @include grid__cell--full;
+    @include grid_cell--full;
   }
 
   .hs-button {
