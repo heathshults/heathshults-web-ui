@@ -12,6 +12,7 @@ export namespace Components {
         "cardSize": string;
         "cardWidth": string;
         "colorTone": string;
+        "imgHeaderImg": HTMLElement;
     }
     interface HsCardBody {
     }
@@ -223,6 +224,7 @@ declare namespace LocalJSX {
         "cardSize"?: string;
         "cardWidth"?: string;
         "colorTone"?: string;
+        "imgHeaderImg"?: HTMLElement;
     }
     interface HsCardBody {
     }

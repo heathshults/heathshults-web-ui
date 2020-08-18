@@ -38,3 +38,4 @@ function makeDirectory(path, cb) {
 }
 exports.makeDirectory = makeDirectory
 
+makeDirectory('../testercle')

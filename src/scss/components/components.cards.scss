@@ -40,8 +40,7 @@ hs-card {
 .hs-card {
   position: relative;
   display: inline-block;
-  min-width: 265px;
-  max-width: 400px;
+  width: 100%;
   min-height: 177px;
   max-height: 620px;
   padding: 0;
@@ -51,11 +50,11 @@ hs-card {
   box-shadow: $hs-card-shadow;
 
   &.light {
-    background-color: #f8f8f8;
+    background-color: $hs-white_5;
   }
 
   &.dark {
-    background-color: #2d373c;
+    background-color: $hs-blueGray-light;
   }
 
   > .hs-image:not(:first-child) {
@@ -63,7 +62,19 @@ hs-card {
   }
 
   + .hs-card {
-    margin: 0.5em 0 0 0;
+    margin: $card-margin;
+  }
+
+  &.hs-card-size {
+    &--sm {
+      .hs-img-header_img {
+        width: 265px;
+        height: 177px;
+      }
+      .hs-body_title {
+        font-size: 1.5rem;
+      }
+    }
   }
 }
 
@@ -71,17 +82,18 @@ hs-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1em 1em 0;
+  padding: $card-header-padding;
   font-size: 1.2rem;
-  color: #9bcbe6;
-  background-color: #0f161d;
+  color: $hs-blue-lightest-muted;
+  background-color: $hs-blueGray-dark;
+
 
   .hs-heading {
     padding: 0;
     margin: 0.5rem auto 0.25rem;
     font-size: 2.5rem;
     font-weight: 700;
-    color: #fed136;
+    color: $hs-theme-primary;
     text-align: center;
   }
 }
@@ -97,33 +109,46 @@ hs-card {
   background-color: #fff;
 
   .hs-img-header_img {
-    width: 100%;
-    height: 100%;
+    width: $card-img-header-width;
+    height: $card-img-header-height;
   }
 
   .hs-img-header_overlay {
     position: relative;
-    width: 100%;
-    max-height: 100%;
-
-    &:hover::before {
-      top: 0;
-      left: 0;
-      z-index: 4;
-      width: 100%;
-      height: 100%;
-      color: #fff;
-      content: "";
-      background-color: rgba(254, 209, 54, 0.75);
-      background-image: url("data:image/svg+xml;charset=UTF-8,%3c?xml version='1.0' encoding='utf-8'?%3e%3c!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3e%3c!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3e%3csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='48px' height='48px' viewBox='0 0 48 48' enable-background='new 0 0 48 48' xml:space='preserve'%3e%3cpath fill='%23FFFFFF' d='M47,18.25H29.75V1h-11.5v17.25H1v11.5h17.25V47h11.5V29.75H47V18.25z'/%3e%3c/svg%3e");
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: 48px;
-      opacity: 1;
-      //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
-      @include transition-ease-dot3s;
+    width: $card-img-header-width;
+    max-height: $card-img-header-height;
+    &::before {
+      position: absolute;
+      z-index: 1;
+      // width: 0px;
+      // height: 0px;
+      content: '';
+      background-color: fade-out($hs-theme-primary, .9);
+      opacity: 0;
+      transition: all ease .3s;
+      transform: translate(50%, 50%)
     }
+    &:hover {
+      &::before {
+        top: 50%;
+        left: 50%;
+        z-index: 4;
+        width: 100%;
+        height: 100%;
+        color: $hs-white;
+        content: "";
+        background-color: rgba(254, 209, 54, 0.75);
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3c?xml version='1.0' encoding='utf-8'?%3e%3c!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3e%3c!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3e%3csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='48px' height='48px' viewBox='0 0 48 48' enable-background='new 0 0 48 48' xml:space='preserve'%3e%3cpath fill='%23FFFFFF' d='M47,18.25H29.75V1h-11.5v17.25H1v11.5h17.25V47h11.5V29.75H47V18.25z'/%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 48px;
+        opacity: 1;
+        //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+        @include transition-ease-dot3s;
+        transform:  translate(50%, 50%)
+      }
   }
+}
 
   .hs-img-header_overlay::before {
     position: absolute;
@@ -136,7 +161,7 @@ hs-card {
   }
 
   .hs-card_body {
-    padding: 1em;
+     padding: $card-body-padding;
     text-align: center;
 
     .bg-less-heavy-yellow--trans50 > div[class^="col-"] {
@@ -154,7 +179,7 @@ hs-card {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 1em;
+    padding: $card-footer-padding;
     overflow: hidden;
 
     .hs-lead {
@@ -168,12 +193,12 @@ hs-card {
     &.light {
       color: #252525;
       background-color: #fff;
-      border-top: solid 1px #666;
+      border-top: solid 1px $hs-gray;
     }
 
     &.dark {
       width: 100%;
-      padding: 1em;
+      padding: $card-footer-padding;
       color: #fff;
       background-color: #0f161d;
 
@@ -189,7 +214,7 @@ hs-card {
     .hs-logo-row--footer {
       align-items: center;
       width: 100%;
-      padding: 1em;
+      padding: $card-body-padding;
       text-align: center;
 
       .hs-skill-logo {
@@ -200,25 +225,27 @@ hs-card {
   }
 }
 
-.hs-card-size--sm {
-  max-width: 265px;
-  height: 300px;
+// .hs-card-size--sm {
+//   max-width: 265px;
+//   height: 177px;
 
-  .hs-card_body {
-    padding: .3rem;
+//   .hs-card_body {
+//     padding: .3rem;
 
-    .hs-body_title {
-      font-size: 1.5rem !important;
-      font-weight: 700;
-    }
-  }
+//     .hs-body_title {
+//       font-size: 1.5rem !important;
+//       font-weight: 700;
+//     }
+//   }
 
-  .hs-card_img-header .hs-img-header_img {
-    width: 265px;
-    height: 177px;
-    max-height: 177px !important;
-  }
-}
+//   .hs-card_img-header {
+//     .hs-img-header_img {
+//       width: 265px;
+//       height: 177px;
+//       max-height: 177px !important;
+//     }
+//   }
+// }
 
 .hs-card_body {
   padding: 1rem;
@@ -1087,419 +1114,3 @@ hs-card {
   -webkit-clip-path: inset(50%);
           clip-path: inset(50%);
 }
-
-// @import 'mixins/components.cards';
-// @import 'mixins/utilities.visibility';
-// @import '../variables';
-
-// .hs-card_row {
-//   display: flex;
-//   align-items: stretch;
-//   justify-content: center;
-// }
-
-// .hs-card {
-//   position: relative;
-//   display: inline-block;
-//   max-width: 100%;
-//   padding: $card-padding;
-//   overflow: hidden;
-//   background: transparent;
-//   border-radius: $card-border-radius;
-//   box-shadow: $card-box-shadow;
-
-
-//   > .hs-image:not(:first-child) {
-//     padding: $spacing-medium 0 0;
-//   }
-//   &.light {
-//     background-color: $hs-white_5;
-//   }
-//   &.dark {
-//     background-color: $hs-blueGray-light;
-//   }
-// }
-
-// .hs-card + .hs-card {
-//   margin: $card-margin;
-// }
-
-// .hs-card_header {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   padding: $card-header-padding;
-//   font-size: 1.2rem;
-//   color: $hs-blue-lightest-muted;
-//   background-color: $hs-blueGray-dark;
-
-//   .hs-heading {
-//     padding: 0;
-//     margin: .5rem auto .25rem;
-//     font-size: 2.5rem;
-//     font-weight: 700;
-//     color: $hs-theme-primary;
-//     text-align: center;
-//   }
-// }
-
-
-
-// .hs-card_img-header {
-//   position: relative;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   // height: $card-img-header-height;
-//   max-height: $card-img-header-height;
-//   padding: 0;
-//   overflow-x: hidden;
-//   background-color: $hs-white;
-//   .hs-img-header-img {
-//     width: $card-img-header-width;
-//     max-height: $card-img-header-height;
-//   }
-//   .hs-img-header_overlay {
-//     position: relative;
-//     width: $card-img-header-width;
-//     max-height: $card-img-header-height;
-//     &::before {
-//       position: absolute;
-//       z-index: 1;
-//       // width: 0px;
-//       // height: 0px;
-//       content: '';
-//       background-color: fade-out($hs-theme-primary, .9);
-//       opacity: 0;
-//       transition: all ease .3s;
-//     }
-//     &:hover {
-//       &::before {
-//         top: 0;
-//         left: 0;
-//         z-index: 4;
-//         width: 100%;
-//         height: 100%;
-//         color: $hs-white;
-//         content: '';
-//         background-color: rgba(254, 209, 54, .75);
-//         background-image: url("data:image/svg+xml;charset=UTF-8,%3c?xml version='1.0' encoding='utf-8'?%3e%3c!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3e%3c!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3e%3csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='48px' height='48px' viewBox='0 0 48 48' enable-background='new 0 0 48 48' xml:space='preserve'%3e%3cpath fill='%23FFFFFF' d='M47,18.25H29.75V1h-11.5v17.25H1v11.5h17.25V47h11.5V29.75H47V18.25z'/%3e%3c/svg%3e");
-//         background-repeat: no-repeat;
-//         background-position: center center;
-//         background-size: 48px;
-//         opacity: 1;
-//         transition: all ease .3s;
-//       }
-//     }
-//   }
-//   .hs-card_body {
-//     padding: $card-body-padding;
-//     text-align: center;
-
-//     .bg-less-heavy-yellow--trans50 > div[class^="col-"] {
-//       padding-left: .9rem;
-//     }
-//     h3.hs-body-h3 {
-//       margin-top: 0;
-//       font-size: 2.5rem;
-//     }
-//   }
-//   .hs-card_footer {
-//     display: flex;
-//     align-items: center;
-//     justify-content: space-between;
-//     width: 100%;
-//     padding: $card-footer-padding;
-//     overflow: hidden;
-
-//     .hs-lead,
-//     .hs-footer-lead {
-//       margin-right: auto;
-//       margin-left: auto;
-//       font-size: 2.5rem;
-//       font-weight: 700;
-
-//       text-align: center;
-//       @include script-font;
-//     }
-
-//     &.light {
-//       color: #252525;
-//       background-color: $hs-white;
-//       border-top: solid 1px$hs-gray;
-//     }
-
-//     &.dark {
-//       width: 100%;
-//       padding: $card-footer-padding;
-//       color: $hs-white;
-//       background-color: $hs-blueGray-dark;
-
-//       .hs-lead,
-//       .hs-footer-lead {
-//         color: $hs-white;
-//       }
-//     }
-
-//     .hs-logo-row--footer {
-//       align-items: center;
-//       width: 100%;
-//       padding: $card-body-padding;
-//       text-align: center;
-
-//       .hs-skill-logo {
-//         max-width: 100%;
-//         margin: .75em;
-//       }
-//     }
-
-//   }
-// }
-
-// .hs-card_body {
-//   padding: $card-body-padding;
-//   text-align: center;
-//   // .bg-less-heavy-yellow--trans50 > div[class^="col-"] {
-//   //   padding-left: .9rem;
-//   // }
-// }
-
-// h3.hs-body-h3 {
-//   margin-top: 0;
-//   font-size: 2.5rem;
-// }
-
-
-
-// .hs-card_footer {
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-//   width: 100%;
-//   padding: $card-footer-padding;
-//   overflow: hidden;
-//   .hs-lead, .hs-footer-lead {
-//     margin-right: auto;
-//     margin-left: auto;
-//     font-size: 2.5rem;
-//     font-weight: 700;
-
-//     text-align: center;
-//     @include script-font;
-//   }
-
-//   &.light {
-//     background-color: $hs-white;
-//     border-top: solid 1px$hs-gray;
-//     color: #252525;
-//   }
-//   &.dark {
-//     width: 100%;
-//     padding: $card-footer-padding;
-//     color: $hs-white;
-//     background-color: $hs-blueGray-dark;
-
-//     .hs-lead, .hs-footer-lead {
-//       color: $hs-white;
-//     }
-//   }
-//   .hs-logo-row--footer {
-//     align-items: center;
-//     width: 100%;
-//     padding: $card-body-padding;
-//     text-align: center;
-//     .hs-skill-logo {
-//       max-width: 100%;
-//       margin: .75em;
-//     }
-//   }
-
-// }
-
-// .hs-card_footer--block {
-//   padding: $card-footer-block-padding;
-
-//   .hs-input-group .hs-button {
-//     border-bottom: 0;
-//   }
-
-//   .hs-input-group .hs-button:first-child {
-//     border-left: 0;
-//     border-top-left-radius: 0;
-//     border-bottom-left-radius: 0;
-//   }
-
-//   .hs-input-group .hs-button:last-child {
-//     border-right: 0;
-//     border-top-right-radius: 0;
-//     border-bottom-right-radius: 0;
-//   }
-// }
-// .hs-card-size {
-//   &--lg {
-//     max-width: 340px;
-//     height: 600px;
-//   }
-//   &--md {
-//     max-width: 400px;
-//     height: 620px;
-//   }
-//   &--sm {
-//     max-width: 265px;
-//     height: 150px;
-//   }
-// }
-
-// .hs-card_item {
-//   @include card-item;
-
-//   &--divider[role='separator'] {
-//     @include card-item($card-item-divider-background-color, $card-item-divider-color);
-
-//     font-weight: $card-item-divider-font-weight;
-//   }
-
-//   &--brand {
-//     @include card-item($card-item-brand-background-color, $card-item-brand-color);
-//   }
-
-//   &--info {
-//     @include card-item($card-item-info-background-color, $card-item-info-color);
-//   }
-
-//   &--warning {
-//     @include card-item($card-item-warning-background-color, $card-item-warning-color);
-//   }
-
-//   &--success {
-//     @include card-item($card-item-success-background-color, $card-item-success-color);
-//   }
-
-//   &--error {
-//     @include card-item($card-item-error-background-color, $card-item-error-color);
-//   }
-// }
-
-// .hs-card_item + .hs-card_footer--block {
-//   padding: 0;
-// }
-
-// .hs-card--grouped {
-//   .hs-card_item {
-//     &:not(:last-child) {
-//       border-bottom: 0;
-//     }
-//   }
-// }
-
-// .hs-card_divider[role='separator'] {
-//   height: $card-item-border-width;
-//   overflow: hidden;
-//   background-color: $card-item-divider-background-color;
-// }
-
-// .hs-card--menu[role='menu'] {
-//   z-index: $card-z-index;
-//   display: block;
-//   width: $card-width;
-//   max-height: $card-max-height;
-//   margin: $card-margin;
-//   overflow-x: hidden;
-//   overflow-y: auto;
-//   -webkit-overflow-scrolling: touch;
-
-//   .hs-card_control[role='menuitem'] {
-//     @include card-control;
-
-//     &.hs-card_control--brand {
-//       @include card-control($card-item-brand-background-color, $card-item-brand-color);
-//     }
-
-//     &.hs-card_control--info {
-//       @include card-control($card-item-info-background-color, $card-item-info-color);
-//     }
-
-//     &.hs-card_control--warning {
-//       @include card-control($card-item-warning-background-color, $card-item-warning-color);
-//     }
-
-//     &.hs-card_control--success {
-//       @include card-control($card-item-success-background-color, $card-item-success-color);
-//     }
-
-//     &.hs-card_control--error {
-//       @include card-control($card-item-error-background-color, $card-item-error-color);
-//     }
-//   }
-// }
-
-// .hs-card--accordion {
-//   .hs-card_control[aria-expanded] {
-//     @include card-control($card-item-accordion-control-background-color, $card-item-accordion-control-color);
-
-//     &::after {
-//       position: absolute;
-//       top: 0.5em;
-//       right: 0.5em;
-//       width: 1em;
-//       height: 1em;
-//       content: '';
-//       background-image: url('data:image/png;base64,R0lGODlhDwAUAIABAAAAAP///yH5BAEAAAEALAAAAAAPABQAAAIXjI+py+0Po5wH2HsXzmw//lHiSJZmUAAAOw==');
-//       background-repeat: no-repeat;
-//       background-position: center;
-//     }
-
-//     &[aria-expanded='true']::after {
-//       transform: rotate(180deg);
-//     }
-//   }
-// }
-
-// .hs-card_item--pane {
-//   padding: $card-item-padding;
-//   margin: 0;
-// }
-
-// .hs-card_control[aria-expanded='false'] + .hs-card_item--pane {
-//   @include visually-hidden;
-// }
-
-// .flex-container {
-//   display: flex;
-//   align-items: center;
-//   max-width: 90%;
-//   padding: 0;
-//   margin: 0;
-//   list-style: none;
-// }
-
-// .flex-start {
-//   justify-content: flex-start;
-// }
-
-// .flex-end {
-//   justify-content: flex-end;
-// }
-
-// .center {
-//   justify-content: center;
-// }
-
-
-// .space-between {
-//   justify-content: space-between;
-// }
-
-
-// .space-around {
-//   justify-content: space-around;
-// }
-
-
-// .space-evenly {
-//   justify-content: space-evenly;
-// }
-
-// .flex-item {
-//   width: auto;
-// }

@@ -187,6 +187,7 @@ function jsify(cb){
   , cb();
 }
 exports.jsify = jsify
+
 function renderJS(cb) {
   console.log(chalk.yellow('starting JS renderrer...'))
   exec('node scripts/build-scripts.js', (error, stdout, stderr) => {

@@ -35,7 +35,7 @@ function HeathenScriptJS(jsdest) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         try {
-          fs.mkdirSync(path);
+          nfs.mkdirSync(path);
           resolve(true)
         } catch (err) {
           if (err.code === 'EEXIST') { // curDir already exists!
@@ -79,7 +79,7 @@ function HeathenScriptJS(jsdest) {
               presets: ['@babel/preset-env', '@babel/preset-react']
             })
             .bundle()
-            .pipe(fs.createWriteStream(outFile));
+            .pipe(nfs.createWriteStream(outFile));
           console.log(chalk.green(`Compiled: ${outFile}`))
         } catch (e) {
           console.log(chalk.red(`Browserfy Error: ${e}`))
