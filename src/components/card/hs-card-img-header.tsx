@@ -10,6 +10,7 @@ export class HSCardImgHeader {
 
 
   @Prop() cardHeader: any;
+  @Prop() cardSize: any;
   @Prop() overlay: HTMLLinkElement;
   @Prop() imgElem: any;
   @Prop() imgPath: string;
@@ -41,7 +42,8 @@ export class HSCardImgHeader {
 
   render() {
    () => {
-    this.cardHeader = this.imgHeaderEl.shadowRoot.querySelector('#imgHeader');
+    this.cardHeader = this.imgHeaderEl.querySelector('#imgHeader');
+    // this.cardHeader = this.imgHeaderEl.shadowRoot.querySelector('#imgHeader');
     this.imgElem = this.cardHeader.querySelector('#hsHeaderImg');
     // this.imgElem.src = this.imgPath;
     // if (typeof this.imgWidth !== 'undefined'){this.sizeClass = this.imgSize}else {this.imgElem.style.width = '100%'};

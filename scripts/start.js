@@ -7,7 +7,7 @@ var open = require('open')
 // var { exec } = require('child_process')
 
 var srcPath = path.resolve('../', 'src')
-var wwwPath =  path.resolve('../', 'www')
+var wwwPath =  path.resolve('../', 'www-app')
 
 function phpSyncServer(cb) {
   return new Promise((resolve, reject) => {

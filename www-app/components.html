@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio website for Heath Shults - Web Developer Manager &amp; Director">
+  <meta name="author" content="">
+
+  <title>Heath Shults - Web Developer+</title>
+  <script type="module" src="/build/heathenscript-ui-components.esm.js"></script>
+  <script nomodule src="/build/heathenscript-ui-components.js"></script>
+
+  <!-- Bootstrap Core CSS -->
+  <!-- <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+
+  <!-- Custom Fonts -->
+  <link href="/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Nothing+You+Could+Do&family=Sedgwick+Ave+Display&display=swap"
+    rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;0,900;1,100&display=swap"
+    rel="stylesheet">
+
+  <!-- Theme CSS -->
+  <link href="/assets/css/HeathStyle.built.css" rel="stylesheet">
+  <link disabled id="darkmode" rel="stylesheet" href="/assets/css/theme-dark-mode.css">
+
+  <script>
+    var lsGetMode = localStorage.getItem('dark_mode')
+    var dm_btn = document.getElementById('mode_widget')
+    if (lsGetMode === "true") {
+      document.querySelector('#darkmode').disabled = false;
+      // document.querySelector('link[href="css/theme-dark-mode.css"]').disabled = false;
+    }
+
+  </script>
+  <link href="/assets/css/swiper.css" rel="stylesheet">
+  <!-- https://swiperjs.com/demos/#centered_slides -->
+  <!-- Demo styles -->
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    /*
+    body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    } */
+
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      background: #eee;
+    }
+
+    .swiper-slide {
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -ms-flex-align: center;
+      -ms-flex-pack: center;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      max-width: 320px;
+      background: #fff;
+      -webkit-box-pack: center;
+      -webkit-box-align: center;
+      border: 1px solid #ccc;
+    }
+
+  </style>
+</head>
+
+<body id="page-top" class="index">
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top hs-bg-grad-black-trans" id="mainNav">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+        aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand js-scroll-trigger site-logo" href="#page-top"><span><span
+              class="hs-brand-symbol">@</span><span>HeathShults.com</span></a></span></a>
+        <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+        </ul>
+        <div class="form-inline my-2 my-lg-0">
+          <button class="hs-mode-widget" id="mode_widget"></button>
+          <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="d-flex align-items-stretch hs-header">
+    <div class="container">
+      <div class="hs-intro-text">
+        <p style="height: 65px;">
+          <span class="hs-intro-lead-in">Hello, I'm Heath.</span>
+        </p>
+        <p style="height: 95px;">
+          <span class="hs-intro-heading">It's Nice To Meet You</span>
+        </p>
+        <p>
+          <a href="#skills" class="js-page-scroll btn btn-xl ">Please... Come inside.</a>
+        </p>
+        <div id="m"></div>
+        <script></script>
+      </div>
+    </div>
+  </header>
+
+
+  <section class="hs-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center text-color--white">
+          <h2 class="hs-section-heading">HS-FLIPPER</h2>
+          <h3 class="hs-section-subheading"><strong class="font-bold-regular">simple & simple</strong></h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 text-center text-color--white">
+        </div>
+      </div>
+      <div class="row text-center hs-card_row mt-4">
+        <!-- Carousel 01 -->
+        <div class="col-md-12">
+          flipper
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="hs-section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12 text-center text-color--white">
+          <h2 class="hs-section-heading">HS-CAROUSEL</h2>
+          <h3 class="hs-section-subheading"><strong class="font-bold-regular">simple & simple</strong></h3>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12 text-center text-color--white">
+          spacer here....
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row text-center hs-card_row mt-4">
+        <!-- Carousel 01 -->
+        <div class="col-md-12">
+
+          <!-- Swiper -->
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+
+              <div class="col swiper-slide">
+                <hs-card card-id="hsCard01" card-size="--sm" color-tone="light" card-width="265" card-height="300" >
+                  <hs-card-img-header img-width="auto" img-height="auto" class="responsive-box-16by9"
+                    img-path="/assets/img/portfolio/Fannie-Mae/blueprint-card-header.jpg"></hs-card-img-header>
+                  <hs-card-body>
+
+                    <div class="hs-card-content">
+
+                      <div class="row">
+                        <div class="col-md-12">
+                          <h3 class="hs-body-h3">Blueprint Design System</h3>
+                        </div>
+                      </div>
+                      <div class="collapse" id="blueprintDS">
+                      <div class="row hs-info-table">
+                        <div class="col-md-6 pl-3">
+                          <strong>Company: </strong><br>
+                          Fannie Mae, Inc.
+                        </div>
+                        <div class="col-md-6 pl-3">
+                          <strong>Position: </strong><br>
+                          Interaction Designer
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <p class="hs-paragraph">
+                            <h5>Description:</h5>
+                            Corporate system to guide & govern graphic design, componant usage,
+                            code quality to preserve branding consistency.
+                          </p>
+                        </div>
+                      </div>
+                      </div>
+                        <div class="text-center">
+                          <button class="hs-btn-showmore" type="button" data-toggle="collapse"
+                            data-target="#blueprintDS" aria-expanded="false" aria-controls="#blueprintDS">
+                            Show more
+                          </button></div>
+                    </div>
+
+                  </hs-card-body>
+                  <hs-card-footer color-tone="dark">
+                    <div class="row m-0 d-flex w-100">
+                      <div class="col-md-12 p-3 hs-logo-row--footer">
+                        <ul class="flex-container space-between">
+                          <li class="flex-item">
+                            <img src="assets/img/logos/dmHTML5_Logo_512.png" class="hs-skill-logo" width="35"
+                              alt="HTML5 logo" />
+                          </li>
+                          <li class="flex-item">
+                            <img src="assets/img/logos/Sass-150.png" class="hs-skill-logo" width="35" alt="sass logo" />
+                          </li>
+                          <li class="flex-item">
+                            <img src="assets/img/logos/dm-css3-150.png" class="hs-skill-logo" width="35"
+                              alt="css logo" />
+                          </li>
+                          <li class="flex-item">
+                            <img src="assets/img/logos/js-logo.jpg" class="hs-skill-logo" width="35"
+                              alt="javascript logo" />
+                          </li>
+                          <li class="flex-item">
+                            <img src="assets/img/logos/dm-Node.png" class="hs-skill-logo" width="35"
+                              alt="node js logo" />
+                          </li>
+                          <li class="flex-item">
+                            <img src="assets/img/logos/gulp-150.png" class="hs-skill-logo" width="35" alt="gulp logo" />
+                          </li>
+                          <li class="flex-item">
+                            <img src="assets/img/logos/dm-Git-logo.png" class="hs-skill-logo" width="35"
+                              alt="git logo" />
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </hs-card-footer>
+                </hs-card>
+              </div>
+              <div class="col swiper-slide">
+                 <hs-card card-size="--sm" color-tone="light" card-width="265" card-height="300">
+                   <hs-card-img-header img-width="auto" img-height="auto" class="responsive-box-16by9"
+                       img-path="/assets/img/portfolio/BlueStarSports/BSS-card-heading.jpg"></hs-card-img-header>
+                     <div>
+
+                       <div class="hs-card-content">
+                         <div class="row">
+                           <div class="col-md-12">
+                             <h3 class="hs-body-h3">USA Football Database Project</h3>
+                           </div>
+                         </div>
+                         <div class="collapse" id="usafb">
+                         <div class="row hs-info-table">
+                           <div class="col-md-6 pl-3">
+                             <strong>Company: </strong><br>
+                             Blue Star Sports
+                           </div>
+                           <div class="col-md-6 pl-3">
+                             <strong>Position: </strong><br>
+                             UI Engineer
+                           </div>
+                         </div>
+                         <div class="row">
+                           <div class="col-md-12">
+                             <p class="hs-paragraph">
+                               <h5>Description:</h5>
+                               Little league football player tracking system. The NFL can track and observe
+                               promising players with good stats for recruiting purposes.
+                             </p>
+                           </div>
+                         </div>
+                       </div>
+                       <div class="text-center">
+                         <button class="hs-btn-showmore" type="button" data-toggle="collapse" data-target="#usafb"
+                           aria-expanded="false" aria-controls="#usafb">
+                           Show more
+                         </button></div>
+                      </div>
+
+                     </hs-card-body>
+                     <hs-card-footer color-tone="dark">
+                       <div class="row m-0 d-flex w-100">
+                         <div class="col-md-12 p-3 hs-logo-row--footer">
+                           <ul class="flex-container space-between">
+                             <li class="flex-item">
+                               <img src="assets/img/logos/dmHTML5_Logo_512.png" class="hs-skill-logo" width="35"
+                                 alt="HTML5 logo" />
+                             </li>
+                             <li class="flex-item">
+                               <img src="assets/img/logos/Sass-150.png" class="hs-skill-logo" width="35"
+                                 alt="sass logo" />
+                             </li>
+                             <li class="flex-item">
+                               <img src="assets/img/logos/dm-css3-150.png" class="hs-skill-logo" width="35"
+                                 alt="css logo" />
+                             </li>
+                             <li class="flex-item">
+                               <img src="assets/img/logos/js-logo.jpg" class="hs-skill-logo" width="35"
+                                 alt="javascript logo" />
+                             </li>
+                             <li class="flex-item">
+                               <img src="assets/img/logos/dm-Node.png" class="hs-skill-logo" width="35"
+                                 alt="node js logo" />
+                             </li>
+                             <li class="flex-item">
+                               <img src="assets/img/logos/gulp-150.png" class="hs-skill-logo" width="35"
+                                 alt="gulp logo" />
+                             </li>
+                             <li class="flex-item">
+                               <img src="assets/img/logos/dm-Git-logo.png" class="hs-skill-logo" width="35"
+                                 alt="git logo" />
+                             </li>
+                           </ul>
+                         </div>
+                       </div>
+                     </hs-card-footer>
+                   </hs-card>
+              </div>
+              <div class="col swiper-slide">
+                 <hs-card card-size="--sm" color-tone="light" card-width="265" card-height="300">
+                   <hs-card-img-header img-width="auto" img-height="auto" class="responsive-box-16by9"
+                       img-path="/assets/img/portfolio/bowlopolis/bolopolis-headerImg.png" click-target="modBowlopolis">
+                     </hs-card-img-header>
+                     <hs-card-body>
+
+                      <div class="hs-card-content">
+                         <div class="row">
+                           <div class="col-md-12">
+                             <h3 class="hs-body-h3">Youth Program, Website &amp; Game</h3>
+                           </div>
+                         </div>
+                         <div class="collapse" id="bowlopolis">
+                         <div class="row hs-info-table">
+                           <div class="col-md-6 pl-3">
+                             <strong>Company: </strong><br>
+                             BPAA, Inc.
+                           </div>
+                           <div class="col-md-6 pl-3">
+                             <strong>Position: </strong><br>
+                             Director Technology
+                           </div>
+                         </div>
+                         <div class="row hs-border-top-white">
+                           <div class="col-md-12">
+                             <p class="hs-paragraph">
+                               <h5>Description:</h5>
+                               <span class="hs-text-muted">80% Hands on UI/UX Engineering. This projects
+                                 included website, game and cartoon production. </span>
+                             </p>
+                           </div>
+                         </div>
+                         </div>
+                         <div class="text-center">
+                           <button class="hs-btn-showmore" type="button" data-toggle="collapse"
+                             data-target="#bowlopolis" aria-expanded="false" aria-controls="#bowlopolis">
+                             Show more
+                           </button></div>
+                       </div>
+
+                      </hs-card-body>
+                     <hs-card-footer color-tone="dark">
+                       <div class="row m-0 d-flex w-100">
+                         <div class="col-md-12 p-3 hs-logo-row--footer">
+                           <ul class="flex-container space-between">
+                             <li class="flex-item">
+                               <img src="assets/img/logos/dmHTML5_Logo_512.png" class="hs-skill-logo" width="35"
+                                 alt="HTML5 logo" />
+                             </li>
+                             <li class="flex-item">
+                               <img src="assets/img/logos/Sass-150.png" class="hs-skill-logo" width="35"
+                                 alt="sass logo" />
+                             </li>
+                             <li class="flex-item">
+                               <img src="assets/img/logos/dm-css3-150.png" class="hs-skill-logo" width="35"
+                                 alt="css logo" />
+                             </li>
+                             <li class="flex-item">
+                               <img src="assets/img/logos/js-logo.jpg" class="hs-skill-logo" width="35"
+                                 alt="javascript logo" />
+                             </li>
+                             <li class="flex-item">
+                               <img src="assets/img/logos/dm-Node.png" class="hs-skill-logo" width="35"
+                                 alt="node js logo" />
+                             </li>
+                             <li class="flex-item">
+                               <img src="assets/img/logos/gulp-150.png" class="hs-skill-logo" width="35"
+                                 alt="gulp logo" />
+                             </li>
+                             <li class="flex-item">
+                               <img src="assets/img/logos/dm-Git-logo.png" class="hs-skill-logo" width="35"
+                                 alt="git logo" />
+                             </li>
+                           </ul>
+                         </div>
+                       </div>
+                     </hs-card-footer>
+                   </hs-card>
+              </div>
+              <div class="col swiper-slide">
+                <hs-card card-size="--sm" color-tone="light" card-width="265" card-height="300">
+                  <hs-card-img-header img-width="auto" img-height="auto" class="responsive-box-16by9"
+                    img-path="/assets/img/portfolio/Fannie-Mae/blueprint-card-header.jpg"></hs-card-img-header>
+                  <hs-card-body>
+
+                    <div class="hs-card-content">
+
+                      <div class="row">
+                        <div class="col-md-12">
+                          <h3 class="hs-body-h3">Blueprint Design System</h3>
+                        </div>
+                      </div>
+                      <div class="collapse" id="c01">
+                        <div class="row hs-info-table">
+                          <div class="col-md-6 pl-3">
+                            <strong>Company: </strong><br>
+                            Fannie Mae, Inc.
+                          </div>
+                          <div class="col-md-6 pl-3">
+                            <strong>Position: </strong><br>
+                            Interaction Designer
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <p class="hs-paragraph">
+                              <h5>Description:</h5>
+                              Corporate system to guide & govern graphic design, componant usage,
+                              code quality to preserve branding consistency.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="text-center">
+                        <button class="hs-btn-showmore" type="button" data-toggle="collapse" data-target="#c01"
+                          aria-expanded="false" aria-controls="#c01">
+                          Show more
+                        </button></div>
+                    </div>
+
+                  </hs-card-body>
+                  <hs-card-footer color-tone="dark">
+                    <div class="row m-0 d-flex w-100">
+                      <div class="col-md-12 p-3 hs-logo-row--footer">
+                        <ul class="flex-container space-between">
+                          <li class="flex-item">
+                            <img src="assets/img/logos/dmHTML5_Logo_512.png" class="hs-skill-logo" width="35"
+                              alt="HTML5 logo" />
+                          </li>
+                          <li class="flex-item">
+                            <img src="assets/img/logos/Sass-150.png" class="hs-skill-logo" width="35" alt="sass logo" />
+                          </li>
+                          <li class="flex-item">
+                            <img src="assets/img/logos/dm-css3-150.png" class="hs-skill-logo" width="35"
+                              alt="css logo" />
+                          </li>
+                          <li class="flex-item">
+                            <img src="assets/img/logos/js-logo.jpg" class="hs-skill-logo" width="35"
+                              alt="javascript logo" />
+                          </li>
+                          <li class="flex-item">
+                            <img src="assets/img/logos/dm-Node.png" class="hs-skill-logo" width="35"
+                              alt="node js logo" />
+                          </li>
+                          <li class="flex-item">
+                            <img src="assets/img/logos/gulp-150.png" class="hs-skill-logo" width="35" alt="gulp logo" />
+                          </li>
+                          <li class="flex-item">
+                            <img src="assets/img/logos/dm-Git-logo.png" class="hs-skill-logo" width="35"
+                              alt="git logo" />
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </hs-card-footer>
+                </hs-card>
+              </div>
+              <div class="col swiper-slide">
+                <hs-card card-size="--sm" color-tone="light" card-width="265" card-height="300">
+                  <hs-card-img-header img-width="auto" img-height="auto" class="responsive-box-16by9"
+                    img-path="/assets/img/portfolio/BlueStarSports/BSS-card-heading.jpg"></hs-card-img-header>
+                  <div>
+
+                    <div class="hs-card-content">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <h3 class="hs-body-h3">USA Football Database Project</h3>
+                        </div>
+                      </div>
+                      <div class="collapse" id="c02">
+                        <div class="row hs-info-table">
+                          <div class="col-md-6 pl-3">
+                            <strong>Company: </strong><br>
+                            Blue Star Sports
+                          </div>
+                          <div class="col-md-6 pl-3">
+                            <strong>Position: </strong><br>
+                            UI Engineer
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <p class="hs-paragraph">
+                              <h5>Description:</h5>
+                              Little league football player tracking system. The NFL can track and observe
+                              promising players with good stats for recruiting purposes.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="text-center">
+                        <button class="hs-btn-showmore" type="button" data-toggle="collapse" data-target="#c02"
+                          aria-expanded="false" aria-controls="#c02">
+                          Show more
+                        </button></div>
+                    </div>
+
+                    </hs-card-body>
+                    <hs-card-footer color-tone="dark">
+                      <div class="row m-0 d-flex w-100">
+                        <div class="col-md-12 p-3 hs-logo-row--footer">
+                          <ul class="flex-container space-between">
+                            <li class="flex-item">
+                              <img src="assets/img/logos/dmHTML5_Logo_512.png" class="hs-skill-logo" width="35"
+                                alt="HTML5 logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/Sass-150.png" class="hs-skill-logo" width="35"
+                                alt="sass logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/dm-css3-150.png" class="hs-skill-logo" width="35"
+                                alt="css logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/js-logo.jpg" class="hs-skill-logo" width="35"
+                                alt="javascript logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/dm-Node.png" class="hs-skill-logo" width="35"
+                                alt="node js logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/gulp-150.png" class="hs-skill-logo" width="35"
+                                alt="gulp logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/dm-Git-logo.png" class="hs-skill-logo" width="35"
+                                alt="git logo" />
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </hs-card-footer>
+                </hs-card>
+              </div>
+              <div class="col swiper-slide">
+                <hs-card card-size="--sm" color-tone="light" card-width="265" card-height="300">
+                  <hs-card-img-header img-width="auto" img-height="auto" class="responsive-box-16by9"
+                    img-path="/assets/img/portfolio/bowlopolis/bolopolis-headerImg.png" click-target="modBowlopolis">
+                  </hs-card-img-header>
+                  <hs-card-body>
+
+                    <div class="hs-card-content">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <h3 class="hs-body-h3">Youth Program, Website &amp; Game</h3>
+                        </div>
+                      </div>
+                      <div class="collapse" id="c03">
+                        <div class="row hs-info-table">
+                          <div class="col-md-6 pl-3">
+                            <strong>Company: </strong><br>
+                            BPAA, Inc.
+                          </div>
+                          <div class="col-md-6 pl-3">
+                            <strong>Position: </strong><br>
+                            Director Technology
+                          </div>
+                        </div>
+                        <div class="row hs-border-top-white">
+                          <div class="col-md-12">
+                            <p class="hs-paragraph">
+                              <h5>Description:</h5>
+                              <span class="hs-text-muted">80% Hands on UI/UX Engineering. This projects
+                                included website, game and cartoon production. </span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="text-center">
+                        <button class="hs-btn-showmore" type="button" data-toggle="collapse" data-target="#c03"
+                          aria-expanded="false" aria-controls="#c03">
+                          Show more
+                        </button></div>
+                    </div>
+
+                  </hs-card-body>
+                  <hs-card-footer color-tone="dark">
+                    <div class="row m-0 d-flex w-100">
+                      <div class="col-md-12 p-3 hs-logo-row--footer">
+                        <ul class="flex-container space-between">
+                          <li class="flex-item">
+                            <img src="assets/img/logos/dmHTML5_Logo_512.png" class="hs-skill-logo" width="35"
+                              alt="HTML5 logo" />
+                          </li>
+                          <li class="flex-item">
+                            <img src="assets/img/logos/Sass-150.png" class="hs-skill-logo" width="35" alt="sass logo" />
+                          </li>
+                          <li class="flex-item">
+                            <img src="assets/img/logos/dm-css3-150.png" class="hs-skill-logo" width="35"
+                              alt="css logo" />
+                          </li>
+                          <li class="flex-item">
+                            <img src="assets/img/logos/js-logo.jpg" class="hs-skill-logo" width="35"
+                              alt="javascript logo" />
+                          </li>
+                          <li class="flex-item">
+                            <img src="assets/img/logos/dm-Node.png" class="hs-skill-logo" width="35"
+                              alt="node js logo" />
+                          </li>
+                          <li class="flex-item">
+                            <img src="assets/img/logos/gulp-150.png" class="hs-skill-logo" width="35" alt="gulp logo" />
+                          </li>
+                          <li class="flex-item">
+                            <img src="assets/img/logos/dm-Git-logo.png" class="hs-skill-logo" width="35"
+                              alt="git logo" />
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </hs-card-footer>
+                </hs-card>
+              </div>
+               <div class="col swiper-slide">
+                 <hs-card card-size="--sm" color-tone="light" card-width="265" card-height="300">
+                   <hs-card-img-header img-width="auto" img-height="auto" class="responsive-box-16by9"
+                     img-path="/assets/img/portfolio/Fannie-Mae/blueprint-card-header.jpg"></hs-card-img-header>
+                   <hs-card-body>
+
+                     <div class="hs-card-content">
+
+                       <div class="row">
+                         <div class="col-md-12">
+                           <h3 class="hs-body-h3">Blueprint Design System</h3>
+                         </div>
+                       </div>
+                       <div class="collapse" id="c04">
+                         <div class="row hs-info-table">
+                           <div class="col-md-6 pl-3">
+                             <strong>Company: </strong><br>
+                             Fannie Mae, Inc.
+                           </div>
+                           <div class="col-md-6 pl-3">
+                             <strong>Position: </strong><br>
+                             Interaction Designer
+                           </div>
+                         </div>
+                         <div class="row">
+                           <div class="col-md-12">
+                             <p class="hs-paragraph">
+                               <h5>Description:</h5>
+                               Corporate system to guide & govern graphic design, componant usage,
+                               code quality to preserve branding consistency.
+                             </p>
+                           </div>
+                         </div>
+                       </div>
+                       <div class="text-center">
+                         <button class="hs-btn-showmore" type="button" data-toggle="collapse" data-target="#c04"
+                           aria-expanded="false" aria-controls="#c04">
+                           Show more
+                         </button></div>
+                     </div>
+
+                   </hs-card-body>
+                   <hs-card-footer color-tone="dark">
+                     <div class="row m-0 d-flex w-100">
+                       <div class="col-md-12 p-3 hs-logo-row--footer">
+                         <ul class="flex-container space-between">
+                           <li class="flex-item">
+                             <img src="assets/img/logos/dmHTML5_Logo_512.png" class="hs-skill-logo" width="35"
+                               alt="HTML5 logo" />
+                           </li>
+                           <li class="flex-item">
+                             <img src="assets/img/logos/Sass-150.png" class="hs-skill-logo" width="35"
+                               alt="sass logo" />
+                           </li>
+                           <li class="flex-item">
+                             <img src="assets/img/logos/dm-css3-150.png" class="hs-skill-logo" width="35"
+                               alt="css logo" />
+                           </li>
+                           <li class="flex-item">
+                             <img src="assets/img/logos/js-logo.jpg" class="hs-skill-logo" width="35"
+                               alt="javascript logo" />
+                           </li>
+                           <li class="flex-item">
+                             <img src="assets/img/logos/dm-Node.png" class="hs-skill-logo" width="35"
+                               alt="node js logo" />
+                           </li>
+                           <li class="flex-item">
+                             <img src="assets/img/logos/gulp-150.png" class="hs-skill-logo" width="35"
+                               alt="gulp logo" />
+                           </li>
+                           <li class="flex-item">
+                             <img src="assets/img/logos/dm-Git-logo.png" class="hs-skill-logo" width="35"
+                               alt="git logo" />
+                           </li>
+                         </ul>
+                       </div>
+                     </div>
+                   </hs-card-footer>
+                 </hs-card>
+               </div>
+                <div class="col swiper-slide">
+                  <hs-card card-size="--sm" color-tone="light" card-width="265" card-height="300">
+                    <hs-card-img-header img-width="auto" img-height="auto" class="responsive-box-16by9"
+                      img-path="/assets/img/portfolio/Fannie-Mae/blueprint-card-header.jpg"></hs-card-img-header>
+                    <hs-card-body>
+
+                      <div class="hs-card-content">
+
+                        <div class="row">
+                          <div class="col-md-12">
+                            <h3 class="hs-body-h3">Blueprint Design System</h3>
+                          </div>
+                        </div>
+                        <div class="collapse" id="05">
+                          <div class="row hs-info-table">
+                            <div class="col-md-6 pl-3">
+                              <strong>Company: </strong><br>
+                              Fannie Mae, Inc.
+                            </div>
+                            <div class="col-md-6 pl-3">
+                              <strong>Position: </strong><br>
+                              Interaction Designer
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <p class="hs-paragraph">
+                                <h5>Description:</h5>
+                                Corporate system to guide & govern graphic design, componant usage,
+                                code quality to preserve branding consistency.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="text-center">
+                          <button class="hs-btn-showmore" type="button" data-toggle="collapse"
+                            data-target="#c05" aria-expanded="false" aria-controls="#c05">
+                            Show more
+                          </button></div>
+                      </div>
+
+                    </hs-card-body>
+                    <hs-card-footer color-tone="dark">
+                      <div class="row m-0 d-flex w-100">
+                        <div class="col-md-12 p-3 hs-logo-row--footer">
+                          <ul class="flex-container space-between">
+                            <li class="flex-item">
+                              <img src="assets/img/logos/dmHTML5_Logo_512.png" class="hs-skill-logo" width="35"
+                                alt="HTML5 logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/Sass-150.png" class="hs-skill-logo" width="35"
+                                alt="sass logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/dm-css3-150.png" class="hs-skill-logo" width="35"
+                                alt="css logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/js-logo.jpg" class="hs-skill-logo" width="35"
+                                alt="javascript logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/dm-Node.png" class="hs-skill-logo" width="35"
+                                alt="node js logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/gulp-150.png" class="hs-skill-logo" width="35"
+                                alt="gulp logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/dm-Git-logo.png" class="hs-skill-logo" width="35"
+                                alt="git logo" />
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </hs-card-footer>
+                  </hs-card>
+                </div>
+                <div class="col swiper-slide">
+                  <hs-card card-size="--sm" color-tone="light" card-width="265" card-height="300">
+                    <hs-card-img-header img-width="auto" img-height="auto" class="responsive-box-16by9"
+                      img-path="/assets/img/portfolio/BlueStarSports/BSS-card-heading.jpg"></hs-card-img-header>
+                    <div>
+
+                      <div class="hs-card-content">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <h3 class="hs-body-h3">USA Football Database Project</h3>
+                          </div>
+                        </div>
+                        <div class="collapse" id="c06">
+                          <div class="row hs-info-table">
+                            <div class="col-md-6 pl-3">
+                              <strong>Company: </strong><br>
+                              Blue Star Sports
+                            </div>
+                            <div class="col-md-6 pl-3">
+                              <strong>Position: </strong><br>
+                              UI Engineer
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <p class="hs-paragraph">
+                                <h5>Description:</h5>
+                                Little league football player tracking system. The NFL can track and observe
+                                promising players with good stats for recruiting purposes.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="text-center">
+                          <button class="hs-btn-showmore" type="button" data-toggle="collapse"
+                            data-target="#c06" aria-expanded="false" aria-controls="#c06">
+                            Show more
+                          </button></div>
+                      </div>
+
+                      </hs-card-body>
+                      <hs-card-footer color-tone="dark">
+                        <div class="row m-0 d-flex w-100">
+                          <div class="col-md-12 p-3 hs-logo-row--footer">
+                            <ul class="flex-container space-between">
+                              <li class="flex-item">
+                                <img src="assets/img/logos/dmHTML5_Logo_512.png" class="hs-skill-logo" width="35"
+                                  alt="HTML5 logo" />
+                              </li>
+                              <li class="flex-item">
+                                <img src="assets/img/logos/Sass-150.png" class="hs-skill-logo" width="35"
+                                  alt="sass logo" />
+                              </li>
+                              <li class="flex-item">
+                                <img src="assets/img/logos/dm-css3-150.png" class="hs-skill-logo" width="35"
+                                  alt="css logo" />
+                              </li>
+                              <li class="flex-item">
+                                <img src="assets/img/logos/js-logo.jpg" class="hs-skill-logo" width="35"
+                                  alt="javascript logo" />
+                              </li>
+                              <li class="flex-item">
+                                <img src="assets/img/logos/dm-Node.png" class="hs-skill-logo" width="35"
+                                  alt="node js logo" />
+                              </li>
+                              <li class="flex-item">
+                                <img src="assets/img/logos/gulp-150.png" class="hs-skill-logo" width="35"
+                                  alt="gulp logo" />
+                              </li>
+                              <li class="flex-item">
+                                <img src="assets/img/logos/dm-Git-logo.png" class="hs-skill-logo" width="35"
+                                  alt="git logo" />
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </hs-card-footer>
+                  </hs-card>
+                </div>
+                <div class="col swiper-slide">
+                  <hs-card card-size="--sm" color-tone="light" card-width="265" card-height="300">
+                    <hs-card-img-header img-width="auto" img-height="auto" class="responsive-box-16by9"
+                      img-path="/assets/img/portfolio/bowlopolis/bolopolis-headerImg.png" click-target="modBowlopolis">
+                    </hs-card-img-header>
+                    <hs-card-body>
+
+                      <div class="hs-card-content">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <h3 class="hs-body-h3">Youth Program, Website &amp; Game</h3>
+                          </div>
+                        </div>
+                        <div class="collapse" id="c07">
+                          <div class="row hs-info-table">
+                            <div class="col-md-6 pl-3">
+                              <strong>Company: </strong><br>
+                              BPAA, Inc.
+                            </div>
+                            <div class="col-md-6 pl-3">
+                              <strong>Position: </strong><br>
+                              Director Technology
+                            </div>
+                          </div>
+                          <div class="row hs-border-top-white">
+                            <div class="col-md-12">
+                              <p class="hs-paragraph">
+                                <h5>Description:</h5>
+                                <span class="hs-text-muted">80% Hands on UI/UX Engineering. This projects
+                                  included website, game and cartoon production. </span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="text-center">
+                          <button class="hs-btn-showmore" type="button" data-toggle="collapse"
+                            data-target="#c07" aria-expanded="false" aria-controls="#c07">
+                            Show more
+                          </button></div>
+                      </div>
+
+                    </hs-card-body>
+                    <hs-card-footer color-tone="dark">
+                      <div class="row m-0 d-flex w-100">
+                        <div class="col-md-12 p-3 hs-logo-row--footer">
+                          <ul class="flex-container space-between">
+                            <li class="flex-item">
+                              <img src="assets/img/logos/dmHTML5_Logo_512.png" class="hs-skill-logo" width="35"
+                                alt="HTML5 logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/Sass-150.png" class="hs-skill-logo" width="35"
+                                alt="sass logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/dm-css3-150.png" class="hs-skill-logo" width="35"
+                                alt="css logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/js-logo.jpg" class="hs-skill-logo" width="35"
+                                alt="javascript logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/dm-Node.png" class="hs-skill-logo" width="35"
+                                alt="node js logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/gulp-150.png" class="hs-skill-logo" width="35"
+                                alt="gulp logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/dm-Git-logo.png" class="hs-skill-logo" width="35"
+                                alt="git logo" />
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </hs-card-footer>
+                  </hs-card>
+                </div>
+                <div class="col swiper-slide">
+                  <hs-card card-size="--sm" color-tone="light" card-width="265" card-height="100%">
+                    <hs-card-img-header img-width="265" img-height="187" class="responsive-box-16by9"
+                      img-path="/assets/img/portfolio/Fannie-Mae/blueprint-card-header-small.jpg"></hs-card-img-header>
+                    <hs-card-body>
+
+                      <div class="hs-card-content">
+
+                        <div class="row">
+                          <div class="col-md-12">
+                            <h3 class="hs-body-h3">Blueprint Design System</h3>
+                          </div>
+                        </div>
+                        <div class="collapse" id="c08">
+                          <div class="row hs-info-table">
+                            <div class="col-md-6 pl-3">
+                              <strong>Company: </strong><br>
+                              Fannie Mae, Inc.
+                            </div>
+                            <div class="col-md-6 pl-3">
+                              <strong>Position: </strong><br>
+                              Interaction Designer
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <p class="hs-paragraph">
+                                <h5>Description:</h5>
+                                Corporate system to guide & govern graphic design, componant usage,
+                                code quality to preserve branding consistency.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="text-center">
+                          <button class="hs-btn-showmore" type="button" data-toggle="collapse"
+                            data-target="#c08" aria-expanded="false" aria-controls="#c08">
+                            Show more
+                          </button></div>
+                      </div>
+
+                    </hs-card-body>
+                    <hs-card-footer color-tone="dark">
+                      <div class="row m-0 d-flex w-100">
+                        <div class="col-md-12 p-3 hs-logo-row--footer">
+                          <ul class="flex-container space-between">
+                            <li class="flex-item">
+                              <img src="assets/img/logos/dmHTML5_Logo_512.png" class="hs-skill-logo" width="35"
+                                alt="HTML5 logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/Sass-150.png" class="hs-skill-logo" width="35"
+                                alt="sass logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/dm-css3-150.png" class="hs-skill-logo" width="35"
+                                alt="css logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/js-logo.jpg" class="hs-skill-logo" width="35"
+                                alt="javascript logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/dm-Node.png" class="hs-skill-logo" width="35"
+                                alt="node js logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/gulp-150.png" class="hs-skill-logo" width="35"
+                                alt="gulp logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/dm-Git-logo.png" class="hs-skill-logo" width="35"
+                                alt="git logo" />
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </hs-card-footer>
+                  </hs-card>
+                </div>
+                <div class="col swiper-slide">
+                  <hs-card card-size="--sm" color-tone="light" card-width="265" card-height="300">
+                    <hs-card-img-header img-width="265" img-height="187" class="responsive-box-16by9"
+                      img-path="/assets/img/portfolio/BlueStarSports/BSS-card-heading.jpg"></hs-card-img-header>
+                    <div>
+
+                      <div class="hs-card-content">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <h3 class="hs-body-h3">USA Football Database Project</h3>
+                          </div>
+                        </div>
+                        <div class="collapse" id="c09">
+                          <div class="row hs-info-table">
+                            <div class="col-md-6 pl-3">
+                              <strong>Company: </strong><br>
+                              Blue Star Sports
+                            </div>
+                            <div class="col-md-6 pl-3">
+                              <strong>Position: </strong><br>
+                              UI Engineer
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <p class="hs-paragraph">
+                                <h5>Description:</h5>
+                                Little league football player tracking system. The NFL can track and observe
+                                promising players with good stats for recruiting purposes.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="text-center">
+                          <button class="hs-btn-showmore" type="button" data-toggle="collapse"
+                            data-target="#c09" aria-expanded="false" aria-controls="#c09">
+                            Show more
+                          </button></div>
+                      </div>
+
+                      </hs-card-body>
+                      <hs-card-footer color-tone="dark">
+                        <div class="row m-0 d-flex w-100">
+                          <div class="col-md-12 p-3 hs-logo-row--footer">
+                            <ul class="flex-container space-between">
+                              <li class="flex-item">
+                                <img src="assets/img/logos/dmHTML5_Logo_512.png" class="hs-skill-logo" width="35"
+                                  alt="HTML5 logo" />
+                              </li>
+                              <li class="flex-item">
+                                <img src="assets/img/logos/Sass-150.png" class="hs-skill-logo" width="35"
+                                  alt="sass logo" />
+                              </li>
+                              <li class="flex-item">
+                                <img src="assets/img/logos/dm-css3-150.png" class="hs-skill-logo" width="35"
+                                  alt="css logo" />
+                              </li>
+                              <li class="flex-item">
+                                <img src="assets/img/logos/js-logo.jpg" class="hs-skill-logo" width="35"
+                                  alt="javascript logo" />
+                              </li>
+                              <li class="flex-item">
+                                <img src="assets/img/logos/dm-Node.png" class="hs-skill-logo" width="35"
+                                  alt="node js logo" />
+                              </li>
+                              <li class="flex-item">
+                                <img src="assets/img/logos/gulp-150.png" class="hs-skill-logo" width="35"
+                                  alt="gulp logo" />
+                              </li>
+                              <li class="flex-item">
+                                <img src="assets/img/logos/dm-Git-logo.png" class="hs-skill-logo" width="35"
+                                  alt="git logo" />
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </hs-card-footer>
+                  </hs-card>
+                </div>
+                <div class="col swiper-slide">
+                  <hs-card card-size="--sm" color-tone="light" card-width="265" card-height="300">
+                    <hs-card-img-header img-width="auto" img-height="auto" class="responsive-box-16by9"
+                      img-path="/assets/img/portfolio/bowlopolis/bolopolis-headerImg.png" click-target="modBowlopolis">
+                    </hs-card-img-header>
+                    <hs-card-body>
+
+                      <div class="hs-card-content">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <h3 class="hs-body-h3">Youth Program, Website &amp; Game</h3>
+                          </div>
+                        </div>
+                        <div class="collapse" id="c10">
+                          <div class="row hs-info-table">
+                            <div class="col-md-6 pl-3">
+                              <strong>Company: </strong><br>
+                              BPAA, Inc.
+                            </div>
+                            <div class="col-md-6 pl-3">
+                              <strong>Position: </strong><br>
+                              Director Technology
+                            </div>
+                          </div>
+                          <div class="row hs-border-top-white">
+                            <div class="col-md-12">
+                              <p class="hs-paragraph">
+                                <h5>Description:</h5>
+                                <span class="hs-text-muted">80% Hands on UI/UX Engineering. This projects
+                                  included website, game and cartoon production. </span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="text-center">
+                          <button class="hs-btn-showmore" type="button" data-toggle="collapse"
+                            data-target="#c10" aria-expanded="false" aria-controls="#c10">
+                            Show more
+                          </button></div>
+                      </div>
+
+                    </hs-card-body>
+                    <hs-card-footer color-tone="dark">
+                      <div class="row m-0 d-flex w-100">
+                        <div class="col-md-12 p-3 hs-logo-row--footer">
+                          <ul class="flex-container space-between">
+                            <li class="flex-item">
+                              <img src="assets/img/logos/dmHTML5_Logo_512.png" class="hs-skill-logo" width="35"
+                                alt="HTML5 logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/Sass-150.png" class="hs-skill-logo" width="35"
+                                alt="sass logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/dm-css3-150.png" class="hs-skill-logo" width="35"
+                                alt="css logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/js-logo.jpg" class="hs-skill-logo" width="35"
+                                alt="javascript logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/dm-Node.png" class="hs-skill-logo" width="35"
+                                alt="node js logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/gulp-150.png" class="hs-skill-logo" width="35"
+                                alt="gulp logo" />
+                            </li>
+                            <li class="flex-item">
+                              <img src="assets/img/logos/dm-Git-logo.png" class="hs-skill-logo" width="35"
+                                alt="git logo" />
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </hs-card-footer>
+                  </hs-card>
+                </div>
+              <!-- <div class="swiper-slide">Slide 8</div>
+                 <div class="swiper-slide">Slide 9</div>
+                 <div class="swiper-slide">Slide 10</div> -->
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+          </div>
+          <style>
+            /* .swiper-container .swiper-slide,
+              .swiper-container .swiper-slide[style] {
+                display: inline-flex;
+                max-width: 320px;
+                height: 676px;
+                border: 1px solid #ccc;
+              } */
+
+          </style>
+          <script src="assets/js/swiper.js"></script>
+          <script>
+            var swiper = new Swiper('.swiper-container', {
+              // slidesPerView: 4,
+              // spaceBetween: 30,
+              // centeredSlides: true,
+              pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+              },
+              autoHeight: true
+              // width: 265;
+              // height: 300;
+            });
+
+          </script>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <span class="copyright">Copyright &copy; HeathShults.com
+            <script>
+              document.write(new Date().getFullYear());
+
+            </script>
+          </span>
+        </div>
+        <div class="col-md-4">
+          <ul class="list-inline social-buttons">
+            <li><a href="#"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li><a href="#"><i class="fa fa-facebook"></i></a>
+            </li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <ul class="list-inline quicklinks">
+            <li><a href="#">Privacy Policy</a>
+            </li>
+            <li><a href="#">Terms of Use</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 p-5">
+          <p style="font-size: 1.5rem; font-weight: 700;"><a href="http://www.freepik.com">THANK YOU Freepik!</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Portfolio Modals -->
+  <!-- Use the modals below to showcase details about your portfolio projects! -->
+
+  <script>
+    function showModal(modal) {
+      document.querySelector(modal).show();
+    }
+
+    function closeModal(modal) {
+      document.querySelector(modal).close();
+    }
+
+  </script>
+
+  <!-- jQuery  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqBootstrapValidation/1.3.6/jqBootstrapValidation.min.js">
+  </script>
+  <!-- <script src="js/contact_me.js"></script> -->
+
+  <!-- Theme JavaScript -->
+  <script src="/assets/js/HeathScript.built.js" type="module"></script>
+  <!-- <script src="hScript.bundle.js"></script> -->
+
+  <script>
+    $(document).ready(() => {
+      $(".hs-btn-showmore").text('show more')
+
+
+
+      $(".hs-btn-showmore").click(function () {
+        var targetID = $(this).attr('data-target')
+        $(targetID).slideToggle('slow')
+
+        $(this).text(function (i, v) {
+          return v === 'show more' ? 'show less' : 'show more'
+        })
+      });
+    })
+
+    //  onclick="javascript:showModal('#modBowlopolis');"
+    // // ====== RANKING BARS
+    var theBars = document.querySelectorAll('.hs-ranking-bar')
+    theBars.forEach(aBar => {
+      var barWidth = $(aBar).attr('aria-valuenow')
+      $(aBar).attr('style', `width: ${barWidth}%`);
+    });
+
+    // // ====== SHOWMORE ==== //
+    let ShowMoreSettings = {
+      fbInitButtonText: 'Show More',
+      fbOpenButtonText: 'Show Less',
+      boxHeight: '100vh'
+    };
+
+  </script>
+</body>
+
+</html>

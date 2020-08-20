@@ -5,7 +5,7 @@ const del = require('del')
 // const sh = require('shelljs');
 const path = require('path');
 
-const destPath = path.resolve(path.dirname(__filename), '../www' );
+const destPath = path.resolve(path.dirname(__filename), '../www-app' );
 // sh.rm('-rf', `${destPath}/**/*.*`)
 
 (async () => {
