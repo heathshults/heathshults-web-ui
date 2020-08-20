@@ -42,6 +42,14 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+    #shadow-root #imgHeader #imgHeaderOverlay img#hsHeaderImg.hs-img-header_img.hs-responsive-box-16by9,
+      hs-card[cord-size="--sm"] hs-card-img-header .hs-img-header_img {
+        width: 265px;
+        height: 177px
+      }
+
+    </style>
   </head>
 
   <body id="page-top" class="index">
@@ -607,10 +615,10 @@
           </div>
         </div>
         <div class="row mt-5">
-          <div class="col-md-4 col-sm-6 hs-portfolio-item">
+          <div class="col-md-4 hs-portfolio-item">
 
             <hs-card color-tone="light" card-size="--sm" card-width="265" card-height="100%">
-              <hs-card-img-header img-path="/assets/img/portfolio/Fannie-Mae/blueprint-card-header.jpg"></hs-card-img-header>
+              <hs-card-img-header card-size="inherit" img-path="/assets/img/portfolio/Fannie-Mae/blueprint-card-header.jpg"></hs-card-img-header>
               <hs-card-body>
 
                 <div class="hs-card-content">
@@ -682,7 +690,7 @@
               </hs-card-footer>
             </hs-card>
           </div>
-          <div class="col-md-4 col-sm-6 hs-portfolio-item">
+          <div class="col-md-4 hs-portfolio-item">
             <hs-card color-tone="light">
               <hs-card-img-header img-width="100%" img-height="260px" img-path="/assets/img/portfolio/BlueStarSports/BSS-card-heading.jpg"></hs-card-img-header>
               <hs-card-body>
@@ -747,7 +755,76 @@
               </hs-card-footer>
             </hs-card>
           </div>
-          <div class="col-md-4 col-sm-6 hs-portfolio-item">
+          <div class="col-md-4 hs-portfolio-item">
+            <hs-card color-tone="light">
+              <hs-card-img-header
+                img-width="100%"
+                img-height="177px"
+                img-path="/assets/img/portfolio/bowlopolis/bolopolis-headerImg.png"
+                click-target="modBowlopolis"
+                ></hs-card-img-header>
+              <hs-card-body>
+                <!--  -->
+                  <div class="hs-card-content">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <h3 class="hs-body_title">Youth Program, Website &amp; Game</h3>
+                      </div>
+                    </div>
+                    <div class="row hs-info-table">
+                      <div class="col-md-6 pl-3">
+                        <strong>Company: </strong><br>
+                        BPAA, Inc.
+                      </div>
+                      <div class="col-md-6 pl-3">
+                        <strong>Position: </strong><br>
+                        Director Technology
+                      </div>
+                    </div>
+                    <div class="row hs-border-top-white">
+                      <div class="col-md-12">
+                        <p class="hs-paragraph">
+                          <h5>Description:</h5>
+                          <span class="hs-text-muted">80% Hands on UI/UX Engineering. This projects
+                            included website, game and cartoon production. </span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                <!--  -->
+              </hs-card-body>
+              <hs-card-footer color-tone="dark">
+                <div class="row m-0 d-flex w-100">
+                <div class="col-md-12 p-3 hs-logo-row--footer">
+                  <ul class="flex-container space-between">
+                    <li class="flex-item">
+                      <img src="assets/img/logos/dmHTML5_Logo_512.png" class="hs-skill-logo" width="35" alt="HTML5 logo" />
+                    </li>
+                    <li class="flex-item">
+                      <img src="assets/img/logos/Sass-150.png" class="hs-skill-logo" width="35" alt="sass logo" />
+                    </li>
+                    <li class="flex-item">
+                      <img src="assets/img/logos/dm-css3-150.png" class="hs-skill-logo" width="35" alt="css logo" />
+                    </li>
+                    <li class="flex-item">
+                      <img src="assets/img/logos/js-logo.jpg" class="hs-skill-logo" width="35" alt="javascript logo" />
+                    </li>
+                    <li class="flex-item">
+                      <img src="assets/img/logos/dm-Node.png" class="hs-skill-logo" width="35" alt="node js logo" />
+                    </li>
+                    <li class="flex-item">
+                      <img src="assets/img/logos/gulp-150.png" class="hs-skill-logo" width="35" alt="gulp logo" />
+                    </li>
+                    <li class="flex-item">
+                      <img src="assets/img/logos/dm-Git-logo.png" class="hs-skill-logo" width="35" alt="git logo" />
+                    </li>
+                  </ul>
+                </div>
+                </div>
+              </hs-card-footer>
+            </hs-card>
+          </div>
+          <div class="col-md-4 hs-portfolio-item">
             <hs-card color-tone="light">
               <hs-card-img-header
                 img-width="100%"

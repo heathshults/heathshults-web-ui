@@ -12,7 +12,8 @@ export namespace Components {
         "cardSize": string;
         "cardWidth": string;
         "colorTone": string;
-        "imgHeaderImg": HTMLElement;
+        "imgHeader": HTMLElement;
+        "imgHeaderImg": HTMLImageElement;
     }
     interface HsCardBody {
     }
@@ -24,6 +25,7 @@ export namespace Components {
     }
     interface HsCardImgHeader {
         "cardHeader": any;
+        "cardSize": any;
         "clickTarget"?: string;
         "imgElem": any;
         "imgHeight": string;
@@ -224,7 +226,8 @@ declare namespace LocalJSX {
         "cardSize"?: string;
         "cardWidth"?: string;
         "colorTone"?: string;
-        "imgHeaderImg"?: HTMLElement;
+        "imgHeader"?: HTMLElement;
+        "imgHeaderImg"?: HTMLImageElement;
     }
     interface HsCardBody {
     }
@@ -236,6 +239,7 @@ declare namespace LocalJSX {
     }
     interface HsCardImgHeader {
         "cardHeader"?: any;
+        "cardSize"?: any;
         "clickTarget"?: string;
         "imgElem"?: any;
         "imgHeight"?: string;
