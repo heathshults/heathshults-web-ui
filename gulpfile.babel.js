@@ -32,7 +32,7 @@ var chalk = require('chalk')
 var ra =require('./scripts/render-assets.js')
 
 var srcPath = path.resolve(__dirname, 'src')
-var wwwPath =  path.resolve(__dirname, 'www')
+var wwwPath =  path.resolve(__dirname, 'www-app')
 var distPath =  path.resolve(__dirname, 'dist')
 
 let p = {
@@ -341,21 +341,21 @@ function copy_css(cb) {
 }
 exports.copy_css = copy_css
 
-function copy_js(cb) {
-  src(`${srcPath}/assets/js/**/*.{js,json,map}`)
-    .pipe(plumber())
-    //.pipe(changed(`${wwwPath}/js`))
-    .pipe(debug({ title: 'copied' }))
-    .pipe(dest(`${wwwPath}/assets/js`)), cb()
-  // () => {
-  //   let file = ''
-  //   if (typeof cb === 'function') {
-  //     cb(null, file);
-  //     called = true;
-  //   }
-  // }
-}
-exports.copy_js = copy_js
+// function copy_js(cb) {
+//   src(`${srcPath}/assets/js/**/*.{js,json,map}`)
+//     .pipe(plumber())
+//     //.pipe(changed(`${wwwPath}/js`))
+//     .pipe(debug({ title: 'copied' }))
+//     .pipe(dest(`${wwwPath}/assets/js`)), cb()
+//   // () => {
+//   //   let file = ''
+//   //   if (typeof cb === 'function') {
+//   //     cb(null, file);
+//   //     called = true;
+//   //   }
+//   // }
+// }
+// exports.copy_js = copy_js
 
 function copy_components(cb) {
   exec('stencil build', (error, stdout, stderr) => {
@@ -399,7 +399,7 @@ function renderer(cb) {
 exports.renderer = renderer
 
 function copy_dev(cb) {
-  series(copy_css, copy_js, copy_vendor, copy_img )
+  series(copy_css, ra.copy_js, copy_vendor, copy_img )
   if (typeof cb === 'function') cb()
 }
 exports.copy_dev = copy_dev
@@ -459,6 +459,7 @@ function watchers(cb) {
         watch([`${srcPath}/scss/**/*.scss`], compileCSS), callback;
         watch([`${srcPath}/assets/**/*.css`], ra.copy_css().then( callback ));
         watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], ra.copy_js().then(callback));
+        watch(['./www/build/*.{js,json,mjs,cjs}`'], ra.copy_js().then(callback));
         watch([`${srcPath}/assets/js/HeathScript.js`], renderJS), callback;
         watch([`${srcPath}/components/**/*`], build_components), callback;
         // watch(`${srcPath}/components/**/*.{js,json,html,css}`, copy_components), cb()
@@ -544,7 +545,7 @@ function watchers2(cb) {
   watch(`${srcPath}c/assets/js/*.js`, {
     readDelay: 500,
     verbose: true
-  }, copy_js);
+  }, ra.copy_js);
   // Reloads the browser whenever HTML or JS files change
   watch(`${srcPath}/*.ejs`, ejsit);
   watch(`${srcPath}/assets/**/*.{jpg,png,gif,svg,mp4}`, {

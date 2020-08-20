@@ -8,8 +8,8 @@ const chalk = require('chalk');
 
 // var babelify = require('babelify')
 var inFile = path.resolve(__dirname, '../src/index.js')
-var outFile = path.resolve(__dirname, '../www/assets/js/HeathScript.built.js')
-var outPath = path.resolve(__dirname, '../www/assets/js/')
+var outFile = path.resolve(__dirname, '../www-app/assets/js/HeathScript.built.js')
+var outPath = path.resolve(__dirname, '../www-app/assets/js/')
 
 
 // var whoDidIt =
@@ -35,23 +35,23 @@ function HeathenScriptJS(jsdest) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         try {
-          nfs.mkdirSync(path);
+          fs.mkdirSync(path);
           resolve(true)
         } catch (err) {
-          if (err.code === 'EEXIST') { // curDir already exists!
-            console.log(chalk.red('path exists'))
-            return path;
-          }
-          // To avoid `EISDIR` error on Mac and `EACCES`-->`ENOENT` and `EPERM` on Windows.
-          if (err.code === 'ENOENT') { // Throw the original parentDir error on curDir `ENOENT` failure.
-            throw new Error(`EACCES: permission denied, mkdir '${path}'`);
-          }
+          // if (err.code === 'EEXIST') { // curDir already exists!
+          //   console.log(chalk.red('path exists'))
+          //   return path;
+          // }
+          // // To avoid `EISDIR` error on Mac and `EACCES`-->`ENOENT` and `EPERM` on Windows.
+          // if (err.code === 'ENOENT') { // Throw the original parentDir error on curDir `ENOENT` failure.
+          //   throw new Error(`EACCES: permission denied, mkdir '${path}'`);
+          // }
 
-          const caughtErr = ['EACCES', 'EPERM', 'EISDIR'].indexOf(err.code) > -1;
-          if (!caughtErr || caughtErr && path === path.resolve(path)) {
-            throw err; // Throw if it's just the last created dir.
-          }
-          reject(false)
+          // const caughtErr = ['EACCES', 'EPERM', 'EISDIR'].indexOf(err.code) > -1;
+          // if (!caughtErr || caughtErr && path === path.resolve(path)) {
+          //   throw err; // Throw if it's just the last created dir.
+          // }
+          // reject(false)
         }
       }, 2000)
       return processJS(outFile)

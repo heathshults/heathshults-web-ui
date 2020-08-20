@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path')
 const packageJSON = require('../package.json');
-const filePath = path.resolve(__dirname, '../www/assets/css/HeathStyle.built.css')
+const filePath = path.resolve(__dirname, '../www-app/assets/css/HeathStyle.built.css')
 const accredation = require('./intellectualAccredation.js')
 // console.log(accredation)
 // const accredation = `/*!

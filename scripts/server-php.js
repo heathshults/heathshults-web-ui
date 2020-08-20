@@ -1,6 +1,6 @@
 var path = require('path')
 var { exec } = require('child_process')
-var hostPath = path.resolve(__dirname, '../www')
+var hostPath = path.resolve(__dirname, '../www-app')
 
 function phpServer(callback) {
   return new Promise((resolve, reject) => {

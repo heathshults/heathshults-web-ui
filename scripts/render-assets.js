@@ -12,7 +12,7 @@ const ngAnnotate = require('gulp-ng-annotate')
 
 const rootPath = path.resolve(__dirname, '../')
 const srcPath = path.resolve(__dirname, '../src/assets');
-const wwwPath = path.resolve(__dirname, '../www/assets');
+const wwwPath = path.resolve(__dirname, '../www-app/assets');
 const srcJS = path.resolve(__dirname, '../src/js/');
 
 var onError = (err) => {
