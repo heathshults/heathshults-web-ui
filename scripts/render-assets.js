@@ -9,6 +9,7 @@ const chalk = require('chalk')
 const plumber = require('gulp-plumber')
 const changed = require('gulp-changed')
 const ngAnnotate = require('gulp-ng-annotate')
+const rename = require('gulp-rename')
 
 const rootPath = path.resolve(__dirname, '../')
 const srcPath = path.resolve(__dirname, '../src/assets');
@@ -163,15 +164,21 @@ function copy_vendor(cb) {
           .pipe(debug({
             title: 'Copied bootstrap'
           }))
-          .pipe(dest(`${wwwPath}/assets/vendor/bootstrap`))
+          .pipe(rename({
+            dirname: `${wwwPath}/assets/vendor/bootstrap`
+          }))
+          .pipe(dest('./'))
 
         src([`${rootPath}/node_modules/jquery/dist/jquery.js`, `${rootPath}/node_modules/jquery/dist/jquery.min.js`])
           .pipe(changed(`${wwwPath}/assets/vendor/jquery`))
           .pipe(ngAnnotate())
+          .pipe(rename({
+            dirname: `${wwwPath}/assets/vendor/jquery`
+          }))
           .pipe(debug({
             title: 'Copied jquery'
           }))
-          .pipe(dest(`${wwwPath}/assets/vendor/jquery`))
+          .pipe(dest('./'))
 
         src([
             `${rootPath}/node_modules/font-awesome/**`,
@@ -183,10 +190,13 @@ function copy_vendor(cb) {
           ])
           .pipe(changed(`${wwwPath}/assets/vendor/font-awesome`))
           .pipe(ngAnnotate())
+          .pipe(rename({
+            dirname: `${wwwPath}/assets/vendor/jquery`
+          }))
           .pipe(debug({
             title: 'Copied font-awesome'
           }))
-          .pipe(dest(`${wwwPath}/assets/vendor/font-awesome`))
+          .pipe(dest('./'))
 
         console.log(chalk.green('copy_vendor() complete!'))
         resolve(cb)
@@ -220,14 +230,15 @@ function copy_js(cb) {
         ])
 
           .pipe(dest(`${wwwPath}/js`))
-          .pipe(debug({
-            title: 'Copied JS: '
-          }))
+          // .pipe(debug({
+          //   title: 'Copied JS: '
+          // }))
+          console.log('Copy JS Complete')
         if (typeof cb === 'function') {
           cb()
         }
         resolve(cb)
-      }, 2000)
+      }, 1000)
     } catch(error) {
       console.log(chalk.red('Error in copy_js(): ' + error))
       reject('Rejected copy_js(): ' + error)

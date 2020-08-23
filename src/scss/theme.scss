@@ -487,6 +487,7 @@ hs-card-body {
 }
 .navbar .container {
   display: inline-flex;
+  height: 100%;
 }
 
 .form-control {
@@ -516,9 +517,10 @@ hs-card-body {
 
 .collapse {
   // height: 0;
-  overflow: hidden;
+  // overflow: hidden;
+  height: 100%;
   &.show {
-    // height: 100%;
+    height: 100%;
   }
 }
 .responsive-box {

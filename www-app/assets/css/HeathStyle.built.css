@@ -11248,6 +11248,7 @@ hs-card-body .hs-card-content .hs-info-table {
 }
 .navbar .container {
   display: inline-flex;
+  height: 100%;
 }
 
 .form-control {
@@ -11276,8 +11277,12 @@ hs-card-body .hs-card-content .hs-info-table {
 }
 
 .collapse {
-  overflow: hidden;
+  height: 100%;
 }
+.collapse.show {
+  height: 100%;
+}
+
 .responsive-box {
   position: relative;
   display: block;
