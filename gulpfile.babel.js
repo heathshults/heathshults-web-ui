@@ -29,7 +29,7 @@ var changed = require('gulp-changed')
 var ejs = require('gulp-ejs')
 var log = require('fancy-log')
 var chalk = require('chalk')
-var ra =require('./scripts/render-assets.js')
+var ra =require('./scripts/render-assets')
 
 var srcPath = path.resolve(__dirname, 'src')
 var wwwPath =  path.resolve(__dirname, 'www-app')
@@ -174,7 +174,7 @@ function ejsit(done) {
 }
 exports.ejsit = ejsit
 
-function jsify(cb){
+function babelfry(cb){
   var fs = require("fs");
 
   browserify({ debug: true })
@@ -183,14 +183,13 @@ function jsify(cb){
   .bundle()
   .on("error", function (err) { console.log(chalk.red("Error: " + err.message)); })
   .pipe(fs.createWriteStream(`${wwwPath}/assets/js/HeathScript.built.js`)),
-  console.log(chalk.green('Babelifried JS'))
-  , cb();
+  console.log(chalk.green('Babelifried JS')), cb();
 }
-exports.jsify = jsify
+exports.babelfry = babelfry
 
 function renderJS(cb) {
   console.log(chalk.yellow('starting JS renderrer...'))
-  exec('node scripts/build-scripts.js', (error, stdout, stderr) => {
+  exec('node scripts/build-scripts-launcher.js', (error, stdout, stderr) => {
     if (error) {
         console.log(chalk.red("ERROR renderJS: \n stdout: " + stderr + "\n Error Message: " + error.message));
         return 'renderJS error'+error
@@ -393,7 +392,7 @@ function copy_assets(cb) {
 exports.copy_assets = copy_assets
 
 function renderer(cb) {
-  series(compileCSS, jsify, ejsit)
+  series(compileCSS, babelfry, ejsit)
   if (typeof cb === 'function') cb()
 }
 exports.renderer = renderer
@@ -460,9 +459,8 @@ function watchers(cb) {
         watch([`${srcPath}/assets/**/*.css`], ra.copy_css().then( callback ));
         watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], ra.copy_js().then(callback));
         watch(['./www/build/*.{js,json,mjs,cjs}`'], ra.copy_js().then(callback));
-        watch([`${srcPath}/assets/js/HeathScript.js`], renderJS), callback;
+        watch([`${srcPath}/assets/js/HeathScript.js`], babelfry), callback;
         watch([`${srcPath}/components/**/*`], build_components), callback;
-        // watch(`${srcPath}/components/**/*.{js,json,html,css}`, copy_components), cb()
         resolve(callback)
       },2000 )
     }

@@ -51,7 +51,7 @@ function HeathenScriptJS(jsdest) {
           // if (!caughtErr || caughtErr && path === path.resolve(path)) {
           //   throw err; // Throw if it's just the last created dir.
           // }
-          // reject(false)
+          reject(false)
         }
       }, 2000)
       return processJS(outFile)

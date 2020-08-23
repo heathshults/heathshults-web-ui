@@ -28,10 +28,10 @@ export namespace Components {
         "cardSize": any;
         "clickTarget"?: string;
         "imgElem": any;
-        "imgHeight": string;
+        "imgHeight"?: string;
         "imgPath": string;
         "imgSize": string;
-        "imgWidth": string;
+        "imgWidth"?: string;
         "overlay": HTMLLinkElement;
         "sizeClass"?: string;
     }
