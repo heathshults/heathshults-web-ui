@@ -15,6 +15,10 @@ const rootPath = path.resolve(__dirname, '../')
 const srcPath = path.resolve(__dirname, '../src/assets');
 const wwwPath = path.resolve(__dirname, '../www-app/assets');
 const srcJS = path.resolve(__dirname, '../src/js/');
+const srcCompJS = path.resolve(__dirname, '../www/build');
+const wwwCompJS = path.resolve(__dirname, '../www-app/assets/js/hsui')
+console.log(srcCompJS)
+console.log(wwwCompJS)
 
 var onError = (err) => {
   console.log(chalk(`Error: ${err}`))
@@ -23,12 +27,13 @@ var onError = (err) => {
 
 function runAssetsPromises(cb) {
   console.log('running sequential with promises.')
-  copy_assets_content('first')
+  copy_assets_content()
     .then(copy_css)
     .then(copy_images)
     .then(copy_mail)
     .then(copy_vendor)
     .then(copy_js)
+    .then(copy_components)
     if (typeof cb === 'function') cb()
 }
 exports.runAssetsPromises = runAssetsPromises
@@ -39,12 +44,12 @@ function copy_assets_content(cb) {
   return new Promise((resolve, reject) => {
     try {
       src(`${srcPath}/content/**/*`)
-        .pipe(changed(`${wwwPath}/content`))
-        .pipe(ngAnnotate())
+        // .pipe(changed(`${wwwPath}/content`))
+        // .pipe(ngAnnotate())
         .pipe(dest(`${wwwPath}/content`))
-        .pipe(debug({
-          title: 'Copied content: '
-        }));
+        // .pipe(debug({
+        //   title: 'Copied content: '
+        // }));
       console.log(chalk.green('Finished: copy_assets_content()'))
       resolve(cb)
     } catch (error) {
@@ -75,7 +80,7 @@ function copy_css(cb) {
         resolve(cb)
       }, 2000)
     } catch (error) {
-      console.log(chalk.red('Error in copy_assets_content(): ' + error))
+      console.log(chalk.red('Error in copy_css(): ' + error))
       reject(()=>{ if (typeof cb === 'function') {cb()} })
     }
   })
@@ -123,13 +128,13 @@ function copy_mail(cb) {
   return new Promise((resolve, reject) => {
     try {
       setTimeout(() => {
-        src(`${srcPath}/mail/**/*`)
-          .pipe(changed(`${wwwPath}/mail`))
-          .pipe(ngAnnotate())
+        src(`${srcPath}/mail/**/*.{php,json,js}`)
+          // .pipe(changed(`${wwwPath}/mail`))
+          // .pipe(ngAnnotate())
           .pipe(dest(`${wwwPath}/mail`))
-          .pipe(debug({
-            title: 'Copied mail: '
-          }));
+          // .pipe(debug({
+          //   title: 'Copied mail: '
+          // }));
         // if (typeof cb === 'function') {
         //   cb()
         // }
@@ -149,54 +154,56 @@ function copy_vendor(cb) {
   return new Promise((resolve, reject) => {
     try {
       setTimeout(() => {
-        src(`${srcPath}/assets/vendor/**/*`)
-          .pipe(changed(`${wwwPath}/vendor`))
-          .pipe(ngAnnotate())
-          .pipe(dest(`${wwwPath}assets/vendor`))
-          .pipe(debug({
-            title: 'Copied vendor: '
-          }));
+        src(`${srcPath}/vendor/**/*`)
+          // .pipe(changed(`${wwwPath}/vendor`))
+          // .pipe(ngAnnotate())
+          // .pipe(rename({
+          //   dirname: `${wwwPath}/vendor`
+          // }))
+          .pipe(dest(`${wwwPath}/vendor`))
+          // .pipe(debug({
+          //   title: 'Copied vendor: '
+          // }));
 
+        // src([`${rootPath}/node_modules/bootstrap/www/**/*`, '!**/npm.js', '!**/bootstrap-theme.*'])
+        //   // .pipe(changed(`${wwwPath}//vendor/bootstrap`))
+        //   // .pipe(ngAnnotate())
+        //   .pipe(debug({
+        //     title: 'Copied bootstrap'
+        //   }))
+        //   .pipe(rename({
+        //     dirname: `${wwwPath}/vendor/bootstrap`
+        //   }))
+        //   .pipe(dest('../'))
 
-        src([`${rootPath}/node_modules/bootstrap/www/**/*`, '!**/npm.js', '!**/bootstrap-theme.*'])
-          .pipe(changed(`${wwwPath}/assets/vendor/bootstrap`))
-          .pipe(ngAnnotate())
-          .pipe(debug({
-            title: 'Copied bootstrap'
-          }))
-          .pipe(rename({
-            dirname: `${wwwPath}/assets/vendor/bootstrap`
-          }))
-          .pipe(dest('./'))
+        // src([`${rootPath}/node_modules/jquery/dist/jquery.js`, `${rootPath}/node_modules/jquery/dist/jquery.min.js`])
+        //   // .pipe(changed(`${wwwPath}/vendor/jquery`))
+        //   // .pipe(ngAnnotate())
+        //   .pipe(rename({
+        //     dirname: `${wwwPath}/vendor/jquery`
+        //   }))
+        //   .pipe(debug({
+        //     title: 'Copied jquery'
+        //   }))
+        //   .pipe(dest('../'))
 
-        src([`${rootPath}/node_modules/jquery/dist/jquery.js`, `${rootPath}/node_modules/jquery/dist/jquery.min.js`])
-          .pipe(changed(`${wwwPath}/assets/vendor/jquery`))
-          .pipe(ngAnnotate())
-          .pipe(rename({
-            dirname: `${wwwPath}/assets/vendor/jquery`
-          }))
-          .pipe(debug({
-            title: 'Copied jquery'
-          }))
-          .pipe(dest('./'))
-
-        src([
-            `${rootPath}/node_modules/font-awesome/**`,
-            `!${rootPath}/node_modules/font-awesome/**/*.map`,
-            `!${rootPath}/node_modules/font-awesome/.npmignore`,
-            `!${rootPath}/node_modules/font-awesome/*.txt`,
-            `!${rootPath}/node_modules/font-awesome/*.md`,
-            `!${rootPath}/node_modules/font-awesome/*.json`
-          ])
-          .pipe(changed(`${wwwPath}/assets/vendor/font-awesome`))
-          .pipe(ngAnnotate())
-          .pipe(rename({
-            dirname: `${wwwPath}/assets/vendor/jquery`
-          }))
-          .pipe(debug({
-            title: 'Copied font-awesome'
-          }))
-          .pipe(dest('./'))
+        // src([
+        //     `${rootPath}/node_modules/font-awesome/**`,
+        //     `!${rootPath}/node_modules/font-awesome/**/*.map`,
+        //     `!${rootPath}/node_modules/font-awesome/.npmignore`,
+        //     `!${rootPath}/node_modules/font-awesome/*.txt`,
+        //     `!${rootPath}/node_modules/font-awesome/*.md`,
+        //     `!${rootPath}/node_modules/font-awesome/*.json`
+        //   ])
+        //   // .pipe(changed(`${wwwPath}/vendor/font-awesome`))
+        //   // .pipe(ngAnnotate())
+        //   .pipe(rename({
+        //     dirname: `${wwwPath}/vendor/font-awesome`
+        //   }))
+        //   .pipe(debug({
+        //     title: 'Copied font-awesome'
+        //   }))
+        //   .pipe(dest('../'))
 
         console.log(chalk.green('copy_vendor() complete!'))
         resolve(cb)
@@ -228,12 +235,15 @@ function copy_js(cb) {
           `!${srcJS}/HeathScript.js`,
           `!${srcJS}/modules/**/*`
         ])
-
-          .pipe(dest(`${wwwPath}/js`))
+        .pipe(rename({
+            dirname: `${wwwPath}/js`
+          }))
+          .pipe(dest(rootPath))
           // .pipe(debug({
           //   title: 'Copied JS: '
-          // }))
-          console.log('Copy JS Complete')
+          // }));
+
+         console.log(chalk.green('copy_js() Complete'))
         if (typeof cb === 'function') {
           cb()
         }
@@ -247,5 +257,32 @@ function copy_js(cb) {
 }
 exports.copy_js = copy_js
 
+function copy_components(cb) {
+  return new Promise((resolve, reject) => {
+    try {
+      setTimeout(() => {
+        src('../www/build/**/*')
+        // .pipe(debug({
+        //   title: 'Copied origin component: '
+        // }))
+        .pipe(dest('../www-app/assets/components'))
+        // .pipe(debug({
+        //   title: 'Copied destination component: '
+        // }))
+        console.log(chalk.green('copy_components() Complete'))
+        if (typeof cb === 'function') {
+          cb()
+        }
+        resolve(cb)
+      }, 1000)
+    } catch(error) {
+      console.log(chalk.red('Error in copy_components(): ' + error))
+      reject('Rejected copy_components(): ' + error)
+    }
+  })
+}
+exports.copy_components = copy_components
 
+// uncomment the line below for debugging
+// runAssetsPromises()
 // exports.copy_assets = series(copy_assets_content, copy_js, copy_css, copy_images, copy_mail, copy_vendor)

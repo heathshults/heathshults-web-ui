@@ -454,11 +454,11 @@ function watchers(cb) {
         // eslint-disable-next-line no-sequences
         var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
         watch(`${srcPath}/views/*.ejs`, ejsit), callback;
-        watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_img);
+        watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_images().then(callback));
         watch([`${srcPath}/scss/**/*.scss`], compileCSS), callback;
         watch([`${srcPath}/assets/**/*.css`], ra.copy_css().then( callback ));
         watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], ra.copy_js().then(callback));
-        watch(['./www/build/*.{js,json,mjs,cjs}`'], ra.copy_js().then(callback));
+        watch(['www/build/**/*`'], ra.copy_components().then(callback));
         watch([`${srcPath}/assets/js/HeathScript.js`], babelfry), callback;
         watch([`${srcPath}/components/**/*`], build_components), callback;
         resolve(callback)

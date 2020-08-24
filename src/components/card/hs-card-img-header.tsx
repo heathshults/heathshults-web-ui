@@ -14,11 +14,12 @@ export class HSCardImgHeader {
   @Prop() overlay: HTMLLinkElement;
   @Prop() imgElem: any;
   @Prop() imgPath: string;
-  @Prop() imgWidth?: string = '100%';
-  @Prop() imgHeight?: string = '187px';
+  @Prop() imgWidth: string;
+  @Prop() imgHeight: string;
   @Prop() sizeClass?: string;
   @Prop() imgSize: string;
   @Prop() clickTarget?: string;
+  @Prop() modalId: string;
 
   modalLancher: EventEmitter;
   @Event() launchModal: EventEmitter;
@@ -46,14 +47,14 @@ export class HSCardImgHeader {
     this.cardHeader = this.imgHeaderEl.shadowRoot.querySelector('#imgHeader');
     this.imgElem = this.cardHeader.querySelector('#hsHeaderImg');
     this.imgElem.src = this.imgPath;
-    // if (typeof this.imgWidth !== 'undefined'){this.sizeClass = this.imgSize}else {this.imgElem.style.width = '100%'};
-    // if (typeof this.imgHeight !== 'undefined'){this.imgElem.style.height = this.imgHeight}else {this.imgElem.style.height = '177px'};
+    this.imgElem.style.width = this.imgWidth;
+    this.imgElem.style.height = this.imgHeight;
     this.overlay = this.cardHeader.querySelector('#imgHeaderOverlay');
    }
 
     return (
-      <header id="imgHeader" class="hs-card__img-header">
-        <a id="imgHeaderOverlay" class="hs-img-header__overlay hs-responsive-box--16by9" href="javascript:void(0);" onClick={() => this.launchModalHandler('#modBowlopolis')}>
+      <header id="imgHeader" class="hs-card_img-header">
+        <a id="imgHeaderOverlay" class="hs-img-header_overlay hs-responsive-box--16by9" href="javascript:void(0);" onClick={() => this.launchModalHandler(this.modalId)}>
         {/* <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path fill="#ffffff" d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/></svg> */}
           <img id="hsHeaderImg" src={this.imgPath} class="hs-img-header_img hs-responsive-box--16by9" width={this.imgWidth} height={this.imgHeight} alt="header image" />
         </a>

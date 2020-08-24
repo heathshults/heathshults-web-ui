@@ -28,10 +28,11 @@ export namespace Components {
         "cardSize": any;
         "clickTarget"?: string;
         "imgElem": any;
-        "imgHeight"?: string;
+        "imgHeight": string;
         "imgPath": string;
         "imgSize": string;
-        "imgWidth"?: string;
+        "imgWidth": string;
+        "modalId": string;
         "overlay": HTMLLinkElement;
         "sizeClass"?: string;
     }
@@ -246,6 +247,7 @@ declare namespace LocalJSX {
         "imgPath"?: string;
         "imgSize"?: string;
         "imgWidth"?: string;
+        "modalId"?: string;
         "onLaunchModal"?: (event: CustomEvent<any>) => void;
         "overlay"?: HTMLLinkElement;
         "sizeClass"?: string;
