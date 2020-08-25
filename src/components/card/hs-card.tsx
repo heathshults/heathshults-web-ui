@@ -18,19 +18,17 @@ export class HSCard {
   @Prop() imgHeaderImg: HTMLImageElement;
 
   componentWillLoad() {
-  }
-
-  render() {
-    // this.imgHeader = this.el.querySelector('hs-card-img-header')
-    this.imgHeader = this.el.shadowRoot.querySelector('hs-card-img-header')
+    this.imgHeader = this.el.shadowRoot.querySelector('#imgHeader')
     console.log(`imgHeader: ${this.imgHeader}`)
     if(this.imgHeader) {
-      this.imgHeaderImg = this.el.shadowRoot.querySelector('#hsHeaderImg')
-      // this.imgHeaderImg = this.el.querySelector('#hsHeaderImg')
+      this.imgHeaderImg = this.imgHeader.querySelector('#hsHeaderImg')
       console.log(`imgHeaderImg: ${this.imgHeaderImg}`)
       this.imgHeaderImg.classList.add(`hs-img-header_img${this.cardSize}`)
       console.log(`headImg: ${this.imgHeaderImg}`)
     }
+  }
+
+  render() {
     return (
       <div id={this.cardId} class={`hs-card hs-card-size${this.cardSize} ${this.colorTone}`}>
         <slot />

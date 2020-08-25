@@ -11314,12 +11314,52 @@ hs-card-body .hs-card-content .hs-info-table {
 }
 
 /* stylelint-disable-next-line */
-.hs-card.hs-card-size--sm .hs-img-header_img {
+hs-card {
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px 2px rgba(0, 0, 0, 0.3);
+}
+hs-card.light {
+  background-color: #f8f8f8;
+}
+hs-card.dark {
+  background-color: #2d373c;
+}
+hs-card > .hs-image:not(:first-child) {
+  padding: 1em 0 0;
+}
+hs-card + .hs-card {
+  margin: 0.5em 0 0 0;
+}
+
+hs-card[card-size="--sm"] {
   width: 265px;
   height: 177px;
 }
-.hs-card.hs-card-size--sm .hs-body_title {
-  font-size: 1.5rem;
+hs-card[card-size="--sm"] > hs-card-img-header {
+  width: 100%;
+  height: 100%;
+}
+
+hs-card[card-size="--fluid"] {
+  width: 100%;
+  height: 100%;
+}
+
+hs-card[card-size="--lg"] {
+  width: 400px;
+  height: 267px;
+}
+
+hs-card,
+hs-card-img-header,
+hs-card-body,
+hs-card-footer {
+  overflow: hidden;
 }
 
 /*# sourceMappingURL=HeathStyle.built.css.map */

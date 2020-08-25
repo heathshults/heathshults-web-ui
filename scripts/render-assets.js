@@ -10,13 +10,14 @@ const plumber = require('gulp-plumber')
 const changed = require('gulp-changed')
 const ngAnnotate = require('gulp-ng-annotate')
 const rename = require('gulp-rename')
+const { exec } = require('child_process')
 
 const rootPath = path.resolve(__dirname, '../')
 const srcPath = path.resolve(__dirname, '../src/assets');
 const wwwPath = path.resolve(__dirname, '../www-app/assets');
 const srcJS = path.resolve(__dirname, '../src/js/');
 const srcCompJS = path.resolve(__dirname, '../www/build');
-const wwwCompJS = path.resolve(__dirname, '../www-app/assets/js/hsui')
+const wwwCompJS = path.resolve(__dirname, '../www-app/components')
 console.log(srcCompJS)
 console.log(wwwCompJS)
 
@@ -38,6 +39,23 @@ function runAssetsPromises(cb) {
 }
 exports.runAssetsPromises = runAssetsPromises
 // runPromises()
+
+function render_components(cb) {
+   return new Promise((resolve, reject) => {
+     try {
+      console.log('initiating render_components()...')
+      build_components()
+      .then(copy_components)
+      console.log(chalk.green('render_components() complete!'))
+      resolve(cb)
+     }
+     catch(e) {
+      console.log(chalk.red(`Error in render_components(): ${e}`))
+      reject(()=>{ if (typeof cb === 'function') {cb()} })
+     }
+   })
+}
+exports.render_components = render_components
 
 function copy_assets_content(cb) {
 
@@ -92,8 +110,8 @@ function copy_images(cb) {
   return new Promise((resolve, reject) => {
     try {
       src(`${srcPath}/img/**/*.{png,jpg,gif,svg}`)
-        .pipe(changed(`${wwwPath}/img`))
-        .pipe(ngAnnotate())
+        // .pipe(changed(`${wwwPath}/img`))
+        // .pipe(ngAnnotate())
         .pipe(dest(`${wwwPath}/img`))
         // .pipe(debug({
         //   title: 'Copied images: '
@@ -265,7 +283,7 @@ function copy_components(cb) {
         // .pipe(debug({
         //   title: 'Copied origin component: '
         // }))
-        .pipe(dest('../www-app/assets/components'))
+        .pipe(dest('../www-app/components'))
         // .pipe(debug({
         //   title: 'Copied destination component: '
         // }))
@@ -282,6 +300,42 @@ function copy_components(cb) {
   })
 }
 exports.copy_components = copy_components
+
+function build_components(cb) {
+  return new Promise((resolve, reject) => {
+    try {
+      setTimeout(() => {
+        exec('node_modules/.bin/stencil build --dev --docs-readme --debug')
+        console.log(chalk.green('build_components() Complete'))
+        if (typeof cb === 'function') {
+          cb()
+        }
+        resolve(cb)
+      }, 2000)
+    }
+    catch(e) {
+      console.log(chalk.red('Error in build_components(): ' + e))
+      reject('Rejected build_components(): ' + e)
+    }
+  })
+}
+exports.build_components = build_components
+
+// function copy_ui_components(cb) {
+//   return new Promise((resolve, reject) => {
+//     try {
+//       setTimeout(() => {
+//         src(`${wwwBuild}/**/*`)
+//         .pipe(dest(`${wwwPath}/components`))
+//         resolve(cb)
+//       }, 2000)
+//     }
+//     catch(e) {
+//       reject(console.log(`Error in copy_ui_components() : ${e}`))
+//     }
+//   })
+// }
+// exports.copy_ui_components = copy_ui_components
 
 // uncomment the line below for debugging
 // runAssetsPromises()
