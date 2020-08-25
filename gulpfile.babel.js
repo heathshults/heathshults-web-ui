@@ -32,6 +32,7 @@ var chalk = require('chalk')
 var ra =require('./scripts/render-assets')
 
 var srcPath = path.resolve(__dirname, 'src')
+var wwwBuild = path.resolve(__dirname, 'www/build')
 var wwwPath =  path.resolve(__dirname, 'www-app')
 var distPath =  path.resolve(__dirname, 'dist')
 
@@ -356,27 +357,27 @@ exports.copy_css = copy_css
 // }
 // exports.copy_js = copy_js
 
-function copy_components(cb) {
-  exec('stencil build', (error, stdout, stderr) => {
-    if (error) {
-        console.log(`error: ${error.message}`);
-        return;
-    } else {console.log('Components built. Stencil will now chill...')}
-  }), cb()
-  // src('src/components/**/*.{js,json,html,css}')
-  //   .pipe(plumber())
-     //.pipe(changed(`${wwwPath}/js`))
-    //  .pipe(debug({ title: 'copied' }))
-    // .pipe(dest('www/')), cb()
-    // () => {
-    //   let file = ''
-    //   if (typeof cb === 'function') {
-    //     cb(null, file);
-    //     called = true;
-    //   }
-    // }
-}
-exports.copy_components = copy_components
+// function build_components(cb) {
+//   exec('stencil build', (error, stdout, stderr) => {
+//     if (error) {
+//         console.log(`error: ${error.message}`);
+//         return;
+//     } else {console.log('Components built. Stencil will now chill...')}
+//   }), cb()
+//   // src('src/components/**/*.{js,json,html,css}')
+//   //   .pipe(plumber())
+//      //.pipe(changed(`${wwwPath}/js`))
+//     //  .pipe(debug({ title: 'copied' }))
+//     // .pipe(dest('www/')), cb()
+//     // () => {
+//     //   let file = ''
+//     //   if (typeof cb === 'function') {
+//     //     cb(null, file);
+//     //     called = true;
+//     //   }
+//     // }
+// }
+// exports.build_components = build_components
 
 function copy_assets(cb) {
   ra.copy_assets_content('first')
@@ -403,11 +404,7 @@ function copy_dev(cb) {
 }
 exports.copy_dev = copy_dev
 
-function build_components(cb) {
-  exec('node_modules/.bin/stencil build --dev --docs-readme --debug')
-  if (typeof cb === 'function') cb()
-}
-exports.build_components = build_components
+
 
 
 function serve(cb) {
@@ -458,9 +455,9 @@ function watchers(cb) {
         watch([`${srcPath}/scss/**/*.scss`], compileCSS), callback;
         watch([`${srcPath}/assets/**/*.css`], ra.copy_css().then( callback ));
         watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], ra.copy_js().then(callback));
-        watch(['www/build/**/*`'], ra.copy_components().then(callback));
+        watch(['www/build/**/*'], ra.copy_components().then(callback));
         watch([`${srcPath}/assets/js/HeathScript.js`], babelfry), callback;
-        watch([`${srcPath}/components/**/*`], build_components), callback;
+        watch(['src/components/**/*'],  ra.render_components().then(callback));
         resolve(callback)
       },2000 )
     }
@@ -469,10 +466,6 @@ function watchers(cb) {
       reject()
     }
 
-    // })
-
-
-    if (typeof cb === 'function') {cb()}
   })
 }
 exports.watchers = watchers

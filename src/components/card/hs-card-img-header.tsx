@@ -16,6 +16,8 @@ export class HSCardImgHeader {
   @Prop() imgPath: string;
   @Prop() imgWidth: string;
   @Prop() imgHeight: string;
+  @Prop() imgW: string;
+  @Prop() imgH: string;
   @Prop() sizeClass?: string;
   @Prop() imgSize: string;
   @Prop() clickTarget?: string;
@@ -36,27 +38,27 @@ export class HSCardImgHeader {
   }
 
   componentWillLoad() {
-
-  }
-
-
-
-  render() {
-   () => {
-    // this.cardHeader = this.imgHeaderEl.querySelector('#imgHeader');
+    // this.cardHeaPassword1aderEl.querySelector('#imgHeader');
+    this.imgHeaderEl.style.width = this.imgWidth;
+    this.imgHeaderEl.style.height = this.imgHeight;
     this.cardHeader = this.imgHeaderEl.shadowRoot.querySelector('#imgHeader');
     this.imgElem = this.cardHeader.querySelector('#hsHeaderImg');
+    console.log(this.imgElem)
     this.imgElem.src = this.imgPath;
     this.imgElem.style.width = this.imgWidth;
     this.imgElem.style.height = this.imgHeight;
     this.overlay = this.cardHeader.querySelector('#imgHeaderOverlay');
-   }
+    this.imgW = this.imgWidth.replace(/px|%/g, '')
+    this.imgH = this.imgWidth.replace(/px|%/g, '')
+    console.log(this.imgH + ' ' + this.imgW)
+  }
 
+  render() {
     return (
       <header id="imgHeader" class="hs-card_img-header">
         <a id="imgHeaderOverlay" class="hs-img-header_overlay hs-responsive-box--16by9" href="javascript:void(0);" onClick={() => this.launchModalHandler(this.modalId)}>
         {/* <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path fill="#ffffff" d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/></svg> */}
-          <img id="hsHeaderImg" src={this.imgPath} class="hs-img-header_img hs-responsive-box--16by9" width={this.imgWidth} height={this.imgHeight} alt="header image" />
+          <img id="hsHeaderImg" src={this.imgPath} class="hs-img-header_img hs-responsive-box--16by9" width={this.imgW} height={this.imgH} alt="header image" />
         </a>
       </header>
     );
