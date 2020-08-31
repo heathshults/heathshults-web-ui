@@ -34,26 +34,17 @@ function runAssetsPromises(cb) {
     .then(copy_mail)
     .then(copy_vendor)
     .then(copy_js)
-    .then(copy_components)
     if (typeof cb === 'function') cb()
 }
 exports.runAssetsPromises = runAssetsPromises
 // runPromises()
 
 function render_components(cb) {
-   return new Promise((resolve, reject) => {
-     try {
-      console.log('initiating render_components()...')
+      console.log('Initiating render_components()...')
       build_components()
       .then(copy_components)
       console.log(chalk.green('render_components() complete!'))
-      resolve(cb)
-     }
-     catch(e) {
-      console.log(chalk.red(`Error in render_components(): ${e}`))
-      reject(()=>{ if (typeof cb === 'function') {cb()} })
-     }
-   })
+      if (typeof cb === 'function') cb()
 }
 exports.render_components = render_components
 
@@ -288,54 +279,32 @@ function copy_components(cb) {
         //   title: 'Copied destination component: '
         // }))
         console.log(chalk.green('copy_components() Complete'))
-        if (typeof cb === 'function') {
-          cb()
-        }
         resolve(cb)
       }, 1000)
     } catch(error) {
-      console.log(chalk.red('Error in copy_components(): ' + error))
-      reject('Rejected copy_components(): ' + error)
+      console.log(chalk.red(`Error in copy_components(): ${error}`))
+      reject(`Rejected copy_components(): ${error}`)
     }
   })
 }
 exports.copy_components = copy_components
 
-function build_components(cb) {
-  return new Promise((resolve, reject) => {
-    try {
-      setTimeout(() => {
-        exec('node_modules/.bin/stencil build --dev --docs-readme --debug')
-        console.log(chalk.green('build_components() Complete'))
-        if (typeof cb === 'function') {
-          cb()
-        }
-        resolve(cb)
-      }, 2000)
-    }
-    catch(e) {
-      console.log(chalk.red('Error in build_components(): ' + e))
-      reject('Rejected build_components(): ' + e)
-    }
-  })
-}
-exports.build_components = build_components
-
-// function copy_ui_components(cb) {
+// function build_components(cb) {
 //   return new Promise((resolve, reject) => {
 //     try {
 //       setTimeout(() => {
-//         src(`${wwwBuild}/**/*`)
-//         .pipe(dest(`${wwwPath}/components`))
+//         exec('../node_modules/.bin/stencil build --dev --docs-readme --debug')
+//         console.log(chalk.green('copy_components() Complete'))
 //         resolve(cb)
-//       }, 2000)
-//     }
-//     catch(e) {
-//       reject(console.log(`Error in copy_ui_components() : ${e}`))
+//       }, 1000)
+//     } catch(error) {
+//       console.log(chalk.red(`Error in copy_components(): ${error}`))
+//       reject(`Rejected copy_components(): ${error}`)
 //     }
 //   })
 // }
-// exports.copy_ui_components = copy_ui_components
+// exports.build_components = build_components
+
 
 // uncomment the line below for debugging
 // runAssetsPromises()

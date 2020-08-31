@@ -17,6 +17,7 @@
         "declaration-block-semicolon-newline-after": "always-multi-line",
         "declaration-block-semicolon-newline-before": "never-multi-line",
         "declaration-block-semicolon-space-after": "always-single-line",
+        "declaration-block-trailing-semicolon": null,
         "declaration-empty-line-before": null,
         "declaration-no-important": null,
         "font-family-name-quotes": null,
@@ -32,7 +33,7 @@
         "media-feature-range-operator-space-after": "always",
         "media-feature-range-operator-space-before": "never",
         "no-descending-specificity": null,
-        "no-duplicate-selectors": true,
+        "no-duplicate-selectors": null,
         "selector-type-no-unknown": null,
         "number-leading-zero": null,
         "order/order": [

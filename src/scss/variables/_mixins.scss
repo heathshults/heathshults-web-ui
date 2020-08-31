@@ -194,3 +194,16 @@
 
   @return $hs-value;
 }
+@mixin card-size {
+  &[card-size="--sm"] {
+    width: 265px;
+  }
+
+  &[card-size="--lg"] {
+    width: 400px;
+  }
+
+  &[card-size="--fluid"] {
+    width: 100%;
+  }
+}

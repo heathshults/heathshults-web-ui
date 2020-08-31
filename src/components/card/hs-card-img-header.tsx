@@ -6,22 +6,22 @@ import { Component, Element, Prop, Event, EventEmitter, Listen, h } from '@stenc
   shadow: true
 })
 export class HSCardImgHeader {
-  @Element() imgHeaderEl: HTMLDivElement;
+  @Element() el: HTMLDivElement;
 
 
-  @Prop() cardHeader: any;
-  @Prop() cardSize: any;
+  @Prop() cardHeader: HTMLElement;
   @Prop() overlay: HTMLLinkElement;
   @Prop() imgElem: any;
-  @Prop() imgPath: string;
-  @Prop() imgWidth: string;
-  @Prop() imgHeight: string;
+  @Prop({reflect: true}) cardSize: string;
+  @Prop({reflect: true}) imgPath: string;
+  @Prop({reflect: true}) imgSize: string;
+  @Prop({reflect: true}) imgWidth?: any = '265';
+  @Prop({reflect: true}) imgHeight?: any = '177';
   @Prop() imgW: string;
   @Prop() imgH: string;
-  @Prop() sizeClass?: string;
-  @Prop() imgSize: string;
   @Prop() clickTarget?: string;
-  @Prop() modalId: string;
+  @Prop() setSizeClass: any;
+
 
   modalLancher: EventEmitter;
   @Event() launchModal: EventEmitter;
@@ -37,30 +37,51 @@ export class HSCardImgHeader {
 
   }
 
-  componentWillLoad() {
-    // this.cardHeaPassword1aderEl.querySelector('#imgHeader');
-    this.imgHeaderEl.style.width = this.imgWidth;
-    this.imgHeaderEl.style.height = this.imgHeight;
-    this.cardHeader = this.imgHeaderEl.shadowRoot.querySelector('#imgHeader');
-    this.imgElem = this.cardHeader.querySelector('#hsHeaderImg');
-    console.log(this.imgElem)
-    this.imgElem.src = this.imgPath;
-    this.imgElem.style.width = this.imgWidth;
-    this.imgElem.style.height = this.imgHeight;
-    this.overlay = this.cardHeader.querySelector('#imgHeaderOverlay');
-    this.imgW = this.imgWidth.replace(/px|%/g, '')
-    this.imgH = this.imgWidth.replace(/px|%/g, '')
-    console.log(this.imgH + ' ' + this.imgW)
-  }
+  // componentDidLoad() {
+
+  //   this.setSizeClass = (() => {
+  //     return this.getImgSizeClass();
+  //   })
+  // }
+  // @Method()
+  //   async getImgSizeClass() {
+  //     let headerImg = this.el.querySelector('img')
+  //     console.log(headerImg)
+  //     if (this.cardSize === '--sm') {
+  //       headerImg.style.width = '265px'
+  //       headerImg.style.height = '177px'
+  //       return '--sm'
+  //     }
+  //     if (this.cardSize === '--lg') {
+  //       headerImg.style.width = '400px'
+  //       headerImg.style.height = '287px'
+  //       return '--lg'
+  //     }
+  //     if (this.cardSize === '--fluid') {
+  //       headerImg.style.width = '100%'
+  //       headerImg.style.height = '100%'
+  //       return '--fluid'
+  //     }
+  //     if (typeof this.cardSize === 'undefined') {
+  //       headerImg.style.width = '100%'
+  //       headerImg.style.height = '100%'
+  //       return '--default'
+  //     }
+  //     return
+  //   }
 
   render() {
-    return (
-      <header id="imgHeader" class="hs-card_img-header">
-        <a id="imgHeaderOverlay" class="hs-img-header_overlay hs-responsive-box--16by9" href="javascript:void(0);" onClick={() => this.launchModalHandler(this.modalId)}>
+    this.imgW = this.imgWidth.replace(/px/gi, '')
+    this.imgH = this.imgHeight.replace(/px/gi, '')
+    this.imgWidth <= '250' || typeof this.imgWidth === 'undefined' ? this.cardSize = '265' : ''
+  return (
+    <header id="imgHeader" class={`hs-card_header hs-card_img-header${this.cardSize}`}>
+        <a id="imgHeaderOverlay" class={`hs-card_img-header_overlay${this.cardSize}`} href="javascript:void(0);" onClick={() => this.launchModalHandler('#modBowlopolis')}>
         {/* <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path fill="#ffffff" d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/></svg> */}
-          <img id="hsHeaderImg" src={this.imgPath} class="hs-img-header_img hs-responsive-box--16by9" width={this.imgW} height={this.imgH} alt="header image" />
+          <img id="hsHeaderImg" src={this.imgPath} class={`hs-card_img-header_img${this.cardSize}`} alt="header image" width={this.imgWidth} height={this.imgHeight} />
         </a>
       </header>
     );
   }
+
 }
