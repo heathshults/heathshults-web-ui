@@ -348,7 +348,8 @@
 
 .hs-bg-grad-black-trans {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.89) 11%, rgba(0, 0, 0, 0) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#00000000', GradientType=0);
+  -webkit-filter: progid:dximagetransform.microsoft.gradient(startColorstr='#000000', endColorstr='#00000000', GradientType=0);
+          filter: progid:dximagetransform.microsoft.gradient(startColorstr='#000000', endColorstr='#00000000', GradientType=0);
 }
 
 .hidden-gone {
@@ -442,6 +443,49 @@ img::-moz-selection {
 img::selection {
   background: transparent;
 }
+hs-card {
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+  @include border-radius-all-md;
+  box-shadow: $hs-card-shadow;
+
+  &[card-size="--sm"] {
+    width: 265px;
+  }
+
+  &[card-size="--lg"] {
+    width: 400px;
+  }
+
+  &[card-size="--fluid"] {
+    width: 100%;
+  }
+
+  &.light {
+    background-color: #f8f8f8;
+  }
+
+  &.dark {
+    background-color: #2d373c;
+  }
+
+  > .hs-image:not(:first-child) {
+    padding: 1em 0 0;
+  }
+
+  + .hs-card {
+    margin: 0.5em 0 0 0;
+  }
+
+  > hs-card-img-header {
+    overflow: hidden;
+    @include card-size;
+  }
+}
+
 hs-card-body {
   .hs-card-content {
     padding: .5rem;
@@ -551,73 +595,5 @@ hs-card-body {
   padding-bottom: 75%;
 }
 /* stylelint-disable-next-line */
-// hs-card[card-size="--sm"] .hs-body-title {
-//   font-size: 1.5rem;
-// }
 
-hs-card {
 
-  position: relative;
-  display: inline-block;
-  // width: 100%;
-  // min-height: 177px;
-  // max-height: 620px;
-  padding: 0;
-  overflow: hidden;
-  background: transparent;
-  @include border-radius-all-md;
-  box-shadow: $hs-card-shadow;
-
-  &.light {
-    background-color: #f8f8f8;
-  }
-
-  &.dark {
-    background-color: #2d373c;
-  }
-
-  >.hs-image:not(:first-child) {
-    padding: 1em 0 0;
-  }
-
-  +.hs-card {
-    margin: 0.5em 0 0 0;
-  }
-
-  // &.hs-card-size {
-  //   &--sm {
-  //     .hs-img-header_img {
-  //       width: 265px;
-  //       height: 177px;
-  //     }
-
-  //     .hs-body_title {
-  //       font-size: 1.5rem;
-  //     }
-  //   }
-  // }
-}
-
-hs-card[card-size="--sm"] {
-  width: 265px;
-  height: 177px;
-
-  > hs-card-img-header {
-    width: 100%;
-    height: 100%;
-  }
-}
-hs-card[card-size="--fluid"] {
-  width: 100%;
-  height: 100%;
-}
-hs-card[card-size="--lg"] {
-  width: 400px;
-  height: 267px;
-}
-hs-card,
-hs-card-img-header,
-hs-card-body,
-hs-card-footer {
-  overflow: hidden;
-}

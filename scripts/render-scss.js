@@ -5,6 +5,7 @@
 // const postcss = require('postcss')
 const { exec } = require('child_process')
 var appRoot = require('app-root-path');
+var chalk = require('chalk')
 // const banner = require('./goCreds')
 
 // vars
@@ -12,11 +13,7 @@ const mainStyleSheetIn = `${appRoot}/src/scss/styles.scss`
 const mainStyleSheetOut = `${appRoot}/www-app/assets/css/HeathStyle.built.css`
 const darkStyleSheetIn = `${appRoot}/src/scss/theme-dark-mode.scss`
 const darkStyleSheetOut = `${appRoot}/www-app/assets/css/theme-dark-mode.css`
-// const postCSSpath = `${appRoot}/node_modules/.bin`
-// const cssInOutPath = `${appRoot}/www-app/assets/css`
-console.log(mainStyleSheetOut)
-console.log(darkStyleSheetOut)
-console.log('starting outside...')
+// console.log('starting outside...')
 
 var theStyleSheets = [
   {
@@ -43,7 +40,7 @@ function renderSCSS(callback) {
 
     exec(`sass ${inStyleSheet} ${outStyleSheet}`, (error, stdout, stderr) => {
       if (error) {
-          console.log("ERROR compileMain: \n stdout: " + stderr + "\n Error Message: " + error.message);
+          console.log(chalk.red("ERROR compileMain: \n stdout: " + stderr + "\n Error Message: " + error.message));
           return 'SCSS compile error'+error
 
       } //else {
@@ -63,7 +60,7 @@ function renderSCSS(callback) {
   //   return credsResult
   // }
 
-  console.log('CSS compiled')
+  console.log(chalk.green('CSS compiled'))
   return true
 
 }

@@ -32,7 +32,8 @@ var chalk = require('chalk')
 var ra =require('./scripts/render-assets')
 
 var srcPath = path.resolve(__dirname, 'src')
-var wwwBuild = path.resolve(__dirname, 'www/build')
+var srcCompPath = path.resolve(__dirname, 'src/components')
+var buildPath = path.resolve(__dirname, 'www/build')
 var wwwPath =  path.resolve(__dirname, 'www-app')
 var distPath =  path.resolve(__dirname, 'dist')
 
@@ -357,27 +358,43 @@ exports.copy_css = copy_css
 // }
 // exports.copy_js = copy_js
 
-// function build_components(cb) {
-//   exec('stencil build', (error, stdout, stderr) => {
-//     if (error) {
-//         console.log(`error: ${error.message}`);
-//         return;
-//     } else {console.log('Components built. Stencil will now chill...')}
-//   }), cb()
-//   // src('src/components/**/*.{js,json,html,css}')
-//   //   .pipe(plumber())
-//      //.pipe(changed(`${wwwPath}/js`))
-//     //  .pipe(debug({ title: 'copied' }))
-//     // .pipe(dest('www/')), cb()
-//     // () => {
-//     //   let file = ''
-//     //   if (typeof cb === 'function') {
-//     //     cb(null, file);
-//     //     called = true;
-//     //   }
-//     // }
-// }
-// exports.build_components = build_components
+function build_components(cb) {
+  exec('node_modules/.bin/stencil build --dev --docs-readme --debug', (error, stdout, stderr) => {
+    if (error) {
+        console.log(chalk.red(`error: ${error.message}`));
+        return cb;
+    } else {console.log(chalk.green('Components built!'))}
+  })
+  // copy_components()
+  // .then(cb())
+}
+exports.build_components = build_components
+
+function copy_components(cb) {
+  return new Promise((resolve, reject) => {
+    try {
+      setTimeout(() => {
+        src(`${buildPath}/**/*`)
+        // .pipe(debug({
+        //   title: 'Copied origin component: '
+        // }))
+        .pipe(dest(`${wwwPath}/components`))
+        // .pipe(debug({
+        //   title: 'Copied destination component: '
+        // }))
+        console.log(chalk.green('copy_components() Complete'))
+        if (typeof cb === 'function') {
+          cb()
+        }
+        resolve(cb)
+      }, 1000)
+    } catch(error) {
+      console.log(chalk.red('Error in copy_components(): ' + error))
+      reject('Rejected copy_components(): ' + error)
+    }
+  })
+}
+exports.copy_components = copy_components
 
 function copy_assets(cb) {
   ra.copy_assets_content('first')
@@ -397,14 +414,6 @@ function renderer(cb) {
   if (typeof cb === 'function') cb()
 }
 exports.renderer = renderer
-
-function copy_dev(cb) {
-  series(copy_css, ra.copy_js, copy_vendor, copy_img )
-  if (typeof cb === 'function') cb()
-}
-exports.copy_dev = copy_dev
-
-
 
 
 function serve(cb) {
@@ -455,9 +464,9 @@ function watchers(cb) {
         watch([`${srcPath}/scss/**/*.scss`], compileCSS), callback;
         watch([`${srcPath}/assets/**/*.css`], ra.copy_css().then( callback ));
         watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], ra.copy_js().then(callback));
-        watch(['www/build/**/*'], ra.copy_components().then(callback));
+        watch([`${buildPath}/**/*`], copy_components().then(callback));
         watch([`${srcPath}/assets/js/HeathScript.js`], babelfry), callback;
-        watch(['src/components/**/*'],  ra.render_components().then(callback));
+        watch([`${srcCompPath}/**/*`],  series(build_components, copy_components)), callback;
         resolve(callback)
       },2000 )
     }

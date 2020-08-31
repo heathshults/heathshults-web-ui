@@ -1,4 +1,5 @@
-require('./js/scripts.js')
+require('./js/HeathScript')
 require('./js/modules/show-more-fadebar')
 require('./js/jqBootstrapValidation')
 require('./js/contact_me')
+require('./js/swiper')

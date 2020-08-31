@@ -14,7 +14,7 @@
     "loader/"
   ],
   "scripts": {
-    "comp:build:nowatch": "node_modules/.bin/stencil build --dev --docs-readme",
+    "comp:build:nowatch": "node_modules/.bin/stencil build --dev --docs-readme --debug",
     "comp:build": "node_modules/.bin/stencil build --docs-readme --watch",
     "comp:serve": "node_modules/.bin/stencil build --dev --watch --serve",
     "comp:test": "node_modules/.bin/stencil test --spec --e2e",
@@ -25,6 +25,8 @@
     "build:ejs": "node scripts/build-ejs.js",
     "build:scripts": "gulp babelfry",
     "build:scss": "node scripts/build-scss.js",
+    "build:components": "gulp build_components",
+    "copy:components": "gulp copy_components",
     "clean": "node scripts/clean.js",
     "gbuild": "gulp setup_develop",
     "serve": "gulp serve",
@@ -33,7 +35,7 @@
     "gejs": "gulp ejsit",
     "test": "jest --no-cache",
     "test.watch": "jest --watch --no-cache",
-    "start": "npm-run-all --sequential comp:build:nowatch build:scripts gejs build:scss build:assets gwatch",
+    "start": "npm-run-all --sequential comp:build:nowatch copy:components build:scripts gejs build:scss build:assets gwatch",
     "start:debug": "npm run build && node scripts/start-debug.js"
   },
   "description": "Heath Shults - .coder - .thinker - .father",

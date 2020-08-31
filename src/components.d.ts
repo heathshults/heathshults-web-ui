@@ -24,19 +24,18 @@ export namespace Components {
     interface HsCardHeader {
     }
     interface HsCardImgHeader {
-        "cardHeader": any;
-        "cardSize": any;
+        "cardHeader": HTMLElement;
+        "cardSize": string;
         "clickTarget"?: string;
         "imgElem": any;
         "imgH": string;
-        "imgHeight": string;
+        "imgHeight"?: any;
         "imgPath": string;
         "imgSize": string;
         "imgW": string;
-        "imgWidth": string;
-        "modalId": string;
+        "imgWidth"?: any;
         "overlay": HTMLLinkElement;
-        "sizeClass"?: string;
+        "setSizeClass": any;
     }
     interface HsFlipper {
         "flipperBackEvents": string;
@@ -241,20 +240,19 @@ declare namespace LocalJSX {
     interface HsCardHeader {
     }
     interface HsCardImgHeader {
-        "cardHeader"?: any;
-        "cardSize"?: any;
+        "cardHeader"?: HTMLElement;
+        "cardSize"?: string;
         "clickTarget"?: string;
         "imgElem"?: any;
         "imgH"?: string;
-        "imgHeight"?: string;
+        "imgHeight"?: any;
         "imgPath"?: string;
         "imgSize"?: string;
         "imgW"?: string;
-        "imgWidth"?: string;
-        "modalId"?: string;
+        "imgWidth"?: any;
         "onLaunchModal"?: (event: CustomEvent<any>) => void;
         "overlay"?: HTMLLinkElement;
-        "sizeClass"?: string;
+        "setSizeClass"?: any;
     }
     interface HsFlipper {
         "flipperBackEvents"?: string;
