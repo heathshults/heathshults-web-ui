@@ -15,7 +15,7 @@ export class HSCardFooter {
   }
   render() {
     return (
-      <footer class={`hs-card__footer ${this.colorToneClass}`}>
+      <footer class={`hs-card_footer ${this.colorToneClass}`}>
         <slot />
       </footer>
     );

@@ -17,45 +17,6 @@
  *  $hs-fallback: (optional, null by default): custom property fallback value
  */
 
-$card-width--sm: 265px !default;
-$card-img-width--sm: $card-width--sm !default;
-$card-img-height--sm: 177px !default;
-$card-width--lg: 400px !default;
-$card-img-width--lg: $card-width--lg !default;
-$card-img-height--lg: 287px !default;
-$card-width--fluid: 100% !default;
-$card-img-width--fluid: $card-width--fluid !default;
-$card-img-height--fluid: 100% !default;
-@mixin card-dimensions--sm {
-  width: $card-img-width--sm;
-  height: $card-img-height--sm;
-}
-
-@mixin card-dimensions--lg {
-  width: $card-img-width--lg;
-  height: $card-img-height--lg;
-}
-
-@mixin card-dimensions--fluid {
-  width: $card-img-width--fluid;
-  height: $card-img-height--fluid;
-}
-//@extend-elements
-%extend_card_inner_defaults {
-  margin-right: auto;
-  margin-left: auto;
-  font-family:
-    'Caveat',
-    'cursive';
-  font-size: 2.5rem;
-  font-weight: 700;
-  text-align: center;
-}
-
-hs-card {
-  display: inline-flex;
-  flex: 1 1 auto;
-}
 
 .hs-card_row {
   display: flex;
@@ -107,6 +68,7 @@ hs-card {
     @include card-dimensions--fluid;
     margin: 0 auto;
   }
+
 }
 
 
@@ -167,6 +129,19 @@ hs-card {
 }
 
 
+.hs-card_body {
+  &.hs-card_body--sm {
+    width: $card-width--sm;
+  }
+
+  &.hs-card_body--lg {
+    width: $card-width--lg;
+  }
+
+  &.hs-card_body--fluid {
+    width: $card-width--fluid;
+  }
+}
 
 
 
@@ -226,6 +201,8 @@ hs-card {
 .hs-card_body {
   padding: $card-body-padding;
   text-align: center;
+  @include card-size;
+
 
   .bg-less-heavy-yellow--trans50 > div[class^="col-"] {
     padding-left: 0.9rem;

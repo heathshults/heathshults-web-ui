@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core';
+import { Component, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'hs-card-body',
@@ -6,9 +6,10 @@ import { Component, h } from '@stencil/core';
   shadow: true
 })
 export class HSCardBody {
+  @Prop({reflect: true}) cardSize: string;
   render() {
     return (
-      <div class="hs-card__body">
+      <div class={`hs-card_body hs-card_body${this.cardSize}`}>
         <slot />
       </div>
     );

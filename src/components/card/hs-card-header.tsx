@@ -8,7 +8,7 @@ import { Component, h } from '@stencil/core';
 export class HSCardHeader {
   render() {
     return (
-      <header class="hs-card__header">
+      <header class="hs-card_header">
         <slot />
       </header>
     );

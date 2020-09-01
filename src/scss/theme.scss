@@ -452,24 +452,17 @@ hs-card {
   @include border-radius-all-md;
   box-shadow: $hs-card-shadow;
 
-  &[card-size="--sm"] {
-    width: 265px;
-  }
-
-  &[card-size="--lg"] {
-    width: 400px;
-  }
-
-  &[card-size="--fluid"] {
-    width: 100%;
-  }
-
   &.light {
     background-color: #f8f8f8;
   }
 
   &.dark {
     background-color: #2d373c;
+  }
+
+  hs-card-img-header {
+    overflow: hidden;
+    @include card-size;
   }
 
   > .hs-image:not(:first-child) {
@@ -480,29 +473,37 @@ hs-card {
     margin: 0.5em 0 0 0;
   }
 
-  > hs-card-img-header {
-    overflow: hidden;
-    @include card-size;
-  }
+  @include card-size;
 }
+
+// hs-card {
+//   @include card-header-body-size;
+// }
 
 hs-card-body {
-  .hs-card-content {
-    padding: .5rem;
-    font-size: .9rem;
-    text-align: left;
-    background: $white;
-    border: 2px solid transparent;
+  @include card-size;
+}
 
-    .hs-info-table {
-      padding: .5rem;
-      font-size: .75rem;
-      background: $hs-theme-primary--trans50;
-      border: 2px solid $hs-theme-primary;
-      opacity: .8;
-    }
+.hs-card-content {
+  padding: .5rem;
+  font-size: .9rem;
+  text-align: left;
+  background: $white;
+  border: 2px solid transparent;
+
+  .hs-body_title  {
+    font-size: 1.4rem;
+  }
+
+  .hs-info-table {
+    padding: .5rem;
+    font-size: .75rem;
+    background: $hs-theme-primary--trans50;
+    border: 2px solid $hs-theme-primary;
+    opacity: .8;
   }
 }
+
 .hs-brand-symbol {
   padding-bottom: 10px;
   font-size: 2.4rem;
@@ -541,13 +542,14 @@ hs-card-body {
 }
 
 .hs-btn-showmore {
+  display: inline-block;
   height: 20px;
   padding: 2px 6px 4px 6px;
+  margin: 0 auto;
   font-size: .8rem;
   line-height: 1;
   background-color: $white;
   border: 2px solid transparent;
-  border-radius: 2px;
   box-shadow: $hs-shadow-sm;
   &:hover {
     background-color: lighten($hs-theme-primary, 30);

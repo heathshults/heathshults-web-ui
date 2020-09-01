@@ -8,7 +8,7 @@ import { Component, h } from '@stencil/core';
 export class HSMediaBody {
   render() {
     return (
-      <div class="hs-media__body">
+      <div class="hs-media_body">
         <slot />
       </div>
     );
