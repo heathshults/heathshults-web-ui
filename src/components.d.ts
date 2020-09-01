@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface HsCard {
+        "cardBody": HTMLElement;
         "cardHeight": string;
         "cardId": string;
         "cardSize": string;
@@ -16,6 +17,7 @@ export namespace Components {
         "imgHeaderImg": HTMLImageElement;
     }
     interface HsCardBody {
+        "cardSize": string;
     }
     interface HsCardFooter {
         "colorTone": string;
@@ -223,6 +225,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface HsCard {
+        "cardBody"?: HTMLElement;
         "cardHeight"?: string;
         "cardId"?: string;
         "cardSize"?: string;
@@ -232,6 +235,7 @@ declare namespace LocalJSX {
         "imgHeaderImg"?: HTMLImageElement;
     }
     interface HsCardBody {
+        "cardSize"?: string;
     }
     interface HsCardFooter {
         "colorTone"?: string;

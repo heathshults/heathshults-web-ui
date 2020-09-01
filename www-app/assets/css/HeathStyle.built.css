@@ -11212,6 +11212,30 @@ hs-card {
   border-radius: 4px;
   box-shadow: 0 4px 6px 2px rgba(0, 0, 0, 0.3);
 }
+hs-card.light {
+  background-color: #f8f8f8;
+}
+hs-card.dark {
+  background-color: #2d373c;
+}
+hs-card hs-card-img-header {
+  overflow: hidden;
+}
+hs-card hs-card-img-header[card-size="--sm"] {
+  width: 265px;
+}
+hs-card hs-card-img-header[card-size="--lg"] {
+  width: 400px;
+}
+hs-card hs-card-img-header[card-size="--fluid"] {
+  width: 100%;
+}
+hs-card > .hs-image:not(:first-child) {
+  padding: 1em 0 0;
+}
+hs-card + .hs-card {
+  margin: 0.5em 0 0 0;
+}
 hs-card[card-size="--sm"] {
   width: 265px;
 }
@@ -11221,39 +11245,28 @@ hs-card[card-size="--lg"] {
 hs-card[card-size="--fluid"] {
   width: 100%;
 }
-hs-card.light {
-  background-color: #f8f8f8;
-}
-hs-card.dark {
-  background-color: #2d373c;
-}
-hs-card > .hs-image:not(:first-child) {
-  padding: 1em 0 0;
-}
-hs-card + .hs-card {
-  margin: 0.5em 0 0 0;
-}
-hs-card > hs-card-img-header {
-  overflow: hidden;
-}
-hs-card > hs-card-img-header[card-size="--sm"] {
+
+hs-card-body[card-size="--sm"] {
   width: 265px;
 }
-hs-card > hs-card-img-header[card-size="--lg"] {
+hs-card-body[card-size="--lg"] {
   width: 400px;
 }
-hs-card > hs-card-img-header[card-size="--fluid"] {
+hs-card-body[card-size="--fluid"] {
   width: 100%;
 }
 
-hs-card-body .hs-card-content {
+.hs-card-content {
   padding: 0.5rem;
   font-size: 0.9rem;
   text-align: left;
   background: #fff;
   border: 2px solid transparent;
 }
-hs-card-body .hs-card-content .hs-info-table {
+.hs-card-content .hs-body_title {
+  font-size: 1.4rem;
+}
+.hs-card-content .hs-info-table {
   padding: 0.5rem;
   font-size: 0.75rem;
   background: rgba(254, 211, 54, 0.5);
@@ -11302,13 +11315,14 @@ hs-card-body .hs-card-content .hs-info-table {
 }
 
 .hs-btn-showmore {
+  display: inline-block;
   height: 20px;
   padding: 2px 6px 4px 6px;
+  margin: 0 auto;
   font-size: 0.8rem;
   line-height: 1;
   background-color: #fff;
   border: 2px solid transparent;
-  border-radius: 2px;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
 }
 .hs-btn-showmore:hover {

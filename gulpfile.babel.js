@@ -358,15 +358,32 @@ exports.copy_css = copy_css
 // }
 // exports.copy_js = copy_js
 
+function render_components(cb) {
+  console.log('Initiating render_components()...')
+  build_components()
+  .then(copy_components)
+  console.log(chalk.green('render_components() complete!'))
+  if (typeof cb === 'function') cb()
+}
+exports.render_components = render_components
+
 function build_components(cb) {
+  return new Promise((resolve, reject) => {
+    try {
+      setTimeout(() => {
   exec('node_modules/.bin/stencil build --dev --docs-readme --debug', (error, stdout, stderr) => {
     if (error) {
         console.log(chalk.red(`error: ${error.message}`));
         return cb;
     } else {console.log(chalk.green('Components built!'))}
   })
-  // copy_components()
-  // .then(cb())
+  resolve(cb)
+      }, 1000)
+    } catch(error) {
+      console.log(chalk.red('Error in build_components(): ' + error))
+      reject('Rejected build_components(): ' + error)
+    }
+  })
 }
 exports.build_components = build_components
 
@@ -466,13 +483,14 @@ function watchers(cb) {
         watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], ra.copy_js().then(callback));
         watch([`${buildPath}/**/*`], copy_components().then(callback));
         watch([`${srcPath}/assets/js/HeathScript.js`], babelfry), callback;
-        watch([`${srcCompPath}/**/*`],  series(build_components, copy_components)), callback;
+        watch([`${srcCompPath}/**/*`],  render_components), callback;
+        // watch([`${srcCompPath}/**/*`],  series(build_components, copy_components)), callback;
         resolve(callback)
       },2000 )
     }
     catch(e) {
       console.log('Error in watchers: '+e)
-      reject()
+      reject(callback)
     }
 
   })
@@ -533,32 +551,6 @@ function close_server(cb) {
   }
 }
 exports.close_server = close_server
-
-// Dev task with browserSync
-function watchers2(cb) {
-
-  watch(`${srcPath}/scss/*.scss`, {
-    readDelay: 500,
-    verbose: true
-  }, sassy);
-  // watch('src/css/*.css', {readDelay: 500, verbose: true }, minify_css);
-  watch(`${srcPath}c/assets/js/*.js`, {
-    readDelay: 500,
-    verbose: true
-  }, ra.copy_js);
-  // Reloads the browser whenever HTML or JS files change
-  watch(`${srcPath}/*.ejs`, ejsit);
-  watch(`${srcPath}/assets/**/*.{jpg,png,gif,svg,mp4}`, {
-    readDelay: 500,
-    verbose: true
-  }, copy_assets, browserSync.reload)
-  // let file = ''
-  // if (typeof cb === 'function') {
-  //       cb(null, file);
-  //       called = true;
-  //     };
-}
-exports.watchers2 = watchers2
 
 // // Run everything
 // exports.build = series(sassy, minify_css, minify_js, copy_vendors)

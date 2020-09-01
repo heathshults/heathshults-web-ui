@@ -12,7 +12,7 @@ export class HSMediaImage {
 
   render() {
     return (
-      <div class="hs-media__image">
+      <div class="hs-media_image">
         <img class="hs-image" alt={this.alt} src={this.src} />
       </div>
     );
