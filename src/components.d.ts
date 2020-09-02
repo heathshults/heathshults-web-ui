@@ -7,14 +7,22 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface HsCard {
-        "cardBody": HTMLElement;
+        "cardHeader": HTMLElement;
         "cardHeight": string;
         "cardId": string;
         "cardSize": string;
         "cardWidth": string;
+        "clickTarget"?: string;
         "colorTone": string;
-        "imgHeader": HTMLElement;
-        "imgHeaderImg": HTMLImageElement;
+        "colorToneClass": string;
+        "headerImgPath": string;
+        "imgElem": any;
+        "imgH": string;
+        "imgHeight"?: any;
+        "imgW": string;
+        "imgWidth"?: any;
+        "modalId": string;
+        "overlay": HTMLLinkElement;
     }
     interface HsCardBody {
         "cardSize": string;
@@ -225,14 +233,23 @@ declare global {
 }
 declare namespace LocalJSX {
     interface HsCard {
-        "cardBody"?: HTMLElement;
+        "cardHeader"?: HTMLElement;
         "cardHeight"?: string;
         "cardId"?: string;
         "cardSize"?: string;
         "cardWidth"?: string;
+        "clickTarget"?: string;
         "colorTone"?: string;
-        "imgHeader"?: HTMLElement;
-        "imgHeaderImg"?: HTMLImageElement;
+        "colorToneClass"?: string;
+        "headerImgPath"?: string;
+        "imgElem"?: any;
+        "imgH"?: string;
+        "imgHeight"?: any;
+        "imgW"?: string;
+        "imgWidth"?: any;
+        "modalId"?: string;
+        "onLaunchModal"?: (event: CustomEvent<any>) => void;
+        "overlay"?: HTMLLinkElement;
     }
     interface HsCardBody {
         "cardSize"?: string;

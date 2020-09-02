@@ -476,32 +476,50 @@ hs-card {
   @include card-size;
 }
 
-// hs-card {
-//   @include card-header-body-size;
-// }
-
 hs-card-body {
-  @include card-size;
+  @include hs-card-body;
+}
+
+div[slot^="hs-"] {
+  display: inline-block;
+}
+
+
+
+.hs-card_title {
+  margin-bottom: $hs-card-spacer-y;
+}
+
+.hs-card_subtitle {
+  margin-top: -$hs-card-spacer-y / 2;
+  margin-bottom: 0;
+}
+
+.hs-card_text:last-child {
+  margin-bottom: 0;
+}
+
+.hs-card_link {
+  &hover {
+    text-decoration: none;
+  }
+
+  +.hs-card_link {
+    margin-left: $hs-card-spacer-x;
+  }
+}
+
+.hs-info-table {
+  padding: .5rem;
+  font-size: .75rem;
+  background: $hs-theme-primary--trans50;
+  border: 2px solid $hs-theme-primary;
+  opacity: .8;
 }
 
 .hs-card-content {
-  padding: .5rem;
-  font-size: .9rem;
-  text-align: left;
-  background: $white;
-  border: 2px solid transparent;
-
-  .hs-body_title  {
-    font-size: 1.4rem;
-  }
-
-  .hs-info-table {
-    padding: .5rem;
-    font-size: .75rem;
-    background: $hs-theme-primary--trans50;
-    border: 2px solid $hs-theme-primary;
-    opacity: .8;
-  }
+  background-color: $hs-white;
+  @include hs-card-content;
 }
 
 .hs-brand-symbol {

@@ -82,6 +82,19 @@ $hs-text-shadow-light:            0px 0px 4px rgba(0, 0, 0, .95) !default;
 $hs-text-shadow-light-spread:     0px 4px 13px rgba(0, 0, 0, .75) !default;
 $hs-text-shadow-medium:           0px 0px 10px rgba(0, 0, 0, .85) !default;
 
+$hs-grid-columns:                12 !default;
+$hs-grid-gutter-width:           30px !default;
+$hs-grid-row-columns:            6 !default;
+
+$hs-border-width:                1px !default;
+$hs-border-color:                $hs-gray-lighter !default;
+
+$enable-rounded:                 true !default;
+
+$hs-border-radius:               .25rem !default;
+$hs-border-radius-lg:            .3rem !default;
+$hs-border-radius-sm:            .2rem !default;
+
 $hs-box-shadow-glow:              0px 4px 16px 2px rgba(255, 255, 255, 0.5) !default;
 
 $hs-shadow-sm:                    0px 2px 4px 0px rgba(0, 0, 0, .5) !default;
@@ -97,16 +110,48 @@ $hs-border-radius-sm:             2px !default;
 $hs-border-radius-md:             4px !default;
 $hs-border-radius-lg:             8px !default;
 
-$card-width--sm: 265px !default;
-$card-img-width--sm: $card-width--sm !default;
-$card-img-height--sm: 177px !default;
-$card-width--lg: 400px !default;
-$card-img-width--lg: $card-width--lg !default;
-$card-img-height--lg: 287px !default;
-$card-width--fluid: 100% !default;
-$card-img-width--fluid: $card-width--fluid !default;
-$card-img-height--fluid: 100% !default;
+$hs-card-width--sm: 265px !default;
+$hs-card-title--sm: 1.3rem !default;
+$hs-card-subtitle--sm: calc($hs-card-title--sm - 10%) !default;
+$hs-card-img-width--sm: $hs-card-width--sm !default;
+$hs-card-img-height--sm: 177px !default;
+
+$hs-card-width--lg: 400px !default;
+$hs-card-title--lg: 2.3rem !default;
+$hs-card-subtitle--lg: calc($hs-card-title--lg - 10%) !default;
+$hs-card-img-width--lg: $hs-card-width--lg !default;
+$hs-card-img-height--lg: 287px !default;
+
+$hs-card-width--fluid: 100% !default;
+$hs-card-title--fluid: 2.4rem !default;
+$hs-card-subtitle--fluid: calc($hs-card-title--fluid - 10%) !default;
+$hs-card-img-width--fluid: $hs-card-width--fluid !default;
+$hs-card-img-height--fluid: 100% !default;
+
+$hs-card-margin: .5rem !default;
 
 
+// Cards
+
+$hs-card-spacer-y:                     .75rem !default;
+$hs-card-spacer-x:                     1.25rem !default;
+$hs-card-border-width:                 $hs-border-width !default;
+$hs-card-border-radius:                $hs-border-radius !default;
+$hs-card-border-color:                 rgba($hs-black, .125) !default;
+$hs-card-inner-border-radius:          subtract($hs-card-border-radius, $hs-card-border-width) !default;
+$hs-card-cap-bg:                       rgba($hs-black, .03) !default;
+$hs-card-cap-color:                    null !default;
+$hs-card-height:                       null !default;
+$hs-card-color:                        null !default;
+$hs-card-bg:                           $hs-white !default;
+
+$hs-card-img-overlay-padding:          1.25rem !default;
+
+$hs-card-group-margin:                 $hs-grid-gutter-width / 2 !default;
+$hs-card-deck-margin:                  $hs-card-group-margin !default;
+
+$hs-card-columns-count:                3 !default;
+$hs-card-columns-gap:                  1.25rem !default;
+$hs-card-columns-margin:               $hs-card-spacer-y !default;
 
 

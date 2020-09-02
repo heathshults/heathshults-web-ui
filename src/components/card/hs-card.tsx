@@ -1,4 +1,4 @@
-import { Component, h, Element, Prop } from '@stencil/core';
+import { Component, Element, Prop, Event, EventEmitter, Listen, h } from '@stencil/core';
 
 @Component({
   tag: 'hs-card',
@@ -12,27 +12,73 @@ export class HSCard {
   @Prop({reflect: true}) cardWidth: string;
   @Prop({reflect: true}) cardHeight: string;
   @Prop({reflect: true}) colorTone: string;
+  @Prop({reflect: true}) colorToneClass: string;
   @Prop({reflect: true}) cardId: string;
   @Prop({reflect: true}) cardSize: string;
-  @Prop() imgHeader: HTMLElement;
-  @Prop() imgHeaderImg: HTMLImageElement;
-  @Prop() cardBody: HTMLElement;
+  
+  @Prop() cardHeader: HTMLElement;
+  @Prop() overlay: HTMLLinkElement;
+  @Prop() imgElem: any;
+  @Prop({reflect: true}) modalId: string;
+  @Prop({reflect: true}) headerImgPath: string;
+  @Prop({reflect: true}) imgWidth?: any = '265px';
+  @Prop({reflect: true}) imgHeight?: any = '177px';
+  @Prop() imgW: string;
+  @Prop() imgH: string;
+  @Prop() clickTarget?: string;
+  
+  modalLancher: EventEmitter;
+  @Event() launchModal: EventEmitter;
+  launchModalEvent(event: UIEvent) {
+    this.launchModal.emit(event);
+  }
+
+  @Listen('launchModal')
+  launchModalHandler(target: string) {
+    // showModal(`#${this.clickTarget}`)
+    //@ts-ignore: does not exist on type
+    this.clickTarget ? document.querySelector(target).show() : alert('no target parameter')
+
+  }
 
   componentWillLoad() {
-    this.imgHeader = this.el.querySelector('hs-card-img-header')
-    this.imgHeader.setAttribute('card-size', this.cardSize)
-    console.log(this.imgHeader.getAttribute('card-size'))
-
-    this.cardBody = this.el.querySelector('hs-card-body')
-    this.cardBody.setAttribute('card-size', this.cardSize)
-    console.log(`body: ${this.cardBody}`)
+    typeof this.colorTone === 'undefined' || typeof this.colorTone === null || this.colorTone === 'light' ? this.colorToneClass = 'light' :
+      this.colorTone === 'dark' ? this.colorToneClass = 'dark' : this.colorToneClass = 'light';
+  }
+  
+  private headerImg() {
+    return (() => {
+      if (typeof this.headerImgPath !== 'undefined') {
+        <a id="imgHeaderOverlay" class={`hs-card_img-header_overlay${this.cardSize}`} href="javascript:void(0);" onClick={() => this.launchModalHandler(`${this.modalId}`)}>
+          <img id="hsHeaderImg" src={`${this.headerImgPath}`} class={`hs-card_img-header_img${this.cardSize}`} alt="header image" width={`${this.imgWidth}`} height={`${this.imgHeight}`} />
+        </a>;
+      } else {
+        ''
+      }
+    });
   }
 
   render() {
+    // this.imgW = this.imgWidth.replace(/px/gi, '')
+    // this.imgH = this.imgHeight.replace(/px/gi, '')
+    // this.imgWidth <= '250' || typeof this.imgWidth === 'undefined' ? this.cardSize = '265' : ''
+
     return (
       <div id={this.cardId} class={`hs-card hs-card-size${this.cardSize} ${this.colorTone}`}>
-        <slot/>
+      <header class="hs-card_header">
+      <a id="imgHeaderOverlay" class={`hs-card_img-header_overlay${this.cardSize}`} href="javascript:void(0);" onClick={() => this.launchModalHandler(`${this.modalId}`)}>
+        <slot name="card-header" />
+      </a>
+      </header>
+      
+      <div class={`hs-card_body hs-card_body${this.cardSize}`}>
+        <slot name="card-body" />
+      </div>
+      
+      <footer class={`hs-card_footer ${this.colorToneClass}`}>
+        <slot name="card-footer" />
+      </footer>
       </div>
     );
-  }
+  }  
 }

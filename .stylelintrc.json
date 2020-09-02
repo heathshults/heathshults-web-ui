@@ -233,6 +233,7 @@
         "property-no-vendor-prefix": null,
         "rule-empty-line-before": null,
         "selector-attribute-quotes": "always",
+        "selector-combinator-space-after": null,
         "selector-list-comma-newline-after": null,
         "selector-list-comma-newline-before": "never-multi-line",
         "selector-list-comma-space-after": "always-single-line",

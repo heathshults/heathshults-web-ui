@@ -1,4 +1,5 @@
 {
   "presets": ["@babel/preset-env", "@babel/preset-react"],
-  "plugins": [[ "import", { "libraryName": "antd",  "style": "css" } ]]
+  "plugins": [[ "import", { "libraryName": "antd",  "style": "css" } ]],
+  "compact": false
 }
