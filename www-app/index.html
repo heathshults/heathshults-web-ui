@@ -617,19 +617,23 @@
         <div class="row mt-5">
           <div class="col hs-portfolio-item p-0">
 
-            <hs-card color-tone="light" card-size="--sm" >
-              <hs-card-img-header
-              card-size="inherit"
+            <hs-card color-tone="light" card-size="--sm" 
               img-path="/assets/img/portfolio/Fannie-Mae/blueprint-card-header.jpg"
               modal-id="#modBowlopolis"
-              ></hs-card-img-header>
-              <hs-card-body card-size="inherit">
-
-                <div class="hs-card-content">
+              img-width="256px"
+              img-height="177px">
+              <img slot="card-header" 
+                id="hsHeaderImg" 
+                src="/assets/img/portfolio/Fannie-Mae/blueprint-card-header.jpg" 
+                class="hs-card_header-img--sm" 
+                alt="header image" 
+                width="265" 
+                height="177" />
+              <div slot="card-body" class="hs-card-content hs-card-size--sm">
 
                     <div class="row">
                       <div class="col-md-12">
-                        <span class="hs-body_title">Blueprint Design System</span>
+                        <span class="hs-card_title">Blueprint Design System</span>
                       </div>
                     </div>
 
@@ -660,10 +664,10 @@
                         aria-expanded="false" aria-controls="#blueprintDS">
                         Show more
                       </button></div>
-                </div>
+                
 
-              </hs-card-body>
-              <hs-card-footer color-tone="dark">
+              </div>
+              <div slot="card-footer" color-tone="dark">
                 <div class="row m-0 d-flex w-100">
                 <div class="col-md-12 p-3 hs-logo-row--footer">
                   <ul class="flex-container space-between">
@@ -691,12 +695,12 @@
                   </ul>
                 </div>
                 </div>
-              </hs-card-footer>
+              </div>
             </hs-card>
 
           <!-- <div class="col hs-portfolio-item p-0">
             <hs-card color-tone="light">
-              <hs-card-img-header img-path="/assets/img/portfolio/BlueStarSports/BSS-card-heading.jpg"></hs-card-img-header>
+              <div slot="card-header" img-path="/assets/img/portfolio/BlueStarSports/BSS-card-heading.jpg"></div>
               <hs-card-body>
 
 
@@ -727,8 +731,8 @@
                     </div>
                   </div>
 
-              </hs-card-body>
-              <hs-card-footer color-tone="dark">
+              </div>
+              <div slot="card-footer" color-tone="dark">
                 <div class="row m-0 d-flex w-100">
                 <div class="col-md-12 p-3 hs-logo-row--footer">
                   <ul class="flex-container space-between">
@@ -756,16 +760,16 @@
                   </ul>
                 </div>
                 </div>
-              </hs-card-footer>
+              </div>
             </hs-card>
           </div> -->
 
           <!-- <div class="col hs-portfolio-item p-0">
             <hs-card color-tone="light">
-              <hs-card-img-header
+              <div slot="card-header"
                 img-path="/assets/img/portfolio/bowlopolis/bolopolis-headerImg.png"
                 click-target="modBowlopolis"
-                ></hs-card-img-header>
+                ></div>
               <hs-card-body>
 
                 <div class="hs-card-content">
@@ -795,8 +799,8 @@
                     </div>
                   </div>
 
-              </hs-card-body>
-              <hs-card-footer color-tone="dark">
+              </div>
+              <div slot="card-footer" color-tone="dark">
                 <div class="row m-0 d-flex w-100">
                 <div class="col-md-12 p-3 hs-logo-row--footer">
                   <ul class="flex-container space-between">
@@ -824,16 +828,16 @@
                   </ul>
                 </div>
                 </div>
-              </hs-card-footer>
+              </div>
             </hs-card>
           </div> -->
 
           <!-- <div class="col hs-portfolio-item">
             <hs-card color-tone="light">
-              <hs-card-img-header
+              <div slot="card-header"
                 img-path="/assets/img/portfolio/bowlopolis/bolopolis-headerImg.png"
                 click-target="modBowlopolis"
-                ></hs-card-img-header>
+                ></div>
               <hs-card-body>
 
                 <div class="hs-card-content">
@@ -863,8 +867,8 @@
                     </div>
                   </div>
 
-              </hs-card-body>
-              <hs-card-footer color-tone="dark">
+              </div>
+              <div slot="card-footer" color-tone="dark">
                 <div class="row m-0 d-flex w-100">
                 <div class="col-md-12 p-3 hs-logo-row--footer">
                   <ul class="flex-container space-between">
@@ -892,7 +896,7 @@
                   </ul>
                 </div>
                 </div>
-              </hs-card-footer>
+              </div>
             </hs-card>
           </div> -->
 
@@ -935,8 +939,6 @@
                   </div>
                 </div>
               </li>
-
-
             </ul>
           </div>
         </div>
@@ -1045,13 +1047,13 @@
             My Roles: UX Design • UI Developer • Quality Assurance
           </p>
           carousel
-        </hs-card-body>
-        <hs-card-footer color-tone="dark">
+        </div>
+        <div slot="card-footer" color-tone="dark">
           <div class="hs-input-group">
             <button class="hs-button hs-button--block hs-button--brand" onclick="javascript:closeModal('#modBowlopolis')">Close</button>
             <button class="hs-button hs-button--block hs-button--info">Button</button>
           </div>
-        </hs-card-footer>
+        </div>
       </hs-card>
     </hs-modal>
 
@@ -1070,13 +1072,13 @@
           <p class="hs-paragraph">
             <img class="img-responsive img-centered" src="/assets/img/portfolio/bowlopolis/bowlopolis.png" alt="">
           </p>
-        </hs-card-body>
-        <hs-card-footer color-tone="dark">
+        </div>
+        <div slot="card-footer" color-tone="dark">
           <div class="hs-input-group">
             <button class="hs-button hs-button--block hs-button--brand" onclick="javascript:closeModal('#modBowlopolis')">Close</button>
             <button class="hs-button hs-button--block hs-button--info">Button</button>
           </div>
-        </hs-card-footer>
+        </div>
       </hs-card>
     </hs-modal>
 

@@ -11,8 +11,8 @@ export const config: Config = {
     postcss({
       plugins: [
         autoprefixer({
-        browsers: ['>=1%'],
-        cascade: false
+          overrideBrowserslist : ['>=1%'],
+          cascade: false
         })
       ] //,
       // the line below automatically imports these files when compiling sass.
