@@ -36,9 +36,8 @@
     &.focus {
       color: $hs-color;
       background-color: darken($hs-background, 17%);
-      /* stylelint-disable */
+      /* stylelint-disable-next-line */
           border-color: darken($hs-border, 25%);
-      /* stylelint-enable */
     }
   }
   &:active,
@@ -240,15 +239,17 @@
 // affects outside the card-body component
 @mixin hs-card-body {
   .hs-card_title {
+    margin-top: 20px;
+    margin-bottom: 20px;
     font-size: $hs-card-title--fluid;
   }
   .hs-card_subtitle {
     margin-top: -$hs-card-spacer-y / 2;
-    margin-bottom: 0;
+    
     font-size: $hs-card-subtitle--fluid;
   }
-  &[card-size="--sm"] {
-    width: $hs-card-width--sm;
+  &.hs-card-size--sm {
+    width: 100%;
     .hs-card_title {
       font-size: $hs-card-title--sm;
     }
@@ -257,8 +258,8 @@
     }
   }
 
-  &[card-size="--lg"] {
-    width: $hs-card-width--lg;
+  &.hs-card-size--lg {
+    width: 100%;
     .hs-card_title {
       font-size: $hs-card-title--lg;
     }
@@ -267,7 +268,7 @@
     }
   }
 
-  &[card-size="--fluid"] {
+  &.hs-card-size--fluid {
     width: $hs-card-width--fluid;
     .hs-card_title {
       font-size: $hs-card-title--lg;

@@ -71,9 +71,7 @@ export class HSCard {
       </a>
       </header>
       
-      <div class={`hs-card_body hs-card_body${this.cardSize}`}>
         <slot name="card-body" />
-      </div>
       
       <footer class={`hs-card_footer ${this.colorToneClass}`}>
         <slot name="card-footer" />

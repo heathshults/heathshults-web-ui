@@ -64,7 +64,7 @@
   // See: https://github.com/twbs/bootstrap/pull/28855
   width: $hs-card-width--fluid;
   min-height: 1px;
-  padding: $hs-card-spacer-x;
+  padding: $hs-card-spacer-x $hs-card-spacer-x;
   color: $hs-card-color;
   background-color: $hs-white_5;
   @include hs-card-body;
