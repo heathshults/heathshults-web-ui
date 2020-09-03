@@ -115,10 +115,11 @@
   font-size: 18px;
   font-weight: 700;
   border-radius: 3px;
-}
-.btn-xl:hover {
+  &:hover {
   color: $hs-white;
 }
+}
+
 
 // DarkMode Widget
 .hs-mode-widget {
@@ -273,8 +274,19 @@
   transition: all .15s ease-out;
 }
 
-.js-page-trigger.btn.btn-xl {
-  color: #000;
+// .js-page-trigger.btn.btn-xl {
+//   color: #000;
+// }
+
+.bg-black-semitrans {
+  color: $hs-white;
+  background-color: $hs-black_75;
+  border: solid 1px $hs-theme-primary;
+  transition: all .25s ease-in-out;
+  &:hover {
+    color: $hs-black_75;
+    background-color: $hs-theme-primary--trans50;
+  }
 }
 
 .hs-intro-text {
@@ -309,7 +321,6 @@
     white-space: nowrap;
   }
 }
-
 
 @media (min-width: 768px) {
 
@@ -476,8 +487,9 @@ hs-card {
   @include card-size;
 }
 
-hs-card-body {
+.hs-card-body {
   @include hs-card-body;
+  padding-bottom: 1rem;
 }
 
 div[slot^="hs-"] {
@@ -518,6 +530,7 @@ div[slot^="hs-"] {
 }
 
 .hs-card-content {
+  width: 100%;
   background-color: $hs-white;
   @include hs-card-content;
 }

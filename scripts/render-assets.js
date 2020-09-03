@@ -26,6 +26,7 @@ var onError = (err) => {
   this.emit('end')
 }
 
+// runPromises()
 function runAssetsPromises(cb) {
   console.log('running sequential with promises.')
   copy_assets_content()
@@ -37,7 +38,6 @@ function runAssetsPromises(cb) {
     if (typeof cb === 'function') cb()
 }
 exports.runAssetsPromises = runAssetsPromises
-// runPromises()
 
 function render_components(cb) {
       console.log('Initiating render_components()...')
@@ -68,7 +68,6 @@ function copy_assets_content(cb) {
   })
 }
 exports.copy_assets_content = copy_assets_content
-// copy_assets_content()
 
 function copy_css(cb) {
   return new Promise((resolve, reject) => {
@@ -95,7 +94,6 @@ function copy_css(cb) {
   })
 }
 exports.copy_css = copy_css
-// copy_css()
 
 function copy_images(cb) {
   return new Promise((resolve, reject) => {
@@ -131,22 +129,21 @@ function copy_images(cb) {
   })
 }
 exports.copy_images = copy_images
-// copy_images()
 
 function copy_mail(cb) {
   return new Promise((resolve, reject) => {
     try {
       setTimeout(() => {
-        src(`${srcPath}/mail/**/*.{php,json,js}`)
-          // .pipe(changed(`${wwwPath}/mail`))
-          // .pipe(ngAnnotate())
+        src(`${srcPath}/mail/**/*`)
+          .pipe(changed(`${wwwPath}/mail`))
+          .pipe(ngAnnotate())
           .pipe(dest(`${wwwPath}/mail`))
-          // .pipe(debug({
-          //   title: 'Copied mail: '
-          // }));
-        // if (typeof cb === 'function') {
-        //   cb()
-        // }
+          .pipe(debug({
+            title: 'Copied mail: '
+          }));
+          if (typeof cb === 'function') {
+            cb()
+          }
         console.log(chalk.green('copy_mail() complete!'))
         resolve(cb)
       }, 2000)
@@ -157,7 +154,6 @@ function copy_mail(cb) {
   })
 }
 exports.copy_mail = copy_mail
-// copy_mail()
 
 function copy_vendor(cb) {
   return new Promise((resolve, reject) => {
@@ -224,13 +220,6 @@ function copy_vendor(cb) {
   })
 }
 exports.copy_vendor = copy_vendor
-// copy_vendor()
-
-
-// if (typeof cb === 'function') {
-//   cb()
-// }
-
 
 function copy_js(cb) {
   return new Promise((resolve, reject) => {
@@ -289,21 +278,25 @@ function copy_components(cb) {
 }
 exports.copy_components = copy_components
 
-// function build_components(cb) {
-//   return new Promise((resolve, reject) => {
-//     try {
-//       setTimeout(() => {
-//         exec('../node_modules/.bin/stencil build --dev --docs-readme --debug')
-//         console.log(chalk.green('copy_components() Complete'))
-//         resolve(cb)
-//       }, 1000)
-//     } catch(error) {
-//       console.log(chalk.red(`Error in copy_components(): ${error}`))
-//       reject(`Rejected copy_components(): ${error}`)
-//     }
-//   })
-// }
-// exports.build_components = build_components
+function build_components(cb) {
+  return new Promise((resolve, reject) => {
+    try {
+      setTimeout(() => {
+  exec('../node_modules/.bin/stencil build --dev --docs-readme --debug', (error, stdout, stderr) => {
+    if (error) {
+        console.log(chalk.red(`error: ${error.message}`));
+        return cb;
+    } else {console.log(chalk.green('Components built!'))}
+  })
+  resolve(cb)
+      }, 1000)
+    } catch(error) {
+      console.log(chalk.red('Error in build_components(): ' + error))
+      reject('Rejected build_components(): ' + error)
+    }
+  })
+}
+exports.build_components = build_components
 
 
 // uncomment the line below for debugging
