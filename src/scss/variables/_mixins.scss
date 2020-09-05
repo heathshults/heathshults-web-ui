@@ -165,6 +165,21 @@
   height: $hs-card-img-height--fluid;
 }
 
+@mixin card-img-header-img {
+  .hs-card_img-header_img--sm {
+    @include card-dimensions--sm;
+  }
+
+  .hs-card_img-header_img--lg {
+    @include card-dimensions--lg;
+  }
+
+  .hs-card_img-header_img--fluid {
+    @include card-dimensions--fluid;
+  }
+}
+
+
 //@extend-elements
 %extend_card_inner_defaults {
   margin-right: auto;
