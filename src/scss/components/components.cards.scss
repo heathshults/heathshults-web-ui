@@ -54,6 +54,21 @@
     }
   }
   @include card-size;
+
+  .hs-card_footer {
+    // padding: $hs-card-spacer-y $hs-card-spacer-x;
+    color: $hs-card-cap-color;
+    background-color: $hs-card-cap-bg;
+    border-top: $hs-card-border-width solid $hs-card-border-color;
+
+    &:last-child {
+      @include border-radius(0 0 $hs-card-inner-border-radius $hs-card-inner-border-radius);
+    }
+
+    &.dark {
+      background-color: $hs-blueGray-dark;
+    }
+  }
 }
 
 .hs-card_body {
@@ -118,16 +133,7 @@
   }
 }
 
-.hs-card_footer {
-  padding: $hs-card-spacer-y $hs-card-spacer-x;
-  color: $hs-card-cap-color;
-  background-color: $hs-card-cap-bg;
-  border-top: $hs-card-border-width solid $hs-card-border-color;
 
-  &:last-child {
-    @include border-radius(0 0 $hs-card-inner-border-radius $hs-card-inner-border-radius);
-  }
-}
 
 
 //

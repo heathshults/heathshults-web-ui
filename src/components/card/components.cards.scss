@@ -181,7 +181,13 @@ hs-card .hs-card_body {
   padding: 1rem;
   text-align: center;
 }
-
+hs-card {
+  div[slot="card-footer"]{
+    &[color-tone="dark"] {
+      background-color: $hs-blueGray-dark;
+    }
+  }
+}
 /* h3.hs-body-h3 {
   margin-top: 0;
   font-size: 2.5rem;

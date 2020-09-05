@@ -28,31 +28,7 @@ section, .hs-section {
   }
 }
 
-.hs-card_row {
-  height: 400px;
-}
 
-.hs-dev-logo {
-  max-width: 165px;
-  max-height: 96px;
-  // max-height: 96px;
-  vertical-align: middle;
-}
-
-.hs-logo-row {
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  // width: 100%;
-  height: 96px;
-  padding-right: 1.5rem;
-  padding-left: 1.5rem;
-  // background: rgba(71, 66, 55, 0.15);
-  .hs-dev-logo {
-    vertical-align: middle;
-  }
-}
 /* stylelint-disable-line */
 hs-modal hs-card hs-card-footer {
   position: fixed;
