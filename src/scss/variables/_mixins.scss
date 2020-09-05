@@ -297,9 +297,9 @@
 // affects outside the card-body component
 @mixin hs-card-content {
   .hs-card_title {
-    margin-top: $hs-spacing--md;
-    margin-bottom: $hs-spacing--md;
-    font-size: $hs-card-title--fluid;
+    // margin-top: $hs-spacing--md;
+    // margin-bottom: $hs-spacing--md;
+    font-size: $hs-card-title--sm;
   }
   .hs-card_subtitle {
     margin-top: -$hs-card-spacer-y / 2;

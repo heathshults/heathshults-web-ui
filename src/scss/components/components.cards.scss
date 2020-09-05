@@ -67,10 +67,34 @@
 
     &.dark {
       background-color: $hs-blueGray-dark;
+      
     }
+    
   }
 }
-
+.space-between {
+  justify-content: space-between;
+}
+.hs-card {
+  .hs-card_footer {
+    .hs-logo-row--footer {
+      ul.flex-container.space-between {
+        display: flex;
+        align-items: center;
+        max-width: 90%;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        li.flex-item {
+          display: inline-block;
+          flex: 1 1 auto;
+          width: auto;
+        }
+      }
+    }
+   
+  }
+}
 .hs-card_body {
   // Enable `flex-grow: 1` for decks and groups so that card blocks take up
   // as much space as possible, ensuring footers are aligned to the bottom.
@@ -338,4 +362,105 @@
     display: inline-block;
     width: 100%;
   }
+}
+.hs-dev-logo {
+  width: 90%;
+  vertical-align: middle;
+}
+.hs-logo-row--footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  // width: 100%;
+  height: 96px;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  // background: rgba(71, 66, 55, 0.15);
+  .hs-dev-logo {
+    width: 24px;
+    vertical-align: middle;
+  }
+}
+
+.hs-divider {
+  display: flex;
+  height: 30px;
+}
+
+.hs-bg-grad-black-trans {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.89) 11%, rgba(0, 0, 0, 0) 100%);
+  -webkit-filter: progid:dximagetransform.microsoft.gradient(startColorstr='#000000', endColorstr='#00000000', GradientType=0);
+          filter: progid:dximagetransform.microsoft.gradient(startColorstr='#000000', endColorstr='#00000000', GradientType=0);
+}
+
+.hidden-gone {
+  width: 0px;
+  height: 0px;
+  visibility: hidden;
+}
+.flex-container {
+  display: flex;
+  align-items: center;
+  max-width: 90%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.flex-start {
+  justify-content: flex-start;
+}
+
+.flex-end {
+  justify-content: flex-end;
+}
+
+.center {
+  justify-content: center;
+}
+
+
+.space-between {
+  justify-content: space-between;
+}
+
+
+.space-around {
+  justify-content: space-around;
+}
+
+.space-evenly {
+  justify-content: space-evenly;
+}
+
+.flex-item {
+  width: auto;
+}
+@media (min-width: 265px) and (max-width: 300px) {
+  .row.hs-info-table {
+    .col-md-6 {
+      position: relative;
+      width: 100%;
+    }
+  }
+}
+.responsive-box .responsive-box-item,
+.responsive-box iframe,
+.responsive-box embed,
+.responsive-box object,
+.responsive-box video {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.responsive-box-16by9 {
+  padding-bottom: 56.25%;
+}
+.responsive-box-4by3 {
+  padding-bottom: 75%;
 }
