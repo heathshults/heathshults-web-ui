@@ -78,7 +78,7 @@ $z-indexes: (
 
 //sizing for margin and padding
 $hs-get-mp-size: (
-  'sm': $hs-spacing--sm,
-  'md': $hs-spacing--md,
-  'lg': $hs-spacing--lg
+  'sm': .5rem,
+  'md': 1rem,
+  'lg': 1.5rem
 )

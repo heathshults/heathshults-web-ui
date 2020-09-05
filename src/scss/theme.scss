@@ -407,9 +407,9 @@
   width: auto;
 }
 
-p {
-  line-height: 1.75;
-}
+// p {
+//   line-height: 1.75;
+// }
 
 .page-section {
   padding: 6rem 0;
@@ -525,6 +525,7 @@ div[slot^="hs-"] {
 .hs-info-table {
   padding: .5rem;
   font-size: .75rem;
+  text-align: left;
   background: $hs-theme-primary--trans50;
   border: 2px solid $hs-theme-primary;
   opacity: .8;
@@ -533,7 +534,7 @@ div[slot^="hs-"] {
 .hs-card_content {
   width: 100%;
   padding: $hs-spacing--md;
-  line-height: 1;
+  line-height: 1.5;
   text-align: left;
   background-color: $hs-white;
   .hs-card-heading-h5 {
@@ -658,5 +659,14 @@ div[slot^="hs-"] {
   // background: rgba(71, 66, 55, 0.15);
   .hs-dev-logo {
     vertical-align: middle;
+  }
+}
+
+@media (min-width: 265px) and (max-width: 300px) {
+  .row.hs-info-table {
+    .col-md-6 {
+      position: relative;
+      width: 100%;
+    }
   }
 }
