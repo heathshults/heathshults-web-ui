@@ -485,10 +485,9 @@ hs-card {
   }
 
   @include card-size;
-  
 }
 
-.hs-card-body {
+.hs-card_body {
   @include hs-card-body;
   padding-bottom: 1rem;
 }
@@ -501,6 +500,7 @@ div[slot^="hs-"] {
 
 .hs-card_title {
   margin-bottom: $hs-card-spacer-y;
+  font-weight: 700;
 }
 
 .hs-card_subtitle {
@@ -530,11 +530,21 @@ div[slot^="hs-"] {
   opacity: .8;
 }
 
-.hs-card-content {
+.hs-card_content {
   width: 100%;
+  padding: $hs-spacing--md;
+  line-height: 1;
+  text-align: left;
   background-color: $hs-white;
+  .hs-card-heading-h5 {
+    font-size: 1.25;
+    .hs-card-heading-h5 {
+      font-size: 1.25;
+    }
+  }
   @include hs-card-content;
 }
+
 
 .hs-brand-symbol {
   padding-bottom: 10px;

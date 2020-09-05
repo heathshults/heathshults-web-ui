@@ -75,3 +75,10 @@ $z-indexes: (
     text: 1532
   )
 );
+
+//sizing for margin and padding
+$hs-get-mp-size: (
+  'sm': $hs-spacing--sm,
+  'md': $hs-spacing--md,
+  'lg': $hs-spacing--lg
+)
