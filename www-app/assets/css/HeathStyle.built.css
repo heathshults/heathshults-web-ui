@@ -10532,6 +10532,18 @@ h3 {
 .hs-card_header + .list-group .list-group-item:first-child {
   border-top: 0;
 }
+.hs-card_header .hs-card_img-header_img--sm {
+  width: 265px;
+  height: 177px;
+}
+.hs-card_header .hs-card_img-header_img--lg {
+  width: 400px;
+  height: 287px;
+}
+.hs-card_header .hs-card_img-header_img--fluid {
+  width: 100%;
+  height: 100%;
+}
 
 .hs-card_header-tabs {
   margin-right: -0.625rem;
