@@ -84,8 +84,19 @@
   background-color: $hs-white_5;
   @include hs-card-body;
 }
-.hs-card-content {
+.hs-card_content {
+  width: 100%;
+  padding: $hs-spacing--md;
+  line-height: 1;
+  text-align: left;
   background-color: $hs-white;
+  @include hs-card-content;
+  .hs-card-heading-h5 {
+    font-size: 1.25;
+    .hs-card-heading-h5 {
+      font-size: 1.25;
+    }
+  }
 }
 
 .hs-card_title {

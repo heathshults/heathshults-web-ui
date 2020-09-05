@@ -131,7 +131,7 @@ $hs-card-img-height--fluid: 100% !default;
 $hs-card-margin: .5rem !default;
 
 
-// Cards
+// Card padding - borders - margins
 
 $hs-card-spacer-y:                     .75rem !default;
 $hs-card-spacer-x:                     1.25rem !default;
@@ -154,4 +154,8 @@ $hs-card-columns-count:                3 !default;
 $hs-card-columns-gap:                  1.25rem !default;
 $hs-card-columns-margin:               $hs-card-spacer-y !default;
 
+// Paddding & Margins Generics
+$hs-spacing--sm:                       .5rem !default;
+$hs-spacing--md:                       1rem !default;
+$hs-spacing--lg:                       1.5 rem !default;
 
