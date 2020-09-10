@@ -10,6 +10,7 @@ import { Component, Element, Prop, Event, EventEmitter, Listen, h } from '@stenc
 export class HSCard {
   @Element() el: HTMLElement;
   @Prop() cardImgHeaderImg: HTMLImageElement;
+  @Prop() cardContent: any;
   @Prop({reflect: true}) cardWidth: string;
   @Prop({reflect: true}) cardHeight: string;
   @Prop({reflect: true}) colorTone: string;
@@ -44,102 +45,101 @@ export class HSCard {
 
   }
   
-  private cb(fn: any) {
-    console.log(`${fn}completed`)
+  private cb() {
     return
   }
   
-  callback = ((c)=> { if (typeof this.cb === 'function') return this.cb(c) })
+  private callback = (()=> { if (typeof this.cb === 'function') return this.cb() })
   
   private getElements() {
     return new Promise((resolve, reject) => {
       try {
         setTimeout(() => {
-         this.overlay = this.el.shadowRoot.querySelector('#imgHeaderOverlay')
-         this.cardImgHeaderImg = this.el.shadowRoot.querySelector('#hsHeaderImg')
-         console.log(this.overlay)
-         console.log(this.cardImgHeaderImg)
+          this.theElements();
+        
+          this.cardContent.classList.add(`hs-card-size${this.cardSize}`)
          
-         this.cardImgHeaderImg.classList.contains('hs-card_img-header_img--sm') ? (this.cardHeaderImg.style.width = '265px') && (this.overlay.style.width = '265px') 
-          : this.cardImgHeaderImg.classList.contains('hs-card_img-header_img--lg') ? (this.cardHeaderImg.style.width = '400px') && (this.overlay.style.width = '400px')
-          : this.cardImgHeaderImg.classList.contains('hs-card_img-header_img--fluid') ? (this.cardHeaderImg.style.width = '100%') && (this.overlay.style.width = '100%')
-          : (this.cardImgHeaderImg.style.width = '100%') && (this.overlay.style.width = '100%') 
+          this.cardImgHeaderImg.classList.contains('hs-card_img-header_img--sm') ? (this.cardHeaderImg.style.width = '265px') && (this.overlay.style.width = '265px') 
+           : this.cardImgHeaderImg.classList.contains('hs-card_img-header_img--lg') ? (this.cardHeaderImg.style.width = '400px') && (this.overlay.style.width = '400px')
+           : this.cardImgHeaderImg.classList.contains('hs-card_img-header_img--fluid') ? (this.cardHeaderImg.style.width = '100%') && (this.overlay.style.width = '100%')
+           : (this.cardImgHeaderImg.style.width = '100%') && (this.overlay.style.width = '100%') 
          
-         
-          resolve(this.callback(`${arguments.callee.name}`))
-        }, 2000)
+          resolve(this.callback)
+        }, 3000)
       } 
       catch(error) {
         let fullErrorMsg = `Error in getElements(): ${error}`;
-        console.log(fullErrorMsg)
-        reject(`Rejected getElements(): ${fullErrorMsg}`)
+        
+        reject(console.log('getElements error: ' + fullErrorMsg))
       }
     })
   }
   
   
+  private theElements() {
+    return new Promise((resolve, reject) => {
+      try {
+        this.cardContent = document.querySelector('.hs-card_content');
+        this.overlay = this.el.shadowRoot.querySelector('#imgHeaderOverlay');
+        this.cardImgHeaderImg = this.el.shadowRoot.querySelector('#hsHeaderImg');
+        resolve(this.callback)
+      }
+      catch(error) {
+        reject('Reject because: ' + error)
+      }
+    })
+  }
+
   componentWillLoad() {
     typeof this.colorTone === 'undefined' || typeof this.colorTone === null || this.colorTone === 'light' ? this.colorToneClass = 'light' :
       this.colorTone === 'dark' ? this.colorToneClass = 'dark' : this.colorToneClass = 'light';
-      
- 
-      
     
-   
-  
-
-    this.getElements()
-  }
-  
-  
+  }  
 
   render() {
-    console.info('Hello' +this.imgPath)
-
+    this.getElements().then(this.callback)
     return (
       <div id={this.cardId} class={`hs-card hs-card-size${this.cardSize} ${this.colorTone}`}>
-      <header class={`hs-card_header hs-card_header${this.cardSize}`}>
-      <a id="imgHeaderOverlay" 
-        class={`hs-card_img-header_overlay${this.cardSize}`} 
-        href="javascript:void(0);" 
-        onClick={() => this.launchModalHandler(`${this.modalId}`)}>
-        <img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img${this.cardSize}`} alt="header image" />
-      </a>
-      <slot name="card-header" />
-      </header>
-      
-        <slot name="card-body" />
-      
-      <div class={`hs-card_footer ${this.colorToneClass} p-0`}>
-      
-      <div class="row m-0 d-flex w-100">
-      <div class="col-md-12 p-3 hs-logo-row--footer">
-        <ul class="flex-container space-between">
-          <li class="flex-item">
-            <img src="/assets/img/logos/dmHTML5_Logo_512.png" class="hs-dev-logo" width="24" alt="HTML5 logo" />
-          </li>
-          <li class="flex-item">
-            <img src="/assets/img/logos/Sass-150.png" class="hs-dev-logo" width="24" alt="sass logo" />
-          </li>
-          <li class="flex-item">
-            <img src="/assets/img/logos/dm-css3-150.png" class="hs-dev-logo" width="24" alt="css logo" />
-          </li>
-          <li class="flex-item">
-            <img src="/assets/img/logos/js-logo.jpg" class="hs-dev-logo" width="24" alt="javascript logo" />
-          </li>
-          <li class="flex-item">
-            <img src="/assets/img/logos/dm-Node.png" class="hs-dev-logo" width="24" alt="node js logo" />
-          </li>
-          <li class="flex-item">
-            <img src="/assets/img/logos/gulp-150.png" class="hs-dev-logo" width="24" alt="gulp logo" />
-          </li>
-          <li class="flex-item">
-            <img src="/assets/img/logos/dm-Git-logo.png" class="hs-dev-logo" width="24" alt="git logo" />
-          </li>
-        </ul>
-      </div>
-      </div>
-      </div>
+       <header class={`hs-card_header hs-card_header${this.cardSize}`}>
+        <a id="imgHeaderOverlay" 
+          class={`hs-card_img-header_overlay${this.cardSize}`} 
+          href="#" 
+          onClick={() => this.launchModalHandler(`${this.modalId}`)}>
+          <img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img${this.cardSize}`} alt="header image" />
+        </a>
+        <slot name="card-header" />
+        </header>
+        <div class={`hs-card_body hs-card-size${this.cardSize}`} >
+          <slot name="card-body" />
+        </div>
+        <div class={`hs-card_footer row m-0 d-flex w-100 ${this.colorToneClass} p-0`}>
+        
+          <div class="col-md-12 hs-logo-row--footer">
+            <ul class="flex-container space-between">
+              <li class="flex-item">
+                <img src="/assets/img/logos/dmHTML5_Logo_512.png" class="hs-dev-logo" width="24" alt="HTML5 logo" />
+              </li>
+              <li class="flex-item">
+                <img src="/assets/img/logos/Sass-150.png" class="hs-dev-logo" width="24" alt="sass logo" />
+              </li>
+              <li class="flex-item">
+                <img src="/assets/img/logos/dm-css3-150.png" class="hs-dev-logo" width="24" alt="css logo" />
+              </li>
+              <li class="flex-item">
+                <img src="/assets/img/logos/js-logo.jpg" class="hs-dev-logo" width="24" alt="javascript logo" />
+              </li>
+              <li class="flex-item">
+                <img src="/assets/img/logos/dm-Node.png" class="hs-dev-logo" width="24" alt="node js logo" />
+              </li>
+              <li class="flex-item">
+                <img src="/assets/img/logos/gulp-150.png" class="hs-dev-logo" width="24" alt="gulp logo" />
+              </li>
+              <li class="flex-item">
+                <img src="/assets/img/logos/dm-Git-logo.png" class="hs-dev-logo" width="24" alt="git logo" />
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     );
   }  

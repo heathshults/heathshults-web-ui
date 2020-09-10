@@ -1,0 +1,173 @@
+root: {
+  /* Override Bootstrap color system */
+
+  --yellow: #fed136;
+
+  /* Override Bootstrap default state colors */
+
+  --primary: --yellow;
+
+  /* Override Bootstrap yiq lightness value */
+
+  --yiq-contrasted-threshold: 205;
+
+  /* Variables */
+
+  --hs-color_red_orange:             #f63a0f;
+  --hs-color_orange:                 #f27011;
+  --hs-color_dark_yellow:            #f2b01e;
+  --hs-color_yellow:                 #f2d31b;
+  --hs-color_yellow--light:          #ffe659;
+  --hs-color_yellow--dark:           #e2b900;
+  --hs-color_green:                  #4cd964;
+  --hs-color_lime:                   #86e01e;
+  --hs-color_light_lime:             #e7ffcb;
+  --hs-color_silver:                 #aaa;
+  --hs-color_purple:                 #9a39d3;
+  --hs-color_turquoise:              #5ac8fa;
+
+
+  /* Gray and Brand Colors for use across theme */
+
+  --hs-theme-primary:                #fed136;
+  --hs-theme-primary--trans50:       rgba(254, 211, 54, 0.5);
+  --hs-theme-danger:                 #e74c3c;
+  --hs-theme-background-primary:     #f8f8f8;
+  --hs-theme-background-secondary:   #ebebeb;
+
+  --hs-black:                        #000;
+  --hs-black_25:                     rgba(0, 0, 0, 0.25);
+  --hs-black_50:                     rgba(0, 0, 0, 0.5);
+  --hs-black_75:                     rgba(0, 0, 0, 0.75);
+
+  --hs-gray-base:			              #111;
+  --hs-gray-medium:                 #2f2f31;
+  --hs-gray-darker:		              #222;
+  --hs-gray-dark:			              #333;
+  --hs-gray:				                #555;
+  --hs-gray-light:		              #777;
+  --hs-gray-lighter:		            #dedede;
+  --hs-gray-lighter-05:             #e9e9ed;
+  --hs-gray-lightest:		            #eee;
+
+  --hs-white:                      #fff;
+  --hs-white_5:                    #f8f8f8;
+  --hs-white_8:                    rgba(255, 255, 255, 0.08);
+  --hs-white_10:                   rgba(255, 255, 255, 0.1);
+  --hs-white_30:                   rgba(255, 255, 255, 0.3);
+
+  /* Dark Mode Colors */
+  --hs-blueGray-medium:            #507386;
+  --hs-blueGray-dark:              #0f161d;
+  --hs-blueGray-very-dark:         #181a1b;
+  --hs-blueGray-darker:            #0c0f11;
+  --hs-blueGray-darker--alpha75:   rgba(12, 15, 17, 0.75);
+  --hs-blueGray-light:             #2d373c;
+  --hs-baige-medium:               #a79e8b;
+  --hs-text-onDark:                rgb(255, 220, 206);
+  --hs-green-light:                #80cc94;
+  --hs-blue-light:                 #0291ca;
+  --hs-blue-light-muted:           #80b6cc;
+  --hs-blue-lighter:               #78bad8;
+  --hs-blue-lighter-muted:         #8ec1d9;
+  --hs-blue-lightest:              #a8dfff;
+  --hs-blue-lightest-muted:        #9bcbe6;
+  --hs-blue-dark:                  #1e364e;
+  --hs-link-primary:               var(--hs-theme-primary);
+
+  --hs-font-cursive-Caveat:          'Caveat', cursive;
+  --hs-font-cursive-NYCD:            'Nothing You Could Do', cursive;
+  --hs-font-cursive-Sedgwick:        'Sedgwick Ave Display', cursive;
+
+  --hs-text-shadow-light:            0px 0px 4px rgba(0, 0, 0, .95);
+  --hs-text-shadow-light-spread:     0px 4px 13px rgba(0, 0, 0, .75);
+  --hs-text-shadow-medium:           0px 0px 10px rgba(0, 0, 0, .85);
+
+  --hs-grid-columns:                12;
+  --hs-grid-gutter-width:           30px;
+  --hs-grid-row-columns:            6;
+
+  /* Paddding & Margins Generics */
+  --hs-spacing--sm:                 .5rem;
+  --hs-spacing--md:                 1rem;
+  --hs-spacing--lg:                 1.5 rem;
+
+  /* Borders */
+  --hs-border-width:                1px;
+  --hs-border-color:                var(--hs-gray-lighter);
+
+  --enable-rounded:                 true;
+
+  --hs-border-radius:               .25rem;
+  --hs-border-radius-sm:            .125rem;
+  --hs-border-radius-lg:            .5rem;
+  --hs-border-radius-md:            .25px;
+
+
+  /* Outer glow */
+  --hs-box-shadow-glow:              0px 4px 16px 2px rgba(255, 255, 255, 0.5);
+
+  /* Shadows */
+  --hs-shadow:                       0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --hs-shadow-sm:                    0px 2px 4px 0px rgba(0, 0, 0, .5);
+  --hs-shadow-lg:                    0px 4px 8px 3px rgba(0, 0, 0, .4) rgba(0, 0, 0, 0.4);
+  --hs-shadow-inset-blue:            inset 0 0 0 2px #5173ff;
+  --hs-shadow-none:                  none;
+  --hs-card-shadow:                  0 4px 6px 2px rgba(0, 0, 0, 0.3);
+
+  /* Backgrounds */
+  --hs-bg-black-to-transparent:      linear-gradient(0deg, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 1) 100%);
+
+
+  /* Cards */
+
+  --hs-card-width: 100%;
+  --hs-card-height: 100%;
+  --hs-card-title: 2.4rem;
+  --hs-card-subtitle: calc(var(--hs-card-title) - 10%);
+  --hs-card-img-width: var(--hs-card-width);
+  --hs-card-img-height: 100%;
+
+  --hs-card-width--sm: 265px;
+  --hs-card-title--sm: 1.3rem;
+  --hs-card-subtitle--sm: calc(var(--hs-card-title--sm) - 10%);
+  --hs-card-img-width--sm: var(--hs-card-width--sm);
+  --hs-card-img-height--sm: 177px;
+
+  --hs-card-width--lg: 400px;
+  --hs-card-title--lg: 2.3rem;
+  --hs-card-subtitle--lg: calc(var(--hs-card-title--lg) - 10%);
+  --hs-card-img-width--lg: var(--hs-card-width--lg);
+  --hs-card-img-height--lg: 287px;
+
+  --hs-card-width--fluid: 100%;
+  --hs-card-title--fluid: 2.4rem;
+  --hs-card-subtitle--fluid: calc(var(--hs-card-title--fluid) - 10%);
+  --hs-card-img-width--fluid: var(--hs-card-width--fluid);
+  --hs-card-img-height--fluid: 100%;
+
+  --hs-card-margin: .5rem;
+
+  /* Card padding - borders - margins */
+  --hs-card-spacer-y:                     .75rem;
+  --hs-card-spacer-x:                     1.25rem;
+  --hs-card-border-width:                 var(--hs-border-width);
+  --hs-card-border-radius:                var(--hs-border-radius);
+  --hs-card-border-color:                 rgba(var(--hs-black), .125);
+  --hs-card-inner-border-radius:          subtract(var(--hs-card-border-radius), var(--hs-card-border-width));
+  --hs-card-cap-bg:                       rgba(var(--hs-black), .03);
+  --hs-card-cap-color:                    transparent;
+  --hs-card-color:                        transparent;
+  --hs-card-bg:                           var(--hs-white);
+
+  --hs-card-img-overlay-padding:          1.25rem;
+
+  --hs-card-group-margin:                 var(--hs-grid-gutter-width) / 2;
+  --hs-card-deck-margin:                  var(--hs-card-group-margin);
+
+  --hs-card-columns-count:                3;
+  --hs-card-columns-gap:                  1.25rem;
+  --hs-card-columns-margin:               var(--hs-card-spacer-y);
+
+}
+
