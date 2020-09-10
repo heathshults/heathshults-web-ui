@@ -487,10 +487,10 @@ hs-card {
   @include card-size;
 }
 
-.hs-card_body {
-  @include hs-card-body;
-  padding-bottom: 1rem;
-}
+// .hs-card_body {
+//   @include hs-card-body;
+//   padding-bottom: 1rem;
+// }
 
 div[slot^="hs-"] {
   display: inline-block;
@@ -498,15 +498,15 @@ div[slot^="hs-"] {
 
 
 
-.hs-card_title {
-  margin-bottom: $hs-card-spacer-y;
-  font-weight: 700;
-}
+// .hs-card_title {
+//   margin-bottom: $hs-card-spacer-y;
+//   font-weight: 700;
+// }
 
-.hs-card_subtitle {
-  margin-top: -$hs-card-spacer-y / 2;
-  margin-bottom: 0;
-}
+// .hs-card_subtitle {
+//   margin-top: -$hs-card-spacer-y / 2;
+//   margin-bottom: 0;
+// }
 
 .hs-card_text:last-child {
   margin-bottom: 0;
@@ -531,17 +531,24 @@ div[slot^="hs-"] {
   opacity: .8;
 }
 
+
 .hs-card_content {
   width: 100%;
   padding: $hs-spacing--md;
   line-height: 1.5;
   text-align: left;
   background-color: $hs-white;
-  .hs-card-heading-h5 {
-    font-size: 1.25;
-    .hs-card-heading-h5 {
-      font-size: 1.25;
-    }
+
+  .hs-card_title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: $hs-card-title;
+  }
+
+  .hs-card_subtitle {
+    margin-top: -$hs-card-spacer-y / 2;
+    margin-bottom: 0;
+    font-size: $hs-card-subtitle--fluid;
   }
   @include hs-card-content;
 }

@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface HsCard {
+        "cardContent": any;
         "cardHeader": any;
         "cardHeaderImg": any;
         "cardHeight": string;
@@ -231,6 +232,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface HsCard {
+        "cardContent"?: any;
         "cardHeader"?: any;
         "cardHeaderImg"?: any;
         "cardHeight"?: string;

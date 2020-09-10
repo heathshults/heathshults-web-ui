@@ -2,55 +2,44 @@
 @import "./mixins/settings";
 @import "../variables";
 
+/*
+ * CSS CUSTOM VARIABLE FUNCTION
+ *
+ * Get css vars from scss vars
+ *
+ * Use:
+ * `color: v(primary);`
+ * `color: v(primary, #000);`
+ * `padding-left: v(x-padding, 2rem);`
+ * `transform: translate3d(v(x-delta), v(y-delta), 0);`
+ *
+ * Parameters:
+ *  $hs-Var: name of the SASS variable, without its double hyphen prefix
+ *  $hs-fallback: (optional, null by default): custom property fallback value
+ */
+
+//
+// Base styles
+//
+
 .hs-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-width: 0;
+  min-width: 0; // See https://github.com/twbs/bootstrap/pull/22740#issuecomment-305868106
   height: $hs-card-height;
   word-wrap: break-word;
   background-color: $hs-card-bg;
-  //Instead of the line below you could use @include background-clip($clip)
   background-clip: border-box;
-  border: $hs-card-border-width;
+  border: $hs-card-border-width /* solid $hs-card-border-color */;
   @include border-radius($hs-card-border-radius);
 
-  > {
-    .hs-card_header {
-      padding: 0;
-      margin-bottom: 0;
-      background-color: $hs-card-cap-bg;
-      border-bottom: $hs-card-border-width solid $hs-card-border-color;
-      @include card-header-dimensions;
-
-      &:first-child {
-        @include border-radius($hs-card-inner-border-radius $hs-card-inner-border-radius 0 0);
-      }
-
-      +.list-group {
-        .list-group_item:first-child {
-          border-top: 0;
-        }
-      }
-
-
-    }
-
-    .list-group {
-      border-top: inherit;
-      border-bottom: inherit;
-
-      &:first-child {
-        border-top-width: 0;
-        @include border-top-radius($hs-card-inner-border-radius);
-
-      }
-
-      &:last-child {
-        border-bottom-width: 0;
-        @include border-bottom-radius($hs-card-inner-border-radius);
-      }
-    }
+  > .hs-card_header {
+    padding: unset;
+    margin-bottom: unset;
+    background-color: unset;
+    border-bottom: unset;
+    @include card-header-dimensions;
   }
 
   > hr {
@@ -58,7 +47,25 @@
     margin-left: 0;
   }
 
+  > .list-group {
+    border-top: inherit;
+    border-bottom: inherit;
+
+    &:first-child {
+      border-top-width: 0;
+      @include border-top-radius($hs-card-inner-border-radius);
+    }
+
+    &:last-child {
+      border-bottom-width: 0;
+      @include border-bottom-radius($hs-card-inner-border-radius);
+    }
+  }
+  @include card-size;
+
   .hs-card_footer {
+    // padding: $hs-card-spacer-y $hs-card-spacer-x;
+    color: $hs-card-cap-color;
     background-color: $hs-card-cap-bg;
     border-top: $hs-card-border-width solid $hs-card-border-color;
 
@@ -69,37 +76,45 @@
     &.dark {
       background-color: $hs-blueGray-dark;
     }
-
-    .hs-logo-row--footer ul.flex-container.space-between {
-      display: flex;
-      align-items: center;
-      max-width: 90%;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-
-      li.flex-item {
-        display: inline-block;
-        flex: 1 1 auto;
-        width: auto;
+  }
+}
+.space-between {
+  justify-content: space-between;
+}
+.hs-card_img-header_img {
+  @include card-img-header-img-sizes;
+}
+.hs-card {
+  .hs-card_footer {
+    .hs-logo-row--footer {
+      ul.flex-container.space-between {
+        display: flex;
+        align-items: center;
+        max-width: 90%;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        li.flex-item {
+          display: inline-block;
+          flex: 1 1 auto;
+          width: auto;
+        }
       }
     }
   }
 }
-
-.hs-card_img-header_img {
-  @include card-header-dimensions;
-}
-
 .hs-card_body {
+  // Enable `flex-grow: 1` for decks and groups so that card blocks take up
+  // as much space as possible, ensuring footers are aligned to the bottom.
   flex: 1 1 auto;
-  width: 100%;
+  // Workaround for the image size bug in IE
+  // See: https://github.com/twbs/bootstrap/pull/28855
   width: $hs-card-width--fluid;
   min-height: 1px;
+  padding: 0;
   color: $hs-card-color;
   background-color: $hs-white_5;
 }
-
 .hs-card_content {
   width: 100%;
   padding: $hs-spacing--md;
@@ -107,6 +122,12 @@
   text-align: left;
   background-color: $hs-white;
   @include hs-card-content;
+  // .hs-card_title {
+  //   font-size: 2.3rem;
+  //   .hs-card_heading-h5 {
+  //     font-size: 1.25rem;
+  //   }
+  // }
 }
 
 .hs-card_title {
@@ -118,13 +139,28 @@
   margin-bottom: 0;
 }
 
-.hs-card_linkhover {
-  text-decoration: none;
+.hs-card_text:last-child {
+  margin-bottom: 0;
 }
+
+.hs-card_link {
+  &hover {
+    text-decoration: none;
+  }
+
+  +.hs-card_link {
+    margin-left: $hs-card-spacer-x;
+  }
+}
+
+//
+// Optional textual caps
+//
 
 .hs-card_header {
   padding: 0;
   margin-bottom: 0;
+  color: $hs-card-cap-color;
   background-color: $hs-card-cap-bg;
   border-bottom: $hs-card-border-width solid $hs-card-border-color;
   @include card-header-dimensions;
@@ -133,10 +169,16 @@
     @include border-radius($hs-card-inner-border-radius $hs-card-inner-border-radius 0 0);
   }
 
-  +.list-group .list-group_item:first-child {
-    border-top: 0;
+  +.list-group {
+    .list-group_item:first-child {
+      border-top: 0;
+    }
   }
 }
+
+//
+// Header navs
+//
 
 .hs-card_header-tabs {
   margin-right: -$hs-card-spacer-x / 2;
@@ -150,6 +192,7 @@
   margin-left: -$hs-card-spacer-x / 2;
 }
 
+// Card image
 .hs-card_img-overlay {
   position: absolute;
   top: 0;
@@ -176,12 +219,67 @@
   @include border-bottom-radius($hs-card-inner-border-radius);
 }
 
+
+// Card deck
+
 .hs-card-deck {
   .hs-card {
     margin-bottom: $hs-card-deck-margin;
   }
 
 
+}
+
+
+//
+// Card groups
+//
+
+.hs-card-group {
+
+  // The child selector allows nested `.hs-card` within `.hs-card-group`
+  // to display properly.
+  > .hs-card {
+    margin-bottom: $hs-card-group-margin;
+  }
+}
+
+
+
+//
+// Columns
+//
+
+.hs-card_columns {
+  .hs-card {
+    margin-bottom: $hs-card-columns-margin;
+  }
+
+}
+
+
+//
+// Accordion
+//
+
+.accordion {
+  > .hs-card {
+    overflow: hidden;
+
+    &:not(:last-of-type) {
+      border-bottom: 0;
+      @include border-bottom-radius(0);
+    }
+
+    &:not(:first-of-type) {
+      @include border-top-radius(0);
+    }
+
+    > .hs-card_header {
+      @include border-radius(0);
+      margin-bottom: -$hs-card-border-width;
+    }
+  }
 }
 
 @media (min-width: 576px) {
@@ -198,7 +296,7 @@
     -ms-flex: 1 0 0%;
     flex: 1 0 0%;
     margin-right: 15px;
-    margin-bottom: $hs-card-group-margin;
+    margin-bottom: 0;
     margin-left: 15px;
   }
 }
@@ -214,7 +312,7 @@
   .hs-card-group > .hs-card {
     -ms-flex: 1 0 0%;
     flex: 1 0 0%;
-    margin-bottom: $hs-card-group-margin;
+    margin-bottom: 0;
   }
 
   .hs-card-group > .hs-card +.hs-card {
@@ -270,68 +368,23 @@
     width: 100%;
   }
 }
-
 .hs-dev-logo {
   vertical-align: middle;
   filter: grayscale(80%);
-  opacity: 0.5;
+  opacity: .5;
 }
-
 .hs-logo-row--footer {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  // width: 100%;
   height: 96px;
-  padding: 0.5rem;
-
+  padding: .5rem;
+  // background: rgba(71, 66, 55, 0.15);
   .hs-dev-logo {
     width: 32px;
     vertical-align: middle;
-  }
-}
-
-.hs-divider {
-  display: flex;
-  height: 30px;
-}
-
-.hs-card_text:last-child {
-  margin-bottom: 0;
-}
-
-.hs-card_link + .hs-card_link {
-  margin-left: 1.25rem;
-}
-
-.hs-card-deck .hs-card {
-  margin-bottom: 15px;
-}
-
-.hs-card-group > .hs-card {
-  margin-bottom: 15px;
-}
-
-.hs-card_columns .hs-card {
-  margin-bottom: 0.75rem;
-}
-
-.accordion {
-  > .hs-card {
-    overflow: hidden;
-
-    &:not(:last-of-type) {
-      border-bottom: 0;
-      @include border-bottom-radius(0);
-    }
-
-    &:not(:first-of-type) {
-      @include border-top-radius(0);
-    }
-
-    > .hs-card_header {
-      @include border-radius(0);
-      margin-bottom: -$hs-card-border-width;
-    }
+    
   }
 }
