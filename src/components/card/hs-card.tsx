@@ -102,7 +102,7 @@ export class HSCard {
       <div id={this.cardId} class={`hs-card hs-card-size${this.cardSize} ${this.colorTone}`}>
        <header class={`hs-card_header hs-card_header${this.cardSize}`}>
         <a id="imgHeaderOverlay" 
-          class={`hs-card_img-header_overlay${this.cardSize}`} 
+          class={`hs-overlay hs-card_img-header_overlay${this.cardSize}`} 
           href="#" 
           onClick={() => this.launchModalHandler(`${this.modalId}`)}>
           <img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img${this.cardSize}`} alt="header image" />
