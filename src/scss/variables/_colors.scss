@@ -100,7 +100,7 @@ $enable-rounded:                 true !default;
 $hs-border-radius:               .25rem !default; // 4px
 $hs-border-radius-sm:            .125rem !default; // 2px
 $hs-border-radius-lg:            .5rem !default; //8px
-$hs-border-radius-md:            .25px !default;
+$hs-border-radius-md:            .25% !default;
 
 
 // Outer glow
@@ -153,7 +153,7 @@ $hs-card-spacer-x:                     1.25rem !default;
 $hs-card-border-width:                 $hs-border-width !default;
 $hs-card-border-radius:                $hs-border-radius !default;
 $hs-card-border-color:                 rgba($hs-black, .125) !default;
-$hs-card-inner-border-radius:          subtract($hs-card-border-radius, $hs-card-border-width) !default;
+$hs-card-inner-border-radius:          $hs-border-radius-sm !default;
 $hs-card-cap-bg:                       rgba($hs-black, .03) !default;
 $hs-card-cap-color:                    null !default;
 $hs-card-color:                        null !default;

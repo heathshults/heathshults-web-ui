@@ -10331,6 +10331,7 @@ h3 {
   border-radius: 0.25rem;
 }
 .hs-card > .hs-card_header {
+  display: flex;
   padding: 0;
   margin-bottom: 0;
   background-color: rgba(0, 0, 0, 0.03);
@@ -10351,10 +10352,73 @@ h3 {
   height: 100%;
 }
 .hs-card > .hs-card_header:first-child {
-  border-radius: subtract(0.25rem, 1px) subtract(0.25rem, 1px) 0 0;
+  border-radius: 0.125rem 0.125rem 0 0;
 }
 .hs-card > .hs-card_header + .list-group .list-group_item:first-child {
   border-top: 0;
+}
+.hs-card > .hs-card_header > .hs-overlay {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.hs-card > .hs-card_header > .hs-overlay--sm {
+  width: 265px;
+  height: 177px;
+}
+.hs-card > .hs-card_header > .hs-overlay--lg {
+  width: 400px;
+  height: 287px;
+}
+.hs-card > .hs-card_header > .hs-overlay--fluid {
+  width: 100%;
+  height: 100%;
+}
+.hs-card > .hs-card_header > .hs-overlay::before {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 0;
+  content: "";
+  background-color: rgba(254, 209, 54, 0.1);
+  transition: all ease 0.3s;
+}
+.hs-card > .hs-card_header > .hs-overlay:hover::before {
+  top: 0px;
+  left: 0px;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+  color: #fff;
+  content: "";
+  background-color: rgba(254, 209, 54, 0.75);
+  transition: all ease 0.3s;
+}
+.hs-card > .hs-card_header > .hs-overlay::after {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  z-index: 1001;
+  width: 100%;
+  height: 80px;
+  font-size: 3rem;
+  line-height: normal;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  content: "VIEW ";
+  opacity: 0;
+  transition: all ease 0.3s;
+  transform: translate(-50%);
+}
+.hs-card > .hs-card_header > .hs-overlay:hover::after {
+  top: 50%;
+  left: 0%;
+  z-index: 1001;
+  opacity: 1;
+  transition: all ease 0.3s;
+  transform: translate(0%);
 }
 .hs-card > .list-group {
   border-top: inherit;
@@ -10362,13 +10426,13 @@ h3 {
 }
 .hs-card > .list-group:first-child {
   border-top-width: 0;
-  border-top-left-radius: subtract(0.25rem, 1px);
-  border-top-right-radius: subtract(0.25rem, 1px);
+  border-top-left-radius: 0.125rem;
+  border-top-right-radius: 0.125rem;
 }
 .hs-card > .list-group:last-child {
   border-bottom-width: 0;
-  border-bottom-right-radius: subtract(0.25rem, 1px);
-  border-bottom-left-radius: subtract(0.25rem, 1px);
+  border-bottom-right-radius: 0.125rem;
+  border-bottom-left-radius: 0.125rem;
 }
 .hs-card > hr {
   margin-right: 0;
@@ -10379,7 +10443,7 @@ h3 {
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
 .hs-card .hs-card_footer:last-child {
-  border-radius: 0 0 subtract(0.25rem, 1px) subtract(0.25rem, 1px);
+  border-radius: 0 0 0.125rem 0.125rem;
 }
 .hs-card .hs-card_footer.dark {
   background-color: #0f161d;
@@ -10480,6 +10544,7 @@ h3 {
 }
 
 .hs-card_header {
+  display: flex;
   padding: 0;
   margin-bottom: 0;
   background-color: rgba(0, 0, 0, 0.03);
@@ -10500,7 +10565,7 @@ h3 {
   height: 100%;
 }
 .hs-card_header:first-child {
-  border-radius: subtract(0.25rem, 1px) subtract(0.25rem, 1px) 0 0;
+  border-radius: 0;
 }
 .hs-card_header + .list-group .list-group_item:first-child {
   border-top: 0;
@@ -10518,13 +10583,38 @@ h3 {
   margin-left: -0.625rem;
 }
 
-.hs-card_img-overlay {
+.hs-card_img-header_overlay,
+[class^=hs-card_img-headerr_overlay--] {
+  position: relative;
+}
+.hs-card_img-header_overlay::before,
+[class^=hs-card_img-headerr_overlay--]::before {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1.25rem;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background-color: rgba(254, 209, 54, 0.1);
+  opacity: 1;
+  transition: all ease 0.3s;
+  transform: translate(0%, 0%);
+}
+.hs-card_img-header_overlay:hover::before,
+[class^=hs-card_img-headerr_overlay--]:hover::before {
+  top: 0px;
+  left: 0px;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  content: "";
+  background-color: rgba(254, 209, 54, 0.75);
+  background-image: url("data:image/svg+xml;charset=utf-8, %3c?xml version='1.0'encoding='utf-8'?%3e%3c !-- generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version:6.00 Build 0) --%3e%3c !DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN''http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3e%3csvg version='1.1'id='Layer_1'xmlns='http://www.w3.org/2000/svg'xmlns:xlink='http://www.w3.org/1999/xlink'x='0px'y='0px'width='48px'height='48px'viewBox='0 0 48 48'enable-background='new 0 0 48 48'xml:space='preserve'%3e%3cpath fill='%23FFFFFF'd='M47,18.25H29.75V1h-11.5v17.25H1v11.5h17.25V47h11.5V29.75H47V18.25z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 48px;
+  opacity: 1;
+  transform: translate(0%, 0%);
 }
 
 .hs-card_img,
@@ -10536,14 +10626,14 @@ h3 {
 
 .hs-card_img,
 .hs-card_img--top {
-  border-top-left-radius: subtract(0.25rem, 1px);
-  border-top-right-radius: subtract(0.25rem, 1px);
+  border-top-left-radius: 0.125rem;
+  border-top-right-radius: 0.125rem;
 }
 
 .hs-card_img,
 .hs-card_img--bottom {
-  border-bottom-right-radius: subtract(0.25rem, 1px);
-  border-bottom-left-radius: subtract(0.25rem, 1px);
+  border-bottom-right-radius: 0.125rem;
+  border-bottom-left-radius: 0.125rem;
 }
 
 .hs-card-deck .hs-card {
@@ -11632,7 +11722,7 @@ hs-card {
   padding: 0;
   overflow: hidden;
   background: transparent;
-  border-radius: 0.25px;
+  border-radius: 0.25%;
   box-shadow: 0 4px 6px 2px rgba(0, 0, 0, 0.3);
 }
 hs-card.light {
