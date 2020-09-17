@@ -72,7 +72,12 @@
             color: $hs-white;
             text-align: center;
             white-space: nowrap;
-            content: "VIEW \f064";
+            content: "";
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg class='svg-inline--fa fa-plus fa-w-14 fa-3x' aria-hidden='true' focusable='false' data-prefix='fas' data-icon='plus' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512' data-fa-i2svg=''%3e%3cpath fill='currentColor' d='M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z' data-darkreader-inline-fill='' style='--darkreader-inline-fill:currentColor;'%3e%3c/path%3e%3c/svg%3e ");
+            background-repeat: no-repeat;
+            background-position-x: center;
+            background-position-y: bottom 40px;
+            background-size: 48px;
             opacity: 0;
             transition: all ease .3s;
             transform: translate(-50%)
