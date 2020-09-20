@@ -1,5 +1,6 @@
 'use strict';
 const path = require('path');
+const fs = require('fs')
 const {
   src,
   dest
@@ -11,6 +12,7 @@ const changed = require('gulp-changed')
 const ngAnnotate = require('gulp-ng-annotate')
 const rename = require('gulp-rename')
 const { exec } = require('child_process')
+
 
 const rootPath = path.resolve(__dirname, '../')
 const srcPath = path.resolve(__dirname, '../src/assets');
@@ -221,39 +223,7 @@ function copy_vendor(cb) {
 }
 exports.copy_vendor = copy_vendor
 
-function copy_js(cb) {
-  return new Promise((resolve, reject) => {
-    try {
-      setTimeout(() => {
-        src([
-          `${srcJS}/**/*`,
-          `!${srcJS}/scripts.js`,
-          `!${srcJS}/jqBootstrapValidation.js`,
-          `!${srcJS}/contact_me.js`,
-          `!${srcJS}/HeathScript.js`,
-          `!${srcJS}/modules/**/*`
-        ])
-        .pipe(rename({
-            dirname: `${wwwPath}/js`
-          }))
-          .pipe(dest(rootPath))
-          // .pipe(debug({
-          //   title: 'Copied JS: '
-          // }));
 
-         console.log(chalk.green('copy_js() Complete'))
-        if (typeof cb === 'function') {
-          cb()
-        }
-        resolve(cb)
-      }, 1000)
-    } catch(error) {
-      console.log(chalk.red('Error in copy_js(): ' + error))
-      reject('Rejected copy_js(): ' + error)
-    }
-  })
-}
-exports.copy_js = copy_js
 
 function copy_components(cb) {
   return new Promise((resolve, reject) => {
