@@ -31,6 +31,7 @@ var log = require('fancy-log')
 var chalk = require('chalk')
 var ra =require('./scripts/render-assets')
 
+var appRoot = require('app-root-path');
 var srcPath = path.resolve(__dirname, 'src')
 var srcCompPath = path.resolve(__dirname, 'src/components')
 var buildPath = path.resolve(__dirname, 'www/build')
@@ -342,21 +343,37 @@ function copy_css(cb) {
 }
 exports.copy_css = copy_css
 
-// function copy_js(cb) {
-//   src(`${srcPath}/assets/js/**/*.{js,json,map}`)
-//     .pipe(plumber())
-//     //.pipe(changed(`${wwwPath}/js`))
-//     .pipe(debug({ title: 'copied' }))
-//     .pipe(dest(`${wwwPath}/assets/js`)), cb()
-//   // () => {
-//   //   let file = ''
-//   //   if (typeof cb === 'function') {
-//   //     cb(null, file);
-//   //     called = true;
-//   //   }
-//   // }
-// }
-// exports.copy_js = copy_js
+function copy_js(cb) {
+  return new Promise((resolve, reject) => {
+    console.log('LOOK! ' + appRoot)
+    try {
+      setTimeout(() => {
+        
+        src([
+          'src/js/**/*',
+          `!${srcPath}/js/jqBootstrapValidation.js`,
+          `!${srcPath}/js/contact_me.js`,
+          `!${srcPath}/js/HeathScript.js`,
+          `!${srcPath}/js/modules/**/*`
+        ])
+        .pipe(rename({ dirname: 'www-app/assets/js'}))
+        .pipe(dest('./'))
+        .pipe(debug({title: 'Copied JS: '}));
+
+         console.log(chalk.green('copy_js() Complete'))
+        if (typeof cb === 'function') {
+          cb()
+        }
+        resolve(cb)
+      }, 1000)
+    } catch(error) {
+      console.log(chalk.red('Error in copy_js(): ' + error))
+      reject('Rejected copy_js(): ' + error)
+    }
+  })
+}
+exports.copy_js = copy_js
+
 
 function render_components(cb) {
   console.log('Initiating render_components()...')
@@ -419,7 +436,7 @@ function copy_assets(cb) {
     .then(ra.copy_images)
     .then(ra.copy_mail)
     .then(ra.copy_vendor)
-    .then(ra.copy_js)
+    .then(copy_js)
     .then(renderer());
     if (typeof cb === 'function') cb(null)
 
@@ -480,7 +497,7 @@ function watchers(cb) {
         watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_images), callback;
         watch([`${srcPath}/scss/**/*.scss`], compileCSS), callback;
         watch([`${srcPath}/assets/**/*.css`], ra.copy_css), callback;
-        watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], ra.copy_js), callback;
+        watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], copy_js), callback;
         watch([`${buildPath}/**/*`], copy_components), callback;
         watch([`${srcPath}/assets/js/HeathScript.js`], babelfry), callback;
         watch([`${srcCompPath}/**/*`],  render_components), callback;

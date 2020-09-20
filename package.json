@@ -27,6 +27,7 @@
     "build:scss": "node scripts/build-scss.js",
     "build:components": "gulp build_components",
     "copy:components": "gulp copy_components",
+    "copy:js": "gulp --gulpfile scripts/render-assets.js copy_js",
     "clean": "node scripts/clean.js",
     "gbuild": "gulp setup_develop",
     "serve": "gulp serve",
