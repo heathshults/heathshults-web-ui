@@ -10,18 +10,18 @@ const chalk = require('chalk')
 const plumber = require('gulp-plumber')
 const changed = require('gulp-changed')
 const ngAnnotate = require('gulp-ng-annotate')
-const rename = require('gulp-rename')
+// const rename = require('gulp-rename')
 const { exec } = require('child_process')
 
 
-const rootPath = path.resolve(__dirname, '../')
+// const rootPath = path.resolve(__dirname, '../')
 const srcPath = path.resolve(__dirname, '../src/assets');
 const wwwPath = path.resolve(__dirname, '../www-app/assets');
-const srcJS = path.resolve(__dirname, '../src/js/');
-const srcCompJS = path.resolve(__dirname, '../www/build');
-const wwwCompJS = path.resolve(__dirname, '../www-app/components')
-console.log(srcCompJS)
-console.log(wwwCompJS)
+// const srcJS = path.resolve(__dirname, '../src/js/');
+// const srcCompJS = path.resolve(__dirname, '../www/build');
+// const wwwCompJS = path.resolve(__dirname, '../www-app/components')
+// console.log(srcCompJS)
+// console.log(wwwCompJS)
 
 var onError = (err) => {
   console.log(chalk(`Error: ${err}`))
@@ -36,7 +36,6 @@ function runAssetsPromises(cb) {
     .then(copy_images)
     .then(copy_mail)
     .then(copy_vendor)
-    .then(copy_js)
     if (typeof cb === 'function') cb()
 }
 exports.runAssetsPromises = runAssetsPromises
@@ -271,4 +270,3 @@ exports.build_components = build_components
 
 // uncomment the line below for debugging
 // runAssetsPromises()
-// exports.copy_assets = series(copy_assets_content, copy_js, copy_css, copy_images, copy_mail, copy_vendor)

@@ -34,6 +34,7 @@
         "media-feature-range-operator-space-before": "never",
         "no-descending-specificity": null,
         "no-duplicate-selectors": null,
+        "number-no-trailing-zeros": null,
         "selector-type-no-unknown": null,
         "number-leading-zero": null,
         "order/order": [

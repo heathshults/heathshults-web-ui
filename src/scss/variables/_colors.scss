@@ -36,12 +36,13 @@ $hs-theme-background-secondary:    map-get($hs-default-colors, background-second
 
 $hs-black:                        #000 !default;
 $hs-black_25:                     rgba(0, 0, 0, 0.25) !default;
+$hs-black_45:                     rgba(0, 0, 0, 0.45) !default;
 $hs-black_50:                     rgba(0, 0, 0, 0.5) !default;
 $hs-black_75:                     rgba(0, 0, 0, 0.75) !default;
 
 $hs-gray-base:			              #111 !default;
 $hs-gray-medium:                  #2f2f31 !default;
-$hs-gray-darker:		              lighten($hs-gray-base, 13.5%) !default; // #222
+$hs-gray-darker:                #333 !default;
 $hs-gray-dark:			              lighten($hs-gray-base, 20%) !default;   // #333
 $hs-gray:				                  lighten($hs-gray-base, 33.5%) !default; // #555
 $hs-gray-light:		                lighten($hs-gray-base, 46.7%) !default; // #777
@@ -50,10 +51,13 @@ $hs-gray-lighter-05:              #e9e9ed !default;
 $hs-gray-lightest:		            lighten($hs-gray-base, 93.5%) !default; // #eee
 
 $hs-white:                      #fff !default;
+$hs-white_2:                    #f2f2f2 !default;
 $hs-white_5:                    #f8f8f8 !default;
 $hs-white_8:                    rgba(255, 255, 255, 0.08) !default;
 $hs-white_10:                   rgba(255, 255, 255, 0.1) !default;
 $hs-white_30:                   rgba(255, 255, 255, 0.3) !default;
+$hs-white_60:                   rgba(255, 255, 255, 0.6) !default;
+$hs-white_100:                  rgba(255, 255, 255, 1) !default;
 
 // Dark Mode Colors
 $hs-blueGray-medium:            #507386 !default;
