@@ -123,7 +123,6 @@ $(document).ready(() => {
     return
   })
 
-
    // ====== SHOWMORE ==== //
   // eslint-disable-next-line no-unused-vars
   let ShowMoreSettings = {

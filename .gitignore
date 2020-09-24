@@ -9,3 +9,5 @@ dist/
 .vscode/
 .DS_Store
 www-app/
+backup/
+www/

@@ -11314,7 +11314,7 @@ section#contact form#contactForm :-ms-input-placeholder, hs-section-contact form
 }
 
 .bg-darkest-gray {
-  background-color: #333333;
+  background-color: #333;
 }
 
 .cursive {
@@ -11850,6 +11850,14 @@ div[slot^=hs-] {
   font-size: calc($hs-card-title--fluid - 10%);
 }
 
+.hs-card_heading-h5 {
+  font-size: 1.25rem;
+}
+
+.hs-card_text-emphisized {
+  font-size: 1.1rem;
+}
+
 .hs-brand-symbol {
   padding-bottom: 10px;
   font-size: 2.4rem;
@@ -11971,6 +11979,134 @@ div[slot^=hs-] {
     position: relative;
     width: 100%;
   }
+}
+.j-showmore {
+  position: absolute;
+  left: -9999px;
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: 60px;
+  -webkit-transition: all 500ms cubic-bezier(0.77, 0, 0.155, 1);
+  -moz-transition: all 500ms cubic-bezier(0.77, 0, 0.155, 1);
+  -o-transition: all 500ms cubic-bezier(0.77, 0, 0.155, 1);
+  transition: all 500ms cubic-bezier(0.77, 0, 0.155, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.77, 0, 0.155, 1);
+  -moz-transition-timing-function: cubic-bezier(0.77, 0, 0.155, 1);
+  -o-transition-timing-function: cubic-bezier(0.77, 0, 0.155, 1);
+  transition-timing-function: cubic-bezier(0.77, 0, 0.155, 1);
+}
+.j-showmore.is-visible {
+  position: relative;
+  left: 0px;
+  height: 100%;
+  -webkit-transition: all 500ms cubic-bezier(0.77, 0, 0.155, 1);
+  -moz-transition: all 500ms cubic-bezier(0.77, 0, 0.155, 1);
+  -o-transition: all 500ms cubic-bezier(0.77, 0, 0.155, 1);
+  transition: all 500ms cubic-bezier(0.77, 0, 0.155, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.77, 0, 0.155, 1);
+  -moz-transition-timing-function: cubic-bezier(0.77, 0, 0.155, 1);
+  -o-transition-timing-function: cubic-bezier(0.77, 0, 0.155, 1);
+  transition-timing-function: cubic-bezier(0.77, 0, 0.155, 1);
+}
+
+.j-fader {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 35px;
+  text-align: center;
+  vertical-align: bottom;
+  cursor: pointer;
+  background: linear-gradient(to bottom, white, white 60%);
+  filter: progid:dximagetransform.microsoft.gradient(startcolorstr="$hs-white_100", endcolorstr="$hs-white_100", gradienttype=0);
+  border-bottom: 0 solid #f2f2f2;
+}
+.j-fader > .j-fader_button {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  display: inline-block;
+  cursor: pointer;
+  margin: 0 auto;
+  padding: 4px 6px;
+  background-color: #fff;
+  border: 1px solid #fff;
+  border-bottom: 0 solid #fff;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: #333;
+  line-height: 1;
+  width: 80px;
+  height: 20px;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.45);
+}
+.j-fader > .j-fader_button.is-visible::before {
+  content: "";
+}
+.j-fader > .j-fader_button:hover {
+  background-color: #fff;
+  color: #333;
+}
+.j-fader > .j-fader_button:focus {
+  outline-color: #dedede;
+  background-color: #dedede;
+  color: #333;
+  border: 1px solid #dedede;
+  border-bottom: 5px solid #dedede;
+  box-shadow: unset;
+}
+.j-fader > .j-fader_button.is-visible {
+  bottom: 0px;
+  background-color: #dedede;
+  color: #333;
+  border: 1px solid #dedede;
+  border-bottom: 0px solid #dedede;
+}
+.j-fader > .j-fader_button::before {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  z-index: 100;
+  display: block;
+  width: 100%;
+  font-size: 0.75rem;
+  content: "";
+  transform: translate(-50%);
+}
+.j-fader > .j-fader_button.is-visible::before {
+  display: none;
+}
+.j-fader > .j-fader.is-visible {
+  border-bottom: 0px solid #dedede;
+}
+.j-fader.is-visible {
+  bottom: 113px;
+  height: 0px;
+  border-bottom: 0px solid #dedede;
+}
+
+@keyframes slideOpen {
+  from {
+    height: 300px;
+  }
+  to {
+    height: 100%;
+  }
+}
+@keyframes slideClosed {
+  from {
+    height: 100%;
+  }
+  to {
+    height: 300px;
+  }
+}
+.hs-code .j-fader {
+  border-bottom: 5px solid #f2f2f2;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), #fff 60%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ffffff", endColorstr="#ffffff", GradientType=0);
 }
 
 /*# sourceMappingURL=HeathStyle.built.css.map */

@@ -56,6 +56,7 @@ export class HSCard {
       try {
         setTimeout(() => {
           this.theElements();
+          this.cardHeaderImg = this.el.shadowRoot.querySelector('#hsHeaderImg')
         
           this.cardContent.classList.add(`hs-card-size${this.cardSize}`)
          
