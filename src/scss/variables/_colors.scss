@@ -65,6 +65,7 @@ $hs-white_100:                  rgba(255, 255, 255, 1) !default;
 
 // Dark Mode Colors
 $hs-blueGray-medium:            #507386 !default;
+$hs-blueGray-medium-saturated:  #136591 !default;
 $hs-blueGray-dark:              #0f161d !default;
 $hs-blueGray-very-dark:         #181a1b !default; // #181a1b
 $hs-blueGray-darker:            #0c0f11 !default;
@@ -73,13 +74,15 @@ $hs-blueGray-light:             #2d373c !default;
 $hs-text-onDark:                  map-get($hs-dark-mode-colors, text-onDark) !default;
 $hs-green-light:                #80cc94 !default;
 $hs-blue-light:                 #0291ca !default;
-$hs-blue-light-muted:           #80b6cc !default;
+// $hs-blue-lighter:               #83d6ff !default;
+// $hs-blue-lighter:               #83d6ff !default;
 $hs-blue-lighter:               #78bad8 !default;
-$hs-blue-lighter-muted:         #8ec1d9 !default;
 $hs-blue-lightest:              #a8dfff !default;
+$hs-blue-light-muted:           #80b6cc !default; // or do #83d6ff
+$hs-blue-lighter-muted:         #8ec1d9 !default;
 $hs-blue-lightest-muted:        #9bcbe6 !default;
 $hs-blue-dark:                  #1e364e !default;
-$hs-link-primary:                 $hs-theme-primary !default;
+$hs-link-primary:               $hs-theme-primary !default;
 
 $hs-baige-light:                #cac1ac !default;
 $hs-baige-medium:               #a79e8b !default;

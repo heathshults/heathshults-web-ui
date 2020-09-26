@@ -1,3 +1,4 @@
+@import '../variables/maps';
 @import '../variables/colors';
 @import 'mixins/settings';
 //colors
@@ -12,32 +13,32 @@
     bottom: 0;
     left: 50%;
     width: 2px;
+    margin-left: -1.5px;
     content: " ";
     background-color: $hs-baige-medium;
-    margin-left: -1.5px;
   }
 
   .clearFix {
-    clear: both;
     height: 0;
+    clear: both;
   }
 
   .timeline-badge {
-    color: $hs-white;
-    width: 50px;
-    height: 50px;
-    font-size: 1.1rem;
-    text-align: center;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-left: -25px;
-    background-color: $hs-color_blue-semimuted;
     z-index: 100;
-    //Instead of the line below you could use @include border-top-right-radius($radius)
-    border-top-right-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-left: -25px;
+    font-size: 1.1rem;
+    color: $hs-white;
+    text-align: center;
+    background-color: $hs-color_blue-semimuted;
     //Instead of the line below you could use @include border-top-left-radius($radius)
     border-top-left-radius: 50%;
+    //Instead of the line below you could use @include border-top-right-radius($radius)
+    border-top-right-radius: 50%;
     //Instead of the line below you could use @include border-bottom-right-radius($radius)
     border-bottom-right-radius: 50%;
     //Instead of the line below you could use @include border-bottom-left-radius($radius)
@@ -46,6 +47,17 @@
     &.green {
       background: $hs-color_green--dark;
     }
+    &.baige {
+      background: $hs-baige-medium;
+    }
+    &.baige--light {
+      background: $hs-baige-light;
+    }
+    // &.transparency {
+    //   background: transparent;
+    //   border-color: transparent;
+    // }
+
 
     span {
       &.timeline-balloon-date-day {
@@ -58,7 +70,7 @@
         font-size: .7em;
       }
     }
-    
+
     &.timeline-filter-movement {
       top: 55px;
       width: 35px;
@@ -67,12 +79,22 @@
       font-size: 1.7em;
       background-color: $hs-white;
       border: 1px solid $hs-baige-light;
+      &.transparency {
+        background: transparent;
+        border-color: transparent;
+      }
 
-      a span {
-        top: 2px;
-        left: 1px;
+      [class^="fa fa-"] {
+        position: absolute;
+        top: -40px;
+        left: -12px;
+        padding: 1rem;
+        margin-bottom: 20px;
         font-size: .9em;
-        color: $hs-color_dark_yellow;
+        color: $hs-white;
+        background: $hs-blueGray-medium-saturated;
+        border: 2px solid darken($hs-blueGray-medium-saturated, 15%);
+        border-radius: 50%;
       }
     }
 
@@ -89,7 +111,7 @@
         top: 2px;
         left: 1px;
         font-size: .9em;
-        color:$hs-color_dark_yellow;
+        color: $hs-color_dark_yellow;
       }
     }
   }
@@ -126,7 +148,7 @@
         -webkit-box-shadow: $hs-shadow;
         //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: $hs-shadow-xs;
-        
+
 
         .timeline-panel-ul {
           padding: 0;
@@ -161,15 +183,15 @@
 
       &:nth-of-type(odd) {
         padding-left: 40px;
-        margin-top: 20px;
-        margin-bottom: 106px;
-      }
-      &:nth-of-type(even) {
-        padding-right: 40px;
         margin-top: 106px;
         margin-bottom: 20px;
       }
-      
+      &:nth-of-type(even) {
+        padding-right: 40px;
+        margin-top: 20px;
+        margin-bottom: 106px;
+      }
+
     }
   }
 }
