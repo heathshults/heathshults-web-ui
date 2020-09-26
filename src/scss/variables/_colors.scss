@@ -70,8 +70,6 @@ $hs-blueGray-very-dark:         #181a1b !default; // #181a1b
 $hs-blueGray-darker:            #0c0f11 !default;
 $hs-blueGray-darker--alpha75:   rgba(12, 15, 17, 0.75) !default;
 $hs-blueGray-light:             #2d373c !default;
-$hs-baige-light:                #cac1ac !default;
-$hs-baige-medium:               #a79e8b !default;
 $hs-text-onDark:                  map-get($hs-dark-mode-colors, text-onDark) !default;
 $hs-green-light:                #80cc94 !default;
 $hs-blue-light:                 #0291ca !default;
@@ -82,6 +80,9 @@ $hs-blue-lightest:              #a8dfff !default;
 $hs-blue-lightest-muted:        #9bcbe6 !default;
 $hs-blue-dark:                  #1e364e !default;
 $hs-link-primary:                 $hs-theme-primary !default;
+
+$hs-baige-light:                #cac1ac !default;
+$hs-baige-medium:               #a79e8b !default;
 
 $hs-font-cursive-Caveat:          'Caveat', cursive !default;
 $hs-font-cursive-NYCD:            'Nothing You Could Do', cursive !default;

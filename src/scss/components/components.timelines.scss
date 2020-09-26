@@ -60,17 +60,19 @@
     }
     
     &.timeline-filter-movement {
-      top: 40px;
+      top: 55px;
       width: 35px;
       height: 35px;
       margin-left: -18px;
       font-size: 1.7em;
       background-color: $hs-white;
+      border: 1px solid $hs-baige-light;
 
       a span {
-        top: -1px;
-        font-size: 1.3em;
-        color: $hs-color_blue-semimuted;
+        top: 2px;
+        left: 1px;
+        font-size: .9em;
+        color: $hs-color_dark_yellow;
       }
     }
 
@@ -81,12 +83,13 @@
       margin-left: -18px;
       font-size: 1.7em;
       background-color: $hs-white;
+      border: 1px solid $hs-baige-light;
 
       a span {
         top: 2px;
         left: 1px;
         font-size: .9em;
-        color: $hs-color_blue-semimuted;
+        color:$hs-color_dark_yellow;
       }
     }
   }

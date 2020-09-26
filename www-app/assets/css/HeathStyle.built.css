@@ -10841,17 +10841,19 @@ h3 {
   font-size: 0.7em;
 }
 #timeline .timeline-badge.timeline-filter-movement {
-  top: 40px;
+  top: 55px;
   width: 35px;
   height: 35px;
   margin-left: -18px;
   font-size: 1.7em;
   background-color: #fff;
+  border: 1px solid #cac1ac;
 }
 #timeline .timeline-badge.timeline-filter-movement a span {
-  top: -1px;
-  font-size: 1.3em;
-  color: #4997cd;
+  top: 2px;
+  left: 1px;
+  font-size: 0.9em;
+  color: #f2b01e;
 }
 #timeline .timeline-badge.timeline-future-movement {
   top: -16px;
@@ -10860,12 +10862,13 @@ h3 {
   margin-left: -18px;
   font-size: 1.7em;
   background-color: #fff;
+  border: 1px solid #cac1ac;
 }
 #timeline .timeline-badge.timeline-future-movement a span {
   top: 2px;
   left: 1px;
   font-size: 0.9em;
-  color: #4997cd;
+  color: #f2b01e;
 }
 #timeline .timeline-movement {
   position: relative;
