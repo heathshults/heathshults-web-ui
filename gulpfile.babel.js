@@ -499,7 +499,7 @@ function watchers(cb) {
         watch([`${srcPath}/assets/**/*.css`], ra.copy_css), callback;
         watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], copy_js), callback;
         watch([`${buildPath}/**/*`], copy_components), callback;
-        watch([`${srcPath}/assets/js/HeathScript.js`], babelfry), callback;
+        watch([`${p.src_js}/js/HeathScript.js`], babelfry), callback;
         watch([`${srcCompPath}/**/*`],  render_components), callback;
         // watch([`${srcCompPath}/**/*`],  series(build_components, copy_components)), callback;
         resolve(callback)
@@ -516,12 +516,12 @@ exports.watchers = watchers
 
 // Configure the browserSync task
 function serveSync(cb) {
-    browserSync.init({
-        server: {
-            baseDir: `${wwwPath}`
-        },
-    })
-if (typeof cb === 'function') {
+  browserSync.init({
+    server: {
+        baseDir: `${wwwPath}`
+    }
+  })
+  if (typeof cb === 'function') {
     cb(null, file);
     called = true;
   }
@@ -538,16 +538,16 @@ function connect_sync(cb) {
       injectChanges: true,
       files: [
         {
-            match: [`${wwwPath}/**/*.php`, `${wwwPath}/**/*.css`, `${wwwPath}/**/*.{jpg,png,gif,svg}`, `${wwwPath}/**/*.js`, `${wwwPath}/**/*.html`],
-            fn: function (event, file) {
-               browserSync.reload()
-            },
-            options: {
-                ignored: ['package.json']
-            }
+          match: [`${wwwPath}/**/*.php`, `${wwwPath}/**/*.css`, `${wwwPath}/**/*.{jpg,png,gif,svg}`, `${wwwPath}/**/*.js`, `${wwwPath}/**/*.html`],
+          fn: function (event, file) {
+            browserSync.reload()
+          },
+          options: {
+            ignored: ['package.json']
+          }
         }
-    ]
-    });
+      ]
+    })
   }), cb()
 
   // let file = ''

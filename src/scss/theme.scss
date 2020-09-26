@@ -835,3 +835,7 @@ div[slot^="hs-"] {
   background: linear-gradient(to bottom, $hs-white_60, $hs-white 60%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=0);
 }
+
+.navbar.hs-bg-grad-black-trans {
+  z-index: $hs-zindex-sticky;
+}

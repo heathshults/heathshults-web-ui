@@ -12,11 +12,11 @@ export class Timeline {
   loading: boolean;
 
   render() {
-    const alternateClass = this.alternate ? 'o-timeline--alternate' : '';
-    const loadingClass = this.loading ? 'o-timeline--loading' : '';
+    const alternateClass = this.alternate ? 'hs-timeline--alternate' : '';
+    const loadingClass = this.loading ? 'hs-timeline--loading' : '';
 
     return (
-      <ol class={`o-timeline ${alternateClass} ${loadingClass}`}>
+      <ol class={`hs-timeline ${alternateClass} ${loadingClass}`}>
         <slot />
       </ol>
     );

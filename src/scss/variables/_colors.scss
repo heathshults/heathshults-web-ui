@@ -12,6 +12,7 @@ $yiq-contrasted-threshold: 205;
 
 // Variables
 
+$hs-color_red:                    #e2001a !default;
 $hs-color_red_orange:             #f63a0f !default;
 $hs-color_orange:                 #f27011 !default;
 $hs-color_dark_yellow:            #f2b01e !default;
@@ -20,10 +21,12 @@ $hs-color_yellow--light:          #ffe659 !default;
 $hs-color_yellow--dark:           #e2b900 !default;
 $hs-color_green:                  #4cd964 !default;
 $hs-color_lime:                   #86e01e !default;
+$hs-color_green--dark:            #468c1f !default;
 $hs-color_light_lime:             #e7ffcb !default;
 $hs-color_silver:                 #aaa !default;
 $hs-color_purple:                 #9a39d3 !default;
 $hs-color_turquoise:              #5ac8fa !default;
+$hs-color_blue-semimuted:         #4997cd !default;
 
 
 // Gray and Brand Colors for use across theme
@@ -35,6 +38,7 @@ $hs-theme-background-primary:      map-get($hs-default-colors, background-primar
 $hs-theme-background-secondary:    map-get($hs-default-colors, background-secondary) !default;
 
 $hs-black:                        #000 !default;
+$hs-black_15:                     rgba(0, 0, 0, 0.15) !default;
 $hs-black_25:                     rgba(0, 0, 0, 0.25) !default;
 $hs-black_45:                     rgba(0, 0, 0, 0.45) !default;
 $hs-black_50:                     rgba(0, 0, 0, 0.5) !default;
@@ -66,6 +70,7 @@ $hs-blueGray-very-dark:         #181a1b !default; // #181a1b
 $hs-blueGray-darker:            #0c0f11 !default;
 $hs-blueGray-darker--alpha75:   rgba(12, 15, 17, 0.75) !default;
 $hs-blueGray-light:             #2d373c !default;
+$hs-baige-light:                #cac1ac !default;
 $hs-baige-medium:               #a79e8b !default;
 $hs-text-onDark:                  map-get($hs-dark-mode-colors, text-onDark) !default;
 $hs-green-light:                #80cc94 !default;
@@ -112,6 +117,8 @@ $hs-box-shadow-glow:              0px 4px 16px 2px rgba(255, 255, 255, 0.5) !def
 
 // Shadows
 $hs-shadow:                       0 0.5rem 1rem rgba(0, 0, 0, 0.15) !default;
+$hs-shadow-xs:                   2px 0.2rem 0.2rem rgba(0, 0, 0, 0.15) !default;
+$hs-shadow-xs-reverse:           -2px 0.2rem 0.2rem rgba(0, 0, 0, 0.15) !default;
 $hs-shadow-sm:                    0px 2px 4px 0px rgba(0, 0, 0, .5) !default;
 $hs-shadow-lg:                    0px 4px 8px 3px rgba(0, 0, 0, .4) rgba(0, 0, 0, 0.4) !default;
 $hs-shadow-inset-blue:            inset 0 0 0 2px #5173ff !default;
@@ -172,5 +179,12 @@ $hs-card-columns-count:                3 !default;
 $hs-card-columns-gap:                  1.25rem !default;
 $hs-card-columns-margin:               $hs-card-spacer-y !default;
 
-
+// ====== Z-INDEX ====== //
+$hs-zindex-dropdown:          1000 !default;
+$hs-zindex-sticky:            1020 !default;
+$hs-zindex-fixed:             1030 !default;
+$hs-zindex-modal-backdrop:    1040 !default;
+$hs-zindex-modal:             1050 !default;
+$hs-zindex-popover:           1060 !default;
+$hs-zindex-tooltip:           1070 !default;
 

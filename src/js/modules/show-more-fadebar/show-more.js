@@ -22,15 +22,17 @@ document.addEventListener('DOMContentLoaded', FadeBar = () => {
   try {
     const theFaders = Array.prototype.slice.call(document.querySelectorAll('.j-showmore'));
 
-    theFaders.forEach((node) => {
+    theFaders.forEach((node, index) => {
       openHeight = node.offsetHeight;
       console.log(openHeight)
       const theContainer = node;
       const theFadeBar = document.createElement('div');
       const theShowMoreButton = document.createElement('button');
+      const zindex = 'auto';
       
       
       theFadeBar.classList.add('j-fader');
+      theFadeBar.style = `position: absolute; z-index: auto;`;
       theShowMoreButton.classList.add('j-fader_button');
 
       theShowMoreButton.innerText = options.fbInitButtonText;
