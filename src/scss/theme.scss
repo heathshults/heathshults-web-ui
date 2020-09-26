@@ -127,6 +127,7 @@
   align-self: center;
   min-width: 116px;
   max-width: 150px;
+  margin-top: -10px;
   // height: 100%;
   // padding: 0 1.2rem;
   font-size: 100%;
@@ -135,7 +136,6 @@
   text-decoration: none;
   letter-spacing: 1px;
   background-color: transparent;
-  margin-top: -10px;
   border: 0 !important;
   outline: 0;
   transition: all .15s ease-out;
@@ -360,7 +360,7 @@
 .hs-bg-grad-black-trans {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.89) 11%, rgba(0, 0, 0, 0) 100%);
   -webkit-filter: progid:dximagetransform.microsoft.gradient(startColorstr='#000000', endColorstr='#00000000', GradientType=0);
-          filter: progid:dximagetransform.microsoft.gradient(startColorstr='#000000', endColorstr='#00000000', GradientType=0);
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#000000', endColorstr='#00000000', GradientType=0);
 }
 
 .hidden-gone {
@@ -690,8 +690,8 @@ div[slot^="hs-"] {
   position: absolute;
   left: -9999px;
   height: 100%;
-  overflow: hidden;
   padding-bottom: 60px;
+  overflow: hidden;
   -webkit-transition: all 500ms cubic-bezier(0.770, 0.000, 0.155, 1.000);
   -moz-transition: all 500ms cubic-bezier(0.770, 0.000, 0.155, 1.000);
   -o-transition: all 500ms cubic-bezier(0.770, 0.000, 0.155, 1.000);
@@ -737,48 +737,48 @@ div[slot^="hs-"] {
       bottom: -6px;
       left: 50%;
       display: inline-block;
-      cursor: pointer;
-      margin: 0 auto;
+      width: 80px;
+      height: 20px;
       padding: 4px 6px;
+      margin: 0 auto;
+      font-size: 0.8rem;
+      line-height: 1;
+      color: $hs-gray-darker;
+      white-space: nowrap;
+      cursor: pointer;
       background-color: $hs-white;
       border: 1px solid $hs-white;
       border-bottom: 0 solid $hs-white;
       //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
       border-radius: 4px;
-      font-size: 0.8rem;
-      color: $hs-gray-darker;
-      line-height: 1;
-      width: 80px;
-      height: 20px;
-      white-space: nowrap;
-      //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
-      transform: translateX(-50%);
       //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
       box-shadow: 0 -2px 4px 0 $hs-black_45;
+      //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+      transform: translateX(-50%);
 
       &.is-visible::before {
         content: '';
       }
 
       &:hover {
-        background-color: $hs-white;
         color: $hs-gray-darker;
+        background-color: $hs-white;
       }
 
       &:focus {
-        outline-color: $hs-gray-lighter;
-        background-color: $hs-gray-lighter;
         color: $hs-gray-darker;
+        background-color: $hs-gray-lighter;
         border: 1px solid $hs-gray-lighter;
         border-bottom: 5px solid $hs-gray-lighter;
+        outline-color: $hs-gray-lighter;
         //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: unset;
       }
 
       &.is-visible {
         bottom: 0px;
-        background-color: $hs-gray-lighter;
         color: $hs-gray-darker;
+        background-color: $hs-gray-lighter;
         border: 1px solid $hs-gray-lighter;
         border-bottom: 0px solid $hs-gray-lighter;
       }
@@ -831,11 +831,15 @@ div[slot^="hs-"] {
   }
 }
 .hs-code .j-fader {
-  border-bottom: 5px solid $hs-white_2;
   background: linear-gradient(to bottom, $hs-white_60, $hs-white 60%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=0);
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=0);
+  border-bottom: 5px solid $hs-white_2;
 }
 
 .navbar.hs-bg-grad-black-trans {
   z-index: $hs-zindex-sticky;
+}
+.transparency {
+  background-color: transparent;
+  border-color: transparent;
 }
