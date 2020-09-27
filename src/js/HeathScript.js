@@ -122,24 +122,43 @@ $(document).ready(() => {
     }
     return
   })
+  
+  // *====== TIMELINE ======* //
+  // var timelineItemHeaders = [].prototype.slice.call(document.querySelectorAll('.timeline-panel_header'))
+  const timelineItemHeaders = document.querySelectorAll('.timeline-panel_header')
+  timelineItemHeaders.forEach(header => {
+    let panel, content;
+    header.addEventListener('click', (event) => {
+      panel = header.parentElement.closest('.timeline-panel')
+      console.log(panel)
+      panel.classList.add('visible')
+      
+      if (panel.classList.contains('visible')) {
+        let chillens = panel.querySelectorAll(':scope .timeline-panel-ul .timeline-panel_item')
+        chillens.forEach(childen =>{
+          childen.classList.ads('.visible')
+        })
+      }
+    })
+  })
 
    // ====== SHOWMORE ==== //
   // eslint-disable-next-line no-unused-vars
-  let ShowMoreSettings = {
-    boxHeight: '100vh',
-    fbStartColor: 'rgba(0,0,0,.75)',
-    fbEndColor: 'rgba(0,0,0,.75)',
-    fbBottomBorder: '1px solid #2e2e2e',
-    fbInitButtonText: 'Show More',
-    fbOpenButtonText: 'Show Less',
-    fbButtonPosition: 'center',
-    fbButtonBackground: '#151515',
-    fbButtonBackgroundHover: '#333333;',
-    fbButtonTextColor: '#ffffff',
-    fbButtonTextColorHover: '#ffffff',
-    fbButtonTextColorFocus: '#FFF',
-    fbButtonBorderColor: '#000000',
-    fbButtonBorderColorFocus: '#333333',
-  }
+  // let ShowMoreSettings = {
+  //   boxHeight: '100vh',
+  //   fbStartColor: 'rgba(0,0,0,.75)',
+  //   fbEndColor: 'rgba(0,0,0,.75)',
+  //   fbBottomBorder: '1px solid #2e2e2e',
+  //   fbInitButtonText: 'Show More',
+  //   fbOpenButtonText: 'Show Less',
+  //   fbButtonPosition: 'center',
+  //   fbButtonBackground: '#151515',
+  //   fbButtonBackgroundHover: '#333333;',
+  //   fbButtonTextColor: '#ffffff',
+  //   fbButtonTextColorHover: '#ffffff',
+  //   fbButtonTextColorFocus: '#FFF',
+  //   fbButtonBorderColor: '#000000',
+  //   fbButtonBorderColorFocus: '#333333',
+  // }
 
 })(jQuery); // End of use strict

@@ -168,7 +168,7 @@ FadeBarCSS = (options) => {
               transition-timing-function: cubic-bezier(0.770, 0.000, 0.155, 1.000);
     }
     .j-showmore.is-visible {
-      left: unset;
+      left: 0px;
       height: 100%;
       -webkit-transition: all 500ms cubic-bezier(0.770, 0.000, 0.155, 1.000);
          -moz-transition: all 500ms cubic-bezier(0.770, 0.000, 0.155, 1.000);
@@ -203,25 +203,25 @@ FadeBarCSS = (options) => {
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 );
     }
     .j-fader > .j-fader_button {
-      display: inline-block;
-      cursor: pointer;
       position: absolute;
       bottom: -6px;
       left: 50%;
+      display: inline-block;
+      width:  ${cssValues.fbButtonWidth};
+      height: ${cssValues.fbButtonHeight};
+      padding: 4px 6px;
       margin: 0 auto;
-      padding: 4px 6px 4px 6px;
+      font-size: 0.8rem;
+      line-height: ${cssValues.fbButtonLineHeight};
+      color: ${cssValues.fbButtonTextColor};
+      white-space: nowrap;
+      cursor: pointer;
       background-color: ${cssValues.fbButtonBackground};
       border: 1px solid ${cssValues.fbButtonBorderColor};
-      border-bottom: 0px solid ${cssValues.fbButtonBorderColor};
+      border-bottom: 0 solid ${cssValues.fbButtonBorderColor};
       border-radius: ${cssValues.fbButtonBorderRadius};
-      font-size: 0.8rem;
-      color: ${cssValues.fbButtonTextColor};
-      line-height: ${cssValues.fbButtonLineHeight};
-      width: ${cssValues.fbButtonWidth};
-      height: ${cssValues.fbButtonHeight};
-      white-space: nowrap;
+      box-shadow: 0 -2px 4px 0 $hs-black_45;
       transform: translateX(-50%);
-      box-shadow: 0px -2px 4px 0px rgba(0, 0, 0, 0.45);
     }
     .j-fader > .j-fader_button::before {
       display: block;
