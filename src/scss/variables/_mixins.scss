@@ -26,7 +26,7 @@
 
   &:active,
   &.active,
-  .open>&.dropdown-toggle {
+  .open >&.dropdown-toggle {
     color: $hs-color;
     background-color: darken($hs-background, 10%);
     /* stylelint-disable-next-line */
@@ -44,7 +44,7 @@
 
   &:active,
   &.active,
-  .open>&.dropdown-toggle {
+  .open >&.dropdown-toggle {
     background-image: none;
   }
 
@@ -378,4 +378,23 @@
   }
 
   @return $hs-value;
+}
+
+// ======* SHAPES ======* //
+@mixin circle {
+  border-radius: $hs-circle;
+}
+@mixin pill {
+  border-radius: $hs-pill;
+}
+
+// *====== TIMELINE ======* //
+@mixin timeline-panel-tag {
+  position: absolute;
+  top: -6px;
+  padding: 2px 6px;
+  font-size: 11px;
+  color: $hs-white;
+  text-transform: uppercase;
+  background: $hs-color_green--dark;
 }
