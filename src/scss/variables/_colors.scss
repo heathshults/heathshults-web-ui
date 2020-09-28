@@ -47,22 +47,22 @@ $hs-black_75:                     rgba(0, 0, 0, 0.75) !default;
 
 $hs-gray-base:			              #111 !default;
 $hs-gray-medium:                  #2f2f31 !default;
-$hs-gray-darker:                #333 !default;
-$hs-gray-dark:			              lighten($hs-gray-base, 20%) !default;   // #333
-$hs-gray:				                  lighten($hs-gray-base, 33.5%) !default; // #555
-$hs-gray-light:		                lighten($hs-gray-base, 46.7%) !default; // #777
+$hs-gray-darker:                  #333 !default;
+$hs-gray-dark:			                lighten($hs-gray-base, 20%) !default;   // #333
+$hs-gray:				                    lighten($hs-gray-base, 33.5%) !default; // #555
+$hs-gray-light:		                  lighten($hs-gray-base, 46.7%) !default; // #777
 $hs-gray-lighter:		              #dedede !default; // #dedede
 $hs-gray-lighter-05:              #e9e9ed !default;
-$hs-gray-lightest:		            lighten($hs-gray-base, 93.5%) !default; // #eee
+$hs-gray-lightest:		              lighten($hs-gray-base, 93.5%) !default; // #eee
 
-$hs-white:                      #fff !default;
-$hs-white_2:                    #f2f2f2 !default;
-$hs-white_5:                    #f8f8f8 !default;
-$hs-white_8:                    rgba(255, 255, 255, 0.08) !default;
-$hs-white_10:                   rgba(255, 255, 255, 0.1) !default;
-$hs-white_30:                   rgba(255, 255, 255, 0.3) !default;
-$hs-white_60:                   rgba(255, 255, 255, 0.6) !default;
-$hs-white_100:                  rgba(255, 255, 255, 1) !default;
+$hs-white:                        #fff !default;
+$hs-white_2:                      #f2f2f2 !default;
+$hs-white_5:                      #f8f8f8 !default;
+$hs-white_8:                      rgba(255, 255, 255, 0.08) !default;
+$hs-white_10:                     rgba(255, 255, 255, 0.1) !default;
+$hs-white_30:                     rgba(255, 255, 255, 0.3) !default;
+$hs-white_60:                     rgba(255, 255, 255, 0.6) !default;
+$hs-white_100:                    rgba(255, 255, 255, 1) !default;
 
 // Dark Mode Colors
 $hs-blueGray-medium:            #507386 !default;
@@ -86,16 +86,19 @@ $hs-blue-lightest-muted:        #9bcbe6 !default;
 $hs-blue-dark:                  #1e364e !default;
 $hs-link-primary:               $hs-theme-primary !default;
 
-$hs-baige-light:                #cac1ac !default;
-$hs-baige-medium:               #a79e8b !default;
+$hs-baige-light:               #cac1ac !default;
+$hs-baige-medium:              #a79e8b !default;
+
+$hs-theme-color-text:            $hs-gray-dark !default;
+$hs-theme-color-text-onDark:     $hs-white !default;
 
 $hs-font-cursive-Caveat:          'Caveat', cursive !default;
 $hs-font-cursive-NYCD:            'Nothing You Could Do', cursive !default;
 $hs-font-cursive-Sedgwick:        'Sedgwick Ave Display', cursive !default;
 
-$hs-text-shadow-light:            0px 0px 4px rgba(0, 0, 0, .95) !default;
-$hs-text-shadow-light-spread:     0px 4px 13px rgba(0, 0, 0, .75) !default;
-$hs-text-shadow-medium:           0px 0px 10px rgba(0, 0, 0, .85) !default;
+$hs-text-shadow-light:             0px 0px 4px rgba(0, 0, 0, .95) !default;
+$hs-text-shadow-light-spread:      0px 4px 13px rgba(0, 0, 0, .75) !default;
+$hs-text-shadow-medium:            0px 0px 10px rgba(0, 0, 0, .85) !default;
 
 $hs-grid-columns:                12 !default;
 $hs-grid-gutter-width:           30px !default;
