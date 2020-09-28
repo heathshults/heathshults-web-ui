@@ -852,3 +852,10 @@ div[slot^="hs-"] {
 .bg-black-15-opacity {
   background-color: $hs-black_15;
 }
+
+.bg-education {
+  background: url('/assets/img/bg/education.png');
+  background-repeat: no-repeat;
+  background-position: top 10px left 10px;
+  background-size: 60px;
+}
