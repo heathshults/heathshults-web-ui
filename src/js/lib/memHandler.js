@@ -1,5 +1,5 @@
-const crypto = require('crypto');
-const {debugLog} = require('./utilities');
+import crypto from 'crypto';
+import {debugLog} from './utilities';
 
 /**
  * memHandler - In memory upload handler

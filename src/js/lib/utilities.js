@@ -1,8 +1,6 @@
-'use strict';
-
-const fs = require('fs');
-const path = require('path');
-const Readable = require('stream').Readable;
+import fs from 'fs';
+import path from 'path';
+import {Readable} from 'stream';
 
 // Parameters for safe file name parsing.
 const SAFE_FILE_NAME_REGEX = /[^\w-]/g;

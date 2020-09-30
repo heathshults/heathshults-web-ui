@@ -1,13 +1,6 @@
 'use strict';
 
-const {
-  isFunc,
-  debugLog,
-  moveFile,
-  promiseCallback,
-  checkAndMakeDir,
-  saveBufferToFile
-} = require('./utilities');
+import {  isFunc, debugLog, moveFile, promiseCallback, checkAndMakeDir, saveBufferToFile } from './utilities';
 
 /**
  * Returns Local function that moves the file to a different location on the filesystem

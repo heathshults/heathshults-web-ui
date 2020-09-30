@@ -1,42 +1,51 @@
+/* eslint-disable no-var-requires */
+
+require("@babel/register")({
+  presets: ["@babel/preset-env"],
+  "plugins": [["import", {"libraryName": "@material-ui/core"}], "@babel/plugin-syntax-dynamic-import"]
+});
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-undef */
 /* eslint-disable camelcase */
 /* eslint-disable no-unused-vars */
 /* eslint-disable prefer-const */
-let path = require('path');
+import path from 'path';
 
 // let fs = require('fs-extra')
-let {src, dest, gulp, task, watch, series, parallel} = require('gulp');
+import {src, dest, gulp, task, watch, series, parallel} from 'gulp';
 
 // var sass = require('gulp-sass')
-var browserSync = require('browser-sync')
-var header = require('gulp-header')
-var browserify = require('browserify')
-var babelify = require('babelify')
+import browserSync from 'browser-sync';
+import header from 'gulp-header';
+import browserify from 'browserify';
+import babelify from 'babelify';
+
 // var cleanCSS = require('gulp-clean-css')
-var rename = require('gulp-rename')
-var uglify = require('gulp-uglify')
-var pkg = require('./package.json')
-var connect = require('gulp-connect-php')
-var plumber = require('gulp-plumber')
-var open = require('open')
-var { exec } = require('child_process')
+import rename from 'gulp-rename';
+
+import uglify from 'gulp-uglify';
+import pkg from './package.json';
+import connect from 'gulp-connect-php';
+import plumber from 'gulp-plumber';
+import open from 'open';
+import {exec} from 'child_process';
+
 // var autoprefixer = require('gulp-autoprefixer')
 // var postcss = require('gulp-postcss')
 // var postcssCustomProperties = require('postcss-custom-properties')
-var debug = require('gulp-debug')
-var changed = require('gulp-changed')
-var ejs = require('gulp-ejs')
-var log = require('fancy-log')
-var chalk = require('chalk')
-var ra =require('./scripts/render-assets')
+import debug from 'gulp-debug';
 
-var appRoot = require('app-root-path');
-var srcPath = path.resolve(__dirname, 'src')
-var srcCompPath = path.resolve(__dirname, 'src/components')
-var buildPath = path.resolve(__dirname, 'www/build')
-var wwwPath =  path.resolve(__dirname, 'www-app')
-var distPath =  path.resolve(__dirname, 'dist')
+import changed from 'gulp-changed';
+import ejs from 'gulp-ejs';
+import log from 'fancy-log';
+import chalk from 'chalk';
+import ra from './scripts/render-assets';
+import appRoot from 'app-root-path';
+const srcPath = path.resolve(__dirname, 'src');
+const srcCompPath = path.resolve(__dirname, 'src/components');
+const buildPath = path.resolve(__dirname, 'www/build');
+const wwwPath =  path.resolve(__dirname, 'www-app');
+const distPath =  path.resolve(__dirname, 'dist');
 
 let p = {
 
@@ -493,14 +502,14 @@ function watchers(cb) {
         })
         // eslint-disable-next-line no-sequences
         var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
-        watch(`${srcPath}/views/*.ejs`, ejsit), callback;
-        watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_images), callback;
-        watch([`${srcPath}/scss/**/*.scss`], compileCSS), callback;
-        watch([`${srcPath}/assets/**/*.css`], ra.copy_css), callback;
-        watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], copy_js), callback;
-        watch([`${buildPath}/**/*`], copy_components), callback;
-        watch([`${p.src_js}/js/HeathScript.js`], babelfry), callback;
-        watch([`${srcCompPath}/**/*`],  render_components), callback;
+        watch(`${srcPath}/views/*.ejs`, ejsit).on('change', browserSync.reload), callback;
+        watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_images).on('change', browserSync.reload), callback;
+        watch([`${srcPath}/scss/**/*.scss`], compileCSS).on('change', browserSync.reload), callback;
+        watch([`${srcPath}/assets/**/*.css`], ra.copy_css).on('change', browserSync.reload), callback;
+        watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], copy_js).on('change', browserSync.reload), callback;
+        watch([`${buildPath}/**/*`], copy_components).on('change', browserSync.reload), callback;
+        watch([`${p.src_js}/js/HeathScript.js`], babelfry).on('change', browserSync.reload), callback;
+        watch([`${srcCompPath}/**/*`],  render_components).on('change', browserSync.reload), callback;
         // watch([`${srcCompPath}/**/*`],  series(build_components, copy_components)), callback;
         resolve(callback)
       },2000 )

@@ -16,6 +16,7 @@ function ejsit() {
     .pipe(rename({ extname: ".html" }))
     .pipe(debug({ title: 'compiled html: ' }))
     .pipe(dest(wwwPath))
+    .pipe(browserSync.stream())
   return
 }
 exports.ejsit = ejsit

@@ -23,8 +23,6 @@ document.addEventListener('DOMContentLoaded', FadeBar = () => {
     const theFaders = Array.prototype.slice.call(document.querySelectorAll('.j-showmore'));
 
     theFaders.forEach((node, index) => {
-      openHeight = node.offsetHeight;
-      console.log(openHeight)
       const theContainer = node;
       const theFadeBar = document.createElement('div');
       const theShowMoreButton = document.createElement('button');
@@ -34,11 +32,13 @@ document.addEventListener('DOMContentLoaded', FadeBar = () => {
       theFadeBar.classList.add('j-fader');
       theFadeBar.style = `position: absolute; z-index: auto;`;
       theShowMoreButton.classList.add('j-fader_button');
-
+      
       theShowMoreButton.innerText = options.fbInitButtonText;
-
+      
       theFadeBar.appendChild(theShowMoreButton);
       theContainer.before(theFadeBar);
+      openHeight = theContainer.offsetHeight;
+      console.log(openHeight)
 
       theShowMoreButton.addEventListener('click', (ev) => {
         ev.preventDefault();
@@ -154,31 +154,32 @@ FadeBarCSS = (options) => {
     .j-showmore {
       position: absolute;
       left: -9999px;
-      height: ${cssValues.fbBoxHeight};
+      min-height: ${cssValues.fbBoxHeight};
+      max-height: 400px;
       overflow: hidden;
       padding-bottom: ${cssValues.fbBoxPaddingBottom};
-      -webkit-transition: all 500ms cubic-bezier(0.770, 0.000, 0.155, 1.000);
-         -moz-transition: all 500ms cubic-bezier(0.770, 0.000, 0.155, 1.000);
-           -o-transition: all 500ms cubic-bezier(0.770, 0.000, 0.155, 1.000);
-              transition: all 500ms cubic-bezier(0.770, 0.000, 0.155, 1.000);
+      -webkit-transition: max-height .25s ease-in-out;
+         -moz-transition: max-height .25s ease-in-out;
+           -o-transition: max-height .25s ease-in-out;
+              transition: max-height .25s ease-in-out;
 
-      -webkit-transition-timing-function: cubic-bezier(0.770, 0.000, 0.155, 1.000);
-        -moz-transition-timing-function: cubic-bezier(0.770, 0.000, 0.155, 1.000);
-          -o-transition-timing-function: cubic-bezier(0.770, 0.000, 0.155, 1.000);
-              transition-timing-function: cubic-bezier(0.770, 0.000, 0.155, 1.000);
+      /* -webkit-transition-timing-function: ease-in-out;
+        -moz-transition-timing-function: ease-in-out;
+          -o-transition-timing-function: ease-in-out;
+              transition-timing-function: ease-in-out; */
     }
     .j-showmore.is-visible {
       left: 0px;
-      height: 100%;
-      -webkit-transition: all 500ms cubic-bezier(0.770, 0.000, 0.155, 1.000);
-         -moz-transition: all 500ms cubic-bezier(0.770, 0.000, 0.155, 1.000);
-           -o-transition: all 500ms cubic-bezier(0.770, 0.000, 0.155, 1.000);
-              transition: all 500ms cubic-bezier(0.770, 0.000, 0.155, 1.000);
+      max-height: 400px;
+      -webkit-transition: max-height .25s ease-in-out;
+         -moz-transition: max-height .25s ease-in-out;
+           -o-transition: max-height .25s ease-in-out;
+              transition: max-height .25s ease-in-out;
 
-      -webkit-transition-timing-function: cubic-bezier(0.770, 0.000, 0.155, 1.000);
-        -moz-transition-timing-function: cubic-bezier(0.770, 0.000, 0.155, 1.000);
-          -o-transition-timing-function: cubic-bezier(0.770, 0.000, 0.155, 1.000);
-              transition-timing-function: cubic-bezier(0.770, 0.000, 0.155, 1.000);
+  /* -webkit-transition-timing-function: ease-in-out;
+        -moz-transition-timing-function: ease-in-out;
+          -o-transition-timing-function: ease-in-out;
+              transition-timing-function: ease-in-out; */
     }
     .j-fader {
       position: absolute;
