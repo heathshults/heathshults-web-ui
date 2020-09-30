@@ -100,6 +100,9 @@ $hs-text-shadow-light:             0px 0px 4px rgba(0, 0, 0, .95) !default;
 $hs-text-shadow-light-spread:      0px 4px 13px rgba(0, 0, 0, .75) !default;
 $hs-text-shadow-medium:            0px 0px 10px rgba(0, 0, 0, .85) !default;
 
+$hs-canvas:                         $hs-white_5 !default;
+$hs-surface:                        $hs-white !default;
+
 $hs-grid-columns:                12 !default;
 $hs-grid-gutter-width:           30px !default;
 $hs-grid-row-columns:            6 !default;
@@ -130,6 +133,7 @@ $hs-shadow-heavy:                 2px 0.5rem 0.5rem rgba(0, 0, 0, 0.5) !default;
 $hs-shadow-xs:                    2px 0.2rem 0.2rem rgba(0, 0, 0, 0.15) !default;
 $hs-shadow-xs-reverse:            0 0.2rem 0.2rem rgba(0, 0, 0, 0.15) !default;
 $hs-shadow-xs-center:             0 0.2rem 0.2rem rgba(0, 0, 0, 0.15) !default;
+$hs-shadow-xs-center-xtra:        0 0.2rem 0.2rem rgba(0, 0, 0, 0.15), 0 0.2rem 0.2rem rgba(0, 0, 0, 0.15) !default;
 $hs-shadow-xs-center-reverse:     -2px 0.1rem 0.2rem rgba(0, 0, 0, 0.15) !default;
 $hs-shadow-sm:                    0px 2px 4px 0px rgba(0, 0, 0, .5) !default;
 $hs-shadow-lg:                    0px 4px 8px 3px rgba(0, 0, 0, .4) rgba(0, 0, 0, 0.4) !default;

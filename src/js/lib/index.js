@@ -1,10 +1,10 @@
 'use strict';
 
-const fileFactory = require('./fileFactory');
-const processNested = require('./processNested');
-const processMultipart = require('./processMultipart');
-const isEligibleRequest = require('./isEligibleRequest');
-const { buildOptions, debugLog } = require('./utilities');
+import fileFactory from './fileFactory';
+import processNested from './processNested';
+import processMultipart from './processMultipart';
+import isEligibleRequest from './isEligibleRequest';
+import {buildOptions, debugLog} from './utilities';
 
 const DEFAULT_OPTIONS = {
   debug: false,

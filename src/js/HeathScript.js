@@ -162,7 +162,27 @@ $(document).ready(() => {
         
       })
   })
-
+  
+  // *======* CONTACT FORM *======* //
+  
+  window.onload = () => {
+    const contactForm = document.querySelector('#contactForm')
+    const contactFormFields = contactForm.querySelectorAll('.form-control')
+    console.log(contactForm), console.log(contactFormFields)
+    
+    contactFormFields.forEach((field) => {
+      field.addEventListener('blur', (event) => {
+        if (event.target.parentElement.classList.contains('.blur')) {
+          return
+        } else {
+        event.target.parentElement.classList.add('blur')}
+        // if (!event.target.value) 
+        //   event.target.classList.toggle('focus')
+        // else 
+        //   event.target.classList.toggle('focusout')
+      })
+    })
+}
    // ====== SHOWMORE ==== //
   // eslint-disable-next-line no-unused-vars
   // let ShowMoreSettings = {

@@ -1,12 +1,7 @@
-const fs = require('fs');
-const path = require('path');
-const crypto = require('crypto');
-const {
-  debugLog,
-  checkAndMakeDir,
-  getTempFilename,
-  deleteFile
-} = require('./utilities');
+import fs from 'fs';
+import path from 'path';
+import crypto from 'crypto';
+import {debugLog, checkAndMakeDir, getTempFilename, deleteFile} from './utilities';
 
 module.exports = (options, fieldname, filename) => {
   const dir = path.normalize(options.tempFileDir || process.cwd() + '/tmp/');

@@ -1,30 +1,34 @@
 // 'use strict';
 /* eslint-disable no-octal */
-var nfs = require('node-fs');
-var fs = require('fs')
-var path = require('path')
-var browserify = require('browserify')
-const chalk = require('chalk');
+import nfs from 'node-fs';
+import fs from 'fs';
+import path from 'path';
+import browserify from 'browserify';
+import browserSync from 'browser-sync';
+import chalk from 'chalk';
+import { exec } from 'child_process';
+import theLinters from './lint';
 
-// var babelify = require('babelify')
-var inFile = path.resolve(__dirname, '../src/index.js')
-var outFile = path.resolve(__dirname, '../www-app/assets/js/HeathScript.built.js')
-var outPath = path.resolve(__dirname, '../www-app/assets/js/')
+// let babelify = require('babelify')
+let inFile = path.resolve(__dirname, '../src/index.js');
+let outFile = path.resolve(__dirname, '../www-app/assets/js/HeathScript.built.js');
+let outPath = path.resolve(__dirname, '../www-app/assets/js/');
 
 
-// var whoDidIt =
-// var giveProps = require('./goCreds.js');
-const { exec } = require('child_process');
+// let whoDidIt =
+// let giveProps = require('./goCreds.js');
+
 
 function HeathenScriptJS(jsdest) {
-
-  console.log(chalk.blue('checking directories...'));
+  
+ 
+  function paths(){ console.log(chalk.blue('checking directories...'));
   if (jsdest) {
     outPath = path.resolve(__dirname, jsdest);
   }
   makeDirectory(outPath)
-    .then(processJS(inFile))
-
+    .then(processJS(inFile));
+}
     /**
    * create js directory if not exist
    *
@@ -36,7 +40,7 @@ function HeathenScriptJS(jsdest) {
       setTimeout(() => {
         try {
           fs.mkdirSync(path);
-          resolve(true)
+          resolve(true);
         } catch (err) {
           // if (err.code === 'EEXIST') { // curDir already exists!
           //   console.log(chalk.red('path exists'))
@@ -51,11 +55,11 @@ function HeathenScriptJS(jsdest) {
           // if (!caughtErr || caughtErr && path === path.resolve(path)) {
           //   throw err; // Throw if it's just the last created dir.
           // }
-          reject(false)
+          reject(false);
         }
-      }, 2000)
-      return processJS(outFile)
-    })
+      }, 2000);
+      return processJS(outFile);
+    });
   }
 
   /**
@@ -68,45 +72,45 @@ function HeathenScriptJS(jsdest) {
   function processJS(jsFile, cb) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        console.log(chalk.green('Initializing procesJS...'))
-        if (!jsFile) jsFile = inFile
+        console.log(chalk.green('Initializing procesJS...'));
+        if (!jsFile) jsFile = inFile;
 
         // make the js file and save it to the makeDirectory path
         try {
-          console.log(chalk.yellow('Browserfrying JS...'))
+          console.log(chalk.yellow('Browserfrying JS...'));
           browserify(jsFile)
             .transform('babelify', {
               presets: ['@babel/preset-env', '@babel/preset-react']
             })
             .bundle()
             .pipe(nfs.createWriteStream(outFile));
-          console.log(chalk.green(`Compiled: ${outFile}`))
+          console.log(chalk.green(`Compiled: ${outFile}`));
         } catch (e) {
-          console.log(chalk.red(`Browserfy Error: ${e}`))
-          console.log(chalk.yellow('Using bash to compile'))
-          reject(bashcompileJS())
+          console.log(chalk.red(`Browserfy Error: ${e}`));
+          console.log(chalk.yellow('Using bash to compile'));
+          reject(bashcompileJS());
         }
-        resolve(cb)
-      }, 2000)
-    })
+        resolve(cb);
+      }, 2000);
+    });
   }
-  exports.processJS = processJS
+  exports.processJS = processJS;
 
   function bashcompileJS(cb) {
     return new Promise((resolve, reject) => {
       exec(`browserify ${inFile} -o ${outFile} -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] --plugins [ @babel/plugin-transform-arrow-functions ] ]`,
         function (err) {
-          if (err) return `Browserify Error: ${err}`
-          reject(cb)
-        })
-      console.log(chalk.green('Finished browserfrying JS...'))
-      resolve(cb)
-    })
+          if (err) return `Browserify Error: ${err}`;
+          reject(cb);
+        });
+      console.log(chalk.green('Finished browserfrying JS...'));
+      resolve(cb);
+    });
   }
-  exports.bashcompileJS = bashcompileJS
+  exports.bashcompileJS = bashcompileJS;
   // if (typeof callback === 'function'){callback()}
-
-  return true
+  browserSync.stream();
+  return true;
 }
-exports.HeathenScriptJS = HeathenScriptJS
+exports.HeathenScriptJS = HeathenScriptJS;
 

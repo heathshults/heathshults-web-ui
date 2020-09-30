@@ -1,15 +1,9 @@
-const Busboy = require('busboy');
-const fileFactory = require('./fileFactory');
-const memHandler = require('./memHandler');
-const tempFileHandler = require('./tempFileHandler');
-const processNested = require('./processNested');
-const {
-  isFunc,
-  debugLog,
-  buildFields,
-  buildOptions,
-  parseFileName
-} = require('./utilities');
+import Busboy from 'busboy';
+import fileFactory from './fileFactory';
+import memHandler from './memHandler';
+import tempFileHandler from './tempFileHandler';
+import processNested from './processNested';
+import {isFunc, debugLog, buildFields, buildOptions, parseFileName} from './utilities';
 
 /**
  * Processes multipart request
