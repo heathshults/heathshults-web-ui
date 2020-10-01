@@ -856,6 +856,17 @@ div[slot^="hs-"] {
   background-position: top 10px left 10px;
   background-size: 60px;
 }
+%hs-theme-whiteblack-overlay-form-controls {
+  position: relative;
+  height: auto;
+  padding: 1.25rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2e2e2e;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid #fff;
+  box-shadow: $hs-shadow-xs-center-xtra;
+}
 
 .form-group {
   position: relative;
@@ -863,7 +874,7 @@ div[slot^="hs-"] {
   &::after {
     position: absolute;
     top: 24px;
-    left: 24px;
+    left: 1.25rem;
     z-index: 100;
     display: inline-block;
     width: 100px;
@@ -874,6 +885,7 @@ div[slot^="hs-"] {
     content: attr(title);
     transition: .25s all ease-in-out;
   }
+
   // &.focus-within {
   //   &::after {
   //     top: 4px;
@@ -884,7 +896,7 @@ div[slot^="hs-"] {
   &:focus-within {
     &::after {
       top: 4px;
-      color: $hs-white;
+      color: $hs-white_60;
       transition: .25s all ease-in-out;
     }
     & > .form-control:focus {
@@ -894,24 +906,9 @@ div[slot^="hs-"] {
       transition: .25s all ease-in-out;
     }
   }
-  &.blur {
-    &::after {
-      top: 4px;
-    }
-  }
-  .form-control {
-    position: relative;
-    height: auto;
-    padding: 1.25rem;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #2e2e2e;
-    background-color: rgba(255, 255, 255, 0.5);
-    border: 2px solid #fff;
-    box-shadow: $hs-shadow-xs-center-xtra;
-    // &.focus {
 
-    // }
+  .form-control {
+    @extend %hs-theme-whiteblack-overlay-form-controls;
     &.focusout {
       &:focus-within {
         &::after {
@@ -928,7 +925,78 @@ div[slot^="hs-"] {
     transition: .25s all ease-in-out;
   }
 }
-.submit-button {
+.form-control {
+  @extend %hs-theme-whiteblack-overlay-form-controls;
+}
+.antiblur  {
+  &::after {
+    top: 4px;
+    color: $hs-white_60;
+    transition: .25s all ease-in-out;
+  }
+  .form-control {
+    color: $hs-white;
+    background: rgba(0, 0, 0, .65);
+    border-color: $hs-theme-primary;
+    transition: .25s all ease-in-out;
+  }
+}
+.hs-form_textarea {
+  height: 265px;
+  margin-bottom: 0;
+  transition: .25s all ease-in-out;
+}
+.submit-button, .submit-button:visited {
   color: #333;
   box-shadow: $hs-shadow-xs-center-xtra;
+  &:hover {
+    color: #333;
+    -webkit-box-shadow: 0px 0px 10px 6px rgba(255, 119, 0, 0.81);
+    -moz-box-shadow: 0px 0px 10px 6px rgba(255, 119, 0, 0.81);
+    box-shadow: 0px 0px 10px 6px rgba(255, 119, 0, 0.81);
+  }
+  &:active {
+    color: #333;
+    -webkit-box-shadow: #FFF 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18px 40px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: #FFF 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18px 40px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    // -webkit-box-shadow: 0px 0px 14px 10px rgba(255, 68, 0, 0.81);
+    // -moz-box-shadow: 0px 0px 14px 10px rgba(255, 68, 0, 0.81);
+    // box-shadow: 0px 0px 14px 10px rgba(255, 68, 0, 0.81);
+  }
+  &:focus {
+    color: #352000;
+    // -webkit-box-shadow: 0px 0px 14px 10px rgba(255, 68, 0, 0.81);
+    // -moz-box-shadow: 0px 0px 14px 10px rgba(255, 68, 0, 0.81);
+    // box-shadow: 0px 0px 14px 10px rgba(255, 68, 0, 0.81);
+    -webkit-box-shadow: #FFF 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18px 40px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: #FFF 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18px 40px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+
+  }
 }
+
+
+.help-block.text-danger {
+  position: absolute;
+  right: 14px;
+  bottom: -16px;
+  transition: all .2s ease-in-out;
+  .error-box {
+    color: $hs-white;
+    background: #dc3545;
+    border: 2px solid #dc3545;
+    .error-message {
+      padding-right: 6px;
+      padding-left: 6px;
+    }
+  }
+}
+
+#contactForm.error {
+  .form-group.error {
+    .form-control {
+      border-bottom-color: #dc3545;
+      border-bottom-width: 5px;
+    }
+  }
+}
+
