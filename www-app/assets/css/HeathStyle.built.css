@@ -12389,6 +12389,18 @@ div[slot^=hs-] {
   background-size: 60px;
 }
 
+.form-control, .form-group .form-control {
+  position: relative;
+  height: auto;
+  padding: 1.25rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2e2e2e;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid #fff;
+  box-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.15), 0 0.2rem 0.2rem rgba(0, 0, 0, 0.15);
+}
+
 .form-group {
   position: relative;
   margin-bottom: 1.5rem;
@@ -12396,7 +12408,7 @@ div[slot^=hs-] {
 .form-group::after {
   position: absolute;
   top: 24px;
-  left: 24px;
+  left: 1.25rem;
   z-index: 100;
   display: inline-block;
   width: 100px;
@@ -12409,7 +12421,7 @@ div[slot^=hs-] {
 }
 .form-group:focus-within::after {
   top: 4px;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.6);
   transition: 0.25s all ease-in-out;
 }
 .form-group:focus-within > .form-control:focus {
@@ -12417,20 +12429,6 @@ div[slot^=hs-] {
   background: rgba(0, 0, 0, 0.65);
   border-color: #fed136;
   transition: 0.25s all ease-in-out;
-}
-.form-group.blur::after {
-  top: 4px;
-}
-.form-group .form-control {
-  position: relative;
-  height: auto;
-  padding: 1.25rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #2e2e2e;
-  background-color: rgba(255, 255, 255, 0.5);
-  border: 2px solid #fff;
-  box-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.15), 0 0.2rem 0.2rem rgba(0, 0, 0, 0.15);
 }
 .form-group .form-control.focusout:focus-within::after {
   top: 4px;
@@ -12443,9 +12441,64 @@ div[slot^=hs-] {
   transition: 0.25s all ease-in-out;
 }
 
-.submit-button {
+.antiblur::after {
+  top: 4px;
+  color: rgba(255, 255, 255, 0.6);
+  transition: 0.25s all ease-in-out;
+}
+.antiblur .form-control {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.65);
+  border-color: #fed136;
+  transition: 0.25s all ease-in-out;
+}
+
+.hs-form_textarea {
+  height: 265px;
+  margin-bottom: 0;
+  transition: 0.25s all ease-in-out;
+}
+
+.submit-button, .submit-button:visited {
   color: #333;
   box-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.15), 0 0.2rem 0.2rem rgba(0, 0, 0, 0.15);
+}
+.submit-button:hover, .submit-button:visited:hover {
+  color: #333;
+  -webkit-box-shadow: 0px 0px 10px 6px rgba(255, 119, 0, 0.81);
+  -moz-box-shadow: 0px 0px 10px 6px rgba(255, 119, 0, 0.81);
+  box-shadow: 0px 0px 10px 6px rgba(255, 119, 0, 0.81);
+}
+.submit-button:active, .submit-button:visited:active {
+  color: #333;
+  -webkit-box-shadow: #FFF 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18px 40px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: #FFF 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18px 40px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+.submit-button:focus, .submit-button:visited:focus {
+  color: #352000;
+  -webkit-box-shadow: #FFF 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18px 40px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: #FFF 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18px 40px, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+.help-block.text-danger {
+  position: absolute;
+  right: 14px;
+  bottom: -16px;
+  transition: all 0.2s ease-in-out;
+}
+.help-block.text-danger .error-box {
+  color: #fff;
+  background: #dc3545;
+  border: 2px solid #dc3545;
+}
+.help-block.text-danger .error-box .error-message {
+  padding-right: 6px;
+  padding-left: 6px;
+}
+
+#contactForm.error .form-group.error .form-control {
+  border-bottom-color: #dc3545;
+  border-bottom-width: 5px;
 }
 
 /*# sourceMappingURL=HeathStyle.built.css.map */

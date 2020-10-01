@@ -171,18 +171,22 @@ $(document).ready(() => {
     console.log(contactForm), console.log(contactFormFields)
     
     contactFormFields.forEach((field) => {
-      field.addEventListener('blur', (event) => {
-        if (event.target.parentElement.classList.contains('.blur')) {
+      field.addEventListener(('onfocus','click'), (event) => {
+        if (event.target.value && event.target.parentElement.classList.contains('antiblur')) {
           return
         } else {
-        event.target.parentElement.classList.add('blur')}
-        // if (!event.target.value) 
-        //   event.target.classList.toggle('focus')
-        // else 
-        //   event.target.classList.toggle('focusout')
-      })
-    })
-}
+          event.target.parentElement.classList.add('antiblur')
+        }
+        if (!event.target.value && !event.target.parentElement.classList.contains('antiblur')) {
+          event.target.parentElement.classList.add('antiblur')
+        }
+          
+      }) // end blur event
+    }) //end foreach
+  }
+  
+ 
+  // event.target.classList.toggle('focusout')
    // ====== SHOWMORE ==== //
   // eslint-disable-next-line no-unused-vars
   // let ShowMoreSettings = {
