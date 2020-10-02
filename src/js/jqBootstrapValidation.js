@@ -483,7 +483,8 @@
                 } else {
                   // Multiple? Being sloppy? Glue them together into an UL.
                   $helpBlock.html("<div role=\"alert\" class=\"error-box\"><div class=\"error-message\">" + errorsFound.join("</div><li>") + "</li></div>" +
-                    ( settings.options.prependExistingHelpBlock ? $helpBlock.data("original-contents") : "" ));
+                  ( settings.options.prependExistingHelpBlock ? $helpBlock.data("original-contents") : "" ));
+                  $helpBlock.addClass('visible');
                 }
               } else {
                 $controlGroup.removeClass("warning error success");
