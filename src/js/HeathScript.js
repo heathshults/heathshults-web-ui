@@ -176,6 +176,9 @@ $(document).ready(() => {
           return
         } else {
           event.target.parentElement.classList.add('antiblur')
+          // autofill makes me have to do this inline hack
+          event.target.style = 'background: rgba(0, 0, 0, .65); border: 2px solid #fed136; color: #ffffff !important; color: -internal-light-dark(white) !important;'
+          // event.target.setAttribute(':focus', )
         }
         if (!event.target.value && !event.target.parentElement.classList.contains('antiblur')) {
           event.target.parentElement.classList.add('antiblur')
