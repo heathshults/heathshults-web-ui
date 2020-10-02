@@ -5,21 +5,21 @@
   position: relative;
   height: 100vh;
   background-color: $hs-canvas;
-  // background-image: url("/assets/img/bg/dtown.jpg");
+  background-image: url("/assets/img/bg/camera-missing.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position-x: center;
   background-position-y: bottom;
 
-  &::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    content: '';
-    background: rgba(0, 0, 0, .5);
-  }
+  // &::before {
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 100vh;
+  //   content: '';
+  //   background: rgba(0, 0, 0, .5);
+  // }
 
   .hs-section-heading,
   .hs-section-subheading {
