@@ -185,6 +185,28 @@ $(document).ready(() => {
     }) //end foreach
   }
   
+  // *====== WATCH CLASSLIST FOR CHANGES ======* //
+  const elemToObserve = document.querySelector('.form-group');
+  console.log(elemToObserve)
+  let prevClassState = elemToObserve.classList.contains('error');
+  const observer = new MutationObserver(mutations => {
+    mutations.forEach(({attributeName, target}) => {
+      if (attributeName == "class") {
+        const currentClassState = target.classList.contains('your_class');
+        if (prevClassState !== currentClassState) {
+          prevClassState = currentClassState;
+          if (currentClassState)
+            console.log("class added! add sustained class here");
+          else
+            console.log("class removed! probably do nothing here");
+        }
+      }
+    });
+  });
+  observer.observe(elemToObserve, {
+    attributes: true
+  });
+  
  
   // event.target.classList.toggle('focusout')
    // ====== SHOWMORE ==== //
