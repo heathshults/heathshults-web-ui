@@ -12380,30 +12380,31 @@ div[slot^=hs-] {
 }
 
 /* Change Autocomplete styles in Chrome */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-  background-color: inherit !important;
-  background-image: none !important;
-  border: 2px solid #fed136 !important;
-  -webkit-text-fill-color: inherit;
-  -webkit-box-shadow: inherit;
-  transition: background-color 5000s ease-in-out 0s;
+/* stylelint-disable: comment-no-empty */
+@keyframes onAutoFillStart {
+  from {
+    /*  f */
+  }
+  to {
+    /* f */
+  }
+}
+@keyframes onAutoFillCancel {
+  from {
+    /* f */
+  }
+  to {
+    /* f */
+  }
+}
+input:-webkit-autofill {
+  background-color: transparent;
+  transition: background-color 50000s ease-in-out 0s;
+  animation-name: onAutoFillStart;
 }
 
-input:-internal-autofill-selected,
-.form-control:-internal-autofill-selected {
-  color: inherit !important;
-  background-color: transparent !important;
-  background-image: none !important;
-  border: 2px solid #fed136;
-  appearance: menulist-button;
+input:not(:-webkit-autofill) {
+  animation-name: onAutoFillCancel;
 }
 
 .form-control {
@@ -12439,16 +12440,14 @@ input:-internal-autofill-selected,
   content: attr(title);
   transition: 0.2s all ease-in-out;
 }
+.form-group.error.antiblur .form-control {
+  border-bottom: 5px solid #dc3545;
+  transition: 0.2s all ease-in-out;
+}
 .form-group .hs-form_textarea {
   height: 265px;
   margin-bottom: 0;
   transition: 0.2s all ease-in-out;
-}
-
-.form-control:-webkit-autofill {
-  color: inherit;
-  background-color: inherit;
-  border: inherit;
 }
 
 .antiblur::after {
@@ -12457,8 +12456,7 @@ input:-internal-autofill-selected,
   color: rgba(255, 255, 255, 0.6);
   transition: 0.2s all ease-in-out;
 }
-.antiblur .form-control,
-.antiblur input:-webkit-autofill-selected {
+.antiblur .form-control {
   font-size: 100%;
   color: #fff;
   background: rgba(0, 0, 0, 0.65) !important;
