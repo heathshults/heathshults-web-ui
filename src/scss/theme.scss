@@ -858,30 +858,51 @@ div[slot^="hs-"] {
 }
 
 /* Change Autocomplete styles in Chrome */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-  background-color: inherit !important;
-  background-image: none !important;
-  border: 2px solid $hs-theme-primary !important;
-  -webkit-text-fill-color: inherit;
-  -webkit-box-shadow: inherit;
-  transition: background-color 5000s ease-in-out 0s;
+// input:-webkit-autofill,
+// input:-webkit-autofill:hover,
+// input:-webkit-autofill:focus,
+// textarea:-webkit-autofill,
+// textarea:-webkit-autofill:hover,
+// textarea:-webkit-autofill:focus,
+// select:-webkit-autofill,
+// select:-webkit-autofill:hover,
+// select:-webkit-autofill:focus {
+//   background-color: rgba(0, 0, 0, .65) !important;
+//   background-image: none !important;
+//   border: 2px solid $hs-theme-primary !important;
+//   -webkit-text-fill-color: $hs-white;
+//   -webkit-box-shadow: inherit;
+//   transition: background-color .2s ease-in-out 0s;
+// }
+// input:-internal-autofill-selected,
+// .form-control:-internal-autofill-selected {
+//   color: inherit !important;
+//   background-color: transparent !important;
+//   background-image: none !important;
+//   border: 2px solid $hs-theme-primary;
+//   appearance: menulist-button;
+// }
+/* stylelint-disable: comment-no-empty */
+@keyframes onAutoFillStart { from { /*  f */ }  to { /* f */ } }
+@keyframes onAutoFillCancel { from { /* f */ }  to { /* f */ } }
+
+
+input:-webkit-autofill {
+  background-color: transparent;
+
+  // Make the background color become yellow really slowly
+  transition: background-color 50000s ease-in-out 0s;
+  // Expose a hook for JavaScript when autofill is shown
+  // JavaScript can capture 'animationstart' events
+  animation-name: onAutoFillStart;
 }
-input:-internal-autofill-selected,
-.form-control:-internal-autofill-selected {
-  color: inherit !important;
-  background-color: transparent !important;
-  background-image: none !important;
-  border: 2px solid $hs-theme-primary;
-  appearance: menulist-button;
+input:not(:-webkit-autofill) {
+  // Expose a hook for JS onAutoFillCancel
+  // JavaScript can capture 'animationstart' events
+  animation-name: onAutoFillCancel;
 }
+
+
 %hs-theme-whiteblack-overlay-form-controls {
   position: relative;
   height: 72px;
@@ -914,6 +935,14 @@ input:-internal-autofill-selected,
     content: attr(title);
     transition: .2s all ease-in-out;
   }
+  &.error {
+    &.antiblur {
+      .form-control {
+        border-bottom: 5px solid #dc3545;
+        transition: .2s all ease-in-out;
+      }
+    }
+  }
 
 
 
@@ -926,11 +955,11 @@ input:-internal-autofill-selected,
 
 .form-control {
   @extend %hs-theme-whiteblack-overlay-form-controls;
-  &:-webkit-autofill {
-    color: inherit;
-    background-color: inherit;
-    border: inherit;
-  }
+  // &:-webkit-autofill {
+  //   color: inherit;
+  //   background-color: inherit;
+  //   border: inherit;
+  // }
 }
 .antiblur  {
   &::after {
@@ -939,8 +968,10 @@ input:-internal-autofill-selected,
     color: $hs-white_60;
     transition: .2s all ease-in-out;
   }
-  .form-control,
-  input:-webkit-autofill-selected {
+  // input:-internal-autofill-selected,
+  // input:-webkit-autofill-selected,
+  // input:-webkit-autofill,
+  .form-control {
     font-size: 100%;
     color: $hs-white;
     background: rgba(0, 0, 0, .65) !important;

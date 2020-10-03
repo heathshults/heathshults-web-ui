@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 /*!
  * HeathShults.com - Heath Shults v1.0 (http://heathshults.com)
  * Copyright 2020-2020 Heath-Shults
@@ -15,16 +16,8 @@
     $(aBar).attr('style', `width: ${barWidth}%`);
   });
 
-  // ====== NAV JS ====== //
-  // jQuery for page scrolling feature - requires jQuery Easing plugin
-  // $('a.js-page-scroll').bind('click', function (event) {
-  //   var $anchor = $(this);
-  //   $('html, body').stop().animate({
-  //     scrollTop: ($($anchor.attr('href')).offset().top - 0) //I left the - 0 there to remind me about using it if need be
-  //   }, 1250, 'easeInOutExpo');
-  //   event.preventDefault();
-  // });
-
+  
+  // scrolling nav
   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
     if (
         location.pathname.replace(/^\//, "") ==
@@ -48,10 +41,10 @@
     }
 });
 
-// Closes responsive menu when a scroll trigger link is clicked
-$(".js-scroll-trigger").click(function () {
-  $(".navbar-collapse").collapse("hide");
-});
+  // Closes responsive menu when a scroll trigger link is clicked
+  $(".js-scroll-trigger").click(function () {
+    $(".navbar-collapse").collapse("hide");
+  });
 
 
   // Highlight the top nav as scrolling occurs
@@ -60,18 +53,18 @@ $(".js-scroll-trigger").click(function () {
     offset: 74
   });
 
- // Collapse Navbar
- var navbarCollapse = function () {
-  if ($("#mainNav").offset().top > 90) {
+  // Collapse Navbar
+  var navbarCollapse = function () {
+    if ($("#mainNav").offset().top > 90) {
       $("#mainNav").addClass("navbar-shrink");
-  } else {
-      $("#mainNav").removeClass("navbar-shrink");
-  }
-};
-// Collapse now if page is not at top
-navbarCollapse();
-// Collapse the navbar when page is scrolled
-$(window).scroll(navbarCollapse);
+    } else {
+        $("#mainNav").removeClass("navbar-shrink");
+    }
+  };
+  // Collapse now if page is not at top
+  navbarCollapse();
+  // Collapse the navbar when page is scrolled
+  $(window).scroll(navbarCollapse);
 
 
   // ** ====== MODE WIDHET ====== ** //
@@ -177,7 +170,7 @@ $(document).ready(() => {
         } else {
           event.target.parentElement.classList.add('antiblur')
           // autofill makes me have to do this inline hack
-          event.target.style = 'background: rgba(0, 0, 0, .65); border: 2px solid #fed136; color: #ffffff !important; color: -internal-light-dark(white) !important;'
+          // event.target.style = 'background: rgba(0, 0, 0, .65); border: 2px solid #fed136; color: #ffffff !important; color: -internal-light-dark(white) !important;'
           // event.target.setAttribute(':focus', )
         }
         if (!event.target.value && !event.target.parentElement.classList.contains('antiblur')) {
@@ -186,29 +179,60 @@ $(document).ready(() => {
           
       }) // end blur event
     }) //end foreach
+    
+    // auto fill battle
+    const AUTOFILLED = 'is-autofilled'
+    const onAutoFillStart = (el) => el.classList.add(AUTOFILLED)
+    const onAutoFillCancel = (el) => el.classList.remove(AUTOFILLED)
+    const onAnimationStart = ({ target, animationName }) => {
+      switch (animationName) {
+        case 'onAutoFillStart':
+          return onAutoFillStart(target)
+        case 'onAutoFillCancel':
+          return onAutoFillCancel(target)
+      }
+    }
+document.querySelector('input').addEventListener('animationstart', onAnimationStart, false)
+    
   }
   
   // *====== WATCH CLASSLIST FOR CHANGES ======* //
-  const elemToObserve = document.querySelector('.form-group');
-  console.log(elemToObserve)
-  let prevClassState = elemToObserve.classList.contains('error');
-  const observer = new MutationObserver(mutations => {
-    mutations.forEach(({attributeName, target}) => {
-      if (attributeName == "class") {
-        const currentClassState = target.classList.contains('your_class');
-        if (prevClassState !== currentClassState) {
-          prevClassState = currentClassState;
-          if (currentClassState)
-            console.log("class added! add sustained class here");
-          else
-            console.log("class removed! probably do nothing here");
-        }
+  /**
+   * Observer call back function
+   */
+  function mutantCallback(mutationList, observer) {
+    mutationList.forEach( (mutation) => {
+      switch(mutation.type) {
+        case 'childList':
+          /* One or more children have been added to and/or removed
+             from the tree.
+             (See mutation.addedNodes and mutation.removedNodes.) */
+          break;
+        case 'attributes':
+          /* An attribute value changed on the element in
+             mutation.target. 
+             The attribute name is in mutation.attributeName, and 
+             its previous value is in mutation.oldValue. */
+             console.log(`${mutation.attributeName}: ${mutation.oldValue}`)
+          break;
       }
     });
-  });
-  observer.observe(elemToObserve, {
-    attributes: true
-  });
+  }
+  
+  /**
+   * Create and start observer
+   */
+  const targetNode = document.querySelector("#contactForm");
+  const observerOptions = {
+    childList: true,
+    attributes: true,
+    
+    // Omit (or set to false) to observe only changes to the parent node
+    subtree: true 
+  }
+  
+  const observer = new MutationObserver(mutantCallback);
+  observer.observe(targetNode, observerOptions);
   
  
   // event.target.classList.toggle('focusout')
