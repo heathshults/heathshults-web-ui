@@ -1,5 +1,5 @@
 // Contact Form Scripts
-
+/* eslint-disable no-undef, no-unused-vars */
 $(function() {
 
     $("#contactForm input,#contactForm textarea").jqBootstrapValidation({

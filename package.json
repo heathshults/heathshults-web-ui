@@ -23,6 +23,7 @@
     "build": "npm-run-all --parallel build:gejs build:scss build:scripts build:assets",
     "build:assets": "node ./scripts/build-assets.js && npm run copy:js",
     "build:ejs": "node scripts/build-ejs.js",
+    "build:lint-scripts": "eslint --fix src/js/HeathScript.js src/js/jqBootstrapValidation.js src/js/contact_me.js src/js/modules/show-more-fadebar/show-more.js",
     "build:scripts": "gulp babelfry",
     "build:scss": "node scripts/build-scss.js",
     "build:components": "gulp build_components",
@@ -36,7 +37,7 @@
     "gejs": "gulp ejsit",
     "test": "jest --no-cache",
     "test.watch": "jest --watch --no-cache",
-    "start": "npm-run-all --sequential comp:build:nowatch copy:components build:scripts gejs build:scss build:assets gwatch",
+    "start": "npm-run-all --sequential comp:build:nowatch copy:components build:lint-scripts build:scripts gejs build:scss build:assets gwatch",
     "start:debug": "npm run build && node scripts/start-debug.js"
   },
   "description": "Heath Shults - .coder - .thinker - .father",
@@ -64,6 +65,7 @@
     "@blaze/css": "^9.2.0",
     "@blaze/molecules": "^1.2.1",
     "@types/hammerjs": "^2.0.36",
+    "bluebird": "^3.7.2",
     "blueimp-file-upload": "^10.3.0",
     "bootstrap": "4.5.0",
     "classnames": "^2.2.5",
@@ -75,6 +77,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/plugin-transform-arrow-functions": "^7.10.4",
     "@babel/plugin-transform-runtime": "^7.9.6",

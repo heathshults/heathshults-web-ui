@@ -2,7 +2,8 @@
 
 #about {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
+  overflow: auto;
   background: url('/assets/img/bg/map-compass-magnifying-glass-web.jpg');
   background-attachment: fixed;
   background-position: center top;

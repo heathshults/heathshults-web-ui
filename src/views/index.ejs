@@ -41,17 +41,6 @@
       }
 
 
-      let ShowMoreSettings={
-        fbInitButtonText: 'Show More',
-        fbOpenButtonText: 'Show Less',
-        fbButtonWidth: '80px',
-        fbBoxHeight: '100%',
-        fbHeight: '35px',
-        fbBoxPaddingBottom: '0',
-        fbStartColor: 'rgba(255,255,255,1)',
-        fbEndColor: 'rgba(255,255,255,1)'
-      }
-
     </script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -1094,7 +1083,7 @@
         </div>
         <div class="row" style="max-height: 270px;">
           <div class="col-lg-12 pt-4">
-            <form name="sentMessage" id="contactForm" class="mt-5" novalidate>
+            <form name="sentMessage" autocomplete="off" id="contactForm" class="mt-5" novalidate>
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group" title="Name *" >
@@ -1261,12 +1250,7 @@
         $(aBar).attr('style',`width: ${barWidth}%`);
       });
 
-      // // ====== SHOWMORE ==== //
-      let ShowMoreSettings =  {
-        fbInitButtonText: 'Show More',
-        fbOpenButtonText: 'Show Less',
-        boxHeight: '0px'
-      };
+
 
       // theModals.forEach(modal => {
       //   modal.addEventListener('click', (e)=>{

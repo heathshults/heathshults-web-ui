@@ -7,7 +7,7 @@
  *
  * http://ReactiveRaven.github.com/jqBootstrapValidation/
  */
-
+/* eslint-disable no-undef, no-unused-vars, no-useless-escape */
 (function( $ ){
 
 	var createdElements = [];
@@ -274,7 +274,7 @@
 
             validatorNamesToInspect = newValidatorNamesToInspect;
 
-          } while (validatorNamesToInspect.length > 0)
+          } while (validatorNamesToInspect.length > 0);
 
           // =============================================================
           //                                       SET UP VALIDATOR ARRAYS
