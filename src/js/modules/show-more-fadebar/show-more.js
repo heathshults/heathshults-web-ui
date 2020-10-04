@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', FadeBar = () => {
       theFadeBar.appendChild(theShowMoreButton);
       theContainer.before(theFadeBar);
       openHeight = theContainer.offsetHeight;
-      console.log(openHeight)
+      console.log(openHeight);
 
       theShowMoreButton.addEventListener('click', (ev) => {
         ev.preventDefault();
@@ -136,13 +136,13 @@ function settings(opts) {
   
   try {
     const options = Object.assign(defaults(), styles, fbActionBtn, fbCon);
-    console.log('options')
-    console.log(options)
+    console.log('options');
+    console.log(options);
   // cssBuilder(options);
     return options;
   }
   catch(e) {
-    console.log('object assign error: ' + e)
+    console.log('object assign error: ' + e);
   }
 }
 let FadeBarCSS = () => {};

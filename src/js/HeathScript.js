@@ -126,18 +126,6 @@ $(document).ready(() => {
         
           if (event.target.parentElement.hasAttribute('class')) {
             try {
-              icon = event.target.querySelector('.timeline-panel-header-icon');
-              console.log(icon);
-              if (icon.style.transform === 'rotate(180deg)') {
-                icon.style.transform = 'rotate(0deg)';
-              } else {
-                icon.style.transform = 'rotate(180deg)';
-              }
-            }
-            catch(error) {
-              console.error(error);
-            }
-            try {
               panel = event.target.parentElement.closest('.timeline-panel');
               panelLeftRight = event.target.parentElement.closest('.timeline-panel--left', '.timeline-panel--right');
               panel.classList.toggle('visible');

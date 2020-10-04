@@ -199,4 +199,4 @@ module.exports = {
       "animation-direction"
     ]
   }
-}
+};
