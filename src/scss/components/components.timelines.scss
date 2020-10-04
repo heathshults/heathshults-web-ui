@@ -58,8 +58,8 @@
         padding: 1rem;
         font-size: .9em;
         color: $hs-white;
-        background: $hs-blueGray-medium-saturated;
-        border: 2px solid darken($hs-blueGray-medium-saturated, 15%);
+        background: #4d3223;
+        border: 2px solid darken(#4d3223, 15%);
         border-radius: 50%;
       }
     }
@@ -180,10 +180,12 @@
           border-right: 12px solid  lighten($hs-baige-light, 20%);
           border-bottom: 12px solid transparent;
           border-left: 0 solid  lighten($hs-baige-light, 20%);
+          transition: all .2s ease-in-out;
         }
         .timeline-panel_item {
           padding-left: 1rem;
           text-align: left;
+          transition: all .2s ease-in-out;
         }
         .timeline-panel_header {
           position: relative;
@@ -192,12 +194,13 @@
           padding-left: 20px;
           overflow: hidden;
           box-shadow: $hs-shadow-xs-center;
+          transition: all .2s ease-in-out;
           .timeline-panel-header-icon {
             position: absolute;
             top: 4px;
             right: 8px;
             margin-left: 20px;
-
+            transition: all .2s ease-in-out;
           }
         }
         .timeline-panel_title {
@@ -215,7 +218,7 @@
         // max-height: 134px;
         border-top-left-radius: 3px;
         border-bottom-left-radius: 3px;
-        // transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out;
         &::after {
           position: absolute;
           top: 0px;
@@ -227,10 +230,12 @@
           border-right: 0 solid  lighten($hs-baige-light, 20%);
           border-bottom: 12px solid transparent;
           border-left: 12px solid  lighten($hs-baige-light, 20%);
+          transition: all .2s ease-in-out;
         }
         .timeline-panel_item {
           padding-right: 1rem;
           text-align: right;
+          transition: all .2s ease-in-out;
         }
         .timeline-panel_header {
           padding-right: 20px;
@@ -259,8 +264,10 @@
     margin-top: 20px;
     margin-bottom: 20px;
     text-align: left;
+    transition: all .2s ease-in-out;
     > .timeline-panel {
       text-align: left !important;
+      transition: all .2s ease-in-out;
     }
   }
   .timeline-panel--left {
@@ -268,8 +275,10 @@
     margin-top: 20px;
     margin-bottom: 20px;
     text-align: right;
+    transition: all .2s ease-in-out;
     > .timeline-panel {
       text-align: right !important;
+      transition: all .2s ease-in-out;
     }
   }
 }

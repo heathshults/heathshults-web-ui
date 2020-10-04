@@ -24,8 +24,11 @@
 @import "./sections/skills";
 @import "./sections/contact";
 @import "./sections/footer";
-@import "./sections/_about.scss";
+@import "./sections/_about";
 
-// Theme
+// Utilities
+@import "./components/utilities.showmore";
+
+
 @import "./theme";
 
