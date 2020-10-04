@@ -1,7 +1,7 @@
 // Styling for the portfolio section
 #portfolio, .hs-portfolio {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   background-image: url('/assets/img/bg/idea3.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;

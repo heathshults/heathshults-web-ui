@@ -1,32 +1,31 @@
-require("@babel/register")({
-  presets: ["@babel/preset-env"],
-  "plugins": [["import", {"libraryName": "@material-ui/core"}], "@babel/plugin-syntax-dynamic-import"]
-});
-
-import {src } from 'gulp';
-import eslint from 'gulp-eslint';
-import esconfig from '../.eslintrc';
+import {exec} from 'child_process';
 
 
 
-function lint(filestocheck, ignorefiles, cb) {
-  
+let filestocheck = 'src/js/HeathScript.js src/js/jqBootstrapValidation.js src/js/contact_me.js src/js/modules/show-more-fadebar/show-more.js';
+
+const lint_js = function() { 
   return new Promise((resolve, reject) => {
     try {
-      setTimeout({
-      lintr: function(files, ignored) {
-        return src([`${files}, ${ignored}`])
-        .pipe(eslint({ esconfig }))
-        .pipe(eslint.formatEach('compact', process.stderr));
-      },
-        lintr(filestocheck, ignorefiles),
-        resolve(cb)
-      }, 500);
+      
+      let theError;
+
+        exec(`eslint ${filestocheck}`, function(error) {
+          if (error) {
+            theError=error;
+            console.log(`HSERROR: ${theError}`);
+          }
+        });
+        
+      if (typeof theError === 'undefined') {
+        resolve();
+      }
     }
     catch(error) {
-      console.log(error)
-      reject(cb);
+      console.log(error);
+      reject(error);
     }
   });
-}
-exports.lint = lint
+};
+
+lint_js();
