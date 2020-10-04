@@ -10861,8 +10861,8 @@ h3 {
   padding: 1rem;
   font-size: 0.9em;
   color: #fff;
-  background: #136591;
-  border: 2px solid #0a364d;
+  background: #4d3223;
+  border: 2px solid #18100b;
   border-radius: 50%;
 }
 #timeline .timeline-badge.top-badge {
@@ -10962,10 +10962,12 @@ h3 {
   border-right: 12px solid #f2f0ea;
   border-bottom: 12px solid transparent;
   border-left: 0 solid #f2f0ea;
+  transition: all 0.2s ease-in-out;
 }
 #timeline .timeline-item .timeline-panel--right .timeline-panel .timeline-panel_item {
   padding-left: 1rem;
   text-align: left;
+  transition: all 0.2s ease-in-out;
 }
 #timeline .timeline-item .timeline-panel--right .timeline-panel .timeline-panel_header {
   position: relative;
@@ -10974,12 +10976,14 @@ h3 {
   padding-left: 20px;
   overflow: hidden;
   box-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease-in-out;
 }
 #timeline .timeline-item .timeline-panel--right .timeline-panel .timeline-panel_header .timeline-panel-header-icon {
   position: absolute;
   top: 4px;
   right: 8px;
   margin-left: 20px;
+  transition: all 0.2s ease-in-out;
 }
 #timeline .timeline-item .timeline-panel--right .timeline-panel .timeline-panel_title {
   font-size: 1.1rem;
@@ -10999,6 +11003,7 @@ h3 {
 #timeline .timeline-item .timeline-panel--left .timeline-panel {
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
+  transition: all 0.2s ease-in-out;
 }
 #timeline .timeline-item .timeline-panel--left .timeline-panel::after {
   position: absolute;
@@ -11011,10 +11016,12 @@ h3 {
   border-right: 0 solid #f2f0ea;
   border-bottom: 12px solid transparent;
   border-left: 12px solid #f2f0ea;
+  transition: all 0.2s ease-in-out;
 }
 #timeline .timeline-item .timeline-panel--left .timeline-panel .timeline-panel_item {
   padding-right: 1rem;
   text-align: right;
+  transition: all 0.2s ease-in-out;
 }
 #timeline .timeline-item .timeline-panel--left .timeline-panel .timeline-panel_header {
   padding-right: 20px;
@@ -11039,18 +11046,22 @@ h3 {
   margin-top: 20px;
   margin-bottom: 20px;
   text-align: left;
+  transition: all 0.2s ease-in-out;
 }
 #timeline .timeline-panel--right > .timeline-panel {
   text-align: left !important;
+  transition: all 0.2s ease-in-out;
 }
 #timeline .timeline-panel--left {
   padding-right: 44px;
   margin-top: 20px;
   margin-bottom: 20px;
   text-align: right;
+  transition: all 0.2s ease-in-out;
 }
 #timeline .timeline-panel--left > .timeline-panel {
   text-align: right !important;
+  transition: all 0.2s ease-in-out;
 }
 
 header.masthead,
@@ -11497,6 +11508,128 @@ header.masthead .hs-intro-text .hs-intro-heading,
   font-size: 2rem;
   font-style: italic;
   color: white;
+}
+
+.j-showmore {
+  position: absolute;
+  left: -9999px;
+  max-height: 400px;
+  padding-bottom: 60px;
+  overflow: hidden;
+  -webkit-transition: max-height 0.25s ease-in-out;
+  -moz-transition: max-00000ht 0.25s ease-in-out;
+  -o-transition: max-height 0.25s ease-in-out;
+  transition: max-height 0.25s ease-in-out;
+}
+.j-showmore.is-visible {
+  position: relative;
+  left: 0px;
+  height: 100%;
+  -webkit-transition: max-height 0.25s ease-in-out;
+  -moz-transition: max-height 0.25s ease-in-out;
+  -o-transition: max-height 0.25s ease-in-out;
+  transition: max-height 0.25s ease-in-out;
+}
+
+.j-fader {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 35px;
+  text-align: center;
+  vertical-align: bottom;
+  cursor: pointer;
+  background: linear-gradient(to bottom, white, white 60%);
+  filter: progid:dximagetransform.microsoft.gradient(startcolorstr="$hs-white_100", endcolorstr="$hs-white_100", gradienttype=0);
+  border-bottom: 0 solid #f2f2f2;
+}
+.j-fader > .j-fader_button {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  z-index: 1010;
+  display: inline-block;
+  width: 80px;
+  height: 20px;
+  padding: 4px 6px;
+  margin: 0 auto;
+  font-size: 0.8rem;
+  line-height: 1;
+  color: #333;
+  white-space: nowrap;
+  cursor: pointer;
+  background-color: #fff;
+  border: 1px solid #fff;
+  border-bottom: 0 solid #fff;
+  border-radius: 4px;
+  box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.45);
+  transform: translateX(-50%);
+}
+.j-fader > .j-fader_button.is-visible::before {
+  content: "";
+}
+.j-fader > .j-fader_button:hover {
+  color: #333;
+  background-color: #fff;
+}
+.j-fader > .j-fader_button:focus {
+  color: #333;
+  background-color: #dedede;
+  border: 1px solid #dedede;
+  border-bottom: 5px solid #dedede;
+  outline-color: #dedede;
+  box-shadow: unset;
+}
+.j-fader > .j-fader_button.is-visible {
+  bottom: 0px;
+  color: #333;
+  background-color: #dedede;
+  border: 1px solid #dedede;
+  border-bottom: 0px solid #dedede;
+}
+.j-fader > .j-fader_button::before {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  z-index: 100;
+  display: block;
+  width: 100%;
+  font-size: 0.75rem;
+  content: "";
+  transform: translate(-50%);
+}
+.j-fader > .j-fader_button.is-visible::before {
+  display: none;
+}
+.j-fader > .j-fader.is-visible {
+  border-bottom: 0px solid #dedede;
+}
+.j-fader.is-visible {
+  bottom: 113px;
+  height: 0px;
+  border-bottom: 0px solid #dedede;
+}
+
+@keyframes slideOpen {
+  from {
+    height: 300px;
+  }
+  to {
+    height: 100%;
+  }
+}
+@keyframes slideClosed {
+  from {
+    height: 100%;
+  }
+  to {
+    height: 300px;
+  }
+}
+.hs-code .j-fader {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), #fff 60%);
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr="#00ffffff", endColorstr="#ffffff", GradientType=0);
+  border-bottom: 5px solid #f2f2f2;
 }
 
 #mainNav {
@@ -12226,128 +12359,6 @@ div[slot^=hs-] {
     width: 100%;
   }
 }
-.j-showmore {
-  position: absolute;
-  left: -9999px;
-  max-height: 400px;
-  padding-bottom: 60px;
-  overflow: hidden;
-  -webkit-transition: max-height 0.25s ease-in-out;
-  -moz-transition: max-00000ht 0.25s ease-in-out;
-  -o-transition: max-height 0.25s ease-in-out;
-  transition: max-height 0.25s ease-in-out;
-}
-.j-showmore.is-visible {
-  position: relative;
-  left: 0px;
-  height: 100%;
-  -webkit-transition: max-height 0.25s ease-in-out;
-  -moz-transition: max-height 0.25s ease-in-out;
-  -o-transition: max-height 0.25s ease-in-out;
-  transition: max-height 0.25s ease-in-out;
-}
-
-.j-fader {
-  position: absolute;
-  z-index: 100;
-  width: 100%;
-  height: 35px;
-  text-align: center;
-  vertical-align: bottom;
-  cursor: pointer;
-  background: linear-gradient(to bottom, white, white 60%);
-  filter: progid:dximagetransform.microsoft.gradient(startcolorstr="$hs-white_100", endcolorstr="$hs-white_100", gradienttype=0);
-  border-bottom: 0 solid #f2f2f2;
-}
-.j-fader > .j-fader_button {
-  position: absolute;
-  bottom: -6px;
-  left: 50%;
-  z-index: 1010;
-  display: inline-block;
-  width: 80px;
-  height: 20px;
-  padding: 4px 6px;
-  margin: 0 auto;
-  font-size: 0.8rem;
-  line-height: 1;
-  color: #333;
-  white-space: nowrap;
-  cursor: pointer;
-  background-color: #fff;
-  border: 1px solid #fff;
-  border-bottom: 0 solid #fff;
-  border-radius: 4px;
-  box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.45);
-  transform: translateX(-50%);
-}
-.j-fader > .j-fader_button.is-visible::before {
-  content: "";
-}
-.j-fader > .j-fader_button:hover {
-  color: #333;
-  background-color: #fff;
-}
-.j-fader > .j-fader_button:focus {
-  color: #333;
-  background-color: #dedede;
-  border: 1px solid #dedede;
-  border-bottom: 5px solid #dedede;
-  outline-color: #dedede;
-  box-shadow: unset;
-}
-.j-fader > .j-fader_button.is-visible {
-  bottom: 0px;
-  color: #333;
-  background-color: #dedede;
-  border: 1px solid #dedede;
-  border-bottom: 0px solid #dedede;
-}
-.j-fader > .j-fader_button::before {
-  position: absolute;
-  top: 5%;
-  left: 50%;
-  z-index: 100;
-  display: block;
-  width: 100%;
-  font-size: 0.75rem;
-  content: "";
-  transform: translate(-50%);
-}
-.j-fader > .j-fader_button.is-visible::before {
-  display: none;
-}
-.j-fader > .j-fader.is-visible {
-  border-bottom: 0px solid #dedede;
-}
-.j-fader.is-visible {
-  bottom: 113px;
-  height: 0px;
-  border-bottom: 0px solid #dedede;
-}
-
-@keyframes slideOpen {
-  from {
-    height: 300px;
-  }
-  to {
-    height: 100%;
-  }
-}
-@keyframes slideClosed {
-  from {
-    height: 100%;
-  }
-  to {
-    height: 300px;
-  }
-}
-.hs-code .j-fader {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), #fff 60%);
-  filter: progid:dximagetransform.microsoft.gradient(startColorstr="#00ffffff", endColorstr="#ffffff", GradientType=0);
-  border-bottom: 5px solid #f2f2f2;
-}
-
 .navbar.hs-bg-grad-black-trans {
   z-index: 1020;
 }

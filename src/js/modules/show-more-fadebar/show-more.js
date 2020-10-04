@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', FadeBar = () => {
 // module.exports = FadeBar;
 
 function appendCSS(styles) {
-  return
+  return;
   // return () => {
   //   const styleEl = document.createElement('style');
   //   const headEl = document.head || document.getElementsByTagName('head')[0];
