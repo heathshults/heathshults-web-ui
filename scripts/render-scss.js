@@ -38,13 +38,13 @@ function renderSCSS(callback) {
 
     console.log(inStyleSheet, outStyleSheet)
 
-    exec(`sass ${inStyleSheet} ${outStyleSheet}`, (error, stdout, stderr) => {
+    exec(`sass ${inStyleSheet} ${outStyleSheet}`, (error) => {
       if (error) {
           console.log(chalk.red(`ERROR compileMain: ${error.message}`));
-          return false
+          return false;
 
       } //else {
-      return true
+      return true;
         // diditcred = addCredBanner(outStyleSheet)
         // diditcred = 'Success' ? result =  'Success' + console.log('Sass compiled: ' + outStyleSheet) : result = diditcred
         // return result

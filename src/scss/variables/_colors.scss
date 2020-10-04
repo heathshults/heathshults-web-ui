@@ -139,7 +139,8 @@ $hs-shadow-sm:                    0px 2px 4px 0px rgba(0, 0, 0, .5) !default;
 $hs-shadow-lg:                    0px 4px 8px 3px rgba(0, 0, 0, .4) rgba(0, 0, 0, 0.4) !default;
 $hs-shadow-inset-blue:            inset 0 0 0 2px #5173ff !default;
 $hs-shadow-none:                  none !default;
-$hs-card-shadow:                  0 4px 6px 2px rgba(0, 0, 0, 0.3) !default;
+$hs-card-shadow:                  rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px !default;
+// $hs-card-shadow:                  0 4px 6px 2px rgba(0, 0, 0, 0.3) !default;
 
 // Backgrounds
 $hs-bg-black-to-transparent:      linear-gradient(0deg, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 1) 100%) !default;

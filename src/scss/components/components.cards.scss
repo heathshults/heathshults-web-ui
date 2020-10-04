@@ -14,8 +14,7 @@
   background-clip: border-box;
   border: $hs-card-border-width;
   @include border-radius($hs-card-border-radius);
-
-  > {
+  & > {
     .hs-card_header {
       display: flex;
       padding: 0;
@@ -28,12 +27,12 @@
         @include border-radius($hs-card-inner-border-radius $hs-card-inner-border-radius 0 0);
       }
 
-      +.list-group {
+      & +.list-group {
         .list-group_item:first-child {
           border-top: 0;
         }
       }
-      > {
+      & > {
         .hs-overlay {
           position: relative;
           @include card-header-dimensions;
@@ -96,7 +95,6 @@
           }
         }
       }
-
     }
 
     .list-group {
@@ -106,7 +104,6 @@
       &:first-child {
         border-top-width: 0;
         @include border-top-radius($hs-card-inner-border-radius);
-
       }
 
       &:last-child {
@@ -115,7 +112,6 @@
       }
     }
   }
-
   > hr {
     margin-right: 0;
     margin-left: 0;
@@ -146,6 +142,20 @@
         flex: 1 1 auto;
         width: auto;
       }
+    }
+  }
+}
+.hs-card.hs-card-size {
+  &--sm {
+    width: 265px;
+    max-height: 393px;
+  }
+  &--md {
+    width: 344px;
+    max-height: 510px;
+    .hs-card_header {
+      width: 100%;
+      max-height: 194px;
     }
   }
 }
