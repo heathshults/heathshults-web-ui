@@ -527,8 +527,9 @@ div[slot^="hs-"] {
   padding: .5rem;
   font-size: .75rem;
   text-align: left;
-  background: $hs-theme-primary--trans50;
-  border: 2px solid $hs-theme-primary;
+  background: $hs-gray-lightest;
+  border: 2px solid transparent;
+  border-top: 2px solid $hs-gray-lighter;
   opacity: .8;
 }
 

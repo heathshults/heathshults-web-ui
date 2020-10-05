@@ -168,14 +168,15 @@
   flex: 1 1 auto;
   width: 100%;
   width: $hs-card-width--fluid;
-  min-height: 1px;
+  height: 170px;
+  overflow: hidden;
   color: $hs-card-color;
   background-color: $hs-white_5;
 }
 
 .hs-card_content {
   width: 100%;
-  padding: $hs-spacing--md;
+  padding: 12px $hs-spacing--md;
   line-height: 1;
   text-align: left;
   background-color: $hs-white;
@@ -404,7 +405,7 @@
 
 .hs-dev-logo {
   vertical-align: middle;
-  filter: grayscale(80%);
+  filter: grayscale(60%);
   opacity: 0.5;
 }
 
@@ -413,11 +414,11 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: 96px;
+  max-height: 96px;
   padding: 0.5rem;
 
   .hs-dev-logo {
-    width: 32px;
+    width: 24px;
     vertical-align: middle;
   }
 }
@@ -464,5 +465,22 @@
       @include border-radius(0);
       margin-bottom: -$hs-card-border-width;
     }
+  }
+}
+.footer-logos {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  margin: 0px 10px;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  padding-inline-start: 0px;
+  padding-inline-end: 0px;
+  list-style: none;
+  .flex-item {
+    flex: none;
   }
 }

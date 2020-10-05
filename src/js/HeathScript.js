@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
              (See mutation.addedNodes and mutation.removedNodes.) */
           break;
         case 'attributes':
-          notifyUser("Attribute name " + mutation.attributeName +
+          console.log("Attribute name " + mutation.attributeName +
           " changed to " + mutation.target[mutation.attributeName] +
           " (was " + mutation.oldValue + ")");
           break;
