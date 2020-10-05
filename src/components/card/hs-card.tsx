@@ -116,7 +116,7 @@ export class HSCard {
         <div class={`hs-card_footer row m-0 d-flex w-100 ${this.colorToneClass} p-0`}>
         
           <div class="col-md-12 hs-logo-row--footer">
-            <ul class="flex-container space-between">
+            <ul class="footer-logos">
               <li class="flex-item">
                 <img src="/assets/img/logos/dmHTML5_Logo_512.png" class="hs-dev-logo" width="24" alt="HTML5 logo" />
               </li>

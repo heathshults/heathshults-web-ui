@@ -3,6 +3,7 @@ header.masthead,
 .hs-header {
   position: relative;
   justify-content: center;
+  width: 100%;
   min-height: 100vh;
   color: #fff;
   text-align: center;
@@ -24,11 +25,11 @@ header.masthead,
   }
 
   .masthead-subheading {
+    margin-bottom: 25px;
+    font-family: $subheadings-font-family;
     font-size: 1.5rem;
     font-style: italic;
     line-height: 1.5rem;
-    margin-bottom: 25px;
-    font-family: $subheadings-font-family;
   }
 
   .masthead-heading,
@@ -65,40 +66,54 @@ header.masthead,
 }
 
 @include media-breakpoint-up(md) {
-
-  header.masthead,
   .hs-header {
-    height: 100vh;
-    // padding-top: 12.5rem + 4.5rem;
-    // padding-bottom: 12.5rem;
-    background-color: #2f2f31;
-
-    .hs-intro-text {
-      padding-top: 300px;
-      padding-bottom: 200px;
-
-      .masthead-subheading,
-      .hs-intro-lead-in {
-        margin-bottom: 2rem;
-        font-size: 2.25rem;
-        font-style: italic;
-        line-height: 2.25rem;
-        text-shadow: rgba(0, 0, 0, 1) 0px 0px 15px, rgba(0, 0, 0, 1) 0px 0px 10px;
-      }
-
-      .masthead-heading,
-      .hs-intro-heading {
-        margin-bottom: 4rem;
-        font-size: 4.5rem;
-        font-weight: 700;
-        line-height: 4.5rem;
-        text-shadow: rgba(0, 0, 0, 1) 0px 0px 15px, rgba(0, 0, 0, 1) 0px 0px 10px;
-      }
-    }
+    background-position: top center;
+  }
+  .hs-intro-text {
+    transform: translateX(-54%);
+  }
+  .hs-intro-lead-in {
+    padding-bottom: 20px;
+  }
+  .hs-intro-heading {
+    padding-bottom: 20px;
+    font-size: 42px;
+    line-height: normal;
+    white-space: normal;
   }
 }
-
 .hs-divider {
   display: flex;
   height: 30px;
+}
+@media (max-width: 360px) {
+  .hs-header {
+    position: relative;
+    display: inline-block !important;
+    background-position: top center;
+  }
+  .hs-intro-text {
+    position: relative !important;
+    display: inline-block !important;
+    margin: 20px auto;
+  }
+  .hs-intro-lead-in {
+    position: relative !important;
+    display: inline-block !important;
+    margin: 20px auto;
+  }
+  .hs-intro-heading {
+    position: relative !important;
+    display: inline-block !important;
+    padding-bottom: 20px !important;
+    margin: 20px auto;
+    font-size: 42px !important;
+    line-height: normal !important;
+    white-space: normal !important;
+  }
+  .js-page-trigger {
+    position: relative !important;
+    display: inline-block !important;
+    margin: 50px auto !important;
+  }
 }
