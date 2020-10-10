@@ -63,9 +63,9 @@ let p = {
   dist_css: `${distPath}/assets/css`,
   dist_html: distPath,
   dist_img: `${distPath}/assets/img`
-}
+};
 
-let assets = '{jpg,png,gif,svg,mp4}'
+let assets = '{jpg,png,gif,svg,mp4}';
 //#region region
 
 // Compiles sassy files from /sassy into /css
@@ -182,9 +182,9 @@ function ejsit(done) {
     .pipe(ejs().on('error', log))
     .pipe(rename({ extname: ".html" }))
     .pipe(debug({ title: 'Compiled html: ' }))
-    .pipe(dest(wwwPath, { overwrite: true, cwd: process.cwd() })), done()
+    .pipe(dest(wwwPath, { overwrite: true, cwd: process.cwd() })), done();
 }
-exports.ejsit = ejsit
+exports.ejsit = ejsit;
 
 function babelfry(cb){
   var fs = require("fs");
@@ -193,25 +193,25 @@ function babelfry(cb){
   .transform(babelify)
   .require(`${srcPath}/index.js`, { entry: true })
   .bundle()
-  .on("error", function (err) { console.log(chalk.red("Error: " + err.message)); })
+  .on("error", function (err) { console.log(chalk.red("Error: " + err.message)) })
   .pipe(fs.createWriteStream(`${wwwPath}/assets/js/HeathScript.built.js`)),
   console.log(chalk.green('Babelifried JS')), cb();
 }
-exports.babelfry = babelfry
+exports.babelfry = babelfry;
 
 function renderJS(cb) {
-  console.log(chalk.yellow('starting JS renderrer...'))
+  console.log(chalk.yellow('starting JS renderrer...'));
   exec('node scripts/build-scripts-launcher.js', (error, stdout, stderr) => {
     if (error) {
         console.log(chalk.red("ERROR renderJS: \n stdout: " + stderr + "\n Error Message: " + error.message));
-        return 'renderJS error'+error
+        return 'renderJS error'+error;
     }
-    console.log(chalk.green('JS Rendererred: HeathScript.built.js'))
-    return true
-  })
-  if (typeof cb === 'function') cb()
+    console.log(chalk.green('JS Rendererred: HeathScript.built.js'));
+    return true;
+  });
+  if (typeof cb === 'function') cb();
 }
-exports.renderJS = renderJS
+exports.renderJS = renderJS;
 
 function sassy(done) {
   try {
@@ -220,10 +220,10 @@ function sassy(done) {
           console.log(`error: ${error.message}`);
           return;
       } else {console.log('Sass compiled: HeathStyle.built.css')}
-    })
+    });
   }
   catch(e) {
-    console.log('HeathenError: ' + e)
+    console.log('HeathenError: ' + e);
   }
 
   try{
@@ -232,28 +232,28 @@ function sassy(done) {
           console.log(`error: ${error.message}`);
           return;
       } else {console.log('Sass compiled: theme-dark-mode.built.css')}
-    })
+    });
   }
   catch(e) {
-    console.log('HeathenError: ' + e)
+    console.log('HeathenError: ' + e);
   }
-  done()
+  done();
 }
-exports.sassy = sassy
+exports.sassy = sassy;
 
 function compileCSS(cb) {
   exec('node scripts/build-scss.js', (error, stdout, stderr) => {
       if (error) {
           console.log("ERROR compileMain: \n stdout: " + stderr + "\n Error Message: " + error.message);
-          return 'SCSS compile error'+error
+          return 'SCSS compile error'+error;
       }
-      return true
+      return true;
 
-  })
+  });
 
-  if (typeof cb === 'function') cb(null)
+  if (typeof cb === 'function') cb(null);
 }
-exports.compileCSS = compileCSS
+exports.compileCSS = compileCSS;
 
 function copy_img(cb) {
   src([
@@ -272,17 +272,17 @@ function copy_img(cb) {
   //     called = true;
   //   }
 }
-exports.copy_img = copy_img
+exports.copy_img = copy_img;
 
 // Copy vendor libraries from /node_modules into /vendor
 function copy_vendor(cb) {
   src([`${srcPath}/node_modules/bootstrap/www/**/*`, '!**/npm.js', '!**/bootstrap-theme.*'])
   .pipe(debug({ title: 'copied' }))
-    .pipe(dest(`${wwwPath}/assets/vendor/bootstrap`))
+    .pipe(dest(`${wwwPath}/assets/vendor/bootstrap`));
 
   src([`${srcPath}/node_modules/jquery/www/jquery.js`, 'node_modules/jquery/www/jquery.min.js'])
   .pipe(debug({ title: 'copied' }))
-    .pipe(dest(`${wwwPath}/assets/vendor/jquery`))
+    .pipe(dest(`${wwwPath}/assets/vendor/jquery`));
 
   src([
       `${srcPath}/node_modules/font-awesome/**`,
@@ -294,30 +294,30 @@ function copy_vendor(cb) {
     ])
     .pipe(plumber())
     .pipe(debug({ title: 'copied' }))
-    .pipe(dest(`${wwwPath}/assets/vendor/font-awesome`))
+    .pipe(dest(`${wwwPath}/assets/vendor/font-awesome`));
 
     src([`${srcPath}/assets/lib`])
     .pipe(debug({ title: 'copied' }))
-    .pipe(dest(`${wwwPath}/assets/lib`), {overwrite: true})
+    .pipe(dest(`${wwwPath}/assets/lib`), {overwrite: true});
 
     src([`${srcPath}/assets/content/**/*`])
     .pipe(debug({ title: 'copied' }))
-    .pipe(dest(`${wwwPath}/assets/content`), {overwrite: true})
+    .pipe(dest(`${wwwPath}/assets/content`), {overwrite: true});
 
     src([`${srcPath}/assets/components/**/*.{html,css,js,json,php}`])
     .pipe(debug({ title: 'copied' }))
-    .pipe(dest(`${wwwPath}/assets/content`), {overwrite: true})
+    .pipe(dest(`${wwwPath}/assets/content`), {overwrite: true});
 
     src([`${srcPath}/assets/vendor/**/*`])
     .pipe(debug({ title: 'copied' }))
-    .pipe(dest(`${wwwPath}/assets/vendor`), {overwrite: true}), cb()
+    .pipe(dest(`${wwwPath}/assets/vendor`), {overwrite: true}), cb();
   //   var file = ''
   // if (typeof cb === 'function') {
   //   cb(null, file);
   //   called = true;
   // }
 }
-exports.copy_vendor = copy_vendor
+exports.copy_vendor = copy_vendor;
 
 function copy_html(cb) {
   src(`${srcPath}/layouts/**/*.html`)
@@ -334,14 +334,14 @@ function copy_html(cb) {
   //     called = true;
   //   }
 }
-exports.copy_html = copy_html
+exports.copy_html = copy_html;
 
 function copy_css(cb) {
   src(`${srcPath}/assets/css/**/*.{css,map}`)
     .pipe(plumber())
     //.pipe(changed(`${wwwPath}/css`))
     .pipe(debug({ title: 'copied' }))
-    .pipe(dest(`${wwwPath}/assets/css`)), cb()
+    .pipe(dest(`${wwwPath}/assets/css`)), cb();
   // () => {
   //   let file = ''
   //   if (typeof cb === 'function') {
@@ -350,11 +350,11 @@ function copy_css(cb) {
   //   }
   // }
 }
-exports.copy_css = copy_css
+exports.copy_css = copy_css;
 
 function copy_js(cb) {
   return new Promise((resolve, reject) => {
-    console.log('LOOK! ' + appRoot)
+    console.log('LOOK! ' + appRoot);
     try {
       setTimeout(() => {
         
@@ -369,29 +369,29 @@ function copy_js(cb) {
         .pipe(dest('./'))
         .pipe(debug({title: 'Copied JS: '}));
 
-         console.log(chalk.green('copy_js() Complete'))
+         console.log(chalk.green('copy_js() Complete'));
         if (typeof cb === 'function') {
-          cb()
+          cb();
         }
-        resolve(cb)
-      }, 1000)
+        resolve(cb);
+      }, 1000);
     } catch(error) {
-      console.log(chalk.red('Error in copy_js(): ' + error))
-      reject('Rejected copy_js(): ' + error)
+      console.log(chalk.red('Error in copy_js(): ' + error));
+      reject('Rejected copy_js(): ' + error);
     }
-  })
+  });
 }
-exports.copy_js = copy_js
+exports.copy_js = copy_js;
 
 
 function render_components(cb) {
-  console.log('Initiating render_components()...')
+  console.log('Initiating render_components()...');
   build_components()
-  .then(copy_components)
-  console.log(chalk.green('render_components() complete!'))
-  if (typeof cb === 'function') cb()
+  .then(copy_components);
+  console.log(chalk.green('render_components() complete!'));
+  if (typeof cb === 'function') cb();
 }
-exports.render_components = render_components
+exports.render_components = render_components;
 
 function build_components(cb) {
   return new Promise((resolve, reject) => {
@@ -402,16 +402,16 @@ function build_components(cb) {
         console.log(chalk.red(`error: ${error.message}`));
         return cb;
     } else {console.log(chalk.green('Components built!'))}
-  })
-  resolve(cb)
-      }, 1000)
+  });
+  resolve(cb);
+      }, 1000);
     } catch(error) {
-      console.log(chalk.red('Error in build_components(): ' + error))
-      reject('Rejected build_components(): ' + error)
+      console.log(chalk.red('Error in build_components(): ' + error));
+      reject('Rejected build_components(): ' + error);
     }
-  })
+  });
 }
-exports.build_components = build_components
+exports.build_components = build_components;
 
 function copy_components(cb) {
   return new Promise((resolve, reject) => {
@@ -421,23 +421,23 @@ function copy_components(cb) {
         // .pipe(debug({
         //   title: 'Copied origin component: '
         // }))
-        .pipe(dest(`${wwwPath}/components`))
+        .pipe(dest(`${wwwPath}/components`));
         // .pipe(debug({
         //   title: 'Copied destination component: '
         // }))
-        console.log(chalk.green('copy_components() Complete'))
+        console.log(chalk.green('copy_components() Complete'));
         if (typeof cb === 'function') {
-          cb()
+          cb();
         }
-        resolve(cb)
-      }, 1000)
+        resolve(cb);
+      }, 1000);
     } catch(error) {
-      console.log(chalk.red('Error in copy_components(): ' + error))
-      reject('Rejected copy_components(): ' + error)
+      console.log(chalk.red('Error in copy_components(): ' + error));
+      reject('Rejected copy_components(): ' + error);
     }
-  })
+  });
 }
-exports.copy_components = copy_components
+exports.copy_components = copy_components;
 
 function copy_assets(cb) {
   ra.copy_assets_content('first')
@@ -447,16 +447,16 @@ function copy_assets(cb) {
     .then(ra.copy_vendor)
     .then(copy_js)
     .then(renderer());
-    if (typeof cb === 'function') cb(null)
+    if (typeof cb === 'function') cb(null);
 
 }
-exports.copy_assets = copy_assets
+exports.copy_assets = copy_assets;
 
 function renderer(cb) {
-  series(compileCSS, babelfry, ejsit)
-  if (typeof cb === 'function') cb()
+  series(compileCSS, babelfry, ejsit);
+  if (typeof cb === 'function') cb();
 }
-exports.renderer = renderer
+exports.renderer = renderer;
 
 
 function serve(cb) {
@@ -473,33 +473,28 @@ function serve(cb) {
             notify: false,
             injectChanges: true
           }
-        })
-        resolve()
-      },2000 )
+        });
+        resolve();
+      },2000 );
     }
     catch(e) {
-      console.log('Error in browsersync: '+e)
-      reject()
+      console.log('Error in browsersync: '+e);
+      reject();
     }
-  })
+  });
     // })
 }
-exports.serve = serve
+exports.serve = serve;
 
 function watchers(cb) {
   return new Promise((resolve, reject) => {
     try {
       setTimeout(() => {
          browserSync.init({
-          // proxy: '127.0.0.1:8000',
-          server: {
-            baseDir: `${wwwPath}`,
-            open: 'true',
-            watch: true,
-            notify: false,
-            injectChanges: true
+           server: {
+            proxy: '127.0.0.1:8000',
           }
-        })
+        });
         // eslint-disable-next-line no-sequences
         var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
         watch(`${srcPath}/views/*.ejs`, ejsit).on('change', browserSync.reload), callback;
@@ -511,17 +506,17 @@ function watchers(cb) {
         watch([`${p.src_js}/js/HeathScript.js`], babelfry), callback;
         watch([`${srcCompPath}/**/*`],  render_components), callback;
         // watch([`${srcCompPath}/**/*`],  series(build_components, copy_components)), callback;
-        resolve(callback)
-      },2000 )
+        resolve(callback);
+      },2000 );
     }
     catch(e) {
-      console.log('Error in watchers: '+e)
-      reject(callback)
+      console.log('Error in watchers: '+e);
+      reject(callback);
     }
 
-  })
+  });
 }
-exports.watchers = watchers
+exports.watchers = watchers;
 
 // Configure the browserSync task
 function serveSync(cb) {
@@ -529,13 +524,13 @@ function serveSync(cb) {
     server: {
         baseDir: `${wwwPath}`
     }
-  })
+  });
   if (typeof cb === 'function') {
     cb(null, file);
     called = true;
   }
 }
-exports.serveSync = serveSync
+exports.serveSync = serveSync;
 
 function connect_sync(cb) {
 
@@ -545,19 +540,20 @@ function connect_sync(cb) {
       open: 'localhost',
       watch: true,
       injectChanges: true,
-      files: [
-        {
-          match: [`${wwwPath}/**/*.php`, `${wwwPath}/**/*.css`, `${wwwPath}/**/*.{jpg,png,gif,svg}`, `${wwwPath}/**/*.js`, `${wwwPath}/**/*.html`],
-          fn: function (event, file) {
-            browserSync.reload()
-          },
-          options: {
-            ignored: ['package.json']
-          }
-        }
-      ]
-    })
-  }), cb()
+    });
+    
+  });
+  // eslint-disable-next-line no-sequences
+  var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
+  watch(`${srcPath}/views/*.ejs`, ejsit).on('change', browserSync.reload), callback;
+  watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_images).on('change', browserSync.reload), callback;
+  watch([`${srcPath}/scss/**/*.scss`], compileCSS), callback;
+  watch([`${srcPath}/assets/**/*.css`], ra.copy_css), callback;
+  watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], copy_js), callback;
+  watch([`${buildPath}/**/*`], copy_components), callback;
+  watch([`${p.src_js}/js/HeathScript.js`], babelfry), callback;
+  watch([`${srcCompPath}/**/*`],  render_components), callback;
+  cb();
 
   // let file = ''
   // if (typeof cb === 'function') {
@@ -566,20 +562,20 @@ function connect_sync(cb) {
   // }
 
 }
-exports.connect_sync = connect_sync
+exports.connect_sync = connect_sync;
 
 // close the server
 function close_server(cb) {
-  connect.closeServer()
+  connect.closeServer();
   if (typeof cb === 'function') {
     cb(null, file);
     called = true;
   }
 }
-exports.close_server = close_server
+exports.close_server = close_server;
 
 // // Run everything
 // exports.build = series(sassy, minify_css, minify_js, copy_vendors)
 
-exports.setup_develop = series(compileCSS, renderJS, copy_assets, ejsit)
-exports.build = series(copy_assets)
+exports.setup_develop = series(compileCSS, renderJS, copy_assets, ejsit);
+exports.build = series(copy_assets);
