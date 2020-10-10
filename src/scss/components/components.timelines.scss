@@ -1,113 +1,403 @@
+@import '../variables/maps';
+@import '../variables/colors';
+@import '../variables/mixins';
 @import 'mixins/settings';
+//colors
 
-.hs-timeline {
-  margin: 0.55em 0 0;
-  padding: $timeline-padding;
+#timeline {
+  position: relative;
+  list-style: none;
 
-  .hs-timeline-item {
+  &::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    margin-left: -1.5px;
+    content: "&nbsp; ";
+    background-color: $hs-baige-medium;
+  }
+
+
+
+  .clearFix {
+    height: 0;
+    clear: both;
+  }
+
+  .timeline-badge {
+    position: absolute;
+    top: 13px;
+    left: 50%;
+    z-index: 100;
+    width: 50px;
+    height: 50px;
+    margin-left: -25px;
+    font-size: 1.1rem;
+    color: $hs-white;
+    text-align: center;
+    background-color: $hs-color_blue-semimuted;
+    @include circle;
+    &.timeline-filter-movement {
+      width: 35px;
+      height: 35px;
+      margin-left: -18px;
+      font-size: 1.7em;
+      background-color: $hs-white;
+      border: 1px solid $hs-baige-light;
+      &.transparency {
+        background: transparent;
+        border-color: transparent;
+      }
+
+      [class^="fa fa-"] {
+        position: absolute;
+        top: -30px;
+        left: -12px;
+        padding: 1rem;
+        font-size: .9em;
+        color: $hs-white;
+        background: #4d3223;
+        border: 2px solid darken(#4d3223, 15%);
+        border-radius: 50%;
+      }
+    }
+    &.top-badge {
+      top: 0;
+    }
+    // transform: translateY(-50%);
+    &.green {
+      background: $hs-color_green--dark;
+    }
+    &.baige {
+      background: $hs-baige-medium;
+    }
+    &.baige--light {
+      background: $hs-baige-light;
+    }
+
+    span {
+      &.timeline-balloon-date-day {
+        font-size: 1.5rem;
+      }
+
+      &.timeline-balloon-date-month {
+        position: relative;
+        top: -15px;
+        font-size: .7em;
+      }
+    }
+  }
+
+  .timeline-movement {
     position: relative;
-    padding: $timeline-item-padding;
-    list-style: none;
+    min-height: 78px;
+    border-bottom: dashed 1px $hs-baige-light;
+    transition: all .2s ease-in-out;
 
-    &::before {
-      position: absolute;
-      top: 0;
-      left: 0.25em;
-      height: 100%;
-      margin-left: -1px;
-      border-left: 1px solid map-get($colors, grey-light-2);
-      content: '';
+    &.timeline-movement-top {
+      min-height: 78px;
+      padding: 0 0 0 20px;
+      margin-top: 20px;
+      transition: all .2s ease-in-out;
     }
+  }
+  .timeline-item {
+    // &:nth-of-type(odd) {
+    //   margin-right: 50%;
+    //   background: #ccc;
+    // }
+    // &:nth-of-type(even) {
+    //   margin-left: 50%;
+    // }
 
-    &--last::before,
-    &--loading::before {
-      border-left-style: none;
-      content: '';
-    }
-
-    &::after {
-      position: absolute;
-      top: 0;
-      width: 0.5em;
-      height: 0.5em;
-      background-color: map-get($colors, default);
-      border-radius: 100%;
-      box-shadow: 0 0 0 4px map-get($colors, white);
-      content: '';
-    }
-
-    &_body {
+    .timeline-panel {
       position: relative;
-      top: -0.55em;
-      margin: 0 0 0 1em;
-    }
+      top: 8px;
+      max-height: 23px;
+      font-size: 14px;
+      color: $hs-gray;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      transition: max-height .2s ease-in-out;
+      &.visible {
+        max-height: 100% !important;
+        background-color: $hs-white;
+        -webkit-box-shadow: $hs-shadow-heavy;
+        box-shadow: $hs-shadow-heavy;
+        transition: max-height .2s ease-in-out;
+        .timeline-panel_header {
+          .timeline-panel-header-icon {
+            transition: all .2s ease-in-out;
+            transform: rotate(180deg);
+          }
+        }
+        .timeline-panel-ul {
+          .timeline-panel_item {
+            visibility: visible;
+            transition: visibility .2s ease-in-out;
+            transition-delay: .2s;
+          }
+        }
+      }
+      .timeline-panel_header {
+        position: relative;
+        display: inline-block;
+        height: 24px;
+        margin-bottom: 10px;
+        font-weight: 500;
+        color: $hs-theme-color-text;
+        background-color: lighten($hs-baige-light, 20%);
+        -webkit-box-shadow: $hs-shadow-xs;
+        box-shadow: $hs-shadow-xs-center;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      .timeline-panel-ul {
+        height: 0;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        visibility: hidden;
+        li, .timeline-panel_item {
+          padding: .1rem .4rem;
+          color: $hs-gray;
+          &.timeline-panel_title {
+            font-size: 1.2rem;
+          }
+        }
+      }
 
-    &.hs-timeline-item--brand::after {
-      background-color: map-get($colors, brand);
-      content: '';
-    }
+      &--right .timeline-panel {
+        // max-height: 134px;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+        // transition: all .2s ease-in-out;
+        &::before {
+          position: absolute;
+          top: 0;
+          left: -12px;
+          z-index: calc($hs-zindex-tooltip - 1);
+          display: inline-block;
+          content: " ";
+          border-top: 12px solid transparent;
+          border-right: 12px solid  lighten($hs-baige-light, 20%);
+          border-bottom: 12px solid transparent;
+          border-left: 0 solid  lighten($hs-baige-light, 20%);
+          transition: all .2s ease-in-out;
+        }
+        .timeline-panel_item {
+          padding-left: 1rem;
+          text-align: left;
+          transition: all .2s ease-in-out;
+        }
+        .timeline-panel_header {
+          position: relative;
+          padding-right: 1.5rem;
+          padding-bottom: 2px;
+          padding-left: 20px;
+          overflow: hidden;
+          box-shadow: $hs-shadow-xs-center;
+          transition: all .2s ease-in-out;
+          .timeline-panel-header-icon {
+            position: absolute;
+            top: 4px;
+            right: 8px;
+            margin-left: 20px;
+            transition: all .2s ease-in-out;
+          }
+        }
+        .timeline-panel_title {
+          font-size: 1.1rem;
+          font-weight: 700;
+          color: $hs-blueGray-medium;
+        }
+        .panel-tag {
+          @include timeline-panel-tag;
+          text-align: left;
+        }
+      }
 
-    &.hs-timeline-item--info::after {
-      background-color: map-get($colors, info);
-      content: '';
-    }
+      &--left .timeline-panel {
+        // max-height: 134px;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+        transition: all .2s ease-in-out;
+        &::after {
+          position: absolute;
+          top: 0px;
+          right: -12px;
+          z-index: calc($hs-zindex-tooltip - 1);
+          display: inline-block;
+          content: " ";
+          border-top: 12px solid transparent;
+          border-right: 0 solid  lighten($hs-baige-light, 20%);
+          border-bottom: 12px solid transparent;
+          border-left: 12px solid  lighten($hs-baige-light, 20%);
+          transition: all .2s ease-in-out;
+        }
+        .timeline-panel_item {
+          padding-right: 1rem;
+          text-align: right;
+          transition: all .2s ease-in-out;
+        }
+        .timeline-panel_header {
+          padding-right: 20px;
+          padding-bottom: 2px;
+          padding-left: 1.6rem;
+          font-size: 14px;
+          box-shadow: $hs-shadow-xs-reverse;
+          .timeline-panel-header-icon {
+            position: absolute;
+            top: 4px;
+            left: 8px;
+            margin-right: 1rem;
 
-    &.hs-timeline-item--warning::after {
-      background-color: map-get($colors, warning);
-      content: '';
-    }
-
-    &.hs-timeline-item--success::after {
-      background-color: map-get($colors, success);
-      content: '';
-    }
-
-    &.hs-timeline-item--error::after {
-      background-color: map-get($colors, error);
-      content: '';
+          }
+        }
+        .timeline-panel_title {
+          font-size: 1.1rem;
+          font-weight: 700;
+          color: $hs-blueGray-medium;
+        }
+      }
     }
   }
-
-  &.hs-timeline--alternate {
-    .hs-timeline-item {
-      &::before,
-      &::after {
-        left: 50%;
-        content: '';
-      }
-
-      &::after {
-        margin: 0 0 0 -0.25em;
-      }
-
-      &_body {
-        left: 50%;
-        width: 50%;
-      }
-
-      &--left .hs-timeline-item_body {
-        left: 0;
-        margin: 0 0 0 -1em;
-        text-align: right;
-      }
+  .timeline-panel--right {
+    padding-left: 44px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+    transition: all .2s ease-in-out;
+    > .timeline-panel {
+      text-align: left !important;
+      transition: all .2s ease-in-out;
     }
   }
-
-  &.hs-timeline--loading {
-    .hs-timeline-item--last::before {
-      border-left-style: dashed;
-      content: '';
-    }
-
-    .hs-timeline-item--loading::after {
-      background-color: transparent;
-      border: 2px solid map-get($colors, grey-light-2);
-    }
-
-    .hs-timeline-item--loading {
-      .hs-timeline-item_body {
-        color: map-get($colors, quiet);
-      }
+  .timeline-panel--left {
+    padding-right: 44px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: right;
+    transition: all .2s ease-in-out;
+    > .timeline-panel {
+      text-align: right !important;
+      transition: all .2s ease-in-out;
     }
   }
 }
+
+//===================ORIGINAL================//
+// .hs-timeline {
+//   margin: 0.55em 0 0;
+//   padding: $timeline-padding;
+
+//   .hs-timeline-item {
+//     position: relative;
+//     padding: $timeline-item-padding;
+//     list-style: none;
+
+//     &::before {
+//       position: absolute;
+//       top: 0;
+//       left: 0.25em;
+//       height: 100%;
+//       margin-left: -1px;
+//       border-left: 1px solid map-get($colors, grey-light-2);
+//       content: '';
+//     }
+
+//     &--last::before,
+//     &--loading::before {
+//       border-left-style: none;
+//       content: '';
+//     }
+
+//     &::after {
+//       position: absolute;
+//       top: 0;
+//       width: 0.5em;
+//       height: 0.5em;
+//       background-color: map-get($colors, default);
+//       border-radius: 100%;
+//       box-shadow: 0 0 0 4px map-get($colors, white);
+//       content: '';
+//     }
+
+//     &_body {
+//       position: relative;
+//       top: -0.55em;
+//       margin: 0 0 0 1em;
+//     }
+
+//     &.hs-timeline-item--brand::after {
+//       background-color: map-get($colors, brand);
+//       content: '';
+//     }
+
+//     &.hs-timeline-item--info::after {
+//       background-color: map-get($colors, info);
+//       content: '';
+//     }
+
+//     &.hs-timeline-item--warning::after {
+//       background-color: map-get($colors, warning);
+//       content: '';
+//     }
+
+//     &.hs-timeline-item--success::after {
+//       background-color: map-get($colors, success);
+//       content: '';
+//     }
+
+//     &.hs-timeline-item--error::after {
+//       background-color: map-get($colors, error);
+//       content: '';
+//     }
+//   }
+
+//   &.hs-timeline--alternate {
+//     .hs-timeline-item {
+//       &::before,
+//       &::after {
+//         left: 50%;
+//         content: '';
+//       }
+
+//       &::after {
+//         margin: 0 0 0 -0.25em;
+//       }
+
+//       &_body {
+//         left: 50%;
+//         width: 50%;
+//       }
+
+//       &--left .hs-timeline-item_body {
+//         left: 0;
+//         margin: 0 0 0 -1em;
+//         text-align: right;
+//       }
+//     }
+//   }
+
+//   &.hs-timeline--loading {
+//     .hs-timeline-item--last::before {
+//       border-left-style: dashed;
+//       content: '';
+//     }
+
+//     .hs-timeline-item--loading::after {
+//       background-color: transparent;
+//       border: 2px solid map-get($colors, grey-light-2);
+//     }
+
+//     .hs-timeline-item--loading {
+//       .hs-timeline-item_body {
+//         color: map-get($colors, quiet);
+//       }
+//     }
+//   }
+// }

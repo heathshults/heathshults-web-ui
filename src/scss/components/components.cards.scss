@@ -14,8 +14,7 @@
   background-clip: border-box;
   border: $hs-card-border-width;
   @include border-radius($hs-card-border-radius);
-
-  > {
+  & > {
     .hs-card_header {
       display: flex;
       padding: 0;
@@ -28,12 +27,12 @@
         @include border-radius($hs-card-inner-border-radius $hs-card-inner-border-radius 0 0);
       }
 
-      +.list-group {
+      & +.list-group {
         .list-group_item:first-child {
           border-top: 0;
         }
       }
-      > {
+      & > {
         .hs-overlay {
           position: relative;
           @include card-header-dimensions;
@@ -96,7 +95,6 @@
           }
         }
       }
-
     }
 
     .list-group {
@@ -106,7 +104,6 @@
       &:first-child {
         border-top-width: 0;
         @include border-top-radius($hs-card-inner-border-radius);
-
       }
 
       &:last-child {
@@ -115,7 +112,6 @@
       }
     }
   }
-
   > hr {
     margin-right: 0;
     margin-left: 0;
@@ -149,6 +145,20 @@
     }
   }
 }
+.hs-card.hs-card-size {
+  &--sm {
+    width: 265px;
+    max-height: 393px;
+  }
+  &--md {
+    width: 344px;
+    max-height: 510px;
+    .hs-card_header {
+      width: 100%;
+      max-height: 194px;
+    }
+  }
+}
 
 .hs-card_img-header_img {
   @include card-header-dimensions;
@@ -158,14 +168,15 @@
   flex: 1 1 auto;
   width: 100%;
   width: $hs-card-width--fluid;
-  min-height: 1px;
+  height: 170px;
+  overflow: hidden;
   color: $hs-card-color;
   background-color: $hs-white_5;
 }
 
 .hs-card_content {
   width: 100%;
-  padding: $hs-spacing--md;
+  padding: 12px $hs-spacing--md;
   line-height: 1;
   text-align: left;
   background-color: $hs-white;
@@ -394,7 +405,7 @@
 
 .hs-dev-logo {
   vertical-align: middle;
-  filter: grayscale(80%);
+  filter: grayscale(60%);
   opacity: 0.5;
 }
 
@@ -403,11 +414,11 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: 96px;
+  max-height: 96px;
   padding: 0.5rem;
 
   .hs-dev-logo {
-    width: 32px;
+    width: 24px;
     vertical-align: middle;
   }
 }
@@ -454,5 +465,22 @@
       @include border-radius(0);
       margin-bottom: -$hs-card-border-width;
     }
+  }
+}
+.footer-logos {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  margin: 0px 10px;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  padding-inline-start: 0px;
+  padding-inline-end: 0px;
+  list-style: none;
+  .flex-item {
+    flex: none;
   }
 }

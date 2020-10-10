@@ -15,6 +15,7 @@
 @import "./components/navbar";
 @import "./components/components.hs-carousel";
 @import "./components/components.cards";
+@import "./components/components.timelines";
 
 // Sections
 @import "./sections/masthead";
@@ -23,6 +24,11 @@
 @import "./sections/skills";
 @import "./sections/contact";
 @import "./sections/footer";
+@import "./sections/_about";
 
-// Theme
+// Utilities
+@import "./components/utilities.showmore";
+
+
 @import "./theme";
+

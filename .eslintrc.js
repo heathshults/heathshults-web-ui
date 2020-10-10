@@ -1,31 +1,23 @@
 module.exports = {
-  'env': {
-      'browser': true,
-      'commonjs': true,
-      'es6': true,
-      'node': true
+  root: true,
+  parserOptions: {
+    ecmaVersion: 2017,
+    sourceType: 'module',
   },
-  'extends': [
-      'eslint:recommended',
-      'plugin:@typescript-eslint/eslint-recommended'
-  ],
-  'globals': {
-      'Atomics': 'readonly',
-      'SharedArrayBuffer': 'readonly'
+  "env": {
+    "browser": true,
+    "node": true
   },
-  'parser': '@typescript-eslint/parser',
-  'parserOptions': {
-    'ecmaVersion': 2016,
-    'sourceType': 'module',
-    'ecmaFeatures': {
-    'modules': true,
-    'jsx': true
-    }
-  },
-  'plugins': [
-      '@typescript-eslint'
-  ],
-  'rules': {
-    'no-unused-vars': 'warn'
+  "extends": [
+    "eslint:recommended"
+  ],  
+  "rules": {
+    'no-console': 1,
+    'no-undef': 1,
+    'no-unused-vars': 1,
+    'no-var-requires': 0,
+    'semi': [2, 'always', {
+      'omitLastInOneLineBlock': true
+    }]
   }
-}
+};

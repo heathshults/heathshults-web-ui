@@ -7,7 +7,7 @@ const { exec } = require('child_process')
 var appRoot = require('app-root-path');
 var chalk = require('chalk')
 // const banner = require('./goCreds')
-
+var browserSync = require('browser-sync')
 // vars
 const mainStyleSheetIn = `${appRoot}/src/scss/styles.scss`
 const mainStyleSheetOut = `${appRoot}/www-app/assets/css/HeathStyle.built.css`
@@ -38,13 +38,13 @@ function renderSCSS(callback) {
 
     console.log(inStyleSheet, outStyleSheet)
 
-    exec(`sass ${inStyleSheet} ${outStyleSheet}`, (error, stdout, stderr) => {
+    exec(`sass ${inStyleSheet} ${outStyleSheet}`, (error) => {
       if (error) {
-          console.log(chalk.red("ERROR compileMain: \n stdout: " + stderr + "\n Error Message: " + error.message));
-          return 'SCSS compile error'+error
+          console.log(chalk.red(`ERROR compileMain: ${error.message}`));
+          return false;
 
       } //else {
-      return true
+      return true;
         // diditcred = addCredBanner(outStyleSheet)
         // diditcred = 'Success' ? result =  'Success' + console.log('Sass compiled: ' + outStyleSheet) : result = diditcred
         // return result
@@ -61,12 +61,12 @@ function renderSCSS(callback) {
   // }
 
   console.log(chalk.green('CSS compiled'))
+  browserSync.stream()
   return true
-
 }
 exports.renderSCSS = renderSCSS
 
-// renderSCSS()
+renderSCSS()
 
   // autoprefix it
   // function autoprefixem(styleSheet) {

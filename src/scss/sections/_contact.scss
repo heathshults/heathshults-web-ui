@@ -1,12 +1,26 @@
 // Styling for the contact section
-section#contact, hs-section-contact {
-  min-height: 530px;
-  background-color: rgb(97, 77, 53);
-  background-image: url("../../assets/img/bg/dtown.jpg");
-  background-attachment: fixed;
+#contact,
+.hs-contact,
+.hs-section {
+  position: relative;
+  height: 100vh;
+  background-color: $hs-canvas;
+  background-image: url("/assets/img/bg/camera-missing.jpg");
   background-repeat: no-repeat;
+  background-attachment: fixed;
   background-position-x: center;
   background-position-y: bottom;
+
+  // &::before {
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 100vh;
+  //   content: '';
+  //   background: rgba(0, 0, 0, .5);
+  // }
+
   .hs-section-heading,
   .hs-section-subheading {
     color: #fff;
@@ -15,8 +29,8 @@ section#contact, hs-section-contact {
 
   .hs-section-heading {
     font-size: 4rem;
-    @include heading-font;
     font-weight: 700;
+    @include heading-font;
   }
 
   .hs-section-subheading {
@@ -24,50 +38,7 @@ section#contact, hs-section-contact {
     font-size: 2rem;
     font-style: italic;
   }
-  form#contactForm {
-    .form-group {
-      margin-bottom: $grid-gutter-width;
-      input,
-      textarea {
-        padding: 1.25rem;
-      }
-      input.form-control {
-        height: auto;
-      }
-    }
-    .form-group-textarea {
-      height: 100%;
-      textarea {
-        height: 100%;
-        min-height: 10rem;
-      }
-    }
-    p.help-block {
-      margin: 0;
-    }
-    .form-control:focus {
-      border-color: $primary;
-      box-shadow: none;
-    }
-    ::-webkit-input-placeholder {
-      font-family: $headings-font-family;
-      font-weight: $headings-font-weight;
-      color: $gray-400;
-    }
-    :-moz-placeholder {
-      font-family: $headings-font-family;
-      font-weight: $headings-font-weight;
-      color: $gray-400;
-    }
-    ::-moz-placeholder {
-      font-family: $headings-font-family;
-      font-weight: $headings-font-weight;
-      color: $gray-400;
-    }
-    :-ms-input-placeholder {
-      font-family: $headings-font-family;
-      font-weight: $headings-font-weight;
-      color: $gray-400;
-    }
-  }
+
+
+
 }

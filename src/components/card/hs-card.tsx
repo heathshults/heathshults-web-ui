@@ -56,13 +56,14 @@ export class HSCard {
       try {
         setTimeout(() => {
           this.theElements();
+          this.cardHeaderImg = this.el.shadowRoot.querySelector('#hsHeaderImg')
         
           this.cardContent.classList.add(`hs-card-size${this.cardSize}`)
          
-          this.cardImgHeaderImg.classList.contains('hs-card_img-header_img--sm') ? (this.cardHeaderImg.style.width = '265px') && (this.overlay.style.width = '265px') 
-           : this.cardImgHeaderImg.classList.contains('hs-card_img-header_img--lg') ? (this.cardHeaderImg.style.width = '400px') && (this.overlay.style.width = '400px')
-           : this.cardImgHeaderImg.classList.contains('hs-card_img-header_img--fluid') ? (this.cardHeaderImg.style.width = '100%') && (this.overlay.style.width = '100%')
-           : (this.cardImgHeaderImg.style.width = '100%') && (this.overlay.style.width = '100%') 
+          // this.cardImgHeaderImg.classList.contains('hs-card_img-header_img--sm') ? (this.cardHeaderImg.style.width = '265px') && (this.overlay.style.width = '265px') 
+          //  : this.cardImgHeaderImg.classList.contains('hs-card_img-header_img--lg') ? (this.cardHeaderImg.style.width = '400px') && (this.overlay.style.width = '400px')
+          //  : this.cardImgHeaderImg.classList.contains('hs-card_img-header_img--fluid') ? (this.cardHeaderImg.style.width = '100%') && (this.overlay.style.width = '100%')
+          //  : (this.cardImgHeaderImg.style.width = '100%') && (this.overlay.style.width = '100%') 
          
           resolve(this.callback)
         }, 3000)
@@ -115,7 +116,7 @@ export class HSCard {
         <div class={`hs-card_footer row m-0 d-flex w-100 ${this.colorToneClass} p-0`}>
         
           <div class="col-md-12 hs-logo-row--footer">
-            <ul class="flex-container space-between">
+            <ul class="footer-logos">
               <li class="flex-item">
                 <img src="/assets/img/logos/dmHTML5_Logo_512.png" class="hs-dev-logo" width="24" alt="HTML5 logo" />
               </li>

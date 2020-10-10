@@ -1,6 +1,6 @@
 // Contact Form Scripts
-
-$(function() {
+/* eslint-disable no-undef, no-unused-vars */
+$(function($) {
 
     $("#contactForm input,#contactForm textarea").jqBootstrapValidation({
         preventSubmit: true,
@@ -20,7 +20,7 @@ $(function() {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
             $.ajax({
-                url: "././mail/contact_me.php",
+                url: "/mail/contact_me.php",
                 type: "POST",
                 data: {
                     name: name,
@@ -59,7 +59,7 @@ $(function() {
         },
     });
 
-    $("a[data-toggle=\"tab\"]").click(function(e) {
+    $("a[data-toggle=\"tab\"]").on('click', (e) => {
         e.preventDefault();
         $(this).tab("show");
     });
@@ -67,6 +67,6 @@ $(function() {
 
 
 /*When clicking on Full hide fail/success boxes */
-$('#name').focus(function() {
+$('#name').on('focus', function() {
     $('#success').html('');
-});
+})(jQuery);

@@ -7,7 +7,7 @@
  *
  * http://ReactiveRaven.github.com/jqBootstrapValidation/
  */
-
+/* eslint-disable no-undef, no-unused-vars, no-useless-escape */
 (function( $ ){
 
 	var createdElements = [];
@@ -19,7 +19,7 @@
 			preventSubmit: true, // stop the form submit event from firing if validation fails
 			submitError: false, // function called if there is an error when trying to submit
 			submitSuccess: false, // function called just before a successful submit event is sent to the server
-            semanticallyStrict: false, // set to true to tidy up generated HTML output
+      semanticallyStrict: false, // set to true to tidy up generated HTML output
 			autoAdd: {
 				helpBlocks: true
 			},
@@ -274,7 +274,7 @@
 
             validatorNamesToInspect = newValidatorNamesToInspect;
 
-          } while (validatorNamesToInspect.length > 0)
+          } while (validatorNamesToInspect.length > 0);
 
           // =============================================================
           //                                       SET UP VALIDATOR ARRAYS
@@ -482,8 +482,9 @@
                     ( settings.options.prependExistingHelpBlock ? $helpBlock.data("original-contents") : "" ));
                 } else {
                   // Multiple? Being sloppy? Glue them together into an UL.
-                  $helpBlock.html("<ul role=\"alert\"><li>" + errorsFound.join("</li><li>") + "</li></ul>" +
-                    ( settings.options.prependExistingHelpBlock ? $helpBlock.data("original-contents") : "" ));
+                  $helpBlock.html("<div role=\"alert\" class=\"error-box\"><div class=\"error-message\">" + errorsFound.join("</div><li>") + "</li></div>" +
+                  ( settings.options.prependExistingHelpBlock ? $helpBlock.data("original-contents") : "" ));
+                  $helpBlock.addClass('visible');
                 }
               } else {
                 $controlGroup.removeClass("warning error success");
