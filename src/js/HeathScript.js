@@ -224,10 +224,16 @@ document.addEventListener('DOMContentLoaded', () => {
    * Omit 'subtree' (or set to false) to observe only changes to the parent node
    */
   const targetNode = document.querySelector("#contactForm");
+  let attrRecord = observer.takeRecords();
+
   const observerOptions = {
     childList: true,
     attributes: true,
-    subtree: true 
+    subtree: true,
+    attributeOldValue: true,
+    attributeFilter: ['antiblur', 'is-autofilled', 'error', '-webkit-autofill'],
+    characterData: true,
+    characterDataOldValue: true
   };
   
   const observer = new MutationObserver(mutantCallback);

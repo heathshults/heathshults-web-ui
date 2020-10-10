@@ -2,7 +2,7 @@ module.exports = {
   root: true,
   parserOptions: {
     ecmaVersion: 2017,
-    sourceType: 'script',
+    sourceType: 'module',
   },
   "env": {
     "browser": true,
