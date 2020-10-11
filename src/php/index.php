@@ -10,4 +10,5 @@
     "message" => "just_testing",
     "optin" => "true"
   ];
+  phpinfo()
 ?>
