@@ -9,7 +9,7 @@ if(empty($_POST['name'])      ||
    echo "No arguments Provided!";
    return false;
    }
-   
+// clean up posted data
 $name = strip_tags(htmlspecialchars($_POST['name']));
 $email_address = strip_tags(htmlspecialchars($_POST['email']));
 $phone = strip_tags(htmlspecialchars($_POST['phone']));
@@ -23,5 +23,4 @@ $headers = "From: noreply@heathshults.com\n";
 $headers .= "Reply-To: $email_address";   
 mail($to,$email_subject,$email_body,$headers);
 return true;         
-      
 ?>
