@@ -100,66 +100,16 @@
             <p class="help-block"></p>
           </div>
         </div>
-        <style>
-          .hs-slide-submit {
-            position: relative;
-            width: 250px;
-            height: 48px;
-            padding: 6px;
-            margin: auto;
-            color: #fed136;
-            background-color: rgba(255, 255, 255, 0.5);
-            border: 2px solid #fff;
-            border-radius: 500px;
-          }
-          .hs-slide-submit-button {
-            position: relative;
-            width: 32px;
-            height: 32px;
-            font-size: 1.5rem;
-            color: #6f6f6f;
-            background-color: rgba(255, 255, 255, 0.5);
-            border: 2px solid #fff;
-            border-radius: 500px;
-          }
-          .hs-slide_icon {
-            position: absolute;
-            top: 15%;
-            left: 55%;
-            width: 22px;
-            height: 22px;
-            transform: translate(-50%);
-          }
-          .hs-slide-submit_left {
-            text-align: left;
-          }
-          .hs-slide-submit_right {
-            text-align: right;
-          }
-          .hs-dropzone {
-            position: absolute;
-            top: 2px;
-            right: -2px;
-            width: 36px;
-            height: 36px;
-            background: transparent;
-            border-style: dashed;
+<style>
 
-            /* transform: translate(-50%) */
-          }
-          .hs-dropzone:hover, .hs-dropzone-hover {
-            border-color: rgb(22, 71, 162);
-          }
-          .hs-dropzone-has-file {
-            background-color: #fff;
-            border-color: green;
-          }
-        </style>
+
+/* -webkit-tap-highlight-color: rgba(232, 230, 227, 0); */
+  </style>
         <div class="col-lg-12 text-center">
           <div type="submit" class="hs-slide-submit" >
             <div closs="container-fluid">
-              <div class="row w-100">
-                <div class="col-md-2 hs-slide-submit_left m-0">
+              <div class="row w-100 m-0">
+                <div class="col-md-2 hs-slide-submit_left p-0 m-0">
                   <div id="drag1"
                     src="img_logo.gif" 
                     draggable="true" 
@@ -173,12 +123,25 @@
                     </svg>
                   </div>
                 </div>
-                <div class="col-md-8 m-0"></div>
-                <div class="col-md-2 hs-slide-submit_right m-0">
+                <div class="hs-slide-submit-center col-md-8 m-0">
+                  <!-- animated arrows -->
+                  <div class="hs-animated-arrow-container">
+                  <svg class="hs-animated-arrow" width="18px" height="17px" viewBox="-1 0 18 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g>
+                        <polygon class="hs-arrow a-3" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
+                        <polygon class="hs-arrow a-2" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
+                        <polygon class="hs-arrow a-1" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
+                        <polygon class="hs-arrow-fixed" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
+                        <!-- <path d="M-4.58892184e-16,0.56157424 L-4.58892184e-16,16.1929159 L9.708,8.33860465 L-1.64313008e-15,0.56157424 L-4.58892184e-16,0.56157424 Z M1.33333333,3.30246869 L7.62533333,8.34246869 L1.33333333,13.4327013 L1.33333333,3.30246869 L1.33333333,3.30246869 Z"></path> -->
+                    </g>
+                </svg>
+                  </div>
+                </div >
+                <div class="col-md-2 hs-slide-submit_right p-0 m-0">
                   <div id="div1"
                     ondragover ="onAllowDrop(event)"
                     ondrop="onDrop(event)"
-                    class="hs-slide-submit-button hs-dropzone">
+                    class="hs-slide-submit-button_drop hs-dropzone">
                   </div>
                 </div>
               </div>
@@ -194,6 +157,26 @@
     </form>
     
     
+    <!-- <div class="ani-arrow-container">
+      <svg class="ani-arrow" width="18px" height="17px" viewBox="0 0 18 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g id="prev" transform="translate(8.500000, 8.500000) scale(-1, 1) translate(-8.500000, -8.500000)">
+              <polygon class="arrow" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
+              <polygon class="arrow-fixed" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
+              <path d="M-1.48029737e-15,0.56157424 L-1.48029737e-15,16.1929159 L9.708,8.33860465 L-2.66453526e-15,0.56157424 L-1.48029737e-15,0.56157424 Z M1.33333333,3.30246869 L7.62533333,8.34246869 L1.33333333,13.4327013 L1.33333333,3.30246869 L1.33333333,3.30246869 Z"></path>
+          </g>
+      </svg>
+    
+      <svg class="ani-arrow" width="18px" height="17px" viewBox="-1 0 18 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g>
+              <polygon class="arrow" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
+              <polygon class="arrow-fixed" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
+              <path d="M-4.58892184e-16,0.56157424 L-4.58892184e-16,16.1929159 L9.708,8.33860465 L-1.64313008e-15,0.56157424 L-4.58892184e-16,0.56157424 Z M1.33333333,3.30246869 L7.62533333,8.34246869 L1.33333333,13.4327013 L1.33333333,3.30246869 L1.33333333,3.30246869 Z"></path>
+          </g>
+      </svg>
+    </div> -->
+    
+    
+    
   </div >
 </div >
 </div >
@@ -205,6 +188,27 @@
 
 <script>
   // *====== DRAG and Drop Submit *======//
+  
+  //animated checkbox
+  let animatedCheckMark = 
+    `<span class="hs-animated-checkbox-container">
+      <svg id="40d74f06-7bcb-4fa8-83d7-fe4849e923a7" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <style>.b3923ed5-d817-4490-83ed-173754ea24b3{fill:#231f20;}</style>
+          <g id="circlegroup">
+            <path id="circle" class="circle-shape" d="M172.93,113.49a77.45,77.45,0,1,1-25.12-28.84l17.71-15.9a100.68,100.68,0,1,0,25.24,28.74Z" transform="translate(-3 -10.83)"/>
+            <path id="check" class="check-shape" d="M52.82,141.33l27-27L104.4,148.4s74-93.06,164.45-137.57c0,0-111.83,86.66-168.93,194.83C99.92,205.66,72.19,162.9,52.82,141.33Z" transform="translate(-3 -10.83)"/>
+          </g>
+        </defs>
+      </svg>
+      <svg id="Logo" class="hs-Animate-Path" width="100%" height="100%" viewBox="0 0 612 792" xml:space="preserve">
+        <use id="Draw-Circle" class="hs-Draw-Circle hs-Animate-Draw" xlink:href="#circle" />
+        <use id="Draw-Check" class="hs-Draw-Check hs-Animate-Draw" xlink:href="#check" />
+        <!--<use class="Animate-Fill" xlink:href="#Logo-Group" /> -->
+      </svg>
+    </span>`
+    
+  
   let dz = document.querySelector('.hs-dropzone')
   function onAllowDrop(ev) {
     ev.preventDefault();
@@ -216,15 +220,17 @@
    
   function onDrag(ev) {
      ev.dataTransfer.setData("text", ev.target.id);
-     ev.currentTarget.style.cursor = 'move';
-     ev.currentTarget.style.background = 'yellow';
+    //  ev.currentTarget.style.cursor = 'move';
+    //  ev.currentTarget.style.background = 'yellow';
    }
    
    function onDrop(ev) {
      ev.preventDefault();
      var data = ev.dataTransfer.getData("text");
      ev.target.appendChild(document.getElementById(data));
-     dz.classList.add('hs-dropzone-has-file')
+     document.getElementById(data).classList.add('hs-fadeout')
+     dz.classList.add('hs-dropzone-has-file');
+     dz.innerHTML = animatedCheckMark;
    }
    
  </script>
