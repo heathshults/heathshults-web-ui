@@ -171,7 +171,7 @@ $(document).ready(() => {
     // auto fill battle
     const AUTOFILLED = 'is-autofilled';
     const onAutoFillStart = (el) => el.classList.add(AUTOFILLED);
-    const onAutoFillCancel = (el) => el.classList.remove(AUTOFILLED)
+    const onAutoFillCancel = (el) => el.classList.remove(AUTOFILLED);
     const onAnimationStart = ({ target, animationName }) => {
       switch (animationName) {
         case 'onAutoFillStart':
