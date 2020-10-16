@@ -291,9 +291,6 @@
 }
 
 .hs-intro-text {
-  position: absolute;
-  left: 50%;
-  z-index: 3;
   padding-top: 100px;
   padding-bottom: 50px;
   text-align: center;
@@ -327,13 +324,15 @@
 
   header,
   .hs-header {
+    position: relative;
     height: 100vh;
     background-color: #2f2f31;
-
     .hs-intro-text {
-      padding-top: 300px;
-      padding-bottom: 200px;
-
+      position: absolute;
+      top: 50vh;
+      left: 50%;
+      z-index: 3;
+      transform: translate(-50%, -50%);
       .hs-intro-lead-in {
         @include serif-font;
         padding-bottom: 75px;
@@ -341,7 +340,6 @@
         font-style: italic;
         line-height: 40px;
       }
-
       .hs-intro-heading {
         @include heading-font;
         padding-bottom: 50px;

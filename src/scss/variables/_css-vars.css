@@ -1,173 +1,192 @@
-root: {
-  /* Override Bootstrap color system */
+:root {
+  /*  Override Bootstrap color system  */
 
   --yellow: #fed136;
 
-  /* Override Bootstrap default state colors */
+  /*  Override Bootstrap default state colors  */
 
-  --primary: --yellow;
+  --primary: var(--yellow);
 
-  /* Override Bootstrap yiq lightness value */
+  /*  Override Bootstrap yiq lightness value  */
 
   --yiq-contrasted-threshold: 205;
 
-  /* Variables */
+  /*  Variables  */
+  --hs-color_red: #e2001a;
+  --hs-color_red_orange: #f63a0f;
+  --hs-color_orange: #f27011;
+  --hs-color_dark_yellow: #f2b01e;
+  --hs-color_yellow: #f2d31b;
+  --hs-color_yellow--light: #ffe659;
+  --hs-color_yellow--dark: #e2b900;
+  --hs-color_lime: #86e01e;
+  --hs-color_light_lime: #e7ffcb;
+  --hs-color_green: #4cd964;
+  --hs-color_green--light: #93ff7e;
+  --hs-color_green--dark: #468c1f;
+  --hs-color_silver: #aaa;
+  --hs-color_purple: #9a39d3;
+  --hs-color_turquoise: #5ac8fa;
+  --hs-color_blue-semimuted: #4997cd;
 
-  --hs-color_red_orange:             #f63a0f;
-  --hs-color_orange:                 #f27011;
-  --hs-color_dark_yellow:            #f2b01e;
-  --hs-color_yellow:                 #f2d31b;
-  --hs-color_yellow--light:          #ffe659;
-  --hs-color_yellow--dark:           #e2b900;
-  --hs-color_green:                  #4cd964;
-  --hs-color_lime:                   #86e01e;
-  --hs-color_light_lime:             #e7ffcb;
-  --hs-color_silver:                 #aaa;
-  --hs-color_purple:                 #9a39d3;
-  --hs-color_turquoise:              #5ac8fa;
 
+  /*  Gray and Brand Colors for use across theme  */
 
-  /* Gray and Brand Colors for use across theme */
-
-  --hs-theme-primary:                #fed136;
-  --hs-theme-primary--trans50:       rgba(254, 211, 54, 0.5);
-  --hs-theme-danger:                 #e74c3c;
-  --hs-theme-background-primary:     #f8f8f8;
-  --hs-theme-background-secondary:   #ebebeb;
-
-  --hs-black:                        #000;
-  --hs-black_25:                     rgba(0, 0, 0, 0.25);
-  --hs-black_50:                     rgba(0, 0, 0, 0.5);
-  --hs-black_75:                     rgba(0, 0, 0, 0.75);
-
-  --hs-gray-base:			              #111;
-  --hs-gray-medium:                 #2f2f31;
-  --hs-gray-darker:		              #222;
-  --hs-gray-dark:			              #333;
-  --hs-gray:				                #555;
-  --hs-gray-light:		              #777;
-  --hs-gray-lighter:		            #dedede;
-  --hs-gray-lighter-05:             #e9e9ed;
-  --hs-gray-lightest:		            #eee;
-
-  --hs-white:                      #fff;
-  --hs-white_5:                    #f8f8f8;
-  --hs-white_8:                    rgba(255, 255, 255, 0.08);
-  --hs-white_10:                   rgba(255, 255, 255, 0.1);
-  --hs-white_30:                   rgba(255, 255, 255, 0.3);
+  --hs-theme-primary: #fed136;
+  --hs-theme-primary--trans50: rgba(254, 211, 54, 0.5);
+  --hs-theme-danger: #e74c3c;
+  --hs-theme-background-primary: #f8f8f8;
+  --hs-theme-background-secondary: #ebebeb;
+  --hs-black: #000;
+  --hs-black_15: rgba(0, 0, 0, 0.15);
+  --hs-black_25: rgba(0, 0, 0, 0.25);
+  --hs-black_45: rgba(0, 0, 0, 0.45);
+  --hs-black_50: rgba(0, 0, 0, 0.5);
+  --hs-black_75: rgba(0, 0, 0, 0.75);
+  --hs-gray-base: #111;
+  --hs-gray-medium: #2f2f31;
+  --hs-gray-darker: #333;
+  --hs-gray-dark: #333;   /* #333 */
+  --hs-gray: #555; /* #555 */
+  --hs-gray-light: #777; /* #777 */
+  --hs-gray-lighter: #dedede; /* #dedede */
+  --hs-gray-lighter-05: #e9e9ed;
+  --hs-gray-lightest: #eee; /* #eee */
+  --hs-white: #fff;
+  --hs-white_2: #f2f2f2;
+  --hs-white_5: #f8f8f8;
+  --hs-white_8: rgba(255, 255, 255, 0.08);
+  --hs-white_10: rgba(255, 255, 255, 0.1);
+  --hs-white_30: rgba(255, 255, 255, 0.3);
+  --hs-white_60: rgba(255, 255, 255, 0.6);
+  --hs-white_100: rgba(255, 255, 255, 1);
 
   /* Dark Mode Colors */
-  --hs-blueGray-medium:            #507386;
-  --hs-blueGray-dark:              #0f161d;
-  --hs-blueGray-very-dark:         #181a1b;
-  --hs-blueGray-darker:            #0c0f11;
-  --hs-blueGray-darker--alpha75:   rgba(12, 15, 17, 0.75);
-  --hs-blueGray-light:             #2d373c;
-  --hs-baige-medium:               #a79e8b;
-  --hs-text-onDark:                rgb(255, 220, 206);
-  --hs-green-light:                #80cc94;
-  --hs-blue-light:                 #0291ca;
-  --hs-blue-light-muted:           #80b6cc;
-  --hs-blue-lighter:               #78bad8;
-  --hs-blue-lighter-muted:         #8ec1d9;
-  --hs-blue-lightest:              #a8dfff;
-  --hs-blue-lightest-muted:        #9bcbe6;
-  --hs-blue-dark:                  #1e364e;
-  --hs-link-primary:               var(--hs-theme-primary);
+  --hs-blueGray-medium: #507386;
+  --hs-blueGray-medium-muted: #476e82;
+  --hs-blueGray-medium-saturated: #136591;
+  --hs-blueGray-dark: #0f161d;
+  --hs-blueGray-very-dark: #181a1b; /* #181a1b */
+  --hs-blueGray-darker: #0c0f11;
+  --hs-blueGray-darker--alpha75: rgba(12, 15, 17, 0.75);
+  --hs-blueGray-light: #2d373c;
+  --hs-text-onDark: #fff;
+  --hs-green-light: #80cc94;
+  --hs-blue-light: #0291ca;
 
-  --hs-font-cursive-Caveat:          'Caveat', cursive;
-  --hs-font-cursive-NYCD:            'Nothing You Could Do', cursive;
-  --hs-font-cursive-Sedgwick:        'Sedgwick Ave Display', cursive;
-
-  --hs-text-shadow-light:            0px 0px 4px rgba(0, 0, 0, .95);
-  --hs-text-shadow-light-spread:     0px 4px 13px rgba(0, 0, 0, .75);
-  --hs-text-shadow-medium:           0px 0px 10px rgba(0, 0, 0, .85);
-
-  --hs-grid-columns:                12;
-  --hs-grid-gutter-width:           30px;
-  --hs-grid-row-columns:            6;
+  /*  --hs-blue-lighter: #83d6ff;
+  --hs-blue-lighter: #83d6ff;  */
+  --hs-blue-lighter: #78bad8;
+  --hs-blue-lightest: #a8dfff;
+  --hs-blue-light-muted: #80b6cc; /* or do #83d6ff */
+  --hs-blue-lighter-muted: #8ec1d9;
+  --hs-blue-lightest-muted: #9bcbe6;
+  --hs-blue-dark: #1e364e;
+  --hs-link-primary: var(--hs-theme-primary);
+  --hs-baige-light: #cac1ac;
+  --hs-baige-medium: #a79e8b;
+  --hs-theme-color-text: var(--hs-gray-dark);
+  --hs-theme-color-text-onDark: var(--hs-white);
+  --hs-font-cursive-Caveat: 'Caveat', cursive;
+  --hs-font-cursive-NYCD: 'Nothing You Could Do', cursive;
+  --hs-font-cursive-Sedgwick: 'Sedgwick Ave Display', cursive;
+  --hs-text-shadow-light: 0px 0px 4px rgba(0, 0, 0, .95);
+  --hs-text-shadow-light-spread: 0px 4px 13px rgba(0, 0, 0, .75);
+  --hs-text-shadow-medium: 0px 0px 10px rgba(0, 0, 0, .85);
+  --hs-canvas: var(--hs-white_5);
+  --hs-surface: var(--hs-white);
+  --hs-grid-columns: 12;
+  --hs-grid-gutter-width: 30px;
+  --hs-grid-row-columns: 6;
 
   /* Paddding & Margins Generics */
-  --hs-spacing--sm:                 .5rem;
-  --hs-spacing--md:                 1rem;
-  --hs-spacing--lg:                 1.5 rem;
+  --hs-spacing--sm: .5rem;
+  --hs-spacing--md: 1rem;
+  --hs-spacing--lg: 1.5 rem;
 
-  /* Borders */
-  --hs-border-width:                1px;
-  --hs-border-color:                var(--hs-gray-lighter);
-
-  --enable-rounded:                 true;
-
-  --hs-border-radius:               .25rem;
-  --hs-border-radius-sm:            .125rem;
-  --hs-border-radius-lg:            .5rem;
-  --hs-border-radius-md:            .25px;
-
+  /* Borders  */
+  --hs-border-width: 1px;
+  --hs-border-color: --hs-gray-lighter;
+  --enable-rounded: true;
+  --hs-border-radius: .25rem; /* 4px */
+  --hs-border-radius-sm: .125rem; /* 2px */
+  --hs-border-radius-lg: .5rem; /* 8px */
+  --hs-border-radius-md: .25%;
 
   /* Outer glow */
-  --hs-box-shadow-glow:              0px 4px 16px 2px rgba(255, 255, 255, 0.5);
+  --hs-box-shadow-glow: 0px 4px 16px 2px rgba(255, 255, 255, 0.5);
 
   /* Shadows */
-  --hs-shadow:                       0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  --hs-shadow-sm:                    0px 2px 4px 0px rgba(0, 0, 0, .5);
-  --hs-shadow-lg:                    0px 4px 8px 3px rgba(0, 0, 0, .4) rgba(0, 0, 0, 0.4);
-  --hs-shadow-inset-blue:            inset 0 0 0 2px #5173ff;
-  --hs-shadow-none:                  none;
-  --hs-card-shadow:                  0 4px 6px 2px rgba(0, 0, 0, 0.3);
+  --hs-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --hs-shadow-heavy: 2px 0.5rem 0.5rem rgba(0, 0, 0, 0.5);
+  --hs-shadow-xs: 2px 0.2rem 0.2rem rgba(0, 0, 0, 0.15);
+  --hs-shadow-xs-reverse: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.15);
+  --hs-shadow-xs-center: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.15);
+  --hs-shadow-xs-center-xtra: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.15), 0 0.2rem 0.2rem rgba(0, 0, 0, 0.15);
+  --hs-shadow-xs-center-reverse: -2px 0.1rem 0.2rem rgba(0, 0, 0, 0.15);
+  --hs-shadow-sm: 0px 2px 4px 0px rgba(0, 0, 0, .5);
+  --hs-shadow-lg: 0px 4px 8px 3px rgba(0, 0, 0, .4) rgba(0, 0, 0, 0.4);
+  --hs-shadow-inset-blue: inset 0 0 0 2px #5173ff;
+  --hs-shadow-none: none;
+  --hs-card-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+
+  /* --hs-card-shadow: 0 4px 6px 2px rgba(0, 0, 0, 0.3); */
 
   /* Backgrounds */
-  --hs-bg-black-to-transparent:      linear-gradient(0deg, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 1) 100%);
-
+  --hs-bg-black-to-transparent: linear-gradient(0deg, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 1) 100%);
 
   /* Cards */
-
   --hs-card-width: 100%;
   --hs-card-height: 100%;
-  --hs-card-title: 2.4rem;
+  --hs-card-title: 2rem;
   --hs-card-subtitle: calc(var(--hs-card-title) - 10%);
   --hs-card-img-width: var(--hs-card-width);
   --hs-card-img-height: 100%;
-
   --hs-card-width--sm: 265px;
   --hs-card-title--sm: 1.3rem;
   --hs-card-subtitle--sm: calc(var(--hs-card-title--sm) - 10%);
   --hs-card-img-width--sm: var(--hs-card-width--sm);
-  --hs-card-img-height--sm: 177px;
-
+  --hs-card-img-height--sm: 100%;
   --hs-card-width--lg: 400px;
   --hs-card-title--lg: 2.3rem;
   --hs-card-subtitle--lg: calc(var(--hs-card-title--lg) - 10%);
   --hs-card-img-width--lg: var(--hs-card-width--lg);
   --hs-card-img-height--lg: 287px;
-
   --hs-card-width--fluid: 100%;
   --hs-card-title--fluid: 2.4rem;
   --hs-card-subtitle--fluid: calc(var(--hs-card-title--fluid) - 10%);
   --hs-card-img-width--fluid: var(--hs-card-width--fluid);
   --hs-card-img-height--fluid: 100%;
-
   --hs-card-margin: .5rem;
 
   /* Card padding - borders - margins */
-  --hs-card-spacer-y:                     .75rem;
-  --hs-card-spacer-x:                     1.25rem;
-  --hs-card-border-width:                 var(--hs-border-width);
-  --hs-card-border-radius:                var(--hs-border-radius);
-  --hs-card-border-color:                 rgba(var(--hs-black), .125);
-  --hs-card-inner-border-radius:          subtract(var(--hs-card-border-radius), var(--hs-card-border-width));
-  --hs-card-cap-bg:                       rgba(var(--hs-black), .03);
-  --hs-card-cap-color:                    transparent;
-  --hs-card-color:                        transparent;
-  --hs-card-bg:                           var(--hs-white);
+  --hs-card-spacer-y: .75rem;
+  --hs-card-spacer-x: 1.25rem;
+  --hs-card-border-width: $(--hs-border-width);
+  --hs-card-border-radius: $(--hs-border-radius);
+  --hs-card-border-color: rgba(--hs-black, .125);
+  --hs-card-inner-border-radius: $(--hs-border-radius-sm);
+  --hs-card-cap-bg: rgba(--hs-black, .03);
+  --hs-card-cap-color: null;
+  --hs-card-color: null;
+  --hs-card-bg: $(--hs-white);
+  --hs-card-img-overlay-padding: 1.25rem;
+  --hs-card-group-margin: calc(var(--hs-grid-gutter-width) / 2);
+  --hs-card-deck-margin: var(--hs-card-group-margin);
+  --hs-card-columns-count: 3;
+  --hs-card-columns-gap: 1.25rem;
+  --hs-card-columns-margin: var(--hs-card-spacer-y);
 
-  --hs-card-img-overlay-padding:          1.25rem;
+  /* ====== Z-INDEX ======  */
+  --hs-zindex-dropdown: 1000;
+  --hs-zindex-sticky: 1020;
+  --hs-zindex-fixed: 1030;
+  --hs-zindex-modal-backdrop: 1040;
+  --hs-zindex-modal: 1050;
+  --hs-zindex-popover: 1060;
+  --hs-zindex-tooltip: 1070;
 
-  --hs-card-group-margin:                 var(--hs-grid-gutter-width) / 2;
-  --hs-card-deck-margin:                  var(--hs-card-group-margin);
-
-  --hs-card-columns-count:                3;
-  --hs-card-columns-gap:                  1.25rem;
-  --hs-card-columns-margin:               var(--hs-card-spacer-y);
-
+  /* ====== SHAPES ====== */
+  --hs-circle: 50%;
+  --hs-pill: 500%;
 }
-
