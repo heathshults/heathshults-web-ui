@@ -159,11 +159,19 @@
 @mixin banner-dimensions--sm {
   width: $hs-card-img-width--sm;
   height: $hs-card-img-height--sm;
+  .hs-card_img-header_img {
+    width: $hs-card-img-width--sm;
+    height: $hs-card-img-height--sm;
+  }
 }
 
 @mixin banner-dimensions--lg {
   width: $hs-card-img-width--lg;
   height: $hs-card-img-height--lg;
+  .hs-card_img-header_img {
+    width: $hs-card-img-width--lg;
+    height: $hs-card-img-height--lg;
+  }
 }
 
 @mixin banner-dimensions--fluid {

@@ -721,11 +721,11 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  background-color: transparent !important;
-  background-image: none !important;
+  // background-color: transparent !important;
+  // background-image: none !important;
   border: 2px solid $hs-theme-primary !important;
   -webkit-text-fill-color: $hs-white;
-  -webkit-box-shadow: inherit;
+  -webkit-box-shadow: 0 0 0px 1000px rgba(0, 0, 0, .75) inset;
   transition: background-color 50000s ease-in-out 0s;
 }
 // input:-internal-autofill-selected,
