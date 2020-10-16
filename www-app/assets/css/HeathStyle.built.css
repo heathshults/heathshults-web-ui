@@ -10641,11 +10641,19 @@ h3 {
 }
 .hs-card > .hs-card_header--sm {
   width: 265px;
-  height: 100%;
+  height: 150px;
+}
+.hs-card > .hs-card_header--sm .hs-card_img-header_img {
+  width: 265px;
+  height: 150px;
 }
 .hs-card > .hs-card_header--lg {
   width: 400px;
-  height: 287px;
+  height: 226px;
+}
+.hs-card > .hs-card_header--lg .hs-card_img-header_img {
+  width: 400px;
+  height: 226px;
 }
 .hs-card > .hs-card_header--fluid {
   width: 100%;
@@ -10664,11 +10672,19 @@ h3 {
 }
 .hs-card > .hs-card_header > .hs-overlay--sm {
   width: 265px;
-  height: 100%;
+  height: 150px;
+}
+.hs-card > .hs-card_header > .hs-overlay--sm .hs-card_img-header_img {
+  width: 265px;
+  height: 150px;
 }
 .hs-card > .hs-card_header > .hs-overlay--lg {
   width: 400px;
-  height: 287px;
+  height: 226px;
+}
+.hs-card > .hs-card_header > .hs-overlay--lg .hs-card_img-header_img {
+  width: 400px;
+  height: 226px;
 }
 .hs-card > .hs-card_header > .hs-overlay--fluid {
   width: 100%;
@@ -10790,11 +10806,19 @@ h3 {
 }
 .hs-card_img-header_img--sm {
   width: 265px;
-  height: 100%;
+  height: 150px;
+}
+.hs-card_img-header_img--sm .hs-card_img-header_img {
+  width: 265px;
+  height: 150px;
 }
 .hs-card_img-header_img--lg {
   width: 400px;
-  height: 287px;
+  height: 226px;
+}
+.hs-card_img-header_img--lg .hs-card_img-header_img {
+  width: 400px;
+  height: 226px;
 }
 .hs-card_img-header_img--fluid {
   width: 100%;
@@ -10877,11 +10901,19 @@ h3 {
 }
 .hs-card_header--sm {
   width: 265px;
-  height: 100%;
+  height: 150px;
+}
+.hs-card_header--sm .hs-card_img-header_img {
+  width: 265px;
+  height: 150px;
 }
 .hs-card_header--lg {
   width: 400px;
-  height: 287px;
+  height: 226px;
+}
+.hs-card_header--lg .hs-card_img-header_img {
+  width: 400px;
+  height: 226px;
 }
 .hs-card_header--fluid {
   width: 100%;
@@ -12764,11 +12796,9 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  background-color: transparent !important;
-  background-image: none !important;
   border: 2px solid #fed136 !important;
   -webkit-text-fill-color: #fff;
-  -webkit-box-shadow: inherit;
+  -webkit-box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0.75) inset;
   transition: background-color 50000s ease-in-out 0s;
 }
 

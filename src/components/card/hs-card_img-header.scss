@@ -8,12 +8,16 @@
     margin-bottom: 0;
     background-color: $hs-card-cap-bg;
     border-bottom: $hs-card-border-width solid $hs-card-border-color;
-    @include card-header-dimensions;
-
+    // @include card-header-dimensions;
+    &--sm {
+      @include banner-dimensions--sm;
+    }
+    &--lg {
+      @include banner-dimensions--lg;
+    }
     &:first-child {
       @include border-radius($hs-card-inner-border-radius $hs-card-inner-border-radius 0 0);
     }
-
     & +.list-group {
       .list-group_item:first-child {
         border-top: 0;
