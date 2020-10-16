@@ -17,11 +17,6 @@ const browserSync = require('browser-sync');
 // const rootPath = path.resolve(__dirname, '../')
 const srcPath = path.resolve(__dirname, '../src/assets');
 const wwwPath = path.resolve(__dirname, '../www-app/assets');
-// const srcJS = path.resolve(__dirname, '../src/js/');
-// const srcCompJS = path.resolve(__dirname, '../www/build');
-// const wwwCompJS = path.resolve(__dirname, '../www-app/components')
-// console.log(srcCompJS)
-// console.log(wwwCompJS)
 
 var onError = (err) => {
   console.log(chalk(`Error: ${err}`));
@@ -30,14 +25,14 @@ var onError = (err) => {
 
 // runPromises()
 function runAssetsPromises(cb) {
-  console.log('running sequential with promises.');
+  console.log('render assets sequence');
   copy_assets_content()
     .then(copy_css)
     .then(copy_images)
     .then(copy_mail)
     .then(copy_vendor);
     if (typeof cb === 'function') cb();
-}
+};
 exports.runAssetsPromises = runAssetsPromises;
 
 function render_components(cb) {

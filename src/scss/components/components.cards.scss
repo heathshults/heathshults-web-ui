@@ -85,11 +85,11 @@
             top: 50%;
             left: 0%;
             z-index: 1001;
+            content: "";
             background-position-x: center;
             background-position-y: bottom 40px;
             background-size: 48px;
             opacity: 1;
-
             transition: all ease .3s;
             transform: translate(0%)
           }

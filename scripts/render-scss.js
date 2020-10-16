@@ -3,16 +3,16 @@
 // const fs = require('fs');
 // const path = require('path');
 // const postcss = require('postcss')
-const { exec } = require('child_process')
+const { exec } = require('child_process');
 var appRoot = require('app-root-path');
-var chalk = require('chalk')
+var chalk = require('chalk');
 // const banner = require('./goCreds')
-var browserSync = require('browser-sync')
+var browserSync = require('browser-sync');
 // vars
-const mainStyleSheetIn = `${appRoot}/src/scss/styles.scss`
-const mainStyleSheetOut = `${appRoot}/www-app/assets/css/HeathStyle.built.css`
-const darkStyleSheetIn = `${appRoot}/src/scss/theme-dark-mode.scss`
-const darkStyleSheetOut = `${appRoot}/www-app/assets/css/theme-dark-mode.css`
+const mainStyleSheetIn = `${appRoot}/src/scss/styles.scss`;
+const mainStyleSheetOut = `${appRoot}/www-app/assets/css/HeathStyle.built.css`;
+const darkStyleSheetIn = `${appRoot}/src/scss/theme-dark-mode.scss`;
+const darkStyleSheetOut = `${appRoot}/www-app/assets/css/theme-dark-mode.css`;
 // console.log('starting outside...')
 
 var theStyleSheets = [
@@ -24,34 +24,29 @@ var theStyleSheets = [
     inFile: darkStyleSheetIn,
     outFile: darkStyleSheetOut
   }
-]
+];
 
-var result
+var result;
 
 function renderSCSS(callback) {
-  console.log('starting inside...');
+  // console.log('starting inside...');
 
   theStyleSheets.forEach((sheet) => {
     // var diditcred
-    var inStyleSheet = sheet.inFile
-    var outStyleSheet = sheet.outFile
+    var inStyleSheet = sheet.inFile;
+    var outStyleSheet = sheet.outFile;
 
-    console.log(inStyleSheet, outStyleSheet)
+    // console.log(inStyleSheet, outStyleSheet);
 
     exec(`sass ${inStyleSheet} ${outStyleSheet}`, (error) => {
       if (error) {
           console.log(chalk.red(`ERROR compileMain: ${error.message}`));
           return false;
 
-      } //else {
+      }
       return true;
-        // diditcred = addCredBanner(outStyleSheet)
-        // diditcred = 'Success' ? result =  'Success' + console.log('Sass compiled: ' + outStyleSheet) : result = diditcred
-        // return result
-
-     // }
-    })
-  })
+    });
+  });
 
   // add credit banner
   // function addCredBanner(styleSheet) {
@@ -60,40 +55,15 @@ function renderSCSS(callback) {
   //   return credsResult
   // }
 
-  console.log(chalk.green('CSS compiled'))
-  browserSync.stream()
-  return true
+  console.log(chalk.green('CSS compiled'));
+  browserSync.stream();
+  return true;
 }
-exports.renderSCSS = renderSCSS
+exports.renderSCSS = renderSCSS;
 
-renderSCSS()
-
-  // autoprefix it
-  // function autoprefixem(styleSheet) {
-  //   console.log('starting autoprefixer...')
-  //   // run autoprefixer
-  //   exec(`node ${postCSSpath}/postcss --use autoprefixer --autoprefixer.browsers "> 5%" -m -o ${styleSheet} ${styleSheet}`, (error, stdout, stderr) => {
-  //     if (error) {
-  //       console.log("ERROR Autoprefix 'em: \n " + stderr + "\n Error Message: " + error.message);
-  //       return error
-
-  //     } else {
-  //       console.log('AutoPrefixed: '+ styleSheet)
-  //       return 'Success'
-  //     }
-  //   })
-  // }
+renderSCSS();
 
 
-
-    // if (credsResult === 'Success') {
-    //   console.log('Credits added to: '+styleSheet)
-    //   return credsResult
-
-    // } else {
-    //   console.log('Error in goCreds function: '+ credsResult)
-    //   return credsResult
-    // }
 
 
 

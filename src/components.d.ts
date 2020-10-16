@@ -6,6 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface HsButton {
+    }
     interface HsCard {
         "cardContent": any;
         "cardHeader": any;
@@ -33,18 +35,15 @@ export namespace Components {
     interface HsCardHeader {
     }
     interface HsCardImgHeader {
-        "cardHeader": HTMLElement;
+        "cardHeader": any;
+        "cardHeaderImg": any;
+        "cardImgHeaderImg": HTMLImageElement;
         "cardSize": string;
         "clickTarget"?: string;
         "imgElem": any;
-        "imgH": string;
-        "imgHeight"?: any;
         "imgPath": string;
-        "imgSize": string;
-        "imgW": string;
-        "imgWidth"?: any;
-        "overlay": HTMLLinkElement;
-        "setSizeClass": any;
+        "modalId": string;
+        "overlay": any;
     }
     interface HsFlipper {
         "flipperBackEvents": string;
@@ -108,6 +107,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLHsButtonElement extends Components.HsButton, HTMLStencilElement {
+    }
+    var HTMLHsButtonElement: {
+        prototype: HTMLHsButtonElement;
+        new (): HTMLHsButtonElement;
+    };
     interface HTMLHsCardElement extends Components.HsCard, HTMLStencilElement {
     }
     var HTMLHsCardElement: {
@@ -211,6 +216,7 @@ declare global {
         new (): HTMLHsTimelineItemElement;
     };
     interface HTMLElementTagNameMap {
+        "hs-button": HTMLHsButtonElement;
         "hs-card": HTMLHsCardElement;
         "hs-card-body": HTMLHsCardBodyElement;
         "hs-card-footer": HTMLHsCardFooterElement;
@@ -231,6 +237,8 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface HsButton {
+    }
     interface HsCard {
         "cardContent"?: any;
         "cardHeader"?: any;
@@ -259,19 +267,16 @@ declare namespace LocalJSX {
     interface HsCardHeader {
     }
     interface HsCardImgHeader {
-        "cardHeader"?: HTMLElement;
+        "cardHeader"?: any;
+        "cardHeaderImg"?: any;
+        "cardImgHeaderImg"?: HTMLImageElement;
         "cardSize"?: string;
         "clickTarget"?: string;
         "imgElem"?: any;
-        "imgH"?: string;
-        "imgHeight"?: any;
         "imgPath"?: string;
-        "imgSize"?: string;
-        "imgW"?: string;
-        "imgWidth"?: any;
+        "modalId"?: string;
         "onLaunchModal"?: (event: CustomEvent<any>) => void;
-        "overlay"?: HTMLLinkElement;
-        "setSizeClass"?: any;
+        "overlay"?: any;
     }
     interface HsFlipper {
         "flipperBackEvents"?: string;
@@ -332,6 +337,7 @@ declare namespace LocalJSX {
         "type"?: string;
     }
     interface IntrinsicElements {
+        "hs-button": HsButton;
         "hs-card": HsCard;
         "hs-card-body": HsCardBody;
         "hs-card-footer": HsCardFooter;
@@ -355,6 +361,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "hs-button": LocalJSX.HsButton & JSXBase.HTMLAttributes<HTMLHsButtonElement>;
             "hs-card": LocalJSX.HsCard & JSXBase.HTMLAttributes<HTMLHsCardElement>;
             "hs-card-body": LocalJSX.HsCardBody & JSXBase.HTMLAttributes<HTMLHsCardBodyElement>;
             "hs-card-footer": LocalJSX.HsCardFooter & JSXBase.HTMLAttributes<HTMLHsCardFooterElement>;

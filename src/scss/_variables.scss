@@ -4,3 +4,7 @@
 @import "./variables/mixins";
 @import "./variables/spacing";
 @import "./variables/grid";
+@import "./variables/css-vars-mixin";
+
+@include cssvars;
+

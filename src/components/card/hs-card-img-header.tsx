@@ -2,25 +2,23 @@ import { Component, Element, Prop, Event, EventEmitter, Listen, h } from '@stenc
 
 @Component({
   tag: 'hs-card-img-header',
-  styleUrl: '../../scss/components/components.cards.scss',
-  shadow: true
+  styleUrl: './hs-card_img-header.scss',
+  shadow: true,
 })
 export class HSCardImgHeader {
-  @Element() el: HTMLDivElement;
+  @Element() el: HTMLElement;
+  @Prop() cardImgHeaderImg: HTMLImageElement;
 
 
-  @Prop() cardHeader: HTMLElement;
-  @Prop() overlay: HTMLLinkElement;
-  @Prop() imgElem: any;
   @Prop({reflect: true}) cardSize: string;
+  
+  @Prop() cardHeader: any;
+  @Prop() cardHeaderImg: any;
+  @Prop() overlay: any;
+  @Prop() imgElem: any;
+  @Prop({reflect: true}) modalId: string;
   @Prop({reflect: true}) imgPath: string;
-  @Prop({reflect: true}) imgSize: string;
-  @Prop({reflect: true}) imgWidth?: any = '265';
-  @Prop({reflect: true}) imgHeight?: any = '177';
-  @Prop() imgW: string;
-  @Prop() imgH: string;
   @Prop() clickTarget?: string;
-  @Prop() setSizeClass: any;
 
 
   modalLancher: EventEmitter;
@@ -37,51 +35,59 @@ export class HSCardImgHeader {
 
   }
 
-  // componentDidLoad() {
+  
+  // private cb() {
+  //   return
+  // }
+  
+  // private callback = (()=> { if (typeof this.cb === 'function') return this.cb() })
 
-  //   this.setSizeClass = (() => {
-  //     return this.getImgSizeClass();
+
+  // private getElements() {
+  //   return new Promise((resolve, reject) => {
+  //     try {
+  //       setTimeout(() => {
+  //         this.theElements();
+  //         this.cardHeaderImg = this.el.shadowRoot.querySelector('#hsHeaderImg')
+         
+  //         resolve(this.callback)
+  //       }, 3000)
+  //     } 
+  //     catch(error) {
+  //       let fullErrorMsg = `Error in getElements(): ${error}`;
+        
+  //       reject(console.log('getElements error: ' + fullErrorMsg))
+  //     }
   //   })
   // }
-  // @Method()
-  //   async getImgSizeClass() {
-  //     let headerImg = this.el.querySelector('img')
-  //     console.log(headerImg)
-  //     if (this.cardSize === '--sm') {
-  //       headerImg.style.width = '265px'
-  //       headerImg.style.height = '177px'
-  //       return '--sm'
+  
+  
+  // private theElements() {
+  //   return new Promise((resolve, reject) => {
+  //     try {
+  //       this.overlay = this.el.shadowRoot.querySelector('#imgHeaderOverlay');
+  //       this.cardImgHeaderImg = this.el.shadowRoot.querySelector('#hsHeaderImg');
+        
+  //       resolve(this.callback)
   //     }
-  //     if (this.cardSize === '--lg') {
-  //       headerImg.style.width = '400px'
-  //       headerImg.style.height = '287px'
-  //       return '--lg'
+  //     catch(error) {
+  //       reject('Reject because: ' + error)
   //     }
-  //     if (this.cardSize === '--fluid') {
-  //       headerImg.style.width = '100%'
-  //       headerImg.style.height = '100%'
-  //       return '--fluid'
-  //     }
-  //     if (typeof this.cardSize === 'undefined') {
-  //       headerImg.style.width = '100%'
-  //       headerImg.style.height = '100%'
-  //       return '--default'
-  //     }
-  //     return
-  //   }
+  //   })
+  // }
 
   render() {
-    this.imgW = this.imgWidth.replace(/px/gi, '')
-    this.imgH = this.imgHeight.replace(/px/gi, '')
-    this.imgWidth <= '250' || typeof this.imgWidth === 'undefined' ? this.cardSize = '265' : ''
+    // this.getElements().then(this.callback)
+
   return (
-    <header id="imgHeader" class={`hs-card_header hs-card_img-header${this.cardSize}`}>
-        <a id="imgHeaderOverlay" class={`hs-card_img-header_overlay${this.cardSize}`} href="javascript:void(0);" onClick={() => this.launchModalHandler('#modBowlopolis')}>
-        {/* <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path fill="#ffffff" d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/></svg> */}
-          <img id="hsHeaderImg" src={this.imgPath} class={`hs-card_img-header_img${this.cardSize}`} alt="header image" width={this.imgWidth} height={this.imgHeight} />
-        </a>
-      </header>
-    );
-  }
+    <header class={`hs-card_header hs-card_header${this.cardSize}`}>
+    <a id="imgHeaderOverlay" 
+      class={`hs-card_img-header_overlay hs-card_img-header_overlay${this.cardSize}`} 
+      href="#" 
+      onClick={() => this.launchModalHandler(`${this.modalId}`)}>
+      <img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img${this.cardSize}`} alt="header image" />
+    </a>
+    </header>
+  )}
 
 }
