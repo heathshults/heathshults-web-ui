@@ -200,23 +200,23 @@
   @include header-banner-sizes;
 }
 
-@mixin margins-generic($xya, $size) {
+// @mixin margins-generic($xya, $size) {
 
-  // x = horizontal, y= verticle, a = all sides
-  @if $xya=='x' {
-    margin-right: map.get($hs-get-mp-size, $size);
-    margin-left: map.get($hs-get-mp-size, $size);
-  }
+//   // x = horizontal, y= verticle, a = all sides
+//   @if $xya=='x' {
+//     margin-right: map.get($hs-get-mp-size, $size);
+//     margin-left: map.get($hs-get-mp-size, $size);
+//   }
 
-  @if $xya=='y' {
-    margin-top: map.get($hs-get-mp-size, $size);
-    margin-bottom: map.get($hs-get-mp-size, $size);
-  }
+//   @if $xya=='y' {
+//     margin-top: map.get($hs-get-mp-size, $size);
+//     margin-bottom: map.get($hs-get-mp-size, $size);
+//   }
 
-  @if $xya=='a' {
-    margin: map.get($hs-get-mp-size, $size);
-  }
-}
+//   @if $xya=='a' {
+//     margin: map.get($hs-get-mp-size, $size);
+//   }
+// }
 
 @mixin card-size {
   &[card-size="--sm"] {
