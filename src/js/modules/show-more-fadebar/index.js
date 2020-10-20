@@ -1,1 +1,1 @@
-module.exports = require('./show-more-ts.js');
+export * from './show-more-ts.js';
