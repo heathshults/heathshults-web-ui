@@ -1,49 +1,49 @@
 @import './mixins/_utilities.visibility.scss';
 
-.u-visible {
+.hs-visible {
   @include visible;
 }
 
-.u-invisible {
+.hs-invisible {
   @include invisible;
 }
 
-.u-visually-hidden {
+.hs-visually-hidden {
   @include visually-hidden;
 }
 
-.u-display-none {
+.hs-display-none {
   @include display-none;
 }
 
-.u-display-initial {
+.hs-display-initial {
   @include display-initial;
 }
 
-.u-display-inline {
+.hs-display-inline {
   @include display-inline;
 }
 
-.u-display-inline-block {
+.hs-display-inline-block {
   @include display-inline-block;
 }
 
-.u-display-block {
+.hs-display-block {
   @include display-block;
 }
 
-.u-display-table {
+.hs-display-table {
   @include display-table;
 }
 
-.u-display-table-cell {
+.hs-display-table-cell {
   @include display-table-cell;
 }
 
-.u-display-flex {
+.hs-display-flex {
   @include display-flex;
 }
 
-.u-display-inline-flex {
+.hs-display-inline-flex {
   @include display-inline-flex;
 }
