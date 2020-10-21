@@ -3,8 +3,7 @@ import { Component, Element, Prop, Event, EventEmitter, Listen, h } from '@stenc
 @Component({
   tag: 'hs-card',
   styleUrl: '../../scss/components/components.cards.scss',
-  shadow: true,
-
+  shadow: true
 })
 
 export class HSCard {
@@ -24,6 +23,7 @@ export class HSCard {
   @Prop() imgElem: any;
   @Prop({reflect: true}) modalId: string;
   @Prop({reflect: true}) imgPath: string;
+  @Prop({reflect: true}) showHide: string;
   // @Prop({reflect: true}) imgWidth?: any = '265px';
   // @Prop({reflect: true}) imgHeight?: any = '177px';
   // @Prop() imgW: string;
@@ -99,11 +99,13 @@ export class HSCard {
 
   render() {
     this.getElements().then(this.callback)
+    typeof this.imgPath === 'undefined' ? this.showHide = 'hs-display-none' : this.showHide = 'hs-display-block'
+    typeof this.cardSize === 'undefined' ? this.cardSize = '--fluid' : ''
     return (
       <div id={this.cardId} class={`hs-card hs-card-size${this.cardSize} ${this.colorTone}`}>
        <header class={`hs-card_header hs-card_header${this.cardSize}`}>
         <a id="imgHeaderOverlay" 
-          class={`hs-overlay hs-card_img-header_overlay${this.cardSize}`} 
+          class={`hs-overlay hs-card_img-header_overlay${this.cardSize} ${this.showHide}`} 
           href="#" 
           onClick={() => this.launchModalHandler(`${this.modalId}`)}>
           <img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img${this.cardSize}`} alt="header image" />
@@ -113,6 +115,7 @@ export class HSCard {
         <div class={`hs-card_body hs-card-size${this.cardSize}`} >
           <slot name="card-body" />
         </div>
+        
         <div class={`hs-card_footer row m-0 d-flex w-100 ${this.colorToneClass} p-0`}>
         
           <div class="col-md-12 hs-logo-row--footer">

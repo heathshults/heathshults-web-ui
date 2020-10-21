@@ -24,6 +24,7 @@ export namespace Components {
         "imgPath": string;
         "modalId": string;
         "overlay": any;
+        "showHide": string;
     }
     interface HsCardBody {
         "cardSize": string;
@@ -256,6 +257,7 @@ declare namespace LocalJSX {
         "modalId"?: string;
         "onLaunchModal"?: (event: CustomEvent<any>) => void;
         "overlay"?: any;
+        "showHide"?: string;
     }
     interface HsCardBody {
         "cardSize"?: string;
