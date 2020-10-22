@@ -3,7 +3,7 @@
 .hs-contact,
 .hs-section {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   background-color: $hs-canvas;
   background-image: url("/assets/img/bg/camera-missing.jpg");
   background-repeat: no-repeat;

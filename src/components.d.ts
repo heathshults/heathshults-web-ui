@@ -9,6 +9,8 @@ export namespace Components {
     interface HsButton {
     }
     interface HsCard {
+        "autoFooter": boolean;
+        "basicFooter": any;
         "cardContent": any;
         "cardHeader": any;
         "cardHeaderImg": any;
@@ -20,6 +22,7 @@ export namespace Components {
         "clickTarget"?: string;
         "colorTone": string;
         "colorToneClass": string;
+        "footerDiv": HTMLDivElement;
         "imgElem": any;
         "imgPath": string;
         "modalId": string;
@@ -241,6 +244,8 @@ declare namespace LocalJSX {
     interface HsButton {
     }
     interface HsCard {
+        "autoFooter"?: boolean;
+        "basicFooter"?: any;
         "cardContent"?: any;
         "cardHeader"?: any;
         "cardHeaderImg"?: any;
@@ -252,6 +257,7 @@ declare namespace LocalJSX {
         "clickTarget"?: string;
         "colorTone"?: string;
         "colorToneClass"?: string;
+        "footerDiv"?: HTMLDivElement;
         "imgElem"?: any;
         "imgPath"?: string;
         "modalId"?: string;

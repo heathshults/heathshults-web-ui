@@ -24,6 +24,34 @@ export class HSCard {
   @Prop({reflect: true}) modalId: string;
   @Prop({reflect: true}) imgPath: string;
   @Prop({reflect: true}) showHide: string;
+  @Prop() autoFooter: boolean;
+  @Prop() footerDiv: HTMLDivElement;
+  @Prop() basicFooter: any = `
+  <div class="col-md-12 hs-logo-row--footer">
+    <ul class="footer-logos">
+      <li class="flex-item">
+        <img src="/assets/img/logos/dmHTML5_Logo_512.png" class="hs-dev-logo" width="24" alt="HTML5 logo" />
+      </li>
+      <li class="flex-item">
+        <img src="/assets/img/logos/Sass-150.png" class="hs-dev-logo" width="24" alt="sass logo" />
+      </li>
+      <li class="flex-item">
+        <img src="/assets/img/logos/dm-css3-150.png" class="hs-dev-logo" width="24" alt="css logo" />
+      </li>
+      <li class="flex-item">
+        <img src="/assets/img/logos/js-logo.jpg" class="hs-dev-logo" width="24" alt="javascript logo" />
+      </li>
+      <li class="flex-item">
+        <img src="/assets/img/logos/dm-Node.png" class="hs-dev-logo" width="24" alt="node js logo" />
+      </li>
+      <li class="flex-item">
+        <img src="/assets/img/logos/gulp-150.png" class="hs-dev-logo" width="24" alt="gulp logo" />
+      </li>
+      <li class="flex-item">
+        <img src="/assets/img/logos/dm-Git-logo.png" class="hs-dev-logo" width="24" alt="git logo" />
+      </li>
+    </ul>
+  </div>`;
   // @Prop({reflect: true}) imgWidth?: any = '265px';
   // @Prop({reflect: true}) imgHeight?: any = '177px';
   // @Prop() imgW: string;
@@ -82,7 +110,10 @@ export class HSCard {
       try {
         this.cardContent = document.querySelector('.hs-card_content');
         this.overlay = this.el.shadowRoot.querySelector('#imgHeaderOverlay');
-        this.cardImgHeaderImg = this.el.shadowRoot.querySelector('#hsHeaderImg');
+        this.footerDiv = this.el.shadowRoot.querySelector('#foot');
+        if (this.autoFooter) {
+        this.footerDiv.innerHTML = this.basicFooter;
+        this.cardImgHeaderImg = this.el.shadowRoot.querySelector('#hsHeaderImg');}
         resolve(this.callback)
       }
       catch(error) {
@@ -90,11 +121,12 @@ export class HSCard {
       }
     })
   }
+  
 
   componentWillLoad() {
     typeof this.colorTone === 'undefined' || typeof this.colorTone === null || this.colorTone === 'light' ? this.colorToneClass = 'light' :
       this.colorTone === 'dark' ? this.colorToneClass = 'dark' : this.colorToneClass = 'light';
-    
+      
   }  
 
   render() {
@@ -116,33 +148,9 @@ export class HSCard {
           <slot name="card-body" />
         </div>
         
-        <div class={`hs-card_footer row m-0 d-flex w-100 ${this.colorToneClass} p-0`}>
-        
-          <div class="col-md-12 hs-logo-row--footer">
-            <ul class="footer-logos">
-              <li class="flex-item">
-                <img src="/assets/img/logos/dmHTML5_Logo_512.png" class="hs-dev-logo" width="24" alt="HTML5 logo" />
-              </li>
-              <li class="flex-item">
-                <img src="/assets/img/logos/Sass-150.png" class="hs-dev-logo" width="24" alt="sass logo" />
-              </li>
-              <li class="flex-item">
-                <img src="/assets/img/logos/dm-css3-150.png" class="hs-dev-logo" width="24" alt="css logo" />
-              </li>
-              <li class="flex-item">
-                <img src="/assets/img/logos/js-logo.jpg" class="hs-dev-logo" width="24" alt="javascript logo" />
-              </li>
-              <li class="flex-item">
-                <img src="/assets/img/logos/dm-Node.png" class="hs-dev-logo" width="24" alt="node js logo" />
-              </li>
-              <li class="flex-item">
-                <img src="/assets/img/logos/gulp-150.png" class="hs-dev-logo" width="24" alt="gulp logo" />
-              </li>
-              <li class="flex-item">
-                <img src="/assets/img/logos/dm-Git-logo.png" class="hs-dev-logo" width="24" alt="git logo" />
-              </li>
-            </ul>
-          </div>
+        <div id="foot" class={`hs-card_footer row m-0 d-flex w-100 ${this.colorToneClass} p-0`}>
+          
+          <slot name="card-footer" />
         </div>
       </div>
     );
