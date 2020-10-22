@@ -23,7 +23,7 @@
   & > {
     .hs-card_header {
       display: flex;
-      padding: 0;
+      padding: .5rem;
       margin-bottom: 0;
       background-color: $hs-card-cap-bg;
       border-bottom: $hs-card-border-width solid $hs-card-border-color;
@@ -162,6 +162,7 @@
     .hs-card_header {
       width: 100%;
       max-height: 194px;
+      padding: .5rem;
     }
   }
 }
@@ -174,7 +175,6 @@
   flex: 1 1 auto;
   width: 100%;
   width: $hs-card-width--fluid;
-  height: 170px;
   overflow: hidden;
   color: $hs-card-color;
   background-color: $hs-white_5;
@@ -204,7 +204,7 @@
 
 .hs-card_header {
   display: flex;
-  padding: 0;
+  padding: .5rem;
   margin-bottom: 0;
   background-color: $hs-card-cap-bg;
   border-bottom: $hs-card-border-width solid $hs-card-border-color;
@@ -365,13 +365,13 @@
     border-bottom-right-radius: 0;
   }
 
-  .hs-card-group > .hs-card:not(:last-child) .hs-card-img--top,
+  .hs-card-group > .hs-card:not(:last-child) .hs-card_img--top,
   .hs-card-group > .hs-card:not(:last-child) .hs-card_header {
     border-top-right-radius: 0;
   }
 
   .hs-card-group > .hs-card:not(:last-child) .hs-card_img--bottom,
-  .hs-card-group > .hs-card:not(:last-child) .hs-card-footer {
+  .hs-card-group > .hs-card:not(:last-child) .hs-card_footer {
     border-bottom-right-radius: 0;
   }
 
@@ -380,13 +380,13 @@
     border-bottom-left-radius: 0;
   }
 
-  .hs-card-group > .hs-card:not(:first-child) .hs-card-img--top,
+  .hs-card-group > .hs-card:not(:first-child) .hs-card_img--top,
   .hs-card-group > .hs-card:not(:first-child) .hs-card_header {
     border-top-left-radius: 0;
   }
 
   .hs-card-group > .hs-card:not(:first-child) .hs-card_img--bottom,
-  .hs-card-group > .hs-card:not(:first-child) .hs-card-footer {
+  .hs-card-group > .hs-card:not(:first-child) .hs-card_footer {
     border-bottom-left-radius: 0;
   }
 }
@@ -427,6 +427,9 @@
     width: 24px;
     vertical-align: middle;
   }
+}
+.hs-skills-logo {
+  vertical-align: middle;
 }
 
 .hs-divider {
@@ -469,6 +472,7 @@
 
     > .hs-card_header {
       @include border-radius(0);
+      padding: .5rem;
       margin-bottom: -$hs-card-border-width;
     }
   }
