@@ -23,7 +23,7 @@
   & > {
     .hs-card_header {
       display: flex;
-      padding: .5rem;
+      padding: 0;
       margin-bottom: 0;
       background-color: $hs-card-cap-bg;
       border-bottom: $hs-card-border-width solid $hs-card-border-color;
@@ -162,7 +162,6 @@
     .hs-card_header {
       width: 100%;
       max-height: 194px;
-      padding: .5rem;
     }
   }
 }
