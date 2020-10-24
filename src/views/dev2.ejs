@@ -109,6 +109,7 @@
                   </div>
                 </div>
                 <div class="hs-slide-submit-center col-md-8 m-0">
+                  <label class="hs-slide-submit_label">SEND</label>
                   <!-- animated arrows -->
                   <div class="hs-animated-arrow-container">
                   <svg class="hs-animated-arrow" width="18px" height="17px" viewBox="-1 0 18 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -171,6 +172,24 @@
 </div >
 </section >
 
+<section class="hs-section">
+  <hs-timeline loading>
+    <hs-timeline-item left>Nothing</hs-timeline-item>
+    <hs-timeline-item type="brand">
+      Big bang
+      <p class="hs-paragraph">
+        Widely considered to be how the universe began
+      </p>
+    </hs-timeline-item>
+    <hs-timeline-item type="info">Galaxies go everywhere</hs-timeline-item>
+    <hs-timeline-item type="warning">Solar systems form</hs-timeline-item>
+    <hs-timeline-item type="success">Earth appears</hs-timeline-item>
+    <hs-timeline-item type="error">Human infestation occurs!</hs-timeline-item>
+    <hs-timeline-item last>All this has happened before and will happen again</hs-timeline-item>
+    <hs-timeline-item loading>Evolution</hs-timeline-item>
+  </hs-timeline>
+</section>
+
 <section>
   <hs-card-img-header 
     img-path="/assets/img/portfolio/Fannie-Mae/blueprint-card-header.jpg"
@@ -207,8 +226,9 @@
   function onAllowDrop(ev) {
     ev.preventDefault();
     if (!dz.classList.contains('hs-dropzone-hover')) {
-      dz.classList.toggle('hs-dropzone-hover')
+      dz.classList.toggle('hs-dropzone-hover');
     }
+    dz.style.cursor = 'move';
   }
 
    

@@ -10638,7 +10638,7 @@ h3 {
 }
 .hs-card > .hs-card_header {
   display: flex;
-  padding: 0.5rem;
+  padding: 0;
   margin-bottom: 0;
   background-color: rgba(0, 0, 0, 0.03);
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
@@ -10804,7 +10804,6 @@ h3 {
 .hs-card.hs-card-size--md .hs-card_header {
   width: 100%;
   max-height: 194px;
-  padding: 0.5rem;
 }
 
 .hs-card_img-header_img {
@@ -13041,10 +13040,26 @@ input:not(:-webkit-autofill) {
   transform: translate(-50%);
 }
 .hs-slide-submit .hs-slide-submit-center {
+  position: relative;
   padding: 0;
   margin: 0;
+  text-align: center;
+}
+.hs-slide-submit .hs-slide-submit-center .hs-slide-submit_label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+  font-weight: 700;
+  color: #dedede;
+  letter-spacing: 2;
+  transform: translate(-50%, -50%);
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
 }
 .hs-slide-submit .hs-slide-submit-center .hs-animated-arrow-container {
+  position: absolute;
+  z-index: 1001;
   display: flex;
   align-items: center;
   height: 32px;
