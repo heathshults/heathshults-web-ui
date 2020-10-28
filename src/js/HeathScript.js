@@ -7,7 +7,7 @@
 
 (($) => {
   'use strict'; // Start of use strict
-  // ====== RANKING BARS
+/*  // ====== RANKING BARS
   var theBars=document.querySelectorAll('.hs-ranking-bar');
   theBars.forEach(aBar => {
     // eslint-disable-next-line no-undef
@@ -15,7 +15,7 @@
     $(aBar).attr('style',`width: ${barWidth}%`);
   });
 
-/*
+
   // scrolling nav
   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
     if (location.pathname.replace(/^\//,"")==
