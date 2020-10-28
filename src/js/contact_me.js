@@ -1,12 +1,17 @@
 // *======* CONTACT FORM *======* //
 /* eslint-disable no-undef, no-unused-vars */
 (($) => {
+  // *======* CONTACT FORM *======* //
   window.onload = () => {
     const contactForm=document.querySelector('#contactForm');
     const contactFormFields=contactForm.querySelectorAll('.form-control');
-    // console.log(contactForm),console.log(contactFormFields);
-  
-    contactFormFields.forEach((field) => {
+    let contactFormFieldsValues= new Array;
+    console.log(contactForm),console.log(contactFormFields);
+
+    for(let i=0; i<contactFormFields.length;i++) {
+      let name = `${contactFormFields[i].name}`;
+      let value = `${contactFormFields[i].value}`;
+      contactFormFieldsValues[i] = {name: value};
       field.addEventListener(('onfocus','click'),(event) => {
         if (event.target.value&&event.target.parentElement.classList.contains('antiblur')) {
           return;
@@ -19,11 +24,15 @@
         if (!event.target.value&&!event.target.parentElement.classList.contains('antiblur')) {
           event.target.parentElement.classList.add('antiblur');
         }
-  
-      }); // end blur event
-    }); //end foreach
-  
-  
+
+      });
+      field.addEventListener('change', function(event) {
+        
+      });
+      // end blur event
+    }; //end foreach
+
+
     // auto fill battle
     const AUTOFILLED='is-autofilled';
     const onAutoFillStart=(el) => el.classList.add(AUTOFILLED);
@@ -37,6 +46,15 @@
           return onAutoFillCancel(target);
       }
     };
+  
+  
+    document.querySelector('#contactForm input,#contactForm textarea').addEventListener('change', function(event) {
+      console.log('Got a CHANGE');
+      event.forEach(formField => {
+        console.log(`new value ${formField.name}: ${formField.value}`);
+      })
+      console.log(`new value ${event.target.name}: ${event.target.value}`);
+    });
   };
   $('#contactForm input,#contactForm textarea').jqBootstrapValidation({
       preventSubmit: true,

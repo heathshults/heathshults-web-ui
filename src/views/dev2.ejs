@@ -44,6 +44,31 @@
   </head>
 
   <body id="page-top" class="index">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top hs-bg-grad-black-trans" id="mainNav">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+          aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <a class="navbar-brand js-scroll-trigger site-logo" href="#page-top"><span
+              class="hs-brand-symbol">@</span><span>HeathShults.com</span></a>
+          <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+          </ul>
+          <div class="form-inline my-2 my-lg-0">
+            <button class="hs-mode-widget" id="mode_widget"></button>
+            <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+          </div>
+        </div>
+      </div>
+    </nav>
+    
 
   <section id="contact" class="hs-contact hs-section pt-5">
   <div class="container  pt-5">
@@ -109,10 +134,10 @@
                   </div>
                 </div>
                 <div class="hs-slide-submit-center col-md-8 m-0">
-                  <label class="hs-slide-submit_label">SEND</label>
+                  <span class="hs-slide-submit_label">SEND</span>
                   <!-- animated arrows -->
                   <div class="hs-animated-arrow-container">
-                  <svg class="hs-animated-arrow" width="18px" height="17px" viewBox="-1 0 18 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <svg id="arrows" class="hs-animated-arrow" width="18px" height="17px" viewBox="-1 0 18 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <g>
                         <polygon class="hs-arrow a-3" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
                         <polygon class="hs-arrow a-2" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
@@ -124,7 +149,7 @@
                   </div>
                 </div >
                 <div class="col-md-2 hs-slide-submit_right p-0 m-0">
-                  <div id="div1"
+                  <div id="dzone"
                     ondragover ="onAllowDrop(event)"
                     ondrop="onDrop(event)"
                     class="hs-slide-submit-button_drop hs-dropzone">
@@ -142,24 +167,14 @@
       </div>
     </form>
     
+<!-- <span class="hs-animated-checkbox-container"> -->
+<svg class="svg-checkmark" x="0px" y="0px" viewBox="0 0 135 110" width="35px" height="43px">
+  <rect class="box" x="5" y="5" width="100" height="100" transform="rotate(90 55 55)"/>
+  <path class="check" d="M126.8,14L55.7,85.1L29.2,63.4"/>
+</svg> 
     
-    <!-- <div class="ani-arrow-container">
-      <svg class="ani-arrow" width="18px" height="17px" viewBox="0 0 18 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-          <g id="prev" transform="translate(8.500000, 8.500000) scale(-1, 1) translate(-8.500000, -8.500000)">
-              <polygon class="arrow" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
-              <polygon class="arrow-fixed" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
-              <path d="M-1.48029737e-15,0.56157424 L-1.48029737e-15,16.1929159 L9.708,8.33860465 L-2.66453526e-15,0.56157424 L-1.48029737e-15,0.56157424 Z M1.33333333,3.30246869 L7.62533333,8.34246869 L1.33333333,13.4327013 L1.33333333,3.30246869 L1.33333333,3.30246869 Z"></path>
-          </g>
-      </svg>
-    
-      <svg class="ani-arrow" width="18px" height="17px" viewBox="-1 0 18 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-          <g>
-              <polygon class="arrow" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
-              <polygon class="arrow-fixed" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
-              <path d="M-4.58892184e-16,0.56157424 L-4.58892184e-16,16.1929159 L9.708,8.33860465 L-1.64313008e-15,0.56157424 L-4.58892184e-16,0.56157424 Z M1.33333333,3.30246869 L7.62533333,8.34246869 L1.33333333,13.4327013 L1.33333333,3.30246869 L1.33333333,3.30246869 Z"></path>
-          </g>
-      </svg>
-    </div> -->
+
+    <!-- </span> -->
     
     
     
@@ -204,37 +219,33 @@
   
   //animated checkbox
   let animatedCheckMark = 
-    `<span class="hs-animated-checkbox-container">
-      <svg id="40d74f06-7bcb-4fa8-83d7-fe4849e923a7" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <style>.b3923ed5-d817-4490-83ed-173754ea24b3{fill:#231f20;}</style>
-          <g id="circlegroup">
-            <path id="circle" class="circle-shape" d="M172.93,113.49a77.45,77.45,0,1,1-25.12-28.84l17.71-15.9a100.68,100.68,0,1,0,25.24,28.74Z" transform="translate(-3 -10.83)"/>
-            <path id="check" class="check-shape" d="M52.82,141.33l27-27L104.4,148.4s74-93.06,164.45-137.57c0,0-111.83,86.66-168.93,194.83C99.92,205.66,72.19,162.9,52.82,141.33Z" transform="translate(-3 -10.83)"/>
-          </g>
-        </defs>
-      </svg>
-      <svg id="Logo" class="hs-Animate-Path" width="100%" height="100%" viewBox="0 0 612 792" xml:space="preserve">
-        <use id="Draw-Circle" class="hs-Draw-Circle hs-Animate-Draw" xlink:href="#circle" />
-        <use id="Draw-Check" class="hs-Draw-Check hs-Animate-Draw" xlink:href="#check" />
-        <!--<use class="Animate-Fill" xlink:href="#Logo-Group" /> -->
-      </svg>
-    </span>`
+    `<svg class="svg-checkmark" x="0px" y="0px" viewBox="0 0 135 110" width="40px" height="50px">
+        <path class="check" d="M126.8,14L55.7,85.1L29.2,63.4"/>
+      </svg>`
     
   
   let dz = document.querySelector('.hs-dropzone')
+  let arrows = document.querySelector('#arrows')
   function onAllowDrop(ev) {
     ev.preventDefault();
+    // dz.style.cursor = 'move';
     if (!dz.classList.contains('hs-dropzone-hover')) {
       dz.classList.toggle('hs-dropzone-hover');
     }
-    dz.style.cursor = 'move';
+    if (!arrows.classList.contains('hs-fadeout')){
+      arrows.classList.add('hs-fadeout')
+    }
+  }
+  function onDragLeave(ev) {
+    if (arrows.classList.contains('hs-fadeout')){
+      arrows.classList.remove('hs-fadeout')
+    }
   }
 
    
   function onDrag(ev) {
-     ev.dataTransfer.setData("text", ev.target.id);
-    //  ev.currentTarget.style.cursor = 'move';
+    ev.dataTransfer.setData("text", ev.target.id);
+    ev.currentTarget.style.cursor = 'move';
     //  ev.currentTarget.style.background = 'yellow';
    }
    
@@ -244,7 +255,11 @@
      ev.target.appendChild(document.getElementById(data));
      document.getElementById(data).classList.add('hs-fadeout')
      dz.classList.add('hs-dropzone-has-file');
-     dz.innerHTML = animatedCheckMark;
+    //  dz.innerHTML = animatedCheckMark;
+    let checky = document.createElement('span');
+    checky.classList.add('hs-animated-checkbox-container')
+    checky.innerHTML = animatedCheckMark;
+    dz.appendChild(checky)
    }
    
  </script>
@@ -266,6 +281,8 @@
   <!-- Theme JavaScript -->
   <script src="/assets/js/HeathScript.built.js" type="module"></script>
   <!-- <script src="hScript.bundle.js"></script> -->
+  
+  <script src="/assets/js/autofill-detector.js"></script>
 
   <script>
     function showModal(modal) {
