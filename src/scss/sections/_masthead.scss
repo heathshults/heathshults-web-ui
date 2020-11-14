@@ -23,97 +23,196 @@ header.masthead,
     content: '';
     background: rgba(0, 0, 0, 0.64);
   }
-
-  .masthead-subheading {
-    margin-bottom: 25px;
-    font-family: $subheadings-font-family;
-    font-size: 1.5rem;
-    font-style: italic;
-    line-height: 1.5rem;
-  }
-
-  .masthead-heading,
-  .hs-intro-heading {
-    @include heading-font;
-    padding-bottom: 75px;
-    margin-bottom: 25px;
-    // margin-bottom: 2rem;
-    font-family: $headings-font-family;
-    font-size: 3.25rem;
-    font-weight: 700;
-    line-height: 3.25rem;
+}
+@include media-breakpoint-up(lg) {
+  header.masthead,
+  .hs-header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    color: #fff;
     text-align: center;
-    // text-shadow: $hs-text-shadow-light-spread;
-    text-shadow: rgba(0, 0, 0, 1) 0px 0px 15px, rgba(0, 0, 0, 1) 0px 0px 10px;
-    white-space: nowrap;
+    background-color: $hs-gray-medium;
+    background-image: url('/assets/img/bg/DRTECHNOLOGY.jpg');
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: top -150px center;
+    @include background-cover;
+    &::before {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      z-index: 2;
+      width: 100%;
+      height: 100vh;
+      content: '';
+      background: rgba(0, 0, 0, 0.64);
+    }
+    .hs-intro-text {
+      left: 0;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      text-align: center;
+      transform: translateY(-50%);
+      .hs-intro-lead-in {
+        @include serif-font;
+        padding-bottom: 75px;
+        font-size: 40px;
+        font-style: italic;
+        line-height: 40px;
+        text-align: center;
+        text-shadow: $hs-text-shadow-light;
+      }
+      .masthead-subheading {
+        margin-bottom: 25px;
+        font-family: $subheadings-font-family;
+        font-size: 1.5rem;
+        font-style: italic;
+        line-height: 1.5rem;
+      }
+      .masthead-heading,
+      .hs-intro-heading {
+        @include heading-font;
+        padding-bottom: 75px;
+        margin-bottom: 25px;
+        font-size: 4.6875rem;
+        font-weight: 700;
+        line-height: 4.6875rem;
+        text-align: center;
+        text-shadow: $hs-text-shadow-light-spread;
+      }
+    }
+
+    header,
+    .hs-header {
+      position: relative;
+      min-height: 100vh;
+      background-color: #2f2f31;
+      .hs-intro-text {
+        position: absolute;
+        top: 50vh;
+        left: 50%;
+        z-index: 3;
+        transform: translate(-50%, -50%);
+        .hs-intro-lead-in {
+          @include serif-font;
+          padding-bottom: 75px;
+          font-size: 40px;
+          font-style: italic;
+          line-height: 40px;
+        }
+        .hs-intro-heading {
+          @include heading-font;
+          padding-bottom: 50px;
+          font-size: 75px;
+          font-weight: 700;
+          line-height: 75px;
+        }
+      }
+    }
   }
-  // .js-scroll-trigger {
-  //   &.btn{
-  //     &.btn-xl {
-  //       &.hs-effect-yellow-button {
-  //         color: #000;
-  //         background-color: $hs-theme-primary;
-  //         &:hover,
-  //         &:active,
-  //         &:visited,
-  //         &:focus {
-  //           background-color: darken($hs-theme-primary, 15%);
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
 }
 
 @include media-breakpoint-up(md) {
   .hs-header {
+    position: relative;
+    min-height: 100vh;
+    background-color: #2f2f31;
     background-position: top center;
   }
   .hs-intro-text {
-    transform: translateX(-54%);
+    position: absolute;
+    top: 50%;
+    // left: 50%;
+    z-index: 3;
+    transform: translateY(-50%);
   }
   .hs-intro-lead-in {
-    padding-bottom: 20px;
+    @include serif-font;
+    padding-bottom: 75px;
+    font-size: 40px;
+    font-style: italic;
+    line-height: 40px;
   }
   .hs-intro-heading {
-    padding-bottom: 20px;
-    font-size: 42px;
-    line-height: normal;
-    white-space: normal;
+    @include heading-font;
+    padding-bottom: 50px;
+    font-size: 4.6875rem;
+    font-weight: 700;
+    line-height: 4.6875rem;
   }
 }
 .hs-divider {
   display: flex;
   height: 30px;
 }
-@media (max-width: 360px) {
+
+@media (min-width: 360px) {
   .hs-header {
     position: relative;
-    display: inline-block !important;
+    display: inline-block;
     background-position: top center;
   }
   .hs-intro-text {
-    position: relative !important;
-    display: inline-block !important;
-    margin: 20px auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    width: 100%;
+    transform: translate(-50%, -50%);
   }
   .hs-intro-lead-in {
-    position: relative !important;
-    display: inline-block !important;
+    position: relative;
+    display: inline-block;
     margin: 20px auto;
+    font-size: 2rem;
   }
   .hs-intro-heading {
-    position: relative !important;
-    display: inline-block !important;
-    padding-bottom: 20px !important;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 20px;
     margin: 20px auto;
-    font-size: 42px !important;
-    line-height: normal !important;
-    white-space: normal !important;
+    font-size: 42px;
+    line-height: normal;
+    white-space: normal;
   }
   .js-page-trigger {
-    position: relative !important;
-    display: inline-block !important;
-    margin: 50px auto !important;
+    position: relative;
+    display: inline-block;
+    margin: 50px auto;
   }
 }
+// @media (max-width: 360px) {
+//   .hs-header {
+//     position: relative;
+//     display: inline-block;
+//     background-position: top center;
+//   }
+//   .hs-intro-text {
+//     position: relative;
+//     display: inline-block;
+//     margin: 20px auto;
+//     // transform: translateX(0)
+//   }
+//   .hs-intro-lead-in {
+//     position: relative;
+//     display: inline-block;
+//     margin: 20px auto;
+//   }
+//   .hs-intro-heading {
+//     position: relative;
+//     display: inline-block;
+//     padding-bottom: 20px;
+//     margin: 20px auto;
+//     font-size: 42px;
+//     line-height: normal;
+//     white-space: normal;
+//   }
+//   .js-page-trigger {
+//     position: relative;
+//     display: inline-block;
+//     margin: 50px auto;
+//   }
+// }

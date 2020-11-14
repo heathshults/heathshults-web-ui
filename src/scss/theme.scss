@@ -21,7 +21,7 @@
     letter-spacing: $headings-letter-spacing;
     &.js-scroll-trigger {
       &.site-logo {
-        display: inline-flex;
+        display: inline-block;
         height: 50px;
         font-size: 1.6rem;
         font-weight: 400;
@@ -288,72 +288,6 @@
     color: $hs-black_75;
     background-color: $hs-theme-primary--trans50;
   }
-}
-
-.hs-intro-text {
-  padding-top: 100px;
-  padding-bottom: 50px;
-  text-align: center;
-  transform: translateX(-50%);
-
-  .hs-intro-lead-in {
-    @include serif-font;
-    padding-bottom: 75px;
-    font-size: 40px;
-    font-style: italic;
-    line-height: 40px;
-    text-align: center;
-    text-shadow: $hs-text-shadow-light;
-    white-space: nowrap;
-  }
-
-  .hs-intro-heading {
-    @include heading-font;
-    padding-bottom: 75px;
-    margin-bottom: 25px;
-    font-size: 75px;
-    font-weight: 700;
-    line-height: 75px;
-    text-align: center;
-    text-shadow: $hs-text-shadow-light-spread;
-    white-space: nowrap;
-  }
-}
-
-@media (min-width: 768px) {
-
-  header,
-  .hs-header {
-    position: relative;
-    min-height: 100vh;
-    background-color: #2f2f31;
-    .hs-intro-text {
-      position: absolute;
-      top: 50vh;
-      left: 50%;
-      z-index: 3;
-      transform: translate(-50%, -50%);
-      .hs-intro-lead-in {
-        @include serif-font;
-        padding-bottom: 75px;
-        font-size: 40px;
-        font-style: italic;
-        line-height: 40px;
-      }
-      .hs-intro-heading {
-        @include heading-font;
-        padding-bottom: 50px;
-        font-size: 75px;
-        font-weight: 700;
-        line-height: 75px;
-      }
-    }
-  }
-}
-
-.hs-divider {
-  display: flex;
-  height: 30px;
 }
 
 .hs-bg-grad-black-trans {
@@ -1158,4 +1092,16 @@ input:not(:-webkit-autofill) {
 @keyframes check {
   0% { stroke-dashoffset: -400; }
   100% { stroke-dashoffset: 0; }
+}
+
+@media (min-width: 360px) {
+  #mainNav .navbar-brand.js-scroll-trigger.site-logo{
+    display: inline-block;
+    margin-right: 50px;
+  }
+
+  .hs-bg-grad-black-trans {
+    background: #2e2e2e;
+  }
+
 }
