@@ -26,7 +26,7 @@ var theStyleSheets = [
   }
 ];
 
-var result;
+// var result;
 
 function renderSCSS(callback) {
   // console.log('starting inside...');

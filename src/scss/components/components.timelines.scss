@@ -121,7 +121,7 @@
       -webkit-box-shadow: none;
       box-shadow: none;
       transition: max-height .2s ease-in-out;
-      &.visible {
+      &.is-visible {
         max-height: 100% !important;
         background-color: $hs-white;
         -webkit-box-shadow: $hs-shadow-heavy;

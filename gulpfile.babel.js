@@ -445,6 +445,7 @@ function copy_assets(cb) {
     .then(ra.copy_images)
     .then(ra.copy_mail)
     .then(ra.copy_vendor)
+    .then(ra.copy_html)
     .then(copy_js)
     .then(renderer());
     if (typeof cb === 'function') cb(null);
@@ -548,6 +549,7 @@ function connect_sync(cb) {
   watch(`${srcPath}/views/*.ejs`, ejsit).on('change', browserSync.reload), callback;
   watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_images).on('change', browserSync.reload), callback;
   watch([`${srcPath}/scss/**/*.scss`], compileCSS), callback;
+  watch([`${srcPath}/**/*.html`], ra.copy_html), callback;
   watch([`${srcPath}/assets/**/*.css`], ra.copy_css), callback;
   watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], copy_js), callback;
   watch([`${buildPath}/**/*`], copy_components), callback;

@@ -28,6 +28,7 @@ function runAssetsPromises(cb) {
   console.log('render assets sequence');
   copy_assets_content()
     .then(copy_css)
+    .then(copy_html)
     .then(copy_images)
     .then(copy_mail)
     .then(copy_vendor);
@@ -92,6 +93,33 @@ function copy_css(cb) {
   });
 }
 exports.copy_css = copy_css;
+
+function copy_html(cb) {
+  return new Promise((resolve, reject) => {
+    try {
+      setTimeout(() => {
+        src(`${srcPath}/views/**/*.html`)
+        .pipe(plumber(error => onError(error)))
+          .pipe(changed(`${wwwPath}/views`))
+          .pipe(ngAnnotate())
+          .pipe(dest(`${wwwPath}`))
+          .pipe(browserSync.stream());
+          // .pipe(debug({
+          //   title: 'Copied css: '
+          // }))
+        // if (typeof cb === 'function') {cb()}
+        //
+        //
+        console.log(chalk.green('copy_html() complete!'));
+        resolve(cb);
+      }, 2000);
+    } catch (error) {
+      console.log(chalk.red('Error in copy_html(): ' + error));
+      reject(()=>{ if (typeof cb === 'function') {cb()} });
+    }
+  });
+}
+exports.copy_html = copy_html;
 
 function copy_images(cb) {
   return new Promise((resolve, reject) => {
