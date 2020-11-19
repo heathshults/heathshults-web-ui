@@ -115,18 +115,18 @@
     .timeline-panel {
       position: relative;
       top: 8px;
-      max-height: 23px;
+      min-height: 150px;
       font-size: 14px;
       color: $hs-gray;
       -webkit-box-shadow: none;
       box-shadow: none;
       transition: max-height .2s ease-in-out;
       &.is-visible {
-        max-height: 100% !important;
+        // max-height: 100% !important;
         background-color: $hs-white;
         -webkit-box-shadow: $hs-shadow-heavy;
         box-shadow: $hs-shadow-heavy;
-        transition: max-height .2s ease-in-out;
+        // transition: max-height .2s ease-in-out;
         .timeline-panel_header {
           .timeline-panel-header-icon {
             transition: all .2s ease-in-out;
@@ -138,6 +138,9 @@
             visibility: visible;
             transition: visibility .2s ease-in-out;
             transition-delay: .2s;
+          }
+          .timeline-panel_text {
+            // height: 100%;
           }
         }
       }
@@ -167,6 +170,10 @@
           &.timeline-panel_title {
             font-size: 1.2rem;
           }
+        }
+        .timeline-panel_text {
+          // height: 0;
+          // overflow: hidden;
         }
       }
 
