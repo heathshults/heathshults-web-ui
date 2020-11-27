@@ -1,20 +1,53 @@
 /* #region   */
 /* #endregion */
-/*
- * CSS CUSTOM VARIABLE FUNCTION
- *
- * Get css vars from scss vars
- *
- * Use:
- * `color: v(primary);`
- * `color: v(primary, #000);`
- * `padding-left: v(x-padding, 2rem);`
- * `transform: translate3d(v(x-delta), v(y-delta), 0);`
- *
- * Parameters:
- *  $hs-Var: name of the SASS variable, without its double hyphen prefix
- *  $hs-fallback: (optional, null by default): custom property fallback value
- */
+@keyframes hs-bounce-1 {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes hs-bounce-2 {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100px);
+    transform: translateX(-100px);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(20px);
+    transform: translateX(20px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@keyframes hs-bounce-2-inverse {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100px);
+    transform: translateX(100px);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(-20px);
+    transform: translateX(-20px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
 :root {
   /*  Override Bootstrap color system  */
   --yellow: #fed136;

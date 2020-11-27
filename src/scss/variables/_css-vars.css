@@ -190,3 +190,28 @@
   --hs-circle: 50%;
   --hs-pill: 500%;
 }
+:root {
+  --space-unit: 1em;
+  --space-xxxxs: calc(0.125*var(--space-unit));
+  --space-xxxs: calc(0.25*var(--space-unit));
+  --space-xxs: calc(0.375*var(--space-unit));
+  --space-xs: calc(0.5*var(--space-unit));
+  --space-sm: calc(0.75*var(--space-unit));
+  --space-md: calc(1.25*var(--space-unit));
+  --space-lg: calc(2*var(--space-unit));
+  --space-xl: calc(3.25*var(--space-unit));
+  --space-xxl: calc(5.25*var(--space-unit));
+  --space-xxxl: calc(8.5*var(--space-unit));
+  --space-xxxxl: calc(13.75*var(--space-unit));
+  --component-padding: var(--space-md)
+}
+
+:root {
+  --max-width-xxs: 32rem;
+  --max-width-xs: 38rem;
+  --max-width-sm: 48rem;
+  --max-width-md: 64rem;
+  --max-width-lg: 80rem;
+  --max-width-xl: 90rem;
+  --max-width-xxl: 120rem
+}
