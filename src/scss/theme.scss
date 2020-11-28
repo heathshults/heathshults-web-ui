@@ -405,10 +405,10 @@ hs-card {
     background-color: #2d373c;
   }
 
-  hs-card-img-header {
-    overflow: hidden;
-    @include card-size;
-  }
+  // hs-card-img-header {
+  //   overflow: hidden;
+  //   @include card-size;
+  // }
 
   > .hs-image:not(:first-child) {
     padding: 1em 0 0;
@@ -418,13 +418,15 @@ hs-card {
     margin: 0.5em 0 0 0;
   }
 
-  @include card-size;
+  // @include card-size;
 }
 
-// .hs-card_body {
-//   @include hs-card-body;
-//   padding-bottom: 1rem;
-// }
+.hs-card_body {
+  padding: 0;
+  padding-bottom: 1rem;
+  font-size: rem(14px);
+  line-height: normal;
+}
 
 div[slot^="hs-"] {
   display: inline-block;
@@ -1096,6 +1098,9 @@ input:not(:-webkit-autofill) {
 }
 
 @media (min-width: 360px) {
+  body {
+    overflow: scroll;
+  }
   #mainNav .navbar-brand.js-scroll-trigger.site-logo{
     display: inline-block;
     margin-right: 50px;
@@ -1103,6 +1108,11 @@ input:not(:-webkit-autofill) {
 
   .hs-bg-grad-black-trans {
     background: #2e2e2e;
+  }
+
+  #portfolio .hs-section-heading,
+  .hs-portfolio .hs-section-heading {
+    font-size: 3rem;
   }
 
 }
@@ -1114,4 +1124,11 @@ input:not(:-webkit-autofill) {
   height: 42px;
   background-image: url('/assets/img/bg/botttom-edge-ripped-pape.png');
   background-repeat: repeat-x;
+}
+
+.hs-ratio-16-9 {
+  @include ratio-16-9;
+}
+.hs-ratio-3-2 {
+  @include ratio-3-2;
 }

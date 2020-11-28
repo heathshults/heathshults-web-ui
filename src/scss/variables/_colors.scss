@@ -149,29 +149,29 @@ $hs-bg-black-to-transparent:      linear-gradient(0deg, rgba(0, 0, 0, 0) 15%, rg
 // Cards
 
 $hs-card-width: 100% !default;
-$hs-card-height: 100% !default;
+$hs-card-height: auto !default;
 $hs-card-title: 2rem !default;
 $hs-card-subtitle: calc($hs-card-title - 10%) !default;
-$hs-card-img-width: $hs-card-width !default;
-$hs-card-img-height: 100% !default;
+$hs-card-img-width: 100% !default;
+$hs-card-img-height: auto !default;
 
 $hs-card-width--sm: 265px !default;
 $hs-card-title--sm: 1.3rem !default;
 $hs-card-subtitle--sm: calc($hs-card-title--sm - 10%) !default;
-$hs-card-img-width--sm: $hs-card-width--sm !default;
-$hs-card-img-height--sm: 150px !default;
+$hs-card-img-width--sm: 100% !default;
+$hs-card-img-height--sm: auto !default;
 
 $hs-card-width--lg: 400px !default;
 $hs-card-title--lg: 2.3rem !default;
 $hs-card-subtitle--lg: calc($hs-card-title--lg - 10%) !default;
 $hs-card-img-width--lg: $hs-card-width--lg !default;
-$hs-card-img-height--lg: 226px !default;
+$hs-card-img-height--lg: auto !default;
 
 $hs-card-width--fluid: 100% !default;
 $hs-card-title--fluid: 2.4rem !default;
 $hs-card-subtitle--fluid: calc($hs-card-title--fluid - 10%) !default;
 $hs-card-img-width--fluid: $hs-card-width--fluid !default;
-$hs-card-img-height--fluid: 100% !default;
+$hs-card-img-height--fluid: auto !default;
 
 $hs-card-margin: .5rem !default;
 
@@ -208,3 +208,9 @@ $hs-zindex-tooltip:           1070 !default;
 // ====== SHAPES ====== //
 $hs-circle:                   50% !default;
 $hs-pill:                     500% !default;
+
+// ===== =RATIO ====== //
+$hs-ratio-16-9:               56.25% !default; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+$hs-ratio-4-3:                75% !default; /* 4:3 Aspect Ratio (divide 3 by 4 = 0.75) */
+$hs-ratio-3-2:                66.66% !default;
+$hs-ratio-1-1:                100% !default;  /* 1:1 Aspect Ratio */

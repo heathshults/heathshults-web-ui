@@ -75,6 +75,7 @@
     "express": "^4.17.1",
     "express-fileupload": "^1.1.6-alpha.6",
     "hammerjs": "^2.0.8",
+    "install-peerdeps": "^2.0.3",
     "popper.js": "^1.16.1",
     "rxjs": "^6.6.3",
     "vanilla-autofill-event": "^1.0.3"

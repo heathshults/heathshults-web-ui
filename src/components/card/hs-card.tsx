@@ -135,12 +135,9 @@ export class HSCard {
     typeof this.cardSize === 'undefined' ? this.cardSize = '--fluid' : ''
     return (
       <div id={this.cardId} class={`hs-card hs-card-size${this.cardSize} ${this.colorTone}`}>
-       <header class={`hs-card_header hs-card_header${this.cardSize}`}>
-        <a id="imgHeaderOverlay" 
-          class={`hs-overlay hs-card_img-header_overlay${this.cardSize} ${this.showHide}`} 
-          href="#" 
-          onClick={() => this.launchModalHandler(`${this.modalId}`)}>
-          <img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img${this.cardSize}`} alt="header image" />
+       <header class={`hs-card_header hs-card_header${this.cardSize} hs-ratio-3-2`}>
+        <a id="imgHeaderOverlay" class={`hs-overlay hs-card_img-header_overlay${this.cardSize} ${this.showHide} hs-ratio-3-2`} href="#" onClick={() => this.launchModalHandler(`${this.modalId}`)}>
+          <img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img${this.cardSize} hs-ratio-3-2`} alt="header image" />
         </a>
         <slot name="card-header" />
         </header>

@@ -10,7 +10,8 @@
 	}
 
 	VerticalTimeline.prototype.hideBlocks = function(): void {
-		if ( !"classList" in document.documentElement ) {
+		if (  !document.documentElement.hasOwnProperty('classList') ) {
+		// if ( !"classList" in document.documentElement ) {
 			return; // no animation on older browsers
 		}
 		//hide timeline blocks which are outside the viewport
@@ -26,7 +27,8 @@
 	};
 
 	VerticalTimeline.prototype.showBlocks = function(): void {
-		if ( ! "classList" in document.documentElement ) {
+		if ( !document.documentElement.hasOwnProperty('classList') ) {
+		// if ( !'classList' in document.documentElement ) {
 			return;
 		}
 		const self: any = this;
@@ -43,9 +45,9 @@
 		}
 	};
 
-	const verticalTimelines: HTMLCollectionOf<Element> = document.getElementsByClassName("js-cd-timeline");
-	const	verticalTimelinesArray: Array = [];
-	const	scrolling = false;
+	const verticalTimelines: any = document.getElementsByClassName("js-cd-timeline");
+	const	verticalTimelinesArray: Array<any> = [];
+	let	scrolling = false;
 	if( verticalTimelines.length > 0 ) {
 		for( let i = 0; i < verticalTimelines.length; i++) {
 			(function(i): void {
@@ -54,7 +56,9 @@
 		}
 
 		//show timeline blocks on scrolling
-		window.addEventListener("scroll", function(event): void {
+		// window.addEventListener("scroll", function(event): void {
+		window.addEventListener("scroll", function(): void {
+			
 			if( !scrolling ) {
 				scrolling = true;
 				(!window.requestAnimationFrame) ? setTimeout(checkTimelineScroll, 250) : window.requestAnimationFrame(checkTimelineScroll);

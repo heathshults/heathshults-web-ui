@@ -64,7 +64,7 @@
 
 .hs-timeline {
   padding: var(--hs-spacing--lg) 0;
-  overflow: hidden;
+  overflow: visible;
   font-family: var(--hs-font-primary);
   color: var(--hs-color-grey);
   background-color: lightness(var(--hs-color-blue), 1.05);

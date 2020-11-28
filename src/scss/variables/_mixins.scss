@@ -155,14 +155,16 @@
   }
 }
 
-
+// cards
 @mixin banner-dimensions--sm {
   width: $hs-card-img-width--sm;
   height: $hs-card-img-height--sm;
+
   .hs-card_img-header_img {
     width: $hs-card-img-width--sm;
     height: $hs-card-img-height--sm;
   }
+
 }
 
 @mixin banner-dimensions--lg {
@@ -200,22 +202,101 @@
   @include header-banner-sizes;
 }
 
-@mixin card-size {
-  &[card-size="--sm"] {
-    display: inline-block;
-    width: 265px;
-  }
 
-  &[card-size="--lg"] {
-    display: inline-block;
-    width: 400px;
-  }
+@mixin card-size--sm {
+  .hs-card {
+    margin: inherit;
+    &--sm {
+      display: inline-block;
+      min-width: 265px;
+      max-width: 100%;
+      height: auto;
+      margin: 5 auto;
+    }
 
-  &[card-size="--fluid"] {
-    display: inline-block;
-    width: 100%;
+    &--lg {
+      display: inline-block;
+      width: 400px;
+      height: auto;
+      margin: 5 auto;
+    }
+
+    &--fluid {
+      display: inline-block;
+      width: 100%;
+      height: auto;
+      margin: 5 auto;
+    }
   }
 }
+
+@mixin card-size--md {
+
+  .hs-card {
+    margin: 5 auto;
+    &--sm {
+      display: inline-block;
+      width: 265px;
+      height: auto;
+      margin: 5 auto;
+    }
+
+    &--md {
+      display: inline-block;
+      width: 400px;
+      max-width: 100%;
+      height: auto;
+      margin: 5 auto;
+    }
+
+    &--lg {
+      display: inline-block;
+      width: 600px;
+      height: auto;
+      margin: 5 auto;
+    }
+
+    &--fluid {
+      display: inline-block;
+      width: 100%;
+      height: auto;
+      margin: 5 auto;
+    }
+
+  }
+}
+@mixin card-size--lg {
+  .hs-card {
+    margin: inherit;
+    &--sm {
+      display: inline-block;
+      width: 265px;
+      margin: 5 auto;
+    }
+
+    &--md {
+      display: inline-block;
+      width: 500px;
+      height: auto;
+      margin: 5 auto;
+    }
+
+    &--lg {
+      display: inline-block;
+      width: 80%;
+      height: auto;
+      margin: 5 auto;
+    }
+
+    &--fluid {
+      display: inline-block;
+      width: 100%;
+      height: auto;
+      margin: 5 auto;
+    }
+  }
+}
+
 
 
 /* #region   */
@@ -359,6 +440,33 @@ $breakpoints: (
   #{$color}-l: #{$lightness};
 }
 
+// ======* SHAPES ======* //
+@mixin circle {
+  border-radius: $hs-circle;
+}
+
+@mixin pill {
+  border-radius: $hs-pill;
+}
+
+// *====== TIMELINE ======* //
+@mixin timeline-panel-tag {
+  position: absolute;
+  top: -6px;
+  padding: 2px 6px;
+  font-size: 11px;
+  color: $hs-white;
+  text-transform: uppercase;
+  background: $hs-color_green--dark;
+}
+
+@mixin ratio-16-9 {
+  padding-top: $hs-ratio-16-9;
+}
+@mixin ratio-3-2 {
+  padding-top: $hs-ratio-3-2;
+}
+
 // return color with different opacity value
 @function alpha($color, $opacity) {
   $color: str-replace($color, 'var(');
@@ -391,6 +499,15 @@ $breakpoints: (
   @return $string;
 }
 
+// ====== PIXELS TO REM ====== //
+$html-font-size: 16px;
+@function stripUnit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@function rem($pxValue) {
+  @return #{stripUnit($pxValue) / stripUnit($html-font-size)}rem;
+}
 
 // /*
 //  * CSS CUSTOM VARIABLE FUNCTION
@@ -435,21 +552,3 @@ $breakpoints: (
   @return $hs-value;
 }
 
-// ======* SHAPES ======* //
-@mixin circle {
-  border-radius: $hs-circle;
-}
-@mixin pill {
-  border-radius: $hs-pill;
-}
-
-// *====== TIMELINE ======* //
-@mixin timeline-panel-tag {
-  position: absolute;
-  top: -6px;
-  padding: 2px 6px;
-  font-size: 11px;
-  color: $hs-white;
-  text-transform: uppercase;
-  background: $hs-color_green--dark;
-}
