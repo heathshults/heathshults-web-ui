@@ -1,10 +1,11 @@
-const concurrently = require('concurrently');
-const path = require('path');
+import concurrently from 'concurrently';
+import {resolve,dirname} from 'path';
 
-const browserSyncPath = path.resolve(path.dirname(__filename), '../node_modules/.bin/browser-sync');
+const browserSyncPath = resolve(dirname(__filename), '../node_modules/.bin/browser-sync');
 
+const doConcurrently='node --inspect build-scripts/sb-watch.js';
 concurrently([
-    { command: 'node --inspect scripts/sb-watch.js', name: 'SB_WATCH', prefixColor: 'bgBlue.bold' },
+    { command: doConcurrently, name: 'SB_WATCH', prefixColor: 'bgBlue.bold' },
     {
         command: `${browserSyncPath} www-app -w --no-online`,
         name: 'SB_BROWSER_SYNC',

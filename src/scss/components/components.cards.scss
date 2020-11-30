@@ -150,6 +150,18 @@
         width: auto;
       }
     }
+    .hs-details-button {
+      display: block;
+      padding: $hs-spacing--xs;
+      font-size: .8em;
+      color: $hs-blueGray-medium;
+      text-align: center;
+      background-color: $hs-gray-lightest;
+      &:hover {
+        color: $hs-color_yellow;
+        background-color: $hs-blueGray-light;
+      }
+    }
   }
 }
 // .hs-card.hs-card-size {

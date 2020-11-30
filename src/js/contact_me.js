@@ -5,7 +5,7 @@
   window.onload = () => {
     const contactForm=document.querySelector('#contactForm');
     const contactFormFields=contactForm.querySelectorAll('.form-control');
-    let contactFormFieldsValues= new Array;
+    let contactFormFieldsValues= [];
     console.log(contactForm),console.log(contactFormFields);
 
     // for(let i=0; i<contactFormFields.length;i++) {

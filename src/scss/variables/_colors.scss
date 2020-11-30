@@ -108,9 +108,10 @@ $hs-grid-gutter-width:           30px !default;
 $hs-grid-row-columns:            6 !default;
 
 // Paddding & Margins Generics
-$hs-spacing--sm:                 .5rem !default;
-$hs-spacing--md:                 1rem !default;
-$hs-spacing--lg:                 1.5 rem !default;
+$hs-spacing--xs:                 .25em !default;
+$hs-spacing--sm:                 .5em !default;
+$hs-spacing--md:                 1em !default;
+$hs-spacing--lg:                 1.5em !default;
 
 // Borders
 $hs-border-width:                1px !default;
@@ -156,7 +157,7 @@ $hs-card-img-width: 100% !default;
 $hs-card-img-height: auto !default;
 
 $hs-card-width--sm: 265px !default;
-$hs-card-title--sm: 1.3rem !default;
+$hs-card-title--sm: 1.1rem !default;
 $hs-card-subtitle--sm: calc($hs-card-title--sm - 10%) !default;
 $hs-card-img-width--sm: 100% !default;
 $hs-card-img-height--sm: auto !default;

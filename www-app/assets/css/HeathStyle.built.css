@@ -10823,6 +10823,18 @@ h3 {
   flex: 1 1 auto;
   width: auto;
 }
+.hs-card .hs-card_footer .hs-details-button {
+  display: block;
+  padding: 0.25em;
+  font-size: 0.8em;
+  color: #507386;
+  text-align: center;
+  background-color: white;
+}
+.hs-card .hs-card_footer .hs-details-button:hover {
+  color: #f2d31b;
+  background-color: #2d373c;
+}
 
 .hs-card_img-header_img {
   width: 100%;
@@ -10860,7 +10872,7 @@ h3 {
 
 .hs-card_content {
   width: 100%;
-  padding: 12px 1rem;
+  padding: 12px 1em;
   line-height: 1;
   text-align: left;
   background-color: #fff;
@@ -11893,6 +11905,42 @@ h3 {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #355cc9;
+}
+
+.hs-grid-container-4x2 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 8px 8px;
+  grid-template-areas: ". . . ." ". . . .";
+}
+
+.hs-grid-item {
+  padding: 1.2em;
+}
+
+.hs-grid-container-col-1 {
+  display: grid;
+  grid-template-columns: 100%;
+  overflow: hidden;
+}
+.hs-grid-container-col-1 .hs-grid-item {
+  padding: 1.2em;
+  gap: 5px;
+}
+
+.hs-grid-container-col-4 {
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-columns: minmax(200px, auto);
+  gap: 1px;
+}
+.hs-grid-container-col-4 .hs-grid-item {
+  min-width: 0;
+  padding: 1.2em;
+  overflow: hidden;
 }
 
 header.masthead,
@@ -13055,7 +13103,7 @@ div[slot^=hs-] {
 
 .hs-card_content {
   width: 100%;
-  padding: 1rem;
+  padding: 1em;
   line-height: 1.5;
   text-align: left;
   background-color: #fff;
@@ -13076,7 +13124,7 @@ div[slot^=hs-] {
 .hs-card_content.hs-card-size--sm .hs-card_title {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }
 .hs-card_content.hs-card-size--sm .hs-card_subtitle {
   font-size: calc($hs-card-title--sm - 10%);
@@ -13096,13 +13144,13 @@ div[slot^=hs-] {
   width: 100%;
 }
 .hs-card_content.hs-card-size--fluid .hs-card_title {
-  margin-top: 1.5 rem;
+  margin-top: 1.5em;
   margin-bottom: 0;
   font-size: 2.3rem;
 }
 .hs-card_content.hs-card-size--fluid .hs-card_subtitle {
-  margin-top: 1.5 rem;
-  margin-bottom: 1.5 rem;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
   font-size: calc($hs-card-title--fluid - 10%);
 }
 

@@ -39,7 +39,7 @@ import changed from 'gulp-changed';
 import ejs from 'gulp-ejs';
 import log from 'fancy-log';
 import chalk from 'chalk';
-import ra from './scripts/render-assets';
+import ra from './build-scripts/render-assets';
 import appRoot from 'app-root-path';
 const srcPath = path.resolve(__dirname, 'src');
 const srcCompPath = path.resolve(__dirname, 'src/components');
@@ -201,7 +201,7 @@ exports.babelfry = babelfry;
 
 function renderJS(cb) {
   console.log(chalk.yellow('starting JS renderrer...'));
-  exec('node scripts/build-scripts-launcher.js', (error, stdout, stderr) => {
+  exec('node build-scripts/build-scripts-launcher.js', (error, stdout, stderr) => {
     if (error) {
         console.log(chalk.red("ERROR renderJS: \n stdout: " + stderr + "\n Error Message: " + error.message));
         return 'renderJS error'+error;
@@ -242,7 +242,7 @@ function sassy(done) {
 exports.sassy = sassy;
 
 function compileCSS(cb) {
-  exec('node scripts/build-scss.js', (error, stdout, stderr) => {
+  exec('node build-scripts/build-scss.js', (error, stdout, stderr) => {
       if (error) {
           console.log("ERROR compileMain: \n stdout: " + stderr + "\n Error Message: " + error.message);
           return 'SCSS compile error'+error;

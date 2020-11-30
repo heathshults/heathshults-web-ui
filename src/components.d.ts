@@ -32,9 +32,17 @@ export namespace Components {
     interface HsCardBody {
         "cardSize": string;
     }
+    interface HsCardButton {
+        "buttonText": string;
+        "buttonType": string;
+        "clickTarget"?: string;
+        "modalId": string;
+        "url": string;
+    }
     interface HsCardFooter {
         "colorTone": string;
         "colorToneClass": string;
+        "modalId": string;
     }
     interface HsCardHeader {
     }
@@ -128,6 +136,12 @@ declare global {
     var HTMLHsCardBodyElement: {
         prototype: HTMLHsCardBodyElement;
         new (): HTMLHsCardBodyElement;
+    };
+    interface HTMLHsCardButtonElement extends Components.HsCardButton, HTMLStencilElement {
+    }
+    var HTMLHsCardButtonElement: {
+        prototype: HTMLHsCardButtonElement;
+        new (): HTMLHsCardButtonElement;
     };
     interface HTMLHsCardFooterElement extends Components.HsCardFooter, HTMLStencilElement {
     }
@@ -223,6 +237,7 @@ declare global {
         "hs-button": HTMLHsButtonElement;
         "hs-card": HTMLHsCardElement;
         "hs-card-body": HTMLHsCardBodyElement;
+        "hs-card-button": HTMLHsCardButtonElement;
         "hs-card-footer": HTMLHsCardFooterElement;
         "hs-card-header": HTMLHsCardHeaderElement;
         "hs-card-img-header": HTMLHsCardImgHeaderElement;
@@ -268,9 +283,18 @@ declare namespace LocalJSX {
     interface HsCardBody {
         "cardSize"?: string;
     }
+    interface HsCardButton {
+        "buttonText"?: string;
+        "buttonType"?: string;
+        "clickTarget"?: string;
+        "modalId"?: string;
+        "onLaunchModal"?: (event: CustomEvent<any>) => void;
+        "url"?: string;
+    }
     interface HsCardFooter {
         "colorTone"?: string;
         "colorToneClass"?: string;
+        "modalId"?: string;
     }
     interface HsCardHeader {
     }
@@ -348,6 +372,7 @@ declare namespace LocalJSX {
         "hs-button": HsButton;
         "hs-card": HsCard;
         "hs-card-body": HsCardBody;
+        "hs-card-button": HsCardButton;
         "hs-card-footer": HsCardFooter;
         "hs-card-header": HsCardHeader;
         "hs-card-img-header": HsCardImgHeader;
@@ -372,6 +397,7 @@ declare module "@stencil/core" {
             "hs-button": LocalJSX.HsButton & JSXBase.HTMLAttributes<HTMLHsButtonElement>;
             "hs-card": LocalJSX.HsCard & JSXBase.HTMLAttributes<HTMLHsCardElement>;
             "hs-card-body": LocalJSX.HsCardBody & JSXBase.HTMLAttributes<HTMLHsCardBodyElement>;
+            "hs-card-button": LocalJSX.HsCardButton & JSXBase.HTMLAttributes<HTMLHsCardButtonElement>;
             "hs-card-footer": LocalJSX.HsCardFooter & JSXBase.HTMLAttributes<HTMLHsCardFooterElement>;
             "hs-card-header": LocalJSX.HsCardHeader & JSXBase.HTMLAttributes<HTMLHsCardHeaderElement>;
             "hs-card-img-header": LocalJSX.HsCardImgHeader & JSXBase.HTMLAttributes<HTMLHsCardImgHeaderElement>;

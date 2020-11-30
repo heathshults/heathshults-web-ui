@@ -21,7 +21,7 @@ export class HSCard {
   @Prop() cardHeaderImg: any;
   @Prop() overlay: any;
   @Prop() imgElem: any;
-  @Prop({reflect: true}) modalId: string;
+  @Prop() modalId: string;
   @Prop({reflect: true}) imgPath: string;
   @Prop({reflect: true}) showHide: string;
   @Prop() autoFooter: boolean;
@@ -69,39 +69,39 @@ export class HSCard {
   launchModalHandler(target: string) {
     // showModal(`#${this.clickTarget}`)
     //@ts-ignore: does not exist on type
-    this.clickTarget ? document.querySelector(target).show() : alert('no target parameter')
+    this.clickTarget ? document.querySelector(target).show() : alert('no target parameter');
 
   }
   
   private cb() {
-    return
+    return;
   }
   
-  private callback = (()=> { if (typeof this.cb === 'function') return this.cb() })
+  private callback = (()=> { if (typeof this.cb === 'function') return this.cb(); })
   
   private getElements() {
     return new Promise((resolve, reject) => {
       try {
         setTimeout(() => {
           this.theElements();
-          this.cardHeaderImg = this.el.shadowRoot.querySelector('#hsHeaderImg')
+          this.cardHeaderImg = this.el.shadowRoot.querySelector('#hsHeaderImg');
         
-          this.cardContent.classList.add(`hs-card-size${this.cardSize}`)
+          this.cardContent.classList.add(`hs-card-size${this.cardSize}`);
          
           // this.cardImgHeaderImg.classList.contains('hs-card_img-header_img--sm') ? (this.cardHeaderImg.style.width = '265px') && (this.overlay.style.width = '265px') 
           //  : this.cardImgHeaderImg.classList.contains('hs-card_img-header_img--lg') ? (this.cardHeaderImg.style.width = '400px') && (this.overlay.style.width = '400px')
           //  : this.cardImgHeaderImg.classList.contains('hs-card_img-header_img--fluid') ? (this.cardHeaderImg.style.width = '100%') && (this.overlay.style.width = '100%')
           //  : (this.cardImgHeaderImg.style.width = '100%') && (this.overlay.style.width = '100%') 
          
-          resolve(this.callback)
-        }, 3000)
+          resolve(this.callback);
+        }, 3000);
       } 
       catch(error) {
         let fullErrorMsg = `Error in getElements(): ${error}`;
         
-        reject(console.log('getElements error: ' + fullErrorMsg))
+        reject(console.log('getElements error: ' + fullErrorMsg));
       }
-    })
+    });
   }
   
   
@@ -114,12 +114,12 @@ export class HSCard {
         if (this.autoFooter) {
         this.footerDiv.innerHTML = this.basicFooter;
         this.cardImgHeaderImg = this.el.shadowRoot.querySelector('#hsHeaderImg');}
-        resolve(this.callback)
+        resolve(this.callback);
       }
       catch(error) {
-        reject('Reject because: ' + error)
+        reject('Reject because: ' + error);
       }
-    })
+    });
   }
   
 
@@ -130,9 +130,9 @@ export class HSCard {
   }  
 
   render() {
-    this.getElements().then(this.callback)
-    typeof this.imgPath === 'undefined' ? this.showHide = 'hs-display-none' : this.showHide = 'hs-display-block'
-    typeof this.cardSize === 'undefined' ? this.cardSize = '--fluid' : ''
+    this.getElements().then(this.callback);
+    typeof this.imgPath === 'undefined' ? this.showHide = 'hs-display-none' : this.showHide = 'hs-display-block';
+    typeof this.cardSize === 'undefined' ? this.cardSize = '--fluid' : '';
     return (
       <div id={this.cardId} class={`hs-card hs-card-size${this.cardSize} ${this.colorTone}`}>
        <header class={`hs-card_header hs-card_header${this.cardSize} hs-ratio-3-2`}>

@@ -2,7 +2,7 @@ module.exports = {
     "env": {
         "browser": true,
         "commonjs": true,
-        "es2021": true,
+        "es2017": true,
         "node": true
     },
     "extends": [
@@ -24,6 +24,7 @@ module.exports = {
         'semi': [2, 'always', {
             'omitLastInOneLineBlock': true
         }],
-        "@typescript-eslint/no-this-alias": 0
+        "@typescript-eslint/no-this-alias": 0,
+        "@typescript-eslint/no-explicit-any": 0
     }
 };
