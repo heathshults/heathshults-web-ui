@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Component, Element, Prop, Event, EventEmitter, Listen, h } from '@stencil/core';
 
 @Component({
@@ -68,8 +69,7 @@ export class HSCard {
   @Listen('launchModal')
   launchModalHandler(target: string) {
     // showModal(`#${this.clickTarget}`)
-    //@ts-ignore: does not exist on type
-    this.clickTarget ? document.querySelector(target).show() : alert('no target parameter');
+    this.clickTarget ? document.querySelector(target).classList.add('hs-display-block') : alert('no target parameter');
 
   }
   
@@ -97,7 +97,7 @@ export class HSCard {
         }, 3000);
       } 
       catch(error) {
-        let fullErrorMsg = `Error in getElements(): ${error}`;
+        const fullErrorMsg = `Error in getElements(): ${error}`;
         
         reject(console.log('getElements error: ' + fullErrorMsg));
       }

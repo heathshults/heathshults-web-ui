@@ -727,8 +727,19 @@
                   </button>
                 </div> -->
               </div>
-              <hs-card-footer id="cardFooter" class="hs-card_footer">
-                <hs-card-button id="modalButton" button-text="Details"></hs-card-button>
+              <!-- <hs-card-footer id="cardFooter" class="hs-card_footer">
+                <hs-card-button id="modalButton" modal-id="testModal" button-text="Details"></hs-card-button>
+              </hs-card-footer> -->
+              <hs-card-footer id="cardFooter" class="hs-card_footer" slot="card-footer">
+                <hs-card-button 
+                  button-id="modalButton" 
+                  button-text="Details" 
+                  action="http://youtube.com" 
+                  modal-id="testModal" 
+                  css-class="btn hs-details-button" 
+                  click-target="testModal" 
+                  action-parameters="" 
+                  button-text="DETAILS"></hs-card-button>
               </hs-card-footer>
             </hs-card>
           </div>
@@ -1020,7 +1031,8 @@
 
     <!-- Portfolio Modals -->
     <!-- Use the modals below to showcase details about your portfolio projects! -->
-
+    <!-- test modal -->
+    <div id="testModal" class="modal-dialog modal-xl">testing</div>
     <!-- Portfolio Modal 1 -->
     <hs-modal dismissible full id="modBowlopolis">
       <hs-card color-tone="light">
@@ -1046,7 +1058,7 @@
       </hs-card>
     </hs-modal>
 
-    <hs-modal dismissible full id="modBowlopolis">
+    <hs-modal dismissible full id="modBowlopolis1">
       <hs-card color-tone="light">
         <hs-card-header>
           <h2 class="hs-heading dark">

@@ -31,6 +31,7 @@
     "copy:components": "gulp copy_components",
     "copy:js": "gulp copy_js",
     "clean": "node build-scripts/clean.js",
+    "clean:components": "node build-scripts/clean-components.js",
     "gbuild": "gulp setup_develop",
     "serve": "gulp serve",
     "serve:php": "php -S localhost:8000 -t www-app/",

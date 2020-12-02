@@ -33,11 +33,11 @@ export namespace Components {
         "cardSize": string;
     }
     interface HsCardButton {
+        "action": string;
+        "actionParameters": string;
+        "buttonId"?: string;
         "buttonText": string;
-        "buttonType": string;
-        "clickTarget"?: string;
-        "modalId": string;
-        "url": string;
+        "cssClass": string;
     }
     interface HsCardFooter {
         "colorTone": string;
@@ -284,12 +284,11 @@ declare namespace LocalJSX {
         "cardSize"?: string;
     }
     interface HsCardButton {
+        "action"?: string;
+        "actionParameters"?: string;
+        "buttonId"?: string;
         "buttonText"?: string;
-        "buttonType"?: string;
-        "clickTarget"?: string;
-        "modalId"?: string;
-        "onLaunchModal"?: (event: CustomEvent<any>) => void;
-        "url"?: string;
+        "cssClass"?: string;
     }
     interface HsCardFooter {
         "colorTone"?: string;

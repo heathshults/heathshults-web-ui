@@ -1,38 +1,32 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { Component, Prop, Event, EventEmitter, Listen, h } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 
 @Component({
   tag: 'hs-card-button',
-  styleUrl: '../../scss/components/components.cards.scss',
+  styleUrl: './components.buttons.scss',
   shadow: true
 })
 
 export class HSCardButton {
-  @Prop() buttonType: string;
-  @Prop() modalId: string;
-  @Prop() buttonText: string;
-  @Prop() url = 'javascript:void();';
-  @Prop() clickTarget?: string;
-  
-  modalLancher: EventEmitter;
-  @Event() launchModal: EventEmitter;
-  launchModalEvent(event: UIEvent) {
-    this.launchModal.emit(event);
+  @Prop({reflect: true, mutable: true}) buttonId?: string;
+  @Prop({reflect: true, mutable: true}) cssClass = 'btn hs-details-button';
+  @Prop({reflect: true, mutable: true}) buttonText = 'button text';
+  @Prop({reflect: true, mutable: true}) action: string;
+  @Prop({reflect: true, mutable: true}) actionParameters: string;
+
+  handleClick(event: UIEvent, action: string, actionParams: string) {
+    console.log(event.currentTarget);
+    if(!action) {
+      window[this.action](this.actionParameters);
+    } else {
+      window[action](actionParams);
+    }
   }
 
-  @Listen('launchModal')
-  launchModalHandler(target: string) {
-    // showModal(`#${this.clickTarget}`)
-    //@ts-ignore: does not exist on type
-    this.clickTarget ? document.querySelector(target).show() : alert('no target parameter');
-
-  }
-  
   render() {
-    return (
-      <a href={this.url} class="hs-card_button--detail" onClick={() => this.launchModalHandler(`${this.modalId}`)}>
-        {this.buttonText}
-      </a>
+    return ( 
+      <button id={this.buttonId} class={this.cssClass} onClick={ (event: UIEvent) => this.handleClick(event, this.action, this.actionParameters)}>{this.buttonText}<slot/></button>
     );
+    
   }
 }
