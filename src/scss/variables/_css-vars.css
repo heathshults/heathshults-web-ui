@@ -1,17 +1,14 @@
 :root {
   /*  Override Bootstrap color system  */
-
   --yellow: #fed136;
 
   /*  Override Bootstrap default state colors  */
-
   --primary: var(--yellow);
 
   /*  Override Bootstrap yiq lightness value  */
-
   --yiq-contrasted-threshold: 205;
 
-  /*  Variables  */
+  /*  Interaction Colors  */
   --hs-color_red: #e2001a;
   --hs-color_red_orange: #f63a0f;
   --hs-color_orange: #f27011;
@@ -31,7 +28,6 @@
 
 
   /*  Gray and Brand Colors for use across theme  */
-
   --hs-theme-primary: #fed136;
   --hs-theme-primary--trans50: rgba(254, 211, 54, 0.5);
   --hs-theme-danger: #e74c3c;
@@ -114,7 +110,7 @@
   --hs-border-radius-md: .25%;
 
   /* Outer glow */
-  --hs-box-shadow-glow: 0px 4px 16px 2px rgba(255, 255, 255, 0.5);
+  --hs-box-shadow-glow: 0px 4px 16px 2px rgba(255, 255, 255, .5);
 
   /* Shadows */
   --hs-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
@@ -189,29 +185,28 @@
   /* ====== SHAPES ====== */
   --hs-circle: 50%;
   --hs-pill: 500%;
-}
-:root {
-  --space-unit: 1em;
-  --space-xxxxs: calc(0.125*var(--space-unit));
-  --space-xxxs: calc(0.25*var(--space-unit));
-  --space-xxs: calc(0.375*var(--space-unit));
-  --space-xs: calc(0.5*var(--space-unit));
-  --space-sm: calc(0.75*var(--space-unit));
-  --space-md: calc(1.25*var(--space-unit));
-  --space-lg: calc(2*var(--space-unit));
-  --space-xl: calc(3.25*var(--space-unit));
-  --space-xxl: calc(5.25*var(--space-unit));
-  --space-xxxl: calc(8.5*var(--space-unit));
-  --space-xxxxl: calc(13.75*var(--space-unit));
-  --component-padding: var(--space-md)
-}
 
-:root {
+  /* ======  Spacing ====== */
+  --space-unit: 1em;
+  --space-xxxxs: calc(.125 * var(--space-unit));
+  --space-xxxs: calc(.25 * var(--space-unit));
+  --space-xxs: calc(.375 * var(--space-unit));
+  --space-xs: calc(.5 * var(--space-unit));
+  --space-sm: calc(.75 * var(--space-unit));
+  --space-md: calc(1.25 * var(--space-unit));
+  --space-lg: calc(2 * var(--space-unit));
+  --space-xl: calc(3.25 * var(--space-unit));
+  --space-xxl: calc(5.25 * var(--space-unit));
+  --space-xxxl: calc(8.5 * var(--space-unit));
+  --space-xxxxl: calc(13.75 * var(--space-unit));
+  --component-padding: var(--space-md);
+
+  /* ======  Sizing ====== */
   --max-width-xxs: 32rem;
   --max-width-xs: 38rem;
   --max-width-sm: 48rem;
   --max-width-md: 64rem;
   --max-width-lg: 80rem;
   --max-width-xl: 90rem;
-  --max-width-xxl: 120rem
+  --max-width-xxl: 120rem;
 }

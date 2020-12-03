@@ -83,7 +83,14 @@ export class HSCard {
     return new Promise((resolve, reject) => {
       try {
         setTimeout(() => {
-          this.theElements();
+          // this.theElements();
+          this.cardContent =          document.querySelector('.hs-card_content');
+          this.overlay =              this.el.shadowRoot.querySelector('#imgHeaderOverlay');
+          this.footerDiv =            this.el.shadowRoot.querySelector('#foot');
+          if (this.autoFooter) {
+          this.footerDiv.innerHTML =  this.basicFooter;
+          this.cardImgHeaderImg =     this.el.shadowRoot.querySelector('#hsHeaderImg');}
+          resolve(this.callback);
           this.cardHeaderImg = this.el.shadowRoot.querySelector('#hsHeaderImg');
         
           this.cardContent.classList.add(`hs-card-size${this.cardSize}`);
@@ -105,31 +112,32 @@ export class HSCard {
   }
   
   
-  private theElements() {
-    return new Promise((resolve, reject) => {
-      try {
-        this.cardContent = document.querySelector('.hs-card_content');
-        this.overlay = this.el.shadowRoot.querySelector('#imgHeaderOverlay');
-        this.footerDiv = this.el.shadowRoot.querySelector('#foot');
-        if (this.autoFooter) {
-        this.footerDiv.innerHTML = this.basicFooter;
-        this.cardImgHeaderImg = this.el.shadowRoot.querySelector('#hsHeaderImg');}
-        resolve(this.callback);
-      }
-      catch(error) {
-        reject('Reject because: ' + error);
-      }
-    });
-  }
+  // private theElements() {
+  //   return new Promise((resolve, reject) => {
+  //     try {
+  //       this.cardContent =          document.querySelector('.hs-card_content');
+  //       this.overlay =              this.el.shadowRoot.querySelector('#imgHeaderOverlay');
+  //       this.footerDiv =            this.el.shadowRoot.querySelector('#foot');
+  //       if (this.autoFooter) {
+  //       this.footerDiv.innerHTML =  this.basicFooter;
+  //       this.cardImgHeaderImg =     this.el.shadowRoot.querySelector('#hsHeaderImg');}
+  //       resolve(this.callback);
+  //     }
+  //     catch(error) {
+  //       reject('Reject because: ' + error);
+  //     }
+  //   });
+  // }
   
 
   componentWillLoad() {
-    typeof this.colorTone === 'undefined' || typeof this.colorTone === null || this.colorTone === 'light' ? this.colorToneClass = 'light' :
-      this.colorTone === 'dark' ? this.colorToneClass = 'dark' : this.colorToneClass = 'light';
+    
       
   }  
 
   render() {
+    typeof this.colorTone === 'undefined' || typeof this.colorTone === null || this.colorTone === 'light' ? this.colorToneClass = 'light' :
+    this.colorTone === 'dark' ? this.colorToneClass = 'dark' : this.colorToneClass = 'light';
     this.getElements().then(this.callback);
     typeof this.imgPath === 'undefined' ? this.showHide = 'hs-display-none' : this.showHide = 'hs-display-block';
     typeof this.cardSize === 'undefined' ? this.cardSize = '--fluid' : '';

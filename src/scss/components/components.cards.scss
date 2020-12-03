@@ -1,13 +1,13 @@
 /* stylelint-disable selector-combinator-space-after */
 @import "./mixins/settings";
-@import "../variables";
+@import "../vars";
 
 .hs-card {
   position: relative;
   display: flex;
   flex-direction: column;
   min-width: 0;
-  height: $hs-card-height;
+  max-height: $hs-card-height;
   margin: rem(5px) auto;
   word-wrap: break-word;
   background-color: $hs-card-bg;
@@ -125,6 +125,7 @@
   }
 
   .hs-card_footer {
+    padding: 0;
     background-color: $hs-card-cap-bg;
     border-top: $hs-card-border-width solid $hs-card-border-color;
 

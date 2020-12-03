@@ -1,0 +1,20 @@
+
+/* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+.hs-ratio-16-9 {
+  @include ratio-16-9;
+}
+
+/* 4:3 Aspect Ratio (divide 3 by 4 = 0.75) */
+.hs-ratio-4-3 {
+  @include ratio-4-3;
+}
+
+/* 3:2 Aspect Ratio (divide 2 by 3 = 0.6666)  */
+.hs-ratio-3-2 {
+  @include ratio-3-2;
+}
+
+/* 1:1 Aspect Ratio */
+.hs-ratio-1-1 {
+  @include ratio-1-1;
+}

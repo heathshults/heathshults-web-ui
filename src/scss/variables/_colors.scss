@@ -21,9 +21,11 @@ $hs-color_yellow--light:          #ffe659 !default;
 $hs-color_yellow--dark:           #e2b900 !default;
 $hs-color_lime:                   #86e01e !default;
 $hs-color_light_lime:             #e7ffcb !default;
-$hs-color_green:                  #4cd964 !default;
+$hs-color_green:                  #28a745 !default;
+$hs-color_green--lighter:         #4cd964 !default;
 $hs-color_green--light:           #93ff7e !default;
-$hs-color_green--dark:            #468c1f !default;
+$hs-color_green--dark:            #218838 !default;
+$hs-color_green--darker:          #1e7e34 !default;
 $hs-color_silver:                 #aaa !default;
 $hs-color_purple:                 #9a39d3 !default;
 $hs-color_turquoise:              #5ac8fa !default;
@@ -48,12 +50,13 @@ $hs-black_75:                     rgba(0, 0, 0, 0.75) !default;
 $hs-gray-base:			              #111 !default;
 $hs-gray-medium:                  #2f2f31 !default;
 $hs-gray-darker:                  #333 !default;
-$hs-gray-dark:			                lighten($hs-gray-base, 20%) !default;   // #333
-$hs-gray:				                    lighten($hs-gray-base, 33.5%) !default; // #555
-$hs-gray-light:		                  lighten($hs-gray-base, 46.7%) !default; // #777
-$hs-gray-lighter:		              #dedede !default; // #dedede
-$hs-gray-lighter-05:              #e9e9ed !default;
-$hs-gray-lightest:		              lighten($hs-gray-base, 93.5%) !default; // #eee
+$hs-gray-dark:			              #383838 !default;
+$hs-gray:				                  #5a6268 !default;
+$hs-gray-white:				            #828a91 !default;
+$hs-gray-light:		                #afbec2 !default;
+$hs-gray-lighter:		              #dedede !default;
+$hs-gray-lighter-05:              #d8e3eb !default;
+$hs-gray-lightest:		            #eee !default;
 
 $hs-white:                        #fff !default;
 $hs-white_2:                      #f2f2f2 !default;
@@ -69,7 +72,7 @@ $hs-blueGray-medium:            #507386 !default;
 $hs-blueGray-medium-muted:      #476e82 !default;
 $hs-blueGray-medium-saturated:  #136591 !default;
 $hs-blueGray-dark:              #0f161d !default;
-$hs-blueGray-very-dark:         #181a1b !default; // #181a1b
+$hs-blueGray-very-dark:         #181a1b !default;
 $hs-blueGray-darker:            #0c0f11 !default;
 $hs-blueGray-darker--alpha75:   rgba(12, 15, 17, 0.75) !default;
 $hs-blueGray-light:             #2d373c !default;
@@ -80,9 +83,11 @@ $hs-blue-light:                 #0291ca !default;
 // $hs-blue-lighter:               #83d6ff !default;
 $hs-blue-lighter:               #78bad8 !default;
 $hs-blue-lightest:              #a8dfff !default;
-$hs-blue-light-muted:           #80b6cc !default; // or do #83d6ff
+$hs-blue-light-muted:           #80b6cc !default;
 $hs-blue-lighter-muted:         #8ec1d9 !default;
 $hs-blue-lightest-muted:        #9bcbe6 !default;
+$hs-blue-light-shadow:          #3ab1c3 !default;
+$hs-blue-light-background:      #117a8b !default;
 $hs-blue-dark:                  #1e364e !default;
 $hs-link-primary:               $hs-theme-primary !default;
 
@@ -140,7 +145,10 @@ $hs-shadow-sm:                    0px 2px 4px 0px rgba(0, 0, 0, .5) !default;
 $hs-shadow-lg:                    0px 4px 8px 3px rgba(0, 0, 0, .4) rgba(0, 0, 0, 0.4) !default;
 $hs-shadow-inset-blue:            inset 0 0 0 2px #5173ff !default;
 $hs-shadow-none:                  none !default;
-$hs-card-shadow:                  rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px !default;
+$hs-card-shadow:                  0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) !default;
+$hs-button-shadow-nocolor:               0 0 0 0.2rem !default;
+$hs-button-focus:                 $hs-button-shadow-nocolor $hs-theme-primary--trans50 !default;
+$hs-button-secondary-focus:       $hs-button-shadow-nocolor $hs-gray-white !default;
 // $hs-card-shadow:                  0 4px 6px 2px rgba(0, 0, 0, 0.3) !default;
 
 // Backgrounds
@@ -150,7 +158,7 @@ $hs-bg-black-to-transparent:      linear-gradient(0deg, rgba(0, 0, 0, 0) 15%, rg
 // Cards
 
 $hs-card-width: 100% !default;
-$hs-card-height: auto !default;
+$hs-card-height: 350px !default;
 $hs-card-title: 2rem !default;
 $hs-card-subtitle: calc($hs-card-title - 10%) !default;
 $hs-card-img-width: 100% !default;

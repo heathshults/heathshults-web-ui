@@ -1,4 +1,4 @@
-@import './variables';
+@import './vars';
 
 .text-muted {
   color: $hs-gray-light;
@@ -76,11 +76,11 @@ h6 {
 .btn-xl {
   @include button-variant($hs-gray-base, $hs-theme-primary, $hs-theme-primary);
   @include heading-font;
+  padding: 20px 40px;
+  font-size: 18px;
 
   font-weight: 700;
   border-radius: 3px;
-  font-size: 18px;
-  padding: 20px 40px;
 }
 
 // DarkMode Widget
@@ -247,13 +247,13 @@ h6 {
   }
 
   .navbar-toggle {
+    font-size: 12px;
+
+    color: white;
     background-color: $hs-theme-primary;
     border-color: $hs-theme-primary;
 
     @include heading-font;
-
-    color: white;
-    font-size: 12px;
 
     &:hover,
     &:focus {
@@ -267,8 +267,8 @@ h6 {
         @include heading-font;
 
         font-weight: 400;
-        letter-spacing: 1px;
         color: white;
+        letter-spacing: 1px;
 
         &:hover,
         &:focus {
@@ -279,14 +279,14 @@ h6 {
     }
   }
 
-  .navbar-nav>.active>a {
-    border-radius: 0;
+  .navbar-nav >.active >a {
     color: white;
     background-color: $hs-theme-primary;
+    border-radius: 0;
   }
 
-  .navbar-nav>.active>a:hover,
-  .navbar-nav>.active>a:focus {
+  .navbar-nav >.active >a:hover,
+  .navbar-nav >.active >a:focus {
     color: white;
     background-color: darken($hs-theme-primary, 10%);
   }
@@ -294,17 +294,17 @@ h6 {
 
 @media (min-width: 768px) {
   .navbar-custom {
-    background-color: transparent;
     padding: 25px 0;
-    transition: padding 0.3s;
+    background-color: transparent;
     border: none;
+    transition: padding 0.3s;
 
     .navbar-brand {
       font-size: 2em;
       transition: all 0.3s;
     }
 
-    .navbar-nav>.active>a {
+    .navbar-nav >.active >a {
       border-radius: 3px;
     }
   }
@@ -314,8 +314,8 @@ h6 {
 
 @media (min-width: 768px) {
   .navbar-custom.affix {
-    background-color: $hs-gray-darker;
     padding: 10px 0;
+    background-color: $hs-gray-darker;
 
     .navbar-brand {
       font-size: 1.5em;
@@ -324,6 +324,9 @@ h6 {
 }
 
 header {
+  color: white;
+
+  text-align: center;
   background-image: url('/assets/img/header-bg.jpg');
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -331,29 +334,26 @@ header {
 
   @include background-cover;
 
-  text-align: center;
-  color: white;
-
   .intro-text {
     padding-top: 100px;
     padding-bottom: 50px;
 
     .intro-lead-in {
       @include serif-font;
+      margin-bottom: 25px;
+      font-size: 22px;
 
       font-style: italic;
-      font-size: 22px;
       line-height: 22px;
-      margin-bottom: 25px;
     }
 
     .intro-heading {
       @include heading-font;
+      margin-bottom: 25px;
+      font-size: 50px;
 
       font-weight: 700;
-      font-size: 50px;
       line-height: 50px;
-      margin-bottom: 25px;
     }
   }
 }
@@ -366,20 +366,20 @@ header {
 
       .intro-lead-in {
         @include serif-font;
+        margin-bottom: 25px;
+        font-size: 40px;
 
         font-style: italic;
-        font-size: 40px;
         line-height: 40px;
-        margin-bottom: 25px;
       }
 
       .intro-heading {
         @include heading-font;
+        margin-bottom: 50px;
+        font-size: 75px;
 
         font-weight: 700;
-        font-size: 75px;
         line-height: 75px;
-        margin-bottom: 50px;
       }
     }
   }
@@ -391,20 +391,20 @@ section {
   padding: 100px 0;
 
   h2.section-heading {
-    font-size: 40px;
     margin-top: 0;
     margin-bottom: 15px;
+    font-size: 40px;
   }
 
   h3.section-subheading {
+    margin-bottom: 75px;
     font-size: 16px;
-
-    @include serif-font;
-
-    text-transform: none;
     font-style: italic;
     font-weight: 400;
-    margin-bottom: 75px;
+
+    text-transform: none;
+
+    @include serif-font;
   }
 }
 
@@ -427,24 +427,24 @@ section {
   background-color: $hs-blueGray-darker;
 
   .portfolio-item {
-    margin: 0 0 15px;
     right: 0;
+    margin: 0 0 15px;
 
     .portfolio-link {
-      display: block;
       position: relative;
+      display: block;
       max-width: 400px;
       margin: 0 auto;
 
       .portfolio-hover {
-        background: fade-out($hs-theme-primary, 0.9);
         position: absolute;
         width: 100%;
         height: 100%;
+        background: fade-out($hs-theme-primary, 0.9);
         opacity: 0;
-        transition: all ease 0.5s;
         -webkit-transition: all ease 0.5s;
         -moz-transition: all ease 0.5s;
+        transition: all ease 0.5s;
 
         &:hover {
           opacity: 1;
@@ -452,13 +452,13 @@ section {
 
         .portfolio-hover-content {
           position: absolute;
+          top: 50%;
           width: 100%;
           height: 20px;
-          font-size: 20px;
-          text-align: center;
-          top: 50%;
           margin-top: -12px;
+          font-size: 20px;
           color: white;
+          text-align: center;
 
           i {
             margin-top: -12px;
@@ -474,22 +474,22 @@ section {
 
     .portfolio-caption {
       max-width: 400px;
-      margin: 0 auto;
-      background-color: white;
-      text-align: center;
       padding: 25px;
+      margin: 0 auto;
+      text-align: center;
+      background-color: white;
 
       h4 {
-        text-transform: none;
         margin: 0;
+        text-transform: none;
       }
 
       p {
         @include serif-font;
+        margin: 0;
+        font-size: 16px;
 
         font-style: italic;
-        font-size: 16px;
-        margin: 0;
       }
     }
   }
@@ -510,30 +510,30 @@ section {
 // Timeline
 
 .timeline {
-  list-style: none;
-  padding: 0;
   position: relative;
+  padding: 0;
+  list-style: none;
 
   &::before {
+    position: absolute;
     top: 0;
     bottom: 0;
-    position: absolute;
-    content: "";
-    width: 2px;
-    background-color: #f1f1f1;
     left: 40px;
+    width: 2px;
     margin-left: -1.5px;
+    content: "";
+    background-color: #f1f1f1;
   }
 
   >li {
-    margin-bottom: 50px;
     position: relative;
     min-height: 50px;
+    margin-bottom: 50px;
 
     &::before,
     &::after {
-      content: " ";
       display: table;
+      content: " ";
     }
 
     &::after {
@@ -541,64 +541,64 @@ section {
     }
 
     .timeline-panel {
-      width: 100%;
-      float: right;
-      padding: 0 20px 0 100px;
       position: relative;
+      float: right;
+      width: 100%;
+      padding: 0 20px 0 100px;
       text-align: left;
 
       &::before {
-        border-left-width: 0;
-        border-right-width: 15px;
-        left: -15px;
         right: auto;
+        left: -15px;
+        border-right-width: 15px;
+        border-left-width: 0;
       }
 
       &::after {
-        border-left-width: 0;
-        border-right-width: 14px;
-        left: -14px;
         right: auto;
+        left: -14px;
+        border-right-width: 14px;
+        border-left-width: 0;
       }
     }
 
     .timeline-image {
+      position: absolute;
       left: 0;
-      margin-left: 0;
+      z-index: 100;
       width: 80px;
       height: 80px;
-      position: absolute;
-      z-index: 100;
-      background-color: $hs-theme-primary;
+      margin-left: 0;
       color: white;
-      border-radius: 100%;
-      border: 7px solid #f1f1f1;
       text-align: center;
+      background-color: $hs-theme-primary;
+      border: 7px solid #f1f1f1;
+      border-radius: 100%;
 
       h4 {
-        font-size: 10px;
         margin-top: 12px;
+        font-size: 10px;
         line-height: 14px;
       }
     }
 
-    &.timeline-inverted>.timeline-panel {
+    &.timeline-inverted >.timeline-panel {
       float: right;
-      text-align: left;
       padding: 0 20px 0 100px;
+      text-align: left;
 
       &::before {
-        border-left-width: 0;
-        border-right-width: 15px;
-        left: -15px;
         right: auto;
+        left: -15px;
+        border-right-width: 15px;
+        border-left-width: 0;
       }
 
       &::after {
-        border-left-width: 0;
-        border-right-width: 14px;
-        left: -14px;
         right: auto;
+        left: -14px;
+        border-right-width: 14px;
+        border-left-width: 0;
       }
     }
 
@@ -634,33 +634,33 @@ section {
     }
 
     >li {
-      margin-bottom: 100px;
       min-height: 100px;
+      margin-bottom: 100px;
 
       .timeline-panel {
-        width: 41%;
         float: left;
+        width: 41%;
         padding: 0 20px 20px 30px;
         text-align: right;
       }
 
       .timeline-image {
+        left: 50%;
         width: 100px;
         height: 100px;
-        left: 50%;
         margin-left: -50px;
 
         h4 {
-          font-size: 13px;
           margin-top: 16px;
+          font-size: 13px;
           line-height: 18px;
         }
       }
 
-      &.timeline-inverted>.timeline-panel {
+      &.timeline-inverted >.timeline-panel {
         float: right;
-        text-align: left;
         padding: 0 30px 20px 20px;
+        text-align: left;
       }
     }
   }
@@ -681,13 +681,13 @@ section {
         margin-left: -75px;
 
         h4 {
-          font-size: 18px;
           margin-top: 30px;
+          font-size: 18px;
           line-height: 26px;
         }
       }
 
-      &.timeline-inverted>.timeline-panel {
+      &.timeline-inverted >.timeline-panel {
         padding: 0 20px 20px;
       }
     }
@@ -713,7 +713,7 @@ section {
         }
       }
 
-      &.timeline-inverted>.timeline-panel {
+      &.timeline-inverted >.timeline-panel {
         padding: 0 100px 20px 20px;
       }
     }
@@ -723,8 +723,8 @@ section {
 // Team Section
 
 .team-member {
-  text-align: center;
   margin-bottom: 50px;
+  text-align: center;
 
   img {
     margin: 0 auto;
@@ -755,8 +755,8 @@ aside.clients {
 section#contact {
   background-color: $hs-gray-darker;
   background-image: url('/assets/img/map-image.png');
-  background-position: center;
   background-repeat: no-repeat;
+  background-position: center;
 
   .section-heading {
     color: white;
@@ -851,13 +851,13 @@ ul.social-buttons {
   li {
     a {
       display: block;
-      background-color: $hs-gray-darker;
-      height: 40px;
       width: 40px;
-      border-radius: 100%;
+      height: 40px;
       font-size: 20px;
       line-height: 40px;
       color: white;
+      background-color: $hs-gray-darker;
+      border-radius: 100%;
       outline: none;
       transition: all 0.3s;
 
@@ -879,19 +879,19 @@ ul.social-buttons {
 
 .portfolio-modal {
   .modal-dialog {
-    margin: 0;
-    height: 100%;
     width: auto;
+    height: 100%;
+    margin: 0;
   }
 
   .modal-content {
-    border-radius: 0;
-    background-clip: border-box;
-    box-shadow: none;
-    border: none;
     min-height: 100%;
     padding: 100px 0;
     text-align: center;
+    background-clip: border-box;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
 
     h2 {
       margin-bottom: 15px;
@@ -904,16 +904,16 @@ ul.social-buttons {
 
     p.item-intro {
       margin: 20px 0 30px;
-
-      @include serif-font;
+      font-size: 16px;
 
       font-style: italic;
-      font-size: 16px;
+
+      @include serif-font;
     }
 
     ul.list-inline {
-      margin-bottom: 30px;
       margin-top: 0;
+      margin-bottom: 30px;
     }
 
     img {
@@ -923,50 +923,48 @@ ul.social-buttons {
 
   .close-modal {
     position: absolute;
-    width: 75px;
-    height: 75px;
-    background-color: transparent;
     top: 25px;
     right: 25px;
+    width: 75px;
+    height: 75px;
     cursor: pointer;
+    background-color: transparent;
 
     &:hover {
       opacity: 0.3;
     }
 
     .lr {
-      height: 75px;
-      width: 1px;
-      margin-left: 35px;
-      background-color: $hs-gray-darker;
-      transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-
-      /* IE 9 */
-      -webkit-transform: rotate(45deg);
-
       /* Safari and Chrome */
       z-index: 1051;
+      width: 1px;
+      height: 75px;
+      margin-left: 35px;
+      background-color: $hs-gray-darker;
+      -ms-transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+
+      /* IE 9 */
 
       .rl {
-        height: 75px;
+        /* Safari and Chrome */
+        z-index: 1052;
         width: 1px;
+        height: 75px;
         background-color: $hs-gray-darker;
-        transform: rotate(90deg);
         -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
 
         /* IE 9 */
         -webkit-transform: rotate(90deg);
-
-        /* Safari and Chrome */
-        z-index: 1052;
       }
     }
   }
 
   .modal-backdrop {
-    opacity: 0;
     display: none;
+    opacity: 0;
   }
 }
 

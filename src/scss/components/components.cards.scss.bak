@@ -1,5 +1,5 @@
 @import "./mixins/settings";
-@import "../variables";
+@import "../vars";
 
 /*
  * CSS CUSTOM VARIABLE FUNCTION

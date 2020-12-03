@@ -5,7 +5,8 @@
 @import "./variables/spacing";
 @import "./variables/grid";
 @import "./variables/css-vars-mixin";
-@import "./variables/keyframes.scss";
+@import "./variables/keyframes";
+@import "./variables/aspect-ratio";
 
 @include cssvars;
 

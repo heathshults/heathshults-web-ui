@@ -1,5 +1,5 @@
 @import "./mixins/settings";
-@import "../variables";
+@import "../vars";
 
 /*
  * CSS CUSTOM VARIABLE FUNCTION
@@ -56,8 +56,8 @@
 
   &.hs-card-size--sm {
     @include card-dimensions--sm;
-    margin: 0 auto;
     padding: 0;
+    margin: 0 auto;
   }
 
   &.hs-card-size--lg {
@@ -185,7 +185,7 @@
   padding: 0;
   text-align: center;
   @include card-size;
-} 
+}
 // .hs-card_body.hs-card_body--sm {
 //   width: $hs-card-width--sm;
 //   padding: 0;
@@ -207,7 +207,7 @@ h3.hs-body-h3 {
   margin-top: 0;
   font-size: 2.5rem;
 }
-  
+
 
 
 

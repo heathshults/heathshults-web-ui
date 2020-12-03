@@ -388,38 +388,38 @@ img::-moz-selection {
 img::selection {
   background: transparent;
 }
-hs-card {
-  position: relative;
-  display: inline-block;
-  padding: 0;
-  overflow: hidden;
-  background: transparent;
-  @include border-radius-all-md;
-  box-shadow: $hs-card-shadow;
+// hs-card {
+//   position: relative;
+//   display: inline-block;
+//   padding: 0;
+//   overflow: hidden;
+//   background: transparent;
+//   @include border-radius-all-md;
+//   box-shadow: $hs-card-shadow;
 
-  &.light {
-    background-color: #f8f8f8;
-  }
+//   &.light {
+//     background-color: #f8f8f8;
+//   }
 
-  &.dark {
-    background-color: #2d373c;
-  }
+//   &.dark {
+//     background-color: #2d373c;
+//   }
 
-  // hs-card-img-header {
-  //   overflow: hidden;
-  //   @include card-size;
-  // }
+//   // hs-card-img-header {
+//   //   overflow: hidden;
+//   //   @include card-size;
+//   // }
 
-  > .hs-image:not(:first-child) {
-    padding: 1em 0 0;
-  }
+//   > .hs-image:not(:first-child) {
+//     padding: 1em 0 0;
+//   }
 
-  + .hs-card {
-    margin: 0.5em 0 0 0;
-  }
+//   + .hs-card {
+//     margin: 0.5em 0 0 0;
+//   }
 
-  // @include card-size;
-}
+//   // @include card-size;
+// }
 
 .hs-card_body {
   padding: 0;
@@ -1124,11 +1124,4 @@ input:not(:-webkit-autofill) {
   height: 42px;
   background-image: url('/assets/img/bg/botttom-edge-ripped-pape.png');
   background-repeat: repeat-x;
-}
-
-.hs-ratio-16-9 {
-  @include ratio-16-9;
-}
-.hs-ratio-3-2 {
-  @include ratio-3-2;
 }
