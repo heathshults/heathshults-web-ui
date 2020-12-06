@@ -70,7 +70,6 @@ export class HSCard {
   launchModalHandler(target: string) {
     // showModal(`#${this.clickTarget}`)
     this.clickTarget ? document.querySelector(target).classList.add('hs-display-block') : alert('no target parameter');
-
   }
   
   private cb() {
@@ -143,9 +142,9 @@ export class HSCard {
     typeof this.cardSize === 'undefined' ? this.cardSize = '--fluid' : '';
     return (
       <div id={this.cardId} class={`hs-card hs-card-size${this.cardSize} ${this.colorTone}`}>
-       <header class={`hs-card_header hs-card_header${this.cardSize} hs-ratio-3-2`}>
-        <a id="imgHeaderOverlay" class={`hs-overlay hs-card_img-header_overlay${this.cardSize} ${this.showHide} hs-ratio-3-2`} href="#" onClick={() => this.launchModalHandler(`${this.modalId}`)}>
-          <img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img${this.cardSize} hs-ratio-3-2`} alt="header image" />
+       <header class={`hs-card_header hs-card_header${this.cardSize} responsive-object hs-ratio-3-2 `}>
+        <a id="imgHeaderOverlay" class={`hs-overlay hs-card_img-header_overlay${this.cardSize} ${this.showHide} hs-scale-potionatel`} href="#" onClick={() => this.launchModalHandler(`${this.modalId}`)}>
+          <img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img${this.cardSize} hs-scale-proportionate`} alt="header image" />
         </a>
         <slot name="card-header" />
         </header>

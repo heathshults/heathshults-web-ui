@@ -51,24 +51,60 @@
     transform: translateX(0);
   }
 }
+.responsive-object {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+
+.responsive-object::before {
+  display: block;
+  content: "";
+}
+
+.responsive-object .responsive-object-item,
+.responsive-object iframe,
+.responsive-object embed,
+.responsive-object object,
+.responsive-object video {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
-.hs-ratio-16-9 {
+.hs-ratio-16-9::before {
+  position: relative;
   padding-top: 56.25%;
 }
 
 /* 4:3 Aspect Ratio (divide 3 by 4 = 0.75) */
-.hs-ratio-4-3 {
+.hs-ratio-4-3::before {
+  position: relative;
   padding-top: 75%;
 }
 
 /* 3:2 Aspect Ratio (divide 2 by 3 = 0.6666)  */
-.hs-ratio-3-2 {
+.hs-ratio-3-2::before {
+  position: relative;
   padding-top: 66.66%;
 }
 
 /* 1:1 Aspect Ratio */
-.hs-ratio-1-1 {
+.hs-ratio-1-1::before {
+  position: relative;
   padding-top: 100%;
+}
+
+.hs-scale-proportionate {
+  max-width: 100%;
+  height: auto;
 }
 
 :root {
@@ -873,7 +909,7 @@ section#contact :-ms-input-placeholder {
   color: #dedede;
 }
 section#contact .text-danger {
-  color: #e74c3c;
+  color: #dc3545;
 }
 
 footer {

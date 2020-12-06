@@ -566,13 +566,12 @@ function connect_sync(cb) {
 }
 exports.connect_sync = connect_sync;
 
+var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
 // close the server
 function close_server(cb) {
   connect.closeServer();
-  if (typeof cb === 'function') {
-    cb(null, file);
-    called = true;
-  }
+   if (typeof cb === 'function') 
+    return cb();
 }
 exports.close_server = close_server;
 

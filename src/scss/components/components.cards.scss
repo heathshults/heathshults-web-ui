@@ -7,7 +7,6 @@
   display: flex;
   flex-direction: column;
   min-width: 0;
-  max-height: $hs-card-height;
   margin: rem(5px) auto;
   word-wrap: break-word;
   background-color: $hs-card-bg;
@@ -23,8 +22,10 @@
   }
   & > {
     .hs-card_header {
+      position: relative;
       display: flex;
       width: 100%;
+      height: $hs-card-img-height--sm;
       padding: 0;
       margin-bottom: 0;
       background-color: $hs-card-cap-bg;
@@ -193,12 +194,13 @@
   width: $hs-card-width--fluid;
   overflow: hidden;
   color: $hs-card-color;
-  background-color: $hs-white_5;
+  background-color: $hs-gray-white;
 }
 
 .hs-card_content {
   width: 100%;
   padding: 12px $hs-spacing--md;
+  margin: .725rem;
   line-height: 1;
   text-align: left;
   background-color: $hs-white;

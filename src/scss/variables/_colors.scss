@@ -36,7 +36,9 @@ $hs-color_blue-semimuted:         #4997cd !default;
 
 $hs-theme-primary:                #fed136 !default;
 $hs-theme-primary--trans50:       rgba(254, 211, 54, 0.5) !default;
-$hs-theme-danger:                 #e74c3c !default;
+$hs-theme-danger:                 #dc3545 !default;
+$hs-theme-warning:                #e74c3c !default;
+$hs-theme-info:                   #9bcbe6 !default;
 $hs-theme-background-primary:      map-get($hs-default-colors, background-primary) !default;
 $hs-theme-background-secondary:    map-get($hs-default-colors, background-secondary) !default;
 
@@ -146,11 +148,14 @@ $hs-shadow-lg:                    0px 4px 8px 3px rgba(0, 0, 0, .4) rgba(0, 0, 0
 $hs-shadow-inset-blue:            inset 0 0 0 2px #5173ff !default;
 $hs-shadow-none:                  none !default;
 $hs-card-shadow:                  0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) !default;
-$hs-button-shadow-nocolor:               0 0 0 0.2rem !default;
+$hs-button-shadow-nocolor:        0 0 0 0.2rem !default;
 $hs-button-focus:                 $hs-button-shadow-nocolor $hs-theme-primary--trans50 !default;
 $hs-button-secondary-focus:       $hs-button-shadow-nocolor $hs-gray-white !default;
 // $hs-card-shadow:                  0 4px 6px 2px rgba(0, 0, 0, 0.3) !default;
-
+$hs-button-success-outline:       $hs-button-shadow-nocolor rgba(darken($hs-color_green--darker, 2%), 50%) !default;
+$hs-button-info-outline:          $hs-button-shadow-nocolor rgba(darken($hs-blue-light-shadow, 2%), 50%) !default;
+$hs-button-warning-outline:       $hs-button-shadow-nocolor rgba(darken($hs-color_orange, 2%), 50%) !default;
+$hs-button-danger-outline:        $hs-button-shadow-nocolor rgba(darken($hs-color_red, 2%), 50%) !default;
 // Backgrounds
 $hs-bg-black-to-transparent:      linear-gradient(0deg, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 1) 100%) !default;
 
@@ -168,8 +173,7 @@ $hs-card-width--sm: 265px !default;
 $hs-card-title--sm: 1.1rem !default;
 $hs-card-subtitle--sm: calc($hs-card-title--sm - 10%) !default;
 $hs-card-img-width--sm: 100% !default;
-$hs-card-img-height--sm: auto !default;
-
+$hs-card-img-height--sm: 167.23px !default;
 $hs-card-width--lg: 400px !default;
 $hs-card-title--lg: 2.3rem !default;
 $hs-card-subtitle--lg: calc($hs-card-title--lg - 10%) !default;

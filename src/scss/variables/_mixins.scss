@@ -461,15 +461,19 @@ $breakpoints: (
 }
 
 @mixin ratio-16-9 {
+  position: relative;
   padding-top: $hs-ratio-16-9;
 }
 @mixin ratio-4-3 {
+  position: relative;
   padding-top: $hs-ratio-4-3;
 }
 @mixin ratio-3-2 {
+  position: relative;
   padding-top: $hs-ratio-3-2;
 }
 @mixin ratio-1-1 {
+  position: relative;
   padding-top: $hs-ratio-1-1;
 }
 

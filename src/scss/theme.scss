@@ -469,33 +469,33 @@ div[slot^="hs-"] {
 }
 
 
-.hs-card_content {
-  width: 100%;
-  padding: $hs-spacing--md;
-  line-height: 1.5;
-  text-align: left;
-  background-color: $hs-white;
+// .hs-card_content {
+// //   width: 100%;
+// //   padding: $hs-spacing--md;
+// //   line-height: 1.5;
+// //   text-align: left;
+// //   background-color: $hs-white;
 
-  .hs-card_title {
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: $hs-card-title;
-  }
+// //   .hs-card_title {
+// //     margin-top: 0;
+// //     margin-bottom: 0;
+// //     font-size: $hs-card-title;
+// //   }
 
-  .hs-card_subtitle {
-    margin-top: -$hs-card-spacer-y / 2;
-    margin-bottom: 0;
-    font-size: $hs-card-subtitle--fluid;
-  }
-  @include hs-card-content;
-}
-.hs-card_heading-h5 {
-  font-size: 1rem;
-}
+// //   .hs-card_subtitle {
+// //     margin-top: -$hs-card-spacer-y / 2;
+// //     margin-bottom: 0;
+// //     font-size: $hs-card-subtitle--fluid;
+// //   }
+// //   @include hs-card-content;
+// // }
+// .hs-card_heading-h5 {
+//   font-size: 1rem;
+// }
 
-.hs-card_text-emphisized {
-  font-size: 1.01rem;
-}
+// .hs-card_text-emphisized {
+//   font-size: 1.01rem;
+// }
 
 
 .hs-brand-symbol {
