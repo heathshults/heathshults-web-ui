@@ -81,4 +81,19 @@ $hs-get-mp-size: (
   'sm': .5rem,
   'md': 1rem,
   'lg': 1.5rem
-)
+);
+
+$hs-card-header-sizes: (
+  'sm': (
+    width: 265px,
+    heigth: 150px
+  ),
+  'md': (
+    width: 400px,
+    height: 226px
+  ),
+  'lg': (
+    width: 100%,
+    height: 100%
+  )
+);

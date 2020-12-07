@@ -497,14 +497,14 @@ function watchers(cb) {
         });
         // eslint-disable-next-line no-sequences
         var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
-        watch(`${srcPath}/views/*.ejs`, ejsit).on('change', browserSync.reload), callback;
-        watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_images).on('change', browserSync.reload), callback;
-        watch([`${srcPath}/scss/**/*.scss`], compileCSS), callback;
+        watch(`${srcPath}/views/*.ejs`, ejsit).on('change', browserSync.reload()), callback;
+        watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_images).on('change', browserSync.reload()), callback;
+        watch([`${srcPath}/scss/**/*.scss`], compileCSS).on('change', browserSync.stream()), callback;
         watch([`${srcPath}/assets/**/*.css`], ra.copy_css), callback;
         watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], copy_js), callback;
         watch([`${buildPath}/**/*`], copy_components), callback;
         watch([`${p.src_js}/js/HeathScript.js`], babelfry), callback;
-        watch([`${srcCompPath}/**/*`],  render_components), callback;
+        watch([`${srcCompPath}/**/*`],  render_components).on('change', browserSync.stream()), callback;
         // watch([`${srcCompPath}/**/*`],  series(build_components, copy_components)), callback;
         resolve(callback);
       },2000 );

@@ -159,13 +159,13 @@ $hs-card-width--sm: 265px !default;
 $hs-card-title--sm: 1.3rem !default;
 $hs-card-subtitle--sm: calc($hs-card-title--sm - 10%) !default;
 $hs-card-img-width--sm: $hs-card-width--sm !default;
-$hs-card-img-height--sm: 177px !default;
+$hs-card-img-height--sm: 150px !default;
 
 $hs-card-width--lg: 400px !default;
 $hs-card-title--lg: 2.3rem !default;
 $hs-card-subtitle--lg: calc($hs-card-title--lg - 10%) !default;
 $hs-card-img-width--lg: $hs-card-width--lg !default;
-$hs-card-img-height--lg: 287px !default;
+$hs-card-img-height--lg: 226px !default;
 
 $hs-card-width--fluid: 100% !default;
 $hs-card-title--fluid: 2.4rem !default;
@@ -185,7 +185,7 @@ $hs-card-inner-border-radius:          $hs-border-radius-sm !default;
 $hs-card-cap-bg:                       rgba($hs-black, .03) !default;
 $hs-card-cap-color:                    null !default;
 $hs-card-color:                        null !default;
-$hs-card-bg:                           $hs-white !default;
+$hs-card-bg:                           $hs-gray-lighter !default;
 
 $hs-card-img-overlay-padding:          1.25rem !default;
 

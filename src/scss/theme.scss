@@ -291,9 +291,6 @@
 }
 
 .hs-intro-text {
-  position: absolute;
-  left: 50%;
-  z-index: 3;
   padding-top: 100px;
   padding-bottom: 50px;
   text-align: center;
@@ -327,13 +324,15 @@
 
   header,
   .hs-header {
-    height: 100vh;
+    position: relative;
+    min-height: 100vh;
     background-color: #2f2f31;
-
     .hs-intro-text {
-      padding-top: 300px;
-      padding-bottom: 200px;
-
+      position: absolute;
+      top: 50vh;
+      left: 50%;
+      z-index: 3;
+      transform: translate(-50%, -50%);
       .hs-intro-lead-in {
         @include serif-font;
         padding-bottom: 75px;
@@ -341,7 +340,6 @@
         font-style: italic;
         line-height: 40px;
       }
-
       .hs-intro-heading {
         @include heading-font;
         padding-bottom: 50px;
@@ -723,11 +721,11 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  background-color: transparent !important;
-  background-image: none !important;
+  // background-color: transparent !important;
+  // background-image: none !important;
   border: 2px solid $hs-theme-primary !important;
   -webkit-text-fill-color: $hs-white;
-  -webkit-box-shadow: inherit;
+  -webkit-box-shadow: 0 0 0px 1000px rgba(0, 0, 0, .75) inset;
   transition: background-color 50000s ease-in-out 0s;
 }
 // input:-internal-autofill-selected,
@@ -925,3 +923,239 @@ input:not(:-webkit-autofill) {
   }
 }
 
+// annimated arrow
+
+
+@keyframes arrow-anim {
+  from {
+    fill: transparent;
+    stroke-width: 2px;
+    stroke: transparent;
+    transform: translateX(1rem);
+  }
+  50% {
+    fill: #FFF;
+    stroke-width: 2px;
+    stroke: #FFF;
+  }
+  to {
+    transform: translateX(9rem);
+    fill: transparent;
+    stroke-width: 2px;
+    stroke: transparent;
+  }
+}
+
+@keyframes arrow-fixed-anim {
+  5% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// ======* ANIMATED CHECKBOX **======>
+.hs-slide-submit {
+  position: relative;
+  width: 250px;
+  height: 48px;
+  padding: 6px;
+  margin: auto;
+  color: #fed136;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid #fff;
+  // border-radius: 500px;
+  .container-fluid {
+    width: 100%;
+    height: 32px;
+    padding: 0;
+    margin: 0;
+  }
+  .hs-slide-submit_left {
+    height: 32px;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    .hs-slide-submit-button {
+      position: relative;
+      width: 32px;
+      height: 32px;
+      font-size: 1.5rem;
+      color: #6f6f6f;
+      cursor: move;
+      background-color: rgba(255, 255, 255, 0.5);
+      border: 2px solid #fff;
+      // border-radius: 500px;
+      .hs-slide_icon {
+        position: absolute;
+        top: 15%;
+        left: 55%;
+        width: 22px;
+        height: 22px;
+        transform: translate(-50%);
+      }
+    }
+  }
+  .hs-slide-submit-center {
+    $ease: cubic-bezier(.2, 1, .3, 1);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+
+    .hs-slide-submit_label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 1000;
+      font-weight: 700;
+      // margin: auto;
+      color: $hs-gray-lighter;
+      letter-spacing: 2px;
+      transform: translate(-50%, -50%);
+      @include heading-font;
+    }
+
+    .hs-animated-arrow-container {
+      position: absolute;
+      left: 4px;
+      z-index: 1001;
+      display: flex;
+      align-items: center;
+      height: 32px;
+      // position: absolute;
+      // top: 50%;
+      // left: 50%;
+      // transform: translate(-50%, -50%);
+
+      .hs-animated-arrow {
+        width: 22px;
+        height: auto;
+        margin: 0 2rem 0 -15px;
+        overflow: visible;
+        cursor: move;
+        polygon, path {
+          transition: all 1s $ease;
+          fill: transparent;
+          stroke: transparent;
+          stroke-width: 2px;
+        }
+
+        .hs-arrow {
+          animation-name: arrow-anim;
+          animation-duration: 2.5s;
+          animation-timing-function: $ease;
+          animation-iteration-count: infinite;
+          fill: transparent;
+          &.a-3 {
+            animation-delay: .25s;
+          }
+          &.a-2 {
+            animation-delay: .15s;
+          }
+          &.a-1 {
+            animation-delay: 0s;
+          }
+        }
+        .hs-arrow-fixed {
+          animation: arrow-fixed-anim 2.5s $ease infinite;
+        }
+      }
+    }
+
+  }
+  .hs-slide-submit_right {
+    height: 32px;
+    padding: 0;
+    margin: 0;
+    text-align: right;
+    .hs-slide-submit-button_drop {
+      font-size: 1.5rem;
+      color: #6f6f6f;
+      background-color: rgba(255, 255, 255, 0.3);
+      border: 2px solid #fff;
+      transition: all .35s ease-in-out;
+      // border-radius: 500px;
+      &.hs-dropzone {
+        position: absolute;
+        top: -2px;
+        right: 0;
+        width: 36px;
+        height: 36px;
+        background: transparent;
+        border-style: dashed;
+      }
+
+      &.hs-dropzone-hover {
+        border-color: rgb(22, 71, 162);
+      }
+      &.hs-dropzone-has-file {
+        background-color: #fff;
+        border: 2px solid green;
+      }
+
+
+    }
+  }
+}
+
+/* animated checkbox */
+.hs-animated-checkmark-container {
+  position: relative;
+  display: block;
+  width: 40px;
+  height: 50px;
+  margin: auto;
+}
+
+.hs-fadeout {
+  display: none;
+  opacity: 0;
+  transition: all .2s ease-in-out;
+}
+.hs-checkmark{ fill: #231f20; }
+
+.svg-checkmark {
+  position: absolute;
+  top: -12px;
+  left: 0;
+  .check {
+    stroke: #005c00; /* red */
+    stroke: green; /* blue */
+    fill: none;
+    stroke-width: 20;
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    stroke-miterlimit: 5;
+    stroke-linecap: square;
+
+    animation: check .75s linear forwards;
+  }
+
+  .svg .box {
+    stroke: #cc181e; /* red */
+    stroke: #387ea9; /* blue */
+    stroke-width: 12;
+    fill: none;
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    animation: draw 1s linear forwards;
+  }
+}
+@keyframes draw {
+  0% { stroke-dashoffset: -400; }
+  100% { stroke-dashoffset: 400; }
+}
+
+@keyframes check {
+  0% { stroke-dashoffset: -400; }
+  100% { stroke-dashoffset: 0; }
+}
