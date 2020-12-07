@@ -25,14 +25,14 @@ $mail->isSMTP(); //Tell PHPMailer to use SMTP
 // SMTP::DEBUG_CLIENT = client messages;
 // SMTP::DEBUG_SERVER = client and server messages;
 $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-$mail->Host = 'mailhub.fanniemae.com';
+$mail->Host = 'securemail.heawthshults.com';
 $mail->Port = 25;
 //$mail->SMTPAuth = false; //We don't need to set this as it's the default value
-$mail->setFrom('feedback@loanlifecycle.com', 'LLC Map'); //Set who the message is to be sent from
+$mail->setFrom('heath@heathshults.com', 'HeathenScript'); //Set who the message is to be sent from
 // $mail->addReplyTo($replyTo, $name); //Set an alternative reply-to address
-$mail->addAddress($sendTo, 'Loan Lifecycle Team'); //Set who the message is to be sent to
-$mail->Subject = 'LLC Map Feedback'; //Set the subject line
-$templatePath = 'mail-templates/bp-notification.html'; // build the html that will hold the table
+$mail->addAddress($sendTo, 'heatheshults@gmail.com'); //Set who the message is to be sent to
+$mail->Subject = 'Website Contact Form'; //Set the subject line
+$templatePath = 'mail-templates/hs-notification.html'; // build the html that will hold the table
 $template = file_get_contents(($templatePath), __DIR__); //Read an HTML message body from an external file, convert referenced images to embedded, //convert HTML into a basic plain-text alternative body
 foreach($data as $key => $value)
 {

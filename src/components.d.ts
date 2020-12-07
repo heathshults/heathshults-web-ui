@@ -12,6 +12,7 @@ export namespace Components {
         "autoFooter": boolean;
         "basicFooter": any;
         "cardContent": any;
+        "cardContents": unknown;
         "cardHeader": any;
         "cardHeaderImg": any;
         "cardHeight": string;
@@ -20,11 +21,14 @@ export namespace Components {
         "cardSize": string;
         "cardWidth": string;
         "clickTarget"?: string;
+        "cloneBaby": unknown;
+        "clonedContent": unknown;
         "colorTone": string;
         "colorToneClass": string;
         "footerDiv": HTMLDivElement;
         "imgElem": any;
         "imgPath": string;
+        "inserter": () => Promise<unknown>;
         "modalId": string;
         "overlay": any;
         "showHide": string;
@@ -262,6 +266,7 @@ declare namespace LocalJSX {
         "autoFooter"?: boolean;
         "basicFooter"?: any;
         "cardContent"?: any;
+        "cardContents"?: unknown;
         "cardHeader"?: any;
         "cardHeaderImg"?: any;
         "cardHeight"?: string;
@@ -270,6 +275,8 @@ declare namespace LocalJSX {
         "cardSize"?: string;
         "cardWidth"?: string;
         "clickTarget"?: string;
+        "cloneBaby"?: unknown;
+        "clonedContent"?: unknown;
         "colorTone"?: string;
         "colorToneClass"?: string;
         "footerDiv"?: HTMLDivElement;

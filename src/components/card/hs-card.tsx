@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { Component, Element, Prop, Event, EventEmitter, Listen, h } from '@stencil/core';
+import { Component, Element, Prop, Event, EventEmitter, Listen, h, Method } from '@stencil/core';
 
 @Component({
   tag: 'hs-card',
@@ -78,7 +78,7 @@ export class HSCard {
   
   private callback = (()=> { if (typeof this.cb === 'function') return this.cb(); })
   
-  private getElements() {
+  private getElements(): Promise<unknown> {
     return new Promise((resolve, reject) => {
       try {
         setTimeout(() => {
@@ -109,31 +109,48 @@ export class HSCard {
       }
     });
   }
+  @Prop() cardContents:unknown;
+  @Prop() clonedContent:unknown;
+  @Prop() cloneBaby:unknown;
   
-  
-  // private theElements() {
-  //   return new Promise((resolve, reject) => {
-  //     try {
-  //       this.cardContent =          document.querySelector('.hs-card_content');
-  //       this.overlay =              this.el.shadowRoot.querySelector('#imgHeaderOverlay');
-  //       this.footerDiv =            this.el.shadowRoot.querySelector('#foot');
-  //       if (this.autoFooter) {
-  //       this.footerDiv.innerHTML =  this.basicFooter;
-  //       this.cardImgHeaderImg =     this.el.shadowRoot.querySelector('#hsHeaderImg');}
-  //       resolve(this.callback);
-  //     }
-  //     catch(error) {
-  //       reject('Reject because: ' + error);
-  //     }
-  //   });
-  // }
-  
+  private cloner(): Promise<unknown> {
+    return new Promise((resolve, reject): void => {
+      try {
+        setTimeout(() => {
+          this.cardContents = document.querySelector('.hs-card-content');
+          this.clonedContent = this.cardContents.cloneNode(true);
 
-  componentWillLoad() {
-    
-      
-  }  
-
+          console.log('cloned em');
+          
+          resolve(this.callback);
+        }, 6000);
+      } 
+      catch(error) {
+        const fullErrorMsg = `Error in getElements(): ${error}`;
+        console.log('getElements error: ' + fullErrorMsg);
+        reject(false);
+      }
+    });
+  }
+  
+  @Method() inserter(): Promise<unknown> {
+    return new Promise((resolve, reject): void => {
+      try {
+        setTimeout((): void => {
+          this.cloneBaby = this.el.shadowRoot.querySelector('#cloneBaby');
+          this.cloneBaby.appendChild(this.clonedConent);
+          console.log('cloned em');
+          resolve(this.callback);
+        }, 6000);
+        } 
+        catch(error) {
+          const fullErrorMsg = `Error in getElements(): ${error}`;
+          console.log('getElements error: ' + fullErrorMsg);
+          reject(false);
+        }
+    });
+  }
+  
   render() {
     typeof this.colorTone === 'undefined' || typeof this.colorTone === null || this.colorTone === 'light' ? this.colorToneClass = 'light' :
     this.colorTone === 'dark' ? this.colorToneClass = 'dark' : this.colorToneClass = 'light';
@@ -148,7 +165,7 @@ export class HSCard {
         </a>
         <slot name="card-header" />
         </header>
-        <div class={`hs-card_body hs-card-size${this.cardSize}`} >
+        <div id="cloneBaby" class={`hs-card_body hs-card-size${this.cardSize}`} >
           <slot name="card-body" />
         </div>
         

@@ -12,7 +12,7 @@
     "mailto": "you@yourDomain.com",
     "copyto": "copyTo@theirDomain.com",
     "replyto": "sender",
-    "subject": "Blueprint Contact Inquiry Notification",
+    "subject": "Website Contact Inquiry Notification",
     "usernotification": "put content here"
   },
   "pagemsg": {
