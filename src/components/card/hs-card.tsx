@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { Component, Element, Prop, Event, EventEmitter, Listen, h, Method } from '@stencil/core';
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types, no-console */
+import { Component, Element, Prop, Event, EventEmitter, Listen, Method, h } from '@stencil/core';
 
 @Component({
   tag: 'hs-card',
@@ -53,12 +53,8 @@ export class HSCard {
       </li>
     </ul>
   </div>`;
-  // @Prop({reflect: true}) imgWidth?: any = '265px';
-  // @Prop({reflect: true}) imgHeight?: any = '177px';
-  // @Prop() imgW: string;
-  // @Prop() imgH: string;
   @Prop() clickTarget?: string;
-  // @Prop() callback?: any;
+
   
   modalLancher: EventEmitter;
   @Event() launchModal: EventEmitter;
@@ -109,20 +105,27 @@ export class HSCard {
       }
     });
   }
-  @Prop() cardContents:unknown;
-  @Prop() clonedContent:unknown;
-  @Prop() cloneBaby:unknown;
   
-  private cloner(): Promise<unknown> {
+  @Prop() cardContainer:any;
+  @Prop() cardContents:any;
+  @Prop() clonedContent:any;
+  @Prop() cloneBaby:any;
+  public function() {
+    this.numberOne();
+  }
+  
+  @Method() async numberOne(): Promise<unknown> {
     return new Promise((resolve, reject): void => {
+      console.log('first promise');
       try {
-        setTimeout(() => {
+        setTimeout((): void => {
           this.cardContents = document.querySelector('.hs-card-content');
           this.clonedContent = this.cardContents.cloneNode(true);
 
           console.log('cloned em');
-          
-          resolve(this.callback);
+          this.cardContents.remove();
+          console.log(this.clonedContent);
+          resolve(this.callback, this.numberTwo());
         }, 6000);
       } 
       catch(error) {
@@ -132,13 +135,15 @@ export class HSCard {
       }
     });
   }
+
+
   
-  @Method() inserter(): Promise<unknown> {
+  @Method() async numberTwo(): Promise<unknown> {
     return new Promise((resolve, reject): void => {
       try {
         setTimeout((): void => {
           this.cloneBaby = this.el.shadowRoot.querySelector('#cloneBaby');
-          this.cloneBaby.appendChild(this.clonedConent);
+          this.cloneBaby.appendChild(this.clonedContent);
           console.log('cloned em');
           resolve(this.callback);
         }, 6000);
@@ -150,22 +155,33 @@ export class HSCard {
         }
     });
   }
+  @Prop() cardContainerSize;
+  @Prop() cardHeaderSize;
   
-  render() {
+  componentWillLoad() {
+    
+     typeof this.cardSize === 'undefined' ? this.cardSize = '--fluid' : '';
     typeof this.colorTone === 'undefined' || typeof this.colorTone === null || this.colorTone === 'light' ? this.colorToneClass = 'light' :
     this.colorTone === 'dark' ? this.colorToneClass = 'dark' : this.colorToneClass = 'light';
     this.getElements().then(this.callback);
     typeof this.imgPath === 'undefined' ? this.showHide = 'hs-display-none' : this.showHide = 'hs-display-block';
-    typeof this.cardSize === 'undefined' ? this.cardSize = '--fluid' : '';
+    this.cardContainerSize = `hs-card-size${this.cardSize}`;
+    this.cardHeaderSize = `hs-card_header${this.cardSize}`;
+    
+  }
+  
+  render() {
+    
+    
     return (
-      <div id={this.cardId} class={`hs-card hs-card-size${this.cardSize} ${this.colorTone}`}>
-       <header class={`hs-card_header hs-card_header${this.cardSize} responsive-object hs-ratio-3-2 `}>
+      <div id={this.cardId} class={`hs-card ${this.cardContainerSize} ${this.colorTone}`}>
+       <header class={`hs-card_header ${this.cardHeaderSize} responsive-object hs-ratio-3-2 `}>
         <a id="imgHeaderOverlay" class={`hs-overlay hs-card_img-header_overlay${this.cardSize} ${this.showHide} hs-scale-potionatel`} href="#" onClick={() => this.launchModalHandler(`${this.modalId}`)}>
           <img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img${this.cardSize} hs-scale-proportionate`} alt="header image" />
         </a>
         <slot name="card-header" />
         </header>
-        <div id="cloneBaby" class={`hs-card_body hs-card-size${this.cardSize}`} >
+        <div id="cloneBaby" class={`hs-card_body cardContainerSize`} >
           <slot name="card-body" />
         </div>
         

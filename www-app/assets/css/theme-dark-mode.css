@@ -1,28 +1,8 @@
 /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
-
 /* 4:3 Aspect Ratio (divide 3 by 4 = 0.75) */
-
 /* 1:1 Aspect Ratio */
-
 /* #region   */
-
 /* #endregion */
-@-webkit-keyframes hs-bounce-1 {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-  }
-  60% {
-    opacity: 1;
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
-  }
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-}
 @keyframes hs-bounce-1 {
   0% {
     opacity: 0;
@@ -39,22 +19,6 @@
     transform: scale(1);
   }
 }
-@-webkit-keyframes hs-bounce-2 {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(-100px);
-    transform: translateX(-100px);
-  }
-  60% {
-    opacity: 1;
-    -webkit-transform: translateX(20px);
-    transform: translateX(20px);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
-}
 @keyframes hs-bounce-2 {
   0% {
     opacity: 0;
@@ -65,22 +29,6 @@
     opacity: 1;
     -webkit-transform: translateX(20px);
     transform: translateX(20px);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
-}
-@-webkit-keyframes hs-bounce-2-inverse {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(100px);
-    transform: translateX(100px);
-  }
-  60% {
-    opacity: 1;
-    -webkit-transform: translateX(-20px);
-    transform: translateX(-20px);
   }
   100% {
     -webkit-transform: translateX(0);
@@ -162,13 +110,10 @@
 :root {
   /*  Override Bootstrap color system  */
   --yellow: #fed136;
-
   /*  Override Bootstrap default state colors  */
   --primary: var(--yellow);
-
   /*  Override Bootstrap yiq lightness value  */
   --yiq-contrasted-threshold: 205;
-
   /*  Variables  */
   --hs-color_red: #e2001a;
   --hs-color_red_orange: #f63a0f;
@@ -186,7 +131,6 @@
   --hs-color_purple: #9a39d3;
   --hs-color_turquoise: #5ac8fa;
   --hs-color_blue-semimuted: #4997cd;
-
   /*  Gray and Brand Colors for use across theme  */
   --hs-theme-primary: #fed136;
   --hs-theme-primary--trans50: rgba(254, 211, 54, 0.5);
@@ -203,20 +147,15 @@
   --hs-gray-medium: #2f2f31;
   --hs-gray-darker: #333;
   --hs-gray-dark: #333;
-
   /* #333 */
   --hs-gray: #555;
-
   /* #555 */
   --hs-gray-light: #777;
-
   /* #777 */
   --hs-gray-lighter: #dedede;
-
   /* #dedede */
   --hs-gray-lighter-05: #e9e9ed;
   --hs-gray-lightest: #eee;
-
   /* #eee */
   --hs-white: #fff;
   --hs-white_2: #f2f2f2;
@@ -226,14 +165,12 @@
   --hs-white_30: rgba(255, 255, 255, 0.3);
   --hs-white_60: rgba(255, 255, 255, 0.6);
   --hs-white_100: rgba(255, 255, 255, 1);
-
   /* Dark Mode Colors */
   --hs-blueGray-medium: #507386;
   --hs-blueGray-medium-muted: #476e82;
   --hs-blueGray-medium-saturated: #136591;
   --hs-blueGray-dark: #0f161d;
   --hs-blueGray-very-dark: #181a1b;
-
   /* #181a1b */
   --hs-blueGray-darker: #0c0f11;
   --hs-blueGray-darker--alpha75: rgba(12, 15, 17, 0.75);
@@ -241,13 +178,11 @@
   --hs-text-onDark: #fff;
   --hs-green-light: #80cc94;
   --hs-blue-light: #0291ca;
-
   /*  --hs-blue-lighter: #83d6ff;
   --hs-blue-lighter: #83d6ff;  */
   --hs-blue-lighter: #78bad8;
   --hs-blue-lightest: #a8dfff;
   --hs-blue-light-muted: #80b6cc;
-
   /* or do #83d6ff */
   --hs-blue-lighter-muted: #8ec1d9;
   --hs-blue-lightest-muted: #9bcbe6;
@@ -268,30 +203,23 @@
   --hs-grid-columns: 12;
   --hs-grid-gutter-width: 30px;
   --hs-grid-row-columns: 6;
-
   /* Paddding & Margins Generics */
   --hs-spacing--sm: .5rem;
   --hs-spacing--md: 1rem;
   --hs-spacing--lg: 1.5 rem;
-
   /* Borders  */
   --hs-border-width: 1px;
   --hs-border-color: --hs-gray-lighter;
   --enable-rounded: true;
   --hs-border-radius: .25rem;
-
   /* 4px */
   --hs-border-radius-sm: .125rem;
-
   /* 2px */
   --hs-border-radius-lg: .5rem;
-
   /* 8px */
   --hs-border-radius-md: .25%;
-
   /* Outer glow */
   --hs-box-shadow-glow: 0px 4px 16px 2px rgba(255, 255, 255, 0.5);
-
   /* Shadows */
   --hs-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   --hs-shadow-heavy: 2px 0.5rem 0.5rem rgba(0, 0, 0, 0.5);
@@ -305,12 +233,9 @@
   --hs-shadow-inset-blue: inset 0 0 0 2px #5173ff;
   --hs-shadow-none: none;
   --hs-card-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
-
   /* --hs-card-shadow: 0 4px 6px 2px rgba(0, 0, 0, 0.3); */
-
   /* Backgrounds */
   --hs-bg-black-to-transparent: linear-gradient(0deg, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 1) 100%);
-
   /* Cards */
   --hs-card-width: 100%;
   --hs-card-height: 100%;
@@ -334,7 +259,6 @@
   --hs-card-img-width--fluid: var(--hs-card-width--fluid);
   --hs-card-img-height--fluid: 100%;
   --hs-card-margin: .5rem;
-
   /* Card padding - borders - margins */
   --hs-card-spacer-y: .75rem;
   --hs-card-spacer-x: 1.25rem;
@@ -352,7 +276,6 @@
   --hs-card-columns-count: 3;
   --hs-card-columns-gap: 1.25rem;
   --hs-card-columns-margin: var(--hs-card-spacer-y);
-
   /* ====== Z-INDEX ======  */
   --hs-zindex-dropdown: 1000;
   --hs-zindex-sticky: 1020;
@@ -361,7 +284,6 @@
   --hs-zindex-modal: 1050;
   --hs-zindex-popover: 1060;
   --hs-zindex-tooltip: 1070;
-
   /* ====== SHAPES ====== */
   --hs-circle: 50%;
   --hs-pill: 500%;
@@ -410,8 +332,8 @@ h4,
 h5,
 h6 {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 700;
   text-transform: uppercase;
+  font-weight: 700;
 }
 
 .services,
@@ -432,12 +354,12 @@ h6 {
 }
 
 .btn-primary {
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 700;
   color: white;
-  text-transform: uppercase;
   background-color: #fed136;
   border-color: #fed136;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 .btn-primary:focus, .btn-primary.focus {
   color: white;
@@ -477,14 +399,14 @@ h6 {
 }
 
 .btn-xl {
-  padding: 20px 40px;
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 18px;
-  font-weight: 700;
   color: #111;
-  text-transform: uppercase;
   background-color: #fed136;
   border-color: #fed136;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  padding: 20px 40px;
+  font-size: 18px;
+  font-weight: 700;
   border-radius: 3px;
 }
 .btn-xl:focus, .btn-xl.focus {
@@ -530,13 +452,12 @@ h6 {
 
 .navbar-custom {
   background: #151515;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(15%, rgba(0, 0, 0, 0)), to(black));
   background: linear-gradient(0deg, rgba(0, 0, 0, 0) 15%, black 100%);
   border-color: transparent;
 }
 .navbar-custom .navbar-brand {
-  font-family: "Caveat", cursive;
   color: #fed136;
+  font-family: "Caveat", cursive;
 }
 .navbar-custom .navbar-brand:hover, .navbar-custom .navbar-brand:focus, .navbar-custom .navbar-brand:active, .navbar-custom .navbar-brand.active {
   color: #fec503;
@@ -545,21 +466,21 @@ h6 {
   border-color: rgba(255, 255, 255, 0.98);
 }
 .navbar-custom .navbar-toggle {
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 12px;
   color: white;
-  text-transform: uppercase;
   background-color: #fed136;
   border-color: #fed136;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
 }
 .navbar-custom .navbar-toggle:hover, .navbar-custom .navbar-toggle:focus {
   background-color: #fed136;
 }
 .navbar-custom .nav .nav_item .nav_link {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
   font-weight: 400;
   color: white;
-  text-transform: uppercase;
   letter-spacing: 1px;
 }
 .navbar-custom .nav .nav_item .nav_link:hover, .navbar-custom .nav .nav_item .nav_link:focus {
@@ -582,12 +503,10 @@ h6 {
     padding: 25px 0;
     background-color: transparent;
     border: none;
-    -webkit-transition: padding 0.3s;
     transition: padding 0.3s;
   }
   .navbar-custom .navbar-brand {
     font-size: 2em;
-    -webkit-transition: all 0.3s;
     transition: all 0.3s;
   }
   .navbar-custom .navbar-nav > .active > a {
@@ -617,19 +536,19 @@ header .intro-text {
   padding-bottom: 50px;
 }
 header .intro-text .intro-lead-in {
-  margin-bottom: 25px;
   font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-bottom: 25px;
   font-size: 22px;
   font-style: italic;
   line-height: 22px;
 }
 header .intro-text .intro-heading {
-  margin-bottom: 25px;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 25px;
   font-size: 50px;
   font-weight: 700;
   line-height: 50px;
-  text-transform: uppercase;
 }
 
 @media (min-width: 768px) {
@@ -638,19 +557,19 @@ header .intro-text .intro-heading {
     padding-bottom: 200px;
   }
   header .intro-text .intro-lead-in {
-    margin-bottom: 25px;
     font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-bottom: 25px;
     font-size: 40px;
     font-style: italic;
     line-height: 40px;
   }
   header .intro-text .intro-heading {
-    margin-bottom: 50px;
     font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 50px;
     font-size: 75px;
     font-weight: 700;
     line-height: 75px;
-    text-transform: uppercase;
   }
 }
 section {
@@ -663,11 +582,11 @@ section h2.section-heading {
 }
 section h3.section-subheading {
   margin-bottom: 75px;
-  font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-style: italic;
   font-weight: 400;
   text-transform: none;
+  font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @media (min-width: 768px) {
@@ -700,6 +619,7 @@ section h3.section-subheading {
   background: rgba(254, 209, 54, 0.1);
   opacity: 0;
   -webkit-transition: all ease 0.5s;
+  -moz-transition: all ease 0.5s;
   transition: all ease 0.5s;
 }
 .portfolio .portfolio-item .portfolio-link .portfolio-hover:hover {
@@ -734,8 +654,8 @@ section h3.section-subheading {
   text-transform: none;
 }
 .portfolio .portfolio-item .portfolio-caption p {
-  margin: 0;
   font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
   font-size: 16px;
   font-style: italic;
 }
@@ -960,34 +880,33 @@ section#contact .form-group textarea.form-control {
 }
 section#contact .form-control:focus {
   border-color: #fed136;
-  -webkit-box-shadow: none;
   box-shadow: none;
 }
 section#contact ::-webkit-input-placeholder {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
   font-weight: 700;
   color: #dedede;
-  text-transform: uppercase;
 }
 section#contact :-moz-placeholder {
   /* Firefox 18- */
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
   font-weight: 700;
   color: #dedede;
-  text-transform: uppercase;
 }
 section#contact ::-moz-placeholder {
   /* Firefox 19+ */
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
   font-weight: 700;
   color: #dedede;
-  text-transform: uppercase;
 }
 section#contact :-ms-input-placeholder {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
   font-weight: 700;
   color: #dedede;
-  text-transform: uppercase;
 }
 section#contact .text-danger {
   color: #dc3545;
@@ -998,15 +917,15 @@ footer {
   text-align: center;
 }
 footer span.copyright {
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 40px;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   text-transform: none;
 }
 footer ul.quicklinks {
   margin-bottom: 0;
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 40px;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   text-transform: none;
 }
@@ -1024,7 +943,6 @@ ul.social-buttons li a {
   background-color: #333;
   border-radius: 100%;
   outline: none;
-  -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li a:active {
@@ -1050,7 +968,6 @@ ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li
   background-clip: border-box;
   border: none;
   border-radius: 0;
-  -webkit-box-shadow: none;
   box-shadow: none;
 }
 .portfolio-modal .modal-content h2 {
@@ -1062,9 +979,9 @@ ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li
 }
 .portfolio-modal .modal-content p.item-intro {
   margin: 20px 0 30px;
-  font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-style: italic;
+  font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .portfolio-modal .modal-content ul.list-inline {
   margin-top: 0;
@@ -1092,9 +1009,9 @@ ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li
   height: 75px;
   margin-left: 35px;
   background-color: #333;
+  -ms-transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
-
   /* IE 9 */
 }
 .portfolio-modal .close-modal .lr .rl {
@@ -1103,8 +1020,8 @@ ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li
   width: 1px;
   height: 75px;
   background-color: #333;
+  -ms-transform: rotate(90deg);
   transform: rotate(90deg);
-
   /* IE 9 */
   -webkit-transform: rotate(90deg);
 }
@@ -1140,49 +1057,32 @@ body {
 }
 
 .card_row {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-align: stretch;
-  -ms-flex-pack: center;
   align-items: stretch;
   justify-content: center;
-  -webkit-box-align: stretch;
-  -webkit-box-pack: center;
 }
 
 .card {
   position: relative;
-  -webkit-box-flex: 1;
-  -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   height: 100%;
   color: #fff;
   background-color: #2d373c;
-  -webkit-box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.5);
 }
 .card:not(:last-child) {
   margin-right: 0.5rem;
 }
 .card .card_header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-align: center;
-  -ms-flex-direction: column;
   flex-direction: column;
   align-items: center;
   padding: 1.5rem 0 1.5rem 0;
   font-size: 1.2rem;
   color: #9bcbe6;
   background-color: #181a1b;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-box-align: center;
 }
 .card .card_header .lead {
-  -ms-flex-item-align: end;
   align-self: flex-end;
   margin: 0.5rem auto 0.25rem;
   font-size: 2.5rem;
@@ -1193,10 +1093,7 @@ body {
   padding: 1.5rem 1rem 1rem 1rem;
 }
 .card .card_footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-item-align: end;
   align-self: flex-end;
   width: 100%;
   padding: 1rem 2rem 1rem 1rem;
@@ -1205,8 +1102,10 @@ body {
 .card .card_footer .lead {
   margin-right: auto;
   margin-left: auto;
-  font-family: "Caveat", cursive;
   font-size: 2.5rem;
   font-weight: 700;
   text-align: center;
+  font-family: "Caveat", cursive;
 }
+
+/*# sourceMappingURL=theme-dark-mode.css.map */

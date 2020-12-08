@@ -11,25 +11,29 @@ export namespace Components {
     interface HsCard {
         "autoFooter": boolean;
         "basicFooter": any;
+        "cardContainer": any;
+        "cardContainerSize": any;
         "cardContent": any;
-        "cardContents": unknown;
+        "cardContents": any;
         "cardHeader": any;
         "cardHeaderImg": any;
+        "cardHeaderSize": any;
         "cardHeight": string;
         "cardId": string;
         "cardImgHeaderImg": HTMLImageElement;
         "cardSize": string;
         "cardWidth": string;
         "clickTarget"?: string;
-        "cloneBaby": unknown;
-        "clonedContent": unknown;
+        "cloneBaby": any;
+        "clonedContent": any;
         "colorTone": string;
         "colorToneClass": string;
         "footerDiv": HTMLDivElement;
         "imgElem": any;
         "imgPath": string;
-        "inserter": () => Promise<unknown>;
         "modalId": string;
+        "numberOne": () => Promise<unknown>;
+        "numberTwo": () => Promise<unknown>;
         "overlay": any;
         "showHide": string;
     }
@@ -265,18 +269,21 @@ declare namespace LocalJSX {
     interface HsCard {
         "autoFooter"?: boolean;
         "basicFooter"?: any;
+        "cardContainer"?: any;
+        "cardContainerSize"?: any;
         "cardContent"?: any;
-        "cardContents"?: unknown;
+        "cardContents"?: any;
         "cardHeader"?: any;
         "cardHeaderImg"?: any;
+        "cardHeaderSize"?: any;
         "cardHeight"?: string;
         "cardId"?: string;
         "cardImgHeaderImg"?: HTMLImageElement;
         "cardSize"?: string;
         "cardWidth"?: string;
         "clickTarget"?: string;
-        "cloneBaby"?: unknown;
-        "clonedContent"?: unknown;
+        "cloneBaby"?: any;
+        "clonedContent"?: any;
         "colorTone"?: string;
         "colorToneClass"?: string;
         "footerDiv"?: HTMLDivElement;
