@@ -1,0 +1,329 @@
+
+ const ShowMore = (function() {
+
+  'use strict';
+
+  /**
+   * Create the Constructor object
+   */
+  let Constructor = function(): {} {
+
+    let openHeight: unknown;
+    let fbCon: unknown;
+    let cssValues: string;
+    let fbCSS: unknown;
+    let ShowMoreSettings: unknown;
+    let publicAPIs = {};
+    const styleEl = document.createElement('style');
+    const headEl = document.head || document.getElementsByTagName('head')[0];
+
+    const defaultSettings = {
+      fbWidth: '100%',
+      fbHeight: '50px',
+      fbBoxHeight: '300px',
+      fbBoxPaddingBottom: '60px',
+      fbStartColor: 'rgba(0,0,0,0)',
+      fbEndColor: 'rgba(0,0,0,0)',
+      fbBottomBorder: '0px solid #f2f2f2',
+      fbInitButtonText: 'Show More',
+      fbOpenButtonText: 'Show Less',
+      fbButtonPosition: 'center',
+      fbButtonBackground: '#fff',
+      fbButtonBackgroundHover: '#fff;',
+      fbButtonBackgroundFocus: '#fff;',
+      fbButtonTextColor: '#333',
+      fbButtonTextColorHover: '#333',
+      fbButtonLineHeight: '1',
+      fbButtonTextColorFocus: '#333',
+      fbButtonBorderColor: '#fff',
+      fbButtonBorderColorFocus: '#dedede',
+      fbButtonBorderRadius: '4px',
+      fbButtonWidth: '100px',
+      fbButtonHeight: '20px',
+      fbClassList: 'u-text-center',
+      fbBtnClassList: 'btn btn-primary mx-auto'
+    }
+    const styles ={
+      classBase: 'button-show-more',
+      classActive: 'is-fully-opened',
+      classFocused: 'is-focused',
+      fadebarClassList: 'animate text-center',
+      fadebarbButtonClassList: 'btn mx-auto'
+    };
+    const fbActionBtn = {
+      showMore: 'Show More',
+      showLess: 'Show Less',
+      positionX: 'center',
+      positionY: 'bottom'
+    };
+    
+
+    //
+    // Methods
+    //
+
+    /**
+     * A private method
+     */
+    const settings: unknown = () => {
+      if (typeof ShowMoreSettings === 'undefined') {
+        fbCon = defaultSettings;
+      } else {
+        // eslint-disable-next-line no-undef
+        fbCon = ShowMoreSettings;
+      }
+      
+      try {
+        const options = Object.assign(defaultSettings, styles, fbActionBtn, fbCon);
+        console.log('options: ');
+        console.log(options);
+        return cssValues = options;
+       
+      }
+      catch(e) {
+        console.log('object assign error: ' + e);
+        // logman('object assign error: ' + e);
+      }
+    };
+    
+    
+    this.fbCSS = `
+      .j-showmore {
+        position: absolute;
+        left: -9999px;
+        min-height: ${this.cssValues.fbBoxHeight};
+        max-height: 400px;
+        overflow: hidden;
+        padding-bottom: ${this.cssValues.fbBoxPaddingBottom};
+        -webkit-transition: max-height .25s ease-in-out;
+           -moz-transition: max-height .25s ease-in-out;
+             -o-transition: max-height .25s ease-in-out;
+                transition: max-height .25s ease-in-out;
+
+        /* -webkit-transition-timing-function: ease-in-out;
+          -moz-transition-timing-function: ease-in-out;
+            -o-transition-timing-function: ease-in-out;
+                transition-timing-function: ease-in-out; */
+      }
+      .j-showmore.is-visible {
+        left: 0px;
+        max-height: 400px;
+        -webkit-transition: max-height .25s ease-in-out;
+           -moz-transition: max-height .25s ease-in-out;
+             -o-transition: max-height .25s ease-in-out;
+                transition: max-height .25s ease-in-out;
+
+    /* -webkit-transition-timing-function: ease-in-out;
+          -moz-transition-timing-function: ease-in-out;
+            -o-transition-timing-function: ease-in-out;
+                transition-timing-function: ease-in-out; */
+      }
+      .j-fader {
+        position: absolute;
+        z-index: 100;
+        width: ${this.cssValues.fbWidth};
+        height: ${this.cssValues.fbHeight};
+        text-align: center;
+        vertical-align: bottom;
+        cursor: pointer;
+        border-bottom: ${this.cssValues.fbBottomBorder};
+        background: -moz-linear-gradient(top, ${this.cssValues.fbStartColor}, ${this.cssValues.fbEndColor} 60%);
+        background: -webkit-linear-gradient(top, ${this.cssValues.fbStartColor}, ${this.cssValues.fbEndColor} 60%);
+        background: linear-gradient(to bottom, ${this.cssValues.fbStartColor}, ${this.cssValues.fbEndColor} 60%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='${this.cssValues.fbStartColor}', endColorstr='${this.cssValues.fbEndColor}',GradientType=0 );
+        /* box-shadow: 0px -2px 4px 0px rgba(0, 0, 0, 0.45); */
+      }
+      .hs-code .j-fader {
+        border-bottom: 5px solid #f2f2f2;
+        background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.6), #ffffff 60%);
+        background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.6), #ffffff 60%);
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), #ffffff 60%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 );
+      }
+      .j-fader > .j-fader_button {
+        position: absolute;
+        bottom: -6px;
+        left: 50%;
+        display: inline-block;
+        width:  ${this.cssValues.fbButtonWidth};
+        height: ${this.cssValues.fbButtonHeight};
+        padding: 4px 6px;
+        margin: 0 auto;
+        font-size: 0.8rem;
+        line-height: ${this.cssValues.fbButtonLineHeight};
+        color: ${this.cssValues.fbButtonTextColor};
+        white-space: nowrap;
+        cursor: pointer;
+        background-color: ${this.cssValues.fbButtonBackground};
+        border: 1px solid ${this.cssValues.fbButtonBorderColor};
+        border-bottom: 0 solid ${this.cssValues.fbButtonBorderColor};
+        border-radius: ${this.cssValues.fbButtonBorderRadius};
+        box-shadow: 0 -2px 4px 0 $hs-black_45;
+        transform: translateX(-50%);
+      }
+      .j-fader > .j-fader_button::before {
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 5%;
+        z-index: 100;
+        transform: translate(-50%);
+        width: 100%;
+        content: '${this.cssValues.fbInitButtonText}';
+        font-size: 0.75rem;
+      }
+      .j-fader > .j-fader_button.is-visible::before {
+        content: '${this.cssValues.fbOpenButtonText}';
+      }
+      .j-fader > .j-fader_button:hover {
+        background-color: ${this.cssValues.fbButtonBackgroundHover};
+        color: ${this.cssValues.fbButtonTextColorHover};
+      }
+      .j-fader > .j-fader_button:focus {
+        outline-color: ${this.cssValues.fbButtonBorderColorFocus};
+        background-color: ${this.cssValues.fbButtonBorderColorFocus};
+        color: ${this.cssValues.fbButtonTextColorFocus};
+        border: 1px solid ${this.cssValues.fbButtonBorderColorFocus};
+        border-bottom: 5px solid ${this.cssValues.fbButtonBorderColorFocus};
+        box-shadow: unset;
+      }
+      .j-fader > .j-fader_button.is-visible {
+        background-color: ${this.cssValues.fbButtonBorderColorFocus};
+        color: ${this.cssValues.fbButtonTextColorFocus};
+        border: 1px solid ${this.cssValues.fbButtonBorderColorFocus};
+        border-bottom: 5px solid ${this.cssValues.fbButtonBorderColorFocus};
+      }
+      .j-fader > .j-fader.is-visible {
+        border-bottom: 5px solid ${this.cssValues.fbButtonBorderColorFocus};
+      }
+      @keyframes slideOpen {
+        from { height: 300px; }
+        to { height: 100%; }
+      }
+      @keyframes slideClosed {
+        from { height: 100%; }
+        to { height: 300px; }
+      }
+    `;
+
+    this.appendCSS(this.fbCSS);
+  
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    function appendCSS(cssText: unknown) {
+ 
+    this.styleEl.textContent = cssText;
+    this.headEl.appendChild(this.styleEl);
+
+    this.styleEl.type = 'text/css';
+    if (this.styleEl.styleSheet) {
+      
+      // This is required for IE8 and below.
+      this.styleEl.styleSheet.cssText = cssText;
+    } else {
+      this.styleEl.appendChild(document.createTextNode(cssText));
+    }
+ 
+    }
+    
+    function showMoreComplete(): string { 
+      const VERSION = '0.0.1';
+      const NAME = 'ShowMore_FadeBar';
+      return logman(`Now using ${NAME} version ${VERSION}`);
+    }
+    
+    let openHeight: string;
+    const options: unknown = this.settings();
+    
+    /**
+     * @constructor
+     * @description builds the fadebar component
+     */
+    (): Promise<unknown> => {
+
+      const cssText = FadeBarCSS(this.options); // console.log(options);
+
+      styleEl.setAttribute('id', 'fbCSS');
+      styleEl.textContent = cssText;
+      headEl.append(this.styleEl);
+      appendCSS();
+       
+      new Promise((resolve, reject): void => {
+        try {
+          const theFaders = Array.prototype.slice.call(document.querySelectorAll('.j-showmore'));
+
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          theFaders.forEach((node, index): void => {
+            const theContainer = node;
+            const theFadeBar = document.createElement('div');
+            const theShowMoreButton = document.createElement('button');
+            
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            const zindex = 'auto';
+            
+            theFadeBar.classList.add('j-fader');
+            theFadeBar.style = `position: absolute; z-index: auto;`;
+            theShowMoreButton.classList.add('j-fader_button');
+            
+            theShowMoreButton.innerText = this.options.fbInitButtonText;
+            
+            theFadeBar.appendChild(theShowMoreButton);
+            theContainer.before(theFadeBar);
+            this.openHeight = theContainer.offsetHeight;
+            console.log(this.openHeight);
+
+            theShowMoreButton.addEventListener('click', (ev) => {
+              ev.preventDefault();
+              ev.target.classList.toggle('is-visible');
+              const thisFadeBar = ev.target.parentElement;
+              thisFadeBar.classList.toggle('is-visible');
+              thisFadeBar.nextElementSibling.classList.toggle('is-visible');
+              
+              ev.target.classList.contains('is-visible') ? ev.target.innerText = this.options.fbOpenButtonText :
+               ev.target.innerText = this.options.fbInitButtonText;
+              
+            }, false);
+
+            theShowMoreButton.addEventListener('mouseout', (ev) => {
+              ev.target.blur();
+            });
+          });
+          return resolve(typeof this.showMoreComplete === 'function' ? this.showMoreComplete() : '');
+        } catch (err) {
+          reject(logman(err), console.error(err));
+        }
+      });
+    };
+
+
+      /**
+       * A public method
+       */
+      publicAPIs.setup = function() {
+        settings();
+        // Code goes here...
+      };
+
+      /**
+       * Another public method
+       */
+      publicAPIs.init = function(options) {
+        // Code goes here...
+      };
+
+
+      //
+      // Return the Public APIs
+      //
+
+      return publicAPIs;
+
+    };
+
+
+  //
+  // Return the Constructor
+  //
+
+  return Constructor;
+
+})();

@@ -1,0 +1,39 @@
+.hs-grid-container-4x2 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 8px 8px;
+  grid-template-areas:
+    ". . . ."
+    ". . . .";
+}
+.hs-grid-item {
+  padding: 1.2em;
+}
+
+.hs-grid-container-col-1 {
+  display: grid;
+  grid-template-columns: 100%;
+  overflow: hidden;
+
+  .hs-grid-item {
+    padding: 1.2em;
+    gap: 5px;
+  }
+
+}
+
+.hs-grid-container-col-4 {
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-columns: minmax(200px, auto);
+  gap: 1px;
+
+  .hs-grid-item {
+    min-width: 0;
+    padding: 1.2em;
+    overflow: hidden;
+  }
+}

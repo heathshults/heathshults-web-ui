@@ -60,13 +60,13 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top hs-bg-grad-black-trans" id="mainNav">
       <div class="container">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
-          aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobileNav"
+          aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <a class="navbar-brand js-scroll-trigger site-logo" href="#page-top"><span
-              class="hs-brand-symbol">@</span><span>HeathShults.com</span></a>
+        <a class="navbar-brand js-scroll-trigger site-logo" href="#page-top"><span
+            class="hs-brand-symbol">@</span><span>HeathShults.com</span></a>
+        <div class="collapse navbar-collapse" id="mobileNav">
           <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>
@@ -705,24 +705,20 @@
           </div>
         </div>
         <div class="row mt-5">
-          <div class="col-md hs-portfolio-item p-0">
+          <div class="col-md-3 hs-portfolio-item">
             <!-- CARD 01 -->
-            <hs-card card-id="02" color-tone="dark" card-size="--sm"
+            <hs-card card-id="01" color-tone="dark" card-size="--sm"
               img-path="/assets/img/portfolio/USAA/usaa-ema-01.jpg" modal-id="#usaa">
 
               <div id="cardBody" slot="card-body" class="hs-card_body text-center">
 
                 <div class="hs-card_content hs-card-size--sm">
                   <h2 class="hs-card_title mb-2">Employee Mobile Apps</h2>
-                  <div class="row hs-info-table">
-                    <div class="col-md-12">
                       <p>
                         <strong class="hs-card_text-emphisized">USAA </strong><br>
                         Banking * Insurance * Investments<br>
                         Full Stack Software Engineer
                       </p>
-                    </div>
-                  </div>
                 </div>
                 <!-- <div class="text-center">
                   <button class="hs-btn-showmore" type="button" data-toggle="collapse" data-target="#usafb"
@@ -731,70 +727,72 @@
                   </button>
                 </div> -->
               </div>
-
+              <!-- <hs-card-footer id="cardFooter" class="hs-card_footer">
+                <hs-card-button id="modalButton" modal-id="testModal" button-text="Details"></hs-card-button>
+              </hs-card-footer> -->
+              <hs-card-footer id="cardFooter" class="hs-card_footer" slot="card-footer">
+                <hs-card-button 
+                  button-id="modalButton" 
+                  button-text="Details" 
+                  action="http://youtube.com" 
+                  modal-id="testModal" 
+                  css-class="btn hs-details-button" 
+                  click-target="testModal" 
+                  action-parameters="" 
+                  button-text="DETAILS"></hs-card-button>
+              </hs-card-footer>
             </hs-card>
           </div>
           <!-- CARD 02 -->
-          <div class="col-md hs-portfolio-item p-0">
-            <hs-card card-id="03" color-tone="dark" card-size="--sm"
+          <div class="col-md-3 hs-portfolio-item">
+            <hs-card card-id="02" color-tone="dark" card-size="--sm"
               img-path="/assets/img/portfolio/Fannie-Mae/blueprint-card-header.jpg" modal-id="#blueprint">
 
               <div id="cardBody" slot="card-body" class="hs-card_body text-center">
 
                 <div class="hs-card_content hs-card-size--sm">
                   <h2 class="hs-card_title mb-2">Blueprint Design System </h2>
-                  <div class="row hs-info-table">
-                    <div class="col-md-12">
                       <p>
                         <strong class="hs-card_text-emphisized">Fannie Mae, Inc.</strong><br>
                         Mortgage Provider<br>
                         Interaction Designer - UI/UX Developer
                       </p>
-                    </div>
-                  </div>
                 </div>
               </div>
             </hs-card>
           </div>
           <!-- CARD 03 -->
-          <div class="col-md hs-portfolio-item p-0">
-            <hs-card card-id="02" color-tone="dark" card-size="--sm"
+          <div class="col-md-3 hs-portfolio-item">
+            <hs-card card-id="03" color-tone="dark" card-size="--sm"
               img-path="/assets/img/portfolio/BlueStarSports/BSS-card-heading.jpg" modal-id="#modBlueStar">
 
               <div id="cardBody" slot="card-body" class="hs-card_body text-center">
 
                 <div class="hs-card_content hs-card-size--sm">
                   <h2 class="hs-card_title mb-2">USA Football Database</h2>
-
-                  <div class="row hs-info-table">
-                    <div class="col-md12 pl-3">
                       <p>
                         <strong class="hs-card_text-emphisized">Blue Star Sports</strong><br>
                         Data Services<br>
                         UI Software Engineer
                       </p>
-                    </div>
-                  </div>
                 </div>
               </div>
             </hs-card>
           </div>
           <!-- CARD 04 -->
-          <div class="col-m hs-portfolio-item">
-            <hs-card card-id="02" color-tone="dark" card-size="--sm"
-              img-path="/assets/img/portfolio/bowlopolis/bolopolis-headerImg.png" modal-id="#modBowlopolis">
+          <div class="col-md-3 hs-portfolio-item">
+            <hs-card card-id="04" color-tone="dark" card-size="--sm"
+              img-path="/assets/img/portfolio/bowlopolis/bolopolis-headerImg.jpg" modal-id="#modBowlopolis">
 
               <div id="cardBody" slot="card-body" class="hs-card_body text-center">
 
                 <div class="hs-card_content hs-card-size--sm">
                   <h2 class="hs-card_title mb-2">Bowlopolis - Cartoons & Games</h2>
-                  <div class="row hs-info-table">
-                    <div class="col-md-12 pl-3">
+                  <p>
                       <strong class="hs-card_text-emphisized"> BPAA, Inc.</strong><br>
                       Proprietor Association<br>
                       Director Technology - App Dev
-                    </div>
-                  </div>
+                  </p>
                 </div>
               </div>
 
@@ -808,7 +806,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="bg-white about pt-5 pb-5">
+    <section id="about" class="bg-white about hs-section pt-5 pb-5">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center text-color--white">
@@ -823,245 +821,117 @@
 
         <div class="row bg-black-25-opacity p-3">
           <div class="col-lg-12">
-            <div id="timeline">
-              <div class="row timeline-movement timeline-movement-top">
-                <!-- <div class="timeline-badge timeline-future-movement">
-                  <a href="#">
-                    <span class="fa fa-plus">&nbsp;</span>
-                  </a>
-                </div> -->
-                <div class="timeline-badge transparency timeline-filter-movement">
-                  <a href="#">
-                    <span class="fa fa-rocket"></span>
-                  </a>
-                </div>
-
+            
+            <div class="hs-timeline js-hs-timeline">
+              <div class="container max-width-lg hs-timeline__container">
+                <div class="hs-timeline__block">
+                  <div class="hs-timeline__img hs-timeline__img--picture">
+                    <img src="assets/img/hs-icon-picture.svg" alt="Picture">
+                  </div> <!-- hs-timeline__img -->
+            
+                  <div class="hs-timeline__content text-component">
+                    <h2>Title of section 1</h2>
+                    <p class="color-contrast-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum
+                      provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus
+                      veritatis qui ut.</p>
+            
+                    <div class="flex justify-between items-center">
+                      <span class="hs-timeline__date">Jan 14</span>
+                      <a href="#0" class="btn btn--subtle">Read more</a>
+                    </div>
+                  </div> <!-- hs-timeline__content -->
+                </div> <!-- hs-timeline__block -->
+            
+                <div class="hs-timeline__block">
+                  <div class="hs-timeline__img hs-timeline__img--movie">
+                    <img src="assets/img/hs-icon-movie.svg" alt="Movie">
+                  </div> <!-- hs-timeline__img -->
+            
+                  <div class="hs-timeline__content text-component">
+                    <h2>Title of section 2</h2>
+                    <p class="color-contrast-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum
+                      provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde?</p>
+            
+                    <div class="flex justify-between items-center">
+                      <span class="hs-timeline__date">Jan 18</span>
+                      <a href="#0" class="btn btn--subtle">Read more</a>
+                    </div>
+                  </div> <!-- hs-timeline__content -->
+                </div> <!-- hs-timeline__block -->
+            
+                <div class="hs-timeline__block">
+                  <div class="hs-timeline__img hs-timeline__img--picture">
+                    <img src="assets/img/hs-icon-picture.svg" alt="Picture">
+                  </div> <!-- hs-timeline__img -->
+            
+                  <div class="hs-timeline__content text-component">
+                    <h2>Title of section 3</h2>
+                    <p class="color-contrast-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, obcaecati,
+                      quisquam id molestias eaque asperiores voluptatibus cupiditate error assumenda delectus odit similique earum
+                      voluptatem doloremque dolorem ipsam quae rerum quis. Odit, itaque, deserunt corporis vero ipsum nisi eius odio
+                      natus ullam provident pariatur temporibus quia eos repellat consequuntur perferendis enim amet quae quasi
+                      repudiandae sed quod veniam dolore possimus rem voluptatum eveniet eligendi quis fugiat aliquam sunt similique
+                      aut adipisci.</p>
+            
+                    <div class="flex justify-between items-center">
+                      <span class="hs-timeline__date">Jan 24</span>
+                      <a href="#0" class="btn btn--subtle">Read more</a>
+                    </div>
+                  </div> <!-- hs-timeline__content -->
+                </div> <!-- hs-timeline__block -->
+            
+                <div class="hs-timeline__block">
+                  <div class="hs-timeline__img hs-timeline__img--location">
+                    <img src="assets/img/hs-icon-location.svg" alt="Location">
+                  </div> <!-- hs-timeline__img -->
+            
+                  <div class="hs-timeline__content text-component">
+                    <h2>Title of section 4</h2>
+                    <p class="color-contrast-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum
+                      provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus
+                      veritatis qui ut.</p>
+            
+                    <div class="flex justify-between items-center">
+                      <span class="hs-timeline__date">Feb 14</span>
+                      <a href="#0" class="btn btn--subtle">Read more</a>
+                    </div>
+                  </div> <!-- hs-timeline__content -->
+                </div> <!-- hs-timeline__block -->
+            
+                <div class="hs-timeline__block">
+                  <div class="hs-timeline__img hs-timeline__img--location">
+                    <img src="assets/img/hs-icon-location.svg" alt="Location">
+                  </div> <!-- hs-timeline__img -->
+            
+                  <div class="hs-timeline__content text-component">
+                    <h2>Title of section 5</h2>
+                    <p class="color-contrast-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum
+                      provident rerum.</p>
+            
+                    <div class="flex justify-between items-center">
+                      <span class="hs-timeline__date">Feb 18</span>
+                      <a href="#0" class="btn btn--subtle">Read more</a>
+                    </div>
+                  </div> <!-- hs-timeline__content -->
+                </div> <!-- hs-timeline__block -->
+            
+                <div class="hs-timeline__block">
+                  <div class="hs-timeline__img hs-timeline__img--movie">
+                    <img src="assets/img/hs-icon-movie.svg" alt="Movie">
+                  </div> <!-- hs-timeline__img -->
+            
+                  <div class="hs-timeline__content text-component">
+                    <h2>Final Section</h2>
+                    <p class="color-contrast-medium">This is the content of the last section</p>
+            
+                    <div class="flex justify-between items-center">
+                      <span class="hs-timeline__date">Feb 26</span>
+                    </div>
+                  </div> <!-- hs-timeline__content -->
+                </div> <!-- hs-timeline__block -->
               </div>
-              <!-- timeline row -->
-              <div class="row timeline-movement">
-                <!-- timeline badge -->
-                <div class="timeline-badge green">
-                  <span class="timeline-balloon-date-day">'98</span>
-                  <span class="timeline-balloon-date-month">JAN</span>
-                </div>
-
-                <!-- timeline item -->
-                <div class="col-sm-6  timeline-item">
-                  <div class="row">
-                    <div class="col-sm-12 timeline-panel--left">
-                      <div class="timeline-panel bg-education">
-                        <div class="timeline-panel_header">
-                          <span class="fa fa-chevron-circle-down timeline-panel-header-icon"></span>
-                          <span>The Very Begining of My Career</span>
-                        </div>
-                        <ul class="timeline-panel-ul">
-
-                          <li class="timeline-panel_item"><span class="timeline-panel_title">Sessions College of
-                              Professional Design</span></li>
-                          <li class="timeline-panel_item"><span class="timeline-panel_text">Studied hands on Computer
-                              Graphics and New Media Developmet</span>
-                          </li>
-                          <li class="timeline-panel_item">
-                            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 01/01/1998</small></p>
-                          </li>
-                        </ul>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-                <!-- timeline item -->
-                <div class="col-sm-6  timeline-item">
-                  <div class="row">
-                    <div class="col-sm-offset-1 col-sm-12">
-                      <!-- empty panel -->
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row timeline-movement">
-                <!-- timeline badge -->
-                <div class="timeline-badge green">
-                  <span class="timeline-balloon-date-day">18</span>
-                  <span class="timeline-balloon-date-month">APR</span>
-                </div>
-
-                <!-- timeline item -->
-                <div class="col-sm-6 timeline-item">
-                  <div class="row">
-                    <div class="col-sm-12">
-
-                      <!-- empty panel -->
-                    </div>
-                  </div>
-                </div>
-                <!-- timeline item -->
-                <div class="col-sm-6 timeline-item">
-                  <div class="row">
-                    <div class="col-sm-offset-1 col-sm-12 timeline-panel--right">
-
-                      <div class="timeline-panel text-left">
-                        <div class="timeline-panel_header">
-                          <span>test 123</span>
-                          <span class="fa fa-chevron-circle-down timeline-panel-header-icon"></span>
-                        </div>
-                        <ul class="timeline-panel-ul">
-                          <li class="timeline-panel_item"><span class="timeline-panel_title">Sessions College of
-                              Professional Design</span></li>
-                          <li class="timeline-panel_item"><span class="timeline-panel_text">Studied hands on Computer
-                              Graphics and New Media Developmet</span>
-                          </li>
-                          <li class="timeline-panel_item">
-                            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 01/01/1998</small></p>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- timeline row -->
-              <div class="row timeline-movement">
-                <!-- badge -->
-                <div class="timeline-badge">
-                  <span class="timeline-balloon-date-day">13</span>
-                  <span class="timeline-balloon-date-month">APR</span>
-                </div>
-                <!-- item -->
-                <div class="col-sm-offset-6 col-sm-6  timeline-item">
-                  <div class="row">
-                    <div class="col-sm-offset-1 col-sm-12  timeline-panel--left">
-                      <div class="timeline-panel debits">
-                        <div class="timeline-panel_header">
-                          <span class="fa fa-chevron-circle-down timeline-panel-header-icon"></span>
-                          <span>ssssssssssssssssss</span>
-                        </div>
-                        <ul class="timeline-panel-ul">
-                          <li class="timeline-panel_item"><span class="timeline-panel_title">Mussum ipsum cacilds</span>
-                          </li>
-                          <li class="timeline-panel_item"><span class="timeline-panel_text">Lorem ipsum dolor sit amet,
-                              consectetur adipiscing elit. </span>
-                          </li class="timeline-panel_item">
-                          <li>
-                            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11/09/2014</small></p>
-                          </li>
-                        </ul>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-                <!-- item -->
-                <div class="col-sm-6  timeline-item">
-                  <div class="row">
-                    <div class="col-sm-12  timeline-panel--right">
-                      <div class="timeline-panel">
-                        <div class="timeline-panel_header">
-                          <span>ddddddddddddddddddd</span>
-                          <span class="fa fa-chevron-circle-down timeline-panel-header-icon"></span>
-                        </div>
-                        <ul class="timeline-panel-ul">
-                          <li class="timeline-panel_item"><span class="timeline-panel_title">Mussum ipsum cacilds</span>
-                          </li>
-                          <li class="timeline-panel_item"><span class="timeline-panel_text">Lorem ipsum dolor sit amet,
-                              consectetur adipiscing elit. </span>
-                          </li>
-                          <li class="timeline-panel_item">
-                            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11/09/2014</small></p>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
-              </div>
-              <div class="row timeline-movement">
-
-
-                <div class="timeline-badge">
-                  <span class="timeline-balloon-date-day">10</span>
-                  <span class="timeline-balloon-date-month">APR</span>
-                </div>
-
-                <div class="col-sm-offset-6 col-sm-6  timeline-item">
-                  <div class="row">
-                    <div class="col-sm-offset-1 col-sm-12  timeline-panel--left">
-                      <div class="timeline-panel debits">
-                        <div class="timeline-panel_header">
-                          <span class="fa fa-chevron-circle-down timeline-panel-header-icon"></span>
-                          <span>fffffffffffffffffffff</span>
-                        </div>
-                        <ul class="timeline-panel-ul">
-                          <li class="timeline-panel_item"><span class="timeline-panel_title">Mussum ipsum cacilds</span>
-                          </li>
-                          <li class="timeline-panel_item"><span class="timeline-panel_text">Lorem ipsum dolor sit amet,
-                              consectetur adipiscing elit. </span>
-                          </li>
-                          <li class="timeline-panel_item">
-                            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11/09/2014</small></p>
-                          </li>
-                        </ul>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-sm-6  timeline-item">
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="timeline-panel  timeline-panel--right">
-                        <ul class="timeline-panel-ul">
-                          <li class="timeline-panel_header">
-                            <span class="fa fa-chevron-circle-down timeline-panel-header-icon"></span>
-                            <span>Tgggggggggggggggggggggggg</span>
-                          </li>
-                          <li class="timeline-panel_item"><span class="timeline-panel_title">Mussum ipsum cacilds</span>
-                          </li>
-                          <li class="timeline-panel_item"><span class="timeline-panel_text">Lorem ipsum dolor sit amet,
-                              consectetur adipiscing elit. </span>
-                          </li>
-                          <li class="timeline-panel_item">
-                            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11/09/2014</small></p>
-                          </li>
-                        </ul>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-
-
-              </div>
-            </div>
-
-            <!-- <ul class="timeline">
-              <li>
-                <div class="timeline-image">
-                  <img class="img-circle img-responsive" src="/assets/img/about/1.jpg" alt="">
-                </div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h4>1998-2017</h4>
-                    <h4 class="subheading">My Humble Path</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="hs-text-muted">When I began I simply wanted to do Graphics. After creating many website
-                      designs I decided to learn web development. After college I was fortunate enough to land jobs with
-                      big clients such as Ford, Mercury and Chevrolet. It wasn't long before I was well known in the
-                      Dallas area. Soon after I became Web Development Manager at BPAA and eventually Director of
-                      Technology - Web Development. I have learned every skill from requirements gathering, to Aginle
-                      Scrum to being an expert at front end development.&nbsp; If my skills interest you please contact
-                      me at <a href="mailto:heatheshults@gmail.com">heatheshults@gmail.com</a> to discuss opportunities.
-                    </p>
-                  </div>
-                </div>
-              </li>
-            </ul> -->
+            </div> <!-- hs-timeline -->
+            
           </div>
         </div>
       </div>
@@ -1121,7 +991,7 @@
       </div>
     </section>
 
-    <footer class="footer">
+    <footer class="footer hs-section">
       <div class="container">
         <div class="row">
           <div class="col-md-4">
@@ -1161,7 +1031,8 @@
 
     <!-- Portfolio Modals -->
     <!-- Use the modals below to showcase details about your portfolio projects! -->
-
+    <!-- test modal -->
+    <div id="testModal" class="modal-dialog modal-xl">testing</div>
     <!-- Portfolio Modal 1 -->
     <hs-modal dismissible full id="modBowlopolis">
       <hs-card color-tone="light">
@@ -1187,7 +1058,7 @@
       </hs-card>
     </hs-modal>
 
-    <hs-modal dismissible full id="modBowlopolis">
+    <hs-modal dismissible full id="modBowlopolis1">
       <hs-card color-tone="light">
         <hs-card-header>
           <h2 class="hs-heading dark">
@@ -1213,16 +1084,14 @@
       </hs-card>
     </hs-modal>
 
-
     <!-- jQuery  -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-
+    <!-- Popper for popups-->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
     <!-- Contact Form JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqBootstrapValidation/1.3.6/jqBootstrapValidation.min.js">
     </script>

@@ -155,10 +155,11 @@
   }
 }
 
-
+// cards
 @mixin banner-dimensions--sm {
   width: $hs-card-img-width--sm;
   height: $hs-card-img-height--sm;
+
   .hs-card_img-header_img {
     width: $hs-card-img-width--sm;
     height: $hs-card-img-height--sm;
@@ -200,99 +201,105 @@
   @include header-banner-sizes;
 }
 
-// @mixin margins-generic($xya, $size) {
 
-//   // x = horizontal, y= verticle, a = all sides
-//   @if $xya=='x' {
-//     margin-right: map.get($hs-get-mp-size, $size);
-//     margin-left: map.get($hs-get-mp-size, $size);
-//   }
+@mixin card-size--sm {
+  .hs-card {
+    margin: inherit;
+    &--sm {
+      display: inline-block;
+      min-width: 265px;
+      max-width: 100%;
+      height: auto;
+      margin: 5px auto;
+    }
 
-//   @if $xya=='y' {
-//     margin-top: map.get($hs-get-mp-size, $size);
-//     margin-bottom: map.get($hs-get-mp-size, $size);
-//   }
+    &--lg {
+      display: inline-block;
+      width: 400px;
+      height: auto;
+      margin: 5px auto;
+    }
 
-//   @if $xya=='a' {
-//     margin: map.get($hs-get-mp-size, $size);
-//   }
-// }
-
-@mixin card-size {
-  &[card-size="--sm"] {
-    display: inline-block;
-    width: 265px;
+    &--fluid {
+      display: inline-block;
+      width: 100%;
+      height: auto;
+      margin: 5px auto;
+    }
   }
+}
 
-  &[card-size="--lg"] {
-    display: inline-block;
-    width: 400px;
+@mixin card-size--md {
+
+  .hs-card {
+    margin: 5px auto;
+    &--sm {
+      display: inline-block;
+      width: 265px;
+      height: auto;
+      margin: 5px auto;
+    }
+
+    &--md {
+      display: inline-block;
+      width: 400px;
+      max-width: 100%;
+      height: auto;
+      margin: 5px auto;
+    }
+
+    &--lg {
+      display: inline-block;
+      width: 600px;
+      height: auto;
+      margin: 5px auto;
+    }
+
+    &--fluid {
+      display: inline-block;
+      width: 100%;
+      height: auto;
+      margin: 5px auto;
+    }
+
   }
+}
+@mixin card-size--lg {
+  .hs-card {
+    margin: inherit;
+    &--sm {
+      display: inline-block;
+      width: 265px;
+      margin: 5px auto;
+    }
 
-  &[card-size="--fluid"] {
-    display: inline-block;
-    width: 100%;
+    &--md {
+      display: inline-block;
+      width: 500px;
+      height: auto;
+      margin: 5px auto;
+    }
+
+    &--lg {
+      display: inline-block;
+      width: 80%;
+      height: auto;
+      margin: 5px auto;
+    }
+
+    &--fluid {
+      display: inline-block;
+      width: 100%;
+      height: auto;
+      margin: 5px auto;
+    }
   }
 }
 
 
+
 /* #region   */
-// affects outside the card-body component
-// @mixin hs-card-body {
-//   .hs-card_content {
-//     max-width: 100%;
-//     .hs-card_title {
-//       margin-top: 0;
-//       margin-bottom: 0;
-//       font-size: $hs-card-title;
-//     }
-//     .hs-card_subtitle {
-//       margin-top: -$hs-card-spacer-y / 2;
-//       margin-bottom: 0;
-//       font-size: $hs-card-subtitle--fluid;
-//     }
-//     &.hs-card-size--sm {
-//       width: 265px;
-//       .hs-card_title {
-//         margin-top: 0;
-//         margin-bottom: 0;
-//         font-size: $hs-card-title--sm;
-//       }
-//       .hs-card_subtitle {
-//         font-size: $hs-card-subtitle--sm;
-//       }
-//     }
 
-//     &.hs-card-size--lg {
-//       width: 400px;
-//       .hs-card_title {
-//         margin-top: 0;
-//         margin-bottom: 0;
-//         font-size: $hs-card-title--lg;
-//       }
-//       .hs-card_subtitle {
-//         margin-top: 0;
-//         margin-bottom: 0;
-//         font-size: $hs-card-subtitle--lg;
-//       }
-
-//     }
-
-//     &.hs-card-size--fluid {
-//       width: $hs-card-width--fluid;
-//       .hs-card_title {
-//         margin-top: 0;
-//         margin-bottom: 0;
-//         font-size: $hs-card-title--fluid;
-//       }
-//       .hs-card_subtitle {
-//         margin-top: 0;
-//         margin-bottom: 0;
-//         font-size: $hs-card-subtitle--fluid;
-//       }
-//     }
-//   }
-// }
 
 /* #endregion */
 
@@ -341,25 +348,191 @@
   }
 }
 
+$breakpoints: (
+  xxs: 0,
+  xs: 32rem, // ~512px
+  sm: 48rem, // ~768px
+  md: 64rem, // ~1024px
+  lg: 80rem, // ~1280px
+  xl: 90rem // ~1440px
+) !default;
+
+@mixin breakpoint($breakpoint, $logic: false) {
+  @if ($logic) {
+    @media #{$logic} and (min-width: map-get($map: $breakpoints, $key: $breakpoint)) {
+      @content;
+    }
+  }
+
+  @else {
+    @media (min-width: map-get($map: $breakpoints, $key: $breakpoint)) {
+      @content;
+    }
+  }
+}
+
+// --------------------------------
+
+// CSS Triangle
+
+// --------------------------------
+
+@mixin triangle ($direction: up, $width: 12px, $color: red) {
+  width: 0;
+  height: 0;
+  border: $width solid transparent;
+
+  @if ( $direction == left ) {
+    border-right-color: $color;
+  } @else if( $direction == right ) {
+    border-left-color: $color;
+  } @else if( $direction == down ) {
+    border-top-color: $color;
+  } @else {
+    border-bottom-color: $color;
+  }
+}
+
+// --------------------------------
+
+// Typography
+
+// --------------------------------
+
+// edit font rendering -> tip: use for light text on dark backgrounds
+@mixin fontSmooth {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// crop top space on text elements - caused by line height
+@mixin lhCrop($line-height, $capital-letter: 1) {
+  &::before {
+    display: block;
+    width: 0;
+    height: 0;
+    margin-top: calc((#{$capital-letter} - #{$line-height}) * 0.5em);
+    content: '';
+  }
+}
+
+// edit text unit on a component level
+@mixin textUnit($text-unit) {
+  --text-unit: #{$text-unit};
+  font-size: var(--text-unit);
+}
 
 
 // functions
 
-/*
- * CSS CUSTOM VARIABLE FUNCTION
- *
- * Get css vars from scss vars
- *
- * Use:
- * `color: v(primary);`
- * `color: v(primary, #000);`
- * `padding-left: v(x-padding, 2rem);`
- * `transform: translate3d(v(x-delta), v(y-delta), 0);`
- *
- * Parameters:
- *  $hs-Var: name of the SASS variable, without its double hyphen prefix
- *  $hs-fallback: (optional, null by default): custom property fallback value
- */
+// --------------------------------
+
+// Colors
+
+// --------------------------------
+
+// define HSL color variable
+@mixin defineColorHSL($color, $hue, $saturation, $lightness) {
+  #{$color}: unquote("hsl(#{$hue}, #{$saturation}, #{$lightness})");
+  #{$color}-h: #{$hue};
+  #{$color}-s: #{$saturation};
+  #{$color}-l: #{$lightness};
+}
+
+// ======* SHAPES ======* //
+@mixin circle {
+  border-radius: $hs-circle;
+}
+
+@mixin pill {
+  border-radius: $hs-pill;
+}
+
+// *====== TIMELINE ======* //
+@mixin timeline-panel-tag {
+  position: absolute;
+  top: -6px;
+  padding: 2px 6px;
+  font-size: 11px;
+  color: $hs-white;
+  text-transform: uppercase;
+  background: $hs-color_green--dark;
+}
+
+@mixin ratio-16-9 {
+  position: relative;
+  padding-top: $hs-ratio-16-9;
+}
+@mixin ratio-4-3 {
+  position: relative;
+  padding-top: $hs-ratio-4-3;
+}
+@mixin ratio-3-2 {
+  position: relative;
+  padding-top: $hs-ratio-3-2;
+}
+@mixin ratio-1-1 {
+  position: relative;
+  padding-top: $hs-ratio-1-1;
+}
+
+// return color with different opacity value
+@function alpha($color, $opacity) {
+  $color: str-replace($color, 'var(');
+  $color: str-replace($color, ')');
+  $color-h: var(#{$color+'-h'});
+  $color-s: var(#{$color+'-s'});
+  $color-l: var(#{$color+'-l'});
+  @return hsla($color-h, $color-s, $color-l, $opacity);
+}
+
+// return color with different lightness value
+@function lightness($color, $lightnessMultiplier) {
+  $color: str-replace($color, 'var(');
+  $color: str-replace($color, ')');
+  $color-h: var(#{$color+'-h'});
+  $color-s: var(#{$color+'-s'});
+  $color-l: var(#{$color+'-l'});
+  @return hsl($color-h, $color-s, calc(#{$color-l} * #{$lightnessMultiplier}));
+}
+
+// replace substring with another string
+// credits: https://css-tricks.com/snippets/sass/str-replace-function/
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1)+$replace+str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+// ====== PIXELS TO REM ====== //
+$html-font-size: 16px;
+@function stripUnit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@function rem($pxValue) {
+  @return #{stripUnit($pxValue) / stripUnit($html-font-size)}rem;
+}
+
+// /*
+//  * CSS CUSTOM VARIABLE FUNCTION
+//  *
+//  * Get css vars from scss vars
+//  *
+//  * Use:
+//  * `color: v(primary);`
+//  * `color: v(primary, #000);`
+//  * `padding-left: v(x-padding, 2rem);`
+//  * `transform: translate3d(v(x-delta), v(y-delta), 0);`
+//  *
+//  * Parameters:
+//  *  $hs-Var: name of the SASS variable, without its double hyphen prefix
+//  *  $hs-fallback: (optional, null by default): custom property fallback value
+//  */
 
 // $hs-colors: map-merge($hs-map1: $hs-grays, $hs-map2: $hs-dark-mode-colors);
 // $hs-keys: map-keys($hs-colors);
@@ -388,21 +561,3 @@
   @return $hs-value;
 }
 
-// ======* SHAPES ======* //
-@mixin circle {
-  border-radius: $hs-circle;
-}
-@mixin pill {
-  border-radius: $hs-pill;
-}
-
-// *====== TIMELINE ======* //
-@mixin timeline-panel-tag {
-  position: absolute;
-  top: -6px;
-  padding: 2px 6px;
-  font-size: 11px;
-  color: $hs-white;
-  text-transform: uppercase;
-  background: $hs-color_green--dark;
-}

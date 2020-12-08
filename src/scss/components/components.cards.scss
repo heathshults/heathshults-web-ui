@@ -1,13 +1,13 @@
 /* stylelint-disable selector-combinator-space-after */
 @import "./mixins/settings";
-@import "../variables";
+@import "../vars";
 
 .hs-card {
   position: relative;
   display: flex;
   flex-direction: column;
   min-width: 0;
-  height: $hs-card-height;
+  margin: rem(5px) auto;
   word-wrap: break-word;
   background-color: $hs-card-bg;
   //Instead of the line below you could use @include background-clip($clip)
@@ -22,12 +22,14 @@
   }
   & > {
     .hs-card_header {
+      position: relative;
       display: flex;
+      width: 100%;
+      height: $hs-card-img-height--sm;
       padding: 0;
       margin-bottom: 0;
       background-color: $hs-card-cap-bg;
       border-bottom: $hs-card-border-width solid $hs-card-border-color;
-      @include card-header-dimensions;
 
       &:first-child {
         @include border-radius($hs-card-inner-border-radius $hs-card-inner-border-radius 0 0);
@@ -41,7 +43,7 @@
       & > {
         .hs-overlay {
           position: relative;
-          @include card-header-dimensions;
+          width: 100%;
           &::before {
             position: absolute;
             z-index: -1;
@@ -124,6 +126,7 @@
   }
 
   .hs-card_footer {
+    padding: 0;
     background-color: $hs-card-cap-bg;
     border-top: $hs-card-border-width solid $hs-card-border-color;
 
@@ -149,25 +152,40 @@
         width: auto;
       }
     }
-  }
-}
-.hs-card.hs-card-size {
-  &--sm {
-    width: 265px;
-    max-height: 393px;
-  }
-  &--md {
-    width: 344px;
-    max-height: 510px;
-    .hs-card_header {
+    .hs-details-button {
+      display: block;
       width: 100%;
-      max-height: 194px;
+      padding: $hs-spacing--xs;
+      font-size: .8em;
+      color: $hs-blueGray-medium;
+      text-align: center;
+      background-color: $hs-gray-lightest;
+      &:hover {
+        color: $hs-color_yellow;
+        background-color: $hs-blueGray-light;
+      }
     }
   }
 }
+// .hs-card.hs-card-size {
+//   &--sm {
+//     width: 265px;
+//     max-height: 393px;
+//   }
+//   &--md {
+//     width: 344px;
+//     max-height: 510px;
+//     .hs-card_header {
+//       width: 100%;
+//       max-height: 194px;
+//     }
+//   }
+// }
 
 .hs-card_img-header_img {
   @include card-header-dimensions;
+  width: 100%;
+
 }
 
 .hs-card_body {
@@ -176,16 +194,16 @@
   width: $hs-card-width--fluid;
   overflow: hidden;
   color: $hs-card-color;
-  background-color: $hs-white_5;
+  background-color: $hs-gray-white;
 }
 
 .hs-card_content {
   width: 100%;
   padding: 12px $hs-spacing--md;
+  margin: .725rem;
   line-height: 1;
   text-align: left;
   background-color: $hs-white;
-  @include hs-card-content;
 }
 
 .hs-card_title {
@@ -203,12 +221,12 @@
 
 .hs-card_header {
   display: flex;
-  padding: .5rem;
+  width: 100%;
+  padding: 0;
   margin-bottom: 0;
   background-color: $hs-card-cap-bg;
   border-bottom: $hs-card-border-width solid $hs-card-border-color;
   @include card-header-dimensions;
-
   &:first-child {
     border-radius: 0;
   }
@@ -262,6 +280,15 @@
     opacity: 1;
     transform: translate(0%, 0%);
   }
+}
+@include breakpoint(sm) {
+  @include card-size--sm;
+}
+@include breakpoint(md) {
+  @include card-size--md;
+}
+@include breakpoint(lg) {
+  @include card-size--lg;
 }
 // .hs-card_img-header_overlay::before {
 //   position: absolute;
@@ -471,7 +498,6 @@
 
     > .hs-card_header {
       @include border-radius(0);
-      padding: .5rem;
       margin-bottom: -$hs-card-border-width;
     }
   }

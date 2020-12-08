@@ -1,6 +1,6 @@
 
 // Import variables
-@import "./variables";
+@import "./vars";
 
 // Import Bootstrap
 @import "bootstrap/scss/bootstrap";
@@ -14,15 +14,17 @@
 @import "./components/components.hs-carousel";
 @import "./components/components.cards";
 @import "./components/components.timelines";
+@import "./components/components.flip-card";
+@import "./components/components.hs-grid.scss";
 
-// Sections
+
 @import "./sections/masthead";
 @import "./sections/portfolio";
 @import "./sections/timeline";
 @import "./sections/skills";
 @import "./sections/contact";
 @import "./sections/footer";
-@import "./sections/_about";
+@import "./sections/about";
 
 // Utilities
 @import "./components/utilities.showmore";

@@ -3,11 +3,12 @@
  export function ShowMore() {
 
   let openHeight;
-  let FadeBar = () => {};
-  document.addEventListener('DOMContentLoaded', FadeBar = () => {
+  
+  document.addEventListener('DOMContentLoaded', function FadeBar() {
     const VERSION = '0.0.1';
     const NAME = 'ShowMore_FadeBar';
     console.log(`Now using ${NAME} version ${VERSION}`);
+    
     // prepare the style tage for some css luvin
     const styleEl = document.createElement('style');
     const headEl = document.head || document.getElementsByTagName('head')[0];
@@ -111,7 +112,7 @@
       fbBtnClassList: 'btn btn-primary mx-auto',
     };
   }
-  function settings(opts) {
+  function settings() {
     // let ShowMoreSettings = typeof null;
     let fbCon = [];
     if (typeof ShowMoreSettings === 'undefined') {
@@ -146,9 +147,9 @@
       console.log('object assign error: ' + e);
     }
   }
-  let FadeBarCSS = () => {};
+  
   // document.addEventListener('DOMContentLoaded', FadeBarCSS = () => {
-  FadeBarCSS = (options) => {
+  function FadeBarCSS(options) {
     const cssValues = options;
 
     const fbCSS = `
@@ -272,6 +273,6 @@
 
     // appendCSS(fbCSS)
     return fbCSS;
-  };
+  }
 }
  ShowMore();

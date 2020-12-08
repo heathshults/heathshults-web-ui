@@ -39,7 +39,7 @@ import changed from 'gulp-changed';
 import ejs from 'gulp-ejs';
 import log from 'fancy-log';
 import chalk from 'chalk';
-import ra from './scripts/render-assets';
+import ra from './build-scripts/render-assets';
 import appRoot from 'app-root-path';
 const srcPath = path.resolve(__dirname, 'src');
 const srcCompPath = path.resolve(__dirname, 'src/components');
@@ -201,7 +201,7 @@ exports.babelfry = babelfry;
 
 function renderJS(cb) {
   console.log(chalk.yellow('starting JS renderrer...'));
-  exec('node scripts/build-scripts-launcher.js', (error, stdout, stderr) => {
+  exec('node build-scripts/build-scripts-launcher.js', (error, stdout, stderr) => {
     if (error) {
         console.log(chalk.red("ERROR renderJS: \n stdout: " + stderr + "\n Error Message: " + error.message));
         return 'renderJS error'+error;
@@ -242,7 +242,7 @@ function sassy(done) {
 exports.sassy = sassy;
 
 function compileCSS(cb) {
-  exec('node scripts/build-scss.js', (error, stdout, stderr) => {
+  exec('node build-scripts/build-scss.js', (error, stdout, stderr) => {
       if (error) {
           console.log("ERROR compileMain: \n stdout: " + stderr + "\n Error Message: " + error.message);
           return 'SCSS compile error'+error;
@@ -445,6 +445,7 @@ function copy_assets(cb) {
     .then(ra.copy_images)
     .then(ra.copy_mail)
     .then(ra.copy_vendor)
+    .then(ra.copy_html)
     .then(copy_js)
     .then(renderer());
     if (typeof cb === 'function') cb(null);
@@ -548,6 +549,7 @@ function connect_sync(cb) {
   watch(`${srcPath}/views/*.ejs`, ejsit).on('change', browserSync.reload), callback;
   watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_images).on('change', browserSync.reload), callback;
   watch([`${srcPath}/scss/**/*.scss`], compileCSS), callback;
+  watch([`${srcPath}/**/*.html`], ra.copy_html), callback;
   watch([`${srcPath}/assets/**/*.css`], ra.copy_css), callback;
   watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], copy_js), callback;
   watch([`${buildPath}/**/*`], copy_components), callback;
@@ -564,13 +566,12 @@ function connect_sync(cb) {
 }
 exports.connect_sync = connect_sync;
 
+var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
 // close the server
 function close_server(cb) {
   connect.closeServer();
-  if (typeof cb === 'function') {
-    cb(null, file);
-    called = true;
-  }
+   if (typeof cb === 'function') 
+    return cb();
 }
 exports.close_server = close_server;
 

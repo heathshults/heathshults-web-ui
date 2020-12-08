@@ -1,7 +1,7 @@
 @import 'mixins/components.progress';
 @import 'mixins/utilities.visibility';
 
-@import '../variables';
+@import '../vars';
 
 .hs-progress {
   display: block;
@@ -22,8 +22,8 @@
     float: left;
     height: 100%;
     overflow: hidden;
-    white-space: nowrap;
     text-overflow: ellipsis;
+    white-space: nowrap;
     border-radius: 0;
 
     &::after {

@@ -5,13 +5,14 @@
   window.onload = () => {
     const contactForm=document.querySelector('#contactForm');
     const contactFormFields=contactForm.querySelectorAll('.form-control');
-    let contactFormFieldsValues= new Array;
+    let contactFormFieldsValues= [];
     console.log(contactForm),console.log(contactFormFields);
 
-    for(let i=0; i<contactFormFields.length;i++) {
-      let name = `${contactFormFields[i].name}`;
-      let value = `${contactFormFields[i].value}`;
-      contactFormFieldsValues[i] = {name: value};
+    // for(let i=0; i<contactFormFields.length;i++) {
+    Array.prototype.slice.call(contactFormFields).forEach((field, index) => {  
+      let name = field.name;
+      let value = field.value;
+      contactFormFieldsValues[index] = {name: value};
       field.addEventListener(('onfocus','click'),(event) => {
         if (event.target.value&&event.target.parentElement.classList.contains('antiblur')) {
           return;
@@ -27,10 +28,10 @@
 
       });
       field.addEventListener('change', function(event) {
-        
+        alert("change!");
       });
       // end blur event
-    }; //end foreach
+    }); //end foreach
 
 
     // auto fill battle
@@ -52,7 +53,7 @@
       console.log('Got a CHANGE');
       event.forEach(formField => {
         console.log(`new value ${formField.name}: ${formField.value}`);
-      })
+      });
       console.log(`new value ${event.target.name}: ${event.target.value}`);
     });
   };

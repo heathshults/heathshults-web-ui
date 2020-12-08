@@ -1,4 +1,5 @@
-import { Component, Element, Prop, Event, EventEmitter, Listen, h } from '@stencil/core';
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+import { Component, Element, Prop, Event, EventEmitter, Listen, h, Method } from '@stencil/core';
 
 @Component({
   tag: 'hs-card',
@@ -21,7 +22,7 @@ export class HSCard {
   @Prop() cardHeaderImg: any;
   @Prop() overlay: any;
   @Prop() imgElem: any;
-  @Prop({reflect: true}) modalId: string;
+  @Prop() modalId: string;
   @Prop({reflect: true}) imgPath: string;
   @Prop({reflect: true}) showHide: string;
   @Prop() autoFooter: boolean;
@@ -68,83 +69,103 @@ export class HSCard {
   @Listen('launchModal')
   launchModalHandler(target: string) {
     // showModal(`#${this.clickTarget}`)
-    //@ts-ignore: does not exist on type
-    this.clickTarget ? document.querySelector(target).show() : alert('no target parameter')
-
+    this.clickTarget ? document.querySelector(target).classList.add('hs-display-block') : alert('no target parameter');
   }
   
   private cb() {
-    return
+    return;
   }
   
-  private callback = (()=> { if (typeof this.cb === 'function') return this.cb() })
+  private callback = (()=> { if (typeof this.cb === 'function') return this.cb(); })
   
-  private getElements() {
+  private getElements(): Promise<unknown> {
     return new Promise((resolve, reject) => {
       try {
         setTimeout(() => {
-          this.theElements();
-          this.cardHeaderImg = this.el.shadowRoot.querySelector('#hsHeaderImg')
+          // this.theElements();
+          this.cardContent =          document.querySelector('.hs-card_content');
+          this.overlay =              this.el.shadowRoot.querySelector('#imgHeaderOverlay');
+          this.footerDiv =            this.el.shadowRoot.querySelector('#foot');
+          if (this.autoFooter) {
+          this.footerDiv.innerHTML =  this.basicFooter;
+          this.cardImgHeaderImg =     this.el.shadowRoot.querySelector('#hsHeaderImg');}
+          resolve(this.callback);
+          this.cardHeaderImg = this.el.shadowRoot.querySelector('#hsHeaderImg');
         
-          this.cardContent.classList.add(`hs-card-size${this.cardSize}`)
+          this.cardContent.classList.add(`hs-card-size${this.cardSize}`);
          
           // this.cardImgHeaderImg.classList.contains('hs-card_img-header_img--sm') ? (this.cardHeaderImg.style.width = '265px') && (this.overlay.style.width = '265px') 
           //  : this.cardImgHeaderImg.classList.contains('hs-card_img-header_img--lg') ? (this.cardHeaderImg.style.width = '400px') && (this.overlay.style.width = '400px')
           //  : this.cardImgHeaderImg.classList.contains('hs-card_img-header_img--fluid') ? (this.cardHeaderImg.style.width = '100%') && (this.overlay.style.width = '100%')
           //  : (this.cardImgHeaderImg.style.width = '100%') && (this.overlay.style.width = '100%') 
          
-          resolve(this.callback)
-        }, 3000)
+          resolve(this.callback);
+        }, 3000);
       } 
       catch(error) {
-        let fullErrorMsg = `Error in getElements(): ${error}`;
+        const fullErrorMsg = `Error in getElements(): ${error}`;
         
-        reject(console.log('getElements error: ' + fullErrorMsg))
+        reject(console.log('getElements error: ' + fullErrorMsg));
       }
-    })
+    });
   }
+  @Prop() cardContents:unknown;
+  @Prop() clonedContent:unknown;
+  @Prop() cloneBaby:unknown;
   
-  
-  private theElements() {
-    return new Promise((resolve, reject) => {
+  private cloner(): Promise<unknown> {
+    return new Promise((resolve, reject): void => {
       try {
-        this.cardContent = document.querySelector('.hs-card_content');
-        this.overlay = this.el.shadowRoot.querySelector('#imgHeaderOverlay');
-        this.footerDiv = this.el.shadowRoot.querySelector('#foot');
-        if (this.autoFooter) {
-        this.footerDiv.innerHTML = this.basicFooter;
-        this.cardImgHeaderImg = this.el.shadowRoot.querySelector('#hsHeaderImg');}
-        resolve(this.callback)
-      }
+        setTimeout(() => {
+          this.cardContents = document.querySelector('.hs-card-content');
+          this.clonedContent = this.cardContents.cloneNode(true);
+
+          console.log('cloned em');
+          
+          resolve(this.callback);
+        }, 6000);
+      } 
       catch(error) {
-        reject('Reject because: ' + error)
+        const fullErrorMsg = `Error in getElements(): ${error}`;
+        console.log('getElements error: ' + fullErrorMsg);
+        reject(false);
       }
-    })
+    });
   }
   
-
-  componentWillLoad() {
-    typeof this.colorTone === 'undefined' || typeof this.colorTone === null || this.colorTone === 'light' ? this.colorToneClass = 'light' :
-      this.colorTone === 'dark' ? this.colorToneClass = 'dark' : this.colorToneClass = 'light';
-      
-  }  
-
+  @Method() inserter(): Promise<unknown> {
+    return new Promise((resolve, reject): void => {
+      try {
+        setTimeout((): void => {
+          this.cloneBaby = this.el.shadowRoot.querySelector('#cloneBaby');
+          this.cloneBaby.appendChild(this.clonedConent);
+          console.log('cloned em');
+          resolve(this.callback);
+        }, 6000);
+        } 
+        catch(error) {
+          const fullErrorMsg = `Error in getElements(): ${error}`;
+          console.log('getElements error: ' + fullErrorMsg);
+          reject(false);
+        }
+    });
+  }
+  
   render() {
-    this.getElements().then(this.callback)
-    typeof this.imgPath === 'undefined' ? this.showHide = 'hs-display-none' : this.showHide = 'hs-display-block'
-    typeof this.cardSize === 'undefined' ? this.cardSize = '--fluid' : ''
+    typeof this.colorTone === 'undefined' || typeof this.colorTone === null || this.colorTone === 'light' ? this.colorToneClass = 'light' :
+    this.colorTone === 'dark' ? this.colorToneClass = 'dark' : this.colorToneClass = 'light';
+    this.getElements().then(this.callback);
+    typeof this.imgPath === 'undefined' ? this.showHide = 'hs-display-none' : this.showHide = 'hs-display-block';
+    typeof this.cardSize === 'undefined' ? this.cardSize = '--fluid' : '';
     return (
       <div id={this.cardId} class={`hs-card hs-card-size${this.cardSize} ${this.colorTone}`}>
-       <header class={`hs-card_header hs-card_header${this.cardSize}`}>
-        <a id="imgHeaderOverlay" 
-          class={`hs-overlay hs-card_img-header_overlay${this.cardSize} ${this.showHide}`} 
-          href="#" 
-          onClick={() => this.launchModalHandler(`${this.modalId}`)}>
-          <img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img${this.cardSize}`} alt="header image" />
+       <header class={`hs-card_header hs-card_header${this.cardSize} responsive-object hs-ratio-3-2 `}>
+        <a id="imgHeaderOverlay" class={`hs-overlay hs-card_img-header_overlay${this.cardSize} ${this.showHide} hs-scale-potionatel`} href="#" onClick={() => this.launchModalHandler(`${this.modalId}`)}>
+          <img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img${this.cardSize} hs-scale-proportionate`} alt="header image" />
         </a>
         <slot name="card-header" />
         </header>
-        <div class={`hs-card_body hs-card-size${this.cardSize}`} >
+        <div id="cloneBaby" class={`hs-card_body hs-card-size${this.cardSize}`} >
           <slot name="card-body" />
         </div>
         
