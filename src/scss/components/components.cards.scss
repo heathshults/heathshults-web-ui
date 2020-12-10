@@ -25,7 +25,6 @@
       position: relative;
       display: flex;
       width: 100%;
-      height: $hs-card-img-height--sm;
       padding: 0;
       margin-bottom: 0;
       background-color: $hs-card-cap-bg;
@@ -59,7 +58,7 @@
             left: 0px;
             z-index: 1000;
             width: 100%;
-            height: 100%;
+            // height: 100%;
             font-size: 1rem;
             color: $hs-white;
             content: "";
@@ -80,7 +79,7 @@
             text-align: center;
             white-space: nowrap;
             content: "";
-            background-image: url("data:image/svg+xml;charset=UTF-8, %3csvg version='1.1' id='Layer_1' focusable='false' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='400px' height='262px' viewBox='0 0 400 262' enable-background='new 0 0 400 262' xml:space='preserve'%3e%3cpath fill='%23FFFFFF' stroke='%23FFFFFF' stroke-miterlimit='10' d='M298.25,106.438h-73.688V32.75c0-9.042-7.333-16.375-16.375-16.375 h-16.375c-9.042,0-16.375,7.333-16.375,16.375v73.688H101.75c-9.042,0-16.375,7.333-16.375,16.375v16.375 c0,9.042,7.333,16.375,16.375,16.375h73.688v73.688c0,9.042,7.333,16.375,16.375,16.375h16.375c9.042,0,16.375-7.333,16.375-16.375 v-73.688h73.688c9.042,0,16.375-7.333,16.375-16.375v-16.375C314.625,113.771,307.292,106.438,298.25,106.438z'/%3e%3c/svg%3e");
+            background-image: url("data:image/svg+xml;charset=UTF-8, %3csvg version='1.1' id='Layer_1' focusable='false' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='400px' viewBox='0 0 400 262' xml:space='preserve'%3e%3cpath fill='%23FFFFFF' stroke='%23FFFFFF' stroke-miterlimit='10' d='M298.25,106.438h-73.688V32.75c0-9.042-7.333-16.375-16.375-16.375 h-16.375c-9.042,0-16.375,7.333-16.375,16.375v73.688H101.75c-9.042,0-16.375,7.333-16.375,16.375v16.375 c0,9.042,7.333,16.375,16.375,16.375h73.688v73.688c0,9.042,7.333,16.375,16.375,16.375h16.375c9.042,0,16.375-7.333,16.375-16.375 v-73.688h73.688c9.042,0,16.375-7.333,16.375-16.375v-16.375C314.625,113.771,307.292,106.438,298.25,106.438z'/%3e%3c/svg%3e");
             background-repeat: no-repeat;
             background-position-x: center;
             background-position-y: top 40px;
@@ -190,17 +189,16 @@
 
 .hs-card_body {
   flex: 1 1 auto;
-  width: 100%;
   width: $hs-card-width--fluid;
   overflow: hidden;
   color: $hs-card-color;
-  background-color: $hs-gray-white;
+  background: $hs-card-bg;
 }
 
 .hs-card_content {
-  width: 100%;
-  padding: 12px $hs-spacing--md;
-  margin: .725rem;
+  width: 90%;
+  padding: rem(12px) $hs-spacing--md;
+  margin: .725rem auto;
   line-height: 1;
   text-align: left;
   background-color: $hs-white;
@@ -208,6 +206,7 @@
 
 .hs-card_title {
   margin-bottom: $hs-card-spacer-y;
+  font-size: 1.5rem;
 }
 
 .hs-card_subtitle {
@@ -255,7 +254,7 @@
     position: absolute;
     z-index: 99;
     width: 100%;
-    height: 100%;
+    // height: 100%;
     content: '';
     background-color: fade-out($hs-theme-primary, .9);
     opacity: 1;
@@ -267,7 +266,7 @@
     left: 0px;
     z-index: 99;
     width: 100%;
-    height: 100%;
+    // height: 100%;
 
     color: $hs-white;
     content: "";
@@ -290,37 +289,7 @@
 @include breakpoint(lg) {
   @include card-size--lg;
 }
-// .hs-card_img-header_overlay::before {
-//   position: absolute;
-//   z-index: 99;
-//   width: 100%;
-//   height: 100%;
-//   content: '';
-//   background-color: fade-out($hs-theme-primary, .9);
-//   opacity: 1;
-//   transition: all ease .3s;
-//   transform: translate(0%, 0%);
-// }
 
-// .hs-card_img-header_overlay:hover::before {
-//   top: 0px;
-//   left: 0px;
-//   z-index: 99;
-//   width: 100%;
-//   height: 100%;
-
-//   color: $hs-white;
-//   content: "";
-//   //Instead of the line below you could use @include transition($transition-1,$transition-2,$transition-3,$transition-4,$transition-5,$transition-6,$transition-7,$transition-8,$transition-9,$transition-10)@include transition-ease-dot3s;
-//   background-color: rgba(254, 209, 54, 0.75);
-//   background-image: url("data:image/svg+xml;charset=utf-8, %3c?xml version='1.0'encoding='utf-8'?%3e%3c !-- generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version:6.00 Build 0) --%3e%3c !DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN''http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3e%3csvg version='1.1'id='Layer_1'xmlns='http://www.w3.org/2000/svg'xmlns:xlink='http://www.w3.org/1999/xlink'x='0px'y='0px'width='48px'height='48px'viewBox='0 0 48 48'enable-background='new 0 0 48 48'xml:space='preserve'%3e%3cpath fill='%23FFFFFF'd='M47,18.25H29.75V1h-11.5v17.25H1v11.5h17.25V47h11.5V29.75H47V18.25z'/%3e%3c/svg%3e");
-//   background-repeat: no-repeat;
-//   background-position: center center;
-//   background-size: 48px;
-//   opacity: 1;
-//   transform: translate(0%, 0%);
-
-// }
 
 
 .hs-card_img,

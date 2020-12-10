@@ -11,8 +11,6 @@ export class HSCard {
   @Element() el: HTMLElement;
   @Prop() cardImgHeaderImg: HTMLImageElement;
   @Prop() cardContent: any;
-  @Prop({reflect: true}) cardWidth: string;
-  @Prop({reflect: true}) cardHeight: string;
   @Prop({reflect: true}) colorTone: string;
   @Prop({reflect: true}) colorToneClass: string;
   @Prop({reflect: true}) cardId: string;
@@ -88,7 +86,7 @@ export class HSCard {
           resolve(this.callback);
           this.cardHeaderImg = this.el.shadowRoot.querySelector('#hsHeaderImg');
         
-          this.cardContent.classList.add(`hs-card-size${this.cardSize}`);
+          this.cardContent.classList.add("");
          
           // this.cardImgHeaderImg.classList.contains('hs-card_img-header_img--sm') ? (this.cardHeaderImg.style.width = '265px') && (this.overlay.style.width = '265px') 
           //  : this.cardImgHeaderImg.classList.contains('hs-card_img-header_img--lg') ? (this.cardHeaderImg.style.width = '400px') && (this.overlay.style.width = '400px')
@@ -125,7 +123,8 @@ export class HSCard {
           console.log('cloned em');
           this.cardContents.remove();
           console.log(this.clonedContent);
-          resolve(this.callback, this.numberTwo());
+          this.numberTwo();
+          resolve(this.callback);
         }, 6000);
       } 
       catch(error) {
@@ -155,18 +154,17 @@ export class HSCard {
         }
     });
   }
-  @Prop() cardContainerSize;
-  @Prop() cardHeaderSize;
+  // @Prop() cardContainerSize;
+  // @Prop() cardHeaderSize;
   
   componentWillLoad() {
     
-     typeof this.cardSize === 'undefined' ? this.cardSize = '--fluid' : '';
     typeof this.colorTone === 'undefined' || typeof this.colorTone === null || this.colorTone === 'light' ? this.colorToneClass = 'light' :
     this.colorTone === 'dark' ? this.colorToneClass = 'dark' : this.colorToneClass = 'light';
     this.getElements().then(this.callback);
     typeof this.imgPath === 'undefined' ? this.showHide = 'hs-display-none' : this.showHide = 'hs-display-block';
-    this.cardContainerSize = `hs-card-size${this.cardSize}`;
-    this.cardHeaderSize = `hs-card_header${this.cardSize}`;
+    // this.cardContainerSize = `hs-card-size${this.cardSize}`;
+    // this.cardHeaderSize = `hs-card_header${this.cardSize}`;
     
   }
   
@@ -174,14 +172,14 @@ export class HSCard {
     
     
     return (
-      <div id={this.cardId} class={`hs-card ${this.cardContainerSize} ${this.colorTone}`}>
-       <header class={`hs-card_header ${this.cardHeaderSize} responsive-object hs-ratio-3-2 `}>
-        <a id="imgHeaderOverlay" class={`hs-overlay hs-card_img-header_overlay${this.cardSize} ${this.showHide} hs-scale-potionatel`} href="#" onClick={() => this.launchModalHandler(`${this.modalId}`)}>
-          <img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img${this.cardSize} hs-scale-proportionate`} alt="header image" />
+      <div id={this.cardId} class={`hs-card  ${this.colorTone}`}>
+       <header class="hs-card_header">
+        <a id="imgHeaderOverlay" class="hs-overlay" href="#" onClick={() => this.launchModalHandler(`${this.modalId}`)}>
+          <img id="hsHeaderImg" src={`${this.imgPath}`} class="hs-card_img-header_img" alt="header image" />
         </a>
         <slot name="card-header" />
         </header>
-        <div id="cloneBaby" class={`hs-card_body cardContainerSize`} >
+        <div id="cloneBaby" class="hs-card_body" >
           <slot name="card-body" />
         </div>
         

@@ -1,17 +1,13 @@
 // Override Bootstrap color system
-
 $yellow: #fed136;
 
-// Override Bootstrap default state colors
-
+// Override Bootstrap default state color
 $primary: $yellow;
 
 // Override Bootstrap yiq lightness value
-
 $yiq-contrasted-threshold: 205;
 
-// Variables
-
+// Color Variables
 $hs-color_red:                    #e2001a !default;
 $hs-color_red_orange:             #f63a0f !default;
 $hs-color_orange:                 #f27011 !default;
