@@ -177,8 +177,8 @@
 }
 
 @mixin banner-dimensions--fluid {
-  width: $hs-card-img-width--fluid;
-  height: $hs-card-img-height--fluid;
+  width: $hs-card-img-width;
+  height: $hs-card-img-height;
 }
 
 @mixin header-banner-sizes {
@@ -338,7 +338,7 @@
   }
 
   &.hs-card-size--fluid {
-    width: $hs-card-width--fluid;
+    width: $hs-card-width;
     .hs-card_title {
       margin-top: $hs-spacing--lg;
       margin-bottom: 0;

@@ -11,9 +11,11 @@ export namespace Components {
     interface HsCard {
         "autoFooter": boolean;
         "basicFooter": any;
-        "cardContainer": any;
+        "builderOne": any;
+        "builderThree": any;
+        "builderTwo": any;
+        "callback": (fName: any) => Promise<void>;
         "cardContent": any;
-        "cardContents": any;
         "cardHeader": any;
         "cardHeaderImg": any;
         "cardId": string;
@@ -28,8 +30,6 @@ export namespace Components {
         "imgElem": any;
         "imgPath": string;
         "modalId": string;
-        "numberOne": () => Promise<unknown>;
-        "numberTwo": () => Promise<unknown>;
         "overlay": any;
         "showHide": string;
     }
@@ -265,9 +265,10 @@ declare namespace LocalJSX {
     interface HsCard {
         "autoFooter"?: boolean;
         "basicFooter"?: any;
-        "cardContainer"?: any;
+        "builderOne"?: any;
+        "builderThree"?: any;
+        "builderTwo"?: any;
         "cardContent"?: any;
-        "cardContents"?: any;
         "cardHeader"?: any;
         "cardHeaderImg"?: any;
         "cardId"?: string;

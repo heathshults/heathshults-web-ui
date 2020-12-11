@@ -7,11 +7,13 @@
   display: flex;
   flex-direction: column;
   min-width: 0;
+  max-height: $hs-card-width;
   margin: rem(5px) auto;
+  overflow: hidden;
   word-wrap: break-word;
   background-color: $hs-card-bg;
   //Instead of the line below you could use @include background-clip($clip)
-  background-clip: border-box;
+  background-clip: content-box;
   border: $hs-card-border-width;
   @include border-radius($hs-card-border-radius);
   .hs-display-block {
@@ -56,9 +58,9 @@
           &:hover::before {
             top: 0px;
             left: 0px;
-            z-index: 1000;
+            z-index: 2000;
             width: 100%;
-            // height: 100%;
+            height: 100%;
             font-size: 1rem;
             color: $hs-white;
             content: "";
@@ -189,8 +191,10 @@
 
 .hs-card_body {
   flex: 1 1 auto;
-  width: $hs-card-width--fluid;
+  width: $hs-card-width;
   overflow: hidden;
+  font-size: .84rem;
+  line-height: 1.2;
   color: $hs-card-color;
   background: $hs-card-bg;
 }
@@ -199,7 +203,8 @@
   width: 90%;
   padding: rem(12px) $hs-spacing--md;
   margin: .725rem auto;
-  line-height: 1;
+  font-size: .84rem;
+  line-height: 1.2;
   text-align: left;
   background-color: $hs-white;
 }
@@ -317,7 +322,7 @@
 
 }
 
-@media (min-width: 576px) {
+@include breakpoint(sm) {
   .hs-card-deck {
     display: -ms-flexbox;
     display: flex;
@@ -334,9 +339,6 @@
     margin-bottom: $hs-card-group-margin;
     margin-left: 15px;
   }
-}
-
-@media (min-width: 576px) {
   .hs-card-group {
     display: -ms-flexbox;
     display: flex;
@@ -384,9 +386,7 @@
   .hs-card-group > .hs-card:not(:first-child) .hs-card_footer {
     border-bottom-left-radius: 0;
   }
-}
 
-@media (min-width: 576px) {
   .hs-card-columns {
     -webkit-column-count: 3;
     -moz-column-count: 3;

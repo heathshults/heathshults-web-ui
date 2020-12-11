@@ -157,30 +157,28 @@ $hs-bg-black-to-transparent:      linear-gradient(0deg, rgba(0, 0, 0, 0) 15%, rg
 
 
 // Cards
-
+// for responsive only
 $hs-card-width: 100% !default;
 $hs-card-height: 350px !default;
-$hs-card-title: 2rem !default;
+$hs-card-title: 200% !default;
 $hs-card-subtitle: calc($hs-card-title - 10%) !default;
-$hs-card-img-width: 100% !default;
+$hs-card-img-width: $hs-card-width !default;
 $hs-card-img-height: auto !default;
 
+// for breakpoint sm
 $hs-card-width--sm: 265px !default;
 $hs-card-title--sm: 1.1rem !default;
 $hs-card-subtitle--sm: calc($hs-card-title--sm - 10%) !default;
 $hs-card-img-width--sm: 100% !default;
-$hs-card-img-height--sm: 167.23px !default;
+$hs-card-img-height--sm: auto !default;
+
+// for breakpoint lg
 $hs-card-width--lg: 400px !default;
 $hs-card-title--lg: 2.3rem !default;
 $hs-card-subtitle--lg: calc($hs-card-title--lg - 10%) !default;
 $hs-card-img-width--lg: $hs-card-width--lg !default;
 $hs-card-img-height--lg: auto !default;
 
-$hs-card-width--fluid: 100% !default;
-$hs-card-title--fluid: 2.4rem !default;
-$hs-card-subtitle--fluid: calc($hs-card-title--fluid - 10%) !default;
-$hs-card-img-width--fluid: $hs-card-width--fluid !default;
-$hs-card-img-height--fluid: auto !default;
 
 $hs-card-margin: .5rem !default;
 
