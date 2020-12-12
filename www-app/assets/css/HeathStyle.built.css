@@ -10444,6 +10444,7 @@ h3 {
   flex-direction: column;
   min-width: 0;
   max-height: 100%;
+  padding-bottom: 1em;
   margin: 0.3125rem auto;
   overflow: hidden;
   word-wrap: break-word;
@@ -10624,7 +10625,7 @@ h3 {
 }
 
 .hs-card_content {
-  width: 90%;
+  width: 95%;
   padding: 0.75rem 1em;
   margin: 0.725rem auto;
   font-size: 0.84rem;

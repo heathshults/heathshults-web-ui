@@ -8,6 +8,7 @@
   flex-direction: column;
   min-width: 0;
   max-height: $hs-card-width;
+  padding-bottom: 1em;
   margin: rem(5px) auto;
   overflow: hidden;
   word-wrap: break-word;
@@ -200,7 +201,7 @@
 }
 
 .hs-card_content {
-  width: 90%;
+  width: 95%;
   padding: rem(12px) $hs-spacing--md;
   margin: .725rem auto;
   font-size: .84rem;
