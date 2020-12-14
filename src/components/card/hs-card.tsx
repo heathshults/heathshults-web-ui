@@ -82,35 +82,40 @@ export class HSCard {
     console.log(`${fName} has finished.`);
   }
   
-
   
   componentWillLoad() {
     () => 
+    setTimeout(() => {
     typeof this.colorTone === 'undefined' || typeof this.colorTone === null || this.colorTone === 'light' ? this.colorToneClass = 'light' :
     this.colorTone === 'dark' ? this.colorToneClass = 'dark' : this.colorToneClass = 'light';
 
     typeof this.imgPath === 'undefined' ? this.showHide = 'hs-display-none' : this.showHide = 'hs-display-block';
     
     this.cardContent = document.querySelector('.hs-card_content');
-          this.cloneBaby = this.el.shadowRoot.querySelector('#cloneBaby');
-          this.overlay = this.el.shadowRoot.querySelector('#imgHeaderOverlay');
-          this.footerDiv = this.el.shadowRoot.querySelector('#foot');
+    console.log(this.cardContent);
+    this.cloneBaby = this.el.shadowRoot.querySelector('#cloneBaby.hs-card_body');
+    console.log('cloneBaby below');
+    console.log(this.cloneBaby);
+    this.overlay = this.el.shadowRoot.querySelector('#imgHeaderOverlay');
+    this.footerDiv = this.el.shadowRoot.querySelector('#foot');
 
-          this.clonedContent = this.cardContent.cloneNode(true);
-          console.log(this.clonedContent);
+    this.clonedContent = this.cardContent.cloneNode(true);
+    console.log('clone below');
+    console.log(this.clonedContent);
 
-            if (this.autoFooter) {
-              this.footerDiv.innerHTML = this.basicFooter;
-              this.cardImgHeaderImg = this.el.shadowRoot.querySelector('#hsHeaderImg');
-            }
-            
-            this.cardHeaderImg = this.el.shadowRoot.querySelector('#hsHeaderImg');
-          
-            this.cardContent.classList.add('hs-card_content');
-            console.log('cloned em');
-            // this.cardContent.remove();
-            
-            this.cloneBaby.appendChild(this.clonedContent);
+      if (this.autoFooter) {
+        this.footerDiv.innerHTML = this.basicFooter;
+        this.cardImgHeaderImg = this.el.shadowRoot.querySelector('#hsHeaderImg');
+      }
+      
+      this.cardHeaderImg = this.el.shadowRoot.querySelector('#hsHeaderImg');
+    
+      this.cardContent.classList.add('hs-card_content');
+
+      // this.cardContent.remove();
+      
+      this.cloneBaby.appendChild(this.clonedContent);
+    }, 2000);
   }
   
   render() {
