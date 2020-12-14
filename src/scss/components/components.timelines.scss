@@ -1,7 +1,7 @@
 @import '../variables/maps';
 @import '../variables/colors';
 @import '../variables/mixins';
-@import '../variables/css-vars-mixin';
+// @import '../variables/css-vars';
 @import 'mixins/settings';
 @import '../bootstrap/scss/mixins/_breakpoints.scss';
 
@@ -14,7 +14,7 @@
 
 // -------------------------------------------------
 
-@include cssvars;
+
 
 :root {
 

@@ -43,7 +43,7 @@ hs-modal hs-card hs-card-footer {
 
 hs-card-header .hs-heading {
   &.dark {
-    color: $hs-theme-primary;
+    color: $hs-theme_primary;
     .hs-heading_sub {
       color: $hs-blueGray-medium;
     }
@@ -58,12 +58,12 @@ hs-modal hs-card-body {
 
 ::-moz-selection {
   text-shadow: none;
-  background: $hs-theme-primary;
+  background: $hs-theme_primary;
 }
 
 ::selection {
   text-shadow: none;
-  background: $hs-theme-primary;
+  background: $hs-theme_primary;
 }
 
 img::-moz-selection {
@@ -79,16 +79,16 @@ img::selection {
 
 .filter-grayscale-full {
   -webkit-filter: grayscale(1);
-          filter: grayscale(1);
+  filter: grayscale(1);
 }
 .filter-grayscale-half {
   -webkit-filter: grayscale(.5);
-          filter: grayscale(.5);
+  filter: grayscale(.5);
 }
 .hidden-gone {
-  visibility: hidden;
   width: 0px;
   height: 0px;
+  visibility: hidden;
 }
 
 .hs-flex-stack {
@@ -158,10 +158,10 @@ img::selection {
   }
 }
 .flex-container {
+  display: flex;
   padding: 0;
   margin: 0;
   list-style: none;
-  display: flex;
 }
 
 .flex-start {
@@ -205,10 +205,10 @@ img::selection {
     color: #fff;
     background: $hs-black_75;
     .hs-info-link {
-      color: $hs-theme-primary;
+      color: $hs-theme_primary;
       text-decoration: none;
       &:visited {
-        color: $hs-theme-primary;
+        color: $hs-theme_primary;
       }
       &:hover {
         color: $hs-white;

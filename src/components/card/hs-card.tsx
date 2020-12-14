@@ -3,7 +3,7 @@ import { Component, Element, Prop, Event, EventEmitter, Listen, h, Method } from
 
 @Component({
   tag: 'hs-card',
-  styleUrl: '../../scss/components/components.cards.scss',
+  styleUrl: './hs-card.scss',
   shadow: true
 })
 
@@ -114,19 +114,16 @@ export class HSCard {
   }
   
   render() {
-
-        
-          
     
     return (
       <div id={`${this.cardId}`} class={`hs-card  ${this.colorTone}`}>
-       <header class="hs-card_header">
+       <header class={`hs-card_header ${this.colorTone}`}>
         <a id="imgHeaderOverlay" class={`hs-overlay ${this.showHide}`} href="#" onClick={() => this.launchModalHandler(`${this.modalId}`)}>
           <img id="hsHeaderImg" src={`${this.imgPath}`} class="hs-card_img-header_img" alt="header image" />
         </a>
         <slot name="card-header" />
         </header>
-        <div id="cloneBaby" class="hs-card_body" >
+        <div id="cloneBaby" class={`hs-card_body ${this.colorTone}`} >
           <slot name="card-body" />
         </div>
         

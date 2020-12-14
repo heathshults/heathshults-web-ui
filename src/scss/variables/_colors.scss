@@ -8,7 +8,8 @@ $primary: $yellow;
 $yiq-contrasted-threshold: 205;
 
 // Color Variables
-$hs-color_red:                    #e2001a !default;
+$hs-color_red:                    #e12037 !default;
+$hs-color-pink:                   #e83e8c !default;
 $hs-color_red_orange:             #f63a0f !default;
 $hs-color_orange:                 #f27011 !default;
 $hs-color_dark_yellow:            #f2b01e !default;
@@ -18,25 +19,36 @@ $hs-color_yellow--dark:           #e2b900 !default;
 $hs-color_lime:                   #86e01e !default;
 $hs-color_light_lime:             #e7ffcb !default;
 $hs-color_green:                  #28a745 !default;
-$hs-color_green--lighter:         #4cd964 !default;
 $hs-color_green--light:           #93ff7e !default;
-$hs-color_green--dark:            #218838 !default;
-$hs-color_green--darker:          #1e7e34 !default;
+$hs-color_green--dark:            #468c1f !default;
+$hs-color_green--darker:          #28610f !default;
+$hs-color_teal:                   #20c997 !default;
 $hs-color_silver:                 #aaa !default;
-$hs-color_purple:                 #9a39d3 !default;
+$hs-color_purple:                 #6f42c1 !default;
+$hs-color_cyan:                   #17a2b8 !default;
 $hs-color_turquoise:              #5ac8fa !default;
 $hs-color_blue-semimuted:         #4997cd !default;
+$hs-color_blue:                   #007bff !default;
+$hs-color_indigo:                 #6610f2 !default;
+$hs-hsl_grey:                     hsl(207, 10%, 55%);
+$hs-hsl_grey-light:               hsl(206, 13%, 79%);
+$hs-hsl_green:                    hsl(111, 51%, 60%);
+$hs-hsl_red:                      hsl(353, 76%, 50%);
+$hs-hsl_yellow:                   hsl(47, 85%, 61%);
+$hs-hsl_white:                    hsl(0, 0%, 100%);
 
 
 // Gray and Brand Colors for use across theme
 
-$hs-theme-primary:                #fed136 !default;
-$hs-theme-primary--trans50:       rgba(254, 211, 54, 0.5) !default;
-$hs-theme-danger:                 #dc3545 !default;
-$hs-theme-warning:                #e74c3c !default;
-$hs-theme-info:                   #9bcbe6 !default;
-$hs-theme-background-primary:      map-get($hs-default-colors, background-primary) !default;
-$hs-theme-background-secondary:    map-get($hs-default-colors, background-secondary) !default;
+$hs-theme_primary:                #fed136 !default;
+$hs-theme_primary--trans50:       rgba(254, 211, 54, 0.5) !default;
+$hs-theme_secondary:              #6c757d !default;
+$hs-theme_success:                #28a745 !default;
+$hs-theme_info:                   #17a2b8 !default;
+$hs-theme_danger:                 #e74c3c !default;
+$hs-theme_warning:                #007bff !default;
+$hs-theme_background-primary:     #f8f8f8 !default;
+$hs-theme_background-secondary:   #ebebeb !default;
 
 $hs-black:                        #000 !default;
 $hs-black_15:                     rgba(0, 0, 0, 0.15) !default;
@@ -69,7 +81,7 @@ $hs-white_100:                    rgba(255, 255, 255, 1) !default;
 $hs-blueGray-medium:            #507386 !default;
 $hs-blueGray-medium-muted:      #476e82 !default;
 $hs-blueGray-medium-saturated:  #136591 !default;
-$hs-blueGray-dark:              #0f161d !default;
+$hs-blueGray-dark:              #1e2e3e !default;
 $hs-blueGray-very-dark:         #181a1b !default;
 $hs-blueGray-darker:            #0c0f11 !default;
 $hs-blueGray-darker--alpha75:   rgba(12, 15, 17, 0.75) !default;
@@ -77,24 +89,27 @@ $hs-blueGray-light:             #2d373c !default;
 $hs-text-onDark:                  map-get($hs-dark-mode-colors, text-onDark) !default;
 $hs-green-light:                #80cc94 !default;
 $hs-blue-light:                 #0291ca !default;
-// $hs-blue-lighter:               #83d6ff !default;
-// $hs-blue-lighter:               #83d6ff !default;
-$hs-blue-lighter:               #78bad8 !default;
-$hs-blue-lightest:              #a8dfff !default;
-$hs-blue-light-muted:           #80b6cc !default;
-$hs-blue-lighter-muted:         #8ec1d9 !default;
-$hs-blue-lightest-muted:        #9bcbe6 !default;
-$hs-blue-light-shadow:          #3ab1c3 !default;
-$hs-blue-light-background:      #117a8b !default;
-$hs-blue-dark:                  #1e364e !default;
-$hs-link-primary:               $hs-theme-primary !default;
+// $hs-blue--lighter:               #83d6ff !default;
+// $hs-blue--lighter:               #83d6ff !default;
+$hs-blue--lighter:              #78bad8 !default;
+$hs-blue--lightest:             #a8dfff !default;
+$hs-blue--light-muted:          #80b6cc !default;
+$hs-blue--lighter-muted:        #8ec1d9 !default;
+$hs-blue--lightest-muted:       #9bcbe6 !default;
+$hs-blue--light-shadow:         #3ab1c3 !default;
+$hs-blue--light-background:     #117a8b !default;
+$hs-blue--dark:                 #1e364e !default;
+$hs-link--primary:                 $hs-theme_primary !default;
 
-$hs-baige-light:               #cac1ac !default;
-$hs-baige-medium:              #a79e8b !default;
+$hs-baige-light:                #cac1ac !default;
+$hs-baige-medium:               #a79e8b !default;
 
-$hs-theme-color-text:            $hs-gray-dark !default;
-$hs-theme-color-text-onDark:     $hs-white !default;
+$hs-theme-color-text:             $hs-gray-dark !default;
+$hs-theme-color-text-onDark:      $hs-white !default;
 
+$hs-font-primary:                 'Roboto', sans-serif !default;
+$hs-font-secondary:               'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+$hs-font-serif:                   'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
 $hs-font-cursive-Caveat:          'Caveat', cursive !default;
 $hs-font-cursive-NYCD:            'Nothing You Could Do', cursive !default;
 $hs-font-cursive-Sedgwick:        'Sedgwick Ave Display', cursive !default;
@@ -145,11 +160,11 @@ $hs-shadow-inset-blue:            inset 0 0 0 2px #5173ff !default;
 $hs-shadow-none:                  none !default;
 $hs-card-shadow:                  0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) !default;
 $hs-button-shadow-nocolor:        0 0 0 0.2rem !default;
-$hs-button-focus:                 $hs-button-shadow-nocolor $hs-theme-primary--trans50 !default;
+$hs-button-focus:                 $hs-button-shadow-nocolor $hs-theme_primary--trans50 !default;
 $hs-button-secondary-focus:       $hs-button-shadow-nocolor $hs-gray-white !default;
 // $hs-card-shadow:                  0 4px 6px 2px rgba(0, 0, 0, 0.3) !default;
 $hs-button-success-outline:       $hs-button-shadow-nocolor rgba(darken($hs-color_green--darker, 2%), 50%) !default;
-$hs-button-info-outline:          $hs-button-shadow-nocolor rgba(darken($hs-blue-light-shadow, 2%), 50%) !default;
+$hs-button-info-outline:          $hs-button-shadow-nocolor rgba(darken($hs-blue--light-shadow, 2%), 50%) !default;
 $hs-button-warning-outline:       $hs-button-shadow-nocolor rgba(darken($hs-color_orange, 2%), 50%) !default;
 $hs-button-danger-outline:        $hs-button-shadow-nocolor rgba(darken($hs-color_red, 2%), 50%) !default;
 // Backgrounds
@@ -179,7 +194,6 @@ $hs-card-subtitle--lg: calc($hs-card-title--lg - 10%) !default;
 $hs-card-img-width--lg: $hs-card-width--lg !default;
 $hs-card-img-height--lg: auto !default;
 
-
 $hs-card-margin: .5rem !default;
 
 // Card padding - borders - margins
@@ -193,6 +207,7 @@ $hs-card-cap-bg:                       rgba($hs-black, .03) !default;
 $hs-card-cap-color:                    null !default;
 $hs-card-color:                        null !default;
 $hs-card-bg:                           $hs-gray-lighter !default;
+$hs-card-bg--dark:                     $hs-blueGray-dark !default;
 
 $hs-card-img-overlay-padding:          1.25rem !default;
 

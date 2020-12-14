@@ -76,7 +76,7 @@
 // Font Mixins
 
 @mixin serif-font {
-  font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: $hs-font-serif;
 }
 
 @mixin script-font {
@@ -84,11 +84,11 @@
 }
 
 @mixin body-font {
-  font-family: "Roboto", sans-serif;
+  font-family: $hs-font-primary;
 }
 
 @mixin heading-font {
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: $hs-font-secondary;
   text-transform: uppercase;
 }
 
