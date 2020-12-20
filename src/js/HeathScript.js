@@ -1,24 +1,60 @@
-/*!
- * HeathShults.com - Heath Shults v1.0 (http://heathshults.com)
- * Copyright 2020-2020 Heath-Shults
- * Licensed under MIT (https://github.com/heathshults/heathshults.com/LICENSE)
-*/
-/* eslint-disable no-undef, no-unused-vars */
+/* eslint-disable no-console, no-unused-vars, @typescript-eslint/no-unused-vars, no-undef, no-unused-vars */
+// import moment from 'moment';
+// console.log(moment('LLL'));
+// let dateTimeNow = moment('LLL')
+/**
+ * @author HeathShults.com - Heath Shults v1.0 (http://heathshults.com)
+ * @version 1.0.0
+ * @copyright 2020-2020 Heath-Shults
+ * @license MIT (https://github.com/heathshults/heathshults.com/LICENSE)
+ */
 
 (($) => {
-  'use strict'; // Start of use strict
+
+  /** 
+   * This function sets the greeting message. It uses localStorage  
+   * to remember if this is a first time visit or a repeat visit.
+   * @function anonymous
+   * @event window.onload           Load the greeting before it is visible.
+   * @const siteStorage             Using local storage to track visits.
+   * @const visited                 Has the visitor been here before.
+   * @const greetingSpan            Where we will place the customized greeting.
+   * @var greetingHTML              The text to be set in greetingSpan.
+   * @function setGGreetingText     Sets the text in greetingSpan.
+   * 
+  */
+  window.onload = function setGreetingText(ts) {
+    const siteStorage =     window.localStorage;
+    const siteSession =     window.sessionStorage;
+    const visited =         siteStorage.getItem('visited');
+    const greetingSpan =    document.querySelector('#greetingLine');
+    let greetingHTML;
  
-  
-  
-/*  // ====== RANKING BARS
+    
+    siteSession.setItem('sessionStarted', 'dateTimeNow');
+    if (!visited || visited === '' || typeof visited === 'undefined' ) {
+      siteStorage.setItem('visited', 1);
+      
+    } else if (visited === '1') {
+      if (timeDifferene > 30 ) {
+        greetingSpan.innerHTML = 'Welcome back!';
+      } else {
+        greetingSpan.innerHTML = `<span class="hs-intro-subheading">This must be your first time here.</span><br> Welcome!`;
+      }
+    }
+   return;
+  };
+    
+ // ====== RANKING BARS
   var theBars=document.querySelectorAll('.hs-ranking-bar');
   theBars.forEach(aBar => {
     // eslint-disable-next-line no-undef
     var barWidth=$(aBar).attr('aria-valuenow');
     $(aBar).attr('style',`width: ${barWidth}%`);
   });
-
-
+  
+})(jQuery); // End of use strict
+  /* 
   // scrolling nav
   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
     if (location.pathname.replace(/^\//,"")==
@@ -108,19 +144,19 @@
     return setModeText(mode);
   }
 
-  // Theme switcher
-  dm_btn.click((event) => {
-    event.preventDefault();
-    if (localStorage.getItem('dark_mode')==='true') {
-      setMode('false'),console.log('set to false');
-    } else {
-      setMode('true'),console.log('set to true');
-    }
-    return;
+    // Theme switcher
+    dm_btn.click((event) => {
+      event.preventDefault();
+      if (localStorage.getItem('dark_mode')==='true') {
+        setMode('false'),console.log('set to false');
+      } else {
+        setMode('true'),console.log('set to true');
+      }
+      return;
+    });
   });
-});
-themeSwitcher();
-*/
+  themeSwitcher();
+  */
   // *====== TIMELINE ======* //
   // var timelineItemHeaders = [].prototype.slice.call(document.querySelectorAll('.timeline-panel_header'))
   // const timelineItemHeaders=document.querySelectorAll('.timeline-panel_header');
@@ -189,5 +225,5 @@ themeSwitcher();
 
 
 
-})(jQuery); // End of use strict
+
  
