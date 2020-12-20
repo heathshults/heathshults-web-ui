@@ -7,6 +7,9 @@
 
 (($) => {
   'use strict'; // Start of use strict
+ 
+  
+  
 /*  // ====== RANKING BARS
   var theBars=document.querySelectorAll('.hs-ranking-bar');
   theBars.forEach(aBar => {

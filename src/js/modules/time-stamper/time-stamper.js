@@ -15,10 +15,10 @@
 * @param {string} [DD] - Returns the day formatted like '19'.
 * @param {string} [MM] - Returns the month farmatted like '01.
 * @param {string} [YYYY] - Returns the year farmatted like '2020.
-* @param {string} [datetime] - Returns all variables concatenated like 01-29-2020 13:05:22.
-* @param {string} [datetimereverse] - Returns all variables concatenated like 2020-01-29 13:05:22.
-* @param {string} [date] - Returns all variables associated with the date like 01-29-2020.
-* @param {string} [time] - Returns time variables like 13:05:22.
+* @param {string} [datetime] - Returns all constiables concatenated like 01-29-2020 13:05:22.
+* @param {string} [datetimereverse] - Returns all constiables concatenated like 2020-01-29 13:05:22.
+* @param {string} [date] - Returns all constiables associated with the date like 01-29-2020.
+* @param {string} [time] - Returns time constiables like 13:05:22.
 * @param {string} [mm] - Returns minutes formatted like 01-29-2020 13:05:22.
 * @param {string} [ss] - Returns the seconds formatted like 01-29-2020 13:05:22.
 */
@@ -34,50 +34,56 @@
  * @note:  tons of room for improvement...
  */
 
-function TimeStamper() {
-  var dt = new Date()
-  var final
-  timerequest()
-  
-  function timerequest(format) {
-    
-    // this.el = el
-    this.format = format
-    
+// function TimeStamper() {
+
+  // timerequest();
+ 
+class TimeStamper {
+  constructor(format) {
+    this.dt=new Date();
+    this.format=format;
+    this.final;
+
 
     // ensure date comes as 01, 09 etc
-    var DD = ('0' + dt.getDate()).slice(-2)
+    const DD=('0'+this.dt.getDate()).slice(-2),
 
-    // getMonth returns month from 0
-    var MM = ('0' + (dt.getMonth() + 1)).slice(-2)
-    var YYYY = dt.getFullYear()
-    var hh = ('0' + dt.getHours()).slice(-2)
-    var mm = ('0' + dt.getMinutes()).slice(-2)
-    var ss = ('0' + dt.getSeconds()).slice(-2)
+      // getMonth returns month from 0
+      MM=('0'+(this.dt.getMonth()+1)).slice(-2),
+      YYYY=this.dt.getFullYear(),
+      hh=('0'+this.dt.getHours()).slice(-2),
+      mm=('0'+this.dt.getMinutes()).slice(-2),
+      ss=('0'+this.dt.getSeconds()).slice(-2),
 
-    var datetime = MM + '-' + DD + '-' + YYYY + ' ' + hh + ':' + mm + ':' + ss
-    var datetimereverse = YYYY + '-' + MM + '-' + DD + ' ' + hh + ':' + mm + ':' + ss
-    var justdate = MM + '-' + DD + '-' + YYYY
-    var justtime = hh + ':' + mm + ':' + ss
-    var justyear = YYYY
+      datetime=MM+'-'+DD+'-'+YYYY+' '+hh+':'+mm+':'+ss,
+      datetimereverse=YYYY+'-'+MM+'-'+DD+' '+hh+':'+mm+':'+ss,
+      justdate=MM+'-'+DD+'-'+YYYY,
+      justtime=hh+':'+mm+':'+ss,
+      justyear=YYYY;
 
-    if (format === 'datetime') {
-      final = datetime
-    } else if (format === 'datetimereverse') { 
-      final =  datetimereverse
-    } else if (format === 'justdate') { 
-      final =  justdate
-    } else if (format === 'justtime') { 
-      final =  justtime
-    } else if (format === 'justyear') { 
-      final =  justyear
-    } else if (format === '' || typeof 'undefined') { 
-      final =  datetime 
+    if (format==='datetime') {
+      this.final=datetime;
+    } else if (format==='datetimereverse') {
+      this.final=datetimereverse;
+    } else if (format==='justdate') {
+      this.final=justdate;
+    } else if (format==='justtime') {
+      this.final=justtime;
+    } else if (format==='justyear') {
+      this.final=justyear;
+    } else if (format===''||typeof 'undefined') {
+      this.final=datetime;
     } else {
-      final = TimeStamper.datetime
+      this.final=TimeStamper.datetime;
     }
+    return this.final;
   }
-    
-    return final
 }
-module.exports = TimeStamper
+
+// const _TimeStamper=TimeStamper;
+// export {_TimeStamper as TimeStamper};
+    
+const d = new TimeStamper('datetime');
+// eslint-disable-next-line no-console
+console.log(d.final);
+

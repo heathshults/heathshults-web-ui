@@ -23,8 +23,8 @@ export class HSCard {
   @Prop() imgElem: any;
   @Prop() modalId: string;
   @Prop() imgHeaderImg: string;
-  @Prop() imgPath = '/assets/img/svg/image-placeholder.svg';
-  @Prop() showHide: string;
+  @Prop() imgPath:string;
+  @Prop() showHide:string;
   @Prop() autoFooter: boolean;
   @Prop() footerDiv: HTMLDivElement;
   @Prop() basicFooter: any = `
@@ -61,9 +61,6 @@ export class HSCard {
   @Prop() builderTwo;
   @Prop() builderThree;
   
-  
-
-  
   modalLancher: EventEmitter;
   @Event() launchModal: EventEmitter;
   launchModalEvent(event: UIEvent) {
@@ -81,88 +78,67 @@ export class HSCard {
     return;
   }
   
-  // @Method() async callback(fName) { 
-  //   console.log(`${fName} has finished.`);
-  // }
+  private validURL(str) {
+    const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+      '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+      '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+      '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+      '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+    return !!pattern.test(str);
+  }
+    
+  componentWillLoad() {
+    this.validURL(this.imgPath) ? '' : '';
+    typeof this.colorTone === 'undefined' || typeof this.colorTone === null || !this.colorTone.length ? this.colorTone = '' :
+    this.colorTone === 'dark' ? this.colorToneClass = 'dark' : this.colorToneClass = 'light';
+    
+    
+  }
   
-  
-  
-  
-  componentWillLoad(): any {
-    function validURL(str) {
-      const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
-        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
-        '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
-        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
-        '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
-        '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
-      return !!pattern.test(str);
-    }
-    function setVisibility() {
-
-        typeof this.colorTone === 'undefined' || typeof this.colorTone === null || !this.colorTone.length ? this.colorTone = '' :
-          this.colorTone === 'dark' ? this.colorToneClass = 'dark' : this.colorToneClass = 'light';
-        if(this.imgPath === 'undefined' || typeof this.imgPath === null) {this.showHide = 'hs-display-none'} else {this.showHide = 'hs-display-block'}
-        validURL(this.imgPath) === true ? this.imgPath : this.imgPath = this.imgHeaderImgPlaceholder;
-               
-        this.fnStatusCallBack(true, 'setVisibility');
-    }
-
-
-      function buildCard(): Promise<any> {
-        return new Promise((resolve, reject): any => {
-          setTimeout((): any => {
-            try {
-
+  componenentWillRender() {
+    function buildCard(): Promise<any> {
+      return new Promise((resolve, reject): any => {
+        setTimeout((): any => {
+          try {
             this.cloneBaby = this.el.shadowRoot.querySelector('#cloneBaby.hs-card_body');
-            console.log('cloneBaby below');
             console.log(this.cloneBaby);
-            this.overlay = this.el.shadowRoot.querySelector('#imgHeaderOverlay');
-            this.footerDiv = this.el.shadowRoot.querySelector('#foot');
-            
-        
+
             this.cardContent = document.querySelector('.hs-card_content');
             console.log(this.cardContent);
-           
             
-            
-            
-            this.clonedContent = this.cardContent.cloneNode(true);
-            console.log('clone below');
-            console.log(this.clonedContent);
-            
+            this.clonedContent = this.cardContent.cloneNode(true);            
+            this.footerDiv = this.el.shadowRoot.querySelector('#foot');
+
             if (this.autoFooter) {
               this.footerDiv.innerHTML = this.basicFooter;
-              this.imgHeaderImgContainer = this.el.shadowRoot.querySelector('#hsHeaderImg');
             }
-            this.cardHeaderImg = this.el.shadowRoot.querySelector('#hsHeaderImg');
             this.cardContent.classList.add('hs-card_content');
             this.cloneBaby.appendChild(this.clonedContent);
             this.fnStatusCallBack(true, 'buildCard');
+            
             resolve(true);
           }
           catch(error) {
             this.fnStatusCallBack(false, 'buildCard', error);
             reject(false);
           }
-        }, 1000); 
+        }, 700); 
       });
+
     }
 
-    
-    setVisibility();
     buildCard();
     return ;
   }
-  
-  render(): any {
 
+  render() {
+    
     return (
       <div id={`${this.cardId}`} class={`hs-card  ${this.colorTone}`}>
        <header class={`hs-card_header ${this.colorTone}`}>
-        <a id="imgHeaderOverlay" class={`hs-over lay ${this.showHide}`} href="#" onClick={() => this.launchModalHandler(`${this.modalId}`)}>
-          <img id="hsHeaderImg" src={`${this.imgPath}`} class="hs-card_img-header_img" alt="header image" />
-        </a>
+       { this.imgPath ? <a id="imgHeaderOverlay" class={`hs-overlay ${this.showHide}`} href="#" onClick={() => this.launchModalHandler(`${this.modalId}`)} ><img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img ${this.showHide}`} alt="header image" /></a> 
+          : ''}
         <slot name="card-header" />
         </header>
         <div id="cloneBaby" class={`hs-card_body ${this.colorTone}`} >
@@ -174,7 +150,7 @@ export class HSCard {
           <slot name="card-footer" />
         </div>
       </div>
+      
     );
-    
   }  
 }

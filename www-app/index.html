@@ -39,7 +39,6 @@
         document.querySelector('#darkmode').disabled = false;
         // document.querySelector('link[href="css/theme-dark-mode.css"]').disabled = false;
       }
-
     </script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -86,15 +85,21 @@
     <header class="d-flex align-items-stretch hs-header">
       <div class="container">
         <div class="hs-intro-text">
-          <p style="height: 65px;">
-            <span class="hs-intro-lead-in">Hello, I'm Heath.</span>
+          
+          <p class="hs-intro-lead-in">
+           Hello, I'm Heath.
           </p>
-          <p style="height: 95px;">
-            <span class="hs-intro-heading">It's Nice To Meet You</span>
-          </p>
-          <p>
-            <a href="#skills" class="js-page-trigger btn btn-xl bg-black-semitrans">Please... Come inside.</a>
-          </p>
+          
+          
+            <p id="greetingLine" class="hs-intro-heading">
+              <!-- It's Nice To Meet You -->
+            </p>
+
+
+            <p>
+              <a href="#skills" class="js-page-trigger btn btn-xl bg-black-semitrans">Please... Come inside.</a>
+            </p>
+
           <div id="m"></div>
           <script></script>
         </div>
@@ -792,16 +797,100 @@
       function closeModal(modal) {
         document.querySelector(modal).close();
       }
+      
+      class TimeStamper {
+        constructor(format) {
+          this.dt=new Date();
+          this.format=format;
+          this.final;
 
-    </script>
-    <script>
+
+          // ensure date comes as 01, 09 etc
+          const DD=('0'+this.dt.getDate()).slice(-2),
+
+            // getMonth returns month from 0
+            MM=('0'+(this.dt.getMonth()+1)).slice(-2),
+            YYYY=this.dt.getFullYear(),
+            hh=('0'+this.dt.getHours()).slice(-2),
+            mm=('0'+this.dt.getMinutes()).slice(-2),
+            ss=('0'+this.dt.getSeconds()).slice(-2),
+
+            datetime=MM+'-'+DD+'-'+YYYY+' '+hh+':'+mm+':'+ss,
+            datetimereverse=YYYY+'-'+MM+'-'+DD+' '+hh+':'+mm+':'+ss,
+            justdate=MM+'-'+DD+'-'+YYYY,
+            justtime=hh+':'+mm+':'+ss,
+            justyear=YYYY;
+
+          if (format==='datetime') {
+            this.final=datetime;
+          } else if (format==='datetimereverse') {
+            this.final=datetimereverse;
+          } else if (format==='justdate') {
+            this.final=justdate;
+          } else if (format==='justtime') {
+            this.final=justtime;
+          } else if (format==='justyear') {
+            this.final=justyear;
+          } else if (format===''||typeof 'undefined') {
+            this.final=datetime;
+          } else {
+            this.final=TimeStamper.datetime;
+          }
+          return this.final;
+        }
+      }
+
+      // const _TimeStamper=TimeStamper;
+      // export {_TimeStamper as TimeStamper};
+          
+      const d = new TimeStamper('datetime');
+      
+      
+      /** 
+       * This function sets the greeting message. It uses localStorage  
+       * to remember if this is a first time visit or a repeat visit.
+       * 
+       * @function anonymous
+       * @event window.onload           Load the greeting before it is visible.
+       * @const siteStorage             Using local storage to track visits.
+       * @const visited                 Has the visitor been here before.
+       * @const greetingSpan            Where we will place the customized greeting.
+       * @var greetingHTML              The text to be set in greetingSpan.
+       * @function setGGreetingText     Sets the text in greetingSpan.
+       * 
+      */
+      window.onload = function() {
+        const siteStorage =     window.localStorage;
+        const siteSession =     window.sessionStorage;
+        const visited =         siteStorage.getItem('visited');
+        const greetingSpan =    document.querySelector('#greetingLine');
+        let greetingHTML;
+        
+        function setGreetingText() {
+          siteSession.setItem('date-time', d)
+          if (!visited || visited === '' || typeof visited === 'undefined' ) {
+            siteStorage.setItem('visited', 1);
+            greetingHTML = `<span class="hs-intro-subheading">This must be your first time here.</span><br> Welcome!`;
+          } else if (visited === '1') {
+            greetingHTML = 'Welcome back!';
+          }
+
+          return greetingHTML;
+        }
+        
+        greetingSpan.innerHTML = setGreetingText();
+      }
+ 
       //  onclick="javascript:showModal('#modBowlopolis');"
+      
       // // ====== RANKING BARS
       var theBars = document.querySelectorAll('.hs-ranking-bar')
       theBars.forEach(aBar => {
         var barWidth = $(aBar).attr('aria-valuenow')
         $(aBar).attr('style', `width: ${barWidth}%`);
       });
+      
+      
 
       // theModals.forEach(modal => {
       //   modal.addEventListener('click', (e)=>{
