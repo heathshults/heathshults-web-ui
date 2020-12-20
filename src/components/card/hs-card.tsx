@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types, no-console */
-import { Component, Element, Prop, Event, EventEmitter, Listen, h, Method } from '@stencil/core';
+import { Component, Element, Prop, Event, EventEmitter, Listen, h } from '@stencil/core';
 
 @Component({
   tag: 'hs-card',
@@ -9,7 +9,7 @@ import { Component, Element, Prop, Event, EventEmitter, Listen, h, Method } from
 
 export class HSCard {
   @Element() el: HTMLElement;
-  @Prop() cardImgHeaderImg: HTMLImageElement;
+  @Prop() imgHeaderImgContainer: HTMLImageElement;
   @Prop() cardContent: any;
   @Prop({reflect: true}) colorTone: string;
   @Prop({reflect: true}) colorToneClass: string;
@@ -17,12 +17,14 @@ export class HSCard {
   @Prop({reflect: true}) cardSize: string;
   
   @Prop() cardHeader: any;
-  @Prop() cardHeaderImg: any;
+  @Prop() cardHeaderImg: HTMLElement;
+  @Prop() imgHeaderImgPlaceholder = '/assets/img/svg/image-placeholder.svg';
   @Prop() overlay: any;
   @Prop() imgElem: any;
   @Prop() modalId: string;
-  @Prop({reflect: true}) imgPath: string;
-  @Prop({reflect: true}) showHide: string;
+  @Prop() imgHeaderImg: string;
+  @Prop() imgPath = '/assets/img/svg/image-placeholder.svg';
+  @Prop() showHide: string;
   @Prop() autoFooter: boolean;
   @Prop() footerDiv: HTMLDivElement;
   @Prop() basicFooter: any = `
@@ -74,56 +76,91 @@ export class HSCard {
     this.clickTarget ? document.querySelector(target).classList.add('hs-display-block') : alert('no target parameter');
   }
   
-  // private cb() {
-  //   return;
+  @Prop() fnStatusCallBack = (status: boolean, fnName: string, errorMessage?: any): any => {
+    status === true ? console.log(`${fnName} finished`) : console.log(`${fnName} failed because: /n ${errorMessage}`) ;
+    return;
+  }
+  
+  // @Method() async callback(fName) { 
+  //   console.log(`${fName} has finished.`);
   // }
   
-  @Method() async callback(fName) { 
-    console.log(`${fName} has finished.`);
+  
+  
+  
+  componentWillLoad(): any {
+    function validURL(str) {
+      const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+        '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+        '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+        '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+      return !!pattern.test(str);
+    }
+    function setVisibility() {
+
+        typeof this.colorTone === 'undefined' || typeof this.colorTone === null || !this.colorTone.length ? this.colorTone = '' :
+          this.colorTone === 'dark' ? this.colorToneClass = 'dark' : this.colorToneClass = 'light';
+        if(this.imgPath === 'undefined' || typeof this.imgPath === null) {this.showHide = 'hs-display-none'} else {this.showHide = 'hs-display-block'}
+        validURL(this.imgPath) === true ? this.imgPath : this.imgPath = this.imgHeaderImgPlaceholder;
+               
+        this.fnStatusCallBack(true, 'setVisibility');
+    }
+
+
+      function buildCard(): Promise<any> {
+        return new Promise((resolve, reject): any => {
+          setTimeout((): any => {
+            try {
+
+            this.cloneBaby = this.el.shadowRoot.querySelector('#cloneBaby.hs-card_body');
+            console.log('cloneBaby below');
+            console.log(this.cloneBaby);
+            this.overlay = this.el.shadowRoot.querySelector('#imgHeaderOverlay');
+            this.footerDiv = this.el.shadowRoot.querySelector('#foot');
+            
+        
+            this.cardContent = document.querySelector('.hs-card_content');
+            console.log(this.cardContent);
+           
+            
+            
+            
+            this.clonedContent = this.cardContent.cloneNode(true);
+            console.log('clone below');
+            console.log(this.clonedContent);
+            
+            if (this.autoFooter) {
+              this.footerDiv.innerHTML = this.basicFooter;
+              this.imgHeaderImgContainer = this.el.shadowRoot.querySelector('#hsHeaderImg');
+            }
+            this.cardHeaderImg = this.el.shadowRoot.querySelector('#hsHeaderImg');
+            this.cardContent.classList.add('hs-card_content');
+            this.cloneBaby.appendChild(this.clonedContent);
+            this.fnStatusCallBack(true, 'buildCard');
+            resolve(true);
+          }
+          catch(error) {
+            this.fnStatusCallBack(false, 'buildCard', error);
+            reject(false);
+          }
+        }, 1000); 
+      });
+    }
+
+    
+    setVisibility();
+    buildCard();
+    return ;
   }
   
-  
-  componentWillLoad() {
-    () => 
-    setTimeout(() => {
-    typeof this.colorTone === 'undefined' || typeof this.colorTone === null || this.colorTone === 'light' ? this.colorToneClass = 'light' :
-    this.colorTone === 'dark' ? this.colorToneClass = 'dark' : this.colorToneClass = 'light';
+  render(): any {
 
-    typeof this.imgPath === 'undefined' ? this.showHide = 'hs-display-none' : this.showHide = 'hs-display-block';
-    
-    this.cardContent = document.querySelector('.hs-card_content');
-    console.log(this.cardContent);
-    this.cloneBaby = this.el.shadowRoot.querySelector('#cloneBaby.hs-card_body');
-    console.log('cloneBaby below');
-    console.log(this.cloneBaby);
-    this.overlay = this.el.shadowRoot.querySelector('#imgHeaderOverlay');
-    this.footerDiv = this.el.shadowRoot.querySelector('#foot');
-
-    this.clonedContent = this.cardContent.cloneNode(true);
-    console.log('clone below');
-    console.log(this.clonedContent);
-
-      if (this.autoFooter) {
-        this.footerDiv.innerHTML = this.basicFooter;
-        this.cardImgHeaderImg = this.el.shadowRoot.querySelector('#hsHeaderImg');
-      }
-      
-      this.cardHeaderImg = this.el.shadowRoot.querySelector('#hsHeaderImg');
-    
-      this.cardContent.classList.add('hs-card_content');
-
-      // this.cardContent.remove();
-      
-      this.cloneBaby.appendChild(this.clonedContent);
-    }, 2000);
-  }
-  
-  render() {
-    
     return (
       <div id={`${this.cardId}`} class={`hs-card  ${this.colorTone}`}>
        <header class={`hs-card_header ${this.colorTone}`}>
-        <a id="imgHeaderOverlay" class={`hs-overlay ${this.showHide}`} href="#" onClick={() => this.launchModalHandler(`${this.modalId}`)}>
+        <a id="imgHeaderOverlay" class={`hs-over lay ${this.showHide}`} href="#" onClick={() => this.launchModalHandler(`${this.modalId}`)}>
           <img id="hsHeaderImg" src={`${this.imgPath}`} class="hs-card_img-header_img" alt="header image" />
         </a>
         <slot name="card-header" />
