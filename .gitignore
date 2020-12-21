@@ -11,3 +11,4 @@ dist/
 www-app/
 backup/
 www/
+src\js\modules\ez-form\ezform.config.json
