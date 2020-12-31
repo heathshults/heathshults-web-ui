@@ -34,7 +34,7 @@ import {exec} from 'child_process';
 // var postcss = require('gulp-postcss')
 // var postcssCustomProperties = require('postcss-custom-properties')
 import debug from 'gulp-debug';
-
+import fs from 'fs-extra';
 import changed from 'gulp-changed';
 import ejs from 'gulp-ejs';
 import log from 'fancy-log';
@@ -187,7 +187,8 @@ function ejsit(done) {
 exports.ejsit = ejsit;
 
 function babelfry(cb){
-  var fs = require("fs");
+  
+  // var fs = require("fs");
 
   browserify({ debug: true })
   .transform(babelify)

@@ -32,18 +32,18 @@ export class TimeStamper {
     // ensure date comes as 01, 09 etc
     const DD=(`0${this.dt.getDate()}`).slice(-2),
 
-       // getMonth returns month from 0
-       MM=(`0${this.dt.getMonth() + 1}`).slice(-2),
-       YYYY=this.dt.getFullYear(),
-       hh=(`0${this.dt.getHours()}`).slice(-2),
-       mm=(`0${this.dt.getMinutes()}`).slice(-2),
-       ss=(`0${this.dt.getSeconds()}`).slice(-2),
+     // getMonth returns month from 0
+     MM=(`0${this.dt.getMonth() + 1}`).slice(-2),
+     YYYY=this.dt.getFullYear(),
+     hh=(`0${this.dt.getHours()}`).slice(-2),
+     mm=(`0${this.dt.getMinutes()}`).slice(-2),
+     ss=(`0${this.dt.getSeconds()}`).slice(-2),
 
-       datetime=`${MM}-${DD}-${YYYY} ${hh}:${mm}:${ss}`,
-       datetimereverse=`${YYYY}-${MM}-${DD} ${hh}:${mm}:${ss}`,
-       justdate=`${MM}-${DD}-${YYYY}`,
-       justtime=`${hh}:${mm}:${ss}`,
-       justyear=YYYY;
+     datetime=`${MM}-${DD}-${YYYY} ${hh}:${mm}:${ss}`,
+     datetimereverse=`${YYYY}-${MM}-${DD} ${hh}:${mm}:${ss}`,
+     justdate=`${MM}-${DD}-${YYYY}`,
+     justtime=`${hh}:${mm}:${ss}`,
+     justyear=YYYY;
 
     if (format==='datetime') {
       this.result=datetime;

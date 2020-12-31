@@ -4,8 +4,7 @@ require("@babel/register")({
   presets: ["@babel/preset-env"],
   "plugins": [["import", {"libraryName": "@material-ui/core"}], "@babel/plugin-syntax-dynamic-import"]
 });
-import moment from 'moment';
-moment().format();
+
 import './js/HeathScript';
 // import './js/modules/nav-scroller';
 import './js/modules/theme-switcher';

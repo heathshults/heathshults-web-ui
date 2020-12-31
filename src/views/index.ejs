@@ -55,9 +55,9 @@
     </style>
   </head>
 
-  <body id="page-top" class="index">
+  <body id="page-top" class="index scroll">
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top hs-bg-grad-black-trans" id="mainNav">
+    <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark fixed-top hs-bg-grad-black-trans" id="mainNav">
       <div class="container">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobileNav"
           aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -86,18 +86,21 @@
       <div class="container">
         <div class="hs-intro-text">
           
-          <p class="hs-intro-lead-in">
-           Hello, I'm Heath.
-          </p>
           
           
-            <p id="greetingLine" class="hs-intro-heading">
-              <!-- It's Nice To Meet You -->
-            </p>
-
-
+          
+            <div id="greetingLine">
+              <p class="hs-intro-lead-in">
+                Hello, I'm Heath.
+               </p>
+             <p class="hs-intro-subheading">
+               First time here?
+               <!-- It's Nice To Meet You -->
+             </p>
+             <p class="hs-intro-heading">Welcome!</p>`;
+            </div>
             <p>
-              <a href="#skills" class="js-page-trigger btn btn-xl bg-black-semitrans">Please... Come inside.</a>
+              <a href="#skills" class="js-page-trigger btn btn-xl bg-black-semitrans">Come on in...</a>
             </p>
 
           <div id="m"></div>
@@ -824,31 +827,31 @@
       // })
 
       // ====== NAV JS ====== //
-      // $('a.js-page-scroll').bind('click', function(event) {
-      //   var $anchor = $(this);
-      //   $('html, body').stop().animate({
-      //       scrollTop: ($($anchor.attr('href')).offset().top - 50)
-      //   }, 1250, 'easeInOutExpo');
-      //   event.preventDefault();
-      //   });
+      $('a.js-page-scroll').on('click', function(event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: ($($anchor.attr('href')).offset().top - 50)
+        }, 1250, 'easeInOutExpo');
+        event.preventDefault();
+        });
 
       // Highlight the top nav as scrolling occurs
-      // $('body').scrollspy({
-      //     target: '.navbar-fixed-top',
-      //     offset: 51
-      // });
+      $('body').scrollspy({
+          target: '.navbar-fixed-top',
+          offset: 51
+      });
 
       // Closes the Responsive Menu on Menu Item Click
-      // $('.navbar-collapse .navbar-nav .nav-item .nav-link').click(function(){
-      //         $('.navbar-toggle:visible').click();
-      // });
+      $('.navbar-collapse .navbar-nav .nav-item .nav-link').click(function(){
+              $('.navbar-toggle:visible').click();
+      });
 
       // Offset for Main Navigation
-      // $('#mainNav').affix({
-      //     offset: {
-      //         top: 100
-      //     }
-      // })
+      $('#mainNav').affix({
+          offset: {
+              top: 100
+          }
+      })
 
       // ** ====== MODE WIDHET ====== ** //
       // var $dm_btn = $('#mode_widget')
@@ -889,7 +892,7 @@
       // }
 
       // Theme switcher
-      // $dm_btn.bind('click', (event) => {
+      // $dm_btn.on('click', (event) => {
       //     event.preventDefault()
       //     if (localStorage.getItem('dark_mode') === 'true') {
       //       setMode('false'), console.log('set to false')
