@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /**
 * @fileOverview
-* @author Heath Shults - Fannie Mae, Inc.
+* @author Heath Shults - Heath Shults
 * @version 1.0.0
 * @description
 *

@@ -14099,7 +14099,8 @@ div[slot^=hs-] {
     margin-top: -26px !important;
   }
 
-  #mainNav.navbar-shrink {
+  #mainNav.navbar-fixed-top,
+#mainNav.navbar-shrink {
     padding-top: 1rem;
     padding-bottom: 1rem;
     background-color: #1a1d20;
