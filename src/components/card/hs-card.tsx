@@ -137,7 +137,7 @@ export class HSCard {
     return (
       <div id={`${this.cardId}`} class={`hs-card  ${this.colorTone}`}>
        <header class={`hs-card_header ${this.colorTone}`}>
-       { this.imgPath ? <a id="imgHeaderOverlay" class={`hs-overlay ${this.showHide}`} href="#" onClick={() => this.launchModalHandler(`${this.modalId}`)} ><img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img ${this.showHide}`} alt="header image" /></a> 
+       { this.imgPath ? <a id="imgHeaderOverlay" class={`hs-overlay ${this.showHide} p-0 m-0`} href="#" onClick={() => this.launchModalHandler(`${this.modalId}`)} ><img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img ${this.showHide} p-0 m-0`} alt="header image" /></a> 
           : ''}
         <slot name="card-header" />
         </header>

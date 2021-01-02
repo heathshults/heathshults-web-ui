@@ -2,43 +2,135 @@
 
 // Mixins
 
+@mixin hs-background-clip($hs-clip-background) {
+  background-clip: $hs-clip-background;
+}
+
+@mixin hs-clip-text($img-url, $fallback-color: #000) {
+  color: $fallback-color;
+  -webkit-text-fill-color: transparent;
+  background: -webkit-linear-gradient(transparent, transparent), url($img-url) repeat;
+  background: -o-linear-gradient(transparent, transparent);
+  -webkit-background-clip: text;
+
+}
+@mixin button {
+
+  @include disabled;
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: $hs-blue--dark;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 0;
+  appearance: none;
+  outline: 0;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@mixin button {
+  @include hs-button-color;
+  @include disabled;
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: $hs-blue--dark;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 0;
+  appearance: none;
+  outline: 0;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@mixin button-nude {
+  @include disabled;
+  width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  font: inherit;
+  line-height: normal;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  background: inherit;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  appearance: none;
+
+  &:not(:disabled):not([disabled]) {
+    &:active {
+      background-color: transparent;
+    }
+
+    &:not(:active) {
+      &:focus {
+        border-color: $button-focus-border-color;
+        box-shadow: $button-focus-box-shadow;
+      }
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
 // Bootstrap Button Variant
 
-@mixin button-variant($hs-color, $hs-background, $hs-border) {
-  color: $hs-color;
-  background-color: $hs-background;
-  border-color: $hs-border;
+@mixin hs-button-variant($hs-theme-color-text, $hs-white_2, $hs-white_60) {
+  color: $hs-theme-color-text;
+  background-color: $hs-white_2;
+  border-color: $hs-white_60;
 
   &:focus,
   &.focus {
-    color: $hs-color;
-    background-color: darken($hs-background, 10%);
+    color: $hs-theme-color-text;
+    background-color: darken($hs-white_2, 10%);
     /* stylelint-disable-next-line */
-    border-color: darken($hs-border, 25%);
+    border-color: darken($hs-white_60, 25%);
   }
 
   &:hover {
-    color: $hs-color;
-    background-color: darken($hs-background, 10%);
+    color: $hs-theme-color-text;
+    background-color: darken($hs-white_2, 10%);
     /* stylelint-disable-next-line */
-    border-color: darken($hs-border, 12%);
+    border-color: darken($hs-white_60, 12%);
   }
 
   &:active,
   &.active,
   .open >&.dropdown-toggle {
-    color: $hs-color;
-    background-color: darken($hs-background, 10%);
+    color: $hs-theme-color-text;
+    background-color: darken($hs-white_2, 10%);
     /* stylelint-disable-next-line */
-    border-color: darken($hs-border, 12%);
+    border-color: darken($hs-white_60, 12%);
 
     &:hover,
     &:focus,
     &.focus {
-      color: $hs-color;
-      background-color: darken($hs-background, 17%);
+      color: $hs-theme-color-text;
+      background-color: darken($hs-white_2, 17%);
       /* stylelint-disable-next-line */
-      border-color: darken($hs-border, 25%);
+      border-color: darken($hs-white_60, 25%);
     }
   }
 
@@ -55,17 +147,79 @@
     &:hover,
     &:focus,
     &.focus {
-      background-color: $hs-background;
+      background-color: $hs-white_2;
       /* stylelint-disable-next-line */
-      border-color: $hs-border;
+      border-color: $hs-white_60;
     }
   }
 
   .badge {
-    color: $hs-background;
-    background-color: $hs-color;
+    color: $hs-white_2;
+    background-color: $hs-theme-color-text;
   }
 }
+
+
+
+@mixin hs-button-color($hs-button-background-color: $hs-button-background-color, $hs-theme-color-text: $hs-button-color) {
+  color: $hs-theme-color-text;
+  background-color: $hs-button-background-color;
+  border: $hs-button-border;
+
+  &.hs-card-button--active {
+    background-color: darken($hs-button-background-color, $hs-theme-color-text-tint);
+  }
+
+  &:not(:disabled):not([disabled]) {
+    &:not(:active) {
+      &:hover {
+        background-color: lighten($hs-button-background-color, $hs-theme-color-text-tint);
+      }
+    }
+
+    &:focus {
+      border-color: $hs-button-focus-border-color;
+      box-shadow: $hs-button-focus-box-shadow;
+    }
+
+    &:active {
+      background-color: darken($hs-button-background-color, $hs-theme-color-text-tint);
+    }
+  }
+}
+
+@mixin hs-card-button--ghost($hs-theme-color-text: $hs-button-ghost-color, $hs-theme-color-text-hover: $hs-button-ghost-hover-color) {
+  color: $hs-theme-color-text;
+  background-color: transparent;
+  border: $hs-button-ghost-border-width $hs-button-ghost-border-style $hs-theme-color-text;
+
+  &.hs-card-button--active {
+    color: $hs-theme-color-text-hover;
+    background-color: darken($hs-theme-color-text, $hs-theme-color-text-tint);
+    border-color: darken($hs-theme-color-text, $hs-theme-color-text-tint);
+  }
+
+  &:not(:disabled):not([disabled]) {
+    &:not(:active) {
+      &:hover {
+        color: $hs-theme-color-text-hover;
+        background-color: $hs-theme-color-text;
+      }
+    }
+
+    &:focus {
+      border-color: $hs-button-focus-border-color;
+      box-shadow: $hs-button-focus-box-shadow;
+    }
+
+    &:active {
+      color: $hs-theme-color-text-hover;
+      background-color: darken($hs-theme-color-text, $hs-theme-color-text-tint);
+      border-color: darken($hs-theme-color-text, $hs-theme-color-text-tint);
+    }
+  }
+}
+
 
 // Background Cover Mixin
 
@@ -101,7 +255,7 @@
 }
 
 @mixin border-radius-all-md {
-  border-radius: $hs-border-radius-md;
+  border-radius: $hs-white_60-radius-md;
 }
 
 @mixin responsive-box {
@@ -460,7 +614,7 @@ $breakpoints: (
   font-size: 11px;
   color: $hs-white;
   text-transform: uppercase;
-  background: $hs-color_green--dark;
+  background: $hs-theme-color-text_green--dark;
 }
 
 @mixin ratio-16-9 {
@@ -538,11 +692,11 @@ $html-font-size: 16px;
 //  *  $hs-fallback: (optional, null by default): custom property fallback value
 //  */
 
-// $hs-colors: map-merge($hs-map1: $hs-grays, $hs-map2: $hs-dark-mode-colors);
-// $hs-keys: map-keys($hs-colors);
+// $hs-theme-color-texts: map-merge($hs-map1: $hs-grays, $hs-map2: $hs-dark-mode-colors);
+// $hs-keys: map-keys($hs-theme-color-texts);
 
 // @function getV($hs-var, $hs-fallback: null) {
-//   @if map-has-key($hs-colors, $hs-var) {
+//   @if map-has-key($hs-theme-color-texts, $hs-var) {
 //     $hs-cssVarName: #{$hs-var};
 //   }
 //   @if($hs-fallback) {

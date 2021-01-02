@@ -17,7 +17,7 @@
 
 
 :root {
-
+  --hs-custom-prop: 2px;
 }
 
 @supports (--css: variables) {
@@ -198,8 +198,8 @@
   --text-vspace-multiplier: 1
 }
 .text-component {
-  --component-body-line-height: calc(var(--body-line-height) *var(--line-height-multiplier, 1));
-  --component-heading-line-height: calc(var(--heading-line-height) *var(--line-height-multiplier, 1))
+  --component-body-line-height: calc(var(--body-line-height) * var(--line-height-multiplier, 1));
+  --component-heading-line-height: calc(var(--heading-line-height) * var(--line-height-multiplier, 1))
 }
 @include breakpoint(md) {
 

@@ -6,14 +6,16 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  align-items: center;
   min-width: 0;
+  height: auto;
   max-height: $hs-card-width;
   padding-bottom: 1em;
   margin: rem(5px) auto;
   overflow: hidden;
   word-wrap: break-word;
   background-color: $hs-card-bg;
-  //Instead of the line below you could use @include background-clip($clip)
+  @include hs-background-clip(transparent);
   background-clip: content-box;
   border: $hs-card-border-width;
   @include border-radius($hs-card-border-radius);
@@ -32,13 +34,14 @@
     }
     .hs-card_header {
       position: relative;
-      display: flex;
+      flex: 1 1 auto;
       width: 100%;
-      max-height: 100%;
+      height: auto;
+      min-height: 1px;
       padding: 0;
       margin-bottom: 0;
       background-color: $hs-card-cap-bg;
-      border-bottom: $hs-card-border-width solid $hs-card-border-color;
+      // border-bottom: $hs-card-border-width solid $hs-card-border-color;
 
       &:first-child {
         @include border-radius($hs-card-inner-border-radius $hs-card-inner-border-radius 0 0);
@@ -69,7 +72,7 @@
           &:hover::before {
             top: 0px;
             left: 0px;
-            z-index: 2000;
+            z-index: 1000;
             width: 100%;
             height: 100%;
             font-size: 1rem;
@@ -165,20 +168,81 @@
       }
     }
     .hs-details-button {
-      display: block;
+      position: relative;
+      z-index: 1000;
+      flex: 1 0 100%;
       width: 100%;
       padding: $hs-spacing--xs;
       font-size: .8em;
       color: $hs-blueGray-medium;
       text-align: center;
-      background-color: $hs-gray-lightest;
-      &:hover {
-        color: $hs-color_yellow;
-        background-color: $hs-blueGray-light;
-      }
+      // background-color: $hs-gray-lightest;
+      @include hs-button-variant($hs-theme-color-text, $hs-white_2, $hs-white_60);
+      // &::before {
+      //   position: absolute;
+      //   top: 0;
+      //   z-index: 999;
+      //   width: 100%;
+      //   height: inherit;
+      //   content: '';
+      //   background: var(--hs-theme-background-primary);
+      // }
     }
   }
 }
+// Card image
+.hs-card-img-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: $hs-card-img-overlay-padding;
+}
+
+.hs-card-img,
+.hs-card-img-top,
+.hs-card-img-bottom {
+  flex-shrink: 0; // For IE: https://github.com/twbs/bootstrap/issues/29396
+  width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
+}
+
+.hs-card-img,
+.hs-card-img-top {
+  @include border-top-radius($hs-card-inner-border-radius);
+}
+
+.hs-card-img,
+.hs-card-img-bottom {
+  @include border-bottom-radius($hs-card-inner-border-radius);
+}
+
+
+// Card deck
+
+.hs-card-deck {
+  .hs-card {
+    margin-bottom: $hs-card-deck-margin;
+  }
+
+  @include media-breakpoint-up(sm) {
+    display: flex;
+    flex-flow: row wrap;
+    margin-right: -$hs-card-deck-margin;
+    margin-left: -$hs-card-deck-margin;
+
+    .hs-card {
+      // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
+      flex: 1 0 0%;
+      margin-right: $hs-card-deck-margin;
+      margin-bottom: 0; // Override the default
+      margin-left: $hs-card-deck-margin;
+    }
+  }
+}
+
+
+
 // .hs-card.hs-card-size {
 //   &--sm {
 //     width: 265px;
@@ -197,6 +261,7 @@
 .hs-card_img-header_img {
   @include card-header-dimensions;
   width: 100%;
+  margin-bottom: -8px;
 
 }
 
@@ -213,7 +278,7 @@
 .hs-card_content {
   width: 95%;
   padding: rem(12px) $hs-spacing--md;
-  margin: .725rem auto;
+  margin: .725rem .725rem;
   font-size: .84rem;
   line-height: 1.2;
   text-align: left;
@@ -237,10 +302,12 @@
 .hs-card_header {
   display: flex;
   width: 100%;
+  height: auto;
+  max-height: 100%;
   padding: 0;
   margin-bottom: 0;
   background-color: $hs-card-cap-bg;
-  border-bottom: $hs-card-border-width solid $hs-card-border-color;
+  // border-bottom: $hs-card-border-width solid $hs-card-border-color;
   @include card-header-dimensions;
   &:first-child {
     border-radius: 0;
@@ -283,7 +350,7 @@
   &:hover::before {
     top: 0px;
     left: 0px;
-    z-index: 99;
+    z-index: 100;
     width: 100%;
     // height: 100%;
 
@@ -343,7 +410,7 @@
         display: flex;
         align-items: center;
         width: 100%;
-        // height: 65px;
+        max-height: calc(100% - 8px);
       }
     }
   }
@@ -353,10 +420,12 @@
   .hs-card {
     & > {
       .hs-card_header {
+        position: relative;
         display: flex;
         align-items: center;
         width: 100%;
-        // height: 65px;
+        height: auto;
+        max-height: 100%;
       }
     }
   }

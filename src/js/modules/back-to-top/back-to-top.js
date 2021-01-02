@@ -13,6 +13,8 @@ module.exports = function scroll() {
   // backtotopbtn = document.querySelector(".hs-backtotop");
   backtotopbtn = document.createElement('button');
   backtotopbtn.classList.add('hs-backtotop');
+  let body = document.querySelector('body');
+  body.appendChild(backtotopbtn);
   
   // When the user scrolls down 20px from the top of the document, show the button
   window.onscroll = function () { scrollFunction() }; 

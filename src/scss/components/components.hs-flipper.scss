@@ -9,7 +9,7 @@
     height: inherit;
     transform-style: preserve-3d;
     -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
+    backface-visibility: hidden;
   }
 
   &_front {
@@ -18,8 +18,8 @@
 
     .hs-flipper--flipped & {
       z-index: 900;
-      transform: rotate3d(0, 1, 0, 180deg);
       -ms-transform: rotateY(180deg);
+      transform: rotate3d(0, 1, 0, 180deg);
     }
   }
 
