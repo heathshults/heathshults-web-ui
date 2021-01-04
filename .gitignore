@@ -12,4 +12,4 @@ www-app/
 backup/
 www/
 src/assets/content/DevBox/
-src\js\modules\ez-form\ezform.config.json
+src/js/modules/ez-form/ezform.config.json
