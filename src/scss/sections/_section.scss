@@ -17,7 +17,7 @@ section, .hs-section {
     color: #fed136;
     text-shadow: $hs-text-shadow-light-spread;
     text-transform: none;
-    @include script-font;
+    @include cursive-font;
   }
 }
 

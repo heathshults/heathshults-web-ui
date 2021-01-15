@@ -404,72 +404,18 @@ h6 {
 }
 
 .btn-primary {
-  color: #212529;
-  background-color: white;
-  border-color: #fed136;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
 }
-.btn-primary:hover {
-  color: #fff;
-  background-color: #fed136;
-  border-color: #fec503;
-}
-.btn-primary:focus, .btn-primary.focus {
-  color: #fff;
-  background-color: #fed136;
-  border-color: #fec503;
-  box-shadow: 0 0 0 0.2rem rgba(221, 183, 52, 0.5);
-}
-.btn-primary.disabled, .btn-primary:disabled {
-  color: #212529;
-  background-color: white;
-  border-color: #fed136;
-}
-.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
-  color: #212529;
-  background-color: #e6e6e6;
-  border-color: #f3bd01;
-}
-.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(221, 183, 52, 0.5);
-}
 
 .btn-xl {
-  color: #fff;
-  background-color: #111;
-  border-color: #fed136;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   padding: 20px 40px;
   font-size: 18px;
   font-weight: 700;
   border-radius: 3px;
-}
-.btn-xl:hover {
-  color: #fff;
-  background-color: #fed136;
-  border-color: #fec503;
-}
-.btn-xl:focus, .btn-xl.focus {
-  color: #fff;
-  background-color: #fed136;
-  border-color: #fec503;
-  box-shadow: 0 0 0 0.2rem rgba(254, 216, 84, 0.5);
-}
-.btn-xl.disabled, .btn-xl:disabled {
-  color: #fff;
-  background-color: #111;
-  border-color: #fed136;
-}
-.btn-xl:not(:disabled):not(.disabled):active, .btn-xl:not(:disabled):not(.disabled).active, .show > .btn-xl.dropdown-toggle {
-  color: #fff;
-  background-color: black;
-  border-color: #f3bd01;
-}
-.btn-xl:not(:disabled):not(.disabled):active:focus, .btn-xl:not(:disabled):not(.disabled).active:focus, .show > .btn-xl.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(254, 216, 84, 0.5);
 }
 
 .js-page-scroll.btn.btn-xl {

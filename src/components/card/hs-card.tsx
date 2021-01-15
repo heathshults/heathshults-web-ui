@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types, no-console */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types, no-console, no-unused-vars, no-undefined */
 import { Component, Element, Prop, Event, EventEmitter, Listen, h } from '@stencil/core';
 
 @Component({
@@ -53,7 +53,7 @@ export class HSCard {
       </li>
     </ul>
   </div>`;
-  @Prop() clickTarget?: string;
+  @Prop() clickTarget: string;
   @Prop() cloneBaby: any;
   @Prop() clonedContent: any;
   
@@ -61,16 +61,18 @@ export class HSCard {
   @Prop() builderTwo;
   @Prop() builderThree;
   
-  modalLancher: EventEmitter;
-  @Event() launchModal: EventEmitter;
-  launchModalEvent(event: UIEvent) {
-    this.launchModal.emit(event);
+  // modalLancher: EventEmitter;
+  @Event() modalLancher: EventEmitter;
+  launchModalEventHandler(event: Event) {
+    this.modalLancher.emit(event);
   }
-
+  
   @Listen('launchModal')
-  launchModalHandler(target: string) {
+  launchModalHandler(event: Event) {
     // showModal(`#${this.clickTarget}`)
-    this.clickTarget ? document.querySelector(target).classList.add('hs-display-block') : alert('no target parameter');
+    event.preventDefault();
+    this.modalId ? document.querySelector(this.modalId).classList.add('hs-display-block') : 
+    this.validURL(this.clickTarget) === true ? window.location.href = this.clickTarget : '';
   }
   
   @Prop() fnStatusCallBack = (status: boolean, fnName: string, errorMessage?: any): any => {
@@ -78,7 +80,7 @@ export class HSCard {
     return;
   }
   
-  private validURL(str) {
+  @Prop() validURL(str): any {
     const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
       '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
       '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
@@ -137,7 +139,7 @@ export class HSCard {
     return (
       <div id={`${this.cardId}`} class={`hs-card  ${this.colorTone}`}>
        <header class={`hs-card_header ${this.colorTone}`}>
-       { this.imgPath ? <a id="imgHeaderOverlay" class={`hs-overlay ${this.showHide} p-0 m-0`} href="#" onClick={() => this.launchModalHandler(`${this.modalId}`)} ><img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img ${this.showHide} p-0 m-0`} alt="header image" /></a> 
+       { this.imgPath ? <a id="imgHeaderOverlay" class={`hs-overlay ${this.showHide} p-0 m-0`} href="#" onClick={() => this.launchModalHandler(event)} ><img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img ${this.showHide} p-0 m-0`} alt="header image" /></a> 
           : ''}
         <slot name="card-header" />
         </header>

@@ -8,16 +8,17 @@ import { Component, Prop, h } from '@stencil/core';
 })
 
 export class HSCardButton {
-  @Prop({reflect: true, mutable: true}) buttonId?: string;
+  @Prop({mutable: true}) buttonId?: string;
   @Prop({reflect: true, mutable: true}) cssClass = 'btn hs-details-button';
   @Prop({reflect: true, mutable: true}) buttonText = 'button text';
-  @Prop({reflect: true, mutable: true}) action: string;
-  @Prop({reflect: true, mutable: true}) actionParameters: string;
+  @Prop({mutable: true}) action: string;
+  @Prop({mutable: true}) actionParameters: string;
 
-  handleClick(event: UIEvent, action: string, actionParams: string) {
-    console.log(event.currentTarget);
+  handleClick(event: Event, action: string, actionParams: string) {
+    // console.log(event.currentTarget);
+    event.preventDefault();
     if(!action) {
-      window[this.action](this.actionParameters);
+      window[action](this.actionParameters);
     } else {
       window[action](actionParams);
     }
@@ -25,7 +26,7 @@ export class HSCardButton {
 
   render() {
     return ( 
-      <button id={this.buttonId} class={this.cssClass} onClick={ (event: UIEvent) => this.handleClick(event, this.action, this.actionParameters)}>{this.buttonText}<slot/></button>
+      <button id={this.buttonId} class={this.cssClass} onClick={ (event: Event) => this.handleClick(event, this.action, this.actionParameters)}>{this.buttonText}<slot/></button>
     );
     
   }

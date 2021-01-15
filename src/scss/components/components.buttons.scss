@@ -1,5 +1,5 @@
-@import "./mixins/components.buttons";
-
+@import "../bootstrap/scss/mixins/buttons";
+@import "./mixins/_settings";
 @import "../../scss/vars";
 
 // stylelint-disable selector-no-qualifying-type
@@ -158,7 +158,7 @@
 
 
 .hs-button--ghost-error {
-  @include button-varient($hs-theme_danger,  darken($hs-theme_danger, 5%) darken($hs-theme_danger, 10%));
+  // @include button-variant@include button-variant($hs-theme_danger,  darken($hs-theme_danger, 5%) darken($hs-theme_danger, 10%));
 }
 
 .hs-button_icon-left {
