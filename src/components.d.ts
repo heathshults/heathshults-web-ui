@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { EventEmitter } from "@stencil/core";
 export namespace Components {
     interface HsButton {
     }
@@ -19,7 +20,7 @@ export namespace Components {
         "cardHeaderImg": HTMLElement;
         "cardId": string;
         "cardSize": string;
-        "clickTarget"?: string;
+        "clickTarget": string;
         "cloneBaby": any;
         "clonedContent": any;
         "colorTone": string;
@@ -36,7 +37,6 @@ export namespace Components {
         "showHide": string;
     }
     interface HsCardBody {
-        "cardSize": string;
     }
     interface HsCardButton {
         "action": string;
@@ -46,21 +46,22 @@ export namespace Components {
         "cssClass": string;
     }
     interface HsCardFooter {
-        "colorTone": string;
-        "colorToneClass": string;
-        "modalId": string;
+        "colorTone"?: string;
+        "colorToneClass"?: string;
+        "modalId"?: string;
     }
     interface HsCardHeader {
     }
     interface HsCardImgHeader {
         "cardHeader": any;
-        "cardHeaderImg": any;
         "cardImgHeaderImg": HTMLImageElement;
-        "cardSize": string;
+        "cardSize"?: string;
         "clickTarget"?: string;
         "imgElem": any;
-        "imgPath": string;
-        "modalId": string;
+        "imgPath"?: string;
+        "launchModalEvent": (event: UIEvent) => Promise<void>;
+        "modalId"?: string;
+        "modalLancher": EventEmitter<any>;
         "overlay": any;
     }
     interface HsFlipper {
@@ -288,12 +289,11 @@ declare namespace LocalJSX {
         "imgHeaderImgPlaceholder"?: string;
         "imgPath"?: string;
         "modalId"?: string;
-        "onLaunchModal"?: (event: CustomEvent<any>) => void;
+        "onModalLancher"?: (event: CustomEvent<any>) => void;
         "overlay"?: any;
         "showHide"?: string;
     }
     interface HsCardBody {
-        "cardSize"?: string;
     }
     interface HsCardButton {
         "action"?: string;
@@ -311,13 +311,13 @@ declare namespace LocalJSX {
     }
     interface HsCardImgHeader {
         "cardHeader"?: any;
-        "cardHeaderImg"?: any;
         "cardImgHeaderImg"?: HTMLImageElement;
         "cardSize"?: string;
         "clickTarget"?: string;
         "imgElem"?: any;
         "imgPath"?: string;
         "modalId"?: string;
+        "modalLancher"?: EventEmitter<any>;
         "onLaunchModal"?: (event: CustomEvent<any>) => void;
         "overlay"?: any;
     }

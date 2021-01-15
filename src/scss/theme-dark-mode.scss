@@ -67,14 +67,14 @@ h6 {
 // Restyled Primary Buttons
 
 .btn-primary {
-  @include button-variant(white, $hs-theme_primary, $hs-theme_primary);
+  // // @include button-variant@include button-variant(white, $hs-theme_primary, $hs-theme_primary);
   @include heading-font;
 
   font-weight: 700;
 }
 
 .btn-xl {
-  @include button-variant($hs-gray-base, $hs-theme_primary, $hs-theme_primary);
+  // // @include button-variant@include button-variant($hs-gray-base, $hs-theme_primary, $hs-theme_primary);
   @include heading-font;
   padding: 20px 40px;
   font-size: 18px;
@@ -232,7 +232,7 @@ h6 {
   .navbar-brand {
     color: $hs-theme_primary;
 
-    @include script-font;
+    @include cursive-font;
 
     &:hover,
     &:focus,
@@ -1058,7 +1058,7 @@ body {
       font-weight: 700;
 
       text-align: center;
-      @include script-font;
+      @include cursive-font;
     }
   }
 }

@@ -104,20 +104,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 // font families
 .cursive {
-  @include script-font;
+  @include cursive-font;
   color: $hs-gray;
 }
 
 // Restyled Primary Buttons
 
 .btn-primary {
-  @include button-variant(#ffffff, $hs-theme_primary, $hs-theme_primary);
+  // @include button-variant@include button-variant(#ffffff, $hs-theme_primary, $hs-theme_primary);
   @include heading-font;
   font-weight: 700;
 }
 
 .btn-xl {
-  @include button-variant($hs-gray-base, $hs-theme_primary, $hs-theme_primary);
+  // @include button-variant@include button-variant($hs-gray-base, $hs-theme_primary, $hs-theme_primary);
   @include heading-font;
   padding: 20px 40px;
   font-size: 18px;
@@ -280,7 +280,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 // .nav-link.site-logo {
-//   @include script-font;
+//   @include cursive-font;
 //   font-size: 2.5rem;
 //   color: $hs-theme_primary;
 //   background-color: transparent !important;
@@ -305,7 +305,7 @@ h1, h2, h3, h4, h5, h6 {
   .navbar-brand.site-logo {
     font-size: 2.5rem;
     color: $hs-theme_primary;
-    @include script-font;
+    @include cursive-font;
 
     &:hover,
     &:focus,
@@ -537,7 +537,7 @@ section, .hs-section {
     color: #fed136;
     text-shadow: $hs-text-shadow-light-spread;
     text-transform: none;
-    @include script-font;
+    @include cursive-font;
   }
 }
 
@@ -588,7 +588,7 @@ section, .hs-section {
   }
   // .hs-section-subheading {
   //   color: #eeecec;
-  //   @include script-font;
+  //   @include cursive-font;
   // }
   .hs-card {
     background: $hs-white;

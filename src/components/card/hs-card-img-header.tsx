@@ -1,4 +1,5 @@
-import { Component, Element, Prop, Event, EventEmitter, Listen, h } from '@stencil/core';
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+import { Component, Element, Method, Prop, Event, EventEmitter, Listen, h } from '@stencil/core';
 
 @Component({
   tag: 'hs-card-img-header',
@@ -10,31 +11,33 @@ export class HSCardImgHeader {
   @Prop() cardImgHeaderImg: HTMLImageElement;
 
 
-  @Prop({reflect: true}) cardSize: string;
+  @Prop({reflect: true}) cardSize? = 'normal';
   
   @Prop() cardHeader: any;
-  @Prop() cardHeaderImg: any;
+  // @Prop() cardHeaderImg: any;
   @Prop() overlay: any;
   @Prop() imgElem: any;
-  @Prop({reflect: true}) modalId: string;
-  @Prop({reflect: true}) imgPath: string;
+  @Prop() modalId?: string;
+  @Prop({reflect: true}) imgPath? = '/assets/img/svg/image-placeholder.svg';
   @Prop() clickTarget?: string;
-
-
-  modalLancher: EventEmitter;
-  @Event() launchModal: EventEmitter;
-  launchModalEvent(event: UIEvent) {
+ 
+  // modalLancher: EventEmitter;
+  @Prop() modalLancher: EventEmitter<any>;
+  @Event() launchModal: EventEmitter<any>;
+  @Method() async launchModalEvent(event: UIEvent) {
     this.launchModal.emit(event);
   }
 
   @Listen('launchModal')
-  launchModalHandler(target: string) {
+  public launchModalHandler(target: string): any {
     // showModal(`#${this.clickTarget}`)
-    //@ts-ignore: does not exist on type
-    this.clickTarget ? document.querySelector(target).show() : alert('no target parameter')
-
+    
+    return this.clickTarget ? this.show(document.querySelector(target)) : alert('no target parameter');
+    
   }
-
+  public show:any = (target) => {
+    return document.querySelector(target).style.display = 'block';
+  };
   
   // private cb() {
   //   return
@@ -79,15 +82,16 @@ export class HSCardImgHeader {
   render() {
     // this.getElements().then(this.callback)
 
-  return (
-    <header class={`hs-card_header hs-card_header${this.cardSize}`}>
-    <a id="imgHeaderOverlay" 
-      class={`hs-card_img-header_overlay hs-card_img-header_overlay${this.cardSize}`} 
-      href="#" 
-      onClick={() => this.launchModalHandler(`${this.modalId}`)}>
-      <img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img hs-card_img-header_img${this.cardSize}`} alt="header image" />
-    </a>
-    </header>
-  )}
+    return (
+      <header class={`hs-card_header hs-card_header${this.cardSize}`}>
+      <a id="imgHeaderOverlay" 
+        class={`hs-card_img-header_overlay hs-card_img-header_overlay${this.cardSize}`} 
+        href="#" 
+        onClick={() => this.launchModalHandler(`${this.modalId}`)}>
+        <img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img hs-card_img-header_img${this.cardSize}`} alt="header image" />
+      </a>
+      </header>
+    );
+  }
 
 }

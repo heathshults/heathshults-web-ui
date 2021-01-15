@@ -11,6 +11,17 @@
     }
   } else // $_POST is empty.
 {
-    echo "Can't log without something to log dude!";
+    echo "Can't log without something to log brah!";
 }
 ?>
+<!-- hit the logger with javascript -->
+<script>
+  function logger(message) {
+    fetch(URL, {
+       method: 'post',
+       body: JSON.stringify(message)
+    }).then(data => {
+         debug ? console.log(data) : '';
+    });
+  }
+</script>
