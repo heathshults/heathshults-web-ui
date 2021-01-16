@@ -78,7 +78,7 @@ export class HSCard {
   @Prop() fnStatusCallBack = (status: boolean, fnName: string, errorMessage?: any): any => {
     status === true ? console.log(`${fnName} finished`) : console.log(`${fnName} failed because: /n ${errorMessage}`) ;
     return;
-  }
+  }`  `
   
   @Prop() validURL(str): any {
     const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol

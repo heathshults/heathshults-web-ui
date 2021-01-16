@@ -13497,6 +13497,10 @@ header.masthead .hs-header .hs-intro-text .hs-intro-heading,
   border-bottom: 5px solid #f2f2f2;
 }
 
+body {
+  position: relative;
+}
+
 #mainNav {
   padding-top: 1rem;
   padding-bottom: 1rem;
