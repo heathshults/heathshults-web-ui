@@ -3,7 +3,7 @@ import { Component, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'hs-card-footer',
-  styleUrl: '../../scss/components/components.cards.scss',
+  styleUrl: './hs-card_footer.scss',
   shadow: true
 })
 export class HSCardFooter {
@@ -17,8 +17,10 @@ export class HSCardFooter {
   }
   render() {
     return (
-      <footer class={`hs-card_footer ${this.colorToneClass}`}>
-        <slot />
+      <footer class={`hs-card_footer ${this.colorToneClass} w-100`}>
+        <div class="hs-card_content">
+          <slot />
+        </div>
       </footer>
     );
   }

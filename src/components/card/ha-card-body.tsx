@@ -1,16 +1,19 @@
-import { Component, h } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 
 @Component({
   tag: 'hs-card-body',
-  styleUrl: '../../scss/components/components.cards.scss',
+  styleUrl: './hs-card_body.scss',
   shadow: true
 })
 export class HSCardBody {
+  @Prop() cssClassList:string;
   
   render(): any {
     return (
-      <div class={`hs-card_body hs-card_body`}>
-        <slot />
+      <div class={`hs-card_body ${this.cssClassList}`}>
+        <div class="hs-card_content">
+          <slot />
+        </div>
       </div>
     );
   }
