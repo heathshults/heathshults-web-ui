@@ -5,7 +5,6 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { EventEmitter } from "@stencil/core";
 export namespace Components {
     interface HsButton {
     }
@@ -35,15 +34,19 @@ export namespace Components {
         "modalId": string;
         "overlay": any;
         "showHide": string;
+        "validURL": (str: any) => any;
     }
     interface HsCardBody {
+        "cssClassList": string;
     }
     interface HsCardButton {
-        "action": string;
-        "actionParameters": string;
         "buttonId"?: string;
-        "buttonText": string;
-        "cssClass": string;
+        "cssClass"?: string;
+        "handleClick": any;
+        "modalId"?: string;
+        "text"?: string;
+        "url"?: any;
+        "urlParams"?: any;
     }
     interface HsCardFooter {
         "colorTone"?: string;
@@ -54,15 +57,19 @@ export namespace Components {
     }
     interface HsCardImgHeader {
         "cardHeader": any;
-        "cardImgHeaderImg": HTMLImageElement;
-        "cardSize"?: string;
-        "clickTarget"?: string;
+        "cardHeaderImg": HTMLElement;
+        "clickTarget": string;
+        "colorTone": string;
+        "colorToneClass": string;
+        "fnStatusCallBack": (status: boolean, fnName: string, errorMessage?: any) => any;
         "imgElem": any;
-        "imgPath"?: string;
-        "launchModalEvent": (event: UIEvent) => Promise<void>;
-        "modalId"?: string;
-        "modalLancher": EventEmitter<any>;
+        "imgHeaderImg": string;
+        "imgHeaderImgPlaceholder": string;
+        "imgPath": string;
+        "modalId": string;
         "overlay": any;
+        "showHide": string;
+        "validURL": (str: any) => any;
     }
     interface HsFlipper {
         "flipperBackEvents": string;
@@ -71,8 +78,6 @@ export namespace Components {
         "flipperTimingFunction": string;
         "isflipperped": boolean;
     }
-    interface HsMediaBody {
-    }
     interface HsMediaImage {
         "alt": string;
         "src": string;
@@ -80,15 +85,12 @@ export namespace Components {
     interface HsMediaItem {
     }
     interface HsModal {
-        "close": () => Promise<void>;
         "dismissible": boolean;
         "full": boolean;
         "ghost": boolean;
-        "handleOverlay": () => Promise<void>;
-        "isOpen": () => Promise<boolean>;
+        "modalTitle": string;
         "open": boolean;
         "overlay": any;
-        "show": () => Promise<void>;
         "winHeight": any;
     }
     interface HsProgress {
@@ -174,12 +176,6 @@ declare global {
         prototype: HTMLHsFlipperElement;
         new (): HTMLHsFlipperElement;
     };
-    interface HTMLHsMediaBodyElement extends Components.HsMediaBody, HTMLStencilElement {
-    }
-    var HTMLHsMediaBodyElement: {
-        prototype: HTMLHsMediaBodyElement;
-        new (): HTMLHsMediaBodyElement;
-    };
     interface HTMLHsMediaImageElement extends Components.HsMediaImage, HTMLStencilElement {
     }
     var HTMLHsMediaImageElement: {
@@ -249,7 +245,6 @@ declare global {
         "hs-card-header": HTMLHsCardHeaderElement;
         "hs-card-img-header": HTMLHsCardImgHeaderElement;
         "hs-flipper": HTMLHsFlipperElement;
-        "hs-media-body": HTMLHsMediaBodyElement;
         "hs-media-image": HTMLHsMediaImageElement;
         "hs-media-item": HTMLHsMediaItemElement;
         "hs-modal": HTMLHsModalElement;
@@ -292,15 +287,19 @@ declare namespace LocalJSX {
         "onModalLancher"?: (event: CustomEvent<any>) => void;
         "overlay"?: any;
         "showHide"?: string;
+        "validURL"?: (str: any) => any;
     }
     interface HsCardBody {
+        "cssClassList"?: string;
     }
     interface HsCardButton {
-        "action"?: string;
-        "actionParameters"?: string;
         "buttonId"?: string;
-        "buttonText"?: string;
         "cssClass"?: string;
+        "handleClick"?: any;
+        "modalId"?: string;
+        "text"?: string;
+        "url"?: any;
+        "urlParams"?: any;
     }
     interface HsCardFooter {
         "colorTone"?: string;
@@ -311,15 +310,20 @@ declare namespace LocalJSX {
     }
     interface HsCardImgHeader {
         "cardHeader"?: any;
-        "cardImgHeaderImg"?: HTMLImageElement;
-        "cardSize"?: string;
+        "cardHeaderImg"?: HTMLElement;
         "clickTarget"?: string;
+        "colorTone"?: string;
+        "colorToneClass"?: string;
+        "fnStatusCallBack"?: (status: boolean, fnName: string, errorMessage?: any) => any;
         "imgElem"?: any;
+        "imgHeaderImg"?: string;
+        "imgHeaderImgPlaceholder"?: string;
         "imgPath"?: string;
         "modalId"?: string;
-        "modalLancher"?: EventEmitter<any>;
-        "onLaunchModal"?: (event: CustomEvent<any>) => void;
+        "onModalLancher"?: (event: CustomEvent<any>) => void;
         "overlay"?: any;
+        "showHide"?: string;
+        "validURL"?: (str: any) => any;
     }
     interface HsFlipper {
         "flipperBackEvents"?: string;
@@ -327,8 +331,6 @@ declare namespace LocalJSX {
         "flipperEvents"?: string;
         "flipperTimingFunction"?: string;
         "isflipperped"?: boolean;
-    }
-    interface HsMediaBody {
     }
     interface HsMediaImage {
         "alt"?: string;
@@ -340,6 +342,7 @@ declare namespace LocalJSX {
         "dismissible"?: boolean;
         "full"?: boolean;
         "ghost"?: boolean;
+        "modalTitle"?: string;
         "onClose"?: (event: CustomEvent<any>) => void;
         "open"?: boolean;
         "overlay"?: any;
@@ -388,7 +391,6 @@ declare namespace LocalJSX {
         "hs-card-header": HsCardHeader;
         "hs-card-img-header": HsCardImgHeader;
         "hs-flipper": HsFlipper;
-        "hs-media-body": HsMediaBody;
         "hs-media-image": HsMediaImage;
         "hs-media-item": HsMediaItem;
         "hs-modal": HsModal;
@@ -413,7 +415,6 @@ declare module "@stencil/core" {
             "hs-card-header": LocalJSX.HsCardHeader & JSXBase.HTMLAttributes<HTMLHsCardHeaderElement>;
             "hs-card-img-header": LocalJSX.HsCardImgHeader & JSXBase.HTMLAttributes<HTMLHsCardImgHeaderElement>;
             "hs-flipper": LocalJSX.HsFlipper & JSXBase.HTMLAttributes<HTMLHsFlipperElement>;
-            "hs-media-body": LocalJSX.HsMediaBody & JSXBase.HTMLAttributes<HTMLHsMediaBodyElement>;
             "hs-media-image": LocalJSX.HsMediaImage & JSXBase.HTMLAttributes<HTMLHsMediaImageElement>;
             "hs-media-item": LocalJSX.HsMediaItem & JSXBase.HTMLAttributes<HTMLHsMediaItemElement>;
             "hs-modal": LocalJSX.HsModal & JSXBase.HTMLAttributes<HTMLHsModalElement>;

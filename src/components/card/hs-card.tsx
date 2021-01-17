@@ -78,9 +78,9 @@ export class HSCard {
   @Prop() fnStatusCallBack = (status: boolean, fnName: string, errorMessage?: any): any => {
     status === true ? console.log(`${fnName} finished`) : console.log(`${fnName} failed because: /n ${errorMessage}`) ;
     return;
-  }`  `
+  }
   
-  @Prop() validURL(str): any {
+  @Prop() validURL = (str): any => {
     const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
       '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
       '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
@@ -138,21 +138,18 @@ export class HSCard {
     
     return (
       <div id={`${this.cardId}`} class={`hs-card  ${this.colorTone}`}>
-       <header class={`hs-card_header ${this.colorTone}`}>
-       { this.imgPath ? <a id="imgHeaderOverlay" class={`hs-overlay ${this.showHide} p-0 m-0`} href="#" onClick={() => this.launchModalHandler(event)} ><img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img ${this.showHide} p-0 m-0`} alt="header image" /></a> 
-          : ''}
+        <header class={`hs-card_header ${this.colorTone}`}>
+          { this.imgPath ? <a id="imgHeaderOverlay" class={`hs-overlay ${this.showHide} p-0 m-0`} href="#" onClick={() => this.launchModalHandler(event)} ><img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img ${this.showHide} p-0 m-0`} alt="header image" /></a> 
+            : ''}
         <slot name="card-header" />
         </header>
         <div id="cloneBaby" class={`hs-card_body ${this.colorTone}`} >
           <slot name="card-body" />
         </div>
-        
         <div id="foot" class={`hs-card_footer row m-0 d-flex w-100 ${this.colorToneClass} p-0`}>
-          
           <slot name="card-footer" />
         </div>
       </div>
-      
     );
   }  
 }

@@ -19,7 +19,7 @@
 
   // Collapse Navbar
   function navbarCollapse() {
-    if (mainNav.offsetTtop > 90) {
+    if (mainNav.offsetTtop > 100) {
       mainNav.classList.add("navbar-shrink");
     } else {
       mainNav.classList.remove("navbar-shrink");
