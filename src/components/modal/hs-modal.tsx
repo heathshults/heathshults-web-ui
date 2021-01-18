@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { Component, Event, EventEmitter, Prop, Method, State, Element, h } from '@stencil/core';
+import { Component, Event, EventEmitter, Prop, State, Element, h } from '@stencil/core';
 
 @Component({
   tag: 'hs-modal',

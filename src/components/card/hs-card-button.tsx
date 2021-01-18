@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { Component, Prop, h } from '@stencil/core';
-import { validurl } from '../../js/modules/validate-url';
+import { Component, Prop, Element, Method, h } from '@stencil/core';
+// import { validurl } from '../../js/modules/validate-url';
 
 
 @Component({
@@ -11,14 +11,15 @@ import { validurl } from '../../js/modules/validate-url';
 })
 
 export class HSCardButton {
+  @Element() el: HTMLButtonElement;
   @Prop() buttonId?: string;
   @Prop() cssClass?: string;
   @Prop() text?: string;
   @Prop() url?: any;
   // eslint-disable-next-line no-undef
   @Prop() urlParams?: any;
-  @Prop() modalId?: string;
-  @Prop() handleClick: any;
+  @Prop() modalId?: any;
+  // @Method() handleClick: function;
   
   // @Prop() validURL = (str): any => {
   //   const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
@@ -29,33 +30,47 @@ export class HSCardButton {
   //     '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
   //   return !!pattern.test(str);
   // }
-   componentWillLoad() {
-    function handleLink(url, urlParams) {
-      if (typeof url !== 'undefined') {
-        const validateUrl: boolean = validurl(url);
-        if (validateUrl === true) {
-          window.open(url, urlParams);
-        } 
-      }
+  
+  @Method() async handleClick(event, url, urlParams, modalId) {
+    // console.log(event.currentTarget);
+    event.preventDefault();
+    console.log(modalId);
+    console.log(url);
+    console.log(urlParams);
+    
+    // if (typeof this.modalId === 'undefined' || this.modalId.length <= 0 || this.modalId === '') {
+    //   handleLink(url, urlParams);
+    // } else {
+    //   return;
+    // }
+  }
+  
+  handleLink(url, urlParams) {
+    if (typeof url !== 'undefined') {
+      const validateUrl: boolean = validurl(url);
+      if (validateUrl === true) {
+        window.open(url, urlParams);
+      } 
     }
-    this.handleClick = (event: Event, url, urlParams): void => {
-      // console.log(event.currentTarget);
-      event.preventDefault();
-      if (typeof this.modalId === 'undefined' || this.modalId.length <= 0 || this.modalId === '') {
-        handleLink(url, urlParams);
-      } else {
-        return;
-      }
-    };
+  }
+  
+   componentWillLoad(): void {
+    // const theButton = this.el.shadowRoot.querySelector('button');
+    if (this.modalId !== 'undefined') {
+      console.log(this.modalId);
+    }
+
+    
   }
   render(): any {
     return ( 
-      <button id={this.buttonId} 
-        class={this.cssClass} 
-        onClick={ (event: Event) => this.handleClick(event, this.url, this.urlParams)}>
+      <button id={this.buttonId}
+        class={this.cssClass}
+        data-bs-toggle="modal" 
+        data-bs-target={this.modalId}
+        onClick={ (event: Event) => this.handleClick(event, this.url, this.urlParams, this.modalId)}>
         {this.text}<slot/>
-        ({(typeof this.modalId !== 'undefined') ? `data-bs-toggle="modal" data-bs-target=${this.modalId}` : ''})
-        </button>
+      </button>
     );
     
   }
