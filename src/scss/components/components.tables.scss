@@ -5,11 +5,11 @@
   @include grid;
   @include grid--wrap;
   width: $table-width;
-  margin: $table-margin;
   padding: $table-padding;
-  border: $table-border;
-  border-collapse: collapse;
+  margin: $table-margin;
   border-spacing: 0;
+  border-collapse: collapse;
+  border: $table-border;
 }
 
 .hs-table_caption {
@@ -17,8 +17,8 @@
   @include grid_cell--full;
   max-width: $table-caption-max-width;
   padding: $table-caption-padding;
-  color: $table-caption-color;
   font-size: $table-caption-font-size;
+  color: $table-caption-color;
   text-align: $table-caption-text-align;
 }
 
@@ -47,9 +47,9 @@
 .hs-table_row--heading .hs-table_cell {
   display: flex;
   flex: 1;
-  color: $table-heading-color;
-  font-weight: $table-heading-font-weight;
   font-size: $text-font-size-medium;
+  font-weight: $table-heading-font-weight;
+  color: $table-heading-color;
   background-color: $table-heading-background-color;
   border-bottom: $table-heading-border;
 }
@@ -67,15 +67,15 @@
 
 .hs-table_row--disabled {
   color: $table-row-disabled-color;
-  background-color: $table-row-disabled-background-color;
   cursor: default;
+  background-color: $table-row-disabled-background-color;
 }
 
 .hs-table--clickable :not(.hs-table_row--heading).hs-table_row--disabled:hover .hs-table_cell,
 .hs-table_row--disabled:hover .hs-table_cell {
   color: $table-row-disabled-color;
-  background-color: $table-row-disabled-background-color;
   cursor: not-allowed;
+  background-color: $table-row-disabled-background-color;
 }
 
 .hs-table--condensed {

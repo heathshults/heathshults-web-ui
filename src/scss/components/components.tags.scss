@@ -21,16 +21,16 @@
   position: relative;
   display: inline-block;
   max-width: $tags-container-width;
-  margin: $tag-margin;
   padding: $tag-padding;
+  margin: $tag-margin;
 }
 
 .hs-tag_close {
   position: absolute;
   top: 7px;
   right: 5px;
-  color: $tag-close-color;
   font-weight: $tag-close-font-weight;
+  color: $tag-close-color;
 }
 
 .hs-tags_field-container {

@@ -1,12 +1,12 @@
 @import 'mixins/utilities.typography';
 
 .u-text {
-  color: $text-color;
-  font-weight: $text-font-weight;
   font-family: $text-font-family;
+  font-weight: $text-font-weight;
   line-height: $text-line-height;
-  direction: ltr;
+  color: $text-color;
   text-align: left;
+  direction: ltr;
 }
 
 .u-text--rtl {
@@ -32,8 +32,8 @@
 
 .u-text--help[title] {
   text-decoration: none !important;
-  border-bottom: $help-border-bottom !important;
   cursor: help !important;
+  border-bottom: $help-border-bottom !important;
 }
 
 .u-pre {
@@ -48,8 +48,8 @@
   display: block;
   padding: $spacing-small $spacing-medium;
   overflow-x: auto !important;
-  white-space: pre !important;
   word-wrap: normal !important;
+  white-space: pre !important;
   border-radius: $border-radius;
 }
 
@@ -62,8 +62,8 @@
 .u-blockquote {
   @include quotation--color;
   display: block;
-  margin: $quotation-margin;
   padding: $quotation-padding;
+  margin: $quotation-margin;
   font-family: $quotation-font-family !important;
 }
 
@@ -94,8 +94,8 @@
 
 .u-blockquote_footer {
   @include paragraph;
-  color: $quotation-footer-color !important;
   font-style: $quotation-footer-font-style !important;
+  color: $quotation-footer-color !important;
 }
 
 .u-paragraph {

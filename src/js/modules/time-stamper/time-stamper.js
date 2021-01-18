@@ -1,83 +1,73 @@
-
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /**
 * @fileOverview
-* @author Heath Shults - Fannie Mae, Inc.
+* @author Heath Shults - Heath Shults
 * @version 1.0.0
-*/
-
-/**
 * @description
-* Just JavaScript - Timestamp
 *
 * @class  TimeStamper
-* @param {(date|Object)} dt = new Date - object to hold the date and time
-* @param {string} [format] - specify the format: datetime, date, time and justyear
-* @param {string} [DD] - Returns the day formatted like '19'.
-* @param {string} [MM] - Returns the month farmatted like '01.
-* @param {string} [YYYY] - Returns the year farmatted like '2020.
-* @param {string} [datetime] - Returns all variables concatenated like 01-29-2020 13:05:22.
-* @param {string} [datetimereverse] - Returns all variables concatenated like 2020-01-29 13:05:22.
-* @param {string} [date] - Returns all variables associated with the date like 01-29-2020.
-* @param {string} [time] - Returns time variables like 13:05:22.
-* @param {string} [mm] - Returns minutes formatted like 01-29-2020 13:05:22.
-* @param {string} [ss] - Returns the seconds formatted like 01-29-2020 13:05:22.
+* @param dt {date|Object} = new Date - object to hold the date and time
+* @param format string - specify the format: datetime, date, time and justyear
+* @const DD string - Returns the day formatted like '19'.
+* @const MM string  - Returns the month farmatted like '01.
+* @const YYYY string - Returns the year farmatted like '2020.
+* @const datetime string - Returns all constiables concatenated like 01-29-2020 13:05:22.
+* @const datetimereverse string - Returns all constiables concatenated like 2020-01-29 13:05:22.
+* @const date string - Returns all constiables associated with the date like 01-29-2020.
+* @const time string - Returns time constiables like 13:05:22.
+* @const mm string - Returns minutes formatted like 01-29-2020 13:05:22.
+* @const ss string - Returns the seconds formatted like 01-29-2020 13:05:22.
+*
+* @usage Create a new TimeStamper and pass the desired format.
+*  const dt = new TimeStamper('datetime');
+*  console.log(dt);
+*
 */
-
-/**
- * @usage
- * 
- * <script>
- *  let htmlelement = document.getElementById('dd')
- *  htmlelement.innerHTML = JSON.stringify(TimeStamper('datetime'));  
- * </script>
- * 
- * @note:  tons of room for improvement...
- */
-
-function TimeStamper() {
-  var dt = new Date()
-  var final
-  timerequest()
-  
-  function timerequest(format) {
-    
-    // this.el = el
-    this.format = format
-    
+export class TimeStamper {
+  constructor(format) {
+    this.dt=new Date();
+    this.format=format;
+    this.result;
 
     // ensure date comes as 01, 09 etc
-    var DD = ('0' + dt.getDate()).slice(-2)
+    const DD=(`0${this.dt.getDate()}`).slice(-2),
 
-    // getMonth returns month from 0
-    var MM = ('0' + (dt.getMonth() + 1)).slice(-2)
-    var YYYY = dt.getFullYear()
-    var hh = ('0' + dt.getHours()).slice(-2)
-    var mm = ('0' + dt.getMinutes()).slice(-2)
-    var ss = ('0' + dt.getSeconds()).slice(-2)
+     // getMonth returns month from 0
+     MM=(`0${this.dt.getMonth() + 1}`).slice(-2),
+     YYYY=this.dt.getFullYear(),
+     hh=(`0${this.dt.getHours()}`).slice(-2),
+     mm=(`0${this.dt.getMinutes()}`).slice(-2),
+     ss=(`0${this.dt.getSeconds()}`).slice(-2),
 
-    var datetime = MM + '-' + DD + '-' + YYYY + ' ' + hh + ':' + mm + ':' + ss
-    var datetimereverse = YYYY + '-' + MM + '-' + DD + ' ' + hh + ':' + mm + ':' + ss
-    var justdate = MM + '-' + DD + '-' + YYYY
-    var justtime = hh + ':' + mm + ':' + ss
-    var justyear = YYYY
+     datetime=`${MM}-${DD}-${YYYY} ${hh}:${mm}:${ss}`,
+     datetimereverse=`${YYYY}-${MM}-${DD} ${hh}:${mm}:${ss}`,
+     justdate=`${MM}-${DD}-${YYYY}`,
+     justtime=`${hh}:${mm}:${ss}`,
+     justyear=YYYY;
 
-    if (format === 'datetime') {
-      final = datetime
-    } else if (format === 'datetimereverse') { 
-      final =  datetimereverse
-    } else if (format === 'justdate') { 
-      final =  justdate
-    } else if (format === 'justtime') { 
-      final =  justtime
-    } else if (format === 'justyear') { 
-      final =  justyear
-    } else if (format === '' || typeof 'undefined') { 
-      final =  datetime 
+    if (format==='datetime') {
+      this.result=datetime;
+    } else if (format==='datetimereverse') {
+      this.result=datetimereverse;
+    } else if (format==='justdate') {
+      this.result=justdate;
+    } else if (format==='justtime') {
+      this.result=justtime;
+    } else if (format==='justyear') {
+      this.result=justyear;
+    } else if (format===''||typeof 'undefined') {
+      this.result=datetime;
     } else {
-      final = TimeStamper.datetime
+      this.result=TimeStamper.datetime;
     }
+    return this.result;
   }
-    
-    return final
 }
-module.exports = TimeStamper
+
+// const _TimeStamper=TimeStamper;
+// export {_TimeStamper as TimeStamper};
+    
+const dtStamper = new TimeStamper('datetime');
+// eslint-disable-next-line no-console
+console.log(dtStamper.result);
+

@@ -2,8 +2,8 @@
 
 .hs-tree[role='tree'] {
   display: block;
-  margin: $tree-margin;
   padding: $tree-padding;
+  margin: $tree-margin;
 
   .hs-tree[role='tree'] {
     padding: $tree-nested-padding;
@@ -28,8 +28,8 @@
 .hs-tree_item[aria-expanded='true'] {
   &::before {
     color: $tree-item-expanded-indicator-color;
-    transform: rotate(90deg);
     content: '\276F';
+    transform: rotate(90deg);
   }
 
   + .hs-tree[role='tree'] {

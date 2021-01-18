@@ -3,10 +3,10 @@
 .hs-badge {
   @include badge($badge-background-color, $badge-color, $badge-background-color);
   display: inline-block;
-  margin: $badge-margin;
   padding: $badge-padding;
-  font-weight: $badge-font-weight;
+  margin: $badge-margin;
   font-size: $badge-font-size;
+  font-weight: $badge-font-weight;
   line-height: $badge-line-height;
   border-radius: $badge-border-radius;
 

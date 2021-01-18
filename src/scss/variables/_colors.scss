@@ -1,18 +1,16 @@
+$hs-ns: 'hs';
 // Override Bootstrap color system
-
 $yellow: #fed136;
 
-// Override Bootstrap default state colors
-
+// Override Bootstrap default state color
 $primary: $yellow;
 
 // Override Bootstrap yiq lightness value
-
 $yiq-contrasted-threshold: 205;
 
-// Variables
-
-$hs-color_red:                    #e2001a !default;
+// Color Variables
+$hs-color_red:                    #e12037 !default;
+$hs-color-pink:                   #e83e8c !default;
 $hs-color_red_orange:             #f63a0f !default;
 $hs-color_orange:                 #f27011 !default;
 $hs-color_dark_yellow:            #f2b01e !default;
@@ -22,25 +20,36 @@ $hs-color_yellow--dark:           #e2b900 !default;
 $hs-color_lime:                   #86e01e !default;
 $hs-color_light_lime:             #e7ffcb !default;
 $hs-color_green:                  #28a745 !default;
-$hs-color_green--lighter:         #4cd964 !default;
 $hs-color_green--light:           #93ff7e !default;
-$hs-color_green--dark:            #218838 !default;
-$hs-color_green--darker:          #1e7e34 !default;
+$hs-color_green--dark:            #468c1f !default;
+$hs-color_green--darker:          #28610f !default;
+$hs-color_teal:                   #20c997 !default;
 $hs-color_silver:                 #aaa !default;
-$hs-color_purple:                 #9a39d3 !default;
+$hs-color_purple:                 #6f42c1 !default;
+$hs-color_cyan:                   #17a2b8 !default;
 $hs-color_turquoise:              #5ac8fa !default;
 $hs-color_blue-semimuted:         #4997cd !default;
+$hs-color_blue:                   #007bff !default;
+$hs-color_indigo:                 #6610f2 !default;
+$hs-hsl_grey:                     hsl(207, 10%, 55%);
+$hs-hsl_grey-light:               hsl(206, 13%, 79%);
+$hs-hsl_green:                    hsl(111, 51%, 60%);
+$hs-hsl_red:                      hsl(353, 76%, 50%);
+$hs-hsl_yellow:                   hsl(47, 85%, 61%);
+$hs-hsl_white:                    hsl(0, 0%, 100%);
 
 
 // Gray and Brand Colors for use across theme
 
-$hs-theme-primary:                #fed136 !default;
-$hs-theme-primary--trans50:       rgba(254, 211, 54, 0.5) !default;
-$hs-theme-danger:                 #dc3545 !default;
-$hs-theme-warning:                #e74c3c !default;
-$hs-theme-info:                   #9bcbe6 !default;
-$hs-theme-background-primary:      map-get($hs-default-colors, background-primary) !default;
-$hs-theme-background-secondary:    map-get($hs-default-colors, background-secondary) !default;
+$hs-theme_primary:                #fed136 !default;
+$hs-theme_primary--trans50:       rgba(254, 211, 54, 0.5) !default;
+$hs-theme_secondary:              #6c757d !default;
+$hs-theme_success:                #28a745 !default;
+$hs-theme_info:                   #17a2b8 !default;
+$hs-theme_danger:                 #e74c3c !default;
+$hs-theme_warning:                #007bff !default;
+$hs-theme_background-primary:     #f8f8f8 !default;
+$hs-theme_background-secondary:   #ebebeb !default;
 
 $hs-black:                        #000 !default;
 $hs-black_15:                     rgba(0, 0, 0, 0.15) !default;
@@ -73,7 +82,7 @@ $hs-white_100:                    rgba(255, 255, 255, 1) !default;
 $hs-blueGray-medium:            #507386 !default;
 $hs-blueGray-medium-muted:      #476e82 !default;
 $hs-blueGray-medium-saturated:  #136591 !default;
-$hs-blueGray-dark:              #0f161d !default;
+$hs-blueGray-dark:              #1e2e3e !default;
 $hs-blueGray-very-dark:         #181a1b !default;
 $hs-blueGray-darker:            #0c0f11 !default;
 $hs-blueGray-darker--alpha75:   rgba(12, 15, 17, 0.75) !default;
@@ -81,27 +90,82 @@ $hs-blueGray-light:             #2d373c !default;
 $hs-text-onDark:                  map-get($hs-dark-mode-colors, text-onDark) !default;
 $hs-green-light:                #80cc94 !default;
 $hs-blue-light:                 #0291ca !default;
-// $hs-blue-lighter:               #83d6ff !default;
-// $hs-blue-lighter:               #83d6ff !default;
-$hs-blue-lighter:               #78bad8 !default;
-$hs-blue-lightest:              #a8dfff !default;
-$hs-blue-light-muted:           #80b6cc !default;
-$hs-blue-lighter-muted:         #8ec1d9 !default;
-$hs-blue-lightest-muted:        #9bcbe6 !default;
-$hs-blue-light-shadow:          #3ab1c3 !default;
-$hs-blue-light-background:      #117a8b !default;
-$hs-blue-dark:                  #1e364e !default;
-$hs-link-primary:               $hs-theme-primary !default;
+// $hs-blue--lighter:               #83d6ff !default;
+// $hs-blue--lighter:               #83d6ff !default;
+$hs-blue--lighter:              #78bad8 !default;
+$hs-blue--lightest:             #a8dfff !default;
+$hs-blue--light-muted:          #80b6cc !default;
+$hs-blue--lighter-muted:        #8ec1d9 !default;
+$hs-blue--lightest-muted:       #9bcbe6 !default;
+$hs-blue--light-shadow:         #3ab1c3 !default;
+$hs-blue--light-background:     #117a8b !default;
+$hs-blue--dark:                 #1e364e !default;
+$hs-link--primary:                $hs-theme_primary !default;
+$hs-clip-background:              content-box !default;
 
-$hs-baige-light:               #cac1ac !default;
-$hs-baige-medium:              #a79e8b !default;
+$hs-baige-light:                #cac1ac !default;
+$hs-baige-medium:               #a79e8b !default;
 
-$hs-theme-color-text:            $hs-gray-dark !default;
-$hs-theme-color-text-onDark:     $hs-white !default;
+$hs-theme-color-text:             $hs-gray-dark !default;
+$hs-theme-color-text-onDark:      $hs-white !default;
 
+$hs-font-primary:                 'Roboto', sans-serif !default;
+$hs-font-secondary:               'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+$hs-font-serif:                   'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
 $hs-font-cursive-Caveat:          'Caveat', cursive !default;
 $hs-font-cursive-NYCD:            'Nothing You Could Do', cursive !default;
 $hs-font-cursive-Sedgwick:        'Sedgwick Ave Display', cursive !default;
+$hs-font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
+$hs-font-size-lg:                $hs-font-size-base * 1.25 !default;
+$hs-font-size-sm:                $hs-font-size-base * .875 !default;
+
+$hs-font-weight-lighter:         lighter !default;
+$hs-font-weight-light:           300 !default;
+$hs-font-weight-normal:          400 !default;
+$hs-font-weight-bold:            700 !default;
+$hs-font-weight-bolder:          bolder !default;
+
+$hs-font-weight-base:            $hs-font-weight-normal !default;
+$hs-line-height-base:            1.5 !default;
+
+$hs-h1-font-size:                $hs-font-size-base * 2.5 !default;
+$hs-h2-font-size:                $hs-font-size-base * 2 !default;
+$hs-h3-font-size:                $hs-font-size-base * 1.75 !default;
+$hs-h4-font-size:                $hs-font-size-base * 1.5 !default;
+$hs-h5-font-size:                $hs-font-size-base * 1.25 !default;
+$hs-h6-font-size:                $hs-font-size-base !default;
+
+
+// Paddding & Margins Generics
+$hs-spacing--xs:                 .25em !default;
+$hs-spacing--sm:                 .5em !default;
+$hs-spacing--md:                 1em !default;
+$hs-spacing--lg:                 1.5em !default;
+
+$hs-headings-margin-bottom:      $hs-spacing--md / 2 !default;
+$hs-headings-font-family:        null !default;
+$hs-headings-font-weight:        500 !default;
+$hs-headings-line-height:        1.2 !default;
+$hs-headings-color:              null !default;
+
+$hs-display1-size:               6rem !default;
+$hs-display2-size:               5.5rem !default;
+$hs-display3-size:               4.5rem !default;
+$hs-display4-size:               3.5rem !default;
+
+$hs-display1-weight:             300 !default;
+$hs-display2-weight:             300 !default;
+$hs-display3-weight:             300 !default;
+$hs-display4-weight:             300 !default;
+$hs-display-line-height:         $hs-headings-line-height !default;
+
+$hs-lead-font-size:              $hs-font-size-base * 1.25 !default;
+$hs-lead-font-weight:            300 !default;
+
+$hs-small-font-size:             80% !default;
+
+
+$hs-text-muted:                  $hs-white_60 !default;
 
 $hs-text-shadow-light:             0px 0px 4px rgba(0, 0, 0, .95) !default;
 $hs-text-shadow-light-spread:      0px 4px 13px rgba(0, 0, 0, .75) !default;
@@ -113,12 +177,6 @@ $hs-surface:                        $hs-white !default;
 $hs-grid-columns:                12 !default;
 $hs-grid-gutter-width:           30px !default;
 $hs-grid-row-columns:            6 !default;
-
-// Paddding & Margins Generics
-$hs-spacing--xs:                 .25em !default;
-$hs-spacing--sm:                 .5em !default;
-$hs-spacing--md:                 1em !default;
-$hs-spacing--lg:                 1.5em !default;
 
 // Borders
 $hs-border-width:                1px !default;
@@ -149,11 +207,11 @@ $hs-shadow-inset-blue:            inset 0 0 0 2px #5173ff !default;
 $hs-shadow-none:                  none !default;
 $hs-card-shadow:                  0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) !default;
 $hs-button-shadow-nocolor:        0 0 0 0.2rem !default;
-$hs-button-focus:                 $hs-button-shadow-nocolor $hs-theme-primary--trans50 !default;
+$hs-button-focus:                 $hs-button-shadow-nocolor $hs-theme_primary--trans50 !default;
 $hs-button-secondary-focus:       $hs-button-shadow-nocolor $hs-gray-white !default;
 // $hs-card-shadow:                  0 4px 6px 2px rgba(0, 0, 0, 0.3) !default;
 $hs-button-success-outline:       $hs-button-shadow-nocolor rgba(darken($hs-color_green--darker, 2%), 50%) !default;
-$hs-button-info-outline:          $hs-button-shadow-nocolor rgba(darken($hs-blue-light-shadow, 2%), 50%) !default;
+$hs-button-info-outline:          $hs-button-shadow-nocolor rgba(darken($hs-blue--light-shadow, 2%), 50%) !default;
 $hs-button-warning-outline:       $hs-button-shadow-nocolor rgba(darken($hs-color_orange, 2%), 50%) !default;
 $hs-button-danger-outline:        $hs-button-shadow-nocolor rgba(darken($hs-color_red, 2%), 50%) !default;
 // Backgrounds
@@ -161,30 +219,27 @@ $hs-bg-black-to-transparent:      linear-gradient(0deg, rgba(0, 0, 0, 0) 15%, rg
 
 
 // Cards
-
+// for responsive only
 $hs-card-width: 100% !default;
 $hs-card-height: 350px !default;
-$hs-card-title: 2rem !default;
+$hs-card-title: 200% !default;
 $hs-card-subtitle: calc($hs-card-title - 10%) !default;
-$hs-card-img-width: 100% !default;
+$hs-card-img-width: $hs-card-width !default;
 $hs-card-img-height: auto !default;
 
+// for breakpoint sm
 $hs-card-width--sm: 265px !default;
 $hs-card-title--sm: 1.1rem !default;
 $hs-card-subtitle--sm: calc($hs-card-title--sm - 10%) !default;
 $hs-card-img-width--sm: 100% !default;
-$hs-card-img-height--sm: 167.23px !default;
+$hs-card-img-height--sm: auto !default;
+
+// for breakpoint lg
 $hs-card-width--lg: 400px !default;
 $hs-card-title--lg: 2.3rem !default;
 $hs-card-subtitle--lg: calc($hs-card-title--lg - 10%) !default;
 $hs-card-img-width--lg: $hs-card-width--lg !default;
 $hs-card-img-height--lg: auto !default;
-
-$hs-card-width--fluid: 100% !default;
-$hs-card-title--fluid: 2.4rem !default;
-$hs-card-subtitle--fluid: calc($hs-card-title--fluid - 10%) !default;
-$hs-card-img-width--fluid: $hs-card-width--fluid !default;
-$hs-card-img-height--fluid: auto !default;
 
 $hs-card-margin: .5rem !default;
 
@@ -199,6 +254,7 @@ $hs-card-cap-bg:                       rgba($hs-black, .03) !default;
 $hs-card-cap-color:                    null !default;
 $hs-card-color:                        null !default;
 $hs-card-bg:                           $hs-gray-lighter !default;
+$hs-card-bg--dark:                     $hs-blueGray-dark !default;
 
 $hs-card-img-overlay-padding:          1.25rem !default;
 

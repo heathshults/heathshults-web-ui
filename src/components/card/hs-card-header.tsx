@@ -2,11 +2,11 @@ import { Component, h } from '@stencil/core';
 
 @Component({
   tag: 'hs-card-header',
-  styleUrl: '../../scss/components/components.cards.scss',
+  styleUrl: './hs-card_img-header.scss',
   shadow: true
 })
 export class HSCardHeader {
-  render() {
+  render(): any {
     return (
       <header class="hs-card_header">
         <slot />

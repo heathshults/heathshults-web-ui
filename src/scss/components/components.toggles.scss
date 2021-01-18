@@ -1,5 +1,5 @@
 @import 'mixins/components.toggles';
- 
+
 .hs-toggle {
   @include grid;
   @include grid--center;
@@ -16,12 +16,12 @@
   }
 
   input:disabled + .hs-toggle_track {
-    background-color: $toggle-track-disabled-background-color;
     cursor: not-allowed;
+    background-color: $toggle-track-disabled-background-color;
 
     .hs-toggle_handle {
-      background-color: $toggle-handle-disabled-background-color;
       cursor: not-allowed;
+      background-color: $toggle-handle-disabled-background-color;
     }
   }
 

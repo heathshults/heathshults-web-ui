@@ -1,3 +1,4 @@
+import { resolve } from 'path';
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 import { postcss } from '@stencil/postcss';
@@ -33,7 +34,7 @@ export const config: Config = {
     },
     {
       type: 'www',
-      serviceWorker: null // disable service workers
+      serviceWorker: null // disable service workers}
     }
   ]
 }

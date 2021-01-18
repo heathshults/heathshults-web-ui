@@ -1,0 +1,33 @@
+.hs-card_body {
+  flex: 1 1 auto;
+  width: $hs-card-width;
+  overflow: hidden;
+  font-size: .84rem;
+  line-height: 1.2;
+  color: $hs-card-color;
+  background: $hs-card-bg;
+
+  .hs-card_content {
+    width: 95%;
+    padding: rem(12px) $hs-spacing--md;
+    margin: .725rem .725rem;
+    font-size: .84rem;
+    line-height: 1.2;
+    text-align: left;
+    background-color: $hs-white;
+  }
+
+  .hs-card_title {
+    margin-bottom: $hs-card-spacer-y;
+    font-size: 1.5rem;
+  }
+
+  .hs-card_subtitle {
+    margin-top: -$hs-card-spacer-y / 2;
+    margin-bottom: 0;
+  }
+
+  .hs-card_linkhover {
+    text-decoration: none;
+  }
+}

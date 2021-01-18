@@ -52,34 +52,42 @@ header.masthead,
     }
     .hs-intro-text {
       left: 0;
-      padding-top: 50px;
-      padding-bottom: 50px;
+      // padding-top: 50px;
+      // padding-bottom: 50px;
       text-align: center;
       transform: translateY(-50%);
       .hs-intro-lead-in {
+        display: block;
+        width: 100%;
         @include serif-font;
-        padding-bottom: 75px;
-        font-size: 40px;
+        // padding-bottom: 75px;
+        font-size: rem(40px);
         font-style: italic;
-        line-height: 40px;
+        line-height: normal;
         text-align: center;
         text-shadow: $hs-text-shadow-light;
+        &::after {
+          display: block;
+          flex: none;
+          width: 100%;
+        }
       }
-      .masthead-subheading {
-        margin-bottom: 25px;
-        font-family: $subheadings-font-family;
-        font-size: 1.5rem;
+
+      .hs-intro-subheading {
+        margin-bottom: 0px;
+        @include heading-font;
+        font-size: 2.6rem;
         font-style: italic;
-        line-height: 1.5rem;
+        line-height: normal;
       }
-      .masthead-heading,
       .hs-intro-heading {
         @include heading-font;
-        padding-bottom: 75px;
-        margin-bottom: 25px;
+        // padding-bottom: 75px;
+        // margin-bottom: 25px;
+        margin: 0;
         font-size: 4.6875rem;
         font-weight: 700;
-        line-height: 4.6875rem;
+        line-height: normal;
         text-align: center;
         text-shadow: $hs-text-shadow-light-spread;
       }
@@ -99,9 +107,9 @@ header.masthead,
         .hs-intro-lead-in {
           @include serif-font;
           padding-bottom: 75px;
-          font-size: 40px;
+          font-size: rem(40px);
           font-style: italic;
-          line-height: 40px;
+          line-height: rem(40px);
         }
         .hs-intro-heading {
           @include heading-font;
@@ -131,16 +139,16 @@ header.masthead,
   }
   .hs-intro-lead-in {
     @include serif-font;
-    padding-bottom: 75px;
-    font-size: 40px;
+    // padding-bottom: 75px;
+    // font-size: 40px;
     font-style: italic;
-    line-height: 40px;
+    // line-height: 40px;
   }
   .hs-intro-heading {
-    @include heading-font;
-    padding-bottom: 50px;
+    // padding-bottom: 50px;
     font-size: 4.6875rem;
     font-weight: 700;
+    @include heading-font;
     line-height: 4.6875rem;
   }
 }
@@ -149,7 +157,7 @@ header.masthead,
   height: 30px;
 }
 
-@media (min-width: 360px) {
+@include media-breakpoint-up(sm) {
   .hs-header {
     position: relative;
     display: inline-block;
@@ -167,14 +175,55 @@ header.masthead,
     position: relative;
     display: inline-block;
     margin: 20px auto;
+    @include serif-font;
     font-size: 2rem;
+    font-style: italic;
   }
   .hs-intro-heading {
     position: relative;
     display: inline-block;
-    padding-bottom: 20px;
+    // padding-bottom: 20px;
+    margin: 0 auto;
+    @include heading-font;
+    font-size: 3.5rem;
+    line-height: normal;
+    white-space: normal;
+  }
+  .js-page-trigger {
+    position: relative;
+    display: inline-block;
+    margin: 30px auto;
+  }
+}
+@include media-breakpoint-up(xs) {
+  .hs-header {
+    position: relative;
+    display: inline-block;
+    background-position: top center;
+  }
+  .hs-intro-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    display: inline-block;
     margin: 20px auto;
+    transform: translate(-50%, -50%);
+  }
+  .hs-intro-lead-in {
+    position: relative;
+    display: inline-block;
+    margin: 20px auto;
+    font-style: italic;
+    @include serif-font;
+  }
+  .hs-intro-heading {
+    position: relative;
+    display: inline-block;
+    margin: 20px auto;
+    @include heading-font;
     font-size: 42px;
+    font-weight: bold;
     line-height: normal;
     white-space: normal;
   }
@@ -184,35 +233,3 @@ header.masthead,
     margin: 50px auto;
   }
 }
-// @media (max-width: 360px) {
-//   .hs-header {
-//     position: relative;
-//     display: inline-block;
-//     background-position: top center;
-//   }
-//   .hs-intro-text {
-//     position: relative;
-//     display: inline-block;
-//     margin: 20px auto;
-//     // transform: translateX(0)
-//   }
-//   .hs-intro-lead-in {
-//     position: relative;
-//     display: inline-block;
-//     margin: 20px auto;
-//   }
-//   .hs-intro-heading {
-//     position: relative;
-//     display: inline-block;
-//     padding-bottom: 20px;
-//     margin: 20px auto;
-//     font-size: 42px;
-//     line-height: normal;
-//     white-space: normal;
-//   }
-//   .js-page-trigger {
-//     position: relative;
-//     display: inline-block;
-//     margin: 50px auto;
-//   }
-// }

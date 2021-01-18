@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 (function(){
   // Vertical Timeline - by CodyHouse.co
 	function VerticalTimeline( element ) {
@@ -7,10 +8,11 @@
 		this.contents = this.element.getElementsByClassName("hs-timeline__content");
 		this.offset = 0.8;
 		this.hideBlocks();
-	};
+	}
 
 	VerticalTimeline.prototype.hideBlocks = function() {
-		if ( !"classList" in document.documentElement ) {
+		if (!document.documentElement.hasAttribute('classList')) {
+		// if ( !"classList" in document.documentElement ) {
 			return; // no animation on older browsers
 		}
 		//hide timeline blocks which are outside the viewport
@@ -26,7 +28,8 @@
 	};
 
 	VerticalTimeline.prototype.showBlocks = function() {
-		if ( ! "classList" in document.documentElement ) {
+		if (!document.documentElement.hasAttribute('classList')) {
+		// if ( ! "classList" in document.documentElement ) {
 			return;
 		}
 		var self = this;
@@ -67,7 +70,7 @@
 			timeline.showBlocks();
 		});
 		scrolling = false;
-	};
+	}
 })();
 
 
@@ -79,6 +82,7 @@ export function timelineActions() {
   // var timelineItemHeaders = [].prototype.slice.call(document.querySelectorAll('.hs-timeline-panel_header'))
   const timelineItemHeaders=document.querySelectorAll('.hs-timeline-panel_header');
   timelineItemHeaders.forEach(header => {
+
 
     let panel,panelItems,panelLeftRight,panelHeight;
     header.addEventListener('click',(event) => {
@@ -103,6 +107,5 @@ export function timelineActions() {
 
     });
   });
-
+	
 }
-timeline();

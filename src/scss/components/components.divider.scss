@@ -11,8 +11,8 @@
   &::after {
     @include grid_cell;
     @include grid_cell--auto;
-    border-top: 1px solid map-get($colors, grey-light-2);
     content: '';
+    border-top: 1px solid map-get($colors, grey-light-2);
   }
 
   &.hs-divider--dashed {

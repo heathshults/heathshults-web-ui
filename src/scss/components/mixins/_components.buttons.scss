@@ -1,119 +1,79 @@
-@import 'settings';
-@import 'utilities.states';
+@import "../../components/mixins/settings";
+@import "../../components/mixins/utilities.states";
 
-@mixin button-color($background-color: $button-background-color, $color: $button-color) {
-  color: $color;
-  background-color: $background-color;
-  border: $button-border;
+/* bootstrap mixins */
+@import "../../bootstrap/scss/mixins/_buttons";
+@import "../../vars";
 
-  &.hs-button--active {
-    background-color: darken($background-color, $color-tint);
-  }
-
-  &:not(:disabled):not([disabled]) {
-    &:not(:active) {
-      &:hover {
-        background-color: lighten($background-color, $color-tint);
-      }
-    }
-
-    &:focus {
-      border-color: $button-focus-border-color;
-      box-shadow: $button-focus-box-shadow;
-    }
-
-    &:active {
-      background-color: darken($background-color, $color-tint);
-    }
-  }
-}
-
-@mixin button-ghost($color: $button-ghost-color, $color-hover: $button-ghost-hover-color) {
-  color: $color;
-  background-color: transparent;
-  border: $button-ghost-border-width $button-ghost-border-style $color;
-
-  &.hs-button--active {
-    color: $color-hover;
-    background-color: darken($color, $color-tint);
-    border-color: darken($color, $color-tint);
-  }
-
-  &:not(:disabled):not([disabled]) {
-    &:not(:active) {
-      &:hover {
-        color: $color-hover;
-        background-color: $color;
-      }
-    }
-
-    &:focus {
-      border-color: $button-focus-border-color;
-      box-shadow: $button-focus-box-shadow;
-    }
-
-    &:active {
-      color: $color-hover;
-      background-color: darken($color, $color-tint);
-      border-color: darken($color, $color-tint);
-    }
-  }
-}
-
-@mixin button {
-  @include button-color;
-  @include disabled;
+@mixin hs-button {
   display: inline-block;
-  max-width: 100%;
-  margin: $button-margin;
-  padding: $button-padding;
-  overflow: hidden;
-  font-size: $button-font-size;
-  font-family: $button-font-family;
-  line-height: $button-line-height;
-  white-space: $button-white-space;
-  text-align: $button-text-align;
-  text-decoration: none;
-  text-overflow: ellipsis;
+  font-family: $hs-button-font-family;
+  font-weight: $hs-button-font-weight;
+  color: $body-color;
+  text-align: center;
+  text-decoration: if($link-decoration == none, null, none);
+  white-space: $hs-button-white-space;
   vertical-align: middle;
-  border-radius: $button-border-radius;
-  outline: 0;
-  appearance: none;
   user-select: none;
+  background-color: transparent;
+  border: $hs-button-border-width solid transparent;
 }
 
-@mixin button-nude {
-  @include disabled;
-  width: auto;
-  margin: 0;
-  padding: 0;
-  overflow: visible;
-  color: inherit;
-  font: inherit;
-  line-height: normal;
-  text-align: inherit;
-  text-decoration: inherit;
-  vertical-align: inherit;
-  background: inherit;
-  border: 0;
-  border-radius: 0;
-  outline: 0;
-  appearance: none;
+@mixin card-button-color($hs-button-background-color: $hs-button-background-color, $hs-theme-color-text: $hs-button-color) {
+  color: $hs-theme-color-text;
+  background-color: $hs-button-background-color;
+  border: $hs-button-border;
+
+  &.hs-card-button--active {
+    background-color: darken($hs-button-background-color, $hs-theme-color-text-tint);
+  }
 
   &:not(:disabled):not([disabled]) {
-    &:active {
-      background-color: transparent;
+    &:not(:active) {
+      &:hover {
+        background-color: lighten($hs-button-background-color, $hs-theme-color-text-tint);
+      }
     }
 
-    &:not(:active) {
-      &:focus {
-        border-color: $button-focus-border-color;
-        box-shadow: $button-focus-box-shadow;
-      }
+    &:focus {
+      border-color: $hs-button-focus-border-color;
+      box-shadow: $hs-button-focus-box-shadow;
+    }
 
+    &:active {
+      background-color: darken($hs-button-background-color, $hs-theme-color-text-tint);
+    }
+  }
+}
+
+@mixin hs-card-button--ghost($hs-theme-color-text: $hs-button-ghost-color, $hs-theme-color-text-hover: $hs-button-ghost-hover-color) {
+  color: $hs-theme-color-text;
+  background-color: transparent;
+  border: $hs-button-ghost-border-width $hs-button-ghost-border-style $hs-theme-color-text;
+
+  &.hs-card-button--active {
+    color: $hs-theme-color-text-hover;
+    background-color: darken($hs-theme-color-text, $hs-theme-color-text-tint);
+    border-color: darken($hs-theme-color-text, $hs-theme-color-text-tint);
+  }
+
+  &:not(:disabled):not([disabled]) {
+    &:not(:active) {
       &:hover {
-        background-color: transparent;
+        color: $hs-theme-color-text-hover;
+        background-color: $hs-theme-color-text;
       }
+    }
+
+    &:focus {
+      border-color: $hs-button-focus-border-color;
+      box-shadow: $hs-button-focus-box-shadow;
+    }
+
+    &:active {
+      color: $hs-theme-color-text-hover;
+      background-color: darken($hs-theme-color-text, $hs-theme-color-text-tint);
+      border-color: darken($hs-theme-color-text, $hs-theme-color-text-tint);
     }
   }
 }

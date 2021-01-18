@@ -1,0 +1,47 @@
+@import "../../scss/vars";
+// Styling for the footer
+
+.hs-card_footer {
+  display: flex;
+  flex-basis: 100%;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  font-size: 0.84rem;
+  line-height: 1.2;
+  background-color: $hs-card-cap-bg;
+  // border-top: $hs-card-border-width solid $hs-card-border-color;
+  .hs-card_content {
+    width: 95%;
+    padding: $hs-spacing--sm;
+    margin: auto;
+    font-size: 0.84rem;
+    line-height: 1.2;
+    text-align: left;
+    // background-color: $hs-white;
+  }
+
+  &:last-child {
+    @include border-radius(0 0 $hs-card-inner-border-radius $hs-card-inner-border-radius);
+  }
+
+  &.dark {
+    background-color: $hs-blueGray-dark;
+  }
+
+  .hs-logo-row--footer ul.flex-container.space-between {
+    display: flex;
+    align-items: center;
+    max-width: 90%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    li.flex-item {
+      display: inline-block;
+      flex: 1 1 auto;
+      width: auto;
+    }
+  }
+}
+
