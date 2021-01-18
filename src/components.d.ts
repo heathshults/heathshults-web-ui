@@ -42,8 +42,8 @@ export namespace Components {
     interface HsCardButton {
         "buttonId"?: string;
         "cssClass"?: string;
-        "handleClick": any;
-        "modalId"?: string;
+        "handleClick": (event: any, url: any, urlParams: any, modalId: any) => Promise<void>;
+        "modalId"?: any;
         "text"?: string;
         "url"?: any;
         "urlParams"?: any;
@@ -295,8 +295,7 @@ declare namespace LocalJSX {
     interface HsCardButton {
         "buttonId"?: string;
         "cssClass"?: string;
-        "handleClick"?: any;
-        "modalId"?: string;
+        "modalId"?: any;
         "text"?: string;
         "url"?: any;
         "urlParams"?: any;
