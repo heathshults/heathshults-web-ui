@@ -15,11 +15,11 @@
   }
 
   .navbar-brand {
-    color: $primary;
     font-family: $hs-font-cursive-Caveat;
     font-weight: $headings-font-weight;
-    letter-spacing: $headings-letter-spacing;
+    color: $primary;
     text-transform: uppercase;
+    letter-spacing: $headings-letter-spacing;
 
     img {
       height: 1.5rem;
@@ -48,9 +48,10 @@
   #mainNav {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-    border: none;
     background-color: transparent;
-    transition: padding-top 0.3s ease-in-out,
+    border: none;
+    transition:
+      padding-top 0.3s ease-in-out,
       padding-bottom 0.3s ease-in-out;
 
     .navbar-brand {

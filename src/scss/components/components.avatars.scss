@@ -15,8 +15,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   content: attr(data-text);
+  transform: translate(-50%, -50%);
 }
 
 .hs-avatar_img[alt] {

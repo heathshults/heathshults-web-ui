@@ -23,13 +23,13 @@
   display: inline;
   flex: 0 0 12%;
   max-width: 12%;
-  margin: 1.1%;
   padding: $calendar-control-padding;
+  margin: 1.1%;
   font-size: $calendar-control-font-size;
+  user-select: none;
   border: $calendar-control-border-width $calendar-control-border-style transparent;
   border-radius: $calendar-control-border-radius;
   outline: 0;
-  user-select: none;
 
   &:hover {
     border: $calendar-control-border-hover;
@@ -48,8 +48,8 @@
   @include grid_cell--no-gutter;
   flex: 0 0 12%;
   max-width: 12%;
-  margin: 1.1%;
   padding: $calendar-day-padding;
+  margin: 1.1%;
   font-weight: $calendar-day-font-weight;
 }
 
