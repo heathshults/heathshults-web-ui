@@ -1,18 +1,25 @@
-// stylelint-disable selector-no-qualifying-type
+@import "../bootstrap/scss/functions";
+@import "../bootstrap/scss/variables";
+@import "../bootstrap/scss/mixins";
 
-//
-// Base styles
-//
+@import "../variables/maps";
+@import "../variables/functions";
+@import "../variables/colors";
+@import "../variables/mixins";
 
-.btn {
+@import "../variables/typography";
+
+.hs-card_button {
   display: inline-block;
   font-family: $btn-font-family;
+  font-size: rem(14px);
   font-weight: $btn-font-weight;
   color: $body-color;
   text-align: center;
   text-decoration: if($link-decoration == none, null, none);
   white-space: $btn-white-space;
   vertical-align: middle;
+  cursor: pointer;
   user-select: none;
   background-color: transparent;
   border: $btn-border-width solid transparent;
@@ -22,6 +29,7 @@
   @include hover() {
     color: $body-color;
     text-decoration: none;
+    cursor: pointer;
   }
 
   &:focus,
@@ -51,83 +59,42 @@
   }
 }
 
-// Future-proof disabling of clicks on `<a>` elements
-a.btn.disabled,
-fieldset:disabled a.btn {
-  pointer-events: none;
-}
-
-
 //
 // Alternate buttons
 //
 
-@each $color, $value in $theme-colors {
-  .btn-#{$color} {
+@each $color, $value in $interaction-colors {
+  .hs-card_button.hs-card_button--#{$color} {
     @include button-variant($value, $value);
   }
 }
 
-@each $color, $value in $theme-colors {
-  .btn-outline-#{$color} {
-    @include button-outline-variant($value);
+@each $color, $value in $interaction-colors {
+  .hs-card_button.hs-card_button-shadowlined--#{$color} {
+    @include button-shadowlined-variant($value, $hs-lightnessMultiplier);
   }
 }
 
 
-//
-// Link buttons
-//
 
-// Make a button look and behave like a link
-.btn-link {
-  font-weight: $font-weight-normal;
-  color: $link-color;
-  text-decoration: $link-decoration;
-
-  @include hover() {
-    color: $link-hover-color;
-    text-decoration: $link-hover-decoration;
-  }
-
-  &:focus,
-  &.focus {
-    text-decoration: $link-hover-decoration;
-  }
-
-  &:disabled,
-  &.disabled {
-    color: $btn-link-disabled-color;
-    pointer-events: none;
-  }
-
-  // No need for an active state here
+// Disabling of clicks on `<a>` elements
+a.hs-card_button.disabled,
+fieldset:disabled a.hs-card_button {
+  pointer-events: none;
 }
 
-
-//
-// Button Sizes
-//
-
-.btn-lg {
-  @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-line-height-lg, $btn-border-radius-lg);
-}
-
-.btn-sm {
-  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
-}
 
 
 //
 // Block button
 //
 
-.btn-block {
+.hs-card_button-block {
   display: block;
   width: 100%;
 
   // Vertically space out multiple block buttons
-  + .btn-block {
+  + .hs-card_button-block {
     margin-top: $btn-block-spacing-y;
   }
 }
@@ -136,7 +103,7 @@ fieldset:disabled a.btn {
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
-  &.btn-block {
+  &.hs-card_button-block {
     width: 100%;
   }
 }

@@ -14,8 +14,8 @@ interface URL {
 }
 
 declare const URL: {
-  prototype: URL;
-  new(url: string, base?: string): URL;
+  prototype: string;
+  new(url: string, base?: string): string;
   // eslint-disable-next-line no-undef
   createObjectURL(object: any, options?: ObjectURLOptions): string;
   revokeObjectURL(url: string): void;

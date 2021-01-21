@@ -1,4 +1,4 @@
-import { newE2EPage } from '@stencil/core/dist/testing';
+import { newE2EPage } from '@stencil/core/testing';
 const html = `
   <hs-progress>
     <hs-progress-bar value="30">30</hs-progress-bar>

@@ -10,7 +10,7 @@ $hs-default-colors: (
   yellow: #f2b01e,
   lime: #86e01e,
   light_lime: #e7ffcb
-);
+) !default;
 
 $hs-dark-mode-colors: (
   text-onDark: rgb(255, 220, 206),
@@ -23,7 +23,7 @@ $hs-dark-mode-colors: (
   blue-lighter-muted: rgb(142, 193, 217),
   blue-lightest-muted: rgb(155, 203, 230),
   blue-dark: rgb(30, 54, 78)
-);
+) !default;
 
 $hs-grays: (
   gray-base: #000,
@@ -33,7 +33,7 @@ $hs-grays: (
   gray-light:#777 , // lighten(gray-base, 46.7%)
   gray-lighter: #dedede, // lighten(gray-base, 93.5%)
   gray-lightest: #eee // lighten(gray-base, 93.5%)
-);
+) !default;
 
 $hs-experimental: (
   dm-base: #000,
@@ -44,7 +44,7 @@ $hs-experimental: (
   dm-accent-alt: #D65A31,
   dm-light: #ECECEC,
   dm-light-alt: #EEE
-);
+) !default;
 
 $hs-colors: (
   text: #151515,
@@ -58,7 +58,7 @@ $hs-colors: (
       text: #16140F
     )
   )
-);
+) !default;
 
 // reference: https://www.viget.com/articles/maps-math-and-magic-build-a-flexible-variable-system-in-sass/
 // Usage:
@@ -74,14 +74,14 @@ $z-indexes: (
     shades: 1533,
     text: 1532
   )
-);
+) !default;
 
 //sizing for margin and padding
 $hs-get-mp-size: (
   'sm': .5rem,
   'md': 1rem,
   'lg': 1.5rem
-);
+) !default;
 
 $hs-card-header-sizes: (
   'sm': (
@@ -96,4 +96,21 @@ $hs-card-header-sizes: (
     width: 100%,
     height: 100%
   )
-);
+) !default;
+
+// Aspect Ratio
+$aspect-ratios: (
+  'ratio-16-9': 56.25%,
+  'ratio-4-3': 75%,
+  'ratio-3-2': 66.66%,
+  'ratio-1-1': 100%
+) !default;
+
+$breakpoints: (
+  xxs: 0,
+  xs: 32rem, // ~512px
+  sm: 48rem, // ~768px
+  md: 64rem, // ~1024px
+  lg: 80rem, // ~1280px
+  xl: 90rem // ~1440px
+) !default;

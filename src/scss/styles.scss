@@ -4,7 +4,7 @@
 
 // Import Bootstrap
 @import "bootstrap/scss/bootstrap";
-
+@import "./variables/css-vars";
 // Components
 // @import "../components/card/hs-card";
 @import "../components/ranking-bar/_ranking-bar";
@@ -14,6 +14,8 @@
 @import "./components/components.cards";
 @import "./components/components.cards_body";
 @import "./components/components.cards_footer";
+@import "./components/components.cards_header";
+@import "./components/components.cards_button";
 @import "./components/components.timelines";
 @import "./components/components.flip-card";
 @import "./components/components.hs-grid.scss";

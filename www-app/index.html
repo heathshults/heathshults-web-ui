@@ -27,8 +27,8 @@
       rel="stylesheet">
 
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"> -->
     <!-- Theme CSS -->
     <link href="/assets/css/HeathStyle.built.css" rel="stylesheet">
     <link disabled id="darkmode" rel="stylesheet" href="/assets/css/theme-dark-mode.css">
@@ -117,7 +117,7 @@
     <section id="skills" class="hs-section hs-skills">
       <div class="container">
         <div class="row">
-          <div class="col-lg-12 text-center text-color--white">
+          <div class="col-lg-12 text-center text-color--light">
             <h2 class="hs-section-heading">MY SKILLS</h2>
             <h3 class="hs-section-subheading"><strong class="font-bold-regular">Keeping it real...</strong></h3>
             <!-- <h3 class="section-subheading hs-text-muted"><strong class="font-bold-regular">SIMPLE</strong>,
@@ -363,7 +363,7 @@
     <section id="portfolio" class="hs-portfolio hs-section">
       <div class="container">
         <div class="row">
-          <div class="col-lg-12 text-center text-color--white">
+          <div class="col-lg-12 text-center text-color--light">
             <h2 class="hs-section-heading">Portfolio</h2>
             <h3 class="hs-section-subheading hs-text-muted">
               &#10038; Design System • Web Components • Websites • CRM &#10038;
@@ -376,29 +376,22 @@
             <hs-card card-id="01" color-tone="" card-size="" img-path="/assets/img/portfolio/USAA/usaa-ema-01.jpg"
               modal-id="#usaa">
 
-              <hs-card-body id="cardBody" slot="card-body" class="hs-card_body text-center">
+              <hs-card-body id="card01Body" content-classes="m-0 w-100 p-4" slot="card-body" class="hs-card_body text-center">
 
-                  <h2 class="hs-card_title mb-2">Employee Mobile Apps</h2>
+                  <h2 class="hs-card_title mb-2">Mobile Applications</h2>
+                  <p>
+                    <span class="hs-card_subtitle">Productivity Apps for USAA Employees</span>
+                  </p>
+
                   <p>
                     <strong class="hs-card_text-emphisized">USAA </strong><br>
                     Banking * Insurance * Investments<br>
                     Full Stack Software Engineer
                   </p>
                 <div class="text-center">
-                  <button class="hs-btn-showmore" type="button" data-toggle="collapse" data-target="#usafb"
-                    aria-expanded="false" aria-controls="#usafb">
-                    Show more
-                  </button>
+                  <hs-card-button css-class="hs-card_button hs-card_button-shadowlined--lightest" text="More" url="" url-params="_blank" modal-id="#usaa"></hs-card-button>
                 </div>
               </hs-card-body>
-              <!-- <hs-card-footer id="cardFooter" class="hs-card_footer">
-                <hs-card-button id="modalButton" modal-id="testModal" button-text="Details"></hs-card-button>
-              </hs-card-footer> -->
-              <hs-card-footer id="cardFooter" class="hs-card_footer" slot="card-footer">
-                <!-- <hs-card-button button-id="modalButton" button-text="Details" action="http://youtube.com"
-                  modal-id="testModal" css-class="btn hs-details-button" click-target="testModal" action-parameters=""
-                  button-text="DETAILS"></hs-card-button> -->
-              </hs-card-footer>
             </hs-card>
           </div>
           <!-- CARD 02 -->
@@ -406,28 +399,22 @@
             <hs-card card-id="02" color-tone="" card-size=""
               img-path="/assets/img/portfolio/Fannie-Mae/blueprint-card-header.jpg" modal-id="#blueprint">
 
-              <div id="cardBody" slot="card-body" class="hs-card_body text-center">
+              <hs-card-body id="card02Body" slot="card-body" content-classes="m-0 w-100 p-4" class="hs-card_body text-center">
 
-                <div class="hs-card_content">
                   <h2 class="hs-card_title mb-2">Design System</h2>
+                  <p>
+                    <span class="hs-card_subtitle">SCSS, CSS, Components &amp; Guides</span>
+                  </p>
+
                   <p>
                     <strong class="hs-card_text-emphisized">Heath Shults</strong><br>
                     Fannie Mae, Inc.<br>
                     Interaction Designer - UI/UX Developer
                   </p>
                   <div class="text-center">
-                    <button class="hs-btn-showmore" type="button" data-toggle="collapse" data-target="#usafb"
-                      aria-expanded="false" aria-controls="#usafb">
-                      Show more
-                    </button>
+                    <hs-card-button css-class="hs-card_button hs-card_button-shadowlined--lightest" text="More" url="" url-params="_blank" modal-id="#designSystem"></hs-card-button>
                   </div>
-                </div>
-              </div>
-              <hs-card-footer id="cardFooter" class="hs-card_footer" slot="card-footer">
-                <!-- <hs-card-button button-id="modalButton" button-text="Details" action="http://youtube.com"
-                  modal-id="testModal" css-class="btn hs-details-button" click-target="testModal" action-parameters=""
-                  button-text="DETAILS"></hs-card-button> -->
-              </hs-card-footer>
+              </hs-card-body>
             </hs-card>
           </div>
           <!-- CARD 03 -->
@@ -435,28 +422,22 @@
             <hs-card card-id="03" color-tone="" card-size=""
               img-path="/assets/img/portfolio/BlueStarSports/BSS-card-heading.jpg" modal-id="#modBlueStar">
 
-              <div id="cardBody" slot="card-body" class="hs-card_body text-center">
+              <hs-card-body id="card03Body" content-classes="m-0 w-100 p-4" slot="card-body" class="hs-card_body text-center">
 
-                <div class="hs-card_content">
                   <h2 class="hs-card_title mb-2">USA Football Database</h2>
+                  <p>
+                    <span class="hs-card_subtitle">Little League Player Stats &amp; Tracking</span>
+                  </p>
+
                   <p>
                     <strong class="hs-card_text-emphisized">Blue Star Sports</strong><br>
                     Data Services<br>
                     UI Software Engineer
                   </p>
                   <div class="text-center">
-                    <button class="hs-btn-showmore" type="button" data-toggle="collapse" data-target="#usafb"
-                      aria-expanded="false" aria-controls="#usafb">
-                      Show more
-                    </button>
+                    <hs-card-button css-class="hs-card_button hs-card_button-shadowlined--lightest" text="More" url="" url-params="_blank" modal-id="#usafootball"></hs-card-button>
                   </div>
-                </div>
-              </div>
-              <hs-card-footer id="cardFooter" class="hs-card_footer" slot="card-footer">
-                <!-- <hs-card-button button-id="modalButton" button-text="Details" action="http://youtube.com"
-                  modal-id="testModal" css-class="btn hs-details-button" click-target="testModal" action-parameters=""
-                  button-text="DETAILS"></hs-card-button> -->
-              </hs-card-footer>
+              </hs-card-body>
             </hs-card>
           </div>
           <!-- CARD 04 -->
@@ -464,12 +445,11 @@
             <hs-card card-id="04" color-tone="" card-size="" window-target="_self"
               img-path="/assets/img/portfolio/bowlopolis/bowlopolis-headerImg.png" modal-id="#modBowlopolis">
 
-              <div id="cardBody" slot="card-body" class="hs-card_body text-center">
+              <hs-card-body id="card04Body" content-classes="m-0 w-100 p-4" slot="card-body" class="hs-card_body text-center">
 
-                <div class="hs-card_content">
                   <h2 class="hs-card_title mb-2">Bowlopolis</h2>
                   <p>
-                    <span class="fs-5">Kids 3D Cartoons, Videos & Games</span>
+                    <span class="hs-card_subtitle">Kids 3D Cartoons, Videos & Games</span>
                   </p>
                   <p>
                     <strong class="hs-card_text-emphisized"> BPAA, Inc.</strong><br>
@@ -477,15 +457,9 @@
                     Director Technology - App Dev
                   </p>
                   <div class="text-center">
-                    <hs-card-button css-class="hs-card-button" text="More" url="" url-params="_blank" modal-id="#bowlopolis"></hs-card-button>
+                    <hs-card-button css-class="hs-card_button hs-card_button-shadowlined--light" text="More" url="" url-params="_blank" modal-id="#bowlopolis"></hs-card-button>
                   </div>
-                </div>
-              </div>
-              <hs-card-footer id="cardFooter" class="hs-card_footer" slot="card-footer">
-                <!-- <hs-card-button button-id="modalButton" button-text="Details" action="http://youtube.com"
-                  modal-id="testModal" css-class="btn hs-details-button" click-target="testModal" action-parameters=""
-                  button-text="DETAILS"></hs-card-button> -->
-              </hs-card-footer>
+              </hs-card-body>
             </hs-card>
           </div>
 
@@ -499,7 +473,7 @@
     <section id="about" class="bg-white about hs-section pt-5 pb-5">
       <div class="container">
         <div class="row">
-          <div class="col-lg-12 text-center text-color--white">
+          <div class="col-lg-12 text-center text-color--light">
             <p>
               <h2 class="hs-section-heading bg-black-75-opacity d-inline-block">Heath Shults</h2>
             </p>
@@ -643,7 +617,7 @@
     <section id="contact" class="hs-contact hs-section pt-5">
       <div class="container  pt-5">
         <div class="row">
-          <div class="col-lg-12 text-center text-color--white">
+          <div class="col-lg-12 text-center text-color--light">
             <h2 class="hs-section-heading">Contact Me</h2>
             <h3 class="hs-section-subheading hs-text-muted">
               &#10038; Get the job done right the first time. &#10038;

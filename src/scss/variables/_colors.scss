@@ -58,16 +58,49 @@ $hs-black_45:                     rgba(0, 0, 0, 0.45) !default;
 $hs-black_50:                     rgba(0, 0, 0, 0.5) !default;
 $hs-black_75:                     rgba(0, 0, 0, 0.75) !default;
 
-$hs-gray-base:			              #111 !default;
-$hs-gray-medium:                  #2f2f31 !default;
-$hs-gray-darker:                  #333 !default;
-$hs-gray-dark:			              #383838 !default;
-$hs-gray:				                  #5a6268 !default;
-$hs-gray-white:				            #828a91 !default;
-$hs-gray-light:		                #afbec2 !default;
-$hs-gray-lighter:		              #dedede !default;
-$hs-gray-lighter-05:              #d8e3eb !default;
-$hs-gray-lightest:		            #eee !default;
+$hs-white:    #fff !default;
+$hs-gray-100: #f8f9fa !default;
+$hs-gray-200: #e9ecef !default;
+$hs-gray-300: #dee2e6 !default;
+$hs-gray-400: #ced4da !default;
+$hs-gray-500: #adb5bd !default;
+$hs-gray-600: #6c757d !default;
+$hs-gray-700: #495057 !default;
+$hs-gray-800: #343a40 !default;
+$hs-gray-900: #212529 !default;
+$hs-black:    #000 !default;
+
+$hs-grays: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$hs-grays: map-merge(
+  (
+    "100": $hs-gray-100,
+    "200": $hs-gray-200,
+    "300": $hs-gray-300,
+    "400": $hs-gray-400,
+    "500": $hs-gray-500,
+    "600": $hs-gray-600,
+    "700": $hs-gray-700,
+    "800": $hs-gray-800,
+    "900": $hs-gray-900
+  ),
+  $hs-grays
+);
+
+// Tint
+$hs-theme-darken-tint:              15% !default;
+$hs-theme-lighten-tint:             15% !default;
+$hs-lightnessMultiplier:            .9 !default;
+
+$hs-gray-base:			              $hs-gray-900 !default;
+$hs-gray-darker:                  $hs-gray-800 !default;
+$hs-gray-dark:			              $hs-gray-700 !default;
+$hs-gray-medium:                  $hs-gray-600 !default;
+$hs-gray:				                  $hs-gray-500 !default;
+$hs-gray-light:		                $hs-gray-400 !default;
+$hs-gray-lighter:		              $hs-gray-300 !default;
+$hs-gray-lighter-05:              $hs-gray-200 !default;
+$hs-gray-lightest:		            $hs-gray-100 !default;
 
 $hs-white:                        #fff !default;
 $hs-white_2:                      #f2f2f2 !default;
@@ -106,8 +139,26 @@ $hs-clip-background:              content-box !default;
 $hs-baige-light:                #cac1ac !default;
 $hs-baige-medium:               #a79e8b !default;
 
+$interaction-colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$interaction-colors: map-merge(
+  (
+    "primary":    $hs-theme_primary,
+    "secondary":  $hs-theme_secondary,
+    "success":    $hs-theme_success,
+    "info":       $hs-theme_info,
+    "warning":    $hs-theme_warning,
+    "danger":     $hs-theme_danger,
+    "light":      $hs-gray-lighter,
+    "white":      $hs-white,
+    "dark":       $hs-gray-medium
+  ),
+  $interaction-colors
+);
+
 $hs-theme-color-text:             $hs-gray-dark !default;
 $hs-theme-color-text-onDark:      $hs-white !default;
+
 
 $hs-font-primary:                 'Roboto', sans-serif !default;
 $hs-font-secondary:               'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
@@ -193,8 +244,9 @@ $hs-border-radius-md:            .25% !default;
 // Outer glow
 $hs-box-shadow-glow:              0px 4px 16px 2px rgba(255, 255, 255, 0.5) !default;
 
-// Shadows
+// Shadows thank you https://html-css-js.com/css/generator/box-shadow/
 $hs-shadow:                       0 0.5rem 1rem rgba(0, 0, 0, 0.15) !default;
+$hs-shadow-md:                    0px 5px 8px 0px rgba(0, 0, 0, 0.25) !default;
 $hs-shadow-heavy:                 2px 0.5rem 0.5rem rgba(0, 0, 0, 0.5) !default;
 $hs-shadow-xs:                    2px 0.2rem 0.2rem rgba(0, 0, 0, 0.15) !default;
 $hs-shadow-xs-reverse:            0 0.2rem 0.2rem rgba(0, 0, 0, 0.15) !default;
@@ -208,7 +260,7 @@ $hs-shadow-none:                  none !default;
 $hs-card-shadow:                  0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) !default;
 $hs-button-shadow-nocolor:        0 0 0 0.2rem !default;
 $hs-button-focus:                 $hs-button-shadow-nocolor $hs-theme_primary--trans50 !default;
-$hs-button-secondary-focus:       $hs-button-shadow-nocolor $hs-gray-white !default;
+$hs-button-secondary-focus:       $hs-button-shadow-nocolor $hs-gray-medium !default;
 // $hs-card-shadow:                  0 4px 6px 2px rgba(0, 0, 0, 0.3) !default;
 $hs-button-success-outline:       $hs-button-shadow-nocolor rgba(darken($hs-color_green--darker, 2%), 50%) !default;
 $hs-button-info-outline:          $hs-button-shadow-nocolor rgba(darken($hs-blue--light-shadow, 2%), 50%) !default;
@@ -253,8 +305,12 @@ $hs-card-inner-border-radius:          $hs-border-radius-sm !default;
 $hs-card-cap-bg:                       rgba($hs-black, .03) !default;
 $hs-card-cap-color:                    null !default;
 $hs-card-color:                        null !default;
-$hs-card-bg:                           $hs-gray-lighter !default;
+$hs-card-bg:                           $hs-white_5 !default;
 $hs-card-bg--dark:                     $hs-blueGray-dark !default;
+$hs-card-header-bg:                    $hs-white !default;
+$hs-card-body-bg:                      $hs-gray-light !default;
+$hs-card-content-bg:                   $hs-white !default;
+$hs-card-footer-bg:                    $hs-white !default;
 
 $hs-card-img-overlay-padding:          1.25rem !default;
 
