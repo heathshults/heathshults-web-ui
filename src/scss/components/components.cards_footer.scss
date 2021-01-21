@@ -9,8 +9,8 @@
   overflow: hidden;
   font-size: 0.84rem;
   line-height: 1.2;
-  background-color: $hs-card-cap-bg;
-  // border-top: $hs-card-border-width solid $hs-card-border-color;
+  background-color: $hs-card-footer-bg;
+  border-top: $hs-card-border-width solid $hs-card-border-color;
   .hs-card_content {
     width: 95%;
     padding: $hs-spacing--sm;
@@ -45,3 +45,27 @@
   }
 }
 
+.hs-card_footer:not(:last-child) {
+  border-bottom-right-radius: 0;
+}
+.hs-card_footer:not(:first-child) {
+  border-bottom-left-radius: 0;
+}
+
+.footer-logos {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  margin: 0px 10px;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  padding-inline-start: 0px;
+  padding-inline-end: 0px;
+  list-style: none;
+  .flex-item {
+    flex: none;
+  }
+}

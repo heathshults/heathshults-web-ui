@@ -5,7 +5,7 @@
   font-size: .84rem;
   line-height: 1.2;
   color: $hs-card-color;
-  background: $hs-card-bg;
+  background: $hs-card-body-bg;
 
   .hs-card_content {
     width: 95%;
@@ -19,15 +19,32 @@
 
   .hs-card_title {
     margin-bottom: $hs-card-spacer-y;
-    font-size: 1.5rem;
+    font-size: 1.5em;
   }
 
   .hs-card_subtitle {
     margin-top: -$hs-card-spacer-y / 2;
     margin-bottom: 0;
+    font-size: 1.25em
   }
 
   .hs-card_linkhover {
     text-decoration: none;
   }
+}
+.hs-card_img,
+.hs-card_img--top,
+.hs-card_img--bottom {
+  flex-shrink: 0; // For IE: https://github.com/twbs/bootstrap/issues/29396
+  width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
+}
+
+.hs-card_img,
+.hs-card_img--top {
+  @include border-top-radius($hs-card-inner-border-radius);
+}
+
+.hs-card_img,
+.hs-card_img--bottom {
+  @include border-bottom-radius($hs-card-inner-border-radius);
 }

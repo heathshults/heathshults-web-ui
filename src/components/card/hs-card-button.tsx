@@ -1,12 +1,12 @@
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Component, Prop, Element, Method, h } from '@stencil/core';
-// import { validurl } from '../../js/modules/validate-url';
+import { validurl } from '../../js/modules/validate-url';
 
 
 @Component({
   tag: 'hs-card-button',
-  styleUrl: './hs-card-button.scss',
+  styleUrl: './hs-card_button.scss',
   shadow: true
 })
 

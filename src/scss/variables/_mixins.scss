@@ -1,4 +1,17 @@
+@import "../bootstrap/scss/functions";
+@import "../bootstrap/scss/variables";
+@import "../bootstrap/scss/mixins";
 @import "../bootstrap/scss/mixins/border-radius";
+
+@import "../variables/maps";
+@import "../variables/functions";
+@import "../variables/colors";
+
+@import "../variables/typography";
+@import "../variables/spacing";
+@import "../variables/grid";
+@import "../variables/keyframes";
+@import "../variables/aspect-ratio";
 
 // Mixins
 
@@ -15,7 +28,6 @@
 
 }
 @mixin button {
-
   @include disabled;
   display: inline-block;
   padding: 0.375rem 0.75rem;
@@ -220,6 +232,37 @@
   }
 }
 
+@mixin button-shadowlined-variant($hs-button-background-color,  $hs-lightnessMultiplier) {
+  // $darkened-button-background: darken($hs-button-background-color, $hs-theme-darken-tint) !default;
+  // $lightened-button-background: lighten($hs-button-background-color, $hs-theme-lighten-tint) !default;
+
+  color: set-button-text-color($hs-button-background-color, $hs-lightnessMultiplier);
+  background-color: $hs-button-background-color;
+  border: darken($hs-button-background-color, $hs-lightnessMultiplier);
+  box-shadow: $hs-shadow-md;
+
+  &.card-button--active {
+    background-color: darken($hs-button-background-color, $hs-theme-darken-tint);
+  }
+
+  &:not(:disabled):not([disabled]) {
+    &:not(:active) {
+      &:hover {
+        background-color: lighten($hs-button-background-color, $hs-theme-lighten-tint);
+      }
+    }
+
+    &:focus {
+      border-color: darken(darken($hs-button-background-color, $hs-theme-darken-tint), 5%);
+      box-shadow: darken(darken($hs-button-background-color, $hs-theme-darken-tint), 15%);
+      box-shadow: $hs-shadow-md;
+    }
+
+    &:active {
+      background-color: darken($hs-button-background-color, $hs-theme-darken-tint);
+    }
+  }
+}
 
 // Background Cover Mixin
 
@@ -506,14 +549,14 @@
   }
 }
 
-$breakpoints: (
-  xxs: 0,
-  xs: 32rem, // ~512px
-  sm: 48rem, // ~768px
-  md: 64rem, // ~1024px
-  lg: 80rem, // ~1280px
-  xl: 90rem // ~1440px
-) !default;
+// $breakpoints: (
+//   xxs: 0,
+//   xs: 32rem, // ~512px
+//   sm: 48rem, // ~768px
+//   md: 64rem, // ~1024px
+//   lg: 80rem, // ~1280px
+//   xl: 90rem // ~1440px
+// ) !default;
 
 @mixin breakpoint($breakpoint, $logic: false) {
   @if ($logic) {
@@ -617,105 +660,19 @@ $breakpoints: (
   background: $hs-theme-color-text_green--dark;
 }
 
-@mixin ratio-16-9 {
-  position: relative;
-  padding-top: $hs-ratio-16-9;
-}
-@mixin ratio-4-3 {
-  position: relative;
-  padding-top: $hs-ratio-4-3;
-}
-@mixin ratio-3-2 {
-  position: relative;
-  padding-top: $hs-ratio-3-2;
-}
-@mixin ratio-1-1 {
-  position: relative;
-  padding-top: $hs-ratio-1-1;
-}
-
-// return color with different opacity value
-@function alpha($color, $opacity) {
-  $color: str-replace($color, 'var(');
-  $color: str-replace($color, ')');
-  $color-h: var(#{$color+'-h'});
-  $color-s: var(#{$color+'-s'});
-  $color-l: var(#{$color+'-l'});
-  @return hsla($color-h, $color-s, $color-l, $opacity);
-}
-
-// return color with different lightness value
-@function lightness($color, $lightnessMultiplier) {
-  $color: str-replace($color, 'var(');
-  $color: str-replace($color, ')');
-  $color-h: var(#{$color+'-h'});
-  $color-s: var(#{$color+'-s'});
-  $color-l: var(#{$color+'-l'});
-  @return hsl($color-h, $color-s, calc(#{$color-l} * #{$lightnessMultiplier}));
-}
-
-// replace substring with another string
-// credits: https://css-tricks.com/snippets/sass/str-replace-function/
-@function str-replace($string, $search, $replace: '') {
-  $index: str-index($string, $search);
-
-  @if $index {
-    @return str-slice($string, 1, $index - 1)+$replace+str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
-  }
-
-  @return $string;
-}
-
-// ====== PIXELS TO REM ====== //
-$html-font-size: 16px;
-@function stripUnit($value) {
-  @return $value / ($value * 0 + 1);
-}
-
-@function rem($pxValue) {
-  @return #{stripUnit($pxValue) / stripUnit($html-font-size)}rem;
-}
-
-// /*
-//  * CSS CUSTOM VARIABLE FUNCTION
-//  *
-//  * Get css vars from scss vars
-//  *
-//  * Use:
-//  * `color: v(primary);`
-//  * `color: v(primary, #000);`
-//  * `padding-left: v(x-padding, 2rem);`
-//  * `transform: translate3d(v(x-delta), v(y-delta), 0);`
-//  *
-//  * Parameters:
-//  *  $hs-Var: name of the SASS variable, without its double hyphen prefix
-//  *  $hs-fallback: (optional, null by default): custom property fallback value
-//  */
-
-// $hs-theme-color-texts: map-merge($hs-map1: $hs-grays, $hs-map2: $hs-dark-mode-colors);
-// $hs-keys: map-keys($hs-theme-color-texts);
-
-// @function getV($hs-var, $hs-fallback: null) {
-//   @if map-has-key($hs-theme-color-texts, $hs-var) {
-//     $hs-cssVarName: #{$hs-var};
-//   }
-//   @if($hs-fallback) {
-//     @return var(--$hs-cssVarName, $hs-fallback);
-//   } @else {
-//     @return var(--$hs-cssVarName);
-//   }
+// @mixin ratio-16-9 {
+//   position: relative;
+//   padding-top: $hs-ratio-16-9;
 // }
-
-// accessor functions
-// z-index:
-// usage: z-index(global, nav); z-index(dm-switcher, button)
-@function z-index($hs-keys...) {
-  $hs-value: $hs-z-indexes;
-
-  @each $hs-key in $hs-keys {
-    $hs-value: map-get($hs-value, $hs-key);
-  }
-
-  @return $hs-value;
-}
-
+// @mixin ratio-4-3 {
+//   position: relative;
+//   padding-top: $hs-ratio-4-3;
+// }
+// @mixin ratio-3-2 {
+//   position: relative;
+//   padding-top: $hs-ratio-3-2;
+// }
+// @mixin ratio-1-1 {
+//   position: relative;
+//   padding-top: $hs-ratio-1-1;
+// }

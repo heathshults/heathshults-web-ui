@@ -21,7 +21,7 @@ export class HSCard {
   @Prop() imgHeaderImgPlaceholder = '/assets/img/svg/image-placeholder.svg';
   @Prop() overlay: any;
   @Prop() imgElem: any;
-  @Prop() modalId: string;
+  @Prop() modalId?: string;
   @Prop() imgHeaderImg: string;
   @Prop() imgPath:string;
   @Prop() showHide:string;

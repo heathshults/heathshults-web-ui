@@ -1,0 +1,229 @@
+.hs-card_header.dark {
+  background: $hs-card-bg--dark;
+}
+.hs-card_header {
+  position: relative;
+  flex: 1 1 auto;
+  width: 100%;
+  height: auto;
+  min-height: 1px;
+  padding: 0;
+  margin-bottom: 0;
+  background-color: $hs-card-header-bg;
+  // border-bottom: $hs-card-border-width solid $hs-card-border-color;
+
+  &:first-child {
+    @include border-radius($hs-card-inner-border-radius $hs-card-inner-border-radius 0 0);
+  }
+
+  & +.list-group {
+    .list-group_item:first-child {
+      border-top: 0;
+    }
+  }
+  &.dark {
+    background: $hs-card-bg--dark;
+  }
+  & > {
+    .hs-overlay {
+      position: relative;
+      width: 100%;
+      &::before {
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 0;
+        content: '';
+        background-color: fade-out($hs-theme_primary, .9);
+        transition: all ease .3s;
+        // transform: translate(0%, 0%);
+      }
+      &:hover::before {
+        top: 0px;
+        left: 0px;
+        z-index: 1000;
+        width: 100%;
+        height: 100%;
+        font-size: 1rem;
+        color: $hs-white;
+        content: "";
+        background-color: rgba(254, 209, 54, 0.75);
+        transition: all ease .3s;
+
+      }
+      &::after {
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        z-index: 1001;
+        width: 100%;
+        height: 80px;
+        font-size: 3rem;
+        line-height: normal;
+        color: $hs-white;
+        text-align: center;
+        white-space: nowrap;
+        content: "";
+        background-image: url("data:image/svg+xml;charset=UTF-8, %3csvg version='1.1' id='Layer_1' focusable='false' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='400px' viewBox='0 0 400 262' xml:space='preserve'%3e%3cpath fill='%23FFFFFF' stroke='%23FFFFFF' stroke-miterlimit='10' d='M298.25,106.438h-73.688V32.75c0-9.042-7.333-16.375-16.375-16.375 h-16.375c-9.042,0-16.375,7.333-16.375,16.375v73.688H101.75c-9.042,0-16.375,7.333-16.375,16.375v16.375 c0,9.042,7.333,16.375,16.375,16.375h73.688v73.688c0,9.042,7.333,16.375,16.375,16.375h16.375c9.042,0,16.375-7.333,16.375-16.375 v-73.688h73.688c9.042,0,16.375-7.333,16.375-16.375v-16.375C314.625,113.771,307.292,106.438,298.25,106.438z'/%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: top 40px;
+        background-size: 16px;
+        opacity: 0;
+        transition: all ease .3s;
+        transform: translate(-50%)
+      }
+      &:hover::after {
+        top: 50%;
+        left: 0%;
+        z-index: 1001;
+        content: "";
+        background-position-x: center;
+        background-position-y: bottom 40px;
+        background-size: 48px;
+        opacity: 1;
+        transition: all ease .3s;
+        transform: translate(0%)
+      }
+    }
+  }
+}
+// Card image
+.hs-card-img-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: $hs-card-img-overlay-padding;
+}
+
+.hs-card-img,
+.hs-card-img-top,
+.hs-card-img-bottom {
+  flex-shrink: 0; // For IE: https://github.com/twbs/bootstrap/issues/29396
+  width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
+}
+
+.hs-card-img,
+.hs-card-img-top {
+  @include border-top-radius($hs-card-inner-border-radius);
+}
+
+.hs-card-img,
+.hs-card-img-bottom {
+  @include border-bottom-radius($hs-card-inner-border-radius);
+}
+.hs-card_img-header_img {
+  @include card-header-dimensions;
+  width: 100%;
+  margin-bottom: -8px;
+
+}
+
+
+
+.hs-card_header {
+  display: flex;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  padding: 0;
+  margin-bottom: 0;
+  background-color: $hs-card-header-bg;
+  border-bottom: $hs-card-border-width solid $hs-card-border-color;
+  @include card-header-dimensions;
+  &:first-child {
+    border-radius: 0;
+  }
+  &.dark {
+    background: $hs-card-bg--dark;
+  }
+
+  +.list-group .list-group_item:first-child {
+    border-top: 0;
+  }
+}
+
+.hs-card_header-tabs {
+  margin-right: -$hs-card-spacer-x / 2;
+  margin-bottom: -$hs-card-spacer-y;
+  margin-left: -$hs-card-spacer-x / 2;
+  border-bottom: 0;
+}
+
+.hs-card_header-pills {
+  margin-right: -$hs-card-spacer-x / 2;
+  margin-left: -$hs-card-spacer-x / 2;
+}
+
+.hs-card_img-header_overlay,
+[class^="hs-card_img-headerr_overlay--"] {
+  position: relative;
+  &::before {
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-color: fade-out($hs-theme_primary, .9);
+    opacity: 1;
+    transition: all ease .3s;
+    transform: translate(0%, 0%);
+  }
+  &:hover::before {
+    top: 0px;
+    left: 0px;
+    z-index: 100;
+    width: 100%;
+    // height: 100%;
+
+    color: $hs-white;
+    content: "";
+    //Instead of the line below you could use @include transition($transition-1,$transition-2,$transition-3,$transition-4,$transition-5,$transition-6,$transition-7,$transition-8,$transition-9,$transition-10)@include transition-ease-dot3s;
+    background-color: rgba(254, 209, 54, 0.75);
+    background-image: url("data:image/svg+xml;charset=utf-8, %3c?xml version='1.0'encoding='utf-8'?%3e%3c !-- generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version:6.00 Build 0) --%3e%3c !DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN''http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3e%3csvg version='1.1'id='Layer_1'xmlns='http://www.w3.org/2000/svg'xmlns:xlink='http://www.w3.org/1999/xlink'x='0px'y='0px'width='48px'height='48px'viewBox='0 0 48 48'enable-background='new 0 0 48 48'xml:space='preserve'%3e%3cpath fill='%23FFFFFF'd='M47,18.25H29.75V1h-11.5v17.25H1v11.5h17.25V47h11.5V29.75H47V18.25z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 48px;
+    opacity: 1;
+    transform: translate(0%, 0%);
+  }
+}
+@include breakpoint(md) {
+  .hs-card {
+    & > {
+      .hs-card_header {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        max-height: calc(100% - 8px);
+      }
+    }
+  }
+}
+
+@include breakpoint(sm) {
+  .hs-card_header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+  }
+}
+.hs-card_header:not(:last-child) {
+  border-top-right-radius: 0;
+}
+.hs-card_header:not(:first-child) {
+  border-top-left-radius: 0;
+}
+
+
+
+
+
+
+
+

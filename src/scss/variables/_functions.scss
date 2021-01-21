@@ -1,0 +1,90 @@
+@import "./maps";
+@import "./colors";
+
+
+@function set-button-text-color($color, $lightnessMultiplier) {
+  @if (lightness($color) > $lightnessMultiplier) {
+    @return $hs-gray-darker;
+  }
+  @else {
+    @return $hs-white;
+  }
+}
+
+// return color with different opacity value
+@function alpha($color, $opacity) {
+  $color: str-replace($color, 'var(');
+  $color: str-replace($color, ')');
+  $color-h: var(#{$color+'-h'});
+  $color-s: var(#{$color+'-s'});
+  $color-l: var(#{$color+'-l'});
+  @return hsla($color-h, $color-s, $color-l, $opacity);
+}
+
+// return color with different lightness value
+
+
+
+// replace substring with another string
+// credits: https://css-tricks.com/snippets/sass/str-replace-function/
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index(#{string}, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1)+$replace+str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+// ====== PIXELS TO REM ====== //
+$html-font-size: 16px;
+@function stripUnit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@function rem($pxValue) {
+  @return #{stripUnit($pxValue) / stripUnit($html-font-size)}rem;
+}
+
+// accessor functions
+// z-index:
+// usage: z-index(global, nav); z-index(dm-switcher, button)
+@function z-index($hs-keys...) {
+  $hs-value: $hs-z-indexes;
+
+  @each $hs-key in $hs-keys {
+    $hs-value: map-get($hs-value, $hs-key);
+  }
+
+  @return $hs-value;
+}
+// /*
+//  * CSS CUSTOM VARIABLE FUNCTION
+//  *
+//  * Get css vars from scss vars
+//  *
+//  * Use:
+//  * `color: v(primary);`
+//  * `color: v(primary, #000);`
+//  * `padding-left: v(x-padding, 2rem);`
+//  * `transform: translate3d(v(x-delta), v(y-delta), 0);`
+//  *
+//  * Parameters:
+//  *  $hs-Var: name of the SASS variable, without its double hyphen prefix
+//  *  $hs-fallback: (optional, null by default): custom property fallback value
+//  */
+
+// $hs-theme-color-texts: map-merge($hs-map1: $hs-grays, $hs-map2: $hs-dark-mode-colors);
+// $hs-keys: map-keys($hs-theme-color-texts);
+
+// @function getV($hs-var, $hs-fallback: null) {
+//   @if map-has-key($hs-theme-color-texts, $hs-var) {
+//     $hs-cssVarName: #{$hs-var};
+//   }
+//   @if($hs-fallback) {
+//     @return var(--$hs-cssVarName, $hs-fallback);
+//   } @else {
+//     @return var(--$hs-cssVarName);
+//   }
+// }

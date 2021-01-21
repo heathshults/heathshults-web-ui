@@ -34,7 +34,12 @@ export const config: Config = {
     },
     {
       type: 'www',
-      serviceWorker: null // disable service workers}
+      empty: false,
+      indexhtml: 'index.html',
+      serviceWorker: {
+        maximumFileSizeToCacheInBytes: 50000
+      }, // disable service workers}
+      buildDir: 'components'
     }
   ]
 }

@@ -31,13 +31,16 @@ export namespace Components {
         "imgHeaderImgContainer": HTMLImageElement;
         "imgHeaderImgPlaceholder": string;
         "imgPath": string;
-        "modalId": string;
+        "modalId"?: string;
         "overlay": any;
         "showHide": string;
         "validURL": (str: any) => any;
     }
     interface HsCardBody {
-        "cssClassList": string;
+        "bodyClassList"?: string;
+        "bodyClasses"?: string;
+        "contentClassList"?: string;
+        "contentClasses"?: string;
     }
     interface HsCardButton {
         "buttonId"?: string;
@@ -54,6 +57,18 @@ export namespace Components {
         "modalId"?: string;
     }
     interface HsCardHeader {
+        "cardHeader": any;
+        "cardHeaderImg": HTMLElement;
+        "clickTarget": string;
+        "colorTone": string;
+        "fnStatusCallBack": (status: boolean, fnName: string, errorMessage?: unknown) => any;
+        "imgElem": any;
+        "imgHeaderImg": string;
+        "imgHeaderImgPlaceholder": string;
+        "imgPath": string;
+        "modalId": string;
+        "overlay": any;
+        "showHide": string;
     }
     interface HsCardImgHeader {
         "cardHeader": any;
@@ -101,6 +116,11 @@ export namespace Components {
         "max": number;
         "min": number;
         "type": string;
+        "value": number;
+    }
+    interface HsSlider {
+        "max": number;
+        "min": number;
         "value": number;
     }
     interface HsSticky {
@@ -206,6 +226,12 @@ declare global {
         prototype: HTMLHsProgressBarElement;
         new (): HTMLHsProgressBarElement;
     };
+    interface HTMLHsSliderElement extends Components.HsSlider, HTMLStencilElement {
+    }
+    var HTMLHsSliderElement: {
+        prototype: HTMLHsSliderElement;
+        new (): HTMLHsSliderElement;
+    };
     interface HTMLHsStickyElement extends Components.HsSticky, HTMLStencilElement {
     }
     var HTMLHsStickyElement: {
@@ -250,6 +276,7 @@ declare global {
         "hs-modal": HTMLHsModalElement;
         "hs-progress": HTMLHsProgressElement;
         "hs-progress-bar": HTMLHsProgressBarElement;
+        "hs-slider": HTMLHsSliderElement;
         "hs-sticky": HTMLHsStickyElement;
         "hs-tab": HTMLHsTabElement;
         "hs-tabs": HTMLHsTabsElement;
@@ -290,7 +317,10 @@ declare namespace LocalJSX {
         "validURL"?: (str: any) => any;
     }
     interface HsCardBody {
-        "cssClassList"?: string;
+        "bodyClassList"?: string;
+        "bodyClasses"?: string;
+        "contentClassList"?: string;
+        "contentClasses"?: string;
     }
     interface HsCardButton {
         "buttonId"?: string;
@@ -306,6 +336,19 @@ declare namespace LocalJSX {
         "modalId"?: string;
     }
     interface HsCardHeader {
+        "cardHeader"?: any;
+        "cardHeaderImg"?: HTMLElement;
+        "clickTarget"?: string;
+        "colorTone"?: string;
+        "fnStatusCallBack"?: (status: boolean, fnName: string, errorMessage?: unknown) => any;
+        "imgElem"?: any;
+        "imgHeaderImg"?: string;
+        "imgHeaderImgPlaceholder"?: string;
+        "imgPath"?: string;
+        "modalId"?: string;
+        "onModalLancher"?: (event: CustomEvent<any>) => void;
+        "overlay"?: any;
+        "showHide"?: string;
     }
     interface HsCardImgHeader {
         "cardHeader"?: any;
@@ -359,6 +402,12 @@ declare namespace LocalJSX {
         "type"?: string;
         "value"?: number;
     }
+    interface HsSlider {
+        "max"?: number;
+        "min"?: number;
+        "onValueChanged"?: (event: CustomEvent<any>) => void;
+        "value"?: number;
+    }
     interface HsSticky {
         "top"?: number;
     }
@@ -395,6 +444,7 @@ declare namespace LocalJSX {
         "hs-modal": HsModal;
         "hs-progress": HsProgress;
         "hs-progress-bar": HsProgressBar;
+        "hs-slider": HsSlider;
         "hs-sticky": HsSticky;
         "hs-tab": HsTab;
         "hs-tabs": HsTabs;
@@ -419,6 +469,7 @@ declare module "@stencil/core" {
             "hs-modal": LocalJSX.HsModal & JSXBase.HTMLAttributes<HTMLHsModalElement>;
             "hs-progress": LocalJSX.HsProgress & JSXBase.HTMLAttributes<HTMLHsProgressElement>;
             "hs-progress-bar": LocalJSX.HsProgressBar & JSXBase.HTMLAttributes<HTMLHsProgressBarElement>;
+            "hs-slider": LocalJSX.HsSlider & JSXBase.HTMLAttributes<HTMLHsSliderElement>;
             "hs-sticky": LocalJSX.HsSticky & JSXBase.HTMLAttributes<HTMLHsStickyElement>;
             "hs-tab": LocalJSX.HsTab & JSXBase.HTMLAttributes<HTMLHsTabElement>;
             "hs-tabs": LocalJSX.HsTabs & JSXBase.HTMLAttributes<HTMLHsTabsElement>;
