@@ -3,10 +3,13 @@
 @import "./vars";
 
 // Import Bootstrap
-@import "bootstrap/scss/bootstrap";
-@import "./variables/css-vars";
-// Components
-// @import "../components/card/hs-card";
+@import "./bootstrap/scss/functions";
+@import "./bootstrap/scss/variables";
+@import "./bootstrap/scss/mixins";
+@import "./variables/css-vars2";
+@import "./variables/typography";
+
+
 @import "../components/ranking-bar/_ranking-bar";
 @import "./components/buttons";
 @import "./components/navbar";
@@ -31,6 +34,10 @@
 
 // Utilities
 @import "./components/utilities.showmore";
+@import "./variables/spacing";
+@import "./variables/grid";
+@import "./variables/keyframes";
+@import "./variables/aspect-ratio";
 
 
 @import "./theme";
