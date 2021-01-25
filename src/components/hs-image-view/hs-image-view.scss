@@ -1,0 +1,10 @@
+:host {
+  /* Component styles go here */
+  img {
+    display: none;
+
+    &.display-no-filter {
+      display: block;
+    }
+  }
+}
