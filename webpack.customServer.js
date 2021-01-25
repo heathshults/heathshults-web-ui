@@ -6,7 +6,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import BrowserSyncPlugin from 'browser-sync-webpack-plugin';
 import {exec} from 'child_process';
-import gulpfile from '../gulpfile.babel.js';
+import gulpfile from './gulpfile.babel.js';
 
 // const FileCopyPlugin = require('./config/FileCopyPlugin')
 import {CleanWebpackPlugin} from 'clean-webpack-plugin';

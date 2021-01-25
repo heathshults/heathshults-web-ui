@@ -1,37 +1,34 @@
+@import "../bootstrap/scss/variables";
 @import "./maps";
 @import "./colors";
 
-
-@function set-button-text-color($color, $lightnessMultiplier) {
+@function set-color($color, $lightnessMultiplier) {
   @if (lightness($color) > $lightnessMultiplier) {
     @return $hs-gray-darker;
-  }
-  @else {
+  } @else {
     @return $hs-white;
   }
 }
 
 // return color with different opacity value
 @function alpha($color, $opacity) {
-  $color: str-replace($color, 'var(');
-  $color: str-replace($color, ')');
-  $color-h: var(#{$color+'-h'});
-  $color-s: var(#{$color+'-s'});
-  $color-l: var(#{$color+'-l'});
+  $color: str-replace($color, "var(");
+  $color: str-replace($color, ")");
+  $color-h: var(#{$color + "-h"});
+  $color-s: var(#{$color + "-s"});
+  $color-l: var(#{$color + "-l"});
   @return hsla($color-h, $color-s, $color-l, $opacity);
 }
 
 // return color with different lightness value
 
-
-
 // replace substring with another string
 // credits: https://css-tricks.com/snippets/sass/str-replace-function/
-@function str-replace($string, $search, $replace: '') {
+@function str-replace($string, $search, $replace: "") {
   $index: str-index(#{string}, $search);
 
   @if $index {
-    @return str-slice($string, 1, $index - 1)+$replace+str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
   }
 
   @return $string;
@@ -59,6 +56,24 @@ $html-font-size: 16px;
 
   @return $hs-value;
 }
+// removes whitespace
+@function str-strip-space($str) {
+  @while (str-index($str, " ") != null) {
+    $index: str-index($str, " ");
+    $str: "#{str-slice($str, 0, $index - 1)}#{str-slice($str, $index + 1)}";
+  }
+  @return $str;
+}
+
+// exchange sass variable for a css variable
+@function v($var, $fallback: null) {
+  @if ($fallback) {
+    @return var(--#{$var}, #{$fallback});
+  } @else {
+    @return var(--#{$var});
+  }
+}
+
 // /*
 //  * CSS CUSTOM VARIABLE FUNCTION
 //  *
@@ -78,11 +93,11 @@ $html-font-size: 16px;
 // $hs-theme-color-texts: map-merge($hs-map1: $hs-grays, $hs-map2: $hs-dark-mode-colors);
 // $hs-keys: map-keys($hs-theme-color-texts);
 
-// @function getV($hs-var, $hs-fallback: null) {
-//   @if map-has-key($hs-theme-color-texts, $hs-var) {
-//     $hs-cssVarName: #{$hs-var};
-//   }
-//   @if($hs-fallback) {
+// @function cssColorVar($hs-var, $hs-fallback: null) {
+// @if map-has-key($hs-theme-color-texts, $hs-var) {
+//   $hs-cssVarName: #{$hs-var};
+// }
+//   @if ($hs-fallback) {
 //     @return var(--$hs-cssVarName, $hs-fallback);
 //   } @else {
 //     @return var(--$hs-cssVarName);

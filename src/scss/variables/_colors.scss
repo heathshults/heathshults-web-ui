@@ -73,6 +73,7 @@ $hs-grays: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $hs-grays: map-merge(
   (
+    "0": $hs-white,
     "100": $hs-gray-100,
     "200": $hs-gray-200,
     "300": $hs-gray-300,
@@ -82,6 +83,7 @@ $hs-grays: map-merge(
     "700": $hs-gray-700,
     "800": $hs-gray-800,
     "900": $hs-gray-900,
+    "1000": $hs-black,
   ),
   $hs-grays
 );
@@ -148,7 +150,7 @@ $interaction-colors: map-merge(
     "info": $hs-theme_info,
     "warning": $hs-theme_warning,
     "danger": $hs-theme_danger,
-    "light": $hs-gray-lighter,
+    "light": $hs-gray-lightest,
     "white": $hs-white,
     "dark": $hs-gray-medium,
   ),
@@ -246,33 +248,23 @@ $hs-shadow-heavy: 2px 0.5rem 0.5rem rgba(0, 0, 0, 0.5) !default;
 $hs-shadow-xs: 2px 0.2rem 0.2rem rgba(0, 0, 0, 0.15) !default;
 $hs-shadow-xs-reverse: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.15) !default;
 $hs-shadow-xs-center: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.15) !default;
-$hs-shadow-xs-center-xtra: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.15),
-  0 0.2rem 0.2rem rgba(0, 0, 0, 0.15) !default;
+$hs-shadow-xs-center-xtra: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.15), 0 0.2rem 0.2rem rgba(0, 0, 0, 0.15) !default;
 $hs-shadow-xs-center-reverse: -2px 0.1rem 0.2rem rgba(0, 0, 0, 0.15) !default;
-$hs-shadow-sm: 0px 2px 4px 0px rgba(0, 0, 0, 0.5) !default;
+$hs-shadow-sm: 0px 2px 6px -3px rgba(0, 0, 0, 0.15) !default;
 $hs-shadow-lg: 0px 4px 8px 3px rgba(0, 0, 0, 0.4) rgba(0, 0, 0, 0.4) !default;
 $hs-shadow-inset-blue: inset 0 0 0 2px #5173ff !default;
 $hs-shadow-none: none !default;
-$hs-card-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-  0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) !default;
+$hs-card-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) !default;
 $hs-button-shadow-nocolor: 0 0 0 0.2rem !default;
 $hs-button-focus: $hs-button-shadow-nocolor $hs-theme_primary--trans50 !default;
 $hs-button-secondary-focus: $hs-button-shadow-nocolor $hs-gray-medium !default;
-// $hs-card-shadow:                  0 4px 6px 2px rgba(0, 0, 0, 0.3) !default;
-$hs-button-success-outline: $hs-button-shadow-nocolor
-  rgba(darken($hs-color_green--darker, 2%), 50%) !default;
-$hs-button-info-outline: $hs-button-shadow-nocolor
-  rgba(darken($hs-blue--light-shadow, 2%), 50%) !default;
-$hs-button-warning-outline: $hs-button-shadow-nocolor
-  rgba(darken($hs-color_orange, 2%), 50%) !default;
-$hs-button-danger-outline: $hs-button-shadow-nocolor
-  rgba(darken($hs-color_red, 2%), 50%) !default;
+// $hs-card-shadow:                           0 4px 6px 2px rgba(0, 0, 0, 0.3) !default;
+$hs-button-success-outline: $hs-button-shadow-nocolor rgba(darken($hs-color_green--darker, 2%), 50%) !default;
+$hs-button-info-outline: $hs-button-shadow-nocolor rgba(darken($hs-blue--light-shadow, 2%), 50%) !default;
+$hs-button-warning-outline: $hs-button-shadow-nocolor rgba(darken($hs-color_orange, 2%), 50%) !default;
+$hs-button-danger-outline: $hs-button-shadow-nocolor rgba(darken($hs-color_red, 2%), 50%) !default;
 // Backgrounds
-$hs-bg-black-to-transparent: linear-gradient(
-  0deg,
-  rgba(0, 0, 0, 0) 15%,
-  rgba(0, 0, 0, 1) 100%
-) !default;
+$hs-bg-black-to-transparent: linear-gradient(0deg, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 1) 100%) !default;
 
 // Cards
 // for responsive only

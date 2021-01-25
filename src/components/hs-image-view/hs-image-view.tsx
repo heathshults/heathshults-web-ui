@@ -1,15 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import {
-  Component,
-  Event,
-  EventEmitter,
-  Prop,
-  Element,
-  Watch,
-  h,
-} from "@stencil/core";
-import { HSImageViewerFilterResult } from "../../types/hs-image-view/hs-image-viewer-filter-results";
-import { HSImageViewerFilterType } from "../../types/hs-image-view/hs-image-viewer-filter-types";
+import {Component, Event, EventEmitter, Prop, Element, Watch, h} from '@stencil/core';
+import {HSImageViewerFilterResult} from '../../types/hs-image-view/hs-image-viewer-filter-results';
+import {HSImageViewerFilterType} from '../../types/hs-image-view/hs-image-viewer-filter-types';
 
 /**
  * @part img - The part attribute to access the source image
@@ -17,8 +9,8 @@ import { HSImageViewerFilterType } from "../../types/hs-image-view/hs-image-view
  */
 
 @Component({
-  tag: "hs-image-view",
-  styleUrl: "hs-image-view.scss",
+  tag: 'hs-image-view',
+  styleUrl: 'hs-image-view.scss',
   shadow: true,
 })
 export class HsImageView {
@@ -55,14 +47,8 @@ export class HsImageView {
     };
 
     const program = ctx.createProgram();
-    ctx.attachShader(
-      program,
-      compileShader(vertexShaderSource, ctx.VERTEX_SHADER)
-    );
-    ctx.attachShader(
-      program,
-      compileShader(fragmentShaderSource, ctx.FRAGMENT_SHADER)
-    );
+    ctx.attachShader(program, compileShader(vertexShaderSource, ctx.VERTEX_SHADER));
+    ctx.attachShader(program, compileShader(fragmentShaderSource, ctx.FRAGMENT_SHADER));
     ctx.linkProgram(program);
     ctx.useProgram(program);
 
@@ -105,45 +91,41 @@ export class HsImageView {
     }
   `;
 
-  @Watch("filter")
+  @Watch('filter')
   onFilterChange() {
     this.applyFilter();
   }
 
   private applyFilter() {
-    const filterList: string[] = this.filter?.split(",");
+    const filterList: string[] = this.filter?.split(',');
 
     const matrix: number[][] = filterList
       ?.map((filter: string) => {
         const extractLevel = /\((.*)\)/;
         const matches = extractLevel.exec(filter);
 
-        const level: number | undefined =
-          matches && matches.length >= 1 ? parseFloat(matches[1]) : this.level;
+        const level: number | undefined = matches && matches.length >= 1 ? parseFloat(matches[1]) : this.level;
 
-        return HSImageViewerFilterType.getFilter(
-          filter?.replace(/\((.*)\)/, "")?.trim(),
-          level
-        );
+        return HSImageViewerFilterType.getFilter(filter?.replace(/\((.*)\)/, '')?.trim(), level);
       })
       ?.filter((matrix: number[] | null) => matrix !== null);
 
     if (matrix === undefined) {
       // We consider null as NO_FILTER, in that case the img will be emitted
       // Furthermore, we explicity displays it
-      this.imgRef?.classList.add("display-no-filter");
+      this.imgRef?.classList.add('display-no-filter');
       this.emitFilterApplied(this.imgRef, this.hasValidWegGLContext());
       return;
     }
 
     // In case the filter is applied after having displayed no filter
-    this.imgRef?.classList.remove("display-no-filter");
+    this.imgRef?.classList.remove('display-no-filter');
 
     this.desaturateImage(matrix);
   }
 
   private emitFilterApplied(result: HTMLElement, webGlState: boolean) {
-    this.filterLoad.emit({ webGLDetected: webGlState, result: result });
+    this.filterLoad.emit({webGLDetected: webGlState, result: result});
   }
 
   private desaturateImage(matrix: number[][]) {
@@ -151,7 +133,7 @@ export class HsImageView {
 
     let ctx: WebGLRenderingContext;
     try {
-      ctx = canvas.getContext("webgl", { preserveDrawingBuffer: true });
+      ctx = canvas.getContext('webgl', {preserveDrawingBuffer: true});
     } catch (e) {
       // In case we couldn't instantiate WebGL, do nothing
       this.emitFilterApplied(this.imgRef, false);
@@ -170,12 +152,7 @@ export class HsImageView {
     const steps = matrix.map(() => this.createFramebufferTexture(ctx));
 
     matrix.forEach((mat: number[], index: number) => {
-      this.applyMatrix(
-        ctx,
-        mat,
-        index < matrix.length - 1 ? steps[index].target : null,
-        index > 0 ? steps[index - 1].source : texture
-      );
+      this.applyMatrix(ctx, mat, index < matrix.length - 1 ? steps[index].target : null, index > 0 ? steps[index - 1].source : texture);
     });
 
     this.appendCanvas(canvas);
@@ -185,9 +162,9 @@ export class HsImageView {
   }
 
   private createCanvas() {
-    const canvas: HTMLCanvasElement = document.createElement("canvas");
+    const canvas: HTMLCanvasElement = document.createElement('canvas');
 
-    canvas.setAttribute("part", "canvas");
+    canvas.setAttribute('part', 'canvas');
 
     canvas.width = this.imgRef?.naturalWidth;
     canvas.height = this.imgRef?.naturalHeight;
@@ -196,9 +173,7 @@ export class HsImageView {
   }
 
   private appendCanvas(canvas: HTMLCanvasElement) {
-    const current: HTMLCanvasElement | null = this.el.shadowRoot.querySelector(
-      "canvas"
-    );
+    const current: HTMLCanvasElement | null = this.el.shadowRoot.querySelector('canvas');
     if (current) {
       this.el.shadowRoot.removeChild(current);
     }
@@ -210,26 +185,10 @@ export class HsImageView {
     const texture: WebGLTexture = ctx.createTexture();
     ctx.bindTexture(WebGLRenderingContext.TEXTURE_2D, texture);
     // Set the parameters so we can render any size image.
-    ctx.texParameteri(
-      WebGLRenderingContext.TEXTURE_2D,
-      WebGLRenderingContext.TEXTURE_WRAP_S,
-      WebGLRenderingContext.CLAMP_TO_EDGE
-    );
-    ctx.texParameteri(
-      WebGLRenderingContext.TEXTURE_2D,
-      WebGLRenderingContext.TEXTURE_WRAP_T,
-      WebGLRenderingContext.CLAMP_TO_EDGE
-    );
-    ctx.texParameteri(
-      WebGLRenderingContext.TEXTURE_2D,
-      WebGLRenderingContext.TEXTURE_MIN_FILTER,
-      WebGLRenderingContext.NEAREST
-    );
-    ctx.texParameteri(
-      WebGLRenderingContext.TEXTURE_2D,
-      WebGLRenderingContext.TEXTURE_MAG_FILTER,
-      WebGLRenderingContext.NEAREST
-    );
+    ctx.texParameteri(WebGLRenderingContext.TEXTURE_2D, WebGLRenderingContext.TEXTURE_WRAP_S, WebGLRenderingContext.CLAMP_TO_EDGE);
+    ctx.texParameteri(WebGLRenderingContext.TEXTURE_2D, WebGLRenderingContext.TEXTURE_WRAP_T, WebGLRenderingContext.CLAMP_TO_EDGE);
+    ctx.texParameteri(WebGLRenderingContext.TEXTURE_2D, WebGLRenderingContext.TEXTURE_MIN_FILTER, WebGLRenderingContext.NEAREST);
+    ctx.texParameteri(WebGLRenderingContext.TEXTURE_2D, WebGLRenderingContext.TEXTURE_MAG_FILTER, WebGLRenderingContext.NEAREST);
     // Load the image into the texture.
     ctx.texImage2D(
       WebGLRenderingContext.TEXTURE_2D,
@@ -242,20 +201,11 @@ export class HsImageView {
     return texture;
   }
 
-  private applyMatrix(
-    ctx: WebGLRenderingContext,
-    feColorMatrix: number[],
-    target: WebGLFramebuffer | null,
-    source: WebGLTexture
-  ) {
-    const program = this.createWebGLProgram(
-      ctx,
-      this.vertexShaderSource,
-      this.fragmentShaderSource
-    );
+  private applyMatrix(ctx: WebGLRenderingContext, feColorMatrix: number[], target: WebGLFramebuffer | null, source: WebGLTexture) {
+    const program = this.createWebGLProgram(ctx, this.vertexShaderSource, this.fragmentShaderSource);
 
     // Expose canvas width and height to shader via u_resolution
-    const resolutionLocation = ctx.getUniformLocation(program, "u_resolution");
+    const resolutionLocation = ctx.getUniformLocation(program, 'u_resolution');
     ctx.uniform2f(resolutionLocation, ctx.canvas.width, ctx.canvas.height);
 
     // Modify the feColorMatrix to fit better with available shader datatypes by putting the multiplier in a separate vector
@@ -271,24 +221,14 @@ export class HsImageView {
     feMultiplier.push(cloneFeColorMatrix.splice(16, 1)[0]);
 
     // Expose feColorMatrix to shader via u_matrix
-    const matrixTransform = ctx.getUniformLocation(program, "u_matrix");
-    ctx.uniformMatrix4fv(
-      matrixTransform,
-      false,
-      new Float32Array(cloneFeColorMatrix)
-    );
+    const matrixTransform = ctx.getUniformLocation(program, 'u_matrix');
+    ctx.uniformMatrix4fv(matrixTransform, false, new Float32Array(cloneFeColorMatrix));
 
-    const multiplier = ctx.getUniformLocation(program, "u_multiplier");
-    ctx.uniform4f(
-      multiplier,
-      feMultiplier[0],
-      feMultiplier[1],
-      feMultiplier[2],
-      feMultiplier[3]
-    );
+    const multiplier = ctx.getUniformLocation(program, 'u_multiplier');
+    ctx.uniform4f(multiplier, feMultiplier[0], feMultiplier[1], feMultiplier[2], feMultiplier[3]);
 
     // Position rectangle vertices (2 triangles)
-    const positionLocation = ctx.getAttribLocation(program, "a_position");
+    const positionLocation = ctx.getAttribLocation(program, 'a_position');
     const buffer = ctx.createBuffer();
     ctx.bindBuffer(WebGLRenderingContext.ARRAY_BUFFER, buffer);
     ctx.bufferData(
@@ -310,46 +250,19 @@ export class HsImageView {
       WebGLRenderingContext.STATIC_DRAW
     );
     ctx.enableVertexAttribArray(positionLocation);
-    ctx.vertexAttribPointer(
-      positionLocation,
-      2,
-      WebGLRenderingContext.FLOAT,
-      false,
-      0,
-      0
-    );
+    ctx.vertexAttribPointer(positionLocation, 2, WebGLRenderingContext.FLOAT, false, 0, 0);
 
     //Position texture
-    const texCoordLocation = ctx.getAttribLocation(program, "a_texCoord");
+    const texCoordLocation = ctx.getAttribLocation(program, 'a_texCoord');
     const texCoordBuffer = ctx.createBuffer();
     ctx.bindBuffer(WebGLRenderingContext.ARRAY_BUFFER, texCoordBuffer);
     ctx.bufferData(
       WebGLRenderingContext.ARRAY_BUFFER,
-      new Float32Array([
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        1.0,
-        1.0,
-        0.0,
-        1.0,
-        1.0,
-      ]),
+      new Float32Array([0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0]),
       WebGLRenderingContext.STATIC_DRAW
     );
     ctx.enableVertexAttribArray(texCoordLocation);
-    ctx.vertexAttribPointer(
-      texCoordLocation,
-      2,
-      WebGLRenderingContext.FLOAT,
-      false,
-      0,
-      0
-    );
+    ctx.vertexAttribPointer(texCoordLocation, 2, WebGLRenderingContext.FLOAT, false, 0, 0);
 
     // Bind the source and target and draw the two triangles
     ctx.bindTexture(WebGLRenderingContext.TEXTURE_2D, source);
@@ -357,16 +270,14 @@ export class HsImageView {
 
     // We may have to flip if last target
     const flipY = target === null;
-    const uniformFlipY = ctx.getUniformLocation(program, "flipY");
+    const uniformFlipY = ctx.getUniformLocation(program, 'flipY');
     ctx.uniform1f(uniformFlipY, flipY ? -1 : 1);
 
     // Draw the rectangle.
     ctx.drawArrays(WebGLRenderingContext.TRIANGLES, 0, 6);
   }
 
-  private createFramebufferTexture(
-    ctx: WebGLRenderingContext
-  ): { target: WebGLFramebuffer; source: WebGLTexture } {
+  private createFramebufferTexture(ctx: WebGLRenderingContext): {target: WebGLFramebuffer; source: WebGLTexture} {
     const fbo: WebGLFramebuffer = ctx.createFramebuffer();
     ctx.bindFramebuffer(ctx.FRAMEBUFFER, fbo);
 
@@ -375,43 +286,27 @@ export class HsImageView {
 
     const texture: WebGLTexture = ctx.createTexture();
     ctx.bindTexture(ctx.TEXTURE_2D, texture);
-    ctx.texImage2D(
-      ctx.TEXTURE_2D,
-      0,
-      ctx.RGBA,
-      this.imgRef.naturalWidth,
-      this.imgRef.naturalHeight,
-      0,
-      ctx.RGBA,
-      ctx.UNSIGNED_BYTE,
-      null
-    );
+    ctx.texImage2D(ctx.TEXTURE_2D, 0, ctx.RGBA, this.imgRef.naturalWidth, this.imgRef.naturalHeight, 0, ctx.RGBA, ctx.UNSIGNED_BYTE, null);
 
     ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_MAG_FILTER, ctx.LINEAR);
     ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_MIN_FILTER, ctx.LINEAR);
     ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_WRAP_S, ctx.CLAMP_TO_EDGE);
     ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_WRAP_T, ctx.CLAMP_TO_EDGE);
 
-    ctx.framebufferTexture2D(
-      ctx.FRAMEBUFFER,
-      ctx.COLOR_ATTACHMENT0,
-      ctx.TEXTURE_2D,
-      texture,
-      0
-    );
+    ctx.framebufferTexture2D(ctx.FRAMEBUFFER, ctx.COLOR_ATTACHMENT0, ctx.TEXTURE_2D, texture, 0);
 
     ctx.bindTexture(ctx.TEXTURE_2D, null);
     ctx.bindFramebuffer(ctx.FRAMEBUFFER, null);
 
-    return { target: fbo, source: texture };
+    return {target: fbo, source: texture};
   }
 
   private hasValidWegGLContext(): boolean {
-    const canvas: HTMLCanvasElement = document.createElement("canvas");
+    const canvas: HTMLCanvasElement = document.createElement('canvas');
 
     let ctx: WebGLRenderingContext;
     try {
-      ctx = canvas.getContext("webgl", { preserveDrawingBuffer: true });
+      ctx = canvas.getContext('webgl', {preserveDrawingBuffer: true});
     } catch (e) {
       return false;
     }
@@ -419,8 +314,8 @@ export class HsImageView {
     return ctx && ctx instanceof WebGLRenderingContext;
   }
   componentWillLoad(): void {
-    const imgEl = this.el.shadowRoot.querySelector("img");
-    imgEl.setAttribute("crossOrigin", "anonymous");
+    const imgEl = this.el.shadowRoot.querySelector('img');
+    imgEl.setAttribute('crossOrigin', 'anonymous');
   }
   render(): any {
     // ImgHTMLAttributes<HTMLImageElement crossOrigin={'anonymous'}
@@ -431,8 +326,7 @@ export class HsImageView {
         src={this.src}
         role="img"
         aria-hidden={true}
-        onLoad={() => this.applyFilter()}
-      ></img>
+        onLoad={() => this.applyFilter()}></img>
     );
   }
 }

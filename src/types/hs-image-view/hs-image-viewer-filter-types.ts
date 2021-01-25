@@ -1,72 +1,9 @@
 export class HSImageViewerFilterType {
   static getFilters(level: number): any {
     return {
-      SEPIA: [
-        1.351,
-        0,
-        0,
-        0,
-        0,
-        1.203,
-        0,
-        0,
-        0,
-        0,
-        0.937,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-      ],
-      BLUE_MONOTONE: [
-        0.95,
-        0,
-        0,
-        0,
-        0.05,
-        0.85,
-        0,
-        0,
-        0,
-        0.15,
-        0.5,
-        0,
-        0,
-        0,
-        0.5,
-        0,
-        0,
-        0,
-        1,
-        0,
-      ],
-      VIOLENT_TOMATO: [
-        0.9,
-        0,
-        0,
-        0,
-        2,
-        0.9,
-        0,
-        0,
-        0,
-        -0.2,
-        -0.2,
-        0,
-        0,
-        0,
-        -0.5,
-        -0.2,
-        -0.2,
-        -0.2,
-        1,
-        0,
-      ],
+      SEPIA: [1.351, 0, 0, 0, 0, 1.203, 0, 0, 0, 0, 0.937, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+      BLUE_MONOTONE: [0.95, 0, 0, 0, 0.05, 0.85, 0, 0, 0, 0.15, 0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, 0],
+      VIOLENT_TOMATO: [0.9, 0, 0, 0, 2, 0.9, 0, 0, 0, -0.2, -0.2, 0, 0, 0, -0.5, -0.2, -0.2, -0.2, 1, 0],
       GREYSCALE: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0],
       DESATURATE: [
         0.2764723002910614,
@@ -182,83 +119,20 @@ export class HSImageViewerFilterType {
         1,
         0,
       ],
-      POLAROID: [
-        1.438,
-        -0.062,
-        -0.062,
-        0,
-        0,
-        -0.122,
-        1.378,
-        -0.122,
-        0,
-        0,
-        -0.016,
-        -0.016,
-        1.483,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-      ],
+      POLAROID: [1.438, -0.062, -0.062, 0, 0, -0.122, 1.378, -0.122, 0, 0, -0.016, -0.016, 1.483, 0, 0, 0, 0, 0, 1, 0],
       BGR: [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0],
     };
   }
 
   private static brightnessMatrix(brigthness: number): any {
-    return [
-      brigthness,
-      0,
-      0,
-      0,
-      0,
-      0,
-      brigthness,
-      0,
-      0,
-      0,
-      0,
-      0,
-      brigthness,
-      0,
-      0,
-      0,
-      0,
-      0,
-      1,
-      0,
-    ];
+    return [brigthness, 0, 0, 0, 0, 0, brigthness, 0, 0, 0, 0, 0, brigthness, 0, 0, 0, 0, 0, 1, 0];
   }
 
   private static contrastMatrix(amount: number): any {
     let v: number = amount;
     let o: number = -128 * (v - 1);
 
-    return HSImageViewerFilterType.normalizeMatrix([
-      v,
-      0,
-      0,
-      0,
-      o,
-      0,
-      v,
-      0,
-      0,
-      o,
-      0,
-      0,
-      v,
-      0,
-      o,
-      0,
-      0,
-      0,
-      1,
-      0,
-    ]);
+    return HSImageViewerFilterType.normalizeMatrix([v, 0, 0, 0, o, 0, v, 0, 0, o, 0, 0, v, 0, o, 0, 0, 0, 1, 0]);
   }
 
   private static normalizeMatrix(matrix: any): any {
@@ -318,13 +192,11 @@ export class HSImageViewerFilterType {
 
     let result: number[] = null;
 
-    Object.keys(HSImageViewerFilterType.getFilters(filterValue)).forEach(
-      (filterKey: string) => {
-        if (key.toUpperCase() === filterKey) {
-          result = HSImageViewerFilterType.getFilters(filterValue)[filterKey];
-        }
+    Object.keys(HSImageViewerFilterType.getFilters(filterValue)).forEach((filterKey: string) => {
+      if (key.toUpperCase() === filterKey) {
+        result = HSImageViewerFilterType.getFilters(filterValue)[filterKey];
       }
-    );
+    });
 
     return result;
   }
