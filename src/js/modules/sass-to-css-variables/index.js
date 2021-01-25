@@ -6,9 +6,10 @@ const glob       = require('glob')
 // const scssVarFile = path.resolve(__dirname, "../../../scss/variables/_colors.scss");
 // const cssVarFile = path.resolve(__dirname, "../../../scss/variables/_css-vars2.css");
 
-function convert(src, dest) {
-  src = scssVarFile;
-  dest = cssVarFile;
+
+(function convert(src, dest) {
+  // src = scssVarFile;
+  // dest = cssVarFile;
     return new Promise((resolve, reject) => {
 
         let sourceCssStream = lineReader.createInterface({
@@ -111,7 +112,9 @@ function convert(src, dest) {
 
     });
 
-}
+});
+
+exports.convert = convert;
 
 // convert()
 //   .then((result) => console.log(result))

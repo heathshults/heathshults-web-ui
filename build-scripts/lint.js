@@ -1,4 +1,4 @@
-import {exec} from 'child_process';
+const {exec} = require('child_process');
 
 
 
@@ -27,5 +27,7 @@ const lint_js = function() {
     }
   });
 };
+
+exports.lint_js = lint_js;
 
 lint_js();

@@ -16,7 +16,7 @@
   "scripts": {
     "start": "npm-run-all --sequential comp:build:nowatch comp:copy html:components:copy eslint:go js:transpile gulp:ejsit scss:compile assets:copy serve:proxy",
     "start:debug": "npm run build && node build-scripts/start-debug.js",
-    "comp:build:nowatch": "node_modules/.bin/stencil build --dev --docs-readme --debug && npm run comp:copy",
+    "comp:build:nowatch": "node_modules/.bin/stencil build --dev --docs-readme --debug",
     "comp:build": "node_modules/.bin/stencil build --docs-readme --watch",
     "comp:serve": "node_modules/.bin/stencil build --dev --watch --serve",
     "comp:test": "node_modules/.bin/stencil test --spec --e2e",
@@ -27,10 +27,11 @@
     "build": "npm-run-all --sequential comp:build:nowatch comp:copy html:components:copy js:transpile gulp:ejsit stylelint:go scss:compile autoprefixer:go assets:copy",
     "assets:copy": "node ./build-scripts/build-assets.js && npm run gulp:copy:js",
     "ejs:build": "node build-scripts/build-ejs.js",
-    "eslint:go": "eslint --fix src/js/HeathScript.js src/js/jqBootstrapValidation.js src/js/contact_me.js src/js/modules/show-more-fadebar/show-more.js",
-    "js:transpile": "npm-run-all --sequential eslint:go gulp:babelfry",
+    "eslint": "eslint --fix src/js/HeathScript.js src/js/jqBootstrapValidation.js src/js/contact_me.js src/js/modules/show-more-fadebar/show-more.js",
+    "js:transpile": "npm-run-all --sequential eslint js",
+    "js": "node build-scripts/build-scripts",
     "gulp:babelfry": "gulp babelfry",
-    "stylelint:go": " stylelint --fix src/scss/**/*.scss",
+    "stylelint": " stylelint --fix src/scss/**/*.scss",
     "scss:compile": "node build-scripts/build-scss.js",
     "autoprefixer": "npx postcss www-app/assets/css/*.css --use autoprefixer -d www-app/assets/css/",
     "html:components:build": "gulp build_components",
@@ -47,7 +48,8 @@
     "test": "jest --no-cache",
     "test.watch": "jest --watch --no-cache",
     "scss:vars:convert": "node src/js/modules/scssVars-2-cssVars/index.js",
-    "scss-to-cssvars": "node_modules/sass-to-css-variables/bin/sass-to-css-variables src/scss/variables/_colors.scss -o src/scss/variables/_css-vars2.css",
+    "hs-cssvars": "src/js/modules/sass-to-css-variables/bin/sass-to-css-variables src/scss/variables/_colors.scss -o src/scss/variables/_css-vars2.css",
+    "bs-cssvars": "src/js/modules/sass-to-css-variables/bin/sass-to-css-variables src/scss/bootstrap/scss/_variables.scss -o src/scss/variables/css-vars-bootstrap.css",
     "cssvars": "node src/js/modules/scssVars-2-cssVars/index.js",
     "debug:scss": "sass src/scss/styles.scss www-app/assets/css/HeathStyle.built.css"
   },
@@ -132,6 +134,7 @@
     "clean-webpack-plugin": "^3.0.0",
     "commander": "^7.0.0",
     "concurrently": "^5.2.0",
+    "copy": "^0.3.2",
     "copy-webpack-plugin": "^6.0.1",
     "copyfiles": "^2.4.1",
     "cross-env": "^7.0.3",
@@ -254,7 +257,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged",
+      "pre-commit": "pretty-quick --no-verify",
       "pre-push": "npm test"
     }
   }

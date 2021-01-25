@@ -1,5 +1,59 @@
 @import "../../scss/bootstrap/scss/functions";
 @import "../../scss/bootstrap/scss/variables";
 @import "../../scss/bootstrap/scss/mixins";
-@import "../../scss/vars";
-@import "../../scss/components/components.cards_button";
+
+@import "../../scss/variables/maps";
+@import "../../scss/variables/functions";
+@import "../../scss/variables/colors";
+@import "../../scss/variables/mixins";
+@import "../../scss/components/components.cards_button.scss";
+
+root:{
+  --hs-theme_primary: #fed136;
+  --hs-theme_primary--trans50: rgba(254, 211, 54, 0.5);
+  --hs-theme_secondary: #6c757d;
+  --hs-theme_success: #28a745;
+  --hs-theme_info: #17a2b8;
+  --hs-theme_danger: #e74c3c;
+  --hs-theme_warning: #007bff;
+  --hs-theme_background-primary: #f8f8f8;
+  --hs-theme_background-secondary: #ebebeb;
+  --hs-black: #000;
+  --hs-black_15: rgba(0, 0, 0, 0.15);
+  --hs-black_25: rgba(0, 0, 0, 0.25);
+  --hs-black_45: rgba(0, 0, 0, 0.45);
+  --hs-black_50: rgba(0, 0, 0, 0.5);
+  --hs-black_75: rgba(0, 0, 0, 0.75);
+  --hs-white: #fff;
+  --hs-gray-100: #f8f9fa;
+  --hs-gray-200: #e9ecef;
+  --hs-gray-300: #dee2e6;
+  --hs-gray-400: #ced4da;
+  --hs-gray-500: #adb5bd;
+  --hs-gray-600: #6c757d;
+  --hs-gray-700: #495057;
+  --hs-gray-800: #343a40;
+  --hs-gray-900: #212529;
+  --hs-black: #000;
+  --hs-theme-darken-tint: 15%;
+  --hs-theme-lighten-tint: 15%;
+  --hs-lightnessMultiplier: 0.9;
+  --hs-gray-base: var(--hs-gray-900);
+  --hs-gray-darker: var(--hs-gray-800);
+  --hs-gray-dark: var(--hs-gray-700);
+  --hs-gray-medium: var(--hs-gray-600);
+  --hs-gray: var(--hs-gray-500);
+  --hs-gray-light: var(--hs-gray-400);
+  --hs-gray-lighter: var(--hs-gray-300);
+  --hs-gray-lighter-05: var(--hs-gray-200);
+  --hs-gray-lightest: var(--hs-gray-100);
+  --hs-white: #fff;
+  --hs-white_2: #f2f2f2;
+  --hs-white_5: #f8f8f8;
+  --hs-font-primary: "Roboto", sans-serif;
+  --hs-font-secondary: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --hs-font-serif: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --hs-font-cursive-Caveat: "Caveat", cursive;
+  --hs-shadow-sm:  0px 2px 6px -3px rgba(0, 0, 0, 0.15);
+}  
+

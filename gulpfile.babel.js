@@ -13,6 +13,7 @@ import path from 'path';
 
 // let fs = require('fs-extra')
 import {src, dest, gulp, task, watch, series, parallel} from 'gulp';
+import copy from 'copy';
 
 // var sass = require('gulp-sass')
 import browserSync from 'browser-sync';
@@ -176,6 +177,21 @@ let assets = '{jpg,png,gif,svg,mp4}';
 
 //#endregion
 
+function copy_web_components(done) {
+  return new Promise((resolve, reject) => {
+    try {
+      setTimeout(() => {
+        copy('www/components/**/*', 'www-app/components', done);
+        console.log(chalk.green('web components copied to app-www/components'));
+        resolve(true);
+      }, 2000);
+    } catch(e) {
+      console.log(chalk.red("Error: " + e));
+      }
+    });
+}
+exports.copy_web_components = copy_web_components;
+ 
 function ejsit(done) {
   return src(`${srcPath}/views/**/*.ejs`)
     .pipe(plumber())
@@ -503,7 +519,7 @@ function watchers(cb) {
         watch([`${srcPath}/scss/**/*.scss`], compileCSS).on('change', browserSync.stream()), callback;
         watch([`${srcPath}/assets/**/*.css`], ra.copy_css), callback;
         watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], copy_js), callback;
-        watch([`${buildPath}/**/*`], copy_components), callback;
+        watch([`${buildPath}/**/*`], copyComponents), callback;
         watch([`${p.src_js}/js/HeathScript.js`], babelfry), callback;
         watch([`${srcCompPath}/**/*.scss`],  render_components).on('change', browserSync.stream()), callback;
         // watch([`${srcCompPath}/**/*`],  series(build_components, copy_components)), callback;
@@ -554,7 +570,7 @@ function connect_sync(cb) {
   watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], copy_js), callback;
   watch([`${buildPath}/**/*`], copy_components), callback;
   watch([`${p.src_js}/js/HeathScript.js`, `${p.src_js}/js/jqBootstrapValidation.js`, `${p.src_js}/js/contact_me.js`], babelfry), callback;
-  watch([`${srcCompPath}/**/*`],  copy_components), callback;
+  watch([`${srcCompPath}/**/*`],  exec('npm run comp:build:nowatch', (e) => console.log(e))), callback;
   // watch([`${srcCompPath}/**/*`],  render_components), callback;
   cb();
 

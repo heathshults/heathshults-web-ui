@@ -1,13 +1,13 @@
 // 'use strict';
 /* eslint-disable no-octal */
-import nfs from 'node-fs';
-import fs from 'fs';
-import path from 'path';
-import browserify from 'browserify';
-import browserSync from 'browser-sync';
-import chalk from 'chalk';
-import { exec } from 'child_process';
-import theLinters from './lint';
+const nfs = require('node-fs'),
+  fs = require('fs'),
+  path = require('path'),
+  browserify = require('browserify'),
+  browserSync = require('browser-sync'),
+  chalk = require('chalk'),
+  { exec } = require('child_process'),
+  theLinters = require('./lint');
 
 // let babelify = require('babelify')
 let inFile = path.resolve(__dirname, '../src/index.js');
