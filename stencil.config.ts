@@ -6,12 +6,12 @@ import autoprefixer from 'autoprefixer';
 
 export const config: Config = {
   namespace: 'heathenscript-ui-components',
-  globalStyle: 'src/components/global/global.scss',
+  globalStyle: 'src/global/variables.css',
   plugins: [
     sass(),
-    postcss({
-      plugins: [autoprefixer()],
-    }),
+    // postcss({
+    //   plugins: [autoprefixer()],
+    // }),
   ],
   outputTargets: [
     {

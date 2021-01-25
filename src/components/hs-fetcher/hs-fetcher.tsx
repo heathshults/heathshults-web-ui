@@ -1,26 +1,18 @@
-import {
-  Component,
-  Prop,
-  EventEmitter,
-  Event,
-  State,
-  Method,
-  h,
-} from "@stencil/core";
+import {Component, Prop, EventEmitter, Event, State, Method} from '@stencil/core';
 
 @Component({
-  tag: "hs-fetcher",
-  styleUrl: "hs-fetcher.scss",
+  tag: 'hs-fetcher',
+  styleUrl: 'hs-fetcher.scss',
   shadow: true,
 })
 export class HsFetcher {
   @Prop() headers: Headers = new Headers();
-  @Prop() method = "GET";
-  @Prop() url = "";
-  @Prop() buttonLabel = "Fetch";
+  @Prop() method = 'GET';
+  @Prop() url = '';
+  @Prop() buttonLabel = 'Fetch';
 
   @Event() resolved: EventEmitter;
-  @Event() error: EventEmitter;
+  @Event() fetcherror: EventEmitter;
 
   @State() available = false;
   @State() request: any;
@@ -47,7 +39,7 @@ export class HsFetcher {
         )
         .catch(
           function (err) {
-            this.error.emit(err);
+            this.fetcherror.emit(err);
           }.bind(this)
         );
     }

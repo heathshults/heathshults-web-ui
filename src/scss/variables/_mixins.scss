@@ -25,7 +25,6 @@
   background: -webkit-linear-gradient(transparent, transparent), url($img-url) repeat;
   background: -o-linear-gradient(transparent, transparent);
   -webkit-background-clip: text;
-
 }
 @mixin button {
   @include disabled;
@@ -130,7 +129,7 @@
 
   &:active,
   &.active,
-  .open >&.dropdown-toggle {
+  .open > &.dropdown-toggle {
     color: $hs-theme-color-text;
     background-color: darken($hs-white_2, 10%);
     /* stylelint-disable-next-line */
@@ -148,14 +147,13 @@
 
   &:active,
   &.active,
-  .open >&.dropdown-toggle {
+  .open > &.dropdown-toggle {
     background-image: none;
   }
 
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
-
     &:hover,
     &:focus,
     &.focus {
@@ -170,8 +168,6 @@
     background-color: $hs-theme-color-text;
   }
 }
-
-
 
 @mixin hs-button-color($hs-button-background-color: $hs-button-background-color, $hs-theme-color-text: $hs-button-color) {
   color: $hs-theme-color-text;
@@ -232,34 +228,38 @@
   }
 }
 
-@mixin button-shadowlined-variant($hs-button-background-color,  $hs-lightnessMultiplier) {
-  // $darkened-button-background: darken($hs-button-background-color, $hs-theme-darken-tint) !default;
-  // $lightened-button-background: lighten($hs-button-background-color, $hs-theme-lighten-tint) !default;
+@mixin button-shadowlined-variant($hs-button-background-color, $hs-lightnessMultiplier) {
+  // @debug darken($hs-button-background-color, $hs-theme-darken-tint);
+  // @debug lighten($hs-button-background-color, $hs-theme-lighten-tint);
+  // @debug "set color:" set-color($hs-button-background-color, $hs-lightnessMultiplier);
 
-  color: set-button-text-color($hs-button-background-color, $hs-lightnessMultiplier);
+  $darkenColor: darken($hs-button-background-color, $hs-theme-darken-tint);
+  $lightenColor: lighten($hs-button-background-color, $hs-theme-lighten-tint);
+
+  color: set-color($hs-button-background-color, $hs-lightnessMultiplier);
   background-color: $hs-button-background-color;
   border: darken($hs-button-background-color, $hs-lightnessMultiplier);
-  box-shadow: $hs-shadow-md;
+  box-shadow: $hs-shadow-sm;
 
   &.card-button--active {
-    background-color: darken($hs-button-background-color, $hs-theme-darken-tint);
+    background-color: $darkenColor;
   }
 
   &:not(:disabled):not([disabled]) {
     &:not(:active) {
       &:hover {
-        background-color: lighten($hs-button-background-color, $hs-theme-lighten-tint);
+        background-color: $lightenColor;
       }
     }
 
     &:focus {
-      border-color: darken(darken($hs-button-background-color, $hs-theme-darken-tint), 5%);
-      box-shadow: darken(darken($hs-button-background-color, $hs-theme-darken-tint), 15%);
-      box-shadow: $hs-shadow-md;
+      border-color: darken($hs-button-background-color, ($hs-theme-darken-tint + 2%));
+      box-shadow: darken($hs-button-background-color, ($hs-theme-darken-tint + 2%));
+      box-shadow: $hs-shadow-sm;
     }
 
     &:active {
-      background-color: darken($hs-button-background-color, $hs-theme-darken-tint);
+      background-color: darken($hs-button-background-color, ($hs-theme-darken-tint + 5%));
     }
   }
 }
@@ -302,7 +302,6 @@
 }
 
 @mixin responsive-box {
-
   //@extend-elements
   %extend_responsive_box_defaults {
     position: absolute;
@@ -313,7 +312,6 @@
     height: 100%;
     border: 0;
   }
-
 
   .responsive-box {
     position: relative;
@@ -361,7 +359,6 @@
     width: $hs-card-img-width--sm;
     height: $hs-card-img-height--sm;
   }
-
 }
 
 @mixin banner-dimensions--lg {
@@ -399,7 +396,6 @@
   @include header-banner-sizes;
 }
 
-
 @mixin card-size--sm {
   .hs-card {
     margin: inherit;
@@ -428,7 +424,6 @@
 }
 
 @mixin card-size--md {
-
   .hs-card {
     margin: 5px auto;
     &--sm {
@@ -462,7 +457,6 @@
       height: auto;
       margin: 5px auto;
     }
-
   }
 }
 @mixin card-size--lg {
@@ -497,10 +491,7 @@
   }
 }
 
-
-
 /* #region   */
-
 
 /* #endregion */
 
@@ -563,9 +554,7 @@
     @media #{$logic} and (min-width: map-get($map: $breakpoints, $key: $breakpoint)) {
       @content;
     }
-  }
-
-  @else {
+  } @else {
     @media (min-width: map-get($map: $breakpoints, $key: $breakpoint)) {
       @content;
     }
@@ -578,16 +567,16 @@
 
 // --------------------------------
 
-@mixin triangle ($direction: up, $width: 12px, $color: red) {
+@mixin triangle($direction: up, $width: 12px, $color: red) {
   width: 0;
   height: 0;
   border: $width solid transparent;
 
-  @if ( $direction == left ) {
+  @if ($direction == left) {
     border-right-color: $color;
-  } @else if( $direction == right ) {
+  } @else if($direction == right) {
     border-left-color: $color;
-  } @else if( $direction == down ) {
+  } @else if($direction == down) {
     border-top-color: $color;
   } @else {
     border-bottom-color: $color;
@@ -613,7 +602,7 @@
     width: 0;
     height: 0;
     margin-top: calc((#{$capital-letter} - #{$line-height}) * 0.5em);
-    content: '';
+    content: "";
   }
 }
 
@@ -622,7 +611,6 @@
   --text-unit: #{$text-unit};
   font-size: var(--text-unit);
 }
-
 
 // functions
 

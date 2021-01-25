@@ -1,5 +1,5 @@
-const autoprefixer = require("autoprefixer");
-const postcss = require("postcss");
+const autoprefixer = require('autoprefixer');
+const postcss = require('postcss');
 
 postcss([autoprefixer])
   .process(css)
