@@ -6,13 +6,13 @@ const del = require('del')
 const path = require('path');
 
 const wwwApp = path.resolve(path.dirname(__filename), '../www-app');
-const wwwComps = path.resolve(path.dirname(__filename), '../www-app');
+const wwwComps = path.resolve(path.dirname(__filename), '../www');
 // sh.rm('-rf', `${destPath}/**/*.*`)
 
 (async () => {
   const deletedPaths = await del([
     `${wwwApp}/components/**/*.*`,
-    `${wwwComps}/build/**/*`
+    `${wwwComps}/components/**/*.*`
   ]);
   console.log('Deleted files and directories:\n', deletedPaths.join('\n'));
 })();

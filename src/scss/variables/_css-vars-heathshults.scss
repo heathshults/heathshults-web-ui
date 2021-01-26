@@ -1,4 +1,5 @@
-:root {
+:root{
+  --hs-ns: "hs";
   --yellow: #fed136;
   --primary: var(--yellow);
   --yiq-contrasted-threshold: 205;
@@ -56,6 +57,24 @@
   --hs-gray-800: #343a40;
   --hs-gray-900: #212529;
   --hs-black: #000;
+  --hs-grays: ();
+  --hs-grays:
+    map-merge(
+      (
+        "0": --hs-white,
+        "100": --hs-gray-100,
+        "200": --hs-gray-200,
+        "300": --hs-gray-300,
+        "400": --hs-gray-400,
+        "500": --hs-gray-500,
+        "600": --hs-gray-600,
+        "700": --hs-gray-700,
+        "800": --hs-gray-800,
+        "900": --hs-gray-900,
+        "1000": --hs-black,
+      ),
+      --hs-grays
+    );
   --hs-theme-darken-tint: 15%;
   --hs-theme-lighten-tint: 15%;
   --hs-lightnessMultiplier: 0.9;
@@ -99,6 +118,22 @@
   --hs-clip-background: content-box;
   --hs-baige-light: #cac1ac;
   --hs-baige-medium: #a79e8b;
+  --interaction-colors: ();
+  --interaction-colors:
+    map-merge(
+      (
+        "primary": --hs-theme_primary,
+        "secondary": --hs-theme_secondary,
+        "success": --hs-theme_success,
+        "info": --hs-theme_info,
+        "warning": --hs-theme_warning,
+        "danger": --hs-theme_danger,
+        "light": --hs-gray-lightest,
+        "white": --hs-white,
+        "dark": --hs-gray-medium,
+      ),
+      --interaction-colors
+    );
   --hs-theme-color-text: var(--hs-gray-dark);
   --hs-theme-color-text-onDark: var(--hs-white);
   --hs-font-primary: "Roboto", sans-serif;
@@ -167,18 +202,13 @@
   --hs-shadow-xs: 2px 0.2rem 0.2rem rgba(0, 0, 0, 0.15);
   --hs-shadow-xs-reverse: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.15);
   --hs-shadow-xs-center: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.15);
-  --hs-shadow-xs-center-xtra:
-    0 0.2rem 0.2rem rgba(0, 0, 0, 0.15),
-    0 0.2rem 0.2rem rgba(0, 0, 0, 0.15);
+  --hs-shadow-xs-center-xtra: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.15), 0 0.2rem 0.2rem rgba(0, 0, 0, 0.15);
   --hs-shadow-xs-center-reverse: -2px 0.1rem 0.2rem rgba(0, 0, 0, 0.15);
-  --hs-shadow-sm: 0px 2px 6px -3px rgba(0, 0, 0, 0.5);
+  --hs-shadow-sm: 0px 2px 6px -3px rgba(0, 0, 0, 0.15);
   --hs-shadow-lg: 0px 4px 8px 3px rgba(0, 0, 0, 0.4) rgba(0, 0, 0, 0.4);
   --hs-shadow-inset-blue: inset 0 0 0 2px #5173ff;
   --hs-shadow-none: none;
-  --hs-card-shadow:
-    0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-    0px 1px 1px 0px rgba(8, 7, 7, 0.14),
-    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  --hs-card-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   --hs-button-shadow-nocolor: 0 0 0 0.2rem;
   --hs-button-focus: var(--hs-button-shadow-nocolor) --hs-theme_primary--trans50;
   --hs-button-secondary-focus: var(--hs-button-shadow-nocolor) --hs-gray-medium;
