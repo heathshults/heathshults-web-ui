@@ -8,29 +8,29 @@
 // @import "../variables/mixins";
 
 button {
-  border: 1px solid var(--hs-gray-lighter);
+  border: 1px solid  $hs-gray-lighter;
 }
 
 .hs-card_button {
   display: inline-block;
-  font-family: var(--btn-font-family);
+  font-family: $btn-font-family;
   font-size: rem(14px);
-  font-weight: var(--btn-font-weight);
-  color: var(--body-color);
+  font-weight: $btn-font-weight;
+  color: $body-color;
   text-align: center;
   text-decoration: if($link-decoration == none, null, none);
-  white-space: var(--btn-white-space);
+  white-space: $btn-white-space;
   vertical-align: middle;
   cursor: pointer;
   user-select: none;
-  background-color: var(--hs-gray-100);
-  border: var(--btn-border-width) solid var(--hs-gray-300);
-  box-shadow: var(--hs-shadow--sm);
-  @include button-size(var(--btn-padding-y), var(--btn-padding-x), var(--btn-font-size), var(--btn-line-height), var(--btn-border-radius));
+  background-color: $hs-gray-100;
+  border: $btn-border-width solid  $hs-gray-300;
+  box-shadow: $hs-shadow-sm;
+  @include button-size($btn-padding-y,  $btn-padding-x,  $btn-font-size,  $btn-line-height,  $btn-border-radius);
   @include transition($btn-transition);
 
   @include hover() {
-    color: var(--body-color);
+    color: $body-color;
     text-decoration: none;
     cursor: pointer;
   }
@@ -38,13 +38,13 @@ button {
   &:focus,
   &.focus {
     outline: 0;
-    box-shadow: var(--btn-focus-box-shadow);
+    box-shadow: $btn-focus-box-shadow;
   }
 
   // Disabled comes first so active can properly restyle
   &.disabled,
   &:disabled {
-    opacity: var(--btn-disabled-opacity);
+    opacity: $btn-disabled-opacity;
     @include box-shadow(none);
   }
 
@@ -53,10 +53,10 @@ button {
 
     &:active,
     &.active {
-      @include box-shadow(var(--btn-active-box-shadow));
+      @include box-shadow($btn-active-box-shadow);
 
       &:focus {
-        @include box-shadow(var(--btn-focus-box-shadow), var(--btn-active-box-shadow));
+        @include box-shadow($btn-focus-box-shadow,  $btn-active-box-shadow);
       }
     }
   }
@@ -94,7 +94,7 @@ fieldset:disabled a.hs-card_button {
 
   // Vertically space out multiple block buttons
   + .hs-card_button-block {
-    margin-top: var(--btn-block-spacing-y);
+    margin-top: $btn-block-spacing-y;
   }
 }
 

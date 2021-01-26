@@ -324,6 +324,10 @@ function copy_vendor(cb) {
     src([`${srcPath}/assets/components/**/*.{html,css,js,json,php}`])
     .pipe(debug({ title: 'copied' }))
     .pipe(dest(`${wwwPath}/assets/content`), {overwrite: true});
+    
+    src([`${srcPath}/global/**/*.{html,css,js,json,php}`])
+    .pipe(debug({ title: 'copied' }))
+    .pipe(dest(`${wwwPath}/global/`), {overwrite: true});
 
     src([`${srcPath}/assets/vendor/**/*`])
     .pipe(debug({ title: 'copied' }))

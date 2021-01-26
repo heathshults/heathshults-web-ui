@@ -1,3 +1,3 @@
-const ejs = require('./render-ejs')
+const ejs = require('./render-ejs');
 
-ejs.ejsit()
+ejs.ejsit();

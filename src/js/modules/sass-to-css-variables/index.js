@@ -1,20 +1,30 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path       = require('path');
 const fs         = require('fs');
 const lineReader = require('readline');
-const glob       = require('glob')
+const stylelint = require('stylelint');
+const { exec } = require('child_process');
+// const glob       = require('glob');
 
-// const scssVarFile = path.resolve(__dirname, "../../../scss/variables/_colors.scss");
-// const cssVarFile = path.resolve(__dirname, "../../../scss/variables/_css-vars2.css");
+// import path from 'path';
+// import fs from 'fs';
+// import lineReader from 'readline';
+// import glob from 'glob';
+
+const scssVarFileHS = path.resolve(__dirname, "../../../scss/variables/_colors.scss"),
+  cssVarFileHS = path.resolve(__dirname, "../../../scss/variables/_css-vars-heathshults.scss"),
+  scssVarFileBS = path.resolve(__dirname, "../../../scss/variables/_bootstrap-cssvars-in.scss"),
+  cssVarFileBS = path.resolve(__dirname, "../../../scss/variables/_css-vars-bootstrap.scss");
 
 
-(function convert(src, dest) {
+function convert(src, dest) {
   // src = scssVarFile;
   // dest = cssVarFile;
     return new Promise((resolve, reject) => {
 
         let sourceCssStream = lineReader.createInterface({
             input: fs.createReadStream(src)
-        })
+        });
 
         let rebuiltFile = ':root{';
         let skippingLine = false;
@@ -35,7 +45,7 @@ const glob       = require('glob')
             }
 
             if (line.startsWith('//') || (line.startsWith('/*') && line.includes('*/'))) {
-                return
+                return;
             }
             
             let rebuiltLine = '';
@@ -95,7 +105,7 @@ const glob       = require('glob')
                     outputFile.end();
                 });
                 outputFile.on('close', function() {
-                    resolve(dest)
+                    resolve(dest);
                 });
             } else {
                 let outputFile = fs.createWriteStream(src);
@@ -103,19 +113,34 @@ const glob       = require('glob')
                 outputFile.once('open', function(fd) {
                     outputFile.write(rebuiltFile);
                     outputFile.end();
-                });
-                outputFile.on('close', function() {
+                  });
+                  outputFile.on('close', function() {
                     resolve(src);
-                });
+                  });
+                  
             }
         });
 
+        const { exec } = require('child_process');
+        exec(`stylelint --fix ${cssVarFileHS}`, (e) => {if (e){
+           console.log(e);
+        }});
+        exec(`stylelint --fix ${cssVarFileBS}`, (e) => {if (e){
+          console.log(e);
+       }});
     });
-
-});
+}
 
 exports.convert = convert;
 
-// convert()
-//   .then((result) => console.log(result))
-//   .catch((error) => console.log(error));
+convert(scssVarFileHS, cssVarFileHS)
+  .then(
+    result => console.log(result)
+  )
+  .then(
+    () => convert(scssVarFileBS, cssVarFileBS)
+    .then(
+      result => console.log(result)
+    )
+  )
+  .catch(error => console.log(error));
