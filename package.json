@@ -14,7 +14,7 @@
     "loader/"
   ],
   "scripts": {
-    "start": "npm-run-all --sequential comp:clean comp:build:nowatch comp:copy eslint js:transpile gulp:ejsit scss:compile assets:copy serve:proxy",
+    "start": "npm-run-all --sequential comp:clean comp:build:nowatch eslint js:transpile gulp:ejsit comp:copy scss:compile assets:copy serve:proxy",
     "start:debug": "npm run build && node build-scripts/start-debug.js",
     "comp:build:nowatch": "npm run comp:clean && node_modules/.bin/stencil build --dev --docs-readme --debug",
     "comp:build": "npm run comp:clean && node_modules/.bin/stencil build --docs-readme --watch",
@@ -22,7 +22,7 @@
     "comp:test": "node_modules/.bin/stencil test --spec --e2e",
     "comp:test:watch": "node_modules/.bin/stencil test --spec --e2e --watchAll",
     "comp:generate": "node_modules/.bin/stencil generate",
-    "comp:copy": "copy www/components/**/* www-app/components",
+    "comp:copy": "node_modules/.bin/copy www/components/**/* www-app/components",
     "comp:copy:build:nowatch": "npm-run-all comp:build:nowatch comp:copy",
     "build": "npm-run-all --sequential comp:build:nowatch comp:copy html:components:copy js:transpile gulp:ejsit stylelint:go scss:compile autoprefixer:go assets:copy",
     "assets:copy": "node ./build-scripts/build-assets.js && npm run gulp:copy:js",
