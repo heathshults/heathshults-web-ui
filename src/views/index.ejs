@@ -208,7 +208,7 @@
                   <div slot="card-header" card-size="" class="container-fluid p-2 pt-4">
                     <img src="/assets/img/logos/js-logo.jpg" alt="javascript" class="hs-skills-logo mr-2" height="65" />
                     <img src="/assets/img/logos/AngularJS_logo.svg.png" alt="AngularJS" class="hs-skills-logo"
-                      height="65" />
+                      width="50%" />
                   </div>
 
                   <hs-card-body id="cardBody" slot="card-body">
@@ -323,7 +323,7 @@
                 <hs-card card-id="02" color-tone="" card-size="">
                   <div slot="card-header" card-size="" class="container-fluid p-2 pt-4">
                     <img src="/assets/img/logos/webpack-javascript-logo.png" alt="webpack" class="hs-skills-logo mr-4"
-                      width="35%" />
+                      width="35% b" />
                     <img src="/assets/img/logos/gulp.svg" alt="gulp" class="hs-skills-logo" height="65" />
                   </div>
                   <hs-card-body id="cardBody" slot="card-body">
@@ -371,7 +371,7 @@
             </h3>
           </div>
         </div>
-        <div class="row mt-5">
+        <div id="cardRow" class="row mt-5 even-height">
           <div class="col-md-3 hs-portfolio-item">
             <!-- CARD 01 -->
             <hs-card card-id="01" color-tone="" card-size="" img-path="/assets/img/portfolio/USAA/usaa-ema-01.jpg"
@@ -457,13 +457,17 @@
                     Proprietor Association<br>
                     Director Technology - App Dev
                   </p>
-                  <div class="text-center">
-                    <hs-card-button css-class="hs-card_button hs-card_button-shadowlined--lightest" text="More" url="" url-params="_blank" modal-id="#bowlopolis"></hs-card-button>
-                  </div>
+                <div class="text-center">
+                  <hs-card-button 
+                    css-class="hs-card_button hs-card_button-shadowlined--lightest" 
+                    text="More" url="" 
+                    url-params="_blank" 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#bowlopolisDetails"></hs-card-button>
+                </div>
               </hs-card-body>
             </hs-card>
           </div>
-
           <!-- /Portfolio Items-->
         </div>
       </div>
@@ -733,22 +737,33 @@
           </div>
       </hs-card>
     </hs-modal>
-
-    <hs-modal id="forBowlopolis" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" modal-title="Bowlopolis">
-      <div slot="modal-body">
-        
-              <span class="text-xl">Bowlopolis</span>
-              <div class="text-lg text-center">Sub-heading</div>
-              
-      </div>
-          <div slot="modal-footer">
-          <p class="hs-paragraph">
-            Web design/development & game development for retention/frequency.
-          </p>
-          <p class="hs-paragraph">
-            <img class="img-responsive img-centered" src="/assets/img/portfolio/bowlopolis/bowlopolis.png" alt="">
-          </p>
+    
+    <div class="modal fade" id="bowlopolisDetails" tabindex="-1" aria-labelledby="bowlopolisDetails" aria-hidden="true" modal-title="Bowlopolis">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-xl" id="bowlopolisDetailsTitle">Modal title</h5>
+            <div class="text-lg text-center">Sub-heading</div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
+          <div class="modal-body">
+            <p class="hs-paragraph">
+              Web design/development & game development for retention/frequency.
+            </p>
+            <p class="hs-paragraph text-center">
+              <img class="img-fluid img-centered" src="/assets/img/portfolio/bowlopolis/bowlopolis.png" alt="">
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div slot="modal-footer">
+          
+      </div>
     </hs-modal>
 
     <!-- jQuery  -->
@@ -881,6 +896,28 @@
 
       // setTimeout(launchSMC, 2000)
 
+    </script>
+    <script>
+      
+      function evenHeight(ehSelector) {
+        var evenRows;
+        var height;
+        var evenRowChildren;
+        
+        function leveler(ehSelector) {
+          evenRows = Array.prototype.slice.call(document.querySelectorAll(ehSelector));
+          console.log(evenRows)
+          evenRows.forEach(row => {
+            height = row.offsetHeight();
+            evenRowChildren = Array.prototype.slice.call(row.childNodes);
+            evenRowChildren.forEach(child => {
+              child.style.height = height;
+            });
+          });
+        }       
+        return
+      }
+      evenHeight('.even-height');
     </script>
   </body>
 

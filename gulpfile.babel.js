@@ -574,7 +574,7 @@ function connect_sync(cb) {
   watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], copy_js), callback;
   watch([`${buildPath}/**/*`], copy_components), callback;
   watch([`${p.src_js}/js/HeathScript.js`, `${p.src_js}/js/jqBootstrapValidation.js`, `${p.src_js}/js/contact_me.js`], babelfry), callback;
-  watch([`${srcCompPath}/**/*`],  exec('npm run comp:build:nowatch', (e) => console.log(e))), callback;
+  watch([`${srcCompPath}/**/*`],  exec('npm run comp:buildlight', (e) => console.log(e))), callback;
   // watch([`${srcCompPath}/**/*`],  render_components), callback;
   cb();
 
