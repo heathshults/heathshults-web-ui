@@ -3,29 +3,7 @@
 @import 'mixins/objects.grid';
 @import 'mixins/utilities.alignment';
 
-.hs-modal[role='dialog'] {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  z-index: $modal-z-index;
-  display: block;
-  width: $modal-width;
-  overflow: hidden;
-  visibility: hidden;
-  background-color: $modal-background-color;
-  border: $modal-border;
-  border-radius: $modal-border-radius;
-  opacity: 0;
-  transform: translate(-50%, -50%);
-
-  .hs-button--close {
-    position: fixed;
-    top: $spacing-medium;
-    left: 0;
-    z-index: 1032;
-    opacity: 0;
-    transition: all .25s ease-out;
-  }
+.modal {
 
   > .hs-card {
     background-color: transparent;
@@ -44,43 +22,16 @@
       color: $modal-ghost-heading-color;
     }
   }
-
   &.hs-modal--full {
-    top: 0%;
-    left: 50%;
-    z-index: $modal-z-index; // 1071
-    width: 90%;
-    height: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     transition: all .25s ease-out;
     transition-delay: .12s;
     transform: translateX(-50%);
-
-    &.hs-modal--visible {
-      height: 100vh;
-      background-color: $hs-blueGray-dark;
-      opacity: 1;
-      transition: all .25s ease-in;
-      transition-delay: .12s;
-
-      .hs-button--close {
-        position: fixed;
-        top: 10px;
-        right: 10px;
-        left: unset;
-        z-index: 1032;
-        width: 4rem;
-        height: 4rem;
-        font-size: 5rem;
-        color: $hs-white;
-        cursor: pointer;
-        background-color: transparent;
-        border: none;
-        outline: none;
-        opacity: 1;
-        transition: all .25s ease-in;
-      }
-    }
-
     .hs-card_body {
       position: absolute;
       top: 3.5em;
@@ -91,42 +42,18 @@
       -webkit-overflow-scrolling: touch;
       color: $hs-white;
     }
-
     .hs-card_footer {
       position: absolute;
       bottom: 0;
       width: 100%;
     }
   }
-
-  &.hs-modal--visible {
-    visibility: visible;
-    opacity: 1;
-    & + .hs-section {
-      background-attachment: fixed;
+  &.fade {
+    width: 1px;
+    height: 1px;
+    &.show {
+      width: 100vw;
+      height: 100vh;
     }
   }
 }
-.hs-modal-backdrop {
-  position: fixed;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  width: 100%;
-  height: 0;
-  background-color: rgba(0, 0, 0, .75);
-  opacity: 0;
-  transition: all .25s ease-in;
-  transition-delay: .12s;
-  &.hs-modal-backdrop--visible {
-    top: 0px;
-    z-index: 1070;
-    height: 100vh;
-    opacity: 1;
-    transition: all .25s ease-out;
-  }
-}
-
-
-

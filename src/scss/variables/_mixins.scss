@@ -105,6 +105,65 @@
   }
 }
 
+// states
+@mixin states() {
+  &:focus,
+  &.focus {
+    color: $hs-theme-color-text;
+    background-color: darken($hs-white_2, 10%);
+    /* stylelint-disable-next-line */
+    border-color: darken($hs-white_60, 25%);
+  }
+
+  &:hover {
+    color: $hs-theme-color-text;
+    background-color: darken($hs-white_2, 10%);
+    /* stylelint-disable-next-line */
+    border-color: darken($hs-white_60, 12%);
+  }
+
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: $hs-theme-color-text;
+    background-color: darken($hs-white_2, 10%);
+    /* stylelint-disable-next-line */
+    border-color: darken($hs-white_60, 12%);
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: $hs-theme-color-text;
+      background-color: darken($hs-white_2, 17%);
+      /* stylelint-disable-next-line */
+      border-color: darken($hs-white_60, 25%);
+    }
+  }
+
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    background-image: none;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: $hs-white_2;
+      /* stylelint-disable-next-line */
+      border-color: $hs-white_60;
+    }
+  }
+
+  .badge {
+    color: $hs-white_2;
+    background-color: $hs-theme-color-text;
+  }
+}
+
 // Bootstrap Button Variant
 
 @mixin hs-button-variant($hs-theme-color-text, $hs-white_2, $hs-white_60) {
@@ -239,23 +298,22 @@
   color: set-color($hs-button-background-color, $hs-lightnessMultiplier);
   background-color: $hs-button-background-color;
   border: darken($hs-button-background-color, $hs-lightnessMultiplier);
-  box-shadow: $hs-shadow-sm;
-
+  box-shadow: v(hs-shadow-sm);
   &.card-button--active {
-    background-color: $darkenColor;
+    background-color: darken($hs-button-background-color, $hs-theme-darken-tint);
   }
 
   &:not(:disabled):not([disabled]) {
     &:not(:active) {
       &:hover {
-        background-color: $lightenColor;
+        background-color: lighten($hs-button-background-color, $hs-theme-lighten-tint);
       }
     }
 
     &:focus {
       border-color: darken($hs-button-background-color, ($hs-theme-darken-tint + 2%));
       box-shadow: darken($hs-button-background-color, ($hs-theme-darken-tint + 2%));
-      box-shadow: $hs-shadow-sm;
+      box-shadow: v(hs-shadow-sm);
     }
 
     &:active {

@@ -28,38 +28,38 @@ button {
   box-shadow: var(--hs-shadow--sm);
   @include button-size(var(--btn-padding-y), var(--btn-padding-x), var(--btn-font-size), var(--btn-line-height), var(--btn-border-radius));
   @include transition($btn-transition);
+  @include states();
+  // @include hover() {
+  //   color: var(--body-color);
+  //   text-decoration: none;
+  //   cursor: pointer;
+  // }
 
-  @include hover() {
-    color: var(--body-color);
-    text-decoration: none;
-    cursor: pointer;
-  }
+  // &:focus,
+  // &.focus {
+  //   outline: 0;
+  //   box-shadow: var(--btn-focus-box-shadow);
+  // }
 
-  &:focus,
-  &.focus {
-    outline: 0;
-    box-shadow: var(--btn-focus-box-shadow);
-  }
+  // // Disabled comes first so active can properly restyle
+  // &.disabled,
+  // &:disabled {
+  //   opacity: var(--btn-disabled-opacity);
+  //   @include box-shadow(none);
+  // }
 
-  // Disabled comes first so active can properly restyle
-  &.disabled,
-  &:disabled {
-    opacity: var(--btn-disabled-opacity);
-    @include box-shadow(none);
-  }
+  // &:not(:disabled):not(.disabled) {
+  //   cursor: if($enable-pointer-cursor-for-buttons, pointer, null);
 
-  &:not(:disabled):not(.disabled) {
-    cursor: if($enable-pointer-cursor-for-buttons, pointer, null);
+  //   &:active,
+  //   &.active {
+  //     @include box-shadow(var(--btn-active-box-shadow));
 
-    &:active,
-    &.active {
-      @include box-shadow(var(--btn-active-box-shadow));
-
-      &:focus {
-        @include box-shadow(var(--btn-focus-box-shadow), var(--btn-active-box-shadow));
-      }
-    }
-  }
+  //     &:focus {
+  //       @include box-shadow(var(--btn-focus-box-shadow), var(--btn-active-box-shadow));
+  //     }
+  //   }
+  // }
 }
 
 //

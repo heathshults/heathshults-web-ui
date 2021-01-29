@@ -8,74 +8,29 @@
 // @import "../variables/mixins";
 
 button {
+  cursor: pointer;
   border: 1px solid  $hs-gray-lighter;
 }
 
 .hs-card_button {
   display: inline-block;
-  font-family: $btn-font-family;
+  font-family: v(btn-font-family);
   font-size: rem(14px);
-  font-weight: $btn-font-weight;
-  color: $body-color;
+  font-weight: v(btn-font-weight);
+  color: v(body-color);
   text-align: center;
   text-decoration: if($link-decoration == none, null, none);
-  white-space: $btn-white-space;
+  white-space: v(btn-white-space);
   vertical-align: middle;
   cursor: pointer;
   user-select: none;
-  background-color: $hs-gray-100;
-  border: $btn-border-width solid  $hs-gray-300;
-  box-shadow: $hs-shadow-sm;
-  @include button-size($btn-padding-y,  $btn-padding-x,  $btn-font-size,  $btn-line-height,  $btn-border-radius);
+  background-color: v(bs-light);
+  border: v(btn-border-width) solid  v(hs-gray-300);
+  box-shadow: v(hs-shadow-sm);
+  @include button-size(v(btn-padding-y),  v(btn-padding-x), v(btn-font-size), v(btn-border-radius));
   @include transition($btn-transition);
 
-  @include hover() {
-    color: $body-color;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  &:focus,
-  &.focus {
-    outline: 0;
-    box-shadow: $btn-focus-box-shadow;
-  }
-
-  // Disabled comes first so active can properly restyle
-  &.disabled,
-  &:disabled {
-    opacity: $btn-disabled-opacity;
-    @include box-shadow(none);
-  }
-
-  &:not(:disabled):not(.disabled) {
-    cursor: if($enable-pointer-cursor-for-buttons, pointer, null);
-
-    &:active,
-    &.active {
-      @include box-shadow($btn-active-box-shadow);
-
-      &:focus {
-        @include box-shadow($btn-focus-box-shadow,  $btn-active-box-shadow);
-      }
-    }
-  }
-}
-
-//
-// Alternate buttons
-//
-
-@each $color, $value in $interaction-colors {
-  .hs-card_button.hs-card_button--#{$color} {
-    @include button-variant($value, $value);
-  }
-}
-
-@each $color, $value in $interaction-colors {
-  .hs-card_button.hs-card_button-shadowlined--#{$color} {
-    @include button-shadowlined-variant($value, $hs-lightnessMultiplier);
-  }
+  @include states();
 }
 
 // Disabling of clicks on `<a>` elements
@@ -94,7 +49,7 @@ fieldset:disabled a.hs-card_button {
 
   // Vertically space out multiple block buttons
   + .hs-card_button-block {
-    margin-top: $btn-block-spacing-y;
+    margin-top: 2px;
   }
 }
 
@@ -106,3 +61,19 @@ input[type="button"] {
     width: 100%;
   }
 }
+
+//
+// Alternate buttons
+//
+
+// @each $color, $value in $interaction-colors {
+//   .hs-card_button.hs-card_button--#{$color} {
+//     @include button-variant($value, $value);
+//   }
+// }
+
+// @each $color, $value in $interaction-colors {
+//   .hs-card_button.hs-card_button-shadowlined--#{$color} {
+//     @include button-shadowlined-variant($value, $hs-lightnessMultiplier);
+//   }
+// }

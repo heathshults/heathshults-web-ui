@@ -18,7 +18,9 @@ export class HSCardButton {
   @Prop() url?: any;
   // eslint-disable-next-line no-undef
   @Prop() urlParams?: any;
-  @Prop() modalId?: any;
+  @Prop() modalId?: string;
+  @Prop() isModal?: string;
+  @Prop() modal?: string;
   // @Method() handleClick: function;
   
   // @Prop() validURL = (str): any => {
@@ -63,13 +65,14 @@ export class HSCardButton {
     
   }
   render(): any {
+    this.isModal === 'true' ?  this.modal = 'modal' : this.modal = 'url';
     return ( 
-      <button id={this.buttonId}
-        class={this.cssClass}
-        data-bs-toggle="modal" 
-        data-bs-target={this.modalId}
-        onClick={ (event: Event) => this.handleClick(event, this.url, this.urlParams, this.modalId)}>
-        {this.text}<slot/>
+      <button id={`${this.buttonId}`}
+        class={`${this.cssClass}`}
+        data-bs-toggle={`${this.modal}`}
+        data-bs-target={`${this.modalId}`}
+        onClick={(event: Event) => this.handleClick(event, `${this.url}`, `${this.urlParams}`, `${this.modalId}`)}>
+        {`${this.text}`}<slot/>
       </button>
     );
     
