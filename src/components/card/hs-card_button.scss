@@ -1,12 +1,12 @@
-@import "../../scss/bootstrap/scss/functions";
-@import "../../scss/bootstrap/scss/variables";
-@import "../../scss/bootstrap/scss/mixins";
+
 
 // @import "../../scss/variables/_css-vars-all.scss";
 
 @import "../../scss/variables/maps";
-@import "../../scss/variables/functions";
-@import "../../scss/variables/colors";
-@import "../../scss/variables/mixins";
-@import "../../scss/components/components.cards_button.scss";
 
+@import "../../scss/variables/colors";
+
+:host {
+
+  @import "../../scss/components/components.cards_button.scss";
+}

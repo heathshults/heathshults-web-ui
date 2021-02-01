@@ -435,8 +435,8 @@ div[slot^="hs-"] {
     text-transform: uppercase;
     @include heading-font;
   }
-  .form-inline {
-    margin-top: -26px !important;
+  .widget-container {
+    margin-top: -46px !important;
   }
   #mainNav.navbar-fixed-top,
   #mainNav.navbar-shrink {
@@ -1049,3 +1049,8 @@ input:not(:-webkit-autofill) {
   background-image: url('/assets/img/bg/botttom-edge-ripped-pape.png');
   background-repeat: repeat-x;
 }
+
+// hs-card {
+//   display: flex;
+//   align-items: stretch;
+// }

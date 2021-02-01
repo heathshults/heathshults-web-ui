@@ -4,21 +4,22 @@
 
 .hs-card {
   position: relative;
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
   align-items: center;
   min-width: 0;
-  height: auto;
+  height: 100%;
   max-height: $hs-card-width;
-  padding-bottom: 1em;
-  margin: rem(5px) auto;
+  // padding-bottom: 1em;
+  margin: 0 auto;
+  // margin: rem(5px) auto;
   overflow: hidden;
   word-wrap: break-word;
-  background-color: $hs-card-bg;
-  @include hs-background-clip(transparent);
+  // background-color: $hs-card-bg;
+  // @include hs-background-clip(transparent);
   background-clip: content-box;
   border: $hs-card-border-width;
-  @include border-radius($hs-card-border-radius);
+  // @include border-radius($hs-card-border-radius);
   .hs-display-block {
     display: block;
   }

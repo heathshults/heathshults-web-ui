@@ -45,12 +45,12 @@ export namespace Components {
     }
     interface HsCardButton {
         "buttonId"?: string;
+        "buttonText"?: string;
         "cssClass"?: string;
-        "handleClick": (event: any, url: any, urlParams: any, modalId: any) => Promise<void>;
-        "isModal"?: string;
-        "modal"?: string;
-        "modalId"?: string;
-        "text"?: string;
+        "dataTarget"?: string | null;
+        "dataToggle"?: string | null;
+        "handleClick": (event: any, url: any, urlParams: any, dataTarget: any) => Promise<void>;
+        "onclicker": any;
         "url"?: any;
         "urlParams"?: any;
     }
@@ -362,11 +362,11 @@ declare namespace LocalJSX {
     }
     interface HsCardButton {
         "buttonId"?: string;
+        "buttonText"?: string;
         "cssClass"?: string;
-        "isModal"?: string;
-        "modal"?: string;
-        "modalId"?: string;
-        "text"?: string;
+        "dataTarget"?: string | null;
+        "dataToggle"?: string | null;
+        "onclicker"?: any;
         "url"?: any;
         "urlParams"?: any;
     }
