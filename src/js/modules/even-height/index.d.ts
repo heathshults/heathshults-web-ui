@@ -1,4 +1,3 @@
 import EvenHeight from './even-height';
-const __EvenHeight = EvenHeight;
+declare const __EvenHeight: typeof EvenHeight;
 export { __EvenHeight as EvenHeight };
-

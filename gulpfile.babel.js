@@ -20,6 +20,7 @@ import browserSync from 'browser-sync';
 import header from 'gulp-header';
 import browserify from 'browserify';
 import babelify from 'babelify';
+import ts from 'gulp-typescript';
 
 // var cleanCSS = require('gulp-clean-css')
 import rename from 'gulp-rename';
@@ -202,10 +203,18 @@ function ejsit(done) {
 }
 exports.ejsit = ejsit;
 
-function babelfry(cb){
+function typeScript(cb) {
+  return src(`${p.src_js}/modules/*.ts`)
+    .pipe(ts({
+      declaration: true
+    }))
+    // .pipe(sourcemaps.write('.', { includeContent: false, sourceRoot: `${p.src_js}/module` }))
+    .pipe(dest(`${p.src_js}/module/_transpiled_ts`, { sourcemaps: '.' })),cb();
   
-  // var fs = require("fs");
+}
+exports.typeScript = typeScript;
 
+function babelfry(cb) {
   browserify({ debug: true })
   .transform(babelify)
   .require(`${srcPath}/index.js`, { entry: true })
@@ -215,6 +224,18 @@ function babelfry(cb){
   console.log(chalk.green('Babelifried JS')), cb();
 }
 exports.babelfry = babelfry;
+// exports.babelfry = series(typeScript, babelJS);
+// function babelfry(cb){
+
+//   browserify({ debug: true })
+//   .transform(babelify)
+//   .require(`${srcPath}/index.js`, { entry: true })
+//   .bundle()
+//   .on("error", function (err) { console.log(chalk.red("Error: " + err.message)) })
+//   .pipe(fs.createWriteStream(`${wwwPath}/assets/js/HeathScript.built.js`)),
+//   console.log(chalk.green('Babelifried JS')), cb();
+// }
+// exports.babelfry = babelfry;
 
 function renderJS(cb) {
   console.log(chalk.yellow('starting JS renderrer...'));
@@ -507,37 +528,37 @@ function serve(cb) {
 }
 exports.serve = serve;
 
-function watchers(cb) {
-  return new Promise((resolve, reject) => {
-    try {
-      setTimeout(() => {
-         browserSync.init({
-           server: {
-            proxy: '127.0.0.1:8000',
-          }
-        });
-        // eslint-disable-next-line no-sequences
-        var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
-        watch(`${srcPath}/views/*.ejs`, ejsit).on('change', browserSync.reload()), callback;
-        watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_images).on('change', browserSync.reload()), callback;
-        watch([`${srcPath}/scss/**/*.scss`], compileCSS).on('change', browserSync.stream()), callback;
-        watch([`${srcPath}/assets/**/*.css`], ra.copy_css), callback;
-        watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], copy_js), callback;
-        watch([`${buildPath}/**/*`], copyComponents), callback;
-        watch([`${p.src_js}/js/HeathScript.js`], babelfry), callback;
-        watch([`${srcCompPath}/**/*.scss`],  render_components).on('change', browserSync.stream()), callback;
-        // watch([`${srcCompPath}/**/*`],  series(build_components, copy_components)), callback;
-        resolve(callback);
-      },2000 );
-    }
-    catch(e) {
-      console.log(`Error in watchers: ${e}`);
-      reject(callback);
-    }
+// function watchers(cb) {
+//   return new Promise((resolve, reject) => {
+//     try {
+//       setTimeout(() => {
+//          browserSync.init({
+//            server: {
+//             proxy: '127.0.0.1:8000',
+//           }
+//         });
+//         // eslint-disable-next-line no-sequences
+//         var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
+//         watch(`${srcPath}/views/*.ejs`, ejsit).on('change', browserSync.reload()), callback;
+//         watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_images).on('change', browserSync.reload()), callback;
+//         watch([`${srcPath}/scss/**/*.scss`], compileCSS).on('change', browserSync.stream()), callback;
+//         watch([`${srcPath}/assets/**/*.css`], ra.copy_css), callback;
+//         watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], copy_js), callback;
+//         watch([`${buildPath}/**/*`], copyComponents), callback;
+//         watch([`${p.src_js}/js/HeathScript.js`], babelfry), callback;
+//         watch([`${srcCompPath}/**/*.scss`],  render_components).on('change', browserSync.stream()), callback;
+//         // watch([`${srcCompPath}/**/*`],  series(build_components, copy_components)), callback;
+//         resolve(callback);
+//       },2000 );
+//     }
+//     catch(e) {
+//       console.log(`Error in watchers: ${e}`);
+//       reject(callback);
+//     }
 
-  });
-}
-exports.watchers = watchers;
+//   });
+// }
+// exports.watchers = watchers;
 
 // Configure the browserSync task
 function serveSync(cb) {

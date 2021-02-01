@@ -76,7 +76,7 @@
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
           </ul>
-          <div class="form-inline my-2 my-lg-0">
+          <div class="widget-container my-2 my-lg-0">
             <button class="hs-mode-widget" id="mode_widget"></button>
             <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
@@ -377,20 +377,20 @@
             <hs-card card-id="01" color-tone="" card-size="" img-path="/assets/img/portfolio/USAA/usaa-ema-01.jpg"
               modal-id="#usaa">
 
-              <hs-card-body id="card01Body" content-classes="m-0 w-100 p-4" slot="card-body" class="hs-card_body text-center">
+              <hs-card-body id="card01Body" content-classes="w-100" slot="card-body" class="hs-card_body text-center">
 
-                  <h2 class="hs-card_title mb-2">Mobile Applications</h2>
+                  <h2 class="hs-card_title mb-0">Mobile Applications</h2>
                   <p>
                     <span class="hs-card_subtitle">Productivity Apps for USAA Employees</span>
                   </p>
 
                   <p>
                     <strong class="hs-card_text-emphisized">USAA </strong><br>
-                    Banking * Insurance * Investments<br>
+                    Banking * Insurance <br>
                     Full Stack Software Engineer
                   </p>
                 <div class="text-center">
-                  <hs-card-button css-class="hs-card_button hs-card_button-shadowlined--lightest" text="More" url="" url-params="_blank" modal-id="#usaa"></hs-card-button>
+                  <hs-card-button css-class="hs-card_button hs-card_button-shadowlined--lightest" button-text="More" url="" url-params="_blank" modal-id="#usaa"></hs-card-button>
                 </div>
               </hs-card-body>
             </hs-card>
@@ -400,32 +400,33 @@
             <hs-card card-id="02" color-tone="" card-size=""
               img-path="/assets/img/portfolio/Fannie-Mae/blueprint-card-header.jpg" modal-id="#blueprint">
 
-              <hs-card-body id="card02Body" slot="card-body" content-classes="m-0 w-100 p-4" class="hs-card_body text-center">
+              <hs-card-body id="card02Body" slot="card-body" content-classes="w-100" class="hs-card_body text-center">
 
-                  <h2 class="hs-card_title mb-2">Design System</h2>
+                  <h2 class="hs-card_title mb-0">Design System</h2>
                   <p>
-                    <span class="hs-card_subtitle">SCSS, CSS, Components &amp; Guides</span>
+                    <span class="hs-card_subtitle">SCSS, CSS, Web Components &amp; Guides</span>
                   </p>
 
                   <p>
-                    <strong class="hs-card_text-emphisized">Heath Shults</strong><br>
-                    Fannie Mae, Inc.<br>
-                    Interaction Designer - UI/UX Developer
+                    <strong class="hs-card_text-emphisized">
+                      Fannie Mae, Inc.</strong><br>
+                      Interaction Designer<br>
+                      - UI/UX Developer
                   </p>
                   <div class="text-center">
-                    <hs-card-button css-class="hs-card_button hs-card_button-shadowlined--lightest" text="More" url="" url-params="_blank" modal-id="#designSystem"></hs-card-button>
+                    <hs-card-button css-class="hs-card_button" button-text="More" url="" url-params="_blank" modal-id="#designSystem"></hs-card-button>
                   </div>
               </hs-card-body>
             </hs-card>
           </div>
           <!-- CARD 03 -->
           <div class="col-md-3">
-            <hs-card card-id="03" color-tone="" card-size=""
+            <hs-card card-id="03" color-tone="" card-size="" window-target="_self"
               img-path="/assets/img/portfolio/BlueStarSports/BSS-card-heading.jpg" modal-id="#modBlueStar">
 
-              <hs-card-body id="card03Body" content-classes="m-0 w-100 p-4" slot="card-body" class="hs-card_body text-center">
+              <hs-card-body id="card04Body" content-classes="" slot="card-body" class="hs-card_body text-center">
 
-                  <h2 class="hs-card_title mb-2">USA Football Database</h2>
+                  <h2 class="hs-card_title mb-0">USA Football Database</h2>
                   <p>
                     <span class="hs-card_subtitle">Little League Player Stats &amp; Tracking</span>
                   </p>
@@ -436,7 +437,7 @@
                     UI Software Engineer
                   </p>
                   <div class="text-center">
-                    <hs-card-button css-class="hs-card_button hs-card_button-shadowlined--lightest" text="More" url="" url-params="_blank" modal-id="#usafootball"></hs-card-button>
+                    <hs-card-button css-class="hs-card_button" button-text="More" url="" url-params="_blank" modal-id="#usafootball"></hs-card-button>
                   </div>
               </hs-card-body>
             </hs-card>
@@ -446,9 +447,9 @@
             <hs-card card-id="04" color-tone="" card-size="" window-target="_self"
               img-path="/assets/img/portfolio/bowlopolis/bowlopolis-headerImg.png" modal-id="#modBowlopolis">
 
-              <hs-card-body id="card04Body" content-classes="m-0 w-100 p-4" slot="card-body" class="hs-card_body text-center">
+              <hs-card-body id="card04Body" content-classes="" slot="card-body" class="hs-card_body text-center">
 
-                  <h2 class="hs-card_title mb-2">Bowlopolis</h2>
+                  <h2 class="hs-card_title mb-0">Bowlopolis</h2>
                   <p>
                     <span class="hs-card_subtitle">Kids 3D Cartoons, Videos & Games</span>
                   </p>
@@ -458,12 +459,15 @@
                     Director Technology - App Dev
                   </p>
                 <div class="text-center">
-                  <hs-card-button 
-                    css-class="hs-card_button hs-card_button-shadowlined--lightest" 
-                    text="More" url="" 
+                  <button class="hs-card_button" data-bs-toggle="modal" data-bs-target="#bowlopolisDetails">More<slot></slot></button>
+                  <!-- <hs-card-button 
+                    css-class="hs-card_button" 
+                    button-text="More" 
+                    url="" 
                     url-params="_blank" 
-                    data-bs-toggle="modal" 
-                    data-bs-target="#bowlopolisDetails"></hs-card-button>
+                    data-toggle="modal" 
+                    data-target="#bowlopolisDetails"
+                    ></hs-card-button> -->
                 </div>
               </hs-card-body>
             </hs-card>
@@ -714,7 +718,7 @@
     <!-- test modal -->
     <div id="testModal" class="modal-dialog modal-xl">testing</div>
     <!-- Portfolio Modal 1 -->
-    <hs-modal dismissible full id="modBowlopolis">
+    <!-- <hs-modal dismissible full id="modBowlopolis">
       <hs-card color-tone="light">
         <hs-card-header>
           <h2 class="hs-heading dark">
@@ -736,7 +740,7 @@
             </div>
           </div>
       </hs-card>
-    </hs-modal>
+    </hs-modal> -->
     
     <div class="modal fade" id="bowlopolisDetails" tabindex="-1" aria-labelledby="bowlopolisDetails" aria-hidden="true" modal-title="Bowlopolis">
       <div class="modal-dialog modal-fullscreen">
@@ -755,8 +759,7 @@
             </p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
@@ -786,6 +789,11 @@
     <!-- <script src="hScript.bundle.js"></script> -->
 
     <script>
+      var bowlopolisModal = new bootstrap.Modal(document.getElementById('bowlopolisDetails'), options)
+      var designSysteModal = new bootstrap.Modal(document.getElementById('designSysteDetails'), options)
+      var blueStarModal = new bootstrap.Modal(document.getElementById('blueStarDetails'), options)
+      var usaaModal = new bootstrap.Modal(document.getElementById('usaaDetails'), options)
+      
       function showModal(modal) {
         document.querySelector(modal).show();
       }
@@ -896,28 +904,6 @@
 
       // setTimeout(launchSMC, 2000)
 
-    </script>
-    <script>
-      
-      function evenHeight(ehSelector) {
-        var evenRows;
-        var height;
-        var evenRowChildren;
-        
-        function leveler(ehSelector) {
-          evenRows = Array.prototype.slice.call(document.querySelectorAll(ehSelector));
-          console.log(evenRows)
-          evenRows.forEach(row => {
-            height = row.offsetHeight();
-            evenRowChildren = Array.prototype.slice.call(row.childNodes);
-            evenRowChildren.forEach(child => {
-              child.style.height = height;
-            });
-          });
-        }       
-        return
-      }
-      evenHeight('.even-height');
     </script>
   </body>
 
