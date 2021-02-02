@@ -1,6 +1,6 @@
 @import "../bootstrap/scss/variables";
-@import "./maps";
-@import "./colors";
+// @import "./maps";
+// @import "./colors";
 
 @function set-color($color, $lightnessMultiplier) {
   @if (lightness($color) > $lightnessMultiplier) {
@@ -8,30 +8,6 @@
   } @else {
     @return $hs-white;
   }
-}
-
-// return color with different opacity value
-@function alpha($color, $opacity) {
-  $color: str-replace($color, "var(");
-  $color: str-replace($color, ")");
-  $color-h: var(#{$color + "-h"});
-  $color-s: var(#{$color + "-s"});
-  $color-l: var(#{$color + "-l"});
-  @return hsla($color-h, $color-s, $color-l, $opacity);
-}
-
-// return color with different lightness value
-
-// replace substring with another string
-// credits: https://css-tricks.com/snippets/sass/str-replace-function/
-@function str-replace($string, $search, $replace: "") {
-  $index: str-index(#{string}, $search);
-
-  @if $index {
-    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
-  }
-
-  @return $string;
 }
 
 // ====== PIXELS TO REM ====== //
@@ -74,32 +50,67 @@ $html-font-size: 16px;
   }
 }
 
-// /*
-//  * CSS CUSTOM VARIABLE FUNCTION
-//  *
-//  * Get css vars from scss vars
-//  *
-//  * Use:
-//  * `color: v(primary);`
-//  * `color: v(primary, #000);`
-//  * `padding-left: v(x-padding, 2rem);`
-//  * `transform: translate3d(v(x-delta), v(y-delta), 0);`
-//  *
-//  * Parameters:
-//  *  $hs-Var: name of the SASS variable, without its double hyphen prefix
-//  *  $hs-fallback: (optional, null by default): custom property fallback value
-//  */
 
-// $hs-theme-color-texts: map-merge($hs-map1: $hs-grays, $hs-map2: $hs-dark-mode-colors);
-// $hs-keys: map-keys($hs-theme-color-texts);
+// --------------------------------
 
-// @function cssColorVar($hs-var, $hs-fallback: null) {
-// @if map-has-key($hs-theme-color-texts, $hs-var) {
-//   $hs-cssVarName: #{$hs-var};
-// }
-//   @if ($hs-fallback) {
-//     @return var(--$hs-cssVarName, $hs-fallback);
-//   } @else {
-//     @return var(--$hs-cssVarName);
-//   }
-// }
+// Colors
+
+// --------------------------------
+
+// return color with different opacity value
+@function alpha($color, $opacity) {
+  $color: str-replace($color, 'var(');
+  $color: str-replace($color, ')');
+  $color-h: var(#{$color+'-h'});
+  $color-s: var(#{$color+'-s'});
+  $color-l: var(#{$color+'-l'});
+  @return hsla($color-h, $color-s, $color-l, $opacity);
+}
+
+// return color with different lightness value
+@function lightness($color, $lightnessMultiplier) {
+  $color: str-replace($color, 'var(');
+  $color: str-replace($color, ')');
+  $color-h: var(#{$color+'-h'});
+  $color-s: var(#{$color+'-s'});
+  $color-l: var(#{$color+'-l'});
+  @return hsl($color-h, $color-s, calc(#{$color-l} * #{$lightnessMultiplier}));
+}
+
+// modify color HSLA values
+@function adjustHSLA($color, $hueMultiplier: 1, $saturationMultiplier: 1, $lightnessMultiplier: 1, $opacity: 1) {
+  $color: str-replace($color, 'var(');
+  $color: str-replace($color, ')');
+  $color-h: var(#{$color+'-h'});
+  $color-s: var(#{$color+'-s'});
+  $color-l: var(#{$color+'-l'});
+  @return hsla(calc(#{$color-h} * #{$hueMultiplier}), calc(#{$color-s} * #{$saturationMultiplier}), calc(#{$color-l} * #{$lightnessMultiplier}), $opacity);
+}
+
+// replace substring with another string
+// credits: https://css-tricks.com/snippets/sass/str-replace-function/
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  @return $string;
+}
+
+
+
+// --------------------------------
+
+// Grid & Layout
+
+// --------------------------------
+
+$grid-columns: 12 !default;
+
+// used to round width to a number with 2 decimal places - used for IE fallback
+@function round-width ($i) {
+  $width : floor(100% * $i * 100/ $grid-columns) / 100;
+  @return $width;
+}
+
+

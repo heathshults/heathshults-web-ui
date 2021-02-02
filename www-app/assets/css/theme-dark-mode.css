@@ -4,12 +4,66 @@
 /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
 /* 4:3 Aspect Ratio (divide 3 by 4 = 0.75) */
 /* 1:1 Aspect Ratio */
-/* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
-/* 4:3 Aspect Ratio (divide 3 by 4 = 0.75) */
-/* 1:1 Aspect Ratio */
-/* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
-/* 4:3 Aspect Ratio (divide 3 by 4 = 0.75) */
-/* 1:1 Aspect Ratio */
+:root {
+  --font-primary: system-ui, sans-serif;
+  --text-base-size: 1em;
+  --text-scale-ratio: 1.2;
+  --body-line-height: 1.4;
+  --heading-line-height: 1.2;
+  --font-primary-capital-letter: 1;
+  --text-unit: 1em;
+}
+
+:root, * {
+  --text-xs: calc((var(--text-unit) / var(--text-scale-ratio)) / var(--text-scale-ratio));
+  --text-sm: calc(var(--text-xs) * var(--text-scale-ratio));
+  --text-md: calc(var(--text-sm) * var(--text-scale-ratio) * var(--text-scale-ratio));
+  --text-lg: calc(var(--text-md) * var(--text-scale-ratio));
+  --text-xl: calc(var(--text-lg) * var(--text-scale-ratio));
+  --text-xxl: calc(var(--text-xl) * var(--text-scale-ratio));
+  --text-xxxl: calc(var(--text-xxl) * var(--text-scale-ratio));
+  --text-xxxxl: calc(var(--text-xxxl) * var(--text-scale-ratio));
+}
+
+@supports (--css: variables) {
+  @media (min-width: 64rem) {
+    :root {
+      --text-base-size: 1.25em;
+      --text-scale-ratio: 1.25;
+    }
+  }
+}
+h1, h2, h3, h4 {
+  font-weight: 700;
+}
+
+mark {
+  color: inherit;
+  background-color: hsla(var(--color-accent-h), var(--color-accent-s), var(--color-accent-l), 0.2);
+}
+
+.text-component {
+  --line-height-multiplier: 1;
+  --text-vspace-multiplier: 1;
+}
+.text-component blockquote {
+  padding-left: 1em;
+  border-left: 4px solid var(--color-contrast-low);
+}
+.text-component hr {
+  height: 1px;
+  background: var(--color-contrast-low);
+}
+.text-component figcaption {
+  font-size: var(--text-sm);
+  color: var(--color-contrast-medium);
+}
+
+.article {
+  --body-line-height: 1.58;
+  --text-vspace-multiplier: 1.2;
+}
+
 @keyframes hs-bounce-1 {
   0% {
     opacity: 0;
@@ -106,8 +160,6 @@
   height: auto;
 }
 
-/* #region   */
-/* #endregion */
 .text-muted {
   color: #ced4da;
 }

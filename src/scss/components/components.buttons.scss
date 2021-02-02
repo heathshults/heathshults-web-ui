@@ -1,0 +1,91 @@
+// --------------------------------
+// (START) Global editor code https://codyhouse.co/ds/globals/buttons
+// --------------------------------
+
+:root {
+  --hs-button-padding-y: var(--space-xxs); // padding top/bottom
+  --hs-button-padding-x: var(--space-sm); // padding left/right
+  --hs-button-radius: 0.25em; // border radius
+  --hs-button-font-size: 1em; // font size
+}
+
+.hs-button { // style affecting all buttons
+  line-height: 1.2;
+  box-shadow: var(--shadow-xs);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: .2s;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 0px 2px alpha(var(--color-contrast-higher), 0.15);
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+}
+
+// themes
+.hs-button--primary {
+  color: var(--color-white);
+  background-color: var(--color-primary);
+
+  &:hover {
+    background-color: var(--color-primary-dark);
+  }
+
+  &:focus {
+    box-shadow: 0px 0px 0px 2px alpha(var(--color-primary), 0.2);
+  }
+}
+
+.hs-button--subtle {
+  color: var(--color-contrast-higher);
+  background-color: var(--color-contrast-lower);
+}
+
+.hs-button--accent {
+  color: var(--color-white);
+  background-color: var(--color-accent);
+
+  &:hover {
+    background-color: var(--color-accent-dark);
+  }
+
+  &:focus {
+    box-shadow: 0px 0px 0px 2px alpha(var(--color-accent), 0.2);
+  }
+}
+
+// feedback
+.hs-button--disabled,
+.hs-button[disabled],
+.hs-button[readonly] {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+// sizes
+.hs-button--sm {
+  font-size: 0.8em;
+}
+
+.hs-button--md {
+  font-size: 1.2em;
+}
+
+.hs-button--lg {
+  font-size: 1.4em;
+}
+
+// --------------------------------
+
+// (END) Global editor code
+
+// --------------------------------

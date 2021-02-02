@@ -1,0 +1,66 @@
+
+:root {
+  // radius
+  --radius-sm: calc(var(--radius, .25em) / 2);
+  --radius-md: var(--radius, .25em);
+  --radius-lg: calc(var(--radius, .25em) * 2);
+
+  // box shadow
+  --shadow-xs:
+    0 .1px .3px rgba(0, 0, 0, .06),
+    0 1px 2px rgba(0, 0, 0, .12);
+  --shadow-sm:
+    0 .3px .4px rgba(0, 0, 0, .025),
+    0 .9px 1.5px rgba(0, 0, 0, .05),
+    0 3.5px 6px rgba(0, 0, 0, .1);
+  --shadow-md:
+    0 .9px 1.5px rgba(0, 0, 0, .03),
+    0 3.1px 5.5px rgba(0, 0, 0, .08),
+    0 14px 25px rgba(0, 0, 0, .12);
+  --shadow-lg:
+    0 1.2px 1.9px -1px rgba(0, 0, 0, .014),
+    0 3.3px 5.3px -1px rgba(0, 0, 0, .038),
+    0 8.5px 12.7px -1px rgba(0, 0, 0, .085),
+    0 30px 42px -1px rgba(0, 0, 0, .15);
+  --shadow-xl:
+    0 1.5px 2.1px -6px rgba(0, 0, 0, .012),
+    0 3.6px 5.2px -6px rgba(0, 0, 0, .035),
+    0 7.3px 10.6px -6px rgba(0, 0, 0, .07),
+    0 16.2px 21.9px -6px rgba(0, 0, 0, .117),
+    0 46px 60px -6px rgba(0, 0, 0, .2);
+
+  // timing functions
+  // credits: https://github.com/ai/easings.net
+
+  --ease-in-out: cubic-bezier(.645, .045, .355, 1);
+  --ease-in: cubic-bezier(.55, .055, .675, .19);
+  --ease-out: cubic-bezier(.215, .61, .355, 1);
+  --ease-out-back: cubic-bezier(.34, 1.56, .64, 1);
+}
+
+:root {
+  --space-unit: 1em;
+}
+
+:root, * {
+  --space-xxxxs: calc(0.125 * var(--space-unit));
+  --space-xxxs: calc(0.25 * var(--space-unit));
+  --space-xxs: calc(0.375 * var(--space-unit));
+  --space-xs: calc(0.5 * var(--space-unit));
+  --space-sm: calc(0.75 * var(--space-unit));
+  --space-md: calc(1.25 * var(--space-unit));
+  --space-lg: calc(2 * var(--space-unit));
+  --space-xl: calc(3.25 * var(--space-unit));
+  --space-xxl: calc(5.25 * var(--space-unit));
+  --space-xxxl: calc(8.5 * var(--space-unit));
+  --space-xxxxl: calc(13.75 * var(--space-unit));
+  --component-padding: var(--space-md);
+}
+
+@supports (--css: variables) {
+  @include breakpoint(md) {
+    :root {
+      --space-unit: 1.25em;
+    }
+  }
+}

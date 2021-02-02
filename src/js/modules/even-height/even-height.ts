@@ -10,7 +10,7 @@ export default class EvenHeight {
         
         this.evenRows.forEach(row => {
           const height = row.offsetHeight;
-          this.evenRowChildren = row.querySelectorAll(ehChildSelector);
+          this.evenRowChildren = Array.prototype.slice.call(row.querySelectorAll(ehChildSelector));
           
           console.log('height: '+ height);
           console.log('childnodes: ');
