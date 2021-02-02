@@ -26,26 +26,27 @@
   background: -o-linear-gradient(transparent, transparent);
   -webkit-background-clip: text;
 }
-@mixin button {
-  @include disabled;
-  display: inline-block;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: $hs-blue--dark;
-  text-align: center;
-  text-decoration: none;
-  text-overflow: ellipsis;
-  vertical-align: middle;
-  user-select: none;
-  background-color: transparent;
-  border: 1px solid transparent;
-  border-radius: 0;
-  appearance: none;
-  outline: 0;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
+
+// @mixin button {
+//   @include disabled;
+//   display: inline-block;
+//   padding: 0.375rem 0.75rem;
+//   font-size: 1rem;
+//   font-weight: 400;
+//   line-height: 1.5;
+//   color: $hs-blue--dark;
+//   text-align: center;
+//   text-decoration: none;
+//   text-overflow: ellipsis;
+//   vertical-align: middle;
+//   user-select: none;
+//   background-color: transparent;
+//   border: 1px solid transparent;
+//   border-radius: 0;
+//   appearance: none;
+//   outline: 0;
+//   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+// }
 
 @mixin button {
   @include hs-button-color;
@@ -107,6 +108,7 @@
 
 // states
 @mixin states() {
+
   &:focus,
   &.focus {
     color: $hs-theme-color-text;
@@ -124,7 +126,7 @@
 
   &:active,
   &.active,
-  .open > &.dropdown-toggle {
+  .open >&.dropdown-toggle {
     color: $hs-theme-color-text;
     background-color: darken($hs-white_2, 10%);
     /* stylelint-disable-next-line */
@@ -142,13 +144,14 @@
 
   &:active,
   &.active,
-  .open > &.dropdown-toggle {
+  .open >&.dropdown-toggle {
     background-image: none;
   }
 
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
+
     &:hover,
     &:focus,
     &.focus {
@@ -213,6 +216,7 @@
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
+
     &:hover,
     &:focus,
     &.focus {
@@ -299,6 +303,7 @@
   background-color: $hs-button-background-color;
   border: darken($hs-button-background-color, $hs-lightnessMultiplier);
   box-shadow: v(hs-shadow-sm);
+
   &.card-button--active {
     background-color: darken($hs-button-background-color, $hs-theme-darken-tint);
   }
@@ -360,6 +365,7 @@
 }
 
 @mixin responsive-box {
+
   //@extend-elements
   %extend_responsive_box_defaults {
     position: absolute;
@@ -422,6 +428,7 @@
 @mixin banner-dimensions--lg {
   width: $hs-card-img-width--lg;
   height: $hs-card-img-height--lg;
+
   .hs-card_img-header_img {
     width: $hs-card-img-width--lg;
     height: $hs-card-img-height--lg;
@@ -457,6 +464,7 @@
 @mixin card-size--sm {
   .hs-card {
     margin: inherit;
+
     &--sm {
       display: inline-block;
       min-width: 265px;
@@ -484,11 +492,13 @@
 @mixin card-size--md {
   .hs-card {
     margin: 5px auto;
+
     &--sm {
       display: inline-block;
       width: 265px;
       height: auto;
       margin: 5px auto;
+
       .hs-card_title {
         font-size: 1rem;
       }
@@ -517,9 +527,11 @@
     }
   }
 }
+
 @mixin card-size--lg {
   .hs-card {
     margin: inherit;
+
     &--sm {
       display: inline-block;
       width: 265px;
@@ -549,9 +561,6 @@
   }
 }
 
-/* #region   */
-
-/* #endregion */
 
 // affects outside the card-body component
 @mixin hs-card-content {
@@ -585,11 +594,13 @@
 
   &.hs-card-size--fluid {
     width: $hs-card-width;
+
     .hs-card_title {
       margin-top: $hs-spacing--lg;
       margin-bottom: 0;
       font-size: $hs-card-title--lg;
     }
+
     .hs-card_subtitle {
       margin-top: $hs-spacing--lg;
       margin-bottom: $hs-spacing--lg;
@@ -598,21 +609,14 @@
   }
 }
 
-// $breakpoints: (
-//   xxs: 0,
-//   xs: 32rem, // ~512px
-//   sm: 48rem, // ~768px
-//   md: 64rem, // ~1024px
-//   lg: 80rem, // ~1280px
-//   xl: 90rem // ~1440px
-// ) !default;
-
 @mixin breakpoint($breakpoint, $logic: false) {
   @if ($logic) {
     @media #{$logic} and (min-width: map-get($map: $breakpoints, $key: $breakpoint)) {
       @content;
     }
-  } @else {
+  }
+
+  @else {
     @media (min-width: map-get($map: $breakpoints, $key: $breakpoint)) {
       @content;
     }
@@ -620,31 +624,32 @@
 }
 
 // --------------------------------
-
 // CSS Triangle
-
 // --------------------------------
-
 @mixin triangle($direction: up, $width: 12px, $color: red) {
   width: 0;
   height: 0;
   border: $width solid transparent;
 
-  @if ($direction == left) {
+  @if ($direction==left) {
     border-right-color: $color;
-  } @else if($direction == right) {
+  }
+
+  @else if($direction==right) {
     border-left-color: $color;
-  } @else if($direction == down) {
+  }
+
+  @else if($direction==down) {
     border-top-color: $color;
-  } @else {
+  }
+
+  @else {
     border-bottom-color: $color;
   }
 }
 
 // --------------------------------
-
 // Typography
-
 // --------------------------------
 
 // edit font rendering -> tip: use for light text on dark backgrounds
@@ -673,9 +678,7 @@
 // functions
 
 // --------------------------------
-
 // Colors
-
 // --------------------------------
 
 // define HSL color variable
@@ -706,19 +709,128 @@
   background: $hs-theme-color-text_green--dark;
 }
 
-// @mixin ratio-16-9 {
-//   position: relative;
-//   padding-top: $hs-ratio-16-9;
-// }
-// @mixin ratio-4-3 {
-//   position: relative;
-//   padding-top: $hs-ratio-4-3;
-// }
-// @mixin ratio-3-2 {
-//   position: relative;
-//   padding-top: $hs-ratio-3-2;
-// }
-// @mixin ratio-1-1 {
-//   position: relative;
-//   padding-top: $hs-ratio-1-1;
-// }
+// codyhouse.co
+// used to create the auto-size columns of the grid system (.col class)
+@mixin autoSizedColumn {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+// CSS Grid Layout fallback
+@mixin gridFallback($gap: null) {
+  display: flex;
+  flex-wrap: wrap;
+
+  @if ($gap==null) {
+    $gap: var(--space-md);
+  }
+
+  margin: calc(#{$gap} * -1) 0 0 calc(#{$gap} * -1);
+
+  >* {
+    padding: #{$gap} 0 0 #{$gap};
+    background-clip: content-box;
+  }
+
+  @supports (grid-area: auto) {
+    margin: 0;
+
+    >* {
+      max-width: none !important;
+      padding: 0;
+    }
+  }
+}
+
+@mixin column($width) {
+  @if unit($width) !='%' {
+    $width: $width * 100%;
+  }
+
+  flex-basis: #{$width};
+  max-width: #{$width};
+}
+
+
+
+// --------------------------------
+// Accessibility
+// --------------------------------
+
+// hide - content made available only to screen readers
+@mixin srHide {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+}
+
+// show
+@mixin srShow {
+  position: static;
+  clip: auto;
+  clip-path: none;
+}
+
+// --------------------------------
+// Colors
+// --------------------------------
+
+// define HSL color variable
+@mixin defineColorHSL($color, $hue, $saturation, $lightness) {
+  #{$color}: unquote("hsl(#{$hue}, #{$saturation}, #{$lightness})");
+  #{$color}-h: #{$hue};
+  #{$color}-s: #{$saturation};
+  #{$color}-l: #{$lightness};
+}
+
+// --------------------------------
+// Typography
+// --------------------------------
+
+// edit font rendering -> tip: use for light text on dark backgrounds
+@mixin fontSmooth {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// crop top space on text elements - caused by line height
+@mixin lhCrop($line-height, $capital-letter: 1) {
+  display: block;
+  width: 0;
+  height: 0;
+  margin-top: calc((#{$capital-letter} - #{$line-height}) * 0.5em);
+  &::before {
+    content: '';
+  }
+}
+
+// edit text unit on a component level
+@mixin textUnit($text-unit) {
+  --text-unit: #{$text-unit};
+  font-size: var(--text-unit);
+}
+
+// --------------------------------
+// Spacing
+// --------------------------------
+
+// edit space unit on a component level
+@mixin spaceUnit($space-unit) {
+  --space-unit: #{$space-unit};
+}
+
+// --------------------------------
+// Reset
+// --------------------------------
+
+// reset user agent style
+@mixin reset {
+  padding: 0;
+  line-height: inherit;
+  color: inherit;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  appearance: none;
+}

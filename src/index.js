@@ -13,9 +13,10 @@ require('@babel/register')({
 
 import './js/HeathScript';
 // import './js/modules/nav-scroller';
-import './js/modules/back-to-top';
-import './js/modules/theme-switcher';
-// import './js/modules/show-more-fadebar/show-more.js';
 import './js/modules/hs-timeline';
+import './js/modules/theme-switcher';
+import './js/modules/back-to-top';
+import './js/modules/even-height';
+// import './js/modules/show-more-fadebar/show-more.js';
 import './js/contact_me';
 // import './js/jqBootstrapValidation'

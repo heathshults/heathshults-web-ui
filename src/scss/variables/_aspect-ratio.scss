@@ -26,14 +26,11 @@
   border: 0;
 }
 
-
-// /**
-//  * Aspect Ratios - Maintain aspect ratio on objects.
+//  Aspect Ratios - Maintain aspect ratio on objects.
 //  * 16:9 (divide 9 by 16 = 0.5625)
 //  * 4:3 (divide 3 by 4 = 0.75)
 //  * 3:2 (divide 2 by 3 = 0.6666)
 //  *  1:1
-//  */
 @each $ratios, $value in $aspect-ratios {
   .#{key} {
     &::before {
