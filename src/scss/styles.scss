@@ -1,6 +1,5 @@
 
-// Import variables
-@import "./vars";
+
 
 // Import Bootstrap
 @import "./bootstrap/scss/functions";
@@ -8,6 +7,8 @@
 @import "./bootstrap/scss/mixins";
 @import "./variables/css-vars-all";
 @import "./variables/typography";
+
+
 
 
 @import "../components/ranking-bar/_ranking-bar";

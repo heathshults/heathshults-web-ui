@@ -58,6 +58,7 @@
 
 		//show timeline blocks on scrolling
 		window.addEventListener("scroll", function(event) {
+			console.log(event.target)
 			if( !scrolling ) {
 				scrolling = true;
 				(!window.requestAnimationFrame) ? setTimeout(checkTimelineScroll, 250) : window.requestAnimationFrame(checkTimelineScroll);

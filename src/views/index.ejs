@@ -14,7 +14,8 @@
     <script nomodule src="/components/heathenscript-ui-components.js"> </script>
 
     <!-- Bootstrap Core CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
     <!-- Custom Fonts -->
     <link rel="stylesheet" href="/global/variables.css">
@@ -63,9 +64,17 @@
     <!-- Navigation -->
     <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark fixed-top hs-bg-grad-black-trans" id="mainNav">
       <div class="container">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobileNav"
+        <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav"
           aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <span class="hs-text-white navbar-toggler-ico">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-three-dots-vertical" viewBox="0 0 16 16" data-darkreader-inline-fill=""
+              style="--darkreader-inline-fill: currentColor;">
+              <path
+                d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z">
+              </path>
+            </svg>
+          </span>
         </button>
         <a class="navbar-brand js-scroll-trigger site-logo" href="#page-top"><span
             class="hs-brand-symbol">@</span><span>HeathShults.com</span></a>
@@ -375,22 +384,23 @@
           <div class="col-md-3 hs-portfolio-item">
             <!-- CARD 01 -->
             <hs-card card-id="01" color-tone="" card-size="" img-path="/assets/img/portfolio/USAA/usaa-ema-01.jpg"
-              modal-id="#usaa">
+              data-bs-toggle="modal" data-bs-target="#usaaDetails">
 
               <hs-card-body id="card01Body" content-classes="w-100" slot="card-body" class="hs-card_body text-center">
 
-                  <h2 class="hs-card_title mb-0">Mobile Applications</h2>
-                  <p>
-                    <span class="hs-card_subtitle">Productivity Apps for USAA Employees</span>
-                  </p>
+                <h2 class="hs-card_title mb-0">Mobile Applications</h2>
+                <p>
+                  <span class="hs-card_subtitle">Productivity Apps for USAA Employees</span>
+                </p>
 
-                  <p>
-                    <strong class="hs-card_text-emphisized">USAA </strong><br>
-                    Banking * Insurance <br>
-                    Full Stack Software Engineer
-                  </p>
+                <p>
+                  <strong class="hs-card_text-emphisized">USAA </strong><br>
+                  Banking * Insurance <br>
+                  Full Stack Software Engineer
+                </p>
                 <div class="text-center">
-                  <hs-card-button css-class="hs-card_button hs-card_button-shadowlined--lightest" button-text="More" url="" url-params="_blank" modal-id="#usaa"></hs-card-button>
+                  <hs-card-button css-class="hs-card_button hs-card_button-shadowlined--lightest" button-text="More"
+                    url="" url-params="_blank" data-toggle="modal" data-target="#usaaDetails"></hs-card-button>
                 </div>
               </hs-card-body>
             </hs-card>
@@ -398,68 +408,74 @@
           <!-- CARD 02 -->
           <div class="col-md-3 hs-portfolio-item">
             <hs-card card-id="02" color-tone="" card-size=""
-              img-path="/assets/img/portfolio/Fannie-Mae/blueprint-card-header.jpg" modal-id="#blueprint">
+              img-path="/assets/img/portfolio/Fannie-Mae/blueprint-card-header.jpg" data-toggle="modal"
+              data-target="#fanniemaeDetails">
 
               <hs-card-body id="card02Body" slot="card-body" content-classes="w-100" class="hs-card_body text-center">
 
-                  <h2 class="hs-card_title mb-0">Design System</h2>
-                  <p>
-                    <span class="hs-card_subtitle">SCSS, CSS, Web Components &amp; Guides</span>
-                  </p>
+                <h2 class="hs-card_title mb-0">Design System</h2>
+                <p>
+                  <span class="hs-card_subtitle">SCSS, CSS, Web Components &amp; Guides</span>
+                </p>
 
-                  <p>
-                    <strong class="hs-card_text-emphisized">
-                      Fannie Mae, Inc.</strong><br>
-                      Interaction Designer<br>
-                      - UI/UX Developer
-                  </p>
-                  <div class="text-center">
-                    <hs-card-button css-class="hs-card_button" button-text="More" url="" url-params="_blank" modal-id="#designSystem"></hs-card-button>
-                  </div>
+                <p>
+                  <strong class="hs-card_text-emphisized">
+                    Fannie Mae, Inc.</strong><br>
+                  Interaction Designer<br>
+                  - UI/UX Developer
+                </p>
+                <div class="text-center">
+                  <hs-card-button css-class="hs-card_button" button-text="More" url="" url-params="_blank"
+                    data-bs-toggle="modal" data-bs-target="#fanniemaeDetails"></hs-card-button>
+                </div>
               </hs-card-body>
             </hs-card>
           </div>
           <!-- CARD 03 -->
           <div class="col-md-3">
             <hs-card card-id="03" color-tone="" card-size="" window-target="_self"
-              img-path="/assets/img/portfolio/BlueStarSports/BSS-card-heading.jpg" modal-id="#modBlueStar">
+              img-path="/assets/img/portfolio/BlueStarSports/BSS-card-heading.jpg" data-toggle="modal"
+              data-target="#bluestarDetails">
 
               <hs-card-body id="card04Body" content-classes="" slot="card-body" class="hs-card_body text-center">
 
-                  <h2 class="hs-card_title mb-0">USA Football Database</h2>
-                  <p>
-                    <span class="hs-card_subtitle">Little League Player Stats &amp; Tracking</span>
-                  </p>
+                <h2 class="hs-card_title mb-0">USA Football Database</h2>
+                <p>
+                  <span class="hs-card_subtitle">Little League Player Stats &amp; Tracking</span>
+                </p>
 
-                  <p>
-                    <strong class="hs-card_text-emphisized">Blue Star Sports</strong><br>
-                    Data Services<br>
-                    UI Software Engineer
-                  </p>
-                  <div class="text-center">
-                    <hs-card-button css-class="hs-card_button" button-text="More" url="" url-params="_blank" modal-id="#usafootball"></hs-card-button>
-                  </div>
+                <p>
+                  <strong class="hs-card_text-emphisized">Blue Star Sports</strong><br>
+                  Data Services<br>
+                  UI Software Engineer
+                </p>
+                <div class="text-center">
+                  <hs-card-button css-class="hs-card_button" button-text="More" url="" url-params="_blank"
+                    data-bs-toggle="modal" data-bs-target="#bluestarDetails"></hs-card-button>
+                </div>
               </hs-card-body>
             </hs-card>
           </div>
           <!-- CARD 04 -->
           <div class="col-md-3">
             <hs-card card-id="04" color-tone="" card-size="" window-target="_self"
-              img-path="/assets/img/portfolio/bowlopolis/bowlopolis-headerImg.png" modal-id="#modBowlopolis">
+              img-path="/assets/img/portfolio/bowlopolis/bowlopolis-headerImg.png" data-toggle="modal"
+              data-target="#modBowlopolis">
 
               <hs-card-body id="card04Body" content-classes="" slot="card-body" class="hs-card_body text-center">
 
-                  <h2 class="hs-card_title mb-0">Bowlopolis</h2>
-                  <p>
-                    <span class="hs-card_subtitle">Kids 3D Cartoons, Videos & Games</span>
-                  </p>
-                  <p>
-                    <strong class="hs-card_text-emphisized"> BPAA, Inc.</strong><br>
-                    Proprietor Association<br>
-                    Director Technology - App Dev
-                  </p>
+                <h2 class="hs-card_title mb-0">Bowlopolis</h2>
+                <p>
+                  <span class="hs-card_subtitle">Kids 3D Cartoons, Videos & Games</span>
+                </p>
+                <p>
+                  <strong class="hs-card_text-emphisized"> BPAA, Inc.</strong><br>
+                  Proprietor Association<br>
+                  Director Technology - App Dev
+                </p>
                 <div class="text-center">
-                  <button class="hs-card_button" data-bs-toggle="modal" data-bs-target="#bowlopolisDetails">More<slot></slot></button>
+                  <button class="hs-card_button" data-bs-toggle="modal" data-bs-target="#bowlopolisDetails">More<slot>
+                    </slot></button>
                   <!-- <hs-card-button 
                     css-class="hs-card_button" 
                     button-text="More" 
@@ -495,24 +511,28 @@
         <div class="row bg-black-25-opacity p-3">
           <div class="col-lg-12">
             <div class="" style="width: 100px; margin: auto; transform: translate(calc(50% - 6px), 39px);">
-                <div class="hs-timeline__img hs-timeline__img--rocket">
-                  <img src="/assets/img/svg/rocket.svg" width="24" height="24" />
-                </div> <!-- hs-timeline__img -->
-              </div>
+              <div class="hs-timeline__img hs-timeline__img--rocket">
+                <img src="/assets/img/svg/rocket.svg" width="24" height="24" />
+              </div> <!-- hs-timeline__img -->
+            </div>
             <div class="hs-timeline js-hs-timeline">
-              
+
               <div class="container max-width-lg hs-timeline__container">
                 <div class="hs-timeline__block">
                   <div class="hs-timeline__img hs-timeline__img--picture">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
-                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"></path>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                      class="bi bi-clock-fill" viewBox="0 0 16 16">
+                      <path
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z">
+                      </path>
                     </svg>
                   </div> <!-- hs-timeline__img -->
 
                   <div class="hs-timeline__content text-component">
                     <h2>Sessions College of Professional Design</h2>
-                    <p class="color-contrast-medium">So I thought if I'm going to do this internet thing 
-                      perhaps I'll attend college over the internet. <em>(using dial-up and the portal of the early years - AOL :)</em></p>
+                    <p class="color-contrast-medium">So I thought if I'm going to do this internet thing
+                      perhaps I'll attend college over the internet. <em>(using dial-up and the portal of the early
+                        years - AOL :)</em></p>
 
                     <div class="flex justify-between items-center">
                       <span class="hs-timeline__date">Jan. 2002</span>
@@ -523,8 +543,11 @@
 
                 <div class="hs-timeline__block">
                   <div class="hs-timeline__img hs-timeline__img--movie">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
-                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"></path>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                      class="bi bi-clock-fill" viewBox="0 0 16 16">
+                      <path
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z">
+                      </path>
                     </svg>
                   </div> <!-- hs-timeline__img -->
 
@@ -543,8 +566,11 @@
 
                 <div class="hs-timeline__block">
                   <div class="hs-timeline__img hs-timeline__img--picture">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
-                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"></path>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                      class="bi bi-clock-fill" viewBox="0 0 16 16">
+                      <path
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z">
+                      </path>
                     </svg>
                   </div> <!-- hs-timeline__img -->
 
@@ -571,8 +597,11 @@
 
                 <div class="hs-timeline__block">
                   <div class="hs-timeline__img hs-timeline__img--location">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
-                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"></path>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                      class="bi bi-clock-fill" viewBox="0 0 16 16">
+                      <path
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z">
+                      </path>
                     </svg>
                   </div> <!-- hs-timeline__img -->
 
@@ -593,8 +622,11 @@
 
                 <div class="hs-timeline__block">
                   <div class="hs-timeline__img hs-timeline__img--location">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
-                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"></path>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                      class="bi bi-clock-fill" viewBox="0 0 16 16">
+                      <path
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z">
+                      </path>
                     </svg>
                   </div> <!-- hs-timeline__img -->
 
@@ -613,8 +645,11 @@
 
                 <div class="hs-timeline__block">
                   <div class="hs-timeline__img hs-timeline__img--movie">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
-                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"></path>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                      class="bi bi-clock-fill" viewBox="0 0 16 16">
+                      <path
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z">
+                      </path>
                     </svg>
                   </div> <!-- hs-timeline__img -->
 
@@ -728,61 +763,170 @@
     </footer>
 
     <!-- Portfolio Modals -->
-    <!-- Use the modals below to showcase details about your portfolio projects! -->
-    <!-- test modal -->
-    <div id="testModal" class="modal-dialog modal-xl">testing</div>
-    <!-- Portfolio Modal 1 -->
-    <!-- <hs-modal dismissible full id="modBowlopolis">
-      <hs-card color-tone="light">
-        <hs-card-header>
-          <h2 class="hs-heading dark">
-            <span class="hs-text-xl">USA Football</span>
-            <div class="hs-heading_sub text-center">Little League Football Database</div>
-          </h2>
-        </hs-card-header>
-        <hs-card-body>
-          <p class="hs-paragraph">
-            My Roles: UX Design • UI Developer • Quality Assurance
-          </p>
-          carousel
-          </div>
-          <div slot="card-footer" color-tone="">
-            <div class="hs-input-group">
-              <button class="hs-button hs-button--block hs-button--brand"
-                onclick="javascript:closeModal('#modBowlopolis')">Close</button>
-              <button class="hs-button hs-button--block hs-button--info">Button</button>
-            </div>
-          </div>
-      </hs-card>
-    </hs-modal> -->
-    
-    <div class="modal fade" id="bowlopolisDetails" tabindex="-1" aria-labelledby="bowlopolisDetails" aria-hidden="true" modal-title="Bowlopolis">
+    <div class="modal fade" id="usaaDetails" tabindex="-1" aria-labelledby="bowlopolisDetails" aria-hidden="true"
+      modal-title="USAA">
       <div class="modal-dialog modal-fullscreen">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title text-xl" id="bowlopolisDetailsTitle">Modal title</h5>
-            <div class="text-lg text-center">Sub-heading</div>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h5 class="modal-title text-xl mr-3" id="bowlopolisDetailsTitle">Bowlopoli.com </h5>
+            <div class="text-center" style="display: inline-block; flex: none; margin-left: 20px; font-size: 14px">
+              <span class="mx-2">/</span> Website <span class="mx-2">/</span> Games <span class="mx-2">/</span> 3D
+              Cartoons videos <span class="mx-2">/</span></div>
+
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
           </div>
           <div class="modal-body">
             <p class="hs-paragraph">
               Web design/development & game development for retention/frequency.
+            </p>
+            <p class="hs-paragraph">
+              <div class="row">
+                <div class="col-md-2"><strong><span class="hs-text-yellow">@</span>Company</strong>:</div>
+                <div class="col-md-10">Bowling Proprietors' Association of America</div>
+              </div>
+              <div class="row">
+                <div class="col-md-2"><strong><span class="hs-text-yellow">@</span>Description </strong>:</div>
+                <div class="col-md-10"> Kids program designed to build lifetime bowling customers through games videos, kids club, tracking </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2"><strong><span class="hs-text-yellow">@</span>My Roles</strong>:</div>
+                <div class="col-md-10">UI/UX Design <span class="hs-text-yellow">&#10038;</span> UI Developer <span class="hs-text-yellow">&#10038;</span> Quality Assurance</div>
+              </div>
+          </p>
+ 
+          <p class="hs-paragraph text-center">
+            <img class="img-fluid img-centered" src="/assets/img/portfolio/bowlopolis/bowlopolis.png" alt="">
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="modal fade" id="fanniemaeDetails" tabindex="-1" aria-labelledby="bowlopolisDetails" aria-hidden="true"
+      modal-title="Fannie Mae">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-xl mr-3" id="bowlopolisDetailsTitle">Bowlopoli.com </h5>
+            <div class="text-center" style="display: inline-block; flex: none; margin-left: 20px; font-size: 14px">
+              <span class="mx-2">/</span> Website <span class="mx-2">/</span> Games <span class="mx-2">/</span> 3D
+              Cartoons videos <span class="mx-2">/</span></div>
+
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p class="hs-paragraph">
+              Web design/development & game development for retention/frequency.
+            </p>
+            <p class="hs-paragraph">
+              <div class="row">
+                <div class="col-md-2"><strong><span class="hs-text-yellow">@</span>Company</strong>:</div>
+                <div class="col-md-10">Bowling Proprietors' Association of America</div>
+              </div>
+              <div class="row">
+                <div class="col-md-2"><strong><span class="hs-text-yellow">@</span>Description </strong>:</div>
+                <div class="col-md-10"> Kids program designed to build lifetime bowling customers through games videos, kids club, tracking </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2"><strong><span class="hs-text-yellow">@</span>My Roles</strong>:</div>
+                <div class="col-md-10">UI/UX Design <span class="hs-text-yellow">&#10038;</span> UI Developer <span class="hs-text-yellow">&#10038;</span> Quality Assurance</div>
+              </div>
             </p>
             <p class="hs-paragraph text-center">
               <img class="img-fluid img-centered" src="/assets/img/portfolio/bowlopolis/bowlopolis.png" alt="">
             </p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
     </div>
-      <div slot="modal-footer">
-          
-      </div>
-    </hs-modal>
 
+    <div class="modal fade" id="bluestarDetails" tabindex="-1" aria-labelledby="bowlopolisDetails" aria-hidden="true"
+      modal-title="Blue Star Sports">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-xl mr-3" id="bowlopolisDetailsTitle">Bowlopoli.com </h5>
+            <div class="text-center" style="display: inline-block; flex: none; margin-left: 20px; font-size: 14px">
+              <span class="mx-2">/</span> Website <span class="mx-2">/</span> Games <span class="mx-2">/</span> 3D
+              Cartoons videos <span class="mx-2">/</span></div>
+
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p class="hs-paragraph">
+              Web design/development & game development for retention/frequency.
+            </p>
+            <p class="hs-paragraph">
+              <div class="row">
+                <div class="col-md-2"><strong><span class="hs-text-yellow">@</span>Company</strong>:</div>
+                <div class="col-md-10">Bowling Proprietors' Association of America</div>
+              </div>
+              <div class="row">
+                <div class="col-md-2"><strong><span class="hs-text-yellow">@</span>Description </strong>:</div>
+                <div class="col-md-10"> Kids program designed to build lifetime bowling customers through games videos, kids club, tracking </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2"><strong><span class="hs-text-yellow">@</span>My Roles</strong>:</div>
+                <div class="col-md-10">UI/UX Design <span class="hs-text-yellow">&#10038;</span> UI Developer <span class="hs-text-yellow">&#10038;</span> Quality Assurance</div>
+              </div>
+            </p>
+            <p class="hs-paragraph text-center">
+              <img class="img-fluid img-centered" src="/assets/img/portfolio/bowlopolis/bowlopolis.png" alt="">
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="bowlopolisDetails" tabindex="-1" aria-labelledby="bowlopolisDetails" aria-hidden="true"
+      modal-title="Bowlopolis">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-xl mr-3" id="bowlopolisDetailsTitle">Bowlopoli.com </h5>
+            <div class="text-center" style="display: inline-block; flex: none; margin-left: 20px; font-size: 14px">
+              <span class="mx-2">/</span> Website <span class="mx-2">/</span> Games <span class="mx-2">/</span> 3D
+              Cartoons videos <span class="mx-2">/</span></div>
+
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p class="hs-paragraph">
+              Web design/development & game development for retention/frequency.
+            </p>
+            <p class="hs-paragraph">
+              <div class="row">
+                <div class="col-md-2"><strong><span class="hs-text-yellow">@</span>Company</strong>:</div>
+                <div class="col-md-10">Bowling Proprietors' Association of America</div>
+              </div>
+              <div class="row">
+                <div class="col-md-2"><strong><span class="hs-text-yellow">@</span>Description </strong>:</div>
+                <div class="col-md-10"> Kids program designed to build lifetime bowling customers through games videos, kids club, tracking </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2"><strong><span class="hs-text-yellow">@</span>My Roles</strong>:</div>
+                <div class="col-md-10">UI/UX Design <span class="hs-text-yellow">&#10038;</span> UI Developer <span class="hs-text-yellow">&#10038;</span> Quality Assurance</div>
+              </div>
+            </p>
+            <p class="hs-paragraph text-center">
+              <img class="img-fluid img-centered" src="/assets/img/portfolio/bowlopolis/bowlopolis.png" alt="">
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- jQuery  -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
@@ -807,7 +951,7 @@
       // var designSysteModal = new bootstrap.Modal(document.getElementById('designSysteDetails'), options)
       // var blueStarModal = new bootstrap.Modal(document.getElementById('blueStarDetails'), options)
       // var usaaModal = new bootstrap.Modal(document.getElementById('usaaDetails'), options)
-      
+
       function showModal(modal) {
         document.querySelector(modal).show();
       }

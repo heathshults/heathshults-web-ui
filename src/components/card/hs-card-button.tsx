@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { Component, Prop, Element, Method, h } from '@stencil/core';
+import { Component, Prop, Element, Method, Listen, Event, EventEmitter, h } from '@stencil/core';
 import { validurl } from '../../js/modules/validate-url';
 
 
@@ -32,6 +32,21 @@ export class HSCardButton {
   //     '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
   //   return !!pattern.test(str);
   // }
+  
+  // modalLancher: EventEmitter;
+  @Event() modalLancher: EventEmitter;
+  launchModalEventHandler(event: Event) {
+    this.modalLancher.emit(event);
+  }
+  
+  @Listen('launchModal')
+  launchModalHandler() {
+    // showModal(`#${this.clickTarget}`)
+    const btn: HTMLElement = this.el.shadowRoot.querySelector(`#${this.buttonId}`);
+    btn.click();
+    const modal: HTMLElement = document.querySelector(this.dataTarget)
+    modal.style.display = 'block';
+  }
 
   @Method() async handleClick(event, url, urlParams, dataTarget) {
     // console.log(event.currentTarget);
@@ -86,6 +101,7 @@ export class HSCardButton {
     if (typeof this.dataTarget === 'undefined'  || this.dataTarget === null) {
       this.dataTarget = '';
     }
+    console.log('toggle '+this.dataToggle);
     return (
       <button id={this.buttonId}
         class={this.cssClass}

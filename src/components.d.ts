@@ -25,6 +25,8 @@ export namespace Components {
         "clonedContent": any;
         "colorTone": string;
         "colorToneClass": string;
+        "dataTarget"?: string;
+        "dataToggle"?: string;
         "fnStatusCallBack": (status: boolean, fnName: string, errorMessage?: any) => any;
         "footerDiv": HTMLDivElement;
         "imgElem": any;
@@ -32,7 +34,6 @@ export namespace Components {
         "imgHeaderImgContainer": HTMLImageElement;
         "imgHeaderImgPlaceholder": string;
         "imgPath": string;
-        "modalId"?: string;
         "overlay": any;
         "showHide": string;
         "validURL": (str: any) => any;
@@ -79,12 +80,13 @@ export namespace Components {
         "clickTarget": string;
         "colorTone": string;
         "colorToneClass": string;
+        "dataTarget": string;
+        "dataToggle": string;
         "fnStatusCallBack": (status: boolean, fnName: string, errorMessage?: any) => any;
         "imgElem": any;
         "imgHeaderImg": string;
         "imgHeaderImgPlaceholder": string;
         "imgPath": string;
-        "modalId": string;
         "overlay": any;
         "showHide": string;
         "validURL": (str: any) => any;
@@ -341,6 +343,8 @@ declare namespace LocalJSX {
         "clonedContent"?: any;
         "colorTone"?: string;
         "colorToneClass"?: string;
+        "dataTarget"?: string;
+        "dataToggle"?: string;
         "fnStatusCallBack"?: (status: boolean, fnName: string, errorMessage?: any) => any;
         "footerDiv"?: HTMLDivElement;
         "imgElem"?: any;
@@ -348,8 +352,6 @@ declare namespace LocalJSX {
         "imgHeaderImgContainer"?: HTMLImageElement;
         "imgHeaderImgPlaceholder"?: string;
         "imgPath"?: string;
-        "modalId"?: string;
-        "onModalLancher"?: (event: CustomEvent<any>) => void;
         "overlay"?: any;
         "showHide"?: string;
         "validURL"?: (str: any) => any;
@@ -366,6 +368,7 @@ declare namespace LocalJSX {
         "cssClass"?: string;
         "dataTarget"?: string | null;
         "dataToggle"?: string | null;
+        "onModalLancher"?: (event: CustomEvent<any>) => void;
         "onclicker"?: any;
         "url"?: any;
         "urlParams"?: any;
@@ -396,12 +399,13 @@ declare namespace LocalJSX {
         "clickTarget"?: string;
         "colorTone"?: string;
         "colorToneClass"?: string;
+        "dataTarget"?: string;
+        "dataToggle"?: string;
         "fnStatusCallBack"?: (status: boolean, fnName: string, errorMessage?: any) => any;
         "imgElem"?: any;
         "imgHeaderImg"?: string;
         "imgHeaderImgPlaceholder"?: string;
         "imgPath"?: string;
-        "modalId"?: string;
         "onModalLancher"?: (event: CustomEvent<any>) => void;
         "overlay"?: any;
         "showHide"?: string;

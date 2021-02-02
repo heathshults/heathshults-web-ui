@@ -1050,7 +1050,50 @@ input:not(:-webkit-autofill) {
   background-repeat: repeat-x;
 }
 
-// hs-card {
-//   display: flex;
-//   align-items: stretch;
-// }
+.modal-content {
+  font-size: .89em;
+  color: $hs-gray-light;
+  background-color: rgba(0, 0, 0, .5);
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 1);
+}
+.modal-header {
+  color: var(--hs-color_dark_yellow);
+  background: transparent;
+  border-bottom: 1px solid transparent;
+}
+.modal-footer {
+  justify-content: center;
+  background: transparent;
+  border-top: 1px solid transparent;
+}
+.modal-body {
+  padding: rem(20px) rem(50px);
+}
+.modal-content .modal-header > .btn-close {
+  padding: 0;
+  margin: -2.5rem -0.5rem -1.5rem auto;
+  font-size: 6em;
+  line-height: normal;
+  color: inherit;
+}
+.star {
+  display: inline-block;
+  width: 23px;
+  height: 24px;
+  margin: auto var(--space-sm);
+  color: var(--hs-color_dark_yellow);
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='23px' height='24px' viewBox='0 0 72 72' enable-background='new 0 0 72 72' xml:space='preserve'%3e%3cg%3e%3cg%3e%3cpath fill='%23FFFFFF' d='M60.023,24.408l10.49-8.332l-12.468,4.92c-18.644,7.36-21.168,6.688-33.635-9.008L16.076,1.493L21,13.956 c7.363,18.646,6.687,21.16-9.017,33.636L1.486,55.927l12.467-4.92c18.654-7.369,21.167-6.701,33.642,9.009l8.333,10.491 l-4.92-12.463C43.646,39.389,44.32,36.885,60.023,24.408z M43.743,49.399c-4.662-4.777-8.517-6.903-13.519-6.903 c-2.59,0.067-5.157,0.479-7.632,1.244c6.937-6.758,8.295-11.826,5.668-21.147c6.762,6.935,11.827,8.293,21.152,5.667 C42.477,35.016,41.115,40.085,43.743,49.399z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  // background-position: center middle;
+  background-size: 24px;
+}
+.hs-bg-yellow {
+  background: var(--hs-color_dark_yellow);
+}
+.hs-text-yellow {
+  color: var(--hs-color_dark_yellow);
+}
+.hs-text-white {
+  color: var(--hs-white);
+}
