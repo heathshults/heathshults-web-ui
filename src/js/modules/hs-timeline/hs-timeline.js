@@ -1,3 +1,4 @@
+/* eslint-disable no-unsafe-negation */
 (function(){ 
   // Vertical Timeline - by CodyHouse.co
 	function VerticalTimeline( element ) {
@@ -10,8 +11,7 @@
 	}
 
 	VerticalTimeline.prototype.hideBlocks = function() {
-		if (!document.documentElement.hasAttribute('classList')) {
-		// if ( !"classList" in document.documentElement ) {
+		if ( !"classList" in document.documentElement ) {
 			return; // no animation on older browsers
 		}
 		//hide timeline blocks which are outside the viewport
@@ -27,8 +27,7 @@
 	};
 
 	VerticalTimeline.prototype.showBlocks = function() {
-		if (!document.documentElement.hasAttribute('classList')) {
-		// if ( ! "classList" in document.documentElement ) {
+		if ( ! "classList" in document.documentElement ) {
 			return;
 		}
 		let self = this;
@@ -69,7 +68,9 @@
 			timeline.showBlocks();
 		});
 		scrolling = false;
-	};
+	}
+	
+
 })();
 
 // if (!document.documentElement.hasAttribute('classList')) {
