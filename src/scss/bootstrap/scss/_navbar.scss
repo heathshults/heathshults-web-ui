@@ -148,48 +148,7 @@
   background-size: 100%;
 }
 
-// Generate series of `.navbar-expand-*` responsive classes for configuring
-// where your navbar collapses.
-.navbar-expand {
-  @each $breakpoint in map-keys($grid-breakpoints) {
-    $next: breakpoint-next($breakpoint, $grid-breakpoints);
-    $infix: breakpoint-infix($next, $grid-breakpoints);
 
-    // stylelint-disable-next-line scss/selector-no-union-class-name
-    &#{$infix} {
-      @include media-breakpoint-up($next) {
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-
-        .navbar-nav {
-          flex-direction: row;
-
-          .dropdown-menu {
-            position: absolute;
-          }
-
-          .nav-link {
-            padding-right: $navbar-nav-link-padding-x;
-            padding-left: $navbar-nav-link-padding-x;
-          }
-        }
-
-        .navbar-collapse {
-          display: flex !important; // stylelint-disable-line declaration-no-important
-        }
-
-        .navbar-toggler {
-          display: none;
-        }
-      }
-    }
-  }
-}
-
-
-// Navbar themes
-//
-// Styles for switching between navbars with light or dark background.
 
 // Dark links against a light background
 .navbar-light {
