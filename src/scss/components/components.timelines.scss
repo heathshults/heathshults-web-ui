@@ -108,6 +108,30 @@
   }
 }
 
+.hs-timeline__topper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--hs-color_yellow), inset 0 2px 0 rgba(#000, 0.08), 0 3px 0 4px rgba(#000, 0.05);
+  flex-shrink: 0;
+
+  img {
+    width: 42px;
+    height: 42px;
+  }
+
+  @include breakpoint(md) {
+    order: 1; // flex order -> place the image after hs-timeline__content
+    width: 80px;
+    height: 80px;
+    margin-left: calc(5% - 40px);
+    will-change: transform;
+  }
+}
+
 .hs-timeline__img {
   display: flex;
   align-items: center;
@@ -160,7 +184,8 @@
   background: lightness(var(--hs-color-2), 1.05);
   // background: var(--color-white);
   border-radius: var(--radius-md);
-  box-shadow: 0 3px 0 var(--hs-color-2);
+  box-shadow: 0 3px 0 var(--hs-color-2), 0 7px 7px 0px rgba(0, 0, 0, .25);
+
 
   &::before { // triangle next to content block
     position: absolute;
@@ -171,6 +196,7 @@
   }
 
   h2 {
+    font-size: 1.5rem;
     color: var(--hs-color-1);
   }
 

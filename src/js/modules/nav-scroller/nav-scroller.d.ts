@@ -3,9 +3,21 @@
  * Copyright 2020-2020 Heath-Shults
  * Licensed under MIT (https://github.com/heathshults/heathshults.com/LICENSE)
  */
-export default class NavScroller {
-    mainNav: any;
+export default class HSNavbar {
+    navSelector: string;
+    navLinkSelector: string;
+    userOptions: Record<string, any>;
+    navbar: HTMLElement;
+    navLink: any;
     navLinks: Array<any>;
-    navCollapse: HTMLDivElement;
-    constructor(navSelector: string, navLinkSelector: string);
+    options: Record<string, any>;
+    defaults: {
+        navSelector: string;
+        navLinkSelector: string;
+        autoCollapse: boolean;
+        fixedTop: boolean;
+    };
+    constructor(navSelector: string, navLinkSelector: string, userOptions: Record<string, any>);
+    scrollHandler(): void;
+    return: any;
 }

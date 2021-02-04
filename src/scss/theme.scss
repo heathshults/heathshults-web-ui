@@ -294,8 +294,9 @@ body {
   }
 }
 
-.hs-bg-grad-black-trans {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.89) 11%, rgba(0, 0, 0, 0) 100%);
+.hs-bg-grad-black-trans,
+.hs-navbar-semitransparent {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 45%, rgba(0, 0, 0, .5) 58%, rgba(0, 0, 0, 0) 100%);
   -webkit-filter: progid:dximagetransform.microsoft.gradient(startColorstr='#000000', endColorstr='#00000000', GradientType=0);
   filter: progid:dximagetransform.microsoft.gradient(startColorstr='#000000', endColorstr='#00000000', GradientType=0);
 }
@@ -426,6 +427,20 @@ div[slot^="hs-"] {
   font-size: 2.4rem;
 }
 
+#mainNav.hs-navbar-transparent {
+  background: transparent;
+}
+
+#mainNav.navbar-solid {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: #1a1d20;
+  background-image: none;
+  box-shadow: 1px 4px 8px 3px rgba(0, 0, 0, .4);
+  transition: max-height .25s ease-in-out;
+}
+
+
 @media (min-width: 992px) {
   .navbar-expand-lg .navbar-nav {
     flex-direction: row;
@@ -438,21 +453,60 @@ div[slot^="hs-"] {
   .widget-container {
     margin-top: -46px !important;
   }
-  #mainNav.navbar-fixed-top,
-  #mainNav.navbar-shrink {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    background-color: #1a1d20;
-    background-image: none;
-    box-shadow: 1px 4px 8px 3px rgba(0, 0, 0, .4);
-    transition: max-height .25s ease-in-out;
+  #mainNav.hs-navbar-transparent {
+    background: transparent;
   }
+  .hs-section {
+    width: 100%;
+    padding: 6rem 0;
+  }
+  // #mainNav.navbar-shrink {
+  //   padding-top: 1rem;
+  //   padding-bottom: 1rem;
+  //   background-color: #1a1d20;
+  //   background-image: none;
+  //   box-shadow: 1px 4px 8px 3px rgba(0, 0, 0, .4);
+  //   transition: max-height .25s ease-in-out;
+  // }
 }
 .navbar .container {
   display: inline-flex;
   height: 100%;
 }
 
+.hs-quotes {
+  position: relative;
+  z-index: 500;
+  padding: var(--space-md);
+  margin: var(--space-md);
+  color: var(--gray-500);
+  border: 3px dashed var(--gray-500);
+  border-radius: 10px;
+  transform: rotate(-5deg);
+  &::before {
+    position: absolute;
+    top: -2.85rem;
+    left: -1rem;
+    z-index: 500;
+    font-family: Georgia, serif;
+    font-size: 6rem;
+    font-weight: bold;
+    content: " “ ";
+  }
+  &::after {
+    position: absolute;
+    right: -1rem;
+    bottom: -5.7rem;
+    z-index: 500;
+    font-family: Georgia, serif;
+    font-size: 6rem;
+    font-weight: bold;
+    content: " ” ";
+  }
+  p {
+    margin: 10px 4px;
+  }
+}
 
 
 .hs-btn-showmore {
@@ -1028,10 +1082,6 @@ input:not(:-webkit-autofill) {
   #mainNav .navbar-brand.js-scroll-trigger.site-logo{
     display: inline-block;
     margin-right: 50px;
-  }
-
-  .hs-bg-grad-black-trans {
-    background: #2e2e2e;
   }
 
   #portfolio .hs-section-heading,
