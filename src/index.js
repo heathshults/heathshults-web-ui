@@ -12,7 +12,7 @@ require('@babel/register')({
 });
 
 import './js/HeathScript';
-// import './js/modules/nav-scroller';
+import './js/modules/nav-scroller';
 import './js/modules/hs-timeline';
 import './js/modules/theme-switcher';
 import './js/modules/back-to-top';

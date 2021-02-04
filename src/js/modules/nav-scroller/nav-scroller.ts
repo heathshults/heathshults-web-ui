@@ -5,44 +5,57 @@
  * Licensed under MIT (https://github.com/heathshults/heathshults.com/LICENSE)
  */
 
- export default class NavScroller {
-   public mainNav: any;
-   public navLinks: Array<any>;
-   public navCollapse: HTMLDivElement;
-   
-  constructor(navSelector: string, navLinkSelector: string) {
-    this.mainNav = document.querySelector(navSelector);
-    this.navLinks = Array.prototype.slice.call(document.querySelectorAll(navLinkSelector));
-    this.navCollapse = document.querySelector('.navbar-collapse');
-    console.log('mainNav');
-    console.log(this.mainNav);
-    
-    // Closes responsive menu when a scroll trigger link is clicked
-    this.navLinks.forEach(link => {
-      link.addEventListener('click', (event) => {
-        event.preventDefault;
-        this.navCollapse.classList.add('hide');
-      });
-    });
-    // Collapse Navbar
-    function navbarCollapse(): any {
-      console.log('collapse: ' + this.mainNav);
-      if (this.mainNav.offsetTtop > 100) {
-        this.mainNav.classList.add("navbar-shrink");
+export default class HSNavbar {
+  public navbar: HTMLElement;
+  public navLink: any;
+  public navLinks: Array<any>;
+  public options: Record<string, any>;
+  public defaults = {
+    navSelector: 'hs-navbar',
+    navLinkSelector: 'hs-navbar_item',
+    autoCollapse: false,
+    fixedTop: false
+  }
+
+  constructor(
+    public navSelector: string, 
+    public navLinkSelector: string,
+    public userOptions: Record<string, any>) 
+    {
+      this.options = {...this.defaults, ...this.userOptions};
+      this.navbar = document.querySelector(navSelector);
+      this.navLinks = Array.prototype.slice.call(document.querySelectorAll(this.navLinkSelector));
+      
+      this.navbar.addEventListener('click', () => {
+        this.scrollHandler();
+      }, true);
+      
+      window.addEventListener('scroll', () => {
+        this.scrollHandler();
+      }, true);
+      
+      this.scrollHandler();
+    }
+    scrollHandler(): void {
+      if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {        
+        this.navbar.classList.add('hs-navbar-semitransparent');
       } else {
-       this.mainNav.classList.remove("navbar-shrink");
+        this.navbar.classList.remove(('hs-navbar-semitransparent'));
       }
       return;
     }
-
-    // Collapse now if page is not at top
-    navbarCollapse();
+      return;
     
-    // Collapse the navbar when page is scrolled
-    window.onscroll = function(e): any {
-      e.preventDefault;
-      return navbarCollapse();
-    };
-  }
+      
+    // collapseResponsiveNavbar = (): any => {
+    //   // event.preventDefault;
+    //   // this.navLink = event.target as HTMLAnchorElement;
+    //   this.collapse();
+      
+    //   return;
+    // }
+    
 }
 
+new HSNavbar('#mainNav', '.hs-navbar_link', {autoCollapse: true, fixedTop: true});
+ 
