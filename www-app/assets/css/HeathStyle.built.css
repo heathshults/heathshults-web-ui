@@ -435,6 +435,96 @@
     }
   }
 }
+/* latin */
+@font-face {
+  font-family: "Caveat";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/caveat/v9/Wnz6HAc5bAfYB2Q7ZjYY.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: "Caveat";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/caveat/v9/Wnz6HAc5bAfYB2Q7ZjYY.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: "Montserrat";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/montserrat/v15/JTUQjIg1_i6t8kCHKm459WxRyS7m.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/montserrat/v15/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_c5H3gnD_g.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fBBc4.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxK.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfBBc4.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/robotoslab/v12/BngMUXZYTXPIvIBgJJSb6ufN5qU.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/robotoslab/v12/BngMUXZYTXPIvIBgJJSb6ufN5qU.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 :root {
   --font-primary: system-ui, sans-serif;
   --text-base-size: 1em;
@@ -638,14 +728,19 @@ mark {
 #mainNav .navbar-brand img {
   height: 1.5rem;
 }
+#mainNav .navbar-nav .nav-item {
+  transition: all 0.25s ease-in-out;
+}
 #mainNav .navbar-nav .nav-item .nav-link {
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 0.95rem;
   color: #fff;
   letter-spacing: 0.0625em;
+  transition: all 0.25s ease-in-out;
 }
 #mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
   color: #fed136;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width: 992px) {
@@ -659,6 +754,7 @@ mark {
   #mainNav .navbar-brand {
     font-size: 1.5em;
     transition: font-size 0.3s ease-in-out;
+    transition: all 0.25s ease-in-out;
   }
   #mainNav .navbar-brand img {
     height: 2rem;
@@ -668,6 +764,7 @@ mark {
     padding-top: 1rem;
     padding-bottom: 1rem;
     background-color: #212529;
+    transition: all 0.25s ease-in-out;
   }
   #mainNav.navbar-shrink .navbar-brand {
     font-size: 1.25em;
@@ -679,6 +776,7 @@ mark {
   #mainNav .navbar-nav .nav-item {
     margin-right: 0.2rem;
     margin-left: 0.2rem;
+    transition: all 0.25s ease-in-out;
   }
   #mainNav .navbar-nav .nav-item:last-child {
     margin-right: 0;
@@ -698,12 +796,14 @@ mark {
   .navbar-expand-sm .navbar-nav .nav-link {
     padding-right: 0.2rem;
     padding-left: 0.2rem;
+    transition: all 0.25s ease-in-out;
   }
   .navbar-expand-sm .navbar-collapse {
     display: flex !important;
   }
   .navbar-expand-sm .navbar-toggler {
     display: none;
+    transition: all 0.25s ease-in-out;
   }
 }
 @media (min-width: 768px) {
@@ -720,12 +820,14 @@ mark {
   .navbar-expand-md .navbar-nav .nav-link {
     padding-right: 0.2rem;
     padding-left: 0.2rem;
+    transition: all 0.25s ease-in-out;
   }
   .navbar-expand-md .navbar-collapse {
     display: flex !important;
   }
   .navbar-expand-md .navbar-toggler {
     display: none;
+    transition: all 0.25s ease-in-out;
   }
 }
 @media (min-width: 992px) {
@@ -742,12 +844,14 @@ mark {
   .navbar-expand-lg .navbar-nav .nav-link {
     padding-right: 0.2rem;
     padding-left: 0.2rem;
+    transition: all 0.25s ease-in-out;
   }
   .navbar-expand-lg .navbar-collapse {
     display: flex !important;
   }
   .navbar-expand-lg .navbar-toggler {
     display: none;
+    transition: all 0.25s ease-in-out;
   }
 }
 @media (min-width: 1200px) {
@@ -764,12 +868,14 @@ mark {
   .navbar-expand-xl .navbar-nav .nav-link {
     padding-right: 0.2rem;
     padding-left: 0.2rem;
+    transition: all 0.25s ease-in-out;
   }
   .navbar-expand-xl .navbar-collapse {
     display: flex !important;
   }
   .navbar-expand-xl .navbar-toggler {
     display: none;
+    transition: all 0.25s ease-in-out;
   }
 }
 @media (min-width: 1400px) {
@@ -786,12 +892,14 @@ mark {
   .navbar-expand-xxl .navbar-nav .nav-link {
     padding-right: 0.2rem;
     padding-left: 0.2rem;
+    transition: all 0.25s ease-in-out;
   }
   .navbar-expand-xxl .navbar-collapse {
     display: flex !important;
   }
   .navbar-expand-xxl .navbar-toggler {
     display: none;
+    transition: all 0.25s ease-in-out;
   }
 }
 .navbar-expand {
@@ -807,12 +915,14 @@ mark {
 .navbar-expand .navbar-nav .nav-link {
   padding-right: 0.2rem;
   padding-left: 0.2rem;
+  transition: all 0.25s ease-in-out;
 }
 .navbar-expand .navbar-collapse {
   display: flex !important;
 }
 .navbar-expand .navbar-toggler {
   display: none;
+  transition: all 0.25s ease-in-out;
 }
 
 .hs-slider-wrapper {
@@ -2251,6 +2361,29 @@ header.masthead::before,
   background: rgba(0, 0, 0, 0.64);
 }
 
+.greeting-container {
+  width: 45%;
+  margin: auto;
+}
+
+.hs-intro-lead-in {
+  font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+
+.hs-intro-subheading {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+}
+
+.hs-intro-heading {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+}
+
 @media (min-width: 992px) {
   header.masthead,
 .hs-header {
@@ -2290,10 +2423,9 @@ header.masthead::before,
     display: block;
     width: 100%;
     font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-style: italic;
     line-height: normal;
-    text-align: center;
     text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.95);
   }
   header.masthead .hs-intro-text .hs-intro-lead-in::after,
@@ -2304,12 +2436,13 @@ header.masthead::before,
   }
   header.masthead .hs-intro-text .hs-intro-subheading,
 .hs-header .hs-intro-text .hs-intro-subheading {
+    padding-left: 50px;
     margin-bottom: 0px;
-    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    text-transform: uppercase;
     font-size: 2.6rem;
     font-style: italic;
     line-height: normal;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
   }
   header.masthead .hs-intro-text .hs-intro-heading,
 .hs-header .hs-intro-text .hs-intro-heading {
@@ -2319,7 +2452,6 @@ header.masthead::before,
     font-size: 4.6875rem;
     font-weight: 700;
     line-height: normal;
-    text-align: center;
     text-shadow: 0px 4px 13px rgba(0, 0, 0, 0.75);
   }
   header.masthead header,
@@ -2389,6 +2521,12 @@ header.masthead .hs-header .hs-intro-text .hs-intro-heading,
     text-transform: uppercase;
     line-height: 4.6875rem;
   }
+
+  .hs-intro-subheading {
+    font-size: 2rem;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+  }
 }
 .hs-divider {
   display: flex;
@@ -2431,6 +2569,12 @@ header.masthead .hs-header .hs-intro-text .hs-intro-heading,
     white-space: normal;
   }
 
+  .hs-intro-subheading {
+    font-size: 1.5rem;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+  }
+
   .js-page-trigger {
     position: relative;
     display: inline-block;
@@ -2471,6 +2615,13 @@ header.masthead .hs-header .hs-intro-text .hs-intro-heading,
   font-weight: bold;
   line-height: normal;
   white-space: normal;
+}
+
+.hs-intro-subheading {
+  font-size: 1.5rem;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .js-page-trigger {

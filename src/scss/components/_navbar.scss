@@ -31,15 +31,18 @@
 
   .navbar-nav {
     .nav-item {
+      transition: all .25s ease-in-out;
       .nav-link {
         font-family: $headings-font-family;
         font-size: 0.95rem;
         color: $hs-white;
         letter-spacing: $headings-letter-spacing;
+        transition: all .25s ease-in-out;
 
         &.active,
         &:hover {
           color: $primary;
+          transition: all .25s ease-in-out;
         }
       }
     }
@@ -60,6 +63,7 @@
     .navbar-brand {
       font-size: 1.5em;
       transition: font-size 0.3s ease-in-out;
+      transition: all .25s ease-in-out;
 
       img {
         height: 2rem;
@@ -72,6 +76,7 @@
       padding-top: 1rem;
       padding-bottom: 1rem;
       background-color: $gray-900;
+      transition: all .25s ease-in-out;
 
       .navbar-brand {
         font-size: 1.25em;
@@ -86,6 +91,7 @@
     .navbar-nav .nav-item {
       margin-right: .2rem;
       margin-left: .2rem;
+      transition: all .25s ease-in-out;
 
       &:last-child {
         margin-right: 0;
@@ -115,6 +121,7 @@
           .nav-link {
             padding-right: .2rem;
             padding-left: .2rem;
+            transition: all .25s ease-in-out;
             // padding-right: $navbar-nav-link-padding-x;
             // padding-left: $navbar-nav-link-padding-x;
           }
@@ -126,6 +133,7 @@
 
         .navbar-toggler {
           display: none;
+          transition: all .25s ease-in-out;
         }
       }
     }
