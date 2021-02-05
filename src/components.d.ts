@@ -7,6 +7,9 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { HSImageViewerFilterResult } from "./types/hs-image-view/hs-image-viewer-filter-results";
 export namespace Components {
+    interface HsBackToTop {
+        "position": string;
+    }
     interface HsButton {
     }
     interface HsCard {
@@ -174,6 +177,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLHsBackToTopElement extends Components.HsBackToTop, HTMLStencilElement {
+    }
+    var HTMLHsBackToTopElement: {
+        prototype: HTMLHsBackToTopElement;
+        new (): HTMLHsBackToTopElement;
+    };
     interface HTMLHsButtonElement extends Components.HsButton, HTMLStencilElement {
     }
     var HTMLHsButtonElement: {
@@ -301,6 +310,7 @@ declare global {
         new (): HTMLHsTimelineItemElement;
     };
     interface HTMLElementTagNameMap {
+        "hs-back-to-top": HTMLHsBackToTopElement;
         "hs-button": HTMLHsButtonElement;
         "hs-card": HTMLHsCardElement;
         "hs-card-body": HTMLHsCardBodyElement;
@@ -325,6 +335,10 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface HsBackToTop {
+        "onBacktotop"?: (event: CustomEvent<any>) => void;
+        "position"?: string;
+    }
     interface HsButton {
     }
     interface HsCard {
@@ -501,6 +515,7 @@ declare namespace LocalJSX {
         "type"?: string;
     }
     interface IntrinsicElements {
+        "hs-back-to-top": HsBackToTop;
         "hs-button": HsButton;
         "hs-card": HsCard;
         "hs-card-body": HsCardBody;
@@ -528,6 +543,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "hs-back-to-top": LocalJSX.HsBackToTop & JSXBase.HTMLAttributes<HTMLHsBackToTopElement>;
             "hs-button": LocalJSX.HsButton & JSXBase.HTMLAttributes<HTMLHsButtonElement>;
             "hs-card": LocalJSX.HsCard & JSXBase.HTMLAttributes<HTMLHsCardElement>;
             "hs-card-body": LocalJSX.HsCardBody & JSXBase.HTMLAttributes<HTMLHsCardBodyElement>;

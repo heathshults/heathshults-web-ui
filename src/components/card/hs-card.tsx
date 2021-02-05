@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types, no-console, no-unused-vars, no-undefined */
-import { Component, Element, Prop, Event, EventEmitter, Listen, h } from '@stencil/core';
+import { Component, Element, Prop, h } from '@stencil/core';
 
 @Component({
   tag: 'hs-card',
