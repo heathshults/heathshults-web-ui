@@ -6,7 +6,7 @@
     const contactForm=document.querySelector('#contactForm');
     const contactFormFields=contactForm.querySelectorAll('.form-control');
     let contactFormFieldsValues= [];
-    console.log(contactForm),console.log(contactFormFields);
+    // console.log(contactForm),console.log(contactFormFields);
 
     // for(let i=0; i<contactFormFields.length;i++) {
     Array.prototype.slice.call(contactFormFields).forEach((field, index) => {  
@@ -52,9 +52,9 @@
     document.querySelector('#contactForm input,#contactForm textarea').addEventListener('change', function(event) {
       console.log('Got a CHANGE');
       event.forEach(formField => {
-        console.log(`new value ${formField.name}: ${formField.value}`);
+        // console.log(`new value ${formField.name}: ${formField.value}`);
       });
-      console.log(`new value ${event.target.name}: ${event.target.value}`);
+      // console.log(`new value ${event.target.name}: ${event.target.value}`);
     });
   };
   $('#contactForm input,#contactForm textarea').jqBootstrapValidation({

@@ -1103,13 +1103,13 @@ input:not(:-webkit-autofill) {
 .modal-content {
   font-size: .89em;
   color: $hs-gray-light;
-  background-color: rgba(0, 0, 0, .5);
+  background-color: rgba(0, 0, 0, .85);
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 1);
 }
 .modal-header {
   color: var(--hs-color_dark_yellow);
-  background: transparent;
+  background: var(--hs-black);
   border-bottom: 1px solid transparent;
 }
 .modal-footer {
@@ -1118,6 +1118,8 @@ input:not(:-webkit-autofill) {
   border-top: 1px solid transparent;
 }
 .modal-body {
+  display: flex;
+  align-items: stretch;
   padding: rem(20px) rem(50px);
 }
 .modal-content .modal-header > .btn-close {
@@ -1126,6 +1128,15 @@ input:not(:-webkit-autofill) {
   font-size: 6em;
   line-height: normal;
   color: inherit;
+}
+.modal-info-bar-container {
+  background: var(--hs-gray-950);
+  .modal-info-bar {
+    padding: var(--space-sm);
+    .info-title {
+      white-space: nowrap;
+    }
+  }
 }
 .star {
   display: inline-block;

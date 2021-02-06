@@ -67,6 +67,7 @@ $hs-gray-600: #6c757d !default;
 $hs-gray-700: #495057 !default;
 $hs-gray-800: #343a40 !default;
 $hs-gray-900: #212529 !default;
+$hs-gray-950: #151515 !default;
 $hs-black: #000 !default;
 
 $hs-grays: () !default;
@@ -83,6 +84,7 @@ $hs-grays: map-merge(
     "700": $hs-gray-700,
     "800": $hs-gray-800,
     "900": $hs-gray-900,
+    "950": $hs-gray-950,
     "1000": $hs-black,
   ),
   $hs-grays

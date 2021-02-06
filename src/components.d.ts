@@ -94,6 +94,17 @@ export namespace Components {
         "showHide": string;
         "validURL": (str: any) => any;
     }
+    interface HsCarousel {
+        "carousel"?: any;
+        "carouselContainer"?: any;
+        "cssClassList"?: string;
+        "dataIndicatorTarget"?: string;
+        "dataSlideTo"?: string;
+        "indicator"?: HTMLLIElement;
+        "indicatorList"?: HTMLLIElement;
+        "items"?: any;
+        "setAttributes": (element: HTMLElement, attrs: Record<string, any>) => Promise<void>;
+    }
     interface HsFetcher {
         "buttonLabel": string;
         "headers": Headers;
@@ -225,6 +236,12 @@ declare global {
         prototype: HTMLHsCardImgHeaderElement;
         new (): HTMLHsCardImgHeaderElement;
     };
+    interface HTMLHsCarouselElement extends Components.HsCarousel, HTMLStencilElement {
+    }
+    var HTMLHsCarouselElement: {
+        prototype: HTMLHsCarouselElement;
+        new (): HTMLHsCarouselElement;
+    };
     interface HTMLHsFetcherElement extends Components.HsFetcher, HTMLStencilElement {
     }
     var HTMLHsFetcherElement: {
@@ -318,6 +335,7 @@ declare global {
         "hs-card-footer": HTMLHsCardFooterElement;
         "hs-card-header": HTMLHsCardHeaderElement;
         "hs-card-img-header": HTMLHsCardImgHeaderElement;
+        "hs-carousel": HTMLHsCarouselElement;
         "hs-fetcher": HTMLHsFetcherElement;
         "hs-flipper": HTMLHsFlipperElement;
         "hs-image-view": HTMLHsImageViewElement;
@@ -425,6 +443,16 @@ declare namespace LocalJSX {
         "showHide"?: string;
         "validURL"?: (str: any) => any;
     }
+    interface HsCarousel {
+        "carousel"?: any;
+        "carouselContainer"?: any;
+        "cssClassList"?: string;
+        "dataIndicatorTarget"?: string;
+        "dataSlideTo"?: string;
+        "indicator"?: HTMLLIElement;
+        "indicatorList"?: HTMLLIElement;
+        "items"?: any;
+    }
     interface HsFetcher {
         "buttonLabel"?: string;
         "headers"?: Headers;
@@ -523,6 +551,7 @@ declare namespace LocalJSX {
         "hs-card-footer": HsCardFooter;
         "hs-card-header": HsCardHeader;
         "hs-card-img-header": HsCardImgHeader;
+        "hs-carousel": HsCarousel;
         "hs-fetcher": HsFetcher;
         "hs-flipper": HsFlipper;
         "hs-image-view": HsImageView;
@@ -551,6 +580,7 @@ declare module "@stencil/core" {
             "hs-card-footer": LocalJSX.HsCardFooter & JSXBase.HTMLAttributes<HTMLHsCardFooterElement>;
             "hs-card-header": LocalJSX.HsCardHeader & JSXBase.HTMLAttributes<HTMLHsCardHeaderElement>;
             "hs-card-img-header": LocalJSX.HsCardImgHeader & JSXBase.HTMLAttributes<HTMLHsCardImgHeaderElement>;
+            "hs-carousel": LocalJSX.HsCarousel & JSXBase.HTMLAttributes<HTMLHsCarouselElement>;
             "hs-fetcher": LocalJSX.HsFetcher & JSXBase.HTMLAttributes<HTMLHsFetcherElement>;
             "hs-flipper": LocalJSX.HsFlipper & JSXBase.HTMLAttributes<HTMLHsFlipperElement>;
             "hs-image-view": LocalJSX.HsImageView & JSXBase.HTMLAttributes<HTMLHsImageViewElement>;

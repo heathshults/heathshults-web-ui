@@ -12,7 +12,7 @@ export class HSCardBody {
   @Prop() contentClassList?: string;
   
  componentWillLoad(): void {
-  console.log(this.contentClasses);
+  // console.log(this.contentClasses);
   this.bodyClassList = typeof this.bodyClasses === 'undefined' ? this.bodyClasses = '' :  this.bodyClasses;
   this.contentClassList = typeof this.contentClasses === 'undefined' ? this.contentClasses = '' : this.contentClasses;
 
