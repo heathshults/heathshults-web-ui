@@ -21,10 +21,11 @@
 @import "./components/components.cards_body";
 @import "./components/components.cards_footer";
 @import "./components/components.cards_header";
-@import "./components/components.cards_button.scss";
+@import "./components/components.cards_button";
 @import "./components/components.timelines";
-@import "./components/components.flip-card";
-@import "./components/components.hs-grid.scss";
+// @import "./components/components.flip-card";
+@import "./components/components.hs-grid";
+@import "./components/hs-carousel";
 
 
 @import "./sections/masthead";

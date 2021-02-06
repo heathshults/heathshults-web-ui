@@ -49,17 +49,12 @@ export class HSCardButton {
   }
 
   @Method() async handleClick(event, url, urlParams, dataTarget) {
-    // console.log(event.currentTarget);
     event.preventDefault();
-    console.log(dataTarget);
-    console.log(url);
-    console.log(urlParams);
-
-    // if (typeof this.dataTarget === 'undefined' || this.dataTarget.length <= 0 || this.dataTarget === '') {
-    //   handleLink(url, urlParams);
-    // } else {
-    //   return;
-    // }
+    if (typeof dataTarget === 'undefined') {
+      this.handleLink(url, urlParams);
+    } else {
+      return;
+    }
   }
 
   handleLink(url, urlParams) {
@@ -72,9 +67,7 @@ export class HSCardButton {
   }
 
   componentWillLoad(): void {
-    // const theButton = this.el.shadowRoot.querySelector('button');
     if (this.dataTarget !== 'undefined') {
-      console.log(this.dataTarget);
     }
     if (this.url) {
       this.onclicker = `(event: Event) => this.handleClick(event, ${this.url}, ${this.urlParams}, ${this.dataTarget})`;
@@ -86,8 +79,6 @@ export class HSCardButton {
       this.dataTarget = '';
     }
     setTimeout(()=>{
-      // const button = this.el.shadowRoot.querySelector('button');
-      // console.log(`buttton: ${button}`);      
     }, 2000);
   }
 
@@ -101,7 +92,6 @@ export class HSCardButton {
     if (typeof this.dataTarget === 'undefined'  || this.dataTarget === null) {
       this.dataTarget = '';
     }
-    console.log('toggle '+this.dataToggle);
     return (
       <button id={this.buttonId}
         class={this.cssClass}
@@ -114,20 +104,3 @@ export class HSCardButton {
 
   }
 }
-// if (typeof this.dataToggle === 'undefined'  || this.dataToggle === null) {
-//   this.dataToggle = '';
-// }
-// if (typeof this.dataTarget === 'undefined'  || this.dataTarget === null) {
-//   this.dataTarget = '';
-// }
-// if (this.dataToggle) {
-//   if (this.dataTarget) {
-//   this.onclicker = `(event: Event) => showModal(event, ${this.dataTarget})`;
-//   } 
-// }
-
-// else if (this.url) {
-//   this.onclicker = `(event: Event) => this.handleClick(event, ${this.url}, ${this.urlParams}, ${this.dataTarget})`;
-// } else { 
-//   this.onclicker = '';
-// }

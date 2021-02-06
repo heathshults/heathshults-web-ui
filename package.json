@@ -47,7 +47,6 @@
     "gulp:ejsit": "gulp ejsit",
     "test": "jest --no-cache",
     "test.watch": "jest --watch --no-cache",
-    "scss:vars:convert": "node src/js/modules/scssVars-2-cssVars/index.js",
     "cssvars": "node_modules/.bin/babel-node src/js/modules/sass-to-css-variables/index.js",
     "debug:scss": "sass src/scss/styles.scss www-app/assets/css/HeathStyle.built.css"
   },
