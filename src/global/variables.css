@@ -394,11 +394,11 @@
   /* font */
   --hs-font-primary: 'Roboto', sans-serif;
 
-  /* // White */
+  /* White */
   --hs-white: #fff;
 
-  /* // Card Columns */
-  --hs-card-columns-count: 3;CardColumns--hs-card-columns-count
+  /* Card Columns */
+  --hs-card-columns-count: 3;
 
 
 }
