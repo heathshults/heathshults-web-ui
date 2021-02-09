@@ -19,12 +19,14 @@
 .carousel-container {
   display: flex;
   align-items: stretch;
+  justify-content: center;
   width: 100%;
   .carousel-item {
     position: relative;
     display: none;
-    align-self: flex-start stretch;
+    float: left;
     width: 100%;
+    margin-right: -100%;
     backface-visibility: hidden;
     @include transition($carousel-transition);
     .carousel-item-image {
@@ -199,6 +201,7 @@
   right: (100% - $carousel-caption-width) / 2;
   bottom: $carousel-caption-spacer;
   left: (100% - $carousel-caption-width) / 2;
+  width: 100%;
   padding-top: $carousel-caption-padding-y;
   padding-bottom: $carousel-caption-padding-y;
   color: $carousel-caption-color;
