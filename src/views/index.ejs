@@ -1009,21 +1009,22 @@
             </div>
             
             <!-- 3dslider -->
-            <div id="rotator1" class="hs-3drotator" data-gap="20" data-bfc>
-              <figure class="hs-3dRotator-figure">
-                <img class="hs-3dRotator-img" src="/assets/img/portfolio/bowlopolis/episodes-page-800x533.jpg" alt="">
-                <img class="hs-3dRotator-img" src="/assets/img/portfolio/bowlopolis/kids-club-page-800x533.jpg" alt="">
-                <img class="hs-3dRotator-img" src="/assets/img/portfolio/bowlopolis/games-page-800x533.jpg" alt="">
-                <img class="hs-3dRotator-img" src="/assets/img/portfolio/bowlopolis/episodes-page-800x533.jpg" alt="">
-                <img class="hs-3dRotator-img" src="/assets/img/portfolio/bowlopolis/kids-club-page-800x533.jpg" alt="">
-                <img class="hs-3dRotator-img" src="/assets/img/portfolio/bowlopolis/games-page-800x533.jpg" alt="">
-              </figure>
-              <nav>
-                <button class="hs-3dRotator-button hs-3drotator-nav prev">Prev</button>
-                <button class="hs-3dRotator-button hs-3drotator-nav next">Next</button>
-              </nav>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12">
+                  <!-- HSThreeDRotator -->
+                  <hs-3d-rotator url="/global/3dRotator.json" startCellCount="6">
+                    <img class="hs-threeDRotator-img"
+                    src="/assets/img/portfolio/bowlopolis/episodes-page-800x533.jpg" alt=""><img class="hs-threeDRotator-img"
+                    src="/assets/img/portfolio/bowlopolis/episodes-page-800x533.jpg" alt=""><img class="hs-threeDRotator-img"
+                    src="/assets/img/portfolio/bowlopolis/episodes-page-800x533.jpg" alt=""><img class="hs-threeDRotator-img"
+                    src="/assets/img/portfolio/bowlopolis/episodes-page-800x533.jpg" alt=""><img class="hs-threeDRotator-img"
+                    src="/assets/img/portfolio/bowlopolis/episodes-page-800x533.jpg" alt=""><img class="hs-threeDRotator-img"
+                    src="/assets/img/portfolio/bowlopolis/episodes-page-800x533.jpg" alt="">
+                  </hs-3d-rotator>
+                </div>
+              </div>
             </div>
-                   
             <!-- 3dslider -->
           </div>
           <div class="modal-footer">
@@ -1050,7 +1051,82 @@
     <!-- Theme JavaScript -->
     <script src="/assets/js/HeathScript.built.js" type="module"></script>
     <!-- <script src="hScript.bundle.js"></script> -->
+    <!-- <script>
+      var HSThreeDRotator=document.querySelector('.hs-threeDRotator');
+        var cells=HSThreeDRotator.querySelectorAll('.hs-threeDRotator__cell');
+        var cellCount; // cellCount set from cells-range input value
+        var selectedIndex=0;
+        var cellWidth=HSThreeDRotator.offsetWidth;
+        var cellHeight=HSThreeDRotator.offsetHeight;
+        var isHorizontal=true;
+        var rotateFn=isHorizontal? 'rotateY':'rotateX';
+        var radius,theta;
+        // console.log( cellWidth, cellHeight );
 
+        function rotateCarousel() {
+          var angle=theta*selectedIndex*-1;
+          HSThreeDRotator.style.transform='translateZ('+-radius+'px) '+
+            rotateFn+'('+angle+'deg)';
+        }
+
+        var prevButton=document.querySelector('.previous-button');
+        prevButton.addEventListener('click',function() {
+          selectedIndex--;
+          rotateCarousel();
+        });
+
+        var nextButton=document.querySelector('.next-button');
+        nextButton.addEventListener('click',function() {
+          selectedIndex++;
+          rotateCarousel();
+        });
+
+        var cellsRange=document.querySelector('.cells-range');
+        cellsRange.addEventListener('change',changeCarousel);
+        cellsRange.addEventListener('input',changeCarousel);
+
+
+
+        function changeCarousel() {
+          cellCount=cellsRange.value;
+          theta=360/cellCount;
+          var cellSize=isHorizontal? cellWidth:cellHeight;
+          radius=Math.round((cellSize/2)/Math.tan(Math.PI/cellCount));
+          for(var i=0;i<cells.length;i++) {
+            var cell=cells[i];
+            if(i<cellCount) {
+              // visible cell
+              cell.style.opacity=1;
+              var cellAngle=theta*i;
+              cell.style.transform=rotateFn+'('+cellAngle+'deg) translateZ('+radius+'px)';
+            } else {
+              // hidden cell
+              cell.style.opacity=0;
+              cell.style.transform='none';
+            }
+          }
+
+          rotateCarousel();
+        }
+
+        var orientationRadios=document.querySelectorAll('input[name="orientation"]');
+        (function() {
+          for(var i=0;i<orientationRadios.length;i++) {
+            var radio=orientationRadios[i];
+            radio.addEventListener('change',onOrientationChange);
+          }
+        })();
+
+        function onOrientationChange() {
+          var checkedRadio=document.querySelector('input[name="orientation"]:checked');
+          isHorizontal=checkedRadio.value=='horizontal';
+          rotateFn=isHorizontal? 'rotateY':'rotateX';
+          changeCarousel();
+        }
+
+        // set initials
+        onOrientationChange();
+      </script> -->
     <script>
       // var bowlopolisModal = new bootstrap.Modal(document.getElementById('bowlopolisDetails'), options)
       // var designSysteModal = new bootstrap.Modal(document.getElementById('designSysteDetails'), options)

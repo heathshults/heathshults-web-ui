@@ -14,10 +14,11 @@
     "loader/"
   ],
   "scripts": {
-    "start": "npm-run-all --sequential comp:clean eslint js:transpile gulp:ejsit scss:compile assets:copy comp:buildlight serve:proxy",
+    "start": "npm-run-all --sequential comp:clean eslint js:transpile gulp:ejsit scss:compile assets:copy comp:buildlight comp:copy serve:proxy",
     "start:debug": "npm run build && node build-scripts/start-debug.js",
     "comp:copy": "node_modules/.bin/copy www/components/**/* www-app/components",
     "comp:build:nowatch": "npm run comp:clean && node_modules/.bin/stencil build --dev --docs-readme --debug",
+    "comp:build:watch": "npm run comp:clean && node_modules/.bin/stencil build --dev --docs-readme --debug --watch",
     "comp:buildlight": "npm-run-all --sequential comp:clean comp:build:nowatch comp:copy",
     "comp:build": "npm run comp:clean && node_modules/.bin/stencil build --docs-readme --watch",
     "comp:serve": "node_modules/.bin/stencil build --dev --watch --serve",
