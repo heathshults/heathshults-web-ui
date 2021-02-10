@@ -4217,6 +4217,14 @@ input:not(:-webkit-autofill) {
   position: relative;
 }
 
+.opacity-max {
+  opacity: 1;
+}
+
+.opacity-none {
+  opacity: 0;
+}
+
 .scene {
   position: relative;
   min-width: 170px;

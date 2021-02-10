@@ -7,6 +7,19 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { HSImageViewerFilterResult } from "./types/hs-image-view/hs-image-viewer-filter-results";
 export namespace Components {
+    interface Hs3dRotator {
+        "HSThreeDRotator": any;
+        "cellCount": any;
+        "cellHeight": number | string;
+        "cellWidth": number | string;
+        "headers": Headers;
+        "jdata": Array<any>;
+        "maxCells": 15;
+        "method": string;
+        "minCells": 3;
+        "startCellCount": 6;
+        "url": string;
+    }
     interface HsBackToTop {
         "position": string;
     }
@@ -188,6 +201,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLHs3dRotatorElement extends Components.Hs3dRotator, HTMLStencilElement {
+    }
+    var HTMLHs3dRotatorElement: {
+        prototype: HTMLHs3dRotatorElement;
+        new (): HTMLHs3dRotatorElement;
+    };
     interface HTMLHsBackToTopElement extends Components.HsBackToTop, HTMLStencilElement {
     }
     var HTMLHsBackToTopElement: {
@@ -327,6 +346,7 @@ declare global {
         new (): HTMLHsTimelineItemElement;
     };
     interface HTMLElementTagNameMap {
+        "hs-3d-rotator": HTMLHs3dRotatorElement;
         "hs-back-to-top": HTMLHsBackToTopElement;
         "hs-button": HTMLHsButtonElement;
         "hs-card": HTMLHsCardElement;
@@ -353,6 +373,21 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface Hs3dRotator {
+        "HSThreeDRotator"?: any;
+        "cellCount"?: any;
+        "cellHeight"?: number | string;
+        "cellWidth"?: number | string;
+        "headers"?: Headers;
+        "jdata"?: Array<any>;
+        "maxCells"?: 15;
+        "method"?: string;
+        "minCells"?: 3;
+        "onFetcherror"?: (event: CustomEvent<any>) => void;
+        "onResolved"?: (event: CustomEvent<any>) => void;
+        "startCellCount"?: 6;
+        "url"?: string;
+    }
     interface HsBackToTop {
         "onBacktotop"?: (event: CustomEvent<any>) => void;
         "position"?: string;
@@ -543,6 +578,7 @@ declare namespace LocalJSX {
         "type"?: string;
     }
     interface IntrinsicElements {
+        "hs-3d-rotator": Hs3dRotator;
         "hs-back-to-top": HsBackToTop;
         "hs-button": HsButton;
         "hs-card": HsCard;
@@ -572,6 +608,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "hs-3d-rotator": LocalJSX.Hs3dRotator & JSXBase.HTMLAttributes<HTMLHs3dRotatorElement>;
             "hs-back-to-top": LocalJSX.HsBackToTop & JSXBase.HTMLAttributes<HTMLHsBackToTopElement>;
             "hs-button": LocalJSX.HsButton & JSXBase.HTMLAttributes<HTMLHsButtonElement>;
             "hs-card": LocalJSX.HsCard & JSXBase.HTMLAttributes<HTMLHsCardElement>;

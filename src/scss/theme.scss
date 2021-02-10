@@ -1165,8 +1165,13 @@ input:not(:-webkit-autofill) {
 .hs-3drotate-conainer {
   position: relative;
 }
+.opacity-max {
+  opacity: 1;
+}
+.opacity-none {
+  opacity: 0;
+}
 .scene {
-
   position: relative;
   min-width: 170px;
   max-width: 770px;

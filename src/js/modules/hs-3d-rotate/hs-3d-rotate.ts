@@ -1,33 +1,34 @@
 
-        const HSThreeDRotator: HTMLDivElement = document.querySelector('.hs-threeDRotator');
-        const cells: NodeList = HSThreeDRotator.querySelectorAll('.hs-threeDRotator__cell');
+        const HS3DRotator: HTMLDivElement = document.querySelector('.hs-3d-rotator');
+        const cells: NodeList = HS3DRotator.querySelectorAll('.hs-3d-rotator__cell');
         let cellCount; // cellCount set from cells-range input value
         let selectedIndex = 0;
-        const cellWidth = HSThreeDRotator.offsetWidth;
-        const cellHeight = HSThreeDRotator.offsetHeight;
+        const cellWidth = HS3DRotator.offsetWidth;
+        const cellHeight = HS3DRotator.offsetHeight;
         let isHorizontal = true;
-        let rotateFn=isHorizontal ? 'rotateY':'rotateX';
-        let radius,theta;
+        let rotateFn = isHorizontal ? 'rotateY':'rotateX';
+        let radius
+        let theta;
         // console.log( cellWidth, cellHeight );
 
         function rotateCarousel() {
           const angle = theta * selectedIndex * -1;
-          HSThreeDRotator.style.transform=`translateZ(${-radius}px) ${rotateFn}(${angle}deg)`;
+          HS3DRotator.style.transform=`translateZ(${-radius}px) ${rotateFn}(${angle}deg)`;
         }
 
-        const prevButton=document.querySelector('.previous-button');
+        const prevButton = document.querySelector('.hs-3d-rotator-prev');
         prevButton.addEventListener('click',function() {
           selectedIndex--;
           rotateCarousel();
         });
 
-        const nextButton=document.querySelector('.next-button');
+        const nextButton=document.querySelector('.hs-3d-rotator-next');
         nextButton.addEventListener('click',function() {
           selectedIndex++;
           rotateCarousel();
         });
 
-        const cellsRange: HTMLInputElement = document.querySelector('.cells-range');
+        const cellsRange: HTMLInputElement = document.querySelector('.hs-3d-rotator-cells-range');
         cellsRange.addEventListener('change',changeCarousel);
         cellsRange.addEventListener('input',changeCarousel);
 
@@ -55,17 +56,17 @@
           rotateCarousel();
         }
 
-        const orientationRadios=document.querySelectorAll('input[name="orientation"]');
+        const orientationInputs=document.querySelectorAll('input[name="orientation"]');
         (function() {
-          for(let i = 0; i < orientationRadios.length; i++) {
-            const radio=orientationRadios[i];
+          for(let i = 0; i < orientationInputs.length; i++) {
+            const radio=orientationInputs[i];
             radio.addEventListener('change',onOrientationChange);
           }
         })();
 
         function onOrientationChange() {
-          const checkedRadio: HTMLInputElement = document.querySelector('input[name="orientation"]:checked');
-          isHorizontal = checkedRadio.value == 'horizontal';
+          const checkedRadioInput: HTMLInputElement = document.querySelector('input[name="orientation"]:checked');
+          isHorizontal = checkedRadioInput.value == 'horizontal';
           rotateFn = isHorizontal ? 'rotateY':'rotateX';
           changeCarousel();
         }
