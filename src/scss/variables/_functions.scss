@@ -100,9 +100,7 @@ $html-font-size: 16px;
 
 
 // --------------------------------
-
 // Grid & Layout
-
 // --------------------------------
 
 $grid-columns: 12 !default;
@@ -112,5 +110,3 @@ $grid-columns: 12 !default;
   $width : floor(100% * $i * 100/ $grid-columns) / 100;
   @return $width;
 }
-
-
