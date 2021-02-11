@@ -950,64 +950,67 @@
           <div class="modal-body">
                 
             <!-- 3dslider -->
-            <div class="container hs-3drotate-conainer">
+            <div class="container">
               <div class="row">
                 <div class="col-md-12">
                   <!-- HSThreeDRotator -->
-                  <div class="scene">
-          
-                    <div class="col hs-rotate3d-nav text-center">
-                      <button class="hs-rotate3d-prev previous-button"></button> <input class="cells-range" type="range" min="3"
-                        max="15" value="6" /> <button class="hs-rotate3d-next next-button"></button>
+                  <div class="hs-3drotate__container">
+                    
+                    <div class="hs-3drotate__scene">
+                      <div class="col hs-3drotate__nav text-center">
+                        <button class="hs-3drotate__prev-button"></button>
+                        <input class="hs-3drotate__cells-range" type="range" min="3" max="15" value="6" />
+                          <button class="hs-3drotate__next-button"></button>
+                      </div>
+                      <div class="hs-3drotate">
+                        
+                        <div class="hs-3drotate__cell"><img class="hs-3drotate__img"
+                            src="/assets/img/portfolio/bowlopolis/episodes-page-800x533.jpg" alt=""></div>
+                        <div class="hs-3drotate__cell"><img class="hs-3drotate__img"
+                            src="/assets/img/portfolio/bowlopolis/kids-club-page-800x533.jpg" alt=""></div>
+                        <div class="hs-3drotate__cell"><img class="hs-3drotate__img"
+                            src="/assets/img/portfolio/bowlopolis/games-page-800x533.jpg" alt=""></div>
+                        <div class="hs-3drotate__cell"><img class="hs-3drotate__img"
+                            src="/assets/img/portfolio/bowlopolis/episodes-page-800x533.jpg" alt=""></div>
+                        <div class="hs-3drotate__cell"><img class="hs-3drotate__img"
+                            src="/assets/img/portfolio/bowlopolis/kids-club-page-800x533.jpg" alt=""></div>
+                        <div class="hs-3drotate__cell"><img class="hs-3drotate__img"
+                            src="/assets/img/portfolio/bowlopolis/games-page-800x533.jpg" alt=""></div>
+                        <div class="hs-3drotate__cell">7</div>
+                        <div class="hs-3drotate__cell">8</div>
+                        <div class="hs-3drotate__cell">9</div>
+                        <div class="hs-3drotate__cell">10</div>
+                        <div class="hs-3drotate__cell">11</div>
+                        <div class="hs-3drotate__cell">12</div>
+                        <div class="hs-3drotate__cell">13</div>
+                        <div class="hs-3drotate__cell">14</div>
+                        <div class="hs-3drotate__cell">15</div>
+                      </div>
                     </div>
-          
-                    <div class="hs-threeDRotator">
-                      <div class="hs-threeDRotator__cell"><img class="hs-threeDRotator-img"
-                          src="/assets/img/portfolio/bowlopolis/episodes-page-800x533.jpg" alt=""></div>
-                      <div class="hs-threeDRotator__cell"><img class="hs-threeDRotator-img"
-                          src="/assets/img/portfolio/bowlopolis/kids-club-page-800x533.jpg" alt=""></div>
-                      <div class="hs-threeDRotator__cell"><img class="hs-threeDRotator-img"
-                          src="/assets/img/portfolio/bowlopolis/games-page-800x533.jpg" alt=""></div>
-                      <div class="hs-threeDRotator__cell"><img class="hs-threeDRotator-img"
-                          src="/assets/img/portfolio/bowlopolis/episodes-page-800x533.jpg" alt=""></div>
-                      <div class="hs-threeDRotator__cell"><img class="hs-threeDRotator-img"
-                          src="/assets/img/portfolio/bowlopolis/kids-club-page-800x533.jpg" alt=""></div>
-                      <div class="hs-threeDRotator__cell"><img class="hs-threeDRotator-img"
-                          src="/assets/img/portfolio/bowlopolis/games-page-800x533.jpg" alt=""></div>
-                      <div class="hs-threeDRotator__cell">7</div>
-                      <div class="hs-threeDRotator__cell">8</div>
-                      <div class="hs-threeDRotator__cell">9</div>
-                      <div class="hs-threeDRotator__cell">10</div>
-                      <div class="hs-threeDRotator__cell">11</div>
-                      <div class="hs-threeDRotator__cell">12</div>
-                      <div class="hs-threeDRotator__cell">13</div>
-                      <div class="hs-threeDRotator__cell">14</div>
-                      <div class="hs-threeDRotator__cell">15</div>
-                    </div>
+                    
                   </div>
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-12 text-center"></div>
-                <div class="hs-threeDRotator-options">
+                <div class="col-md-12 text-center">
+                <div class="hs-3drotate__options">
                   <p>
-                    Orientation:
-                    <label>
-                      <input type="radio" name="orientation" value="horizontal" checked />
+                    <label class="hs-3drotate__label">
+                      Orientation:</label>
+                    <label class="hs-3drotate__label">
+                      <input type="radio" class="hs-3drotate__radio-input" name="orientation" value="horizontal" checked />
                       horizontal
                     </label>
-                    <label>
-                      <input type="radio" name="orientation" value="vertical" />
+                    <label class="hs-3drotate__label">
+                      <input type="radio" class="hs-3drotate__radio-input" name="orientation" value="vertical" />
                       vertical
                     </label>
                   </p>
                 </div>
               </div>
-          
-          
+            </div>
             </div>
             <!-- 3dslider -->
-          </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
@@ -1033,89 +1036,14 @@
     <!-- Theme JavaScript -->
     <script src="/assets/js/HeathScript.built.js" type="module"></script>
     <!-- <script src="hScript.bundle.js"></script> -->
-    <!-- <script>
-      var HSThreeDRotator=document.querySelector('.hs-threeDRotator');
-        var cells=HSThreeDRotator.querySelectorAll('.hs-threeDRotator__cell');
-        var cellCount; // cellCount set from cells-range input value
-        var selectedIndex=0;
-        var cellWidth=HSThreeDRotator.offsetWidth;
-        var cellHeight=HSThreeDRotator.offsetHeight;
-        var isHorizontal=true;
-        var rotateFn=isHorizontal? 'rotateY':'rotateX';
-        var radius,theta;
-        // console.log( cellWidth, cellHeight );
-
-        function rotateCarousel() {
-          var angle=theta*selectedIndex*-1;
-          HSThreeDRotator.style.transform='translateZ('+-radius+'px) '+
-            rotateFn+'('+angle+'deg)';
-        }
-
-        var prevButton=document.querySelector('.previous-button');
-        prevButton.addEventListener('click',function() {
-          selectedIndex--;
-          rotateCarousel();
-        });
-
-        var nextButton=document.querySelector('.next-button');
-        nextButton.addEventListener('click',function() {
-          selectedIndex++;
-          rotateCarousel();
-        });
-
-        var cellsRange=document.querySelector('.cells-range');
-        cellsRange.addEventListener('change',changeCarousel);
-        cellsRange.addEventListener('input',changeCarousel);
-
-
-
-        function changeCarousel() {
-          cellCount=cellsRange.value;
-          theta=360/cellCount;
-          var cellSize=isHorizontal? cellWidth:cellHeight;
-          radius=Math.round((cellSize/2)/Math.tan(Math.PI/cellCount));
-          for(var i=0;i<cells.length;i++) {
-            var cell=cells[i];
-            if(i<cellCount) {
-              // visible cell
-              cell.style.opacity=1;
-              var cellAngle=theta*i;
-              cell.style.transform=rotateFn+'('+cellAngle+'deg) translateZ('+radius+'px)';
-            } else {
-              // hidden cell
-              cell.style.opacity=0;
-              cell.style.transform='none';
-            }
-          }
-
-          rotateCarousel();
-        }
-
-        var orientationRadios=document.querySelectorAll('input[name="orientation"]');
-        (function() {
-          for(var i=0;i<orientationRadios.length;i++) {
-            var radio=orientationRadios[i];
-            radio.addEventListener('change',onOrientationChange);
-          }
-        })();
-
-        function onOrientationChange() {
-          var checkedRadio=document.querySelector('input[name="orientation"]:checked');
-          isHorizontal=checkedRadio.value=='horizontal';
-          rotateFn=isHorizontal? 'rotateY':'rotateX';
-          changeCarousel();
-        }
-
-        // set initials
-        onOrientationChange();
-      </script> -->
+    
       <script>
       
-        var HSThreeDRotator=document.querySelector('.hs-threeDRotator');
-        HSThreeDRotator.setAttribute('fade', '');
-        HSThreeDRotator.style.transition = 'all 1s';
-        // HSThreeDRotator.style.display = 'none';
-        var cells=HSThreeDRotator.querySelectorAll('.hs-threeDRotator__cell');
+        var rotatorContainer = document.querySelector('.hs-3drotate__container');
+            rotatorContainer.classList.add('hs-vanish');
+        var HSThreeDRotator=document.querySelector('.hs-3drotate');
+        
+        var cells=HSThreeDRotator.querySelectorAll('.hs-3drotate__cell');
         var cellCount; // cellCount set from cells-range input value
         var selectedIndex=0;
         var cellWidth=HSThreeDRotator.offsetWidth;
@@ -1127,23 +1055,22 @@
 
         function rotateCarousel() {
           var angle=theta*selectedIndex*-1;
-          HSThreeDRotator.style.transform='translateZ('+-radius+'px) '+
-            rotateFn+'('+angle+'deg)';
+          HSThreeDRotator.style.transform='translateZ('+-radius+'px) ' + rotateFn+'('+angle+'deg)';
         }
 
-        var prevButton=document.querySelector('.previous-button');
+        var prevButton=document.querySelector('.hs-3drotate__prev-button');
         prevButton.addEventListener('click',function() {
           selectedIndex--;
           rotateCarousel();
         });
 
-        var nextButton=document.querySelector('.next-button');
+        var nextButton=document.querySelector('.hs-3drotate__next-button');
         nextButton.addEventListener('click',function() {
           selectedIndex++;
           rotateCarousel();
         });
 
-        var cellsRange=document.querySelector('.cells-range');
+        var cellsRange=document.querySelector('.hs-3drotate__cells-range');
         cellsRange.addEventListener('change',update3DRotator);
         cellsRange.addEventListener('input',update3DRotator);
 
@@ -1190,14 +1117,13 @@
           update3DRotator();
         }
 
-        // set initials
+        // set initials 
         onOrientationChange();
         
-        window.onresize = update3DRotator;
-        document.addEventListener('shown.bs.modal', ()=>{
-          HSThreeDRotator.removeAttribute('fade');
-          // HSThreeDRotator.style.display = 'inline-block';
-          HSThreeDRotator.style.transition = 'all 1s';
+        setTimeout(() => {window.onresize = update3DRotator}, 500);
+        document.addEventListener('shown.bs.modal', () =>{
+          
+          rotatorContainer.classList.remove('hs-vanish');
           update3DRotator();
         });
     </script>
