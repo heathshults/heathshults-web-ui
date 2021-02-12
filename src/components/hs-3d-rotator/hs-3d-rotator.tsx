@@ -2,9 +2,10 @@ import { Component, Host, Prop, Element, Event, EventEmitter, State, Listen, h }
 
 @Component({
   tag: 'hs-3d-rotator',
-  styleUrl: 'hs-3d-rotator.scss',
+  styleUrl: './_hs-3d-rotator.scss',
   shadow: true,
 })
+
 export class HS3dRotator {
   @Element() el: HTMLElement;
   @Prop() HSThreeDRotator: any;
@@ -14,11 +15,13 @@ export class HS3dRotator {
   @Prop({reflect: true}) minCells: 3;
   @Prop({reflect: true}) startCellCount: 6;
   @Prop({reflect: true}) maxCells: 15;
+  
   // eslint-disable-next-line @typescript-eslint/ban-types
   private _update3DRotator: any;
   public get update3DRotator(): any {
     return this._update3DRotator;
   }
+  
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   public set update3DRotator(value) {
     this._update3DRotator = value;
@@ -39,7 +42,7 @@ export class HS3dRotator {
 
   componentWillLoad() {
     // this.makeRequest();
-    setTimeout(() => {
+    setTimeout((): void => {
       this.HSThreeDRotator = this.el.shadowRoot.querySelector('.hs-threeDRotator');
       
       const cells: any = this.el.shadowRoot.querySelectorAll('.hs-threeDRotator__cell');
