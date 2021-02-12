@@ -1,87 +1,158 @@
-var rotatorContainer = document.querySelector('.hs-3drotate__container');
-            rotatorContainer.classList.add('hs-vanish');
-        var HSThreeDRotator=document.querySelector('.hs-3drotate');
-        
-        var cells=HSThreeDRotator.querySelectorAll('.hs-3drotate__cell');
-        var cellCount; // cellCount set from cells-range input value
-        var selectedIndex=0;
-        var cellWidth=HSThreeDRotator.offsetWidth;
-        var cellHeight=HSThreeDRotator.offsetHeight;
-        var isHorizontal=true;
-        var rotateFn=isHorizontal? 'rotateY':'rotateX';
-        var radius,theta;
-        // console.log( cellWidth, cellHeight );
-
-        function rotateCarousel() {
-          var angle=theta*selectedIndex*-1;
-          HSThreeDRotator.style.transform='translateZ('+-radius+'px) ' + rotateFn+'('+angle+'deg)';
-        }
-
-        var prevButton=document.querySelector('.hs-3drotate__prev-button');
-        prevButton.addEventListener('click',function() {
-          selectedIndex--;
-          rotateCarousel();
+"use strict";
+exports.__esModule = true;
+exports.HS3DRotate = void 0;
+var HS3DRotate = /** @class */ (function () {
+    function HS3DRotate(rotatorId, window) {
+        var _this = this;
+        this.rotatorContainer = document.querySelector("#" + rotatorId + ".hs-3drotate__container");
+        this.rotatorContainer.classList.add('hs-vanish');
+        this.HSThreeDRotator = document.querySelector('.hs-3drotate');
+        console.log(this.HSThreeDRotator);
+        this.cells = Array.prototype.slice.call(this.HSThreeDRotator.querySelectorAll('.hs-3drotate__cell'));
+        this.selectedIndex = 0;
+        this.cellWidth = this.HSThreeDRotator.offsetWidth;
+        this.cellHeight = this.HSThreeDRotator.offsetHeight;
+        this.isHorizontal = true;
+        this.rotateFn = this.isHorizontal ? 'rotateY' : 'rotateX';
+        this.orientationRadios = Array.prototype.slice.call(document.querySelectorAll('input[name="orientation"]'));
+        this.checkedRadio = document.querySelector('input[name="orientation"]:checked');
+        // previous button
+        (function () {
+            _this.prevButton = document.querySelector('.hs-3drotate__prev-button');
+            _this.prevButton.addEventListener('click', function () {
+                this.selectedIndex--;
+                this.rotate();
+            });
         });
-
-        var nextButton=document.querySelector('.hs-3drotate__next-button');
-        nextButton.addEventListener('click',function() {
-          selectedIndex++;
-          rotateCarousel();
+        // next button
+        (function () {
+            _this.nextButton = document.querySelector('.hs-3drotate__next-button');
+            _this.nextButton.addEventListener('click', function () {
+                this.selectedIndex++;
+                this.rotate();
+            });
         });
-
-        var cellsRange=document.querySelector('.hs-3drotate__cells-range');
-        cellsRange.addEventListener('change',update3DRotator);
-        cellsRange.addEventListener('input',update3DRotator);
-
-
-
-        function update3DRotator() {
-          cellWidth=HSThreeDRotator.offsetWidth;
-          cellHeight=HSThreeDRotator.offsetHeight;
-          console.log(cellHeight);
-          cellCount=cellsRange.value;
-          theta=360/cellCount;
-          var cellSize=isHorizontal? cellWidth:cellHeight;
-          radius=Math.round((cellSize/2)/Math.tan(Math.PI/cellCount));
-          for(var i=0;i<cells.length;i++) {
-            var cell=cells[i];
-            if(i<cellCount) {
-              // visible cell
-              cell.style.opacity=1;
-              var cellAngle=theta*i;
-              cell.style.transform=rotateFn+'('+cellAngle+'deg) translateZ('+radius+'px)';
-            } else {
-              // hidden cell
-              cell.style.opacity=0;
-              cell.style.transform='none';
+        // get hs-3d-rotate data
+        (function () {
+            if (window.fetch) {
+                _this.headers = _this.rotatorContainer.getAttribute('data-headers');
+                _this.method = _this.rotatorContainer.getAttribute('data-method');
+                _this.url = _this.rotatorContainer.getAttribute('data-dataurl');
+                _this.available = true;
+                var options = {
+                    method: _this.method,
+                    headers: new Headers(_this.headers)
+                };
+                _this.request = new Request(_this.url, options);
             }
-          }
-
-          rotateCarousel();
-          
-        }
-
-        var orientationRadios=document.querySelectorAll('input[name="orientation"]');
-        (function() {
-          for(var i=0;i<orientationRadios.length;i++) {
-            var radio=orientationRadios[i];
-            radio.addEventListener('change',onOrientationChange);
-          }
-        })();
-
-        function onOrientationChange() {
-          var checkedRadio=document.querySelector('input[name="orientation"]:checked');
-          isHorizontal=checkedRadio.value=='horizontal';
-          rotateFn=isHorizontal? 'rotateY':'rotateX';
-          update3DRotator();
-        }
-
-        // set initials 
-        onOrientationChange();
-        
-        setTimeout(() => {window.onresize = update3DRotator}, 500);
-        document.addEventListener('shown.bs.modal', () =>{
-          
-          rotatorContainer.classList.remove('hs-vanish');
-          update3DRotator();
+            if (_this.available) {
+                fetch(_this.request)
+                    .then(function (response) { return response.json(); })
+                    .then(function (data) {
+                    // this.resolved.emit(data);
+                    _this.userOptions(data);
+                    console.log(data);
+                    for (var _i = 0, data_1 = data; _i < data_1.length; _i++) {
+                        var item = data_1[_i];
+                        var cellContentContainer = document.createElement('div');
+                        cellContentContainer.classList.add('hs-threeDRotator__cell');
+                        var img = document.createElement('img');
+                        img.classList.add('hs-threeDRotator-img');
+                        img.src = item.path;
+                        img.alt = item.alt;
+                        _this.HSThreeDRotator.appendChild(cellContentContainer);
+                        cellContentContainer.appendChild(img);
+                    }
+                    return data;
+                })["catch"](console.error);
+            }
         });
+        // range input
+        (function () {
+            _this.cellsRange = document.querySelector('.hs-3drotate__cells-range');
+            _this.cellsRange.addEventListener('change', _this.update3DRotator);
+            _this.cellsRange.addEventListener('input', _this.update3DRotator);
+        });
+        // change orientation
+        (function () {
+            for (var i = 0; i < _this.orientationRadios.length; i++) {
+                var radio = _this.orientationRadios[i];
+                radio.addEventListener('change', _this.onOrientationChange);
+            }
+        });
+        window.onresize = function () {
+            _this.rotatorContainer.classList.add('hs-vanish');
+            setTimeout(function () {
+                _this.update3DRotator;
+            }, 500);
+            _this.rotatorContainer.classList.remove('hs-vanish');
+        };
+        document.addEventListener('shown.bs.modal', function () {
+            _this.rotatorContainer.classList.remove('hs-vanish');
+            _this.update3DRotator();
+        });
+        // set initials 
+        this.onOrientationChange();
+    }
+    // delete this
+    HS3DRotate.prototype.userOptions = function (ops) {
+        console.log("DATA: " + JSON.stringify(ops));
+        return;
+    };
+    HS3DRotate.prototype.rotate = function () {
+        var angle = this.theta * this.selectedIndex * -1;
+        this.HSThreeDRotator.style.transform = 'translateZ(' + -this.radius + 'px) ' + this.rotateFn + '(' + angle + 'deg)';
+    };
+    HS3DRotate.prototype.onOrientationChange = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            try {
+                _this.isHorizontal = _this.checkedRadio.value == 'horizontal';
+                _this.rotateFn = _this.isHorizontal ? 'rotateY' : 'rotateX';
+                _this.update3DRotator();
+                return resolve(true);
+            }
+            catch (e) {
+                return reject(e);
+            }
+        });
+    };
+    HS3DRotate.prototype.update3DRotator = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            try {
+                _this.cellWidth = _this.HSThreeDRotator.offsetWidth;
+                _this.cellHeight = _this.HSThreeDRotator.offsetHeight;
+                console.log(_this.cellHeight);
+                _this.cellCount = _this.cellsRange.value;
+                _this.theta = 360 / _this.cellCount;
+                var cellSize = _this.isHorizontal ? _this.cellWidth : _this.cellHeight;
+                _this.radius = Math.round((cellSize / 2) / Math.tan(Math.PI / _this.cellCount));
+                for (var i = 0; i < _this.cells.length; i++) {
+                    var cell = _this.cells[i];
+                    if (i < _this.cellCount) {
+                        // visible cell
+                        if (cell.classList.contains('hs-vanish')) {
+                            cell.classList.remove('hs-vanish');
+                        }
+                        var cellAngle = _this.theta * i;
+                        cell.style.transform = _this.rotateFn + '(' + cellAngle + 'deg) translateZ(' + _this.radius + 'px)';
+                    }
+                    else {
+                        // hidden cell
+                        if (!cell.classList.contains('hs-vanish')) {
+                            cell.classList.add('hs-vanish');
+                        }
+                        cell.style.transform = 'none';
+                    }
+                }
+                return resolve(_this.rotate());
+            }
+            catch (e) {
+                return reject(e);
+            }
+        });
+    };
+    return HS3DRotate;
+}());
+exports.HS3DRotate = HS3DRotate;
