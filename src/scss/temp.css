@@ -4100,14 +4100,14 @@ mark {
   --primary: var(--yellow);
   --yiq-contrasted-threshold: 205;
   --hs-color_red: #e2001a;
-  --hs-color_red_orange: #f63a0f;
+  --hs-color_red-orange: #f63a0f;
   --hs-color_orange: #f27011;
-  --hs-color_dark_yellow: #f2b01e;
+  --hs-color_dark-yellow: #f2b01e;
   --hs-color_yellow: #f2d31b;
   --hs-color_yellow--light: #ffe659;
   --hs-color_yellow--dark: #e2b900;
   --hs-color_lime: #86e01e;
-  --hs-color_light_lime: #e7ffcb;
+  --hs-color_light-lime: #e7ffcb;
   --hs-color_green: #4cd964;
   --hs-color_green--light: #93ff7e;
   --hs-color_green--dark: #468c1f;

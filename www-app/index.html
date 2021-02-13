@@ -20,13 +20,8 @@
     <!-- Custom Fonts -->
     <link rel="stylesheet" href="/global/variables.css">
     <link href="/assets/fa-5140/css/all.min.css" rel="stylesheet" type="text/css">
-    <!--  --> <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Nothing+You+Could+Do&family=Sedgwick+Ave+Display&display=swap"
-      rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;0,900;1,100&display=swap"
-      rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Montserrat:wght@400;600;700&family=Nothing+You+Could+Do&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
     <!-- CSS only -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -49,14 +44,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <style>
-    /* #shadow-rotator #imgHeader #imgHeaderOverlay img#hsHeaderImg.hs-img-header_img.hs-responsive-box-16by9,
-    hs-card[cord-size=""] hs-card-img-header .hs-img-header_img {
-      width: 265px;
-      height: 177px;
-    } */
 
-    </style>
   </head>
 
   <body id="page-top" class="index scroll" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="0"
@@ -64,8 +52,15 @@
     <!-- Navigation -->
     <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
-        <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav"
-          aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="btn btn-dark navbar-toggler" 
+        type="button" 
+        data-bs-toggle="collapse" 
+        data-bs-target="#mobileNav"
+        aria-label="Toggle navigation"
+        data-bs-target="#mainNav" 
+        aria-controls="navbarSupportedContent" 
+        aria-expanded="false" 
+        >
           <span class="hs-text-white navbar-toggler-ico">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
               class="bi bi-three-dots-vertical" viewBox="0 0 16 16" data-darkreader-inline-fill=""
@@ -78,14 +73,14 @@
         </button>
         <a class="navbar-brand js-scroll-trigger site-logo" href="#page-top"><span
             class="hs-brand-symbol">@</span><span>HeathShults.com</span></a>
-        <div class="collapse navbar-collapse" id="mobileNav">
+        <div class="collapse navbar-collapse mobile-nav" id="mobileNav">
           <ul class="navbar-nav nav mx-auto mt-2 mt-lg-0">
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
           </ul>
-          <div class="widget-container my-2 my-lg-0">
+          <div class="widget-container my-2 my-lg-0 position-relative">
             <button class="hs-mode-widget" id="mode_widget"></button>
             <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
@@ -137,7 +132,7 @@
         </div>
         <div class="row">
           <div class="col-lg-12 text-center hs-card_row p-5">
-            <!--bg-black-25-opacity-->
+            <!--bg-black--a25-opacity-->
             <!-- card row 1 -->
             <div class="row p-0 m-0">
               <div class="col-md-4 pb-4 m-0 px-2">
@@ -500,15 +495,15 @@
         <div class="row">
           <div class="col-lg-12 text-center text-color--light">
             <p>
-              <h2 class="hs-section-heading bg-black-75-opacity d-inline-block">Heath Shults</h2>
+              <h2 class="hs-section-heading bg-black--a75-opacity d-inline-block">Heath Shults</h2>
             </p>
-            <h3 class="hs-section-subheading hs-text-muted pb-3 bg-black-75-opacity d-inline-block">
+            <h3 class="hs-section-subheading hs-text-muted pb-3 bg-black--a75-opacity d-inline-block">
               &#10038; Here is a little about me. &#10038;
             </h3>
           </div>
         </div>
 
-        <div class="row bg-black-25-opacity p-3">
+        <div class="row bg-black--a25-opacity p-3">
           <div class="col-lg-12">
             <div class="" style="width: 100px; margin: auto; transform: translate(calc(50% - 6px), 39px);">
               <div class="hs-timeline__topper hs-timeline__img--rocket">
@@ -964,27 +959,7 @@
                       </div>
                       <div class="hs-3drotate">
                         
-                        <div class="hs-3drotate__cell"><img class="hs-3drotate__img"
-                            src="/assets/img/portfolio/bowlopolis/episodes-page-800x533.jpg" alt=""></div>
-                        <div class="hs-3drotate__cell"><img class="hs-3drotate__img"
-                            src="/assets/img/portfolio/bowlopolis/kids-club-page-800x533.jpg" alt=""></div>
-                        <div class="hs-3drotate__cell"><img class="hs-3drotate__img"
-                            src="/assets/img/portfolio/bowlopolis/games-page-800x533.jpg" alt=""></div>
-                        <div class="hs-3drotate__cell"><img class="hs-3drotate__img"
-                            src="/assets/img/portfolio/bowlopolis/episodes-page-800x533.jpg" alt=""></div>
-                        <div class="hs-3drotate__cell"><img class="hs-3drotate__img"
-                            src="/assets/img/portfolio/bowlopolis/kids-club-page-800x533.jpg" alt=""></div>
-                        <div class="hs-3drotate__cell"><img class="hs-3drotate__img"
-                            src="/assets/img/portfolio/bowlopolis/games-page-800x533.jpg" alt=""></div>
-                        <div class="hs-3drotate__cell">7</div>
-                        <div class="hs-3drotate__cell">8</div>
-                        <div class="hs-3drotate__cell">9</div>
-                        <div class="hs-3drotate__cell">10</div>
-                        <div class="hs-3drotate__cell">11</div>
-                        <div class="hs-3drotate__cell">12</div>
-                        <div class="hs-3drotate__cell">13</div>
-                        <div class="hs-3drotate__cell">14</div>
-                        <div class="hs-3drotate__cell">15</div>
+                        
                       </div>
                     </div>
                     

@@ -3,14 +3,14 @@ export class HS3DRotate {
   public HSThreeDRotator: HTMLDivElement;
   
   public cells: Array<any>;
-  public cellCount; // cellCount set from cells-range input value
+  public cellCount: number | any; // cellCount set from cells-range input value
   public selectedIndex: any;
   public cellWidth: number | string;
   public cellHeight: number | string;
   public isHorizontal: any;
   public rotateFn: any;
-  public radius;
-  public theta;
+  public radius: number | any;
+  public theta: number | any;
   public prevButton: HTMLButtonElement | HTMLAnchorElement;
   public nextButton: HTMLButtonElement | HTMLAnchorElement;
   public cellsRange: any;
@@ -18,7 +18,8 @@ export class HS3DRotate {
   public checkedRadio: HTMLInputElement;
   // public resolved: EventEmitter;
   // public fetcherror: EventEmitter;
-  public headers: Headers | any;
+  public fetchHeaders: string;
+  public headers: any;
   public method: string;
   public url: string;
  
@@ -37,12 +38,18 @@ export class HS3DRotate {
     this.rotateFn = this.isHorizontal ? 'rotateY' : 'rotateX';
     this.orientationRadios = Array.prototype.slice.call(document.querySelectorAll('input[name="orientation"]'));
     this.checkedRadio = document.querySelector('input[name="orientation"]:checked');
-    
-    
-    
+    this.prevButton = document.querySelector('.hs-3drotate__prev-button');
+    this.nextButton = document.querySelector('.hs-3drotate__next-button');
+    this.fetchHeaders = this.rotatorContainer.getAttribute('data-headers');
+    this.headers = this.fetchHeaders;
+    this.method = this.rotatorContainer.getAttribute('data-method');
+    this.url = this.rotatorContainer.getAttribute('data-dataurl');
+    this.available = null;
+    if (window.fetch) {
+     this.available = true; 
+    }
     // previous button
     ((): void => { 
-      this.prevButton = document.querySelector('.hs-3drotate__prev-button');
       this.prevButton.addEventListener('click', function() {
         this.selectedIndex--;
         this.rotate();
@@ -51,29 +58,24 @@ export class HS3DRotate {
     
     // next button
     ((): void => {
-      this.nextButton = document.querySelector('.hs-3drotate__next-button');
       this.nextButton.addEventListener('click', function() {
         this.selectedIndex++;
         this.rotate();
       });
     });
       
-    // get hs-3d-rotate data
+    // get hs-3d-rotate data - setup
     ((): void => {
-      if (window.fetch) {
+      if (this.available) {
         console.log('inside fetch vars');
-        this.headers = this.rotatorContainer.getAttribute('data-headers');
-        this.method = this.rotatorContainer.getAttribute('data-method');
-        this.url = this.rotatorContainer.getAttribute('data-dataurl');
-        
-        this.available = true;
+        // this.headers = this.rotatorContainer.getAttribute('data-headers');
         const options = {
           method: this.method,
           headers: new Headers(this.headers),
         };
         this.request = new Request(this.url, options);
       
-      
+        // get hs-3d-rotate data - request data
         fetch(this.request)
         .then(response => response.json())
         .then(data => {

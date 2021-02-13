@@ -5,7 +5,6 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { HSImageViewerFilterResult } from "./types/hs-image-view/hs-image-viewer-filter-results";
 export namespace Components {
     interface Hs3dRotator {
         "HSThreeDRotator": any;
@@ -131,20 +130,6 @@ export namespace Components {
         "flipperEvents": string;
         "flipperTimingFunction": string;
         "isflipperped": boolean;
-    }
-    interface HsImageView {
-        /**
-          * A comma separated list of filter to apply on the source image. If no filter is provided, the source image as it will be displayed. Current filter are supported: 'sepia', 'blue_monotone', 'violent_tomato', 'greyscale', 'desaturate', 'brightness', 'saturation', 'contrast', 'hue', 'cookie', 'vintage', 'koda', 'technicolor', 'polaroid', 'bgr'.
-         */
-        "filter": string;
-        /**
-          * An optional level to apply the filter. If multiple filter are provided, it applies to all except if a specific level is provided for a filter, such as saturation(1.1)
-         */
-        "level": number;
-        /**
-          * The source of the image.
-         */
-        "src": string;
     }
     interface HsMediaImage {
         "alt": string;
@@ -273,12 +258,6 @@ declare global {
         prototype: HTMLHsFlipperElement;
         new (): HTMLHsFlipperElement;
     };
-    interface HTMLHsImageViewElement extends Components.HsImageView, HTMLStencilElement {
-    }
-    var HTMLHsImageViewElement: {
-        prototype: HTMLHsImageViewElement;
-        new (): HTMLHsImageViewElement;
-    };
     interface HTMLHsMediaImageElement extends Components.HsMediaImage, HTMLStencilElement {
     }
     var HTMLHsMediaImageElement: {
@@ -358,7 +337,6 @@ declare global {
         "hs-carousel": HTMLHsCarouselElement;
         "hs-fetcher": HTMLHsFetcherElement;
         "hs-flipper": HTMLHsFlipperElement;
-        "hs-image-view": HTMLHsImageViewElement;
         "hs-media-image": HTMLHsMediaImageElement;
         "hs-media-item": HTMLHsMediaItemElement;
         "hs-modal": HTMLHsModalElement;
@@ -503,24 +481,6 @@ declare namespace LocalJSX {
         "flipperTimingFunction"?: string;
         "isflipperped"?: boolean;
     }
-    interface HsImageView {
-        /**
-          * A comma separated list of filter to apply on the source image. If no filter is provided, the source image as it will be displayed. Current filter are supported: 'sepia', 'blue_monotone', 'violent_tomato', 'greyscale', 'desaturate', 'brightness', 'saturation', 'contrast', 'hue', 'cookie', 'vintage', 'koda', 'technicolor', 'polaroid', 'bgr'.
-         */
-        "filter"?: string;
-        /**
-          * An optional level to apply the filter. If multiple filter are provided, it applies to all except if a specific level is provided for a filter, such as saturation(1.1)
-         */
-        "level"?: number;
-        /**
-          * An event emitted each times a filter is applied. It provides information about the webgl context (is is supported?) and emit either the image, if filter can not be applied, or the resulting canvas.
-         */
-        "onFilterLoad"?: (event: CustomEvent<HSImageViewerFilterResult>) => void;
-        /**
-          * The source of the image.
-         */
-        "src"?: string;
-    }
     interface HsMediaImage {
         "alt"?: string;
         "src"?: string;
@@ -590,7 +550,6 @@ declare namespace LocalJSX {
         "hs-carousel": HsCarousel;
         "hs-fetcher": HsFetcher;
         "hs-flipper": HsFlipper;
-        "hs-image-view": HsImageView;
         "hs-media-image": HsMediaImage;
         "hs-media-item": HsMediaItem;
         "hs-modal": HsModal;
@@ -620,7 +579,6 @@ declare module "@stencil/core" {
             "hs-carousel": LocalJSX.HsCarousel & JSXBase.HTMLAttributes<HTMLHsCarouselElement>;
             "hs-fetcher": LocalJSX.HsFetcher & JSXBase.HTMLAttributes<HTMLHsFetcherElement>;
             "hs-flipper": LocalJSX.HsFlipper & JSXBase.HTMLAttributes<HTMLHsFlipperElement>;
-            "hs-image-view": LocalJSX.HsImageView & JSXBase.HTMLAttributes<HTMLHsImageViewElement>;
             "hs-media-image": LocalJSX.HsMediaImage & JSXBase.HTMLAttributes<HTMLHsMediaImageElement>;
             "hs-media-item": LocalJSX.HsMediaItem & JSXBase.HTMLAttributes<HTMLHsMediaItemElement>;
             "hs-modal": LocalJSX.HsModal & JSXBase.HTMLAttributes<HTMLHsModalElement>;

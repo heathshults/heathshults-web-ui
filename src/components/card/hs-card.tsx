@@ -102,14 +102,14 @@ export class HSCard {
   }
   
   componenentWillRender() {
-    function buildCard(): Promise<any> {
-      return new Promise((resolve, reject): any => {
+    function buildCard() {
+      // return new Promise((resolve, reject): any => {
         setTimeout((): any => {
           try {
             this.cloneBaby = this.el.shadowRoot.querySelector('#cloneBaby.hs-card_body');
             console.log(this.cloneBaby);
 
-            this.cardContent = document.querySelector('.hs-card_content');
+            this.cardContent = this.el.shadowRoot.querySelector('.hs-card_content');
             console.log(this.cardContent);
             
             this.clonedContent = this.cardContent.cloneNode(true);            
@@ -122,14 +122,16 @@ export class HSCard {
             this.cloneBaby.appendChild(this.clonedContent);
             this.fnStatusCallBack(true, 'buildCard');
             
-            resolve(true);
+            return;
+            // resolve(true);
           }
           catch(error) {
             this.fnStatusCallBack(false, 'buildCard', error);
-            reject(false);
+            return;
+            // reject(false);
           }
         }, 700); 
-      });
+      // });
 
     }
 

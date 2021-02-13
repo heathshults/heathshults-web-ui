@@ -20,15 +20,15 @@
   vertical-align: middle;
   cursor: pointer;
   user-select: none;
-  background-color: $hs-color_red;
-  border: 1px solid darken($hs-color_red, 5%);
+  background-color: $hs-color-red;
+  border: 1px solid darken($hs-color-red, 5%);
   border-radius: 2px;
-  box-shadow: 0px 2px 3px 1px rgba(lighten($hs-color_red, 50%), 0.45);
+  box-shadow: 0px 2px 3px 1px rgba(lighten($hs-color-red, 50%), 0.45);
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
   &:hover {
     color: $hs-white;
-    background: lighten($hs-color_red, 5%);
+    background: lighten($hs-color-red, 5%);
     border: 1px solid #fcf8e3;
     box-shadow: $hs-button-danger-shadow;
   }
@@ -43,7 +43,7 @@
 
   &:focus {
     color: $hs-white;
-    background: lighten($hs-color_red, 5%);
+    background: lighten($hs-color-red, 5%);
     border: 1px solid #fcf8e3;
     outline: 1px $hs-white dashed;
     box-shadow: $hs-button-danger-shadow;
@@ -83,9 +83,9 @@
   }
 
   &:focus {
-    color: $hs-gray-darker;
-    background: lighten($hs-color_red, 50%);
-    border: 1px solid darken($hs-color_red, 10%);
+    color: $hs-gray-700;
+    background: lighten($hs-color-red, 50%);
+    border: 1px solid darken($hs-color-red, 10%);
     box-shadow: $hs-button-danger-shadow;
   }
 }

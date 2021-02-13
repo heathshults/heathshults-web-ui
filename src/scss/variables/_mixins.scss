@@ -112,33 +112,33 @@
   &:focus,
   &.focus {
     color: $hs-theme-color-text;
-    background-color: darken($hs-white_2, 10%);
+    background-color: darken($hs-gray-50, 10%);
     /* stylelint-disable-next-line */
-    border-color: darken($hs-white_60, 25%);
+    border-color: darken($hs-gray-200, 25%);
   }
 
   &:hover {
     color: $hs-theme-color-text;
-    background-color: darken($hs-white_2, 10%);
+    background-color: darken($hs-gray-50, 10%);
     /* stylelint-disable-next-line */
-    border-color: darken($hs-white_60, 12%);
+    border-color: darken($hs-gray-200, 12%);
   }
 
   &:active,
   &.active,
   .open >&.dropdown-toggle {
     color: $hs-theme-color-text;
-    background-color: darken($hs-white_2, 10%);
+    background-color: darken($hs-gray-50, 10%);
     /* stylelint-disable-next-line */
-    border-color: darken($hs-white_60, 12%);
+    border-color: darken($hs-gray-200, 12%);
 
     &:hover,
     &:focus,
     &.focus {
       color: $hs-theme-color-text;
-      background-color: darken($hs-white_2, 17%);
+      background-color: darken($hs-gray-50, 17%);
       /* stylelint-disable-next-line */
-      border-color: darken($hs-white_60, 25%);
+      border-color: darken($hs-gray-200, 25%);
     }
   }
 
@@ -155,55 +155,55 @@
     &:hover,
     &:focus,
     &.focus {
-      background-color: $hs-white_2;
+      background-color: $hs-gray-50;
       /* stylelint-disable-next-line */
-      border-color: $hs-white_60;
+      border-color: $hs-gray-200;
     }
   }
 
   .badge {
-    color: $hs-white_2;
+    color: $hs-gray-50;
     background-color: $hs-theme-color-text;
   }
 }
 
 // Bootstrap Button Variant
 
-@mixin hs-button-variant($hs-theme-color-text, $hs-white_2, $hs-white_60) {
+@mixin hs-button-variant($hs-theme-color-text, $hs-gray-50, $hs-gray-200) {
   color: $hs-theme-color-text;
-  background-color: $hs-white_2;
-  border-color: $hs-white_60;
+  background-color: $hs-gray-50;
+  border-color: $hs-gray-200;
 
   &:focus,
   &.focus {
     color: $hs-theme-color-text;
-    background-color: darken($hs-white_2, 10%);
+    background-color: darken($hs-gray-50, 10%);
     /* stylelint-disable-next-line */
-    border-color: darken($hs-white_60, 25%);
+    border-color: darken($hs-gray-200, 25%);
   }
 
   &:hover {
     color: $hs-theme-color-text;
-    background-color: darken($hs-white_2, 10%);
+    background-color: darken($hs-gray-50, 10%);
     /* stylelint-disable-next-line */
-    border-color: darken($hs-white_60, 12%);
+    border-color: darken($hs-gray-200, 12%);
   }
 
   &:active,
   &.active,
   .open > &.dropdown-toggle {
     color: $hs-theme-color-text;
-    background-color: darken($hs-white_2, 10%);
+    background-color: darken($hs-gray-50, 10%);
     /* stylelint-disable-next-line */
-    border-color: darken($hs-white_60, 12%);
+    border-color: darken($hs-gray-200, 12%);
 
     &:hover,
     &:focus,
     &.focus {
       color: $hs-theme-color-text;
-      background-color: darken($hs-white_2, 17%);
+      background-color: darken($hs-gray-50, 17%);
       /* stylelint-disable-next-line */
-      border-color: darken($hs-white_60, 25%);
+      border-color: darken($hs-gray-200, 25%);
     }
   }
 
@@ -220,14 +220,14 @@
     &:hover,
     &:focus,
     &.focus {
-      background-color: $hs-white_2;
+      background-color: $hs-gray-50;
       /* stylelint-disable-next-line */
-      border-color: $hs-white_60;
+      border-color: $hs-gray-200;
     }
   }
 
   .badge {
-    color: $hs-white_2;
+    color: $hs-gray-50;
     background-color: $hs-theme-color-text;
   }
 }
@@ -361,7 +361,7 @@
 }
 
 @mixin border-radius-all-md {
-  border-radius: $hs-white_60-radius-md;
+  border-radius: $hs-gray-200-radius-md;
 }
 
 @mixin responsive-box {

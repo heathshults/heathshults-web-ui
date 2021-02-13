@@ -6,7 +6,7 @@
   "module": "dist/index.mjs",
   "es2015": "dist/esm/index.mjs",
   "es2017": "dist/esm/index.mjs",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "files": [
@@ -14,9 +14,9 @@
     "loader/"
   ],
   "scripts": {
-    "start": "npm-run-all --sequential comp:clean eslint js:transpile gulp:ejsit scss:compile assets:copy comp:buildlight comp:copy serve:proxy",
+    "start": "npm-run-all --sequential eslint js:transpile comp:clean comp:buildlight --parallel gulp:ejsit scss:compile --parallel assets:copy comp:copy --sequential serve:proxy",
     "start:debug": "npm run build && node build-scripts/start-debug.js",
-    "comp:copy": "node_modules/.bin/copy www/components/**/* www-app/components",
+    "comp:copy": "node build-scripts/copy-components.js",
     "comp:build:nowatch": "npm run comp:clean && node_modules/.bin/stencil build --dev --docs-readme --debug",
     "comp:build:watch": "npm run comp:clean && node_modules/.bin/stencil build --dev --docs-readme --debug --watch",
     "comp:buildlight": "npm-run-all --sequential comp:clean comp:build:nowatch comp:copy",

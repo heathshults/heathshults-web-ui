@@ -1,23 +1,22 @@
 export default class EvenHeight {
-  public evenRows: Array<any>;
-  public evenRowChildren: Array<any>;
   
-  constructor({ehSelector, ehChildSelector}: {ehSelector: string; ehChildSelector: string;}) {
+  constructor({ehSelector, ehChildSelector, evenRows, evenRowChildren}: {ehSelector: string; ehChildSelector: string; evenRows?: Array<any>; evenRowChildren?: Array<any>;}) {
     setTimeout(()=>{
-      this.evenRows = Array.prototype.slice.call(document.querySelectorAll(ehSelector));
+      evenRows = Array.prototype.slice.call(document.querySelectorAll(ehSelector));
         console.log('evenRows: ');
-        console.log(this.evenRows);
+        console.log(evenRows);
         
-        this.evenRows.forEach(row => {
+        evenRows.forEach(row => {
           const height = row.offsetHeight;
-          this.evenRowChildren = Array.prototype.slice.call(row.querySelectorAll(ehChildSelector));
+          evenRowChildren = Array.prototype.slice.call(row.querySelectorAll(ehChildSelector));
           
           console.log('height: '+ height);
           console.log('childnodes: ');
-          console.log(this.evenRowChildren);
+          console.log(evenRowChildren);
           
-          this.evenRowChildren.forEach((node: HTMLElement) => {
-            node.setAttribute('style', `height: ${height}px`);
+          evenRowChildren.forEach((node) => {
+            const child = node as HTMLDivElement;
+            child.setAttribute('style', `height: ${height}px`);
           });
         });
       }, 2000);

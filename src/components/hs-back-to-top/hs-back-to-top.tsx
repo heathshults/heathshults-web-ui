@@ -14,7 +14,7 @@ export class BackToTop {
   @Prop()
   position: string;
 
-  @Listen('document:scroll')
+  @Listen('scroll', { target: 'document' })
   enable() {
     this._isOpen = window.scrollY > window.innerHeight;
   }

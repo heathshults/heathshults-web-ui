@@ -1,11 +1,11 @@
 @import './vars';
 
 .text-muted {
-  color: $hs-gray-light;
+  color: $hs-gray-400;
 }
 
 .text-primary {
-  color: $hs-theme_primary;
+  color: $hs-theme-primary;
 }
 
 p {
@@ -26,14 +26,14 @@ a.active {
 }
 
 a:link {
-  color: $hs-theme_primary;
+  color: $hs-theme-primary;
 }
 
 a:hover,
 a:focus,
 a:active,
 a.active {
-  color: darken($hs-theme_primary, 10%);
+  color: darken($hs-theme-primary, 10%);
 }
 
 h1,
@@ -57,24 +57,24 @@ h6 {
 }
 
 .bg-light-gray {
-  background-color: $hs-gray-lighter;
+  background-color: $hs-gray-300;
 }
 
 .bg-darkest-gray {
-  background-color: $hs-gray-darker;
+  background-color: $hs-gray-700;
 }
 
 // Restyled Primary Buttons
 
 .btn-primary {
-  // // @include button-variant@include button-variant(white, $hs-theme_primary, $hs-theme_primary);
+  // // @include button-variant@include button-variant(white, $hs-theme-primary, $hs-theme-primary);
   @include heading-font;
 
   font-weight: 700;
 }
 
 .btn-xl {
-  // // @include button-variant@include button-variant($hs-gray-base, $hs-theme_primary, $hs-theme_primary);
+  // // @include button-variant@include button-variant($hs-gray-900, $hs-theme-primary, $hs-theme-primary);
   @include heading-font;
   padding: 20px 40px;
   font-size: 18px;
@@ -98,7 +98,7 @@ h6 {
 //   font-size: 100%;
 //   font-weight: 400;
 //   letter-spacing: 1px;
-//   color: $hs-theme_primary;
+//   color: $hs-theme-primary;
 //   background-color: transparent !important;
 //   padding: 0.8rem 1.2rem;
 //   border: 0 !important;
@@ -127,7 +127,7 @@ h6 {
 //     .mode-widget_link {
 //       //padding-left: 28px !important;
 //       transition: all 0.25s ease-out;
-//       color: $hs-theme_primary;
+//       color: $hs-theme-primary;
 //     }
 //   }
 
@@ -143,7 +143,7 @@ h6 {
 
 //     &:hover,
 //     &:focus {
-//       color: $hs-theme_primary;
+//       color: $hs-theme-primary;
 //       outline: none;
 //       text-decoration: none;
 //     }
@@ -224,13 +224,13 @@ h6 {
 // Custom Navigation Bar
 
 .navbar-custom {
-  // background-color: $hs-gray-darker;
+  // background-color: $hs-gray-700;
   background: #151515;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 1) 100%);
   border-color: transparent;
 
   .navbar-brand {
-    color: $hs-theme_primary;
+    color: $hs-theme-primary;
 
     @include cursive-font;
 
@@ -238,7 +238,7 @@ h6 {
     &:focus,
     &:active,
     &.active {
-      color: darken($hs-theme_primary, 10%);
+      color: darken($hs-theme-primary, 10%);
     }
   }
 
@@ -250,14 +250,14 @@ h6 {
     font-size: 12px;
 
     color: white;
-    background-color: $hs-theme_primary;
-    border-color: $hs-theme_primary;
+    background-color: $hs-theme-primary;
+    border-color: $hs-theme-primary;
 
     @include heading-font;
 
     &:hover,
     &:focus {
-      background-color: $hs-theme_primary;
+      background-color: $hs-theme-primary;
     }
   }
 
@@ -272,7 +272,7 @@ h6 {
 
         &:hover,
         &:focus {
-          color: $hs-theme_primary;
+          color: $hs-theme-primary;
           outline: none;
         }
       }
@@ -281,14 +281,14 @@ h6 {
 
   .navbar-nav >.active >a {
     color: white;
-    background-color: $hs-theme_primary;
+    background-color: $hs-theme-primary;
     border-radius: 0;
   }
 
   .navbar-nav >.active >a:hover,
   .navbar-nav >.active >a:focus {
     color: white;
-    background-color: darken($hs-theme_primary, 10%);
+    background-color: darken($hs-theme-primary, 10%);
   }
 }
 
@@ -315,7 +315,7 @@ h6 {
 @media (min-width: 768px) {
   .navbar-custom.affix {
     padding: 10px 0;
-    background-color: $hs-gray-darker;
+    background-color: $hs-gray-700;
 
     .navbar-brand {
       font-size: 1.5em;
@@ -440,7 +440,7 @@ section {
         position: absolute;
         width: 100%;
         height: 100%;
-        background: fade-out($hs-theme_primary, 0.9);
+        background: fade-out($hs-theme-primary, 0.9);
         opacity: 0;
         -webkit-transition: all ease 0.5s;
         -moz-transition: all ease 0.5s;
@@ -571,7 +571,7 @@ section {
       margin-left: 0;
       color: white;
       text-align: center;
-      background-color: $hs-theme_primary;
+      background-color: $hs-theme-primary;
       border: 7px solid #f1f1f1;
       border-radius: 100%;
 
@@ -753,7 +753,7 @@ aside.clients {
 // Contact Section
 
 section#contact {
-  background-color: $hs-gray-darker;
+  background-color: $hs-gray-700;
   background-image: url('/assets/img/map-image.png');
   background-repeat: no-repeat;
   background-position: center;
@@ -780,7 +780,7 @@ section#contact {
   }
 
   .form-control:focus {
-    border-color: $hs-theme_primary;
+    border-color: $hs-theme-primary;
     box-shadow: none;
   }
 
@@ -788,7 +788,7 @@ section#contact {
     @include heading-font;
 
     font-weight: 700;
-    color: $hs-gray-lighter;
+    color: $hs-gray-300;
   }
 
   :-moz-placeholder {
@@ -796,7 +796,7 @@ section#contact {
     @include heading-font;
 
     font-weight: 700;
-    color: $hs-gray-lighter;
+    color: $hs-gray-300;
   }
 
   ::-moz-placeholder {
@@ -804,14 +804,14 @@ section#contact {
     @include heading-font;
 
     font-weight: 700;
-    color: $hs-gray-lighter;
+    color: $hs-gray-300;
   }
 
   :-ms-input-placeholder {
     @include heading-font;
 
     font-weight: 700;
-    color: $hs-gray-lighter;
+    color: $hs-gray-300;
   }
 
   .text-danger {
@@ -856,7 +856,7 @@ ul.social-buttons {
       font-size: 20px;
       line-height: 40px;
       color: white;
-      background-color: $hs-gray-darker;
+      background-color: $hs-gray-700;
       border-radius: 100%;
       outline: none;
       transition: all 0.3s;
@@ -864,7 +864,7 @@ ul.social-buttons {
       &:hover,
       &:focus,
       &:active {
-        background-color: $hs-theme_primary;
+        background-color: $hs-theme-primary;
       }
     }
   }
@@ -940,7 +940,7 @@ ul.social-buttons {
       width: 1px;
       height: 75px;
       margin-left: 35px;
-      background-color: $hs-gray-darker;
+      background-color: $hs-gray-700;
       -ms-transform: rotate(45deg);
       -webkit-transform: rotate(45deg);
       transform: rotate(45deg);
@@ -952,7 +952,7 @@ ul.social-buttons {
         z-index: 1052;
         width: 1px;
         height: 75px;
-        background-color: $hs-gray-darker;
+        background-color: $hs-gray-700;
         -ms-transform: rotate(90deg);
         transform: rotate(90deg);
 
@@ -972,12 +972,12 @@ ul.social-buttons {
 
 ::-moz-selection {
   text-shadow: none;
-  background: $hs-theme_primary;
+  background: $hs-theme-primary;
 }
 
 ::selection {
   text-shadow: none;
-  background: $hs-theme_primary;
+  background: $hs-theme-primary;
 }
 
 img::-moz-selection {
@@ -993,7 +993,7 @@ img::-moz-selection {
 }
 
 body {
-  webkit-tap-highlight-color: $hs-theme_primary;
+  webkit-tap-highlight-color: $hs-theme-primary;
 }
 
 .card_row {
@@ -1125,13 +1125,13 @@ body {
 // 	}
 // }
 // :not([style*="border-color:"]) {
-// 	border-color: $hs-gray-dark !important;
+// 	border-color: $hs-gray-700 !important;
 // }
 // ::before {
-// 	border-color: $hs-gray-dark !important;
+// 	border-color: $hs-gray-700 !important;
 // }
 // ::after {
-// 	border-color: $hs-gray-dark !important;
+// 	border-color: $hs-gray-700 !important;
 // }
 // input::placeholder {
 // 	color: $hs-baige-medium !important;
