@@ -1,31 +1,35 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Node 14",
- 
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "experimentalDecorators": true,
+    "lib": [
+      "es6", 
+      "es2016.array.include", 
+      "es2017.object", 
+      "DOM"
+    ],
+    "moduleResolution": "node",
+    "module": "esnext",
     "target": "esnext",
-    "module": "commonjs",
-    "lib": ["es6", "es2016.array.include", "es2017.object"],
-    "allowJs": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "jsx": "react",
     "jsxFactory": "h",
+    "allowJs": true,
+    "strict": false,
+    "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
-    "strict": true,
-    "moduleResolution": "node",
-    "baseUrl": "./",
-    "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "outDir": "./js/tsified"
+    "sourceMap": true
   },
-  "sourceMap": true,
   "include": [
-    "src/js/modules/**/index.ts",
-    "types/**/*.ts"
+    "src",
+    "types/jsx.d.ts",
+    "types/**/*.ts",
+    "dist/types/components.d.ts"
   ],
   "exclude": [
     "node_modules", 
@@ -35,5 +39,9 @@
     "jest.config.js", 
     "scss/**/*",
     "build-scripts/**/*"
-  ]
+  ],
+  "rules": {
+    "@typescript-eslint/no-unused-vars" : "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off"
+  }
 }

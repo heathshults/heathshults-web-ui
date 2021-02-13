@@ -38,9 +38,9 @@
   text-align: center;
   vertical-align: bottom;
   cursor: pointer;
-  background: linear-gradient(to bottom, $hs-white_100, $hs-white_100 60%);
-  filter: progid:dximagetransform.microsoft.gradient(startcolorstr='$hs-white_100', endcolorstr='$hs-white_100', gradienttype=0);
-  border-bottom: 0 solid $hs-white_2;
+  background: linear-gradient(to bottom, $hs-white, $hs-white 60%);
+  filter: progid:dximagetransform.microsoft.gradient(startcolorstr='$hs-white', endcolorstr='$hs-white', gradienttype=0);
+  border-bottom: 0 solid $hs-gray-50;
 
   > {
     .j-fader_button {
@@ -55,14 +55,14 @@
       margin: 0 auto;
       font-size: 0.8rem;
       line-height: 1;
-      color: $hs-gray-darker;
+      color: $hs-gray-700;
       white-space: nowrap;
       cursor: pointer;
       background-color: $hs-white;
       border: 1px solid $hs-white;
       border-bottom: 0 solid $hs-white;
       border-radius: 4px;
-      box-shadow: 0 -2px 4px 0 $hs-black_45;
+      box-shadow: 0 -2px 4px 0 $hs-black--a45;
       transform: translateX(-50%);
 
       &.is-visible::before {
@@ -70,26 +70,26 @@
       }
 
       &:hover {
-        color: $hs-gray-darker;
+        color: $hs-gray-700;
         background-color: $hs-white;
       }
 
       &:focus {
-        color: $hs-gray-darker;
-        background-color: $hs-gray-lighter;
-        border: 1px solid $hs-gray-lighter;
-        border-bottom: 5px solid $hs-gray-lighter;
-        outline-color: $hs-gray-lighter;
+        color: $hs-gray-700;
+        background-color: $hs-gray-300;
+        border: 1px solid $hs-gray-300;
+        border-bottom: 5px solid $hs-gray-300;
+        outline-color: $hs-gray-300;
         //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: unset;
       }
 
       &.is-visible {
         bottom: 0px;
-        color: $hs-gray-darker;
-        background-color: $hs-gray-lighter;
-        border: 1px solid $hs-gray-lighter;
-        border-bottom: 0px solid $hs-gray-lighter;
+        color: $hs-gray-700;
+        background-color: $hs-gray-300;
+        border: 1px solid $hs-gray-300;
+        border-bottom: 0px solid $hs-gray-300;
       }
     }
 
@@ -110,13 +110,13 @@
     }
 
     .j-fader.is-visible {
-      border-bottom: 0px solid $hs-gray-lighter;
+      border-bottom: 0px solid $hs-gray-300;
     }
   }
   &.is-visible {
     bottom: 113px;
     height: 0px;
-    border-bottom: 0px solid $hs-gray-lighter;
+    border-bottom: 0px solid $hs-gray-300;
   }
 }
 
@@ -140,7 +140,7 @@
   }
 }
 .hs-code .j-fader {
-  background: linear-gradient(to bottom, $hs-white_60, $hs-white 60%);
+  background: linear-gradient(to bottom, $hs-gray-200, $hs-white 60%);
   filter: progid:dximagetransform.microsoft.gradient(startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=0);
-  border-bottom: 5px solid $hs-white_2;
+  border-bottom: 5px solid $hs-gray-50;
 }

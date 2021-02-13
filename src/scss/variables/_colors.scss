@@ -1,4 +1,60 @@
 $hs-ns: "hs";
+
+
+// Gray and Brand Colors for use across theme
+$hs-black: #000 !default;
+$hs-black--a15: rgba(0, 0, 0, 0.15) !default;
+$hs-black--a25: rgba(0, 0, 0, 0.25) !default;
+$hs-black--a45: rgba(0, 0, 0, 0.45) !default;
+$hs-black--a50: rgba(0, 0, 0, 0.5) !default;
+$hs-black--a75: rgba(0, 0, 0, 0.75) !default;
+
+// Tint
+$hs-theme-darken-tint: 15% !default;
+$hs-theme-lighten-tint: 15% !default;
+$hs-lightnessMultiplier: 0.9 !default;
+
+$hs-white: #fff !default;
+$hs-gray-50:  #f2f2f2 !default;
+$hs-gray-100: #f8f8f8 !default;
+$hs-gray-200: #ebebeb !default;
+$hs-gray-300: #dee2e6 !default;
+$hs-gray-400: #ced4da !default;
+$hs-gray-500: #adb5bd !default;
+$hs-gray-600: #6c757d !default;
+$hs-gray-700: #495057 !default;
+$hs-gray-800: #343a40 !default;
+$hs-gray-900: #212529 !default;
+$hs-gray-950: #151515 !default;
+$hs-black: #000 !default;
+// $hs-grays: () !default;
+
+// // stylelint-disable-next-line scss/dollar-variable-default
+// $hs-grays: map-merge(
+//   (
+//     "0": $hs-white,
+//     "100": $hs-gray-100,
+//     "200": $hs-gray-200,
+//     "300": $hs-gray-300,
+//     "400": $hs-gray-400,
+//     "500": $hs-gray-500,
+//     "600": $hs-gray-600,
+//     "700": $hs-gray-700,
+//     "800": $hs-gray-800,
+//     "900": $hs-gray-900,
+//     "950": $hs-gray-950,
+//     "1000": $hs-black,
+//   ),
+//   $hs-grays
+// );
+
+
+$hs-gray: $hs-gray-500 !default;
+$hs-white--a08: rgba(255, 255, 255, 0.08) !default;
+$hs-white--a10: rgba(255, 255, 255, 0.1) !default;
+$hs-white--a30: rgba(255, 255, 255, 0.3) !default;
+$hs-white--a60: rgba(255, 255, 255, 0.6) !default;
+
 // Override Bootstrap color system
 $yellow: #fed136;
 
@@ -9,110 +65,45 @@ $primary: $yellow;
 $yiq-contrasted-threshold: 205;
 
 // Color Variables
-$hs-color_red: #e12036 !default;
+$hs-color-red: #e12036 !default;
 $hs-color-pink: #e83e8c !default;
-$hs-color_red_orange: #f63a0f !default;
-$hs-color_orange: #f27011 !default;
-$hs-color_dark_yellow: #f2b01e !default;
-$hs-color_yellow: #f2d31b !default;
-$hs-color_yellow--light: #ffe659 !default;
-$hs-color_yellow--dark: #e2b900 !default;
-$hs-color_lime: #86e01e !default;
-$hs-color_light_lime: #e7ffcb !default;
-$hs-color_green: #28a745 !default;
-$hs-color_green--light: #93ff7e !default;
-$hs-color_green--dark: #468c1f !default;
-$hs-color_green--darker: #28610f !default;
-$hs-color_teal: #20c997 !default;
-$hs-color_silver: #aaa !default;
-$hs-color_purple: #6f42c1 !default;
-$hs-color_cyan: #17a2b8 !default;
-$hs-color_turquoise: #5ac8fa !default;
-$hs-color_blue-semimuted: #4997cd !default;
-$hs-color_blue: #007bff !default;
-$hs-color_indigo: #6610f2 !default;
-$hs-hsl_grey: hsl(207, 10%, 55%);
-$hs-hsl_grey-light: hsl(206, 13%, 79%);
-$hs-hsl_green: hsl(111, 51%, 60%);
-$hs-hsl_red: hsl(353, 76%, 50%);
-$hs-hsl_yellow: hsl(47, 85%, 61%);
-$hs-hsl_white: hsl(0, 0%, 100%);
+$hs-color-red-orange: #f63a0f !default;
+$hs-color-orange: #f27011 !default;
+$hs-color-yellow--light: #ffe659 !default;
+$hs-color-yellow: #fed136 !default;
+$hs-color-yellow--dark: #e2b900 !default;
+$hs-color-yellow--darker: #f2b01e !default;
+$hs-color-lime--light: #e7ffcb !default;
+$hs-color-lime: #86e01e !default;
+$hs-color-green--light: #93ff7e !default;
+$hs-color-green: #28a745 !default;
+$hs-color-green--dark: #468c1f !default;
+$hs-color-green--darker: #28610f !default;
+$hs-color-teal: #20c997 !default;
+$hs-color-silver: #aaa !default;
+$hs-color-purple: #6f42c1 !default;
+$hs-color-cyan: #17a2b8 !default;
+$hs-color-turquoise: #5ac8fa !default;
+$hs-color-blue-semimuted: #4997cd !default;
+$hs-color-blue: #007bff !default;
+$hs-color-indigo: #6610f2 !default;
+$hs-hsl-grey: hsl(207, 10%, 55%);
+$hs-hsl-grey-light: hsl(206, 13%, 79%);
+$hs-hsl-green: hsl(111, 51%, 60%);
+$hs-hsl-red: hsl(353, 76%, 50%);
+$hs-hsl-yellow: hsl(47, 85%, 61%);
+$hs-hsl-white: hsl(0, 0%, 100%);
 
-// Gray and Brand Colors for use across theme
-
-$hs-theme_primary: #fed136 !default;
-$hs-theme_primary--trans50: rgba(254, 211, 54, 0.5) !default;
-$hs-theme_secondary: #6c757d !default;
-$hs-theme_success: #28a745 !default;
-$hs-theme_info: #17a2b8 !default;
-$hs-theme_danger: #e74c3c !default;
-$hs-theme_warning: #007bff !default;
-$hs-theme_background-primary: #f8f8f8 !default;
-$hs-theme_background-secondary: #ebebeb !default;
-
-$hs-black: #000 !default;
-$hs-black_15: rgba(0, 0, 0, 0.15) !default;
-$hs-black_25: rgba(0, 0, 0, 0.25) !default;
-$hs-black_45: rgba(0, 0, 0, 0.45) !default;
-$hs-black_50: rgba(0, 0, 0, 0.5) !default;
-$hs-black_75: rgba(0, 0, 0, 0.75) !default;
-
-// Tint
-$hs-theme-darken-tint: 15% !default;
-$hs-theme-lighten-tint: 15% !default;
-$hs-lightnessMultiplier: 0.9 !default;
-
-$hs-white: #fff !default;
-$hs-gray-100: #f8f9fa !default;
-$hs-gray-200: #e9ecef !default;
-$hs-gray-300: #dee2e6 !default;
-$hs-gray-400: #ced4da !default;
-$hs-gray-500: #adb5bd !default;
-$hs-gray-600: #6c757d !default;
-$hs-gray-700: #495057 !default;
-$hs-gray-800: #343a40 !default;
-$hs-gray-900: #212529 !default;
-$hs-gray-950: #151515 !default;
-$hs-black: #000 !default;
-$hs-grays: () !default;
-
-// stylelint-disable-next-line scss/dollar-variable-default
-$hs-grays: map-merge(
-  (
-    "0": $hs-white,
-    "100": $hs-gray-100,
-    "200": $hs-gray-200,
-    "300": $hs-gray-300,
-    "400": $hs-gray-400,
-    "500": $hs-gray-500,
-    "600": $hs-gray-600,
-    "700": $hs-gray-700,
-    "800": $hs-gray-800,
-    "900": $hs-gray-900,
-    "950": $hs-gray-950,
-    "1000": $hs-black,
-  ),
-  $hs-grays
-);
-
-$hs-gray-base: $hs-gray-900 !default;
-$hs-gray-darker: $hs-gray-800 !default;
-$hs-gray-dark: $hs-gray-700 !default;
-$hs-gray-medium: $hs-gray-600 !default;
-$hs-gray: $hs-gray-500 !default;
-$hs-gray-light: $hs-gray-400 !default;
-$hs-gray-lighter: $hs-gray-300 !default;
-$hs-gray-lighter-05: $hs-gray-200 !default;
-$hs-gray-lightest: $hs-gray-100 !default;
-
-$hs-white: #fff !default;
-$hs-white_2: #f2f2f2 !default;
-$hs-white_5: #f8f8f8 !default;
-$hs-white_8: rgba(255, 255, 255, 0.08) !default;
-$hs-white_10: rgba(255, 255, 255, 0.1) !default;
-$hs-white_30: rgba(255, 255, 255, 0.3) !default;
-$hs-white_60: rgba(255, 255, 255, 0.6) !default;
-$hs-white_100: rgba(255, 255, 255, 1) !default;
+// Theme colors
+$hs-theme-primary: $hs-color-yellow !default;
+$hs-theme-primary--a50: rgba(254, 211, 54, 0.5) !default;
+$hs-theme-secondary: $hs-gray-600 !default;
+$hs-theme-success: $hs-color-green !default;
+$hs-theme-info: #17a2b8 !default;
+$hs-theme-danger: #e74c3c !default;
+$hs-theme-warning: #007bff !default;
+$hs-theme-background-primary: $hs-gray-50 !default;
+$hs-theme-background-secondary: $hs-gray-200 !default;
 
 // Dark Mode Colors
 $hs-blueGray-medium: #507386 !default;
@@ -136,7 +127,7 @@ $hs-blue--lightest-muted: #9bcbe6 !default;
 $hs-blue--light-shadow: #3ab1c3 !default;
 $hs-blue--light-background: #117a8b !default;
 $hs-blue--dark: #1e364e !default;
-$hs-link--primary: $hs-theme_primary !default;
+$hs-link--primary: $hs-theme-primary !default;
 $hs-clip-background: content-box !default;
 
 $hs-baige-light: #cac1ac !default;
@@ -146,20 +137,20 @@ $interaction-colors: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $interaction-colors: map-merge(
   (
-    "primary": $hs-theme_primary,
-    "secondary": $hs-theme_secondary,
-    "success": $hs-theme_success,
-    "info": $hs-theme_info,
-    "warning": $hs-theme_warning,
-    "danger": $hs-theme_danger,
-    "light": $hs-gray-lightest,
+    "primary": $hs-theme-primary,
+    "secondary": $hs-theme-secondary,
+    "success": $hs-theme-success,
+    "info": $hs-theme-info,
+    "warning": $hs-theme-warning,
+    "danger": $hs-theme-danger,
+    "light": $hs-gray-100,
     "white": $hs-white,
-    "dark": $hs-gray-medium,
+    "dark": $hs-gray-600,
   ),
   $interaction-colors
 );
 
-$hs-theme-color-text: $hs-gray-dark !default;
+$hs-theme-color-text: $hs-gray-700 !default;
 $hs-theme-color-text-onDark: $hs-white !default;
 
 $hs-font-primary: "Roboto", sans-serif !default;
@@ -216,13 +207,13 @@ $hs-lead-font-weight: 300 !default;
 
 $hs-small-font-size: 80% !default;
 
-$hs-text-muted: $hs-white_60 !default;
+$hs-text-muted: $hs-white--a60 !default;
 
 $hs-text-shadow-light: 0px 0px 4px rgba(0, 0, 0, 0.95) !default;
 $hs-text-shadow-light-spread: 0px 4px 13px rgba(0, 0, 0, 0.75) !default;
 $hs-text-shadow-medium: 0px 0px 10px rgba(0, 0, 0, 0.85) !default;
 
-$hs-canvas: $hs-white_5 !default;
+$hs-canvas: $hs-gray-100 !default;
 $hs-surface: $hs-white !default;
 
 $hs-grid-columns: 12 !default;
@@ -231,7 +222,7 @@ $hs-grid-row-columns: 6 !default;
 
 // Borders
 $hs-border-width: 1px !default;
-$hs-border-color: $hs-gray-lighter !default;
+$hs-border-color: $hs-gray-300 !default;
 
 $enable-rounded: true !default;
 
@@ -259,12 +250,12 @@ $hs-shadow-none: none !default;
 $hs-card-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.45), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) !default;
 $hs-card-shadow-2: 0 4px 6px 2px rgba(0, 0, 0, 0.3) !default;
 $hs-button-shadow-nocolor: 0px 1px 5px 1px !default;
-$hs-button-focus: $hs-button-shadow-nocolor $hs-theme_primary--trans50 !default;
-$hs-button-secondary-focus: $hs-button-shadow-nocolor $hs-gray-medium !default;
-$hs-button-success-shadow: $hs-button-shadow-nocolor rgba(darken($hs-color_green--darker, 5%), 45%) !default;
+$hs-button-focus: $hs-button-shadow-nocolor $hs-theme-primary--a50 !default;
+$hs-button-secondary-focus: $hs-button-shadow-nocolor $hs-gray-600 !default;
+$hs-button-success-shadow: $hs-button-shadow-nocolor rgba(darken($hs-color-green--darker, 5%), 45%) !default;
 $hs-button-info-shadow: $hs-button-shadow-nocolor rgba(darken($hs-blue--light-shadow, 5%), 45%) !default;
-$hs-button-warning-shadow: $hs-button-shadow-nocolor rgba(darken($hs-color_orange, 5%), 45%) !default;
-$hs-button-danger-shadow: $hs-button-shadow-nocolor rgba(darken($hs-color_red, 5%), 45%) !default;
+$hs-button-warning-shadow: $hs-button-shadow-nocolor rgba(darken($hs-color-orange, 5%), 45%) !default;
+$hs-button-danger-shadow: $hs-button-shadow-nocolor rgba(darken($hs-color-red, 5%), 45%) !default;
 // Backgrounds
 $hs-bg-black-to-transparent: linear-gradient(0deg, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 1) 100%) !default;
 
@@ -303,10 +294,10 @@ $hs-card-inner-border-radius: $hs-border-radius-sm !default;
 $hs-card-cap-bg: rgba($hs-black, 0.03) !default;
 $hs-card-cap-color: null !default;
 $hs-card-color: null !default;
-$hs-card-bg: $hs-white_5 !default;
+$hs-card-bg: $hs-gray-100 !default;
 $hs-card-bg--dark: $hs-blueGray-dark !default;
 $hs-card-header-bg: $hs-white !default;
-$hs-card-body-bg: $hs-gray-light !default;
+$hs-card-body-bg: $hs-gray-400 !default;
 $hs-card-content-bg: $hs-white !default;
 $hs-card-footer-bg: $hs-white !default;
 

@@ -16,9 +16,18 @@ var HS3DRotate = /** @class */ (function () {
         this.rotateFn = this.isHorizontal ? 'rotateY' : 'rotateX';
         this.orientationRadios = Array.prototype.slice.call(document.querySelectorAll('input[name="orientation"]'));
         this.checkedRadio = document.querySelector('input[name="orientation"]:checked');
+        this.prevButton = document.querySelector('.hs-3drotate__prev-button');
+        this.nextButton = document.querySelector('.hs-3drotate__next-button');
+        this.fetchHeaders = this.rotatorContainer.getAttribute('data-headers');
+        this.headers = this.fetchHeaders;
+        this.method = this.rotatorContainer.getAttribute('data-method');
+        this.url = this.rotatorContainer.getAttribute('data-dataurl');
+        this.available = null;
+        if (window.fetch) {
+            this.available = true;
+        }
         // previous button
         (function () {
-            _this.prevButton = document.querySelector('.hs-3drotate__prev-button');
             _this.prevButton.addEventListener('click', function () {
                 this.selectedIndex--;
                 this.rotate();
@@ -26,26 +35,22 @@ var HS3DRotate = /** @class */ (function () {
         });
         // next button
         (function () {
-            _this.nextButton = document.querySelector('.hs-3drotate__next-button');
             _this.nextButton.addEventListener('click', function () {
                 this.selectedIndex++;
                 this.rotate();
             });
         });
-        // get hs-3d-rotate data
+        // get hs-3d-rotate data - setup
         (function () {
-            if (window.fetch) {
-                _this.headers = _this.rotatorContainer.getAttribute('data-headers');
-                _this.method = _this.rotatorContainer.getAttribute('data-method');
-                _this.url = _this.rotatorContainer.getAttribute('data-dataurl');
-                _this.available = true;
+            if (_this.available) {
+                console.log('inside fetch vars');
+                // this.headers = this.rotatorContainer.getAttribute('data-headers');
                 var options = {
                     method: _this.method,
                     headers: new Headers(_this.headers)
                 };
                 _this.request = new Request(_this.url, options);
-            }
-            if (_this.available) {
+                // get hs-3d-rotate data - request data
                 fetch(_this.request)
                     .then(function (response) { return response.json(); })
                     .then(function (data) {

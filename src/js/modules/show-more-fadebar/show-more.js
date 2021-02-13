@@ -223,7 +223,7 @@
         border: 1px solid ${cssValues.fbButtonBorderColor};
         border-bottom: 0 solid ${cssValues.fbButtonBorderColor};
         border-radius: ${cssValues.fbButtonBorderRadius};
-        box-shadow: 0 -2px 4px 0 $hs-black_45;
+        box-shadow: 0 -2px 4px 0 $hs-black--a45;
         transform: translateX(-50%);
       }
       .j-fader > .j-fader_button::before {

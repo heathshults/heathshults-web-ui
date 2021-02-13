@@ -59,7 +59,7 @@ h6 {
 }
 
 .bg-darkest-gray {
-  background-color: #343a40;
+  background-color: #495057;
 }
 
 .btn-primary {
@@ -147,7 +147,7 @@ h6 {
 @media (min-width: 768px) {
   .navbar-custom.affix {
     padding: 10px 0;
-    background-color: #343a40;
+    background-color: #495057;
   }
   .navbar-custom.affix .navbar-brand {
     font-size: 1.5em;
@@ -488,7 +488,7 @@ aside.clients img {
 }
 
 section#contact {
-  background-color: #343a40;
+  background-color: #495057;
   background-image: url("/assets/img/map-image.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -571,7 +571,7 @@ ul.social-buttons li a {
   font-size: 20px;
   line-height: 40px;
   color: white;
-  background-color: #343a40;
+  background-color: #495057;
   border-radius: 100%;
   outline: none;
   transition: all 0.3s;
@@ -639,7 +639,7 @@ ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li
   width: 1px;
   height: 75px;
   margin-left: 35px;
-  background-color: #343a40;
+  background-color: #495057;
   -ms-transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
@@ -650,7 +650,7 @@ ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li
   z-index: 1052;
   width: 1px;
   height: 75px;
-  background-color: #343a40;
+  background-color: #495057;
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
   /* IE 9 */
