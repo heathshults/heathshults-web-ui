@@ -22,7 +22,6 @@
     "jsxFactory": "h",
     "allowJs": true,
     "strict": false,
-    "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "sourceMap": true

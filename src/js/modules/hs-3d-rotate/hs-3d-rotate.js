@@ -4,23 +4,20 @@ var l = console.log;
 var HS3DRotate = /** @class */ (function () {
     function HS3DRotate(dataMethod1, dataURL1, dataHeaders1) {
         var _this = this;
-        this.cellWidth = hs3dRotate.offsetWidth;
-        this.cellHeight = hs3dRotate.offsetHeight;
-        this.isHorizontal = true;
-        this.rotateFn = isHorizontal ? 'rotateY' : 'rotateX';
         this.orientationFlag = false;
         this.rotateEventsFlag = false;
-        this.init3dRotator = new Get3dRotatorData(this.dataUrl);
+        this.init3dRotator = new this.Get3dRotatorData();
         this.rotatorContainer = document.querySelector('.hs-3drotate__container');
         this.rotatorContainer.classList.add('hs-vanish');
         this.hs3dRotate = document.querySelector('.hs-3drotate');
-        this.cells = hs3dRotate.querySelectorAll('.hs-3drotate__cell');
+        this.cells = this.hs3dRotate.querySelectorAll('.hs-3drotate__cell');
         this.prevButton = document.querySelector('.hs-3drotate__prev-button');
         this.nextButton = document.querySelector('.hs-3drotate__next-button');
         this.cellsRange = document.querySelector('.hs-3drotate__cells-range');
         this.orientationRadios = document.querySelectorAll('input[name="orientation"]');
         this.checkedRadio = document.querySelector('input[name="orientation"]:checked');
         this.selectedIndex = 0;
+        this.dataURL = this.rotatorContainer.getAttribute('data-dataurl');
         if (!dataMethod1) {
             this.dataMethod = this.rotatorContainer.getAttribute('data-datamethod');
         }
@@ -33,27 +30,21 @@ var HS3DRotate = /** @class */ (function () {
         else {
             this.dataHeaders = dataHeaders1;
         }
-        if (!dataUrl1) {
-            this.dataUrl = this.rotatorContainer.getAttribute('data-dataurl');
+        if (!dataURL1) {
+            dataURL1 = this.dataURL;
         }
         else {
-            this.dataUrl = dataUrl1;
+            this.dataURL = dataURL1;
         }
-        this.cells = hs3dRotate.querySelectorAll('.hs-3drotate__cell');
-        this.prevButton = document.querySelector('.hs-3drotate__prev-button');
-        this.nextButton = document.querySelector('.hs-3drotate__next-button');
-        this.cellsRange = document.querySelector('.hs-3drotate__cells-range');
-        this.orientationRadios = document.querySelectorAll('input[name="orientation"]');
-        this.checkedRadio = document.querySelector('input[name="orientation"]:checked');
-        this.selectedIndex = 0;
-        this.cellWidth = hs3dRotate.offsetWidth;
-        this.cellHeight = hs3dRotate.offsetHeight;
+        this.cells = this.hs3dRotate.querySelectorAll('.hs-3drotate__cell');
+        this.cellWidth = this.hs3dRotate.offsetWidth;
+        this.cellHeight = this.hs3dRotate.offsetHeight;
         this.isHorizontal = true;
-        this.rotateFn = isHorizontal ? 'rotateY' : 'rotateX';
+        this.rotateFn = this.isHorizontal ? 'rotateY' : 'rotateX';
         this.orientationFlag = false;
         this.rotateEventsFlag = false;
         // l( cellWidth, cellHeight );
-        l("\n    rotatorContainer: " + this.rotatorContainer + "\n    dataMethod: " + this.dataMethod + "\n    headers: " + this.dataHeaders + "\n    url: " + this.dataUrl + "\n    cells: " + this.cells + "\n    prevButton: " + this.prevButton + "\n    nextButton: " + this.nextButton + "\n    cellsRange: " + this.cellsRange + "\n    orientationRadios: " + this.orientationRadios + "\n    cellCount: " + this.cellCount + "\n    selectedIndex: " + this.selectedIndex + "\n    cellWidth: " + this.cellWidth + "\n    cellHeight: " + this.cellHeight + "\n    isHorizontal: " + this.isHorizontal + "\n    rotateFn: " + this.rotateFn + "\n    ");
+        l("\n    rotatorContainer: " + this.rotatorContainer + "\n    dataMethod: " + this.dataMethod + "\n    headers: " + this.dataHeaders + "\n    url: " + this.dataURL + "\n    cells: " + this.cells + "\n    prevButton: " + this.prevButton + "\n    nextButton: " + this.nextButton + "\n    cellsRange: " + this.cellsRange + "\n    orientationRadios: " + this.orientationRadios + "\n    cellCount: " + this.cellCount + "\n    selectedIndex: " + this.selectedIndex + "\n    cellWidth: " + this.cellWidth + "\n    cellHeight: " + this.cellHeight + "\n    isHorizontal: " + this.isHorizontal + "\n    rotateFn: " + this.rotateFn + "\n    ");
         this.prevButton.addEventListener('click', function () {
             _this.selectedIndex--;
             _this.rotate3dRotator();
@@ -80,20 +71,20 @@ var HS3DRotate = /** @class */ (function () {
             else if (this.dataHeaders) {
                 this.dataHeaders = "{" + this.dataHeaders + "}";
             }
-            if (typeof this.dataUrl === 'undefined' || this.dataUrl === '') {
+            if (typeof this.dataURL === 'undefined' || this.dataURL === '') {
                 return;
             }
-            var options = {
+            this.options = {
                 method: this.dataMethod,
                 headers: new Headers({ 'Content-Type': 'text/json' })
             };
             if (this.dataHeaders) {
                 this.options.append("" + this.dataHeaders);
             }
-            var request = new Request(this.dataUrl, this.options);
-            l("request: " + this.request);
+            var request = new Request(this.dataURL, this.options);
+            l("request: " + request);
             // get hs-3d-rotate data - request data
-            fetch(this.request)
+            fetch(request)
                 .then(function (response) { return response.json(); })
                 .then(function (data) {
                 // resolved.emit(data);
@@ -109,7 +100,7 @@ var HS3DRotate = /** @class */ (function () {
                     _this.hs3dRotate.appendChild(cellContentContainer);
                     cellContentContainer.appendChild(img);
                 }
-                return data;
+                // return data;
             })["catch"](console.error);
         }
         return;

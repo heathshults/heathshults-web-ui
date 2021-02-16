@@ -1,0 +1,10 @@
+#!/usr/bin/bash 
+
+
+nmb="node_modules/.bin";
+function preBuild() {
+  echo $(date +'%A %b %d %Y') at $(date +'%r')
+  node build-scripts/clean-components.js
+  echo Prebuild\ completed
+}
+preBuild();

@@ -18,10 +18,8 @@ let outPath = path.resolve(__dirname, '../www-app/assets/js/');
 // let whoDidIt =
 // let giveProps = require('./goCreds.js');
 
-
 function HeathenScriptJS(jsdest) {
   
- 
   function paths(){ console.log(chalk.blue('checking directories...'));
   if (jsdest) {
     outPath = path.resolve(__dirname, jsdest);

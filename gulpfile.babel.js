@@ -594,12 +594,12 @@ function connect_sync(cb) {
     
   });
   
-  var changedFile;
-  chokidar.watch('src/js/modules/**/*.ts',{ignored: '.d.ts'}).on('all', (event, path) => {
-    // changedFile = path;
-    exec(`tsc ${path}`);
-    console.log(event, path);
-  });
+  // var changedFile;
+  // chokidar.watch('src/js/modules/**/*.ts',{ignored: '.d.ts'}).on('all', (event, path) => {
+  //   // changedFile = path;
+  //   exec(`tsc ${path}`);
+  //   console.log(event, path);
+  // });
   // eslint-disable-next-line no-sequences
   var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
   watch(`${srcPath}/views/*.ejs`, ejsit).on('change', browserSync.reload), callback;
@@ -609,7 +609,7 @@ function connect_sync(cb) {
   watch([`${srcPath}/assets/**/*.css`], ra.copy_css), callback;
   watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], copy_js), callback;
   watch([`${buildPath}/**/*`], copy_components), callback;
-  watch([`${p.src_js}/js/HeathScript.js`, `${p.src_js}/js/jqBootstrapValidation.js`,  `${p.src_js}/js/modules/**/*.ts`, `${p.src_js}/js/contact_me.js`], babelfry), callback;
+  watch([`${p.src_js}/js/HeathScript.js`, `${p.src_js}/js/jqBootstrapValidation.js`,  `${p.src_js}/js/modules/**/*.ts`, `${p.src_js}/js/contact_me.js`], babelfry).on('change', browserSync.reload), callback;
   watch([`${srcCompPath}/**/*`],  exec('npm run comp:buildlight', (e) => console.log(e))), callback;
   // watch([`${srcCompPath}/**/*`],  render_components), callback;
   cb();
