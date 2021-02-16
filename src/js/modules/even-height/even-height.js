@@ -2,20 +2,20 @@
 exports.__esModule = true;
 var EvenHeight = /** @class */ (function () {
     function EvenHeight(_a) {
-        var _this = this;
-        var ehSelector = _a.ehSelector, ehChildSelector = _a.ehChildSelector;
+        var ehSelector = _a.ehSelector, ehChildSelector = _a.ehChildSelector, evenRows = _a.evenRows, evenRowChildren = _a.evenRowChildren;
         setTimeout(function () {
-            _this.evenRows = Array.prototype.slice.call(document.querySelectorAll(ehSelector));
+            evenRows = Array.prototype.slice.call(document.querySelectorAll(ehSelector));
             console.log('evenRows: ');
-            console.log(_this.evenRows);
-            _this.evenRows.forEach(function (row) {
+            console.log(evenRows);
+            evenRows.forEach(function (row) {
                 var height = row.offsetHeight;
-                _this.evenRowChildren = Array.prototype.slice.call(row.querySelectorAll(ehChildSelector));
+                evenRowChildren = Array.prototype.slice.call(row.querySelectorAll(ehChildSelector));
                 console.log('height: ' + height);
                 console.log('childnodes: ');
-                console.log(_this.evenRowChildren);
-                _this.evenRowChildren.forEach(function (node) {
-                    node.setAttribute('style', "height: " + height + "px");
+                console.log(evenRowChildren);
+                evenRowChildren.forEach(function (node) {
+                    var child = node;
+                    child.setAttribute('style', "height: " + height + "px");
                 });
             });
         }, 2000);

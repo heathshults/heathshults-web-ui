@@ -1,7 +1,7 @@
 /**
  * HSModal Class
  */
-class HSModal extends HTMLDivElement {
+export class HSModal extends HTMLDivElement {
   config: any;
   openTrigger: any;
   modalDiv: HTMLElement;
@@ -33,7 +33,7 @@ class HSModal extends HTMLDivElement {
       );
       
     // Define new element
-    customElements.define('hs-modal', HTMLHsModalElement, { extends: 'div'});
+    customElements.define('hs-modal', HTMLDivElement, { extends: 'div'});
 
 
 		// Bind callback functions to the HSModal.
@@ -158,12 +158,12 @@ new HSModal(modalTwoTrigger, {
 	modalTitle: "This is modal two!",
 	onAfter: function () {
     // Set the background back to the original.
-    let afterContainer = document.querySelector(".container") as HTMLElement;
+    const afterContainer = document.querySelector(".container") as HTMLElement;
     afterContainer.style.background = "";
 	},
 	onBefore: function () {
     // Change the background color of the container!
-    let beforeContainer = document.querySelector(".container") as HTMLElement;
+    const beforeContainer = document.querySelector(".container") as HTMLElement;
 		beforeContainer.style.background = "#88C542";
 	}
 });

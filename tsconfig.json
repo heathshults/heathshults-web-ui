@@ -4,6 +4,8 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "declaration": true,
+    "emitDeclarationOnly": true,
+    "isolatedModules": true,
     "experimentalDecorators": true,
     "lib": [
       "es6", 
@@ -32,16 +34,38 @@
     "dist/types/components.d.ts"
   ],
   "exclude": [
+    "backup",
+    "build",
+    "build-scripts",
+    "config",
+    "dist",
+    "loader",
     "node_modules", 
+    "build-scripts",
+    "src/assets",
+    "src/env",
+    "src/layouts",
+    "src/mail",
+    "src/php",
+    "src/scss",
+    "src/test",
+    "src/types",
+    "src/views",
+    "www",
+    "wwww-app",
+    "src/js/modules/decorators",
+    
     "gulpfile.babel.js",
     "babel.config.js", 
     "metro.config.js", 
-    "jest.config.js", 
-    "scss/**/*",
-    "build-scripts/**/*"
+    "jest.config.js" 
   ],
   "rules": {
     "@typescript-eslint/no-unused-vars" : "off",
     "@typescript-eslint/explicit-module-boundary-types": "off"
-  }
+  },
+  "files": [
+    "src/js/modules/hs-3d-rotate/index.ts",
+    "src/js/modules/even-height/index.ts"
+  ]
 }

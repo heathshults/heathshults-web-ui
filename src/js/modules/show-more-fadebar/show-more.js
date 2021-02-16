@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
- export function ShowMore() {
+const ShowMore = () => {
 
   let openHeight;
   
@@ -274,5 +274,6 @@
     // appendCSS(fbCSS)
     return fbCSS;
   }
-}
- ShowMore();
+};
+export default ShowMore;
+ShowMore();

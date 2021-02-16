@@ -1,4 +1,4 @@
-(function(): void{ 
+
   // Vertical Timeline - by CodyHouse.co
 	function VerticalTimeline( element ): void {
 		this.element = element;
@@ -46,9 +46,10 @@
 	};
 
 	// eslint-disable-next-line prefer-const
-	let verticalTimelines = document.getElementsByClassName("js-hs-timeline"),
-		verticalTimelinesArray = [],
-		scrolling = false;
+	const verticalTimelines = document.getElementsByClassName("js-hs-timeline");
+	
+	const	verticalTimelinesArray = [];
+	let	scrolling = false;
 	if( verticalTimelines.length > 0 ) {
 		for( let i = 0; i < verticalTimelines.length; i++) {
 			(function(i){
@@ -58,7 +59,7 @@
 
 		//show timeline blocks on scrolling
 		window.addEventListener("scroll", function(event) {
-			console.log(event.target)
+			console.log(event.target);
 			if( !scrolling ) {
 				scrolling = true;
 				(!window.requestAnimationFrame) ? setTimeout(checkTimelineScroll, 250) : window.requestAnimationFrame(checkTimelineScroll);
@@ -72,4 +73,5 @@
 		});
 		scrolling = false;
 	}
-})();
+
+export default VerticalTimeline;

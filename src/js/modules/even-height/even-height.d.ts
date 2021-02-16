@@ -1,8 +1,8 @@
 export default class EvenHeight {
-    evenRows: Array<any>;
-    evenRowChildren: Array<any>;
-    constructor({ ehSelector, ehChildSelector }: {
+    constructor({ ehSelector, ehChildSelector, evenRows, evenRowChildren }: {
         ehSelector: string;
         ehChildSelector: string;
+        evenRows?: Array<any>;
+        evenRowChildren?: Array<any>;
     });
 }

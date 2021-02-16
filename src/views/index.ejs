@@ -2,13 +2,14 @@
 <html lang="en">
 
   <head>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Montserrat:wght@400;600;700&family=Nothing+You+Could+Do&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Portfolio website for Heath Shults - Web Developer Manager &amp; Director">
     <meta name="author" content="">
-
+    
     <title>Heath Shults - Software Developer+</title>
     <script type="module" src="/components/heathenscript-ui-components.esm.js"></script>
     <script nomodule src="/components/heathenscript-ui-components.js"> </script>
@@ -21,7 +22,6 @@
     <link rel="stylesheet" href="/global/variables.css">
     <link href="/assets/fa-5140/css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Montserrat:wght@400;600;700&family=Nothing+You+Could+Do&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
     <!-- CSS only -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -47,20 +47,19 @@
 
   </head>
 
-  <body id="page-top" class="index scroll" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="0"
-    tabindex="0">
+  <body id="home" class="index scroll" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="0"
+    tabindex="0" style="position: relative;">
     <!-- Navigation -->
     <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
         <button class="btn btn-dark navbar-toggler" 
-        type="button" 
-        data-bs-toggle="collapse" 
-        data-bs-target="#mobileNav"
-        aria-label="Toggle navigation"
-        data-bs-target="#mainNav" 
-        aria-controls="navbarSupportedContent" 
-        aria-expanded="false" 
-        >
+          type="button" 
+          data-bs-toggle="collapse" 
+          data-bs-target="#mobileNav"
+          aria-label="Toggle navigation"
+          data-bs-target="#mainNav" 
+          aria-controls="navbarSupportedContent" 
+          aria-expanded="false" >
           <span class="hs-text-white navbar-toggler-ico">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
               class="bi bi-three-dots-vertical" viewBox="0 0 16 16" data-darkreader-inline-fill=""
@@ -71,7 +70,7 @@
             </svg>
           </span>
         </button>
-        <a class="navbar-brand js-scroll-trigger site-logo" href="#page-top"><span
+        <a class="navbar-brand js-scroll-trigger site-logo" href="/"><span
             class="hs-brand-symbol">@</span><span>HeathShults.com</span></a>
         <div class="collapse navbar-collapse mobile-nav" id="mobileNav">
           <ul class="navbar-nav nav mx-auto mt-2 mt-lg-0">
@@ -485,7 +484,6 @@
           </div>
           <!-- /Portfolio Items-->
         </div>
-      </div>
       </div>
     </section>
 
@@ -949,7 +947,10 @@
               <div class="row">
                 <div class="col-md-12">
                   <!-- HSThreeDRotator -->
-                  <div class="hs-3drotate__container">
+                  <div class="hs-3drotate__container"
+                    data-headers=""
+                    data-method="GET"
+                    data-url="/global/3dRotator.json">
                     
                     <div class="hs-3drotate__scene">
                       <div class="col hs-3drotate__nav text-center">
@@ -1012,7 +1013,7 @@
     <script src="/assets/js/HeathScript.built.js" type="module"></script>
     <!-- <script src="hScript.bundle.js"></script> -->
     
-      <script>
+      <!-- <script>
       
         var rotatorContainer = document.querySelector('.hs-3drotate__container');
             rotatorContainer.classList.add('hs-vanish');
@@ -1101,7 +1102,7 @@
           rotatorContainer.classList.remove('hs-vanish');
           update3DRotator();
         });
-    </script>
+    </script> -->
     <script>
       // var bowlopolisModal = new bootstrap.Modal(document.getElementById('bowlopolisDetails'), options)
       // var designSysteModal = new bootstrap.Modal(document.getElementById('designSysteDetails'), options)
