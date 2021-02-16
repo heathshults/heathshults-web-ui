@@ -1,21 +1,38 @@
+"use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+exports.__esModule = true;
+exports.HSModal = void 0;
 /**
  * HSModal Class
  */
-class HSModal extends HTMLDivElement {
+var HSModal = /** @class */ (function (_super) {
+    __extends(HSModal, _super);
     /**
      * Constructor
      *
      * @param openTrigger The element that will trigger opening the modal.
      * @param options Options that will override defaults.
      */
-    constructor(openTrigger, options) {
-        super();
+    function HSModal(openTrigger, options) {
+        var _this = _super.call(this) || this;
         /**
      * Configuration options.
          *
      * Merge any user defined options into default config.
          */
-        this.config = Object.assign({
+        _this.config = Object.assign({
             backgroundColor: "",
             modalTitle: "This is a modal!",
             modalText: "Default description text for modal.",
@@ -23,21 +40,23 @@ class HSModal extends HTMLDivElement {
             onAfter: null
         }, options);
         // Define new element
-        customElements.define('hs-modal', HTMLHsModalElement, { extends: 'div' });
+        customElements.define('hs-modal', HTMLDivElement, { "extends": 'div' });
         // Bind callback functions to the HSModal.
-        this.config.onBefore = this.config.onBefore.bind(this);
-        this.config.onAfter = this.config.onAfter.bind(this);
+        _this.config.onBefore = _this.config.onBefore.bind(_this);
+        _this.config.onAfter = _this.config.onAfter.bind(_this);
         // Set open trigger.
-        this.openTrigger = openTrigger;
+        _this.openTrigger = openTrigger;
         // Set modal events.
-        this.bindEvents();
+        _this.bindEvents();
+        return _this;
     }
     // Bind events.
-    bindEvents() {
+    HSModal.prototype.bindEvents = function () {
         this.openTrigger.addEventListener("click", this.open.bind(this));
-    }
+    };
     // Open the modal.
-    open() {
+    HSModal.prototype.open = function () {
+        var _this = this;
         this.render();
         // Cache DOM.
         this.modalDiv = document.getElementById("hs-modal");
@@ -52,34 +71,35 @@ class HSModal extends HTMLDivElement {
         this.modalDiv.classList.add("opened");
         this.myModalContent.classList.add("animate-in");
         // Remove animate class.
-        setTimeout(() => {
-            this.myModalContent.classList.remove("animate-in");
+        setTimeout(function () {
+            _this.myModalContent.classList.remove("animate-in");
         }, 600);
-    }
+    };
     // Close the modal.
-    close(e) {
+    HSModal.prototype.close = function (e) {
+        var _this = this;
         // If we click the close button.
         if (e.target.id === "close" && e.type === "click") {
             this.myModalContent.classList.add("animate-out");
             // Remove classes.
-            setTimeout(() => {
+            setTimeout(function () {
                 // Remove classes.
-                this.myModalContent.classList.remove("animate-out");
-                this.modalDiv.classList.remove("opened");
+                _this.myModalContent.classList.remove("animate-out");
+                _this.modalDiv.classList.remove("opened");
                 // Remove <div> from the DOM.
-                this.containerDiv.parentNode.removeChild(this.containerDiv);
+                _this.containerDiv.parentNode.removeChild(_this.containerDiv);
                 // If onAfter is defined then call it.
-                if (this.config.onAfter) {
-                    this.config.onAfter();
+                if (_this.config.onAfter) {
+                    _this.config.onAfter();
                 }
             }, 600);
         }
         return false;
-    }
+    };
     // Render the modal.
-    render() {
+    HSModal.prototype.render = function () {
         // Set the template.
-        const html = this.htmlTemplate();
+        var html = this.htmlTemplate();
         // Create a document fragment.
         // const docFrag = document.createDocumentFragment();
         // Create a <div> on the fly.
@@ -88,25 +108,17 @@ class HSModal extends HTMLDivElement {
         this.containerDiv.innerHTML = html;
         // Append the modal HTML to the body.
         document.body.appendChild(this.containerDiv);
-    }
+    };
     // HSModal HTML template.
-    htmlTemplate() {
-        return `
-			<div id="hs-modal" class="hs-modal" style="background-color:${this.config.backgroundColor}";>
-				
-				<div class="hs-modal-content">
-					<button id="close">X</button>
-					<h1>${this.config.modalTitle}!</h1>
-					<p>${this.config.modalText}</p>
-				</div>
-
-			</div>
-		`;
-    }
-}
-const modalOneTrigger = document.getElementById("open-modal-1");
-const modalTwoTrigger = document.getElementById("open-modal-2");
-const header = document.getElementsByTagName("header");
+    HSModal.prototype.htmlTemplate = function () {
+        return "\n\t\t\t<div id=\"hs-modal\" class=\"hs-modal\" style=\"background-color:" + this.config.backgroundColor + "\";>\n\t\t\t\t\n\t\t\t\t<div class=\"hs-modal-content\">\n\t\t\t\t\t<button id=\"close\">X</button>\n\t\t\t\t\t<h1>" + this.config.modalTitle + "!</h1>\n\t\t\t\t\t<p>" + this.config.modalText + "</p>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\t\t";
+    };
+    return HSModal;
+}(HTMLDivElement));
+exports.HSModal = HSModal;
+var modalOneTrigger = document.getElementById("open-modal-1");
+var modalTwoTrigger = document.getElementById("open-modal-2");
+var header = document.getElementsByTagName("header");
 new HSModal(modalOneTrigger, {
     modalTitle: "Overriding the Title!",
     onAfter: function () {
@@ -122,12 +134,12 @@ new HSModal(modalTwoTrigger, {
     modalTitle: "This is modal two!",
     onAfter: function () {
         // Set the background back to the original.
-        let afterContainer = document.querySelector(".container");
+        var afterContainer = document.querySelector(".container");
         afterContainer.style.background = "";
     },
     onBefore: function () {
         // Change the background color of the container!
-        let beforeContainer = document.querySelector(".container");
+        var beforeContainer = document.querySelector(".container");
         beforeContainer.style.background = "#88C542";
     }
 });

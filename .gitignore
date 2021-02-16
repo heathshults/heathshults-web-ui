@@ -13,3 +13,4 @@ src/assets/content/DevBox/
 src/js/modules/ez-form/ezform.config.json
 .DS_Store
 **/*Zone.Identifier
+*.Identifier

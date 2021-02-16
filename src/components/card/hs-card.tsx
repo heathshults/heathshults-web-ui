@@ -102,7 +102,7 @@ export class HSCard {
   }
   
   componenentWillRender() {
-    function buildCard() {
+    (() => {
       // return new Promise((resolve, reject): any => {
         setTimeout((): any => {
           try {
@@ -120,23 +120,19 @@ export class HSCard {
             }
             this.cardContent.classList.add('hs-card_content');
             this.cloneBaby.appendChild(this.clonedContent);
-            this.fnStatusCallBack(true, 'buildCard');
+            this.fnStatusCallBack(true, 'buildCardElements');
             
-            return;
-            // resolve(true);
+            return true;
           }
           catch(error) {
             this.fnStatusCallBack(false, 'buildCard', error);
-            return;
-            // reject(false);
+            return false;
           }
         }, 700); 
-      // });
 
-    }
+    })();
 
-    buildCard();
-    return ;
+    return;
   }
 
   render() {

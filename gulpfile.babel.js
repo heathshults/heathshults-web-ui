@@ -1,8 +1,15 @@
 /* eslint-disable no-console */
 /* eslint-disable-next-line @typescript-eslint/no-var-requires */
 require("@babel/register")({
-  presets: ["@babel/preset-env"],
-  "plugins": [["import", {"libraryName": "@material-ui/core"}], "@babel/plugin-syntax-dynamic-import"]
+  presets: ["@babel/preset-env", "@babel/preset-react", "@babel/preset-typescript"],
+  plugins: [
+    "@babel/plugin-transform-typescript",
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-class-properties",
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    "@babel/plugin-transform-runtime",
+    ["import", {"libraryName": "@material-ui/core"}]
+  ]
 });
 // eslint-disable no-unused-expressions
 // eslint-disable no-undef
@@ -16,6 +23,7 @@ import {src, dest, gulp, task, watch, series, parallel} from 'gulp';
 import copy from 'copy';
 
 // var sass = require('gulp-sass')
+import * as chokidar from 'chokidar';
 import browserSync from 'browser-sync';
 import header from 'gulp-header';
 import browserify from 'browserify';
@@ -30,7 +38,7 @@ import pkg from './package.json';
 import connect from 'gulp-connect-php';
 import plumber from 'gulp-plumber';
 import open from 'open';
-import {exec} from 'child_process';
+import { exec } from 'child_process';
 
 // var autoprefixer = require('gulp-autoprefixer')
 // var postcss = require('gulp-postcss')
@@ -178,20 +186,20 @@ let assets = '{jpg,png,gif,svg,mp4}';
 
 //#endregion
 
-function copy_web_components(done) {
-  return new Promise((resolve, reject) => {
-    try {
-      setTimeout(() => {
-        copy('www/components/**/*', 'www-app/components', done);
-        console.log(chalk.green('web components copied to app-www/components'));
-        resolve(true);
-      }, 2000);
-    } catch(e) {
-      console.log(chalk.red("Error: " + e));
-      }
-    });
-}
-exports.copy_web_components = copy_web_components;
+// function copy_web_components(done) {
+//   return new Promise((resolve, reject) => {
+//     try {
+//       setTimeout(() => {
+//         copy('www/components/**/*', 'www-app/components', done);
+//         console.log(chalk.green('web components copied to app-www/components'));
+//         resolve(true);
+//       }, 2000);
+//     } catch(e) {
+//       console.log(chalk.red("Error: " + e));
+//       }
+//     });
+// }
+// exports.copy_web_components = copy_web_components;
  
 function ejsit(done) {
   return src(`${srcPath}/views/**/*.ejs`)
@@ -585,6 +593,13 @@ function connect_sync(cb) {
     });
     
   });
+  
+  var changedFile;
+  chokidar.watch('src/js/modules/**/*.ts',{ignored: '.d.ts'}).on('all', (event, path) => {
+    // changedFile = path;
+    exec(`tsc ${path}`);
+    console.log(event, path);
+  });
   // eslint-disable-next-line no-sequences
   var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
   watch(`${srcPath}/views/*.ejs`, ejsit).on('change', browserSync.reload), callback;
@@ -594,7 +609,7 @@ function connect_sync(cb) {
   watch([`${srcPath}/assets/**/*.css`], ra.copy_css), callback;
   watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], copy_js), callback;
   watch([`${buildPath}/**/*`], copy_components), callback;
-  watch([`${p.src_js}/js/HeathScript.js`, `${p.src_js}/js/jqBootstrapValidation.js`, `${p.src_js}/js/contact_me.js`], babelfry), callback;
+  watch([`${p.src_js}/js/HeathScript.js`, `${p.src_js}/js/jqBootstrapValidation.js`,  `${p.src_js}/js/modules/**/*.ts`, `${p.src_js}/js/contact_me.js`], babelfry), callback;
   watch([`${srcCompPath}/**/*`],  exec('npm run comp:buildlight', (e) => console.log(e))), callback;
   // watch([`${srcCompPath}/**/*`],  render_components), callback;
   cb();
