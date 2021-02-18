@@ -24,7 +24,8 @@
     "strict": false,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "outDir": "src/js/tsified"
   },
   "include": [
     "src",
@@ -65,6 +66,8 @@
   },
   "files": [
     "src/js/modules/hs-3d-rotate/index.ts",
+    "src/js/modules/even-height/index.ts",
+    "src/js/modules/hs-timeline/hs-timeline-ts.ts",
     "src/js/modules/even-height/index.ts"
   ]
 }

@@ -1,5 +1,7 @@
 "use strict";
 exports.__esModule = true;
+/* eslint-disable prefer-const */
+var chalk = require("chalk");
 var l = console.log;
 var HS3DRotate = /** @class */ (function () {
     function HS3DRotate(dataMethod1, dataURL1, dataHeaders1) {
@@ -44,7 +46,7 @@ var HS3DRotate = /** @class */ (function () {
         this.orientationFlag = false;
         this.rotateEventsFlag = false;
         // l( cellWidth, cellHeight );
-        l("\n    rotatorContainer: " + this.rotatorContainer + "\n    dataMethod: " + this.dataMethod + "\n    headers: " + this.dataHeaders + "\n    url: " + this.dataURL + "\n    cells: " + this.cells + "\n    prevButton: " + this.prevButton + "\n    nextButton: " + this.nextButton + "\n    cellsRange: " + this.cellsRange + "\n    orientationRadios: " + this.orientationRadios + "\n    cellCount: " + this.cellCount + "\n    selectedIndex: " + this.selectedIndex + "\n    cellWidth: " + this.cellWidth + "\n    cellHeight: " + this.cellHeight + "\n    isHorizontal: " + this.isHorizontal + "\n    rotateFn: " + this.rotateFn + "\n    ");
+        l(chalk.yellow("\n    rotatorContainer: " + this.rotatorContainer + "\n    dataMethod: " + this.dataMethod + "\n    headers: " + this.dataHeaders + "\n    url: " + this.dataURL + "\n    cells: " + this.cells + "\n    prevButton: " + this.prevButton + "\n    nextButton: " + this.nextButton + "\n    cellsRange: " + this.cellsRange + "\n    orientationRadios: " + this.orientationRadios + "\n    cellCount: " + this.cellCount + "\n    selectedIndex: " + this.selectedIndex + "\n    cellWidth: " + this.cellWidth + "\n    cellHeight: " + this.cellHeight + "\n    isHorizontal: " + this.isHorizontal + "\n    rotateFn: " + this.rotateFn + "\n    "));
         this.prevButton.addEventListener('click', function () {
             _this.selectedIndex--;
             _this.rotate3dRotator();

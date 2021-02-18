@@ -50,8 +50,8 @@ function copy_assets_content(cb) {
   return new Promise((resolve, reject) => {
     try {
       src(`${srcPath}/content/**/*`)
-        // .pipe(changed(`${wwwPath}/content`))
-        // .pipe(ngAnnotate())
+        .pipe(changed(`${wwwPath}/content`))
+        .pipe(ngAnnotate())
         .pipe(dest(`${wwwPath}/content`))
         .pipe(browserSync.stream());
         // .pipe(debug({
@@ -73,16 +73,16 @@ function copy_css(cb) {
       setTimeout(() => {
         src(`${srcPath}/css/**/*`)
         .pipe(plumber(error => onError(error)))
-          // .pipe(changed(`${wwwPath}/css`))
-          // .pipe(ngAnnotate())
+          .pipe(changed(`${wwwPath}/css`))
+          .pipe(ngAnnotate())
           .pipe(dest(`${wwwPath}/css`))
           .pipe(browserSync.stream());
-          // .pipe(debug({
-          //   title: 'Copied css: '
-          // }))
-        // if (typeof cb === 'function') {cb()}
-        //
-        //
+          .pipe(debug({
+            title: 'Copied css: '
+          }))
+        if (typeof cb === 'function') {cb()}
+        
+        
         console.log(chalk.green('copy_css() complete!'));
         resolve(cb);
       }, 2000);
@@ -104,12 +104,12 @@ function copy_html(cb) {
           .pipe(ngAnnotate())
           .pipe(dest(`${wwwPath}`))
           .pipe(browserSync.stream());
-          // .pipe(debug({
-          //   title: 'Copied css: '
-          // }))
-        // if (typeof cb === 'function') {cb()}
-        //
-        //
+          .pipe(debug({
+            title: 'Copied css: '
+          }))
+        if (typeof cb === 'function') {cb()}
+        
+        
         console.log(chalk.green('copy_html() complete!'));
         resolve(cb);
       }, 2000);
@@ -125,8 +125,8 @@ function copy_images(cb) {
   return new Promise((resolve, reject) => {
     try {
       src(`${srcPath}/img/**/*.{png,jpg,gif,svg}`)
-        // .pipe(changed(`${wwwPath}/img`))
-        // .pipe(ngAnnotate())
+        .pipe(changed(`${wwwPath}/img`))
+        .pipe(ngAnnotate())
         .pipe(dest(`${wwwPath}/img`))
         .pipe(browserSync.stream());
         // .pipe(debug({
@@ -161,10 +161,10 @@ function copy_mail(cb) {
   return new Promise((resolve, reject) => {
     try {
       setTimeout(() => {
-        src(`${srcPath}/mail/**/*`)
-          .pipe(changed(`${wwwPath}/mail`))
+        src('src/mail/**/*')
+          .pipe(changed('src/mail/**/*'))
           .pipe(ngAnnotate())
-          .pipe(dest(`${wwwPath}/mail`))
+          .pipe(dest('www-app/mail/**/*'))
           .pipe(debug({
             title: 'Copied mail: '
           }))

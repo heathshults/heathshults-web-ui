@@ -2,6 +2,7 @@
 <html lang="en">
 
   <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Montserrat:wght@400;600;700&family=Nothing+You+Could+Do&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
     <meta charset="utf-8">
@@ -20,8 +21,7 @@
 
     <!-- Custom Fonts -->
     <link rel="stylesheet" href="/global/variables.css">
-    <link href="/assets/fa-5140/css/all.min.css" rel="stylesheet" type="text/css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="/assets/css/fontawesome.css" rel="stylesheet" type="text/css">
 
     <!-- CSS only -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -948,9 +948,10 @@
                 <div class="col-md-12">
                   <!-- HSThreeDRotator -->
                   <div class="hs-3drotate__container"
-                    data-headers=""
-                    data-method="GET"
-                    data-url="/global/3dRotator.json">
+                   data-dataheader="hs3dRotator"
+                   data-dataurl="global/3dRotator.json"
+                   data-datamethod="GET"
+                  >
                     
                     <div class="hs-3drotate__scene">
                       <div class="col hs-3drotate__nav text-center">
@@ -1011,6 +1012,7 @@
 
     <!-- Theme JavaScript -->
     <script src="/assets/js/HeathScript.built.js" type="module"></script>
+    <script src="assets/js/hs-3d-rotate.js" type="module"></script>
     <!-- <script src="hScript.bundle.js"></script> -->
     
       <!-- <script>
@@ -1104,11 +1106,6 @@
         });
     </script> -->
     <script>
-      // var bowlopolisModal = new bootstrap.Modal(document.getElementById('bowlopolisDetails'), options)
-      // var designSysteModal = new bootstrap.Modal(document.getElementById('designSysteDetails'), options)
-      // var blueStarModal = new bootstrap.Modal(document.getElementById('blueStarDetails'), options)
-      // var usaaModal = new bootstrap.Modal(document.getElementById('usaaDetails'), options)
-
       function showModal(modal) {
         document.querySelector(modal).show();
       };
@@ -1121,123 +1118,6 @@
         target: '#mainNav'
       });
 
-      // function carouselHeight(el) {
-      //   setTimeout(()=>{
-      //     console.log(el)
-      //     var crslID = el.getAttribute('data-bs-target');
-      //     var target = document.querySelector(crslID + ' .modal-body');
-      //     console.log('target '), console.log(target)
-      //     var crslHeight = target.offsetHeight;
-      //     console.log('crslHeight '), console.log(crslHeight)
-      //     var itemImage = target.querySelector('.carousel-item-image')
-      //     console.log('itemImage'), console.log(itemImage)
-      //     itemImage.style.height = crslHeight;
-      //     console.log(crslHeight);    
-      //   },700)
-            
-      // }
-
-
-      // const carousels = document.querySelectorAll('.carousel');
-      //   console.log(carousels);
-      //   carousels.forEach(carousel => {
-      //     var crslHeight = carousel.offSetHeight;
-      //     carousel.style.height = crslHeight;
-      //     console.log(crslHeight);
-      //   })
-      
-      
-      
-      ////////////////////////////////////////////////
-    //   document.addEventListener("DOMContentLoaded", () => {
-    // 	var rotatorotators = Array.prototype.slice.call(document.querySelectorAll('.hs-3drotator'));
-    //   console.log(rotatorotators);
-    // 	rotatorotators.forEach((rotator, i) => {
-    //     const threeDRId = rotator.getAttribute('id')
-    //     console.log(rotator);
-        
-    //   	var figure = Array.prototype.slice.call(document.querySelector(`#${threeDRId} .hs-3dRotator-figure`));
-    //   	var	nav = Array.prototype.slice.call(document.querySelector(`#${threeDRId} .hs-3drotator-nav`));
-    //   	var	images = Array.prototype.slice.call(document.querySelectorAll(`#${threeDRId} .hs-3dRotator-img`));
-    //     console.log(threeDRId)
-    //     console.log(images)
-        
-    //     var n = images.length;
-    //   	var	gap = rotator.dataset.gap || 0;
-    //   	var	bfc = 'bfc' in rotator.dataset;
-      		
-    //   	var	theta =  2 * Math.PI / n;
-    //   	var	currImage = 0;
-      	
-    //     	setup3dRotator(n, parseFloat(getComputedStyle(images[0]).width));
-    //     	// setup3dRotator(n, parseFloat(getComputedStyle(images[0]).width));
-    //     	window.addEventListener('resize', () => { 
-    //   		setup3dRotator(n, parseFloat(getComputedStyle(images[0]).width)) 
-    //   	});
-
-    //   	// setupNavigation();
-
-    //   	function setup3dRotator(n, s) {
-    //   		var	
-    //   			apothem = s / (2 * Math.tan(Math.PI / n));
-      		
-    //   		figure.style.transformOrigin = `50% 50% ${- apothem}px`;
-
-    //   		for (var i = 0; i < n; i++)
-    //   			images[i].style.padding = `${gap}px`;
-    //   		for (i = 1; i < n; i++) {
-    //   			images[i].style.transformOrigin = `50% 50% ${- apothem}px`;
-    //   			images[i].style.transform = `rotateY(${i * theta}rad)`;
-    //   		}
-    //   		if (bfc)
-    //   			for (i = 0; i < n; i++)
-    //   				 images[i].style.backfaceVisibility = 'hidden';
-      		
-    //   		rotate3dRotator(currImage);
-    //   	}
-
-    //   	// function setupNavigation() {
-    //   		nav.addEventListener('click', onClick, true);
-      		
-    //   		function onClick(e) {
-    //   			e.stopPropagation();
-      			
-    //   			var t = e.target;
-    //   			if (t.tagName.toUpperCase() != 'BUTTON')
-    //   				return;
-      			
-    //   			if (t.classList.contains('next')) {
-    //   				currImage++;
-    //   			}
-    //   			else {
-    //   				currImage--;
-    //   			}
-      			
-    //   			rotate3dRotator(currImage);
-    //   		}
-      			
-    //   	// }
-
-    //   	function rotate3dRotator(imageIndex) {
-    //   		figure.style.transform = `rotateY(${imageIndex * -theta}rad)`;
-    //   	}
-        
-      
-    //   }) 
-    // });
-
-    
-	
-      
-      ///////////////////////////////////////////
-      
-      
-      
-      
-      
-      
-      
-      
       //  onclick="javascript:showModal('#modBowlopolis');"
 
       // // ====== RANKING BARS
@@ -1246,96 +1126,6 @@
         var barWidth = $(aBar).attr('aria-valuenow')
         $(aBar).attr('style', `width: ${barWidth}%`);
       });
-
-      // theModals.forEach(modal => {
-      //   modal.addEventListener('click', (e)=>{
-      //     var targetModalID =  modal.getAttribute('data-target')
-      //     console.log(targetModalID)
-      //     console.log(document.getElementById(targetModalID))
-      //     var tmodal = document.getElementById(targetModalID)
-      //     tmodal.classList.toggle('is-open')
-      //     // .classList.toggleClass('is-open')
-      //   })
-      // })
-
-      // ====== NAV JS ====== //
-      // $('a.js-page-scroll').on('click', function(event) {
-      //   var $anchor = $(this);
-      //   $('html, body').stop().animate({
-      //       scrollTop: ($($anchor.attr('href')).offset().top - 50)
-      //   }, 1250, 'easeInOutExpo');
-      //   event.preventDefault();
-      //   });
-
-      // // Highlight the top nav as scrolling occurs
-      // $('body').scrollspy({
-      //     target: '.navbar-fixed-top',
-      //     offset: 51
-      // });
-
-      // // Closes the Responsive Menu on Menu Item Click
-      // $('.navbar-collapse .navbar-nav .nav-item .nav-link').click(function(){
-      //         $('.navbar-toggle:visible').click();
-      // });
-
-      // // Offset for Main Navigation
-      // $('#mainNav').affix({
-      //     offset: {
-      //         top: 100
-      //     }
-      // })
-
-      // ** ====== MODE WIDHET ====== ** //
-      // var $dm_btn = $('#mode_widget')
-      // var lsGetMode = localStorage.getItem('dark_mode')
-
-      // // set button text
-      // $(document).ready(()=>{
-      //   if (lsGetMode === 'fasle') {
-      //     setModeText(true)
-      //     //$dm_btn.html('<span class="which-mode">Dark Mode<span id="mode_icon" class="fa fa-moon-o mode-icon"></span></span>')
-      //   } else {
-      //     setModeText(false)
-      //     // $dm_btn.html('<span class="which-mode">Light Mode<span id="mode_icon" class="fa fa-sun-o mode-icon"></span></span>')
-      //   }
-      // })
-
-      // function setModeText(mode) {
-      //   if (mode === 'true') {
-      //     $dm_btn.html('<span class="which-mode"> Dark Mode<span id="mode_icon" class="fa fa-moon-o mode-icon"></span><span class="tiny-text">Enabled</span></span>')
-      //   } else {
-      //     $dm_btn.html('<span class="which-mode"> Light Mode<span id="mode_icon" class="fa fa-sun-o mode-icon"></span><span class="tiny-text">Enabled</span></span>')
-      //   }
-      // }
-
-      // function setMode(mode) {
-      //       localStorage.setItem('dark_mode', `${mode}`)
-      //       document.querySelector('#darkmode').disabled = mode;
-
-      //       if (mode === 'true') {
-      //       document.querySelector('#darkmode').disabled = false;
-      //       $dm_btn.html('<span class="which-mode"> Dark Mode<span id="mode_icon" class="fa fa-moon-o mode-icon"></span><span class="tiny-text">Enabled</span></span>')
-
-      //       // document.querySelector('link[href="css/theme-dark-mode.css"]').disabled = false;
-      //     } else {
-      //       $dm_btn.html('<span class="which-mode"> Light Mode<span id="mode_icon" class="fa fa-sun-o mode-icon"></span><span class="tiny-text">Enabled</span></span>')
-      //     }
-      //   return setModeText(mode)
-      // }
-
-      // Theme switcher
-      // $dm_btn.on('click', (event) => {
-      //     event.preventDefault()
-      //     if (localStorage.getItem('dark_mode') === 'true') {
-      //       setMode('false'), console.log('set to false')
-      //     } else {
-      //       setMode('true'), console.log('set to true')
-      //     }
-      //     return
-      // })
-
-      // setTimeout(launchSMC, 2000)
-
     </script>
   </body>
 

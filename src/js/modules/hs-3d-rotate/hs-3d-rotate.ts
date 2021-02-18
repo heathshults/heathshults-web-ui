@@ -99,7 +99,6 @@ export default class HS3DRotate {
     this.Get3dRotatorData();
   }
     
-
   Get3dRotatorData(): void {
     if (window.fetch) {
       l('inside fetch vars');
