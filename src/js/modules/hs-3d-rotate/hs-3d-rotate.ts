@@ -24,8 +24,8 @@ export default class HS3DRotate {
   public rotateFn: any;
   public radius;
   public theta;
-  public orientationFlag = false;
-  public rotateEventsFlag = false;
+  public orientationFlag: boolean;
+  public rotateEventsFlag:boolean;
   public hs3dRotatorEvents: any;
     
   constructor(dataMethod1?: string, dataURL1?: string, dataHeaders1?: string) {
@@ -40,6 +40,7 @@ export default class HS3DRotate {
     this.checkedRadio = document.querySelector('input[name="orientation"]:checked');
     this.selectedIndex = 0;
     this.dataURL = this.rotatorContainer.getAttribute('data-dataurl');
+    this.orientationFlag = false;
     
     if (!dataMethod1) {
       this.dataMethod= this.rotatorContainer.getAttribute('data-datamethod');
@@ -151,8 +152,6 @@ export default class HS3DRotate {
     }    
     return;
     }
-
-    init3dRotator = new this.Get3dRotatorData();
 
     rotate3dRotator(): any {
       const angle = this.theta * this.selectedIndex * -1;

@@ -2,33 +2,30 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Node 14",
   "compilerOptions": {
+    "allowUnreachableCode": false,
     "allowSyntheticDefaultImports": true,
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "isolatedModules": true,
+    "declaration": false,
+    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": [
-      "es6", 
-      "es2016.array.include", 
-      "es2017.object", 
-      "DOM"
-    ],
-    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "lib": ["dom", "es2017"],
     "module": "esnext",
-    "target": "esnext",
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "outDir": "www-app/components",
+    "removeComments": false,
+    "sourceMap": true,
     "jsx": "react",
     "jsxFactory": "h",
-    "allowJs": true,
-    "strict": false,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "sourceMap": true,
-    "outDir": "src/js/tsified"
+    "target": "es2017"
   },
   "include": [
-    "src",
+    "src/components/**/*.ts",
+    "src/components/**/*.tsx",
+    "src/components/**/*.jsx",
     "types/jsx.d.ts",
     "types/**/*.ts",
     "dist/types/components.d.ts"
@@ -41,33 +38,33 @@
     "dist",
     "loader",
     "node_modules", 
-    "build-scripts",
     "src/assets",
     "src/env",
+    "src/env",
+    "src/global",
     "src/layouts",
     "src/mail",
     "src/php",
     "src/scss",
     "src/test",
-    "src/types",
     "src/views",
+    "loader",
     "www",
     "wwww-app",
-    "src/js/modules/decorators",
     
     "gulpfile.babel.js",
     "babel.config.js", 
-    "metro.config.js", 
-    "jest.config.js" 
+    "jest.config.js",
+    "**/*.spec.tsx",
+    "**/*.spec.jsx",
+    "**/*.spec.ts",
+    "**/*.e2e.ts",
+    "**/__tests__/**"
   ],
+  "compileOnSave": false,
+  "buildOnSave": false,
   "rules": {
     "@typescript-eslint/no-unused-vars" : "off",
     "@typescript-eslint/explicit-module-boundary-types": "off"
-  },
-  "files": [
-    "src/js/modules/hs-3d-rotate/index.ts",
-    "src/js/modules/even-height/index.ts",
-    "src/js/modules/hs-timeline/hs-timeline-ts.ts",
-    "src/js/modules/even-height/index.ts"
-  ]
+  }
 }

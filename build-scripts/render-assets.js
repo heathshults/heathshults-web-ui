@@ -76,7 +76,7 @@ function copy_css(cb) {
           .pipe(changed(`${wwwPath}/css`))
           .pipe(ngAnnotate())
           .pipe(dest(`${wwwPath}/css`))
-          .pipe(browserSync.stream());
+          .pipe(browserSync.stream())
           .pipe(debug({
             title: 'Copied css: '
           }))
@@ -86,7 +86,7 @@ function copy_css(cb) {
         console.log(chalk.green('copy_css() complete!'));
         resolve(cb);
       }, 2000);
-    } catch (error) {
+    } catch(error) {
       console.log(chalk.red('Error in copy_css(): ' + error));
       reject(()=>{ if (typeof cb === 'function') {cb()} });
     }
@@ -103,10 +103,10 @@ function copy_html(cb) {
           .pipe(changed(`${wwwPath}/views`))
           .pipe(ngAnnotate())
           .pipe(dest(`${wwwPath}`))
-          .pipe(browserSync.stream());
+          .pipe(browserSync.stream())
           .pipe(debug({
             title: 'Copied css: '
-          }))
+          }));
         if (typeof cb === 'function') {cb()}
         
         
