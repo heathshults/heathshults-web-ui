@@ -8,7 +8,5 @@ describe('hs-fetcher', () => {
     const element = await page.find('hs-fetcher');
     expect(element).toHaveClass('hydrated');
   });
-  {
-    cursor;
-  }
+
 });

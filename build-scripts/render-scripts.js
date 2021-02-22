@@ -1,12 +1,46 @@
 // 'use strict';
-/* eslint-disable no-octal */
+/* eslint-disable no-octal, @typescript-eslint/explicit-module-boundary-types, no-unused-vars, @typescript-eslint/no-unused-vars, @typescript-eslint/no-var-requires, no-console */
+var babel = require("@babel/core");
+// require("@babel/core").transform("code", {
+//   presets: [
+    // '@babel/preset-env', 
+    // '@babel/preset-typescript',
+    // '@babel/preset-react'
+  // ],
+  // plugins: [
+    // "@babel/plugin-transform-typescript",
+    // 'babel-plugin-replace-ts-export-assignment',
+    // '@babel/plugin-syntax-dynamic-import',
+    // '@babel/plugin-proposal-class-properties',
+    // ['@babel/plugin-proposal-decorators', { 'legacy': true }],
+    // '@babel/plugin-transform-runtime',
+    // ['import', {'libraryName': '@material-ui/core'}]
+  // ],
+  // compact: false
+// });
+// require('@babel/register')({
+//   presets: [
+//     '@babel/preset-env', 
+//     '@babel/preset-react', 
+//     '@babel/preset-typescript'
+//   ],
+//   plugins: [
+//     '@babel/plugin-transform-typescript',
+//     '@babel/plugin-syntax-dynamic-import',
+//     '@babel/plugin-proposal-class-properties',
+//     ['@babel/plugin-proposal-decorators', { 'legacy': true }],
+//     '@babel/plugin-transform-runtime',
+//     ['import', {'libraryName': '@material-ui/core'}]
+//   ],
+//   compact: false,
+// });
 const nfs = require('node-fs'),
   fs = require('fs'),
   path = require('path'),
   browserify = require('browserify'),
   browserSync = require('browser-sync'),
   chalk = require('chalk'),
-  { exec } = require('child_process'),
+  { exec } = require('child_process');
   theLinters = require('./lint');
 
 // let babelify = require('babelify')
@@ -21,12 +55,12 @@ let outPath = path.resolve(__dirname, '../www-app/assets/js/');
 function HeathenScriptJS(jsdest) {
   
   function paths(){ console.log(chalk.blue('checking directories...'));
-  if (jsdest) {
-    outPath = path.resolve(__dirname, jsdest);
-  }
-  makeDirectory(outPath)
+    if (jsdest) {
+      outPath = path.resolve(__dirname, jsdest);
+    }
+    makeDirectory(outPath)
     .then(processJS(inFile));
-}
+  }
     /**
    * create js directory if not exist
    *
@@ -70,7 +104,7 @@ function HeathenScriptJS(jsdest) {
   function processJS(jsFile, cb) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        console.log(chalk.green('Initializing procesJS...'));
+        console.log(chalk.green('Initializing process...'));
         if (!jsFile) jsFile = inFile;
 
         // make the js file and save it to the makeDirectory path
@@ -78,7 +112,20 @@ function HeathenScriptJS(jsdest) {
           console.log(chalk.yellow('Browserfrying JS...'));
           browserify(jsFile)
             .transform('babelify', {
-              presets: ['@babel/preset-env', '@babel/preset-react']
+              presets: [
+                '@babel/preset-env', 
+                '@babel/preset-typescript',
+                '@babel/preset-react'
+              ],
+              plugins: [
+                "@babel/plugin-transform-typescript",
+                'babel-plugin-replace-ts-export-assignment',
+                '@babel/plugin-syntax-dynamic-import',
+                '@babel/plugin-proposal-class-properties',
+                ['@babel/plugin-proposal-decorators', { 'legacy': true }],
+                '@babel/plugin-transform-runtime',
+                ['import', {'libraryName': '@material-ui/core'}]
+              ]
             })
             .bundle()
             .pipe(nfs.createWriteStream(outFile));
@@ -96,7 +143,7 @@ function HeathenScriptJS(jsdest) {
 
   function bashcompileJS(cb) {
     return new Promise((resolve, reject) => {
-      exec(`browserify ${inFile} -o ${outFile} -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] --plugins [ @babel/plugin-transform-arrow-functions ] ]`,
+      exec(`browserify ${inFile} -o ${outFile} -t [ babelify --presets ["@babel/preset-env", "@babel/preset-typescript", "@babel/preset-react" ] --plugins [ @babel/plugin-transform-typescript babel-plugin-replace-ts-export-assignment @babel/plugin-proposal-decorators @babel/plugin-transform-runtime ] ]`,
         function (err) {
           if (err) return `Browserify Error: ${err}`;
           reject(cb);
@@ -106,7 +153,7 @@ function HeathenScriptJS(jsdest) {
     });
   }
   exports.bashcompileJS = bashcompileJS;
-  // if (typeof callback === 'function'){callback()}
+  if (typeof callback === 'function'){cb()}
   browserSync.stream();
   return true;
 }

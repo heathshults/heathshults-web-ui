@@ -19,7 +19,7 @@ export default class EvenHeight {
             child.setAttribute('style', `height: ${height}px`);
           });
         });
-      }, 2000);
+    }, 2000);
   }
 }
 

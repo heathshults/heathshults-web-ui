@@ -92,22 +92,6 @@
   --hs-clip-background: content-box;
   --hs-baige-light: #cac1ac;
   --hs-baige-medium: #a79e8b;
-  --interaction-colors: ();
-  --interaction-colors:
-    map-merge(
-      (
-        "primary": --hs-theme-primary,
-        "secondary": --hs-theme-secondary,
-        "success": --hs-theme-success,
-        "info": --hs-theme-info,
-        "warning": --hs-theme-warning,
-        "danger": --hs-theme-danger,
-        "light": --hs-gray-100,
-        "white": --hs-white,
-        "dark": --hs-gray-600,
-      ),
-      --interaction-colors
-    );
   --hs-theme-color-text: var(--hs-gray-700);
   --hs-theme-color-text-onDark: var(--hs-white);
   --hs-font-primary: "Roboto", sans-serif;
@@ -1566,30 +1550,30 @@ mark {
 }
 
 :root {
-  --hs-color-1:hsl(206, 21%, 24%);
-  --hs-color-1-h:206;
-  --hs-color-1-s:21%;
-  --hs-color-1-l:24%;
-  --hs-color-2:hsl(205, 38%, 89%);
-  --hs-color-2-h:205;
-  --hs-color-2-s:38%;
-  --hs-color-2-l:89%;
-  --hs-color-3:hsl(207, 10%, 55%);
-  --hs-color-3-h:207;
-  --hs-color-3-s:10%;
-  --hs-color-3-l:55%;
-  --hs-color-4:hsl(111, 51%, 60%);
-  --hs-color-4-h:111;
-  --hs-color-4-s:51%;
-  --hs-color-4-l:60%;
-  --hs-color-5:hsl(356, 53%, 49%);
-  --hs-color-5-h:356;
-  --hs-color-5-s:53%;
-  --hs-color-5-l:49%;
-  --hs-color-6:hsl(47, 85%, 61%);
-  --hs-color-6-h:47;
-  --hs-color-6-s:85%;
-  --hs-color-6-l:61%;
+  --hs-color-1: hsl(206, 21%, 24%);
+  --hs-color-1-h: 206;
+  --hs-color-1-s: 21%;
+  --hs-color-1-l: 24%;
+  --hs-color-2: hsl(205, 38%, 89%);
+  --hs-color-2-h: 205;
+  --hs-color-2-s: 38%;
+  --hs-color-2-l: 89%;
+  --hs-color-3: hsl(207, 10%, 55%);
+  --hs-color-3-h: 207;
+  --hs-color-3-s: 10%;
+  --hs-color-3-l: 55%;
+  --hs-color-4: hsl(111, 51%, 60%);
+  --hs-color-4-h: 111;
+  --hs-color-4-s: 51%;
+  --hs-color-4-l: 60%;
+  --hs-color-5: hsl(356, 53%, 49%);
+  --hs-color-5-h: 356;
+  --hs-color-5-s: 53%;
+  --hs-color-5-l: 49%;
+  --hs-color-6: hsl(47, 85%, 61%);
+  --hs-color-6-h: 47;
+  --hs-color-6-s: 85%;
+  --hs-color-6-l: 61%;
   --hs-header-height: 200px;
   --hs-font-primary: "Roboto", sans-serif;
   --hs-font-secondary: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -4386,6 +4370,10 @@ input:not(:-webkit-autofill) {
   .mobile-nav {
     background: transparent;
   }
+}
+.j-fader {
+  position: absolute;
+  z-index: auto;
 }
 
 /*# sourceMappingURL=HeathStyle.built.css.map */

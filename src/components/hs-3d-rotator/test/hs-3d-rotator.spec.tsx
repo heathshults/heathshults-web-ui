@@ -1,10 +1,10 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { Hs3dRotator } from '../hs-3d-rotator';
+import { HS3dRotator } from '../hs-3d-rotator';
 
 describe('hs-3d-rotator', () => {
   it('renders', async () => {
     const page = await newSpecPage({
-      components: [Hs3dRotator],
+      components: [HS3dRotator],
       html: `<hs-3d-rotator></hs-3d-rotator>`,
     });
     expect(page.root).toEqualHtml(`
