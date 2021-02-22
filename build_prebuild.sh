@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -x
+# set -x
 
 echo "Running Build from AppRoot"
 cd $(npm root) # changes to the node_modules folder (npm root)
@@ -14,7 +14,7 @@ echo "Prebuild activated..."
 node build-scripts/clean-components.js &&
 
 # echo "Running Javascript linters...." 
-npx eslint --fix src/js/HeathScript.js src/js/vendor/jqBootstrapValidation.js src/js/contact_me.js src/js/modules/show-more-fadebar/show-more.js &
+npx eslint --fix src/js/modules/**/*.ts &
 ESLINTPID=$! # get background process id of ESLINT
 
 # echo "Running css linters" 

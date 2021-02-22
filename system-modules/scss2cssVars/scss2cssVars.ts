@@ -1,81 +1,56 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import * as path from 'path';
-import * as fs from 'fs';
-import * as lineReader from 'readline';
-// import { stylelint } from 'stylelint';
-// import { exec } from 'child_process';
+const path       = require('path');
+const fs         = require('fs');
+const lineReader = require('readline');
+const stylelint = require('stylelint');
+const { exec } = require('child_process');
 // const glob       = require('glob');
 
 // import path from 'path';
 // import fs from 'fs';
 // import lineReader from 'readline';
 // import glob from 'glob';
-const log = console.log;
-const scssVarFileHS = path.resolve(__dirname, "../../../scss/variables/_colors.scss");
-const cssVarFileHS = path.resolve(__dirname, "../../../scss/variables/_css-vars-heathshults.scss");
-const scssVarFileBS = path.resolve(__dirname, "../../../scss/variables/_bootstrap-cssvars-in.scss");
-const cssVarFileBS = path.resolve(__dirname, "../../../scss/variables/_css-vars-bootstrap.scss");
+
+const scssVarFileHS = path.resolve(__dirname, "../../src/scss/variables/_colors.scss"),
+  cssVarFileHS = path.resolve(__dirname, "../../src/scss/variables/_css-vars-heathshults.scss"),
+  scssVarFileBS = path.resolve(__dirname, "../../src/scss/variables/_bootstrap-cssvars-in.scss"),
+  cssVarFileBS = path.resolve(__dirname, "../../src/scss/variables/_css-vars-bootstrap.scss");
 
 
-/**
- * 
- * 
- * @export
- * @class Scss2cssVars
- */
-export default class Scss2cssVars {
-  public line: any;
-  public sourceCssStream: any;
-  public src: string;
-  public dest: string;
-  
+function scss2cssVars(src, dest) {
   // src = scssVarFile;
   // dest = cssVarFile;
-  
-  constructor(src?: string, dest?: string) {
-    this.src = src;
-    this.dest = dest;
-  }
-  
-  /**
-   * @description Converts SCSS variables into CSS variables.
-   * 
-   * @returns {Promise<unknown>} 
-   * 
-   * @memberOf Scss2cssVars
-   */
-  public convert(): Promise<unknown> {
     return new Promise((resolve, reject) => {
-      try {
-        this.sourceCssStream = lineReader.createInterface({
-          input: fs.createReadStream(this.src)
+
+        const sourceCssStream = lineReader.createInterface({
+            input: fs.createReadStream(src)
         });
 
         let rebuiltFile = ':root{';
         let skippingLine = false;
 
-        this.sourceCssStream.on('line', function(line) {
-            const ln = line;
+        sourceCssStream.on('line', function(line) {
+            
             // Skip Mixin and Comment blocks
             if (skippingLine) {
-                if (ln.charAt(0) === '}' || ln.startsWith('*/')) {
+                if (line.charAt(0) === '}' || line.startsWith('*/')) {
                     skippingLine = false;
                 }
                 return;
             }
 
-            if(ln.includes('@') || (ln.startsWith('/*') && !ln.includes('*/'))) {
+            if(line.includes('@') || (line.startsWith('/*') && !line.includes('*/'))) {
                 skippingLine = true;
                 return;
             }
 
-            if (ln.startsWith('//') || (ln.startsWith('/*') && ln.includes('*/'))) {
+            if (line.startsWith('//') || (line.startsWith('/*') && line.includes('*/'))) {
                 return;
             }
             
             let rebuiltLine = '';
 
-            const currentLineWords = ln.split(' ');
+            const currentLineWords = line.split(' ');
 
             let skippingWord = false;
 
@@ -120,63 +95,50 @@ export default class Scss2cssVars {
 
         });
         
-        this.sourceCssStream.on('close', function(line) {
-          const ln = line;
-          log(ln);
-          rebuiltFile += '}';
-          if(this.dest) {
-            const outputFile = fs.createWriteStream(this.dest);
+        sourceCssStream.on('close', function(line) {
+            rebuiltFile += '}';
+            if(dest) {
+                const outputFile = fs.createWriteStream(dest);
 
-            outputFile.once('open', function(fd) {
-              log(fd);
-              outputFile.write(rebuiltFile);
-              outputFile.end();
-            });
-            outputFile.on('close', function() {
-                resolve(this.dest);
-            });
-          } else {
-            const outputFile = fs.createWriteStream(this.src);
+                outputFile.once('open', function(fd) {
+                    outputFile.write(rebuiltFile);
+                    outputFile.end();
+                });
+                outputFile.on('close', function() {
+                    resolve(dest);
+                });
+            } else {
+                const outputFile = fs.createWriteStream(src);
 
-            outputFile.once('open', function(fd) {
-              log(fd);
-              outputFile.write(rebuiltFile);
-              outputFile.end();
-            });
-            outputFile.on('close', function() {
-              resolve(this.src);
-            });
-                
-          }
+                outputFile.once('open', function(fd) {
+                    outputFile.write(rebuiltFile);
+                    outputFile.end();
+                  });
+                  outputFile.on('close', function() {
+                    resolve(src);
+                  });
+                  
+            }
         });
 
         const { exec } = require('child_process');
         exec(`stylelint --fix ${cssVarFileHS}`, (e) => {if (e){
            console.log(e);
         }});
-        
         exec(`stylelint --fix ${cssVarFileBS}`, (e) => {if (e){
           console.log(e);
-        }});
-       
-        return resolve(true);
-      }
-      catch(err) {
-        throw new Error(err);
-        
-        return reject(false);
-      }
+       }});
     });
-  }
 }
 
-const scssVars = new Scss2cssVars(scssVarFileHS, cssVarFileHS);
-scssVars.convert()
+exports.convert = convert;
+
+convert(scssVarFileHS, cssVarFileHS)
   .then(
     result => console.log(result)
   )
   .then(
-    () => new Scss2cssVars(scssVarFileBS, cssVarFileBS).convert()
+    () => convert(scssVarFileBS, cssVarFileBS)
     .then(
       result => console.log(result)
     )

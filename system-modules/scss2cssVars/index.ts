@@ -1,2 +1,2 @@
-import Scss2cssVars from "./scss2cssVars";
-export default Scss2cssVars;
+import scss2cssVars from "./scss2cssVars";
+export default scss2cssVars;
