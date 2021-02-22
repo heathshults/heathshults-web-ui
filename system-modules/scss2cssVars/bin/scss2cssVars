@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 var path = require('path');
-var Scss2cssVars = require('../');
+var convert = require('../scss2cssVars');
 var program = require('commander');
 
 program
@@ -17,8 +17,8 @@ var dest = program.output;
 
 if(Array.isArray(src)) {
     src.forEach(function(file) {
-        return Scss2cssVars.convert(file, dest);
+        return convert.scss2cssVars(file, dest);
     });
 } else {
-    return Scss2cssVars.convert(src, dest);
+    return convert.scss2cssVars(src, dest);
 }

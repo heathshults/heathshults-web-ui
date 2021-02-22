@@ -881,8 +881,8 @@ fieldset:disabled a.hs-card_button {
   margin-top: var(--btn-block-spacing-y)
 }
 
-input[type=submit].hs-card_button-block,
-input[type=reset].hs-card_button-block,
-input[type=button].hs-card_button-block {
+input[type="submit"].hs-card_button-block,
+input[type="reset"].hs-card_button-block,
+input[type="button"].hs-card_button-block {
   width: 100%
 }
