@@ -8,7 +8,10 @@ dist/
 .backup/
 .sass-cache/
 .vscode/
+.DS_Store
+**/*/www-app/**/*
 backup/
+**/*/www/**/*
 src/assets/content/DevBox/
 src/js/modules/ez-form/ezform.config.json
 .DS_Store
