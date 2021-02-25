@@ -24,8 +24,8 @@ $hs-backtotop-border: #fff;
     padding: .5em .75em;
     text-transform: uppercase;
     cursor: pointer; // Add a mouse pointer on hover
-    background: $hs-theme_background-secondary;
-    border: 1px solid $hs-gray-white;
+    background: $hs-theme-background-secondary;
+    border: 1px solid $hs-gray-600;
     outline: none; // Remove outline
     // NEEDS TO BE REPLACED WITH A DIFFERENT SHADOW FROM A SHADOW MIXIN
     box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
@@ -39,7 +39,7 @@ $hs-backtotop-border: #fff;
 
     label {
       margin: 0;
-      color: $hs-white_30;
+      color: $hs-white-30;
       &:hover {
         cursor: pointer;
         transition: all 0.25s ease-in-out;
@@ -65,7 +65,7 @@ $hs-backtotop-border: #fff;
   text-transform: uppercase;
   cursor: pointer; // Add a mouse pointer on hover
 
-  border: 1px solid $hs-white_30;
+  border: 1px solid $hs-white-30;
   outline: none; // Remove outline
   // NEEDS TO BE REPLACED WITH A DIFFERENT SHADOW FROM A SHADOW MIXIN
   box-shadow: 0 0px 4px 4px rgba(27, 31, 35, 0.15);

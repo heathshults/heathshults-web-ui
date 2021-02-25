@@ -43,7 +43,7 @@ hs-modal hs-card hs-card-footer {
 
 hs-card-header .hs-heading {
   &.dark {
-    color: $hs-theme_primary;
+    color: $hs-theme-primary;
     .hs-heading_sub {
       color: $hs-blueGray-medium;
     }
@@ -58,12 +58,12 @@ hs-modal hs-card-body {
 
 ::-moz-selection {
   text-shadow: none;
-  background: $hs-theme_primary;
+  background: $hs-theme-primary;
 }
 
 ::selection {
   text-shadow: none;
-  background: $hs-theme_primary;
+  background: $hs-theme-primary;
 }
 
 img::-moz-selection {
@@ -151,7 +151,7 @@ img::selection {
   margin: auto;
   text-align: left;
   .row:not(:last-child) {
-    border-bottom: 1px solid $hs-gray-lighter;
+    border-bottom: 1px solid $hs-gray-300;
   }
   [class^="col-"] {
     padding: .7rem;
@@ -203,12 +203,12 @@ img::selection {
   padding: .7rem;
   &--black {
     color: #fff;
-    background: $hs-black_75;
+    background: $hs-black--a75;
     .hs-info-link {
-      color: $hs-theme_primary;
+      color: $hs-theme-primary;
       text-decoration: none;
       &:visited {
-        color: $hs-theme_primary;
+        color: $hs-theme-primary;
       }
       &:hover {
         color: $hs-white;

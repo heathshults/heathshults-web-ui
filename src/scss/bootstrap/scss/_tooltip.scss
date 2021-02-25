@@ -14,7 +14,7 @@
 
   &.show { opacity: $tooltip-opacity; }
 
-  .arrow {
+  .tooltip-arrow {
     position: absolute;
     display: block;
     width: $tooltip-arrow-width;
@@ -29,78 +29,78 @@
   }
 }
 
-.bs-tooltip-top {
+.hs-tooltip-top {
   padding: $tooltip-arrow-height 0;
 
-  .arrow {
+  .tooltip-arrow {
     bottom: 0;
 
     &::before {
-      top: 0;
+      top: -1px;
       border-width: $tooltip-arrow-height ($tooltip-arrow-width / 2) 0;
       border-top-color: $tooltip-arrow-color;
     }
   }
 }
 
-.bs-tooltip-right {
+.hs-tooltip-end {
   padding: 0 $tooltip-arrow-height;
 
-  .arrow {
+  .tooltip-arrow {
     left: 0;
     width: $tooltip-arrow-height;
     height: $tooltip-arrow-width;
 
     &::before {
-      right: 0;
+      right: -1px;
       border-width: ($tooltip-arrow-width / 2) $tooltip-arrow-height ($tooltip-arrow-width / 2) 0;
       border-right-color: $tooltip-arrow-color;
     }
   }
 }
 
-.bs-tooltip-bottom {
+.hs-tooltip-bottom {
   padding: $tooltip-arrow-height 0;
 
-  .arrow {
+  .tooltip-arrow {
     top: 0;
 
     &::before {
-      bottom: 0;
+      bottom: -1px;
       border-width: 0 ($tooltip-arrow-width / 2) $tooltip-arrow-height;
       border-bottom-color: $tooltip-arrow-color;
     }
   }
 }
 
-.bs-tooltip-left {
+.hs-tooltip-start {
   padding: 0 $tooltip-arrow-height;
 
-  .arrow {
+  .tooltip-arrow {
     right: 0;
     width: $tooltip-arrow-height;
     height: $tooltip-arrow-width;
 
     &::before {
-      left: 0;
+      left: -1px;
       border-width: ($tooltip-arrow-width / 2) 0 ($tooltip-arrow-width / 2) $tooltip-arrow-height;
       border-left-color: $tooltip-arrow-color;
     }
   }
 }
 
-.bs-tooltip-auto {
-  &[x-placement^="top"] {
-    @extend .bs-tooltip-top;
+.hs-tooltip-auto {
+  &[data-popper-placement^="top"] {
+    @extend .hs-tooltip-top;
   }
-  &[x-placement^="right"] {
-    @extend .bs-tooltip-right;
+  &[data-popper-placement^="right"] {
+    @extend .hs-tooltip-end;
   }
-  &[x-placement^="bottom"] {
-    @extend .bs-tooltip-bottom;
+  &[data-popper-placement^="bottom"] {
+    @extend .hs-tooltip-bottom;
   }
-  &[x-placement^="left"] {
-    @extend .bs-tooltip-left;
+  &[data-popper-placement^="left"] {
+    @extend .hs-tooltip-start;
   }
 }
 

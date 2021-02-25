@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types, no-console, no-unused-vars, no-undefined */
-import { Component, Element, Prop, Event, EventEmitter, Listen, h } from '@stencil/core';
+import { Component, Element, Prop, h } from '@stencil/core';
 
 @Component({
   tag: 'hs-card',
@@ -21,7 +21,8 @@ export class HSCard {
   @Prop() imgHeaderImgPlaceholder = '/assets/img/svg/image-placeholder.svg';
   @Prop() overlay: any;
   @Prop() imgElem: any;
-  @Prop() modalId: string;
+  @Prop() dataTarget?: string;
+  @Prop() dataToggle? = 'modal';
   @Prop() imgHeaderImg: string;
   @Prop() imgPath:string;
   @Prop() showHide:string;
@@ -61,19 +62,21 @@ export class HSCard {
   @Prop() builderTwo;
   @Prop() builderThree;
   
-  // modalLancher: EventEmitter;
-  @Event() modalLancher: EventEmitter;
-  launchModalEventHandler(event: Event) {
-    this.modalLancher.emit(event);
-  }
+  // // modalLancher: EventEmitter;
+  // @Event() modalLancher: EventEmitter;
+  // launchModalEventHandler(event: Event) {
+  //   this.modalLancher.emit(event);
+  // }
   
-  @Listen('launchModal')
-  launchModalHandler(event: Event) {
-    // showModal(`#${this.clickTarget}`)
-    event.preventDefault();
-    this.modalId ? document.querySelector(this.modalId).classList.add('hs-display-block') : 
-    this.validURL(this.clickTarget) === true ? window.location.href = this.clickTarget : '';
-  }
+  // @Listen('launchModal')
+  // launchModalHandler(event: Event) {
+  //   // showModal(`#${this.clickTarget}`)
+  //   event.preventDefault();
+  //   const clicker: HTMLElement = this.el.shadowRoot.querySelector('.hs-card_button');
+  //   this.dataTarget ? clicker.click() : 
+  //   // this.dataTarget ? document.querySelector(this.dataTarget).classList.add('hs-display-block') : 
+  //   this.validURL(this.clickTarget) === true ? window.location.href = this.clickTarget : '';
+  // }
   
   @Prop() fnStatusCallBack = (status: boolean, fnName: string, errorMessage?: any): any => {
     status === true ? console.log(`${fnName} finished`) : console.log(`${fnName} failed because: /n ${errorMessage}`) ;
@@ -99,14 +102,14 @@ export class HSCard {
   }
   
   componenentWillRender() {
-    function buildCard(): Promise<any> {
-      return new Promise((resolve, reject): any => {
+    (() => {
+      // return new Promise((resolve, reject): any => {
         setTimeout((): any => {
           try {
             this.cloneBaby = this.el.shadowRoot.querySelector('#cloneBaby.hs-card_body');
             console.log(this.cloneBaby);
 
-            this.cardContent = document.querySelector('.hs-card_content');
+            this.cardContent = this.el.shadowRoot.querySelector('.hs-card_content');
             console.log(this.cardContent);
             
             this.clonedContent = this.cardContent.cloneNode(true);            
@@ -117,21 +120,19 @@ export class HSCard {
             }
             this.cardContent.classList.add('hs-card_content');
             this.cloneBaby.appendChild(this.clonedContent);
-            this.fnStatusCallBack(true, 'buildCard');
+            this.fnStatusCallBack(true, 'buildCardElements');
             
-            resolve(true);
+            return true;
           }
           catch(error) {
             this.fnStatusCallBack(false, 'buildCard', error);
-            reject(false);
+            return false;
           }
         }, 700); 
-      });
 
-    }
+    })();
 
-    buildCard();
-    return ;
+    return;
   }
 
   render() {
@@ -139,7 +140,7 @@ export class HSCard {
     return (
       <div id={`${this.cardId}`} class={`hs-card  ${this.colorTone}`}>
         <header class={`hs-card_header ${this.colorTone}`}>
-          { this.imgPath ? <a id="imgHeaderOverlay" class={`hs-overlay ${this.showHide} p-0 m-0`} href="#" onClick={() => this.launchModalHandler(event)} ><img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img ${this.showHide} p-0 m-0`} alt="header image" /></a> 
+          { this.imgPath ? <a id="imgHeaderOverlay" class={`hs-overlay ${this.showHide} p-0 m-0`} data-bs-toggle={this.dataToggle} data-bs-target={this.dataTarget} href="javascript:void(0);" ><img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img ${this.showHide} p-0 m-0`} alt="header image" /></a> 
             : ''}
         <slot name="card-header" />
         </header>

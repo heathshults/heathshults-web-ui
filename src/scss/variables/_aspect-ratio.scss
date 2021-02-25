@@ -1,5 +1,5 @@
 
-.responsive-object {
+.hs-responsive-object {
   position: relative;
   display: block;
   width: 100%;
@@ -7,16 +7,16 @@
   overflow: hidden;
 }
 
-.responsive-object::before {
+.hs-responsive-object::before {
   display: block;
   content: "";
 }
 
-.responsive-object .responsive-object-item,
-.responsive-object iframe,
-.responsive-object embed,
-.responsive-object object,
-.responsive-object video {
+.hs-responsive-object .hs-responsive-object-item,
+.hs-responsive-object iframe,
+.hs-responsive-object embed,
+.hs-responsive-object object,
+.hs-responsive-object video {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -26,31 +26,16 @@
   border: 0;
 }
 
-/* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
-.hs-ratio-16-9 {
-  &::before {
-    @include ratio-16-9;
-  }
-}
-
-/* 4:3 Aspect Ratio (divide 3 by 4 = 0.75) */
-.hs-ratio-4-3 {
-  &::before {
-    @include ratio-4-3;
-  }
-}
-
-/* 3:2 Aspect Ratio (divide 2 by 3 = 0.6666)  */
-.hs-ratio-3-2 {
-  &::before {
-    @include ratio-3-2;
-  }
-}
-
-/* 1:1 Aspect Ratio */
-.hs-ratio-1-1 {
-  &::before {
-    @include ratio-1-1;
+//  Aspect Ratios - Maintain aspect ratio on objects.
+//  * 16:9 (divide 9 by 16 = 0.5625)
+//  * 4:3 (divide 3 by 4 = 0.75)
+//  * 3:2 (divide 2 by 3 = 0.6666)
+//  *  1:1
+@each $ratios, $value in $aspect-ratios {
+  .#{key} {
+    &::before {
+      padding-top: $value;
+    }
   }
 }
 

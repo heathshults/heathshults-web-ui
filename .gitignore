@@ -1,5 +1,7 @@
 node_modules/
 src/DevBox/
+www/
+www-app/
 **/*/_notes/
 dist/
 .dist/
@@ -12,3 +14,6 @@ backup/
 **/*/www/**/*
 src/assets/content/DevBox/
 src/js/modules/ez-form/ezform.config.json
+.DS_Store
+**/*Zone.Identifier
+*.Identifier

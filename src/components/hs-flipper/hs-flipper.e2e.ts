@@ -7,5 +7,5 @@ describe('hs-flipper', () => {
     await page.setContent('<hs-flipper></hs-flipper>');
     const element = await page.find('hs-flipper');
     expect(element).toHaveClass('hydrated');
-  });{cursor}
+  });
 });

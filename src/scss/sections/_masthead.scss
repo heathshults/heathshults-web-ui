@@ -7,7 +7,7 @@ header.masthead,
   min-height: 100vh;
   color: #fff;
   text-align: center;
-  background-color: $hs-gray-medium;
+  background-color: $hs-gray-600;
   background-image: url('/assets/img/bg/DRTECHNOLOGY.jpg');
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -24,6 +24,23 @@ header.masthead,
     background: rgba(0, 0, 0, 0.64);
   }
 }
+.greeting-container {
+  width: 45%;
+  margin: auto;
+}
+.hs-intro-lead-in {
+  @include serif-font;
+  text-align: center;
+}
+.hs-intro-subheading {
+  @include heading-font;
+  font-weight: 700;
+  text-align: center;
+}
+.hs-intro-heading {
+  @include heading-font;
+  text-align: center;
+}
 @include media-breakpoint-up(lg) {
   header.masthead,
   .hs-header {
@@ -34,7 +51,7 @@ header.masthead,
     min-height: 100vh;
     color: #fff;
     text-align: center;
-    background-color: $hs-gray-medium;
+    background-color: $hs-gray-600;
     background-image: url('/assets/img/bg/DRTECHNOLOGY.jpg');
     background-repeat: no-repeat;
     background-attachment: scroll;
@@ -61,10 +78,9 @@ header.masthead,
         width: 100%;
         @include serif-font;
         // padding-bottom: 75px;
-        font-size: rem(40px);
+        font-size: 2rem;
         font-style: italic;
         line-height: normal;
-        text-align: center;
         text-shadow: $hs-text-shadow-light;
         &::after {
           display: block;
@@ -74,11 +90,12 @@ header.masthead,
       }
 
       .hs-intro-subheading {
+        padding-left: 50px;
         margin-bottom: 0px;
-        @include heading-font;
         font-size: 2.6rem;
         font-style: italic;
         line-height: normal;
+        @include heading-font;
       }
       .hs-intro-heading {
         @include heading-font;
@@ -88,7 +105,6 @@ header.masthead,
         font-size: 4.6875rem;
         font-weight: 700;
         line-height: normal;
-        text-align: center;
         text-shadow: $hs-text-shadow-light-spread;
       }
     }
@@ -119,9 +135,11 @@ header.masthead,
           line-height: 75px;
         }
       }
+
     }
   }
 }
+
 
 @include media-breakpoint-up(md) {
   .hs-header {
@@ -150,6 +168,10 @@ header.masthead,
     font-weight: 700;
     @include heading-font;
     line-height: 4.6875rem;
+  }
+  .hs-intro-subheading {
+    font-size: 2rem;
+    @include heading-font;
   }
 }
 .hs-divider {
@@ -189,6 +211,10 @@ header.masthead,
     line-height: normal;
     white-space: normal;
   }
+  .hs-intro-subheading {
+    font-size: 1.5rem;
+    @include heading-font;
+  }
   .js-page-trigger {
     position: relative;
     display: inline-block;
@@ -226,6 +252,11 @@ header.masthead,
     font-weight: bold;
     line-height: normal;
     white-space: normal;
+  }
+  .hs-intro-subheading {
+    font-size: 1.5rem;
+    @include heading-font;
+    font-weight: 700;
   }
   .js-page-trigger {
     position: relative;

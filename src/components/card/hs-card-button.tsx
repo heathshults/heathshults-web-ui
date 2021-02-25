@@ -1,12 +1,12 @@
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { Component, Prop, Element, Method, h } from '@stencil/core';
-// import { validurl } from '../../js/modules/validate-url';
+import { Component, Prop, Element, Method, Listen, Event, EventEmitter, h } from '@stencil/core';
+import { validurl } from '../../js/modules/validate-url';
 
 
 @Component({
   tag: 'hs-card-button',
-  styleUrl: './hs-card-button.scss',
+  styleUrl: './hs-card_button.scss',
   shadow: true
 })
 
@@ -14,11 +14,13 @@ export class HSCardButton {
   @Element() el: HTMLButtonElement;
   @Prop() buttonId?: string;
   @Prop() cssClass?: string;
-  @Prop() text?: string;
+  @Prop() buttonText?: string;
   @Prop() url?: any;
   // eslint-disable-next-line no-undef
   @Prop() urlParams?: any;
-  @Prop() modalId?: any;
+  @Prop() dataTarget?: string | null;
+  @Prop() dataToggle?: string | null;
+  @Prop() onclicker: any;
   // @Method() handleClick: function;
   
   // @Prop() validURL = (str): any => {
@@ -31,20 +33,30 @@ export class HSCardButton {
   //   return !!pattern.test(str);
   // }
   
-  @Method() async handleClick(event, url, urlParams, modalId) {
-    // console.log(event.currentTarget);
-    event.preventDefault();
-    console.log(modalId);
-    console.log(url);
-    console.log(urlParams);
-    
-    // if (typeof this.modalId === 'undefined' || this.modalId.length <= 0 || this.modalId === '') {
-    //   handleLink(url, urlParams);
-    // } else {
-    //   return;
-    // }
+  // modalLancher: EventEmitter;
+  @Event() modalLancher: EventEmitter;
+  launchModalEventHandler(event: Event) {
+    this.modalLancher.emit(event);
   }
   
+  @Listen('launchModal')
+  launchModalHandler() {
+    // showModal(`#${this.clickTarget}`)
+    const btn: HTMLElement = this.el.shadowRoot.querySelector(`#${this.buttonId}`);
+    btn.click();
+    const modal: HTMLElement = document.querySelector(this.dataTarget)
+    modal.style.display = 'block';
+  }
+
+  @Method() async handleClick(event, url, urlParams, dataTarget) {
+    event.preventDefault();
+    if (typeof dataTarget === 'undefined') {
+      this.handleLink(url, urlParams);
+    } else {
+      return;
+    }
+  }
+
   handleLink(url, urlParams) {
     if (typeof url !== 'undefined') {
       const validateUrl: boolean = validurl(url);
@@ -53,25 +65,42 @@ export class HSCardButton {
       } 
     }
   }
-  
-   componentWillLoad(): void {
-    // const theButton = this.el.shadowRoot.querySelector('button');
-    if (this.modalId !== 'undefined') {
-      console.log(this.modalId);
-    }
 
-    
+  componentWillLoad(): void {
+    if (this.dataTarget !== 'undefined') {
+    }
+    if (this.url) {
+      this.onclicker = `(event: Event) => this.handleClick(event, ${this.url}, ${this.urlParams}, ${this.dataTarget})`;
+    }
+    if (typeof this.dataToggle === 'undefined'  || this.dataToggle === null) {
+      this.dataToggle = '';
+    }
+    if (typeof this.dataTarget === 'undefined'  || this.dataTarget === null) {
+      this.dataTarget = '';
+    }
+    setTimeout(()=>{
+    }, 2000);
   }
+
   render(): any {
-    return ( 
+    if (this.url) {
+      this.onclicker = `(event: Event) => this.handleClick(event, ${this.url}, ${this.urlParams}, ${this.dataTarget})`;
+    }
+    if (typeof this.dataToggle === 'undefined'  || this.dataToggle === null) {
+      this.dataToggle = '';
+    }
+    if (typeof this.dataTarget === 'undefined'  || this.dataTarget === null) {
+      this.dataTarget = '';
+    }
+    return (
       <button id={this.buttonId}
         class={this.cssClass}
-        data-bs-toggle="modal" 
-        data-bs-target={this.modalId}
-        onClick={ (event: Event) => this.handleClick(event, this.url, this.urlParams, this.modalId)}>
-        {this.text}<slot/>
+        data-bs-toggle={this.dataToggle}
+        data-bs-target={this.dataTarget}
+        onClick={this.onclicker}>
+        {this.buttonText}<slot/>
       </button>
     );
-    
+
   }
 }

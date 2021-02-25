@@ -1,0 +1,12 @@
+
+
+// @import "../../scss/variables/_css-vars-all.scss";
+
+@import "../../scss/variables/maps";
+
+@import "../../scss/variables/colors";
+
+:host {
+
+  @import "../../scss/components/components.cards_button.scss";
+}

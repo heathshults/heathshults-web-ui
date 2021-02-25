@@ -1,0 +1,93 @@
+// @import "../bootstrap/scss/functions";
+// @import "../bootstrap/scss/variables";
+// @import "../bootstrap/scss/mixins";
+
+// @import "../variables/maps";
+// @import "../variables/functions";
+@import "../variables/colors";
+// @import "../variables/mixins";
+
+.hs-card_button,
+.hs-card_button:visited {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  font-family: Roboto, Arial;
+  font-size: 1em;
+  font-weight: 400;
+  color: $hs-white;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background-color: $hs-color-red;
+  border: 1px solid darken($hs-color-red, 5%);
+  border-radius: 2px;
+  box-shadow: 0px 2px 3px 1px rgba(lighten($hs-color-red, 50%), 0.45);
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &:hover {
+    color: $hs-white;
+    background: lighten($hs-color-red, 5%);
+    border: 1px solid #fcf8e3;
+    box-shadow: $hs-button-danger-shadow;
+  }
+
+  &:active,
+  &.active {
+    color: $hs-white;
+    background: $hs-color-green--light;
+    border: 1px solid darken($hs-color-green--light, 10%);
+    box-shadow: $hs-button-success-shadow;
+  }
+
+  &:focus {
+    color: $hs-white;
+    background: lighten($hs-color-red, 5%);
+    border: 1px solid #fcf8e3;
+    outline: 1px $hs-white dashed;
+    box-shadow: $hs-button-danger-shadow;
+  }
+}
+
+.hs-card_button--white {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  font-family: Roboto, Arial;
+  font-size: 1em;
+  font-weight: 400;
+  color: #343a40;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background-color: #f8f9fa;
+  border: 0px solid #ced4da;
+  border-radius: 0;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &:hover {
+    color: #fff;
+    background: #e12036;
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25), 0px 3px 3px 0px rgba(225, 32, 54, 0.25);
+  }
+
+  &:active,
+  &.active {
+    color: $hs-white;
+    background: $hs-color-green--light;
+    border: 1px solid darken($hs-color-green--light, 10%);
+    box-shadow: $hs-button-success-shadow;
+  }
+
+  &:focus {
+    color: $hs-gray-700;
+    background: lighten($hs-color-red, 50%);
+    border: 1px solid darken($hs-color-red, 10%);
+    box-shadow: $hs-button-danger-shadow;
+  }
+}
+
+

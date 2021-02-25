@@ -3652,31 +3652,31 @@ mark {
 }
 
 :root {
-  --cd-color-1: hsl(206, 21%, 24%);
-  --cd-color-1-h: 206;
-  --cd-color-1-s: 21%;
-  --cd-color-1-l: 24%;
-  --cd-color-2: hsl(205, 38%, 89%);
-  --cd-color-2-h: 205;
-  --cd-color-2-s: 38%;
-  --cd-color-2-l: 89%;
-  --cd-color-3: hsl(207, 10%, 55%);
-  --cd-color-3-h: 207;
-  --cd-color-3-s: 10%;
-  --cd-color-3-l: 55%;
-  --cd-color-4: hsl(111, 51%, 60%);
-  --cd-color-4-h: 111;
-  --cd-color-4-s: 51%;
-  --cd-color-4-l: 60%;
-  --cd-color-5: hsl(356, 53%, 49%);
-  --cd-color-5-h: 356;
-  --cd-color-5-s: 53%;
-  --cd-color-5-l: 49%;
-  --cd-color-6: hsl(47, 85%, 61%);
-  --cd-color-6-h: 47;
-  --cd-color-6-s: 85%;
-  --cd-color-6-l: 61%;
-  --cd-header-height: 200px;
+  --hs-color-1: hsl(206, 21%, 24%);
+  --hs-color-1-h: 206;
+  --hs-color-1-s: 21%;
+  --hs-color-1-l: 24%;
+  --hs-color-2: hsl(205, 38%, 89%);
+  --hs-color-2-h: 205;
+  --hs-color-2-s: 38%;
+  --hs-color-2-l: 89%;
+  --hs-color-3: hsl(207, 10%, 55%);
+  --hs-color-3-h: 207;
+  --hs-color-3-s: 10%;
+  --hs-color-3-l: 55%;
+  --hs-color-4: hsl(111, 51%, 60%);
+  --hs-color-4-h: 111;
+  --hs-color-4-s: 51%;
+  --hs-color-4-l: 60%;
+  --hs-color-5: hsl(356, 53%, 49%);
+  --hs-color-5-h: 356;
+  --hs-color-5-s: 53%;
+  --hs-color-5-l: 49%;
+  --hs-color-6: hsl(47, 85%, 61%);
+  --hs-color-6-h: 47;
+  --hs-color-6-s: 85%;
+  --hs-color-6-l: 61%;
+  --hs-header-height: 200px;
   --font-primary: 'Droid Serif', serif;
   --font-secondary: 'Open Sans', sans-serif
 }
@@ -3684,18 +3684,18 @@ mark {
 @supports (--css:variables) {
   @media (min-width: 64rem) {
     :root {
-      --cd-header-height: 300px
+      --hs-header-height: 300px
     }
   }
 }
 
 .cd-main-header {
   height: 200px;
-  height: var(--cd-header-height);
+  height: var(--hs-header-height);
   color: #fff;
   color: var(--color-white);
   background: #303f4a;
-  background: var(--cd-color-1);
+  background: var(--hs-color-1);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale
 }
@@ -3713,9 +3713,9 @@ mark {
   font-family: 'droid serif', serif;
   font-family: var(--font-primary);
   color: #818d98;
-  color: var(--cd-color-3);
+  color: var(--hs-color-3);
   background-color: #e8eff5;
-  background-color: hsl(var(--cd-color-2-h), var(--cd-color-2-s), calc(var(--cd-color-2-l) *1.05))
+  background-color: hsl(var(--hs-color-2-h), var(--hs-color-2-s), calc(var(--hs-color-2-l) *1.05))
 }
 
 .cd-timeline h2 {
@@ -3738,7 +3738,7 @@ mark {
   height: 100%;
   content: '';
   background: #d8e5ee;
-  background: var(--cd-color-2)
+  background: var(--hs-color-2)
 }
 
 @media (min-width: 64rem) {
@@ -3808,17 +3808,17 @@ mark {
 
 .cd-timeline__img--picture {
   background-color: #75cd65;
-  background-color: var(--cd-color-4)
+  background-color: var(--hs-color-4)
 }
 
 .cd-timeline__img--movie {
   background-color: #bf3b44;
-  background-color: var(--cd-color-5)
+  background-color: var(--hs-color-5)
 }
 
 .cd-timeline__img--location {
   background-color: #f0cb47;
-  background-color: var(--cd-color-6)
+  background-color: var(--hs-color-6)
 }
 
 .cd-timeline__content {
@@ -3833,7 +3833,7 @@ mark {
   border-radius: .25em;
   border-radius: var(--radius-md);
   box-shadow: 0 3px 0 #d8e5ee;
-  box-shadow: 0 3px 0 var(--cd-color-2);
+  box-shadow: 0 3px 0 var(--hs-color-2);
   -ms-flex-positive: 1
 }
 
@@ -3851,7 +3851,7 @@ mark {
 
 .cd-timeline__content h2 {
   color: #303f4a;
-  color: var(--cd-color-1)
+  color: var(--hs-color-1)
 }
 
 @media (min-width: 64rem) {
@@ -3882,7 +3882,7 @@ mark {
 
 .cd-timeline__date {
   color: hsla(207, 10%, 55%, .7);
-  color: hsla(var(--cd-color-3-h), var(--cd-color-3-s), var(--cd-color-3-l), 0.7)
+  color: hsla(var(--hs-color-3-h), var(--hs-color-3-s), var(--hs-color-3-l), 0.7)
 }
 
 @media (min-width: 64rem) {
@@ -4018,7 +4018,7 @@ mark {
   }
 }
 
-@keyframes cd-bounce-2-inverse {
+@keyframes hs-bounce-2-inverse {
   0% {
     opacity: 0;
     -webkit-transform: translateX(100px);
@@ -4100,14 +4100,14 @@ mark {
   --primary: var(--yellow);
   --yiq-contrasted-threshold: 205;
   --hs-color_red: #e2001a;
-  --hs-color_red_orange: #f63a0f;
+  --hs-color_red-orange: #f63a0f;
   --hs-color_orange: #f27011;
-  --hs-color_dark_yellow: #f2b01e;
+  --hs-color_dark-yellow: #f2b01e;
   --hs-color_yellow: #f2d31b;
   --hs-color_yellow--light: #ffe659;
   --hs-color_yellow--dark: #e2b900;
   --hs-color_lime: #86e01e;
-  --hs-color_light_lime: #e7ffcb;
+  --hs-color_light-lime: #e7ffcb;
   --hs-color_green: #4cd964;
   --hs-color_green--light: #93ff7e;
   --hs-color_green--dark: #468c1f;

@@ -663,7 +663,20 @@
       </hs-tab>
     </hs-tabs>
   </div>
+  
+  <hs-slider min="1" max="100" value="50"></hs-slider>
+
   <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+     var slider = document.querySelector('hs-slider');
+     slider.addEventListener('valueChanged', function(e) {
+       console.log(e.detail);
+     });
+    });
+
+  
+
     function showModal(modal) {
       document.querySelector(modal).show();
     }
