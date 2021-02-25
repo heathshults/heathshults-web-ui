@@ -7,5 +7,5 @@ describe('hs-button', () => {
     await page.setContent('<hs-button></hs-button>');
     const element = await page.find('hs-button');
     expect(element).toHaveClass('hydrated');
-  });{cursor}
+  });
 });

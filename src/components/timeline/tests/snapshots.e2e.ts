@@ -1,4 +1,4 @@
-import { snapIt } from '../../../test';
+import { snapIt } from '../../../../';
 
 const component = 'timeline';
 

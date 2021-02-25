@@ -15,6 +15,7 @@ export class HSModal {
   @Prop() winHeight: any = window.innerHeight;
   @Prop() overlay: any;
   @Prop() modalTitle: string;
+  // @Prop() tabindex: string;
 
   @State() _isOpen = false;
 
@@ -76,14 +77,20 @@ export class HSModal {
     const modalIsOpenClass = this._isOpen ? 'hs-modal--visible' : '';
     // const overlayIsOpenClass = this._isOpen ? 'hs-modal-backdrop--visible' : '';
 
-    return [
-
-      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">,
-        <div class={`modal fade ${ghostClass} ${fullClass} ${modalIsOpenClass}`}  tabindex="-1" aria-labelledby={this.modalTitle} aria-hidden="true">
+    return (
+      <div class="modal fade" >,
+        <div class={`modal fade ${ghostClass} ${fullClass} ${modalIsOpenClass}`} 
+          id={`__${this.modalTitle}`} 
+          data-bs-backdrop="static" 
+          data-bs-keyboard="false" 
+          aria-labelledby={`${this.modalTitle}`} 
+          // tabindex={`${this.tabindex}`}
+          aria-hidden="true">
+          
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 id={this.modalTitle} class="modal-title">{this.modalTitle}</h5>
+                <h5 id={`${this.modalTitle}`} class="modal-title">{`${this.modalTitle}`}</h5>
                 // <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 {this.dismissible && (
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
@@ -103,6 +110,6 @@ export class HSModal {
           </div>
         </div>
       </div>
-    ];
+    );
   }
 }

@@ -1,4 +1,17 @@
+@import "../bootstrap/scss/functions";
+@import "../bootstrap/scss/variables";
+@import "../bootstrap/scss/mixins";
 @import "../bootstrap/scss/mixins/border-radius";
+
+@import "../variables/maps";
+@import "../variables/functions";
+@import "../variables/colors";
+
+// @import "../variables/typography";
+// @import "../variables/spacing";
+// @import "../variables/grid";
+// @import "../variables/keyframes";
+// @import "../variables/aspect-ratio";
 
 // Mixins
 
@@ -12,29 +25,28 @@
   background: -webkit-linear-gradient(transparent, transparent), url($img-url) repeat;
   background: -o-linear-gradient(transparent, transparent);
   -webkit-background-clip: text;
-
 }
-@mixin button {
 
-  @include disabled;
-  display: inline-block;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: $hs-blue--dark;
-  text-align: center;
-  text-decoration: none;
-  text-overflow: ellipsis;
-  vertical-align: middle;
-  user-select: none;
-  background-color: transparent;
-  border: 1px solid transparent;
-  border-radius: 0;
-  appearance: none;
-  outline: 0;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
+// @mixin button {
+//   @include disabled;
+//   display: inline-block;
+//   padding: 0.375rem 0.75rem;
+//   font-size: 1rem;
+//   font-weight: 400;
+//   line-height: 1.5;
+//   color: $hs-blue--dark;
+//   text-align: center;
+//   text-decoration: none;
+//   text-overflow: ellipsis;
+//   vertical-align: middle;
+//   user-select: none;
+//   background-color: transparent;
+//   border: 1px solid transparent;
+//   border-radius: 0;
+//   appearance: none;
+//   outline: 0;
+//   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+// }
 
 @mixin button {
   @include hs-button-color;
@@ -94,43 +106,39 @@
   }
 }
 
-// Bootstrap Button Variant
-
-@mixin hs-button-variant($hs-theme-color-text, $hs-white_2, $hs-white_60) {
-  color: $hs-theme-color-text;
-  background-color: $hs-white_2;
-  border-color: $hs-white_60;
+// states
+@mixin states() {
 
   &:focus,
   &.focus {
     color: $hs-theme-color-text;
-    background-color: darken($hs-white_2, 10%);
+    background-color: darken($hs-gray-50, 10%);
     /* stylelint-disable-next-line */
-    border-color: darken($hs-white_60, 25%);
+    border-color: darken($hs-gray-200, 25%);
   }
 
   &:hover {
     color: $hs-theme-color-text;
-    background-color: darken($hs-white_2, 10%);
+    background-color: darken($hs-gray-50, 10%);
     /* stylelint-disable-next-line */
-    border-color: darken($hs-white_60, 12%);
+    border-color: darken($hs-gray-200, 12%);
   }
 
   &:active,
   &.active,
   .open >&.dropdown-toggle {
     color: $hs-theme-color-text;
-    background-color: darken($hs-white_2, 10%);
+    background-color: darken($hs-gray-50, 10%);
     /* stylelint-disable-next-line */
-    border-color: darken($hs-white_60, 12%);
+    border-color: darken($hs-gray-200, 12%);
 
     &:hover,
     &:focus,
     &.focus {
       color: $hs-theme-color-text;
-      background-color: darken($hs-white_2, 17%);
+      background-color: darken($hs-gray-50, 17%);
       /* stylelint-disable-next-line */
-      border-color: darken($hs-white_60, 25%);
+      border-color: darken($hs-gray-200, 25%);
     }
   }
 
@@ -147,19 +155,82 @@
     &:hover,
     &:focus,
     &.focus {
-      background-color: $hs-white_2;
+      background-color: $hs-gray-50;
       /* stylelint-disable-next-line */
-      border-color: $hs-white_60;
+      border-color: $hs-gray-200;
     }
   }
 
   .badge {
-    color: $hs-white_2;
+    color: $hs-gray-50;
     background-color: $hs-theme-color-text;
   }
 }
 
+// Bootstrap Button Variant
 
+@mixin hs-button-variant($hs-theme-color-text, $hs-gray-50, $hs-gray-200) {
+  color: $hs-theme-color-text;
+  background-color: $hs-gray-50;
+  border-color: $hs-gray-200;
+
+  &:focus,
+  &.focus {
+    color: $hs-theme-color-text;
+    background-color: darken($hs-gray-50, 10%);
+    /* stylelint-disable-next-line */
+    border-color: darken($hs-gray-200, 25%);
+  }
+
+  &:hover {
+    color: $hs-theme-color-text;
+    background-color: darken($hs-gray-50, 10%);
+    /* stylelint-disable-next-line */
+    border-color: darken($hs-gray-200, 12%);
+  }
+
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: $hs-theme-color-text;
+    background-color: darken($hs-gray-50, 10%);
+    /* stylelint-disable-next-line */
+    border-color: darken($hs-gray-200, 12%);
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: $hs-theme-color-text;
+      background-color: darken($hs-gray-50, 17%);
+      /* stylelint-disable-next-line */
+      border-color: darken($hs-gray-200, 25%);
+    }
+  }
+
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    background-image: none;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: $hs-gray-50;
+      /* stylelint-disable-next-line */
+      border-color: $hs-gray-200;
+    }
+  }
+
+  .badge {
+    color: $hs-gray-50;
+    background-color: $hs-theme-color-text;
+  }
+}
 
 @mixin hs-button-color($hs-button-background-color: $hs-button-background-color, $hs-theme-color-text: $hs-button-color) {
   color: $hs-theme-color-text;
@@ -220,6 +291,41 @@
   }
 }
 
+@mixin button-shadowlined-variant($hs-button-background-color, $hs-lightnessMultiplier) {
+  // @debug darken($hs-button-background-color, $hs-theme-darken-tint);
+  // @debug lighten($hs-button-background-color, $hs-theme-lighten-tint);
+  // @debug "set color:" set-color($hs-button-background-color, $hs-lightnessMultiplier);
+
+  $darkenColor: darken($hs-button-background-color, $hs-theme-darken-tint);
+  $lightenColor: lighten($hs-button-background-color, $hs-theme-lighten-tint);
+
+  color: set-color($hs-button-background-color, $hs-lightnessMultiplier);
+  background-color: $hs-button-background-color;
+  border: darken($hs-button-background-color, $hs-lightnessMultiplier);
+  box-shadow: v(hs-shadow-sm);
+
+  &.card-button--active {
+    background-color: darken($hs-button-background-color, $hs-theme-darken-tint);
+  }
+
+  &:not(:disabled):not([disabled]) {
+    &:not(:active) {
+      &:hover {
+        background-color: lighten($hs-button-background-color, $hs-theme-lighten-tint);
+      }
+    }
+
+    &:focus {
+      border-color: darken($hs-button-background-color, ($hs-theme-darken-tint + 2%));
+      box-shadow: darken($hs-button-background-color, ($hs-theme-darken-tint + 2%));
+      box-shadow: v(hs-shadow-sm);
+    }
+
+    &:active {
+      background-color: darken($hs-button-background-color, ($hs-theme-darken-tint + 5%));
+    }
+  }
+}
 
 // Background Cover Mixin
 
@@ -255,7 +361,7 @@
 }
 
 @mixin border-radius-all-md {
-  border-radius: $hs-white_60-radius-md;
+  border-radius: $hs-gray-200-radius-md;
 }
 
 @mixin responsive-box {
@@ -270,7 +376,6 @@
     height: 100%;
     border: 0;
   }
-
 
   .responsive-box {
     position: relative;
@@ -318,12 +423,12 @@
     width: $hs-card-img-width--sm;
     height: $hs-card-img-height--sm;
   }
-
 }
 
 @mixin banner-dimensions--lg {
   width: $hs-card-img-width--lg;
   height: $hs-card-img-height--lg;
+
   .hs-card_img-header_img {
     width: $hs-card-img-width--lg;
     height: $hs-card-img-height--lg;
@@ -356,10 +461,10 @@
   @include header-banner-sizes;
 }
 
-
 @mixin card-size--sm {
   .hs-card {
     margin: inherit;
+
     &--sm {
       display: inline-block;
       min-width: 265px;
@@ -385,14 +490,15 @@
 }
 
 @mixin card-size--md {
-
   .hs-card {
     margin: 5px auto;
+
     &--sm {
       display: inline-block;
       width: 265px;
       height: auto;
       margin: 5px auto;
+
       .hs-card_title {
         font-size: 1rem;
       }
@@ -419,12 +525,13 @@
       height: auto;
       margin: 5px auto;
     }
-
   }
 }
+
 @mixin card-size--lg {
   .hs-card {
     margin: inherit;
+
     &--sm {
       display: inline-block;
       width: 265px;
@@ -454,12 +561,6 @@
   }
 }
 
-
-
-/* #region   */
-
-
-/* #endregion */
 
 // affects outside the card-body component
 @mixin hs-card-content {
@@ -493,11 +594,13 @@
 
   &.hs-card-size--fluid {
     width: $hs-card-width;
+
     .hs-card_title {
       margin-top: $hs-spacing--lg;
       margin-bottom: 0;
       font-size: $hs-card-title--lg;
     }
+
     .hs-card_subtitle {
       margin-top: $hs-spacing--lg;
       margin-bottom: $hs-spacing--lg;
@@ -505,15 +608,6 @@
     }
   }
 }
-
-$breakpoints: (
-  xxs: 0,
-  xs: 32rem, // ~512px
-  sm: 48rem, // ~768px
-  md: 64rem, // ~1024px
-  lg: 80rem, // ~1280px
-  xl: 90rem // ~1440px
-) !default;
 
 @mixin breakpoint($breakpoint, $logic: false) {
   @if ($logic) {
@@ -530,31 +624,32 @@ $breakpoints: (
 }
 
 // --------------------------------
-
 // CSS Triangle
-
 // --------------------------------
-
-@mixin triangle ($direction: up, $width: 12px, $color: red) {
+@mixin triangle($direction: up, $width: 12px, $color: red) {
   width: 0;
   height: 0;
   border: $width solid transparent;
 
-  @if ( $direction == left ) {
+  @if ($direction==left) {
     border-right-color: $color;
-  } @else if( $direction == right ) {
+  }
+
+  @else if($direction==right) {
     border-left-color: $color;
-  } @else if( $direction == down ) {
+  }
+
+  @else if($direction==down) {
     border-top-color: $color;
-  } @else {
+  }
+
+  @else {
     border-bottom-color: $color;
   }
 }
 
 // --------------------------------
-
 // Typography
-
 // --------------------------------
 
 // edit font rendering -> tip: use for light text on dark backgrounds
@@ -570,7 +665,7 @@ $breakpoints: (
     width: 0;
     height: 0;
     margin-top: calc((#{$capital-letter} - #{$line-height}) * 0.5em);
-    content: '';
+    content: "";
   }
 }
 
@@ -580,13 +675,10 @@ $breakpoints: (
   font-size: var(--text-unit);
 }
 
-
 // functions
 
 // --------------------------------
-
 // Colors
-
 // --------------------------------
 
 // define HSL color variable
@@ -617,105 +709,136 @@ $breakpoints: (
   background: $hs-theme-color-text_green--dark;
 }
 
-@mixin ratio-16-9 {
-  position: relative;
-  padding-top: $hs-ratio-16-9;
-}
-@mixin ratio-4-3 {
-  position: relative;
-  padding-top: $hs-ratio-4-3;
-}
-@mixin ratio-3-2 {
-  position: relative;
-  padding-top: $hs-ratio-3-2;
-}
-@mixin ratio-1-1 {
-  position: relative;
-  padding-top: $hs-ratio-1-1;
+// codyhouse.co
+// used to create the auto-size columns of the grid system (.col class)
+@mixin autoSizedColumn {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
 }
 
-// return color with different opacity value
-@function alpha($color, $opacity) {
-  $color: str-replace($color, 'var(');
-  $color: str-replace($color, ')');
-  $color-h: var(#{$color+'-h'});
-  $color-s: var(#{$color+'-s'});
-  $color-l: var(#{$color+'-l'});
-  @return hsla($color-h, $color-s, $color-l, $opacity);
-}
+// CSS Grid Layout fallback
+@mixin gridFallback($gap: null) {
+  display: flex;
+  flex-wrap: wrap;
 
-// return color with different lightness value
-@function lightness($color, $lightnessMultiplier) {
-  $color: str-replace($color, 'var(');
-  $color: str-replace($color, ')');
-  $color-h: var(#{$color+'-h'});
-  $color-s: var(#{$color+'-s'});
-  $color-l: var(#{$color+'-l'});
-  @return hsl($color-h, $color-s, calc(#{$color-l} * #{$lightnessMultiplier}));
-}
-
-// replace substring with another string
-// credits: https://css-tricks.com/snippets/sass/str-replace-function/
-@function str-replace($string, $search, $replace: '') {
-  $index: str-index($string, $search);
-
-  @if $index {
-    @return str-slice($string, 1, $index - 1)+$replace+str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  @if ($gap==null) {
+    $gap: var(--space-md);
   }
 
-  @return $string;
-}
+  margin: calc(#{$gap} * -1) 0 0 calc(#{$gap} * -1);
 
-// ====== PIXELS TO REM ====== //
-$html-font-size: 16px;
-@function stripUnit($value) {
-  @return $value / ($value * 0 + 1);
-}
-
-@function rem($pxValue) {
-  @return #{stripUnit($pxValue) / stripUnit($html-font-size)}rem;
-}
-
-// /*
-//  * CSS CUSTOM VARIABLE FUNCTION
-//  *
-//  * Get css vars from scss vars
-//  *
-//  * Use:
-//  * `color: v(primary);`
-//  * `color: v(primary, #000);`
-//  * `padding-left: v(x-padding, 2rem);`
-//  * `transform: translate3d(v(x-delta), v(y-delta), 0);`
-//  *
-//  * Parameters:
-//  *  $hs-Var: name of the SASS variable, without its double hyphen prefix
-//  *  $hs-fallback: (optional, null by default): custom property fallback value
-//  */
-
-// $hs-theme-color-texts: map-merge($hs-map1: $hs-grays, $hs-map2: $hs-dark-mode-colors);
-// $hs-keys: map-keys($hs-theme-color-texts);
-
-// @function getV($hs-var, $hs-fallback: null) {
-//   @if map-has-key($hs-theme-color-texts, $hs-var) {
-//     $hs-cssVarName: #{$hs-var};
-//   }
-//   @if($hs-fallback) {
-//     @return var(--$hs-cssVarName, $hs-fallback);
-//   } @else {
-//     @return var(--$hs-cssVarName);
-//   }
-// }
-
-// accessor functions
-// z-index:
-// usage: z-index(global, nav); z-index(dm-switcher, button)
-@function z-index($hs-keys...) {
-  $hs-value: $hs-z-indexes;
-
-  @each $hs-key in $hs-keys {
-    $hs-value: map-get($hs-value, $hs-key);
+  >* {
+    padding: #{$gap} 0 0 #{$gap};
+    background-clip: content-box;
   }
 
-  @return $hs-value;
+  @supports (grid-area: auto) {
+    margin: 0;
+
+    >* {
+      max-width: none !important;
+      padding: 0;
+    }
+  }
 }
 
+@mixin column($width) {
+  @if unit($width) !='%' {
+    $width: $width * 100%;
+  }
+
+  flex-basis: #{$width};
+  max-width: #{$width};
+}
+
+
+
+// --------------------------------
+// Accessibility
+// --------------------------------
+
+// hide - content made available only to screen readers
+@mixin srHide {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+}
+
+// show
+@mixin srShow {
+  position: static;
+  clip: auto;
+  clip-path: none;
+}
+
+// --------------------------------
+// Colors
+// --------------------------------
+
+// define HSL color variable
+@mixin defineColorHSL($color, $hue, $saturation, $lightness) {
+  #{$color}: unquote("hsl(#{$hue}, #{$saturation}, #{$lightness})");
+  #{$color}-h: #{$hue};
+  #{$color}-s: #{$saturation};
+  #{$color}-l: #{$lightness};
+}
+
+// --------------------------------
+// Typography
+// --------------------------------
+
+// edit font rendering -> tip: use for light text on dark backgrounds
+@mixin fontSmooth {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// crop top space on text elements - caused by line height
+@mixin lhCrop($line-height, $capital-letter: 1) {
+  display: block;
+  width: 0;
+  height: 0;
+  margin-top: calc((#{$capital-letter} - #{$line-height}) * 0.5em);
+  &::before {
+    content: '';
+  }
+}
+
+// edit text unit on a component level
+@mixin textUnit($text-unit) {
+  --text-unit: #{$text-unit};
+  font-size: var(--text-unit);
+}
+
+// --------------------------------
+// Spacing
+// --------------------------------
+
+// edit space unit on a component level
+@mixin spaceUnit($space-unit) {
+  --space-unit: #{$space-unit};
+}
+
+// --------------------------------
+// Reset
+// --------------------------------
+
+// reset user agent style
+@mixin reset {
+  padding: 0;
+  line-height: inherit;
+  color: inherit;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  appearance: none;
+}
+
+@mixin breakpoint($breakpoint, $logic: false) {
+  @if ( $logic ) {
+    @media #{$logic} and (min-width: map-get($map: $breakpoints, $key: $breakpoint)) { @content; }
+  } @else {
+    @media (min-width: map-get($map: $breakpoints, $key: $breakpoint)) { @content; }
+  }
+}

@@ -1,8 +1,20 @@
 /* eslint-disable no-console */
 /* eslint-disable-next-line @typescript-eslint/no-var-requires */
 require("@babel/register")({
-  presets: ["@babel/preset-env"],
-  "plugins": [["import", {"libraryName": "@material-ui/core"}], "@babel/plugin-syntax-dynamic-import"]
+  presets: [
+    "@babel/preset-env",
+    "@babel/preset-typescript",
+    "@babel/preset-react"
+  ],
+  plugins: [
+    "@babel/plugin-transform-typescript",
+    "babel-plugin-replace-ts-export-assignment",
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-class-properties",
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    "@babel/plugin-transform-runtime",
+    ["import", {"libraryName": "@material-ui/core"}]
+  ]
 });
 // eslint-disable no-unused-expressions
 // eslint-disable no-undef
@@ -13,12 +25,15 @@ import path from 'path';
 
 // let fs = require('fs-extra')
 import {src, dest, gulp, task, watch, series, parallel} from 'gulp';
+import copy from 'copy';
 
 // var sass = require('gulp-sass')
+import * as chokidar from 'chokidar';
 import browserSync from 'browser-sync';
 import header from 'gulp-header';
 import browserify from 'browserify';
 import babelify from 'babelify';
+import ts from 'gulp-typescript';
 
 // var cleanCSS = require('gulp-clean-css')
 import rename from 'gulp-rename';
@@ -28,7 +43,7 @@ import pkg from './package.json';
 import connect from 'gulp-connect-php';
 import plumber from 'gulp-plumber';
 import open from 'open';
-import {exec} from 'child_process';
+import { exec } from 'child_process';
 
 // var autoprefixer = require('gulp-autoprefixer')
 // var postcss = require('gulp-postcss')
@@ -176,6 +191,21 @@ let assets = '{jpg,png,gif,svg,mp4}';
 
 //#endregion
 
+// function copy_web_components(done) {
+//   return new Promise((resolve, reject) => {
+//     try {
+//       setTimeout(() => {
+//         copy('www/components/**/*', 'www-app/components', done);
+//         console.log(chalk.green('web components copied to app-www/components'));
+//         resolve(true);
+//       }, 2000);
+//     } catch(e) {
+//       console.log(chalk.red("Error: " + e));
+//       }
+//     });
+// }
+// exports.copy_web_components = copy_web_components;
+ 
 function ejsit(done) {
   return src(`${srcPath}/views/**/*.ejs`)
     .pipe(plumber())
@@ -186,10 +216,18 @@ function ejsit(done) {
 }
 exports.ejsit = ejsit;
 
-function babelfry(cb){
+function typeScript(cb) {
+  return src(`${p.src_js}/modules/*.ts`)
+    .pipe(ts({
+      declaration: true
+    }))
+    // .pipe(sourcemaps.write('.', { includeContent: false, sourceRoot: `${p.src_js}/module` }))
+    .pipe(dest(`${p.src_js}/module/_transpiled_ts`, { sourcemaps: '.' })),cb();
   
-  // var fs = require("fs");
+}
+exports.typeScript = typeScript;
 
+function babelfry(cb) {
   browserify({ debug: true })
   .transform(babelify)
   .require(`${srcPath}/index.js`, { entry: true })
@@ -199,6 +237,18 @@ function babelfry(cb){
   console.log(chalk.green('Babelifried JS')), cb();
 }
 exports.babelfry = babelfry;
+// exports.babelfry = series(typeScript, babelJS);
+// function babelfry(cb){
+
+//   browserify({ debug: true })
+//   .transform(babelify)
+//   .require(`${srcPath}/index.js`, { entry: true })
+//   .bundle()
+//   .on("error", function (err) { console.log(chalk.red("Error: " + err.message)) })
+//   .pipe(fs.createWriteStream(`${wwwPath}/assets/js/HeathScript.built.js`)),
+//   console.log(chalk.green('Babelifried JS')), cb();
+// }
+// exports.babelfry = babelfry;
 
 function renderJS(cb) {
   console.log(chalk.yellow('starting JS renderrer...'));
@@ -278,11 +328,11 @@ exports.copy_img = copy_img;
 // Copy vendor libraries from /node_modules into /vendor
 function copy_vendor(cb) {
   src([`${srcPath}/node_modules/bootstrap/www/**/*`, '!**/npm.js', '!**/bootstrap-theme.*'])
-  .pipe(debug({ title: 'copied' }))
+    .pipe(debug({ title: 'copied' }))
     .pipe(dest(`${wwwPath}/assets/vendor/bootstrap`));
 
   src([`${srcPath}/node_modules/jquery/www/jquery.js`, 'node_modules/jquery/www/jquery.min.js'])
-  .pipe(debug({ title: 'copied' }))
+    .pipe(debug({ title: 'copied' }))
     .pipe(dest(`${wwwPath}/assets/vendor/jquery`));
 
   src([
@@ -297,19 +347,23 @@ function copy_vendor(cb) {
     .pipe(debug({ title: 'copied' }))
     .pipe(dest(`${wwwPath}/assets/vendor/font-awesome`));
 
-    src([`${srcPath}/assets/lib`])
+  src([`${srcPath}/assets/lib`])
     .pipe(debug({ title: 'copied' }))
     .pipe(dest(`${wwwPath}/assets/lib`), {overwrite: true});
 
-    src([`${srcPath}/assets/content/**/*`])
+  src([`${srcPath}/assets/content/**/*`])
     .pipe(debug({ title: 'copied' }))
     .pipe(dest(`${wwwPath}/assets/content`), {overwrite: true});
 
-    src([`${srcPath}/assets/components/**/*.{html,css,js,json,php}`])
+  src([`${srcPath}/assets/components/**/*.{html,css,js,json,php}`])
     .pipe(debug({ title: 'copied' }))
     .pipe(dest(`${wwwPath}/assets/content`), {overwrite: true});
+    
+  src([`${srcPath}/global/**/*.{html,css,js,json,php}`])
+    .pipe(debug({ title: 'copied' }))
+    .pipe(dest(`${wwwPath}/global/`), {overwrite: true});
 
-    src([`${srcPath}/assets/vendor/**/*`])
+  src([`${srcPath}/assets/vendor/**/*`])
     .pipe(debug({ title: 'copied' }))
     .pipe(dest(`${wwwPath}/assets/vendor`), {overwrite: true}), cb();
   //   var file = ''
@@ -490,31 +544,26 @@ exports.serve = serve;
 function watchers(cb) {
   return new Promise((resolve, reject) => {
     try {
-      setTimeout(() => {
-         browserSync.init({
-           server: {
-            proxy: '127.0.0.1:8000',
-          }
-        });
-        // eslint-disable-next-line no-sequences
-        var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
-        watch(`${srcPath}/views/*.ejs`, ejsit).on('change', browserSync.reload()), callback;
-        watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_images).on('change', browserSync.reload()), callback;
-        watch([`${srcPath}/scss/**/*.scss`], compileCSS).on('change', browserSync.stream()), callback;
-        watch([`${srcPath}/assets/**/*.css`], ra.copy_css), callback;
-        watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], copy_js), callback;
-        watch([`${buildPath}/**/*`], copy_components), callback;
-        watch([`${p.src_js}/js/HeathScript.js`], babelfry), callback;
-        watch([`${srcCompPath}/**/*.scss`],  render_components).on('change', browserSync.stream()), callback;
-        // watch([`${srcCompPath}/**/*`],  series(build_components, copy_components)), callback;
+      // eslint-disable-next-line no-sequences
+      var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
+      watch(`${srcPath}/views/*.ejs`, ejsit).on('change', browserSync.reload), callback;
+      watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_images).on('change', browserSync.reload), callback;
+      watch([`${srcPath}/scss/**/*.scss`], compileCSS), callback;
+      watch([`${srcPath}/**/*.html`], ra.copy_html), callback;
+      watch([`${srcPath}/assets/**/*.css`], ra.copy_css), callback;
+      watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], copy_js), callback;
+      watch([`${buildPath}/**/*`], copy_components), callback;
+      watch([`${p.src_js}/js/HeathScript.js`, `${p.src_js}/js/jqBootstrapValidation.js`,  `${p.src_js}/js/modules/**/*.ts`, `${p.src_js}/js/contact_me.js`], babelfry).on('change', browserSync.reload), callback;
+      watch([`${srcCompPath}/**/*`],  exec('npm run comp:buildlight', (e) => console.log(e))), callback;
+      // watch([`${srcCompPath}/**/*`],  render_components), callback;
+  
         resolve(callback);
-      },2000 );
-    }
-    catch(e) {
+    } catch(e) {
       console.log(`Error in watchers: ${e}`);
       reject(callback);
+      
     }
-
+    
   });
 }
 exports.watchers = watchers;
@@ -544,19 +593,21 @@ function connect_sync(cb) {
     });
     
   });
-  // eslint-disable-next-line no-sequences
-  var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
-  watch(`${srcPath}/views/*.ejs`, ejsit).on('change', browserSync.reload), callback;
-  watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_images).on('change', browserSync.reload), callback;
-  watch([`${srcPath}/scss/**/*.scss`], compileCSS), callback;
-  watch([`${srcPath}/**/*.html`], ra.copy_html), callback;
-  watch([`${srcPath}/assets/**/*.css`], ra.copy_css), callback;
-  watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], copy_js), callback;
-  watch([`${buildPath}/**/*`], copy_components), callback;
-  watch([`${p.src_js}/js/HeathScript.js`, `${p.src_js}/js/jqBootstrapValidation.js`, `${p.src_js}/js/contact_me.js`], babelfry), callback;
-  watch([`${srcCompPath}/**/*`],  copy_components), callback;
-  // watch([`${srcCompPath}/**/*`],  render_components), callback;
-  cb();
+  
+
+  // // eslint-disable-next-line no-sequences
+  // var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
+  // watch(`${srcPath}/views/*.ejs`, ejsit).on('change', browserSync.reload), callback;
+  // watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_images).on('change', browserSync.reload), callback;
+  // watch([`${srcPath}/scss/**/*.scss`], compileCSS), callback;
+  // watch([`${srcPath}/**/*.html`], ra.copy_html), callback;
+  // watch([`${srcPath}/assets/**/*.css`], ra.copy_css), callback;
+  // watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], copy_js), callback;
+  // watch([`${buildPath}/**/*`], copy_components), callback;
+  // watch([`${p.src_js}/js/HeathScript.js`, `${p.src_js}/js/jqBootstrapValidation.js`,  `${p.src_js}/js/modules/**/*.ts`, `${p.src_js}/js/contact_me.js`], babelfry).on('change', browserSync.reload), callback;
+  // watch([`${srcCompPath}/**/*`],  exec('npm run comp:buildlight', (e) => console.log(e))), callback;
+  // // watch([`${srcCompPath}/**/*`],  render_components), callback;
+  // cb();
 
   // let file = ''
   // if (typeof cb === 'function') {

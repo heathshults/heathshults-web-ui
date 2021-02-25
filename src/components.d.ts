@@ -6,6 +6,22 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface Hs3dRotator {
+        "HSThreeDRotator": any;
+        "cellCount": any;
+        "cellHeight": number | string;
+        "cellWidth": number | string;
+        "headers": Headers;
+        "jdata": Array<any>;
+        "maxCells": 15;
+        "method": string;
+        "minCells": 3;
+        "startCellCount": 6;
+        "url": string;
+    }
+    interface HsBackToTop {
+        "position": string;
+    }
     interface HsButton {
     }
     interface HsCard {
@@ -24,6 +40,8 @@ export namespace Components {
         "clonedContent": any;
         "colorTone": string;
         "colorToneClass": string;
+        "dataTarget"?: string;
+        "dataToggle"?: string;
         "fnStatusCallBack": (status: boolean, fnName: string, errorMessage?: any) => any;
         "footerDiv": HTMLDivElement;
         "imgElem": any;
@@ -31,20 +49,24 @@ export namespace Components {
         "imgHeaderImgContainer": HTMLImageElement;
         "imgHeaderImgPlaceholder": string;
         "imgPath": string;
-        "modalId": string;
         "overlay": any;
         "showHide": string;
         "validURL": (str: any) => any;
     }
     interface HsCardBody {
-        "cssClassList": string;
+        "bodyClassList"?: string;
+        "bodyClasses"?: string;
+        "contentClassList"?: string;
+        "contentClasses"?: string;
     }
     interface HsCardButton {
         "buttonId"?: string;
+        "buttonText"?: string;
         "cssClass"?: string;
-        "handleClick": (event: any, url: any, urlParams: any, modalId: any) => Promise<void>;
-        "modalId"?: any;
-        "text"?: string;
+        "dataTarget"?: string | null;
+        "dataToggle"?: string | null;
+        "handleClick": (event: any, url: any, urlParams: any, dataTarget: any) => Promise<void>;
+        "onclicker": any;
         "url"?: any;
         "urlParams"?: any;
     }
@@ -54,14 +76,11 @@ export namespace Components {
         "modalId"?: string;
     }
     interface HsCardHeader {
-    }
-    interface HsCardImgHeader {
         "cardHeader": any;
         "cardHeaderImg": HTMLElement;
         "clickTarget": string;
         "colorTone": string;
-        "colorToneClass": string;
-        "fnStatusCallBack": (status: boolean, fnName: string, errorMessage?: any) => any;
+        "fnStatusCallBack": (status: boolean, fnName: string, errorMessage?: unknown) => any;
         "imgElem": any;
         "imgHeaderImg": string;
         "imgHeaderImgPlaceholder": string;
@@ -69,7 +88,30 @@ export namespace Components {
         "modalId": string;
         "overlay": any;
         "showHide": string;
+    }
+    interface HsCardImgHeader {
+        "cardHeader": any;
+        "cardHeaderImg": HTMLElement;
+        "clickTarget": string;
+        "colorTone": string;
+        "colorToneClass": string;
+        "dataTarget": string;
+        "dataToggle": string;
+        "fnStatusCallBack": (status: boolean, fnName: string, errorMessage?: any) => any;
+        "imgElem": any;
+        "imgHeaderImg": string;
+        "imgHeaderImgPlaceholder": string;
+        "imgPath": string;
+        "overlay": any;
+        "showHide": string;
         "validURL": (str: any) => any;
+    }
+    interface HsFetcher {
+        "buttonLabel": string;
+        "headers": Headers;
+        "makeRequest": () => Promise<void>;
+        "method": string;
+        "url": string;
     }
     interface HsFlipper {
         "flipperBackEvents": string;
@@ -103,6 +145,11 @@ export namespace Components {
         "type": string;
         "value": number;
     }
+    interface HsSlider {
+        "max": number;
+        "min": number;
+        "value": number;
+    }
     interface HsSticky {
         "top": number;
     }
@@ -128,6 +175,18 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLHs3dRotatorElement extends Components.Hs3dRotator, HTMLStencilElement {
+    }
+    var HTMLHs3dRotatorElement: {
+        prototype: HTMLHs3dRotatorElement;
+        new (): HTMLHs3dRotatorElement;
+    };
+    interface HTMLHsBackToTopElement extends Components.HsBackToTop, HTMLStencilElement {
+    }
+    var HTMLHsBackToTopElement: {
+        prototype: HTMLHsBackToTopElement;
+        new (): HTMLHsBackToTopElement;
+    };
     interface HTMLHsButtonElement extends Components.HsButton, HTMLStencilElement {
     }
     var HTMLHsButtonElement: {
@@ -170,6 +229,12 @@ declare global {
         prototype: HTMLHsCardImgHeaderElement;
         new (): HTMLHsCardImgHeaderElement;
     };
+    interface HTMLHsFetcherElement extends Components.HsFetcher, HTMLStencilElement {
+    }
+    var HTMLHsFetcherElement: {
+        prototype: HTMLHsFetcherElement;
+        new (): HTMLHsFetcherElement;
+    };
     interface HTMLHsFlipperElement extends Components.HsFlipper, HTMLStencilElement {
     }
     var HTMLHsFlipperElement: {
@@ -206,6 +271,12 @@ declare global {
         prototype: HTMLHsProgressBarElement;
         new (): HTMLHsProgressBarElement;
     };
+    interface HTMLHsSliderElement extends Components.HsSlider, HTMLStencilElement {
+    }
+    var HTMLHsSliderElement: {
+        prototype: HTMLHsSliderElement;
+        new (): HTMLHsSliderElement;
+    };
     interface HTMLHsStickyElement extends Components.HsSticky, HTMLStencilElement {
     }
     var HTMLHsStickyElement: {
@@ -237,6 +308,8 @@ declare global {
         new (): HTMLHsTimelineItemElement;
     };
     interface HTMLElementTagNameMap {
+        "hs-3d-rotator": HTMLHs3dRotatorElement;
+        "hs-back-to-top": HTMLHsBackToTopElement;
         "hs-button": HTMLHsButtonElement;
         "hs-card": HTMLHsCardElement;
         "hs-card-body": HTMLHsCardBodyElement;
@@ -244,12 +317,14 @@ declare global {
         "hs-card-footer": HTMLHsCardFooterElement;
         "hs-card-header": HTMLHsCardHeaderElement;
         "hs-card-img-header": HTMLHsCardImgHeaderElement;
+        "hs-fetcher": HTMLHsFetcherElement;
         "hs-flipper": HTMLHsFlipperElement;
         "hs-media-image": HTMLHsMediaImageElement;
         "hs-media-item": HTMLHsMediaItemElement;
         "hs-modal": HTMLHsModalElement;
         "hs-progress": HTMLHsProgressElement;
         "hs-progress-bar": HTMLHsProgressBarElement;
+        "hs-slider": HTMLHsSliderElement;
         "hs-sticky": HTMLHsStickyElement;
         "hs-tab": HTMLHsTabElement;
         "hs-tabs": HTMLHsTabsElement;
@@ -258,6 +333,25 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface Hs3dRotator {
+        "HSThreeDRotator"?: any;
+        "cellCount"?: any;
+        "cellHeight"?: number | string;
+        "cellWidth"?: number | string;
+        "headers"?: Headers;
+        "jdata"?: Array<any>;
+        "maxCells"?: 15;
+        "method"?: string;
+        "minCells"?: 3;
+        "onFetcherror"?: (event: CustomEvent<any>) => void;
+        "onResolved"?: (event: CustomEvent<any>) => void;
+        "startCellCount"?: 6;
+        "url"?: string;
+    }
+    interface HsBackToTop {
+        "onBacktotop"?: (event: CustomEvent<any>) => void;
+        "position"?: string;
+    }
     interface HsButton {
     }
     interface HsCard {
@@ -276,6 +370,8 @@ declare namespace LocalJSX {
         "clonedContent"?: any;
         "colorTone"?: string;
         "colorToneClass"?: string;
+        "dataTarget"?: string;
+        "dataToggle"?: string;
         "fnStatusCallBack"?: (status: boolean, fnName: string, errorMessage?: any) => any;
         "footerDiv"?: HTMLDivElement;
         "imgElem"?: any;
@@ -283,20 +379,24 @@ declare namespace LocalJSX {
         "imgHeaderImgContainer"?: HTMLImageElement;
         "imgHeaderImgPlaceholder"?: string;
         "imgPath"?: string;
-        "modalId"?: string;
-        "onModalLancher"?: (event: CustomEvent<any>) => void;
         "overlay"?: any;
         "showHide"?: string;
         "validURL"?: (str: any) => any;
     }
     interface HsCardBody {
-        "cssClassList"?: string;
+        "bodyClassList"?: string;
+        "bodyClasses"?: string;
+        "contentClassList"?: string;
+        "contentClasses"?: string;
     }
     interface HsCardButton {
         "buttonId"?: string;
+        "buttonText"?: string;
         "cssClass"?: string;
-        "modalId"?: any;
-        "text"?: string;
+        "dataTarget"?: string | null;
+        "dataToggle"?: string | null;
+        "onModalLancher"?: (event: CustomEvent<any>) => void;
+        "onclicker"?: any;
         "url"?: any;
         "urlParams"?: any;
     }
@@ -306,14 +406,11 @@ declare namespace LocalJSX {
         "modalId"?: string;
     }
     interface HsCardHeader {
-    }
-    interface HsCardImgHeader {
         "cardHeader"?: any;
         "cardHeaderImg"?: HTMLElement;
         "clickTarget"?: string;
         "colorTone"?: string;
-        "colorToneClass"?: string;
-        "fnStatusCallBack"?: (status: boolean, fnName: string, errorMessage?: any) => any;
+        "fnStatusCallBack"?: (status: boolean, fnName: string, errorMessage?: unknown) => any;
         "imgElem"?: any;
         "imgHeaderImg"?: string;
         "imgHeaderImgPlaceholder"?: string;
@@ -322,7 +419,32 @@ declare namespace LocalJSX {
         "onModalLancher"?: (event: CustomEvent<any>) => void;
         "overlay"?: any;
         "showHide"?: string;
+    }
+    interface HsCardImgHeader {
+        "cardHeader"?: any;
+        "cardHeaderImg"?: HTMLElement;
+        "clickTarget"?: string;
+        "colorTone"?: string;
+        "colorToneClass"?: string;
+        "dataTarget"?: string;
+        "dataToggle"?: string;
+        "fnStatusCallBack"?: (status: boolean, fnName: string, errorMessage?: any) => any;
+        "imgElem"?: any;
+        "imgHeaderImg"?: string;
+        "imgHeaderImgPlaceholder"?: string;
+        "imgPath"?: string;
+        "onModalLancher"?: (event: CustomEvent<any>) => void;
+        "overlay"?: any;
+        "showHide"?: string;
         "validURL"?: (str: any) => any;
+    }
+    interface HsFetcher {
+        "buttonLabel"?: string;
+        "headers"?: Headers;
+        "method"?: string;
+        "onFetcherror"?: (event: CustomEvent<any>) => void;
+        "onResolved"?: (event: CustomEvent<any>) => void;
+        "url"?: string;
     }
     interface HsFlipper {
         "flipperBackEvents"?: string;
@@ -359,6 +481,12 @@ declare namespace LocalJSX {
         "type"?: string;
         "value"?: number;
     }
+    interface HsSlider {
+        "max"?: number;
+        "min"?: number;
+        "onValueChanged"?: (event: CustomEvent<any>) => void;
+        "value"?: number;
+    }
     interface HsSticky {
         "top"?: number;
     }
@@ -382,6 +510,8 @@ declare namespace LocalJSX {
         "type"?: string;
     }
     interface IntrinsicElements {
+        "hs-3d-rotator": Hs3dRotator;
+        "hs-back-to-top": HsBackToTop;
         "hs-button": HsButton;
         "hs-card": HsCard;
         "hs-card-body": HsCardBody;
@@ -389,12 +519,14 @@ declare namespace LocalJSX {
         "hs-card-footer": HsCardFooter;
         "hs-card-header": HsCardHeader;
         "hs-card-img-header": HsCardImgHeader;
+        "hs-fetcher": HsFetcher;
         "hs-flipper": HsFlipper;
         "hs-media-image": HsMediaImage;
         "hs-media-item": HsMediaItem;
         "hs-modal": HsModal;
         "hs-progress": HsProgress;
         "hs-progress-bar": HsProgressBar;
+        "hs-slider": HsSlider;
         "hs-sticky": HsSticky;
         "hs-tab": HsTab;
         "hs-tabs": HsTabs;
@@ -406,6 +538,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "hs-3d-rotator": LocalJSX.Hs3dRotator & JSXBase.HTMLAttributes<HTMLHs3dRotatorElement>;
+            "hs-back-to-top": LocalJSX.HsBackToTop & JSXBase.HTMLAttributes<HTMLHsBackToTopElement>;
             "hs-button": LocalJSX.HsButton & JSXBase.HTMLAttributes<HTMLHsButtonElement>;
             "hs-card": LocalJSX.HsCard & JSXBase.HTMLAttributes<HTMLHsCardElement>;
             "hs-card-body": LocalJSX.HsCardBody & JSXBase.HTMLAttributes<HTMLHsCardBodyElement>;
@@ -413,12 +547,14 @@ declare module "@stencil/core" {
             "hs-card-footer": LocalJSX.HsCardFooter & JSXBase.HTMLAttributes<HTMLHsCardFooterElement>;
             "hs-card-header": LocalJSX.HsCardHeader & JSXBase.HTMLAttributes<HTMLHsCardHeaderElement>;
             "hs-card-img-header": LocalJSX.HsCardImgHeader & JSXBase.HTMLAttributes<HTMLHsCardImgHeaderElement>;
+            "hs-fetcher": LocalJSX.HsFetcher & JSXBase.HTMLAttributes<HTMLHsFetcherElement>;
             "hs-flipper": LocalJSX.HsFlipper & JSXBase.HTMLAttributes<HTMLHsFlipperElement>;
             "hs-media-image": LocalJSX.HsMediaImage & JSXBase.HTMLAttributes<HTMLHsMediaImageElement>;
             "hs-media-item": LocalJSX.HsMediaItem & JSXBase.HTMLAttributes<HTMLHsMediaItemElement>;
             "hs-modal": LocalJSX.HsModal & JSXBase.HTMLAttributes<HTMLHsModalElement>;
             "hs-progress": LocalJSX.HsProgress & JSXBase.HTMLAttributes<HTMLHsProgressElement>;
             "hs-progress-bar": LocalJSX.HsProgressBar & JSXBase.HTMLAttributes<HTMLHsProgressBarElement>;
+            "hs-slider": LocalJSX.HsSlider & JSXBase.HTMLAttributes<HTMLHsSliderElement>;
             "hs-sticky": LocalJSX.HsSticky & JSXBase.HTMLAttributes<HTMLHsStickyElement>;
             "hs-tab": LocalJSX.HsTab & JSXBase.HTMLAttributes<HTMLHsTabElement>;
             "hs-tabs": LocalJSX.HsTabs & JSXBase.HTMLAttributes<HTMLHsTabsElement>;
