@@ -1,6 +1,5 @@
 node_modules/
 src/DevBox/
-www/
 **/*/_notes/
 dist/
 .dist/
@@ -8,7 +7,8 @@ dist/
 .sass-cache/
 .vscode/
 .DS_Store
-www-app/
+**/*/www-app/**/*
 backup/
-www/
-src\js\modules\ez-form\ezform.config.json
+**/*/www/**/*
+src/assets/content/DevBox/
+src/js/modules/ez-form/ezform.config.json

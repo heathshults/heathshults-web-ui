@@ -8,8 +8,8 @@ aside.hs-drawer {
   overflow-x: hidden;
   overflow-y: auto;
   color: $drawer-color;
-  background-color: $drawer-background-color;
   visibility: hidden;
+  background-color: $drawer-background-color;
   -webkit-overflow-scrolling: touch;
 
   .hs-card {

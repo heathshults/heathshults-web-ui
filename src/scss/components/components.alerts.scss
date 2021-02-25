@@ -4,8 +4,8 @@
   z-index: $alerts-z-index;
   display: block;
   max-height: 100%;
-  margin: 0;
   padding: 0;
+  margin: 0;
   overflow-y: auto;
   list-style: none;
   background-color: $alerts-background-color;
@@ -44,8 +44,8 @@
   @include alert-color;
 
   position: relative;
-  margin: $alert-margin;
   padding: $alert-padding;
+  margin: $alert-margin;
   border-radius: $alert-border-radius;
 
   &.hs-alert--brand {

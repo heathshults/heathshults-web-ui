@@ -1,23 +1,26 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Component, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'hs-card-footer',
-  styleUrl: '../../scss/components/components.cards.scss',
+  styleUrl: './hs-card_footer.scss',
   shadow: true
 })
 export class HSCardFooter {
-  @Prop() colorTone: string;
-  @Prop() colorToneClass: string;
-  @Prop({reflect: true}) modalId: string;
+  @Prop({reflect: true}) colorTone? = 'light';
+  @Prop({reflect: true}) colorToneClass? = 'light';
+  @Prop() modalId?: string;
 
   componentWillLoad() {
-    typeof this.colorTone === 'undefined' || typeof this.colorTone === null || this.colorTone === 'light' ? this.colorToneClass = 'light' :
+    return typeof this.colorTone === 'undefined' || typeof this.colorTone === null || this.colorTone === 'light' ? this.colorToneClass = 'light' :
       this.colorTone === 'dark' ? this.colorToneClass = 'dark' : this.colorToneClass = 'light';
   }
   render() {
     return (
-      <footer class={`hs-card_footer ${this.colorToneClass}`}>
-        <slot />
+      <footer class={`hs-card_footer ${this.colorToneClass} w-100`}>
+        <div class="hs-card_content">
+          <slot />
+        </div>
       </footer>
     );
   }

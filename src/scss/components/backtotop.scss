@@ -1,0 +1,78 @@
+/*
+  1.0Use a Back to Top button for pages that are longer than 4 screens.
+    For relatively short page lengths, Back to Top links are overkill
+    — people can simply scroll back without excessive effort.
+  2. Place in the lower right hand corner
+  3. Must be hidden until the page has reached a min of 2 screens on
+    med-lg devices. 4 screens on small devices
+*/
+
+$hs-backtotop-border: #fff;
+
+
+.#{$hs-ns}-backtotop-wrapper {
+  position: fixed; // Fixed/sticky position
+  right: 30px; // Place the button 30px from the right
+  bottom: 20px; // Place the button at the bottom of the page
+  z-index: 99; // Make sure it does not overlap
+
+  display: none; // Hidden by default
+  margin: 10px 0;
+
+  .#{$hs-ns}-backtotop {
+    @extend .btn;
+    padding: .5em .75em;
+    text-transform: uppercase;
+    cursor: pointer; // Add a mouse pointer on hover
+    background: $hs-theme_background-secondary;
+    border: 1px solid $hs-gray-white;
+    outline: none; // Remove outline
+    // NEEDS TO BE REPLACED WITH A DIFFERENT SHADOW FROM A SHADOW MIXIN
+    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.25s ease-in-out;
+    &:hover {
+      cursor: pointer;
+    }
+    // &.is-visible {
+    //   transition: all 0.25s ease-in-out;
+    // }
+
+    label {
+      margin: 0;
+      color: $hs-white_30;
+      &:hover {
+        cursor: pointer;
+        transition: all 0.25s ease-in-out;
+      }
+    }
+    .#{$hs-ns}-ucon.svg {
+      width: 1rem;
+      height: 1rem;
+      margin-left: 1rem;
+      fill: currentColor;
+      svg {
+        transform: rotate(45deg);
+        fill: currentColor;
+      }
+    }
+  }
+}
+
+.#{$hs-ns}-backtotop-demo {
+  @extend .#{$hs-ns}-button;
+  padding: .5em .75em;
+  margin: 16px 0 !important;
+  text-transform: uppercase;
+  cursor: pointer; // Add a mouse pointer on hover
+
+  border: 1px solid $hs-white_30;
+  outline: none; // Remove outline
+  // NEEDS TO BE REPLACED WITH A DIFFERENT SHADOW FROM A SHADOW MIXIN
+  box-shadow: 0 0px 4px 4px rgba(27, 31, 35, 0.15);
+  transition: all 0.25s ease-in-out;
+  @include bp-theme-background('surface');
+  &:hover {
+    cursor: pointer;
+  }
+}
+.#{$hs-ns}-backtotop-demo:hover { cursor: pointer }

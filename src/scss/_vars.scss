@@ -1,5 +1,10 @@
+@import "./bootstrap/scss/functions";
+@import "./bootstrap/scss/variables";
+@import "./bootstrap/scss/mixins";
+
 @import "./variables/maps";
 @import "./variables/colors";
+@import "./variables/css-vars";
 @import "./variables/typography";
 @import "./variables/mixins";
 @import "./variables/spacing";
@@ -7,6 +12,3 @@
 @import "./variables/css-vars-mixin";
 @import "./variables/keyframes";
 @import "./variables/aspect-ratio";
-
-@include cssvars;
-

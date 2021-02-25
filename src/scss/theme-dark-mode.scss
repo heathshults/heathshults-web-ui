@@ -5,7 +5,7 @@
 }
 
 .text-primary {
-  color: $hs-theme-primary;
+  color: $hs-theme_primary;
 }
 
 p {
@@ -26,14 +26,14 @@ a.active {
 }
 
 a:link {
-  color: $hs-theme-primary;
+  color: $hs-theme_primary;
 }
 
 a:hover,
 a:focus,
 a:active,
 a.active {
-  color: darken($hs-theme-primary, 10%);
+  color: darken($hs-theme_primary, 10%);
 }
 
 h1,
@@ -67,14 +67,14 @@ h6 {
 // Restyled Primary Buttons
 
 .btn-primary {
-  @include button-variant(white, $hs-theme-primary, $hs-theme-primary);
+  // // @include button-variant@include button-variant(white, $hs-theme_primary, $hs-theme_primary);
   @include heading-font;
 
   font-weight: 700;
 }
 
 .btn-xl {
-  @include button-variant($hs-gray-base, $hs-theme-primary, $hs-theme-primary);
+  // // @include button-variant@include button-variant($hs-gray-base, $hs-theme_primary, $hs-theme_primary);
   @include heading-font;
   padding: 20px 40px;
   font-size: 18px;
@@ -98,7 +98,7 @@ h6 {
 //   font-size: 100%;
 //   font-weight: 400;
 //   letter-spacing: 1px;
-//   color: $hs-theme-primary;
+//   color: $hs-theme_primary;
 //   background-color: transparent !important;
 //   padding: 0.8rem 1.2rem;
 //   border: 0 !important;
@@ -127,7 +127,7 @@ h6 {
 //     .mode-widget_link {
 //       //padding-left: 28px !important;
 //       transition: all 0.25s ease-out;
-//       color: $hs-theme-primary;
+//       color: $hs-theme_primary;
 //     }
 //   }
 
@@ -143,7 +143,7 @@ h6 {
 
 //     &:hover,
 //     &:focus {
-//       color: $hs-theme-primary;
+//       color: $hs-theme_primary;
 //       outline: none;
 //       text-decoration: none;
 //     }
@@ -230,15 +230,15 @@ h6 {
   border-color: transparent;
 
   .navbar-brand {
-    color: $hs-theme-primary;
+    color: $hs-theme_primary;
 
-    @include script-font;
+    @include cursive-font;
 
     &:hover,
     &:focus,
     &:active,
     &.active {
-      color: darken($hs-theme-primary, 10%);
+      color: darken($hs-theme_primary, 10%);
     }
   }
 
@@ -250,14 +250,14 @@ h6 {
     font-size: 12px;
 
     color: white;
-    background-color: $hs-theme-primary;
-    border-color: $hs-theme-primary;
+    background-color: $hs-theme_primary;
+    border-color: $hs-theme_primary;
 
     @include heading-font;
 
     &:hover,
     &:focus {
-      background-color: $hs-theme-primary;
+      background-color: $hs-theme_primary;
     }
   }
 
@@ -272,7 +272,7 @@ h6 {
 
         &:hover,
         &:focus {
-          color: $hs-theme-primary;
+          color: $hs-theme_primary;
           outline: none;
         }
       }
@@ -281,14 +281,14 @@ h6 {
 
   .navbar-nav >.active >a {
     color: white;
-    background-color: $hs-theme-primary;
+    background-color: $hs-theme_primary;
     border-radius: 0;
   }
 
   .navbar-nav >.active >a:hover,
   .navbar-nav >.active >a:focus {
     color: white;
-    background-color: darken($hs-theme-primary, 10%);
+    background-color: darken($hs-theme_primary, 10%);
   }
 }
 
@@ -440,7 +440,7 @@ section {
         position: absolute;
         width: 100%;
         height: 100%;
-        background: fade-out($hs-theme-primary, 0.9);
+        background: fade-out($hs-theme_primary, 0.9);
         opacity: 0;
         -webkit-transition: all ease 0.5s;
         -moz-transition: all ease 0.5s;
@@ -571,7 +571,7 @@ section {
       margin-left: 0;
       color: white;
       text-align: center;
-      background-color: $hs-theme-primary;
+      background-color: $hs-theme_primary;
       border: 7px solid #f1f1f1;
       border-radius: 100%;
 
@@ -780,7 +780,7 @@ section#contact {
   }
 
   .form-control:focus {
-    border-color: $hs-theme-primary;
+    border-color: $hs-theme_primary;
     box-shadow: none;
   }
 
@@ -864,7 +864,7 @@ ul.social-buttons {
       &:hover,
       &:focus,
       &:active {
-        background-color: $hs-theme-primary;
+        background-color: $hs-theme_primary;
       }
     }
   }
@@ -972,12 +972,12 @@ ul.social-buttons {
 
 ::-moz-selection {
   text-shadow: none;
-  background: $hs-theme-primary;
+  background: $hs-theme_primary;
 }
 
 ::selection {
   text-shadow: none;
-  background: $hs-theme-primary;
+  background: $hs-theme_primary;
 }
 
 img::-moz-selection {
@@ -993,7 +993,7 @@ img::-moz-selection {
 }
 
 body {
-  webkit-tap-highlight-color: $hs-theme-primary;
+  webkit-tap-highlight-color: $hs-theme_primary;
 }
 
 .card_row {
@@ -1021,7 +1021,7 @@ body {
     // height: 165px;
     padding: 1.5rem 0 1.5rem 0;
     font-size: 1.2rem;
-    color: $hs-blue-lightest-muted;
+    color: $hs-blue--lightest-muted;
     // background-color: #f7eedd;
     // background-color: #ffd57f;
     // background-color: #d2c3a5;
@@ -1058,7 +1058,7 @@ body {
       font-weight: 700;
 
       text-align: center;
-      @include script-font;
+      @include cursive-font;
     }
   }
 }
@@ -1082,13 +1082,13 @@ body {
 // 	&:not([style*="background-color:"]) {
 // 		background-color: $hs-blueGray-dark !important;
 // 		&:hover {
-// 			background-color: $hs-blue-dark !important;
+// 			background-color: $hs-blue--dark !important;
 // 		}
 // 		&:active {
-// 			background-color: $hs-blue-dark !important;
+// 			background-color: $hs-blue--dark !important;
 // 		}
 // 		&:focus {
-// 			background-color: $hs-blue-dark !important;
+// 			background-color: $hs-blue--dark !important;
 // 		}
 // 	}
 // 	&:not([style*="background-image:"]) {
@@ -1099,13 +1099,13 @@ body {
 // 	&:not([style*="background-color:"]) {
 // 		background-color: $hs-blueGray-dark !important;
 // 		&:hover {
-// 			background-color: $hs-blue-dark !important;
+// 			background-color: $hs-blue--dark !important;
 // 		}
 // 		&:active {
-// 			background-color: $hs-blue-dark !important;
+// 			background-color: $hs-blue--dark !important;
 // 		}
 // 		&:focus {
-// 			background-color: $hs-blue-dark !important;
+// 			background-color: $hs-blue--dark !important;
 // 		}
 // 	}
 // 	&:not([style*="background-image:"]) {
@@ -1115,13 +1115,13 @@ body {
 // [role="button"] {
 // 	background-color: $hs-blueGray-dark !important;
 // 	&:hover {
-// 		background-color: $hs-blue-dark !important;
+// 		background-color: $hs-blue--dark !important;
 // 	}
 // 	&:active {
-// 		background-color: $hs-blue-dark !important;
+// 		background-color: $hs-blue--dark !important;
 // 	}
 // 	&:focus {
-// 		background-color: $hs-blue-dark !important;
+// 		background-color: $hs-blue--dark !important;
 // 	}
 // }
 // :not([style*="border-color:"]) {
@@ -1173,15 +1173,15 @@ body {
 // 	}
 // }
 // a:link {
-// 	color: $hs-link-primary;
+// 	color: $hs-link--primary;
 // 	&:hover {
-// 		color: darken($hs-link-primary, 10%) ;
+// 		color: darken($hs-link--primary, 10%) ;
 // 	}
 // 	&:active {
-// 		color: darken($hs-link-primary, 15%) ;
+// 		color: darken($hs-link--primary, 15%) ;
 // 	}
 // 	&:focus {
-// 		color: lighten($hs-link-primary, 10%) ;
+// 		color: lighten($hs-link--primary, 10%) ;
 // 	}
 // }
 // div:empty {

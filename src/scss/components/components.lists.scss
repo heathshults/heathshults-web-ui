@@ -4,8 +4,8 @@ ul.hs-list,
 ol.hs-list,
 .hs-list[role='list'] {
   display: block;
-  margin: $list-margin;
   padding: $list-padding;
+  margin: $list-margin;
   list-style-position: outside;
 
   ul.hs-list,

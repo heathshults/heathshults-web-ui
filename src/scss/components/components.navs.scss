@@ -6,8 +6,8 @@ nav.hs-nav,
   z-index: $nav-z-index;
   width: $nav-width;
   height: 100%;
-  margin: $nav-margin;
   padding: $nav-padding;
+  margin: $nav-margin;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 
@@ -32,8 +32,8 @@ nav.hs-nav,
     display: block;
     height: $nav-height;
     padding: 0 $nav-item-padding;
-    color: inherit;
     line-height: $nav-height;
+    color: inherit;
 
     .hs-image {
       height: 100%;
