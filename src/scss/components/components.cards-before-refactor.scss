@@ -109,7 +109,7 @@
   flex: 1 1 auto;
   // Workaround for the image size bug in IE
   // See: https://github.com/twbs/bootstrap/pull/28855
-  width: $hs-card-width--fluid;
+  width: $hs-card-width;
   min-height: 1px;
   padding: 0;
   color: $hs-card-color;
@@ -385,6 +385,6 @@
   .hs-dev-logo {
     width: 32px;
     vertical-align: middle;
-    
+
   }
 }

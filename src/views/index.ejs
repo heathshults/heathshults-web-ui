@@ -26,8 +26,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;0,900;1,100&display=swap"
       rel="stylesheet">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <!-- Theme CSS -->
     <link href="/assets/css/HeathStyle.built.css" rel="stylesheet">
     <link disabled id="darkmode" rel="stylesheet" href="/assets/css/theme-dark-mode.css">
@@ -48,7 +49,7 @@
     <![endif]-->
     <style>
     /* #shadow-root #imgHeader #imgHeaderOverlay img#hsHeaderImg.hs-img-header_img.hs-responsive-box-16by9,
-    hs-card[cord-size="--sm"] hs-card-img-header .hs-img-header_img {
+    hs-card[cord-size=""] hs-card-img-header .hs-img-header_img {
       width: 265px;
       height: 177px;
     } */
@@ -56,9 +57,10 @@
     </style>
   </head>
 
-  <body id="page-top" class="index">
+  <body id="page-top" class="index scroll" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="0"
+    tabindex="0">
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top hs-bg-grad-black-trans" id="mainNav">
+    <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark fixed-top hs-bg-grad-black-trans" id="mainNav">
       <div class="container">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobileNav"
           aria-controls="mobileNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,7 +69,7 @@
         <a class="navbar-brand js-scroll-trigger site-logo" href="#page-top"><span
             class="hs-brand-symbol">@</span><span>HeathShults.com</span></a>
         <div class="collapse navbar-collapse" id="mobileNav">
-          <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+          <ul class="navbar-nav nav mx-auto mt-2 mt-lg-0">
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
@@ -83,20 +85,30 @@
     </nav>
 
     <!-- Header -->
-    <header class="d-flex align-items-stretch hs-header">
+    <header id="header" class="d-flex align-items-stretch hs-header">
       <div class="container">
         <div class="hs-intro-text">
-          <p style="height: 65px;">
-            <span class="hs-intro-lead-in">Hello, I'm Heath.</span>
-          </p>
-          <p style="height: 95px;">
-            <span class="hs-intro-heading">It's Nice To Meet You</span>
-          </p>
+
+
+          <div id="greetingLine">
+            <p class="hs-intro-lead-in">
+              Hello, I'm Heath.
+            </p>
+            <p class="hs-intro-subheading">
+              First time here?
+              <!-- It's Nice To Meet You -->
+            </p>
+            <p class="hs-intro-heading">Welcome!</p>`;
+          </div>
           <p>
-            <a href="#skills" class="js-page-trigger btn btn-xl bg-black-semitrans">Please... Come inside.</a>
+            <a href="#skills" class="js-page-trigger btn btn-xl bg-black-semitrans">Come on in...</a>
           </p>
+
           <div id="m"></div>
-          <script></script>
+          <script>
+            console.log(Window.dtToday)
+
+          </script>
         </div>
       </div>
     </header>
@@ -106,590 +118,244 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center text-color--white">
-            <h2 class="hs-section-heading">My Skills</h2>
-            <h3 class="hs-section-subheading"><strong class="font-bold-regular">KEEPING IT HONEST</strong></h3>
+            <h2 class="hs-section-heading">MY SKILLS</h2>
+            <h3 class="hs-section-subheading"><strong class="font-bold-regular">Keeping it real...</strong></h3>
             <!-- <h3 class="section-subheading hs-text-muted"><strong class="font-bold-regular">SIMPLE</strong>,
               <strong class="font-bold-regular">ELEGANT</strong> &amp;
               <strong class="font-bold-regular">CLEAN</strong>.</h3> -->
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-12 text-center text-color--white">
-
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-12 text-center text-color--white bg-black-25-opacity p-3">
-
-          </div>
-        </div>
-        <div class="container-fluid text-center hs-card_row mt-4">
-          <!-- CARD 01 -->
-          <!-- card row 1 -->
-          <div class="row">
-            <div class="col-md-12">
-
-              <hs-card card-id="02" color-tone="dark" card-size="--fluid">
-                <div slot="card-header" card-size="--fluid" class="container-fluid">
-
-                  <div class="row w-100 p-2">
-                    <div class="col-md-6">
-                      <img src="/assets/img/logos/HTML5_Logo_512.png" alt="HTML5" class="hs-skills-logo" height="65" />
-                      <img src="/assets/img/logos/markdown-150.png" alt="Markdown" class="hs-skills-logo" height="65" />
-                    </div>
-                    <div class="col-md-6">
-                      <img src="/assets/img/logos/css3-150.png" alt="CSS3" class="hs-skills-logo" height="65" />
-                      <img src="/assets/img/logos/Sass-150.png" alt="SASS" class="hs-skills-logo" height="65" />
-                    </div>
+          <div class="col-lg-12 text-center hs-card_row p-5">
+            <!--bg-black-25-opacity-->
+            <!-- card row 1 -->
+            <div class="row p-0 m-0">
+              <div class="col-md-4 pb-4 m-0 px-2">
+                <!-- CARD 01 -->
+                <hs-card card-id="02" color-tone="" card-size="">
+                  <div slot="card-header" card-size="" class="container-fluid  p-2 pt-4">
+                    <img src="/assets/img/logos/HTML5_Logo_512.png" alt="HTML5" class="hs-skills-logo" height="65" />
+                    <img src="/assets/img/logos/markdown-150.png" alt="Markdown" class="hs-skills-logo" height="65" />
                   </div>
 
-                </div>
-
-                <div id="cardBody" slot="card-body">
-
-                  <div class="container-fluid">
-                    <div class="row">
-                      <div class="col-md-6 p-2">
-                        <div class="hs-card_body">
-                          <div class="hs-card_content hs-card-size--fluid">
-
-                            <p class="hs-text-muted"><strong>HTML5 Skill Level</strong></p>
-                            <div class="hs-ranking-bar-stacker">
-                              <div class="hs-radio-group hidden-gone">
-                                <input type="radio" disabled class="hs-radio five" name="html_hs-ranking" value="5"
-                                  id="html_five">
-                                <label for="five" class="hs-label ">OK</label>
-
-                                <input type="radio" disabled class="hs-radio twentyfive" name="html_hs-ranking"
-                                  value="25" id="html_twentyfive">
-                                <label for="twentyfive" class="hs-label">Good</label>
-
-                                <input type="radio" disabled class="hs-radio fifty" name="html_hs-ranking" value="50"
-                                  id="html_fifty">
-                                <label for="fifty" class="hs-label">Very Good</label>
-
-                                <input type="radio" disabled class="hs-radio seventyfive" name="html_hs-ranking"
-                                  value="75" id="html_seventyfive">
-                                <label for="seventyfive" class="hs-label">Advanced</label>
-
-                                <input type="radio" disabled class="hs-radio onehundred" name="html_hs-ranking"
-                                  value="100" id="html_onehundred" checked>
-                                <label for="onehundred" class="hs-label">Expert</label>
-                              </div><!-- </div> -->
-
-                              <div class="hs-ranking">
-                                <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Expert"
-                                  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                                  HTML5 100%
-                                </div>
-                              </div>
-
-                            </div>
-
-                            <div class="hs-divider d-flex align-items-center"></div>
-
-                            <p class="hs-hs-text-muted"><strong>Markdaown Skill Level</strong></p>
-
-                            <div class="hs-ranking-bar-stacker" style="margin-top: 20px;">
-                              <div class="hs-radio-group hidden-gone">
-                                <input type="radio" disabled class="hs-radio five" name="hs-ranking" value="5"
-                                  id="md_five">
-                                <label for="five" class="hs-label">OK</label>
-
-                                <input type="radio" disabled class="hs-radio twentyfive" name="hs-ranking" value="25"
-                                  id="md_twentyfive">
-                                <label for="twentyfive" class="hs-label">Good</label>
-
-                                <input type="radio" disabled class="hs-radio fifty" name="hs-ranking" value="50"
-                                  id="md_fifty">
-                                <label for="fifty" class="hs-label">Very Good</label>
-
-                                <input type="radio" disabled class="hs-radio seventyfive" name="hs-ranking" value="75"
-                                  id="md_seventyfive" checked>
-                                <label for="seventyfive" class="hs-label">Advanced</label>
-
-                                <input type="radio" disabled class="hs-radio onehundred" name="hs-ranking" value="100"
-                                  id="md_onehundred">
-                                <label for="onehundred" class="hs-label">Expert</label>
-                              </div>
-
-                              <div class="hs-ranking">
-                                <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Advanced"
-                                  aria-valuenow="86" aria-valuemin="0" aria-valuemax="100">
-                                  Markdown
-                                </div>
-                              </div>
-
-                            </div>
-
-                          </div>
-                        </div>
-
-                      </div>
-
-                      <div class="col-md-6 p-2">
-                        <div class="hs-card_body">
-                          <div class="hs-card_content hs-card-size--fluid">
-                            <p class="hs-text-muted"><strong>CSS Skill Level</strong></p>
-                            <div class="hs-ranking-bar-stacker">
-                              <div class="hs-radio-group hidden-gone">
-                                <input type="radio" disabled class="hs-radio five" name="css_hs-ranking" value="5"
-                                  id="css_five">
-                                <label for="five" class="hs-label ">OK</label>
-
-                                <input type="radio" disabled class="hs-radio twentyfive" name="css_hs-ranking"
-                                  value="25" id="css_twentyfive">
-                                <label for="twentyfive" class="hs-label">Good</label>
-
-                                <input type="radio" disabled class="hs-radio fifty" name="css_hs-ranking" value="50"
-                                  id="css_fifty">
-                                <label for="fifty" class="hs-label">Very Good</label>
-
-                                <input type="radio" disabled class="hs-radio seventyfive" name="css_hs-ranking"
-                                  value="75" id="css_seventyfive">
-                                <label for="seventyfive" class="hs-label">Advanced</label>
-
-                                <input type="radio" disabled class="hs-radio onehundred" name="css_hs-ranking"
-                                  value="100" id="css_onehundred" checked>
-                                <label for="onehundred" class="hs-label">Expert</label>
-                              </div><!-- </div> -->
-
-                              <div class="hs-ranking">
-                                <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Expert"
-                                  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                                  CSS 100%
-                                </div>
-                              </div>
-                            </div>
-
-
-                            <div class="hs-divider d-flex align-items-center"></div>
-                            <p class="hs-hs-text-muted"><strong>SASS Skill Level</strong></p>
-
-                            <div class="hs-ranking-bar-stacker" style="margin-top: 20px;">
-                              <div class="hs-radio-group hidden-gone">
-                                <input type="radio" disabled class="hs-radio five" name="scss_hs-ranking" value="5"
-                                  id="scss_five">
-                                <label for="five" class="hs-label">OK</label>
-
-                                <input type="radio" disabled class="hs-radio twentyfive" name="scss_hs-ranking"
-                                  value="25" id="scss_twentyfive">
-                                <label for="twentyfive" class="hs-label">Good</label>
-
-                                <input type="radio" disabled class="hs-radio fifty" name="scss_hs-ranking" value="50"
-                                  id="scss_fifty">
-                                <label for="fifty" class="hs-label">Very Good</label>
-
-                                <input type="radio" disabled class="hs-radio seventyfive" name="scss_hs-ranking"
-                                  value="75" id="scss_seventyfive" checked>
-                                <label for="seventyfive" class="hs-label">Advanced</label>
-
-                                <input type="radio" disabled class="hs-radio onehundred" name="scss_hs-ranking"
-                                  value="100" id="scss_onehundred" checked>
-                                <label for="onehundred" class="hs-label">Expert</label>
-                              </div>
-
-                              <div class="hs-ranking">
-                                <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Expert"
-                                  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                                  SCSS 100%
-                                </div>
-                              </div>
-
-                            </div>
-                          </div>
+                  <hs-card-body slot="card-body" id="cardBody">
+                    <p class="hs-text-muted"><strong>HTML5</strong></p>
+                    <div class="hs-ranking-bar-stacker">
+                      <div class="hs-ranking">
+                        <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Expert"
+                          aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                          HTML5 100%
                         </div>
                       </div>
                     </div>
+                    <div class="hs-divider d-flex align-items-center"></div>
+                    <p class="hs-hs-text-muted"><strong>Markdaown</strong></p>
+                    <div class="hs-ranking-bar-stacker mt-4">
+                      <div class="hs-ranking">
+                        <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Advanced"
+                          aria-valuenow="86" aria-valuemin="0" aria-valuemax="100">
+                          Markdown
+                        </div>
+                      </div>
+                    </div>
+                  </hs-card-body>
+                  <hs-card-footer color-tone="" slot="card-footer" class="w-100 hs-card_footer">
+                    <div class="hs-card_content p-2">&nbsp;</div>
+                  </hs-card-footer>
+                </hs-card>
+              </div>
+
+              <div class="col-md-4 pb-4 m-0 px-2">
+                <!-- CARD 02 -->
+                <hs-card card-id="02" color-tone="" card-size="">
+                  <div slot="card-header" card-size="" class="container-fluid  p-2 pt-4">
+                    <img src="/assets/img/logos/css3-150.png" alt="CSS3" class="hs-skills-logo" height="65" />
+                    <img src="/assets/img/logos/Sass-150.png" alt="SASS" class="hs-skills-logo" height="65" />
                   </div>
 
+                  <hs-card-body id="cardBody" slot="card-body">
+                    <p class="hs-text-muted"><strong>CSS</strong></p>
+                    <div class="hs-ranking-bar-stacker">
+                      <div class="hs-ranking">
+                        <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Expert"
+                          aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                          CSS 100%
+                        </div>
+                      </div>
+                    </div>
+                    <div class="hs-divider d-flex align-items-center"></div>
+                    <p class="hs-hs-text-muted"><strong>SASS</strong></p>
+                    <div class="hs-ranking-bar-stacker mt-4">
+                      <div class="hs-ranking">
+                        <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Expert"
+                          aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                          SCSS 100%
+                        </div>
+                      </div>
+                    </div>
+                  </hs-card-body>
+                  <hs-card-footer color-tone="" slot="card-footer" class="w-100 hs-card_footer">
+                    <div class="hs-card_content p-2">&nbsp;</div>
+                  </hs-card-footer>
 
-                </div>
-                <hs-card-footer card-size="--fluid">
-                  <p>Testing</p>
-                </hs-card-footer>
-              </hs-card>
+                </hs-card>
+              </div>
 
+              <div class="col-md-4 pb-4 m-0 px-2">
+                <!-- CARD 03 -->
+                <hs-card card-id="02" color-tone="" card-size="">
+                  <div slot="card-header" card-size="" class="container-fluid p-2 pt-4">
+                    <img src="/assets/img/logos/js-logo.jpg" alt="javascript" class="hs-skills-logo mr-2" height="65" />
+                    <img src="/assets/img/logos/AngularJS_logo.svg.png" alt="AngularJS" class="hs-skills-logo"
+                      height="65" />
+                  </div>
 
+                  <hs-card-body id="cardBody" slot="card-body">
+                    <p class="hs-text-muted"><strong>JavaScript</strong></p>
+                    <div class="hs-ranking-bar-stacker">
+                      <div class="hs-ranking">
+                        <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Advanced"
+                          aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                          JAVASCRIPT
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="hs-divider d-flex align-items-center"></div>
+                    <p class="hs-hs-text-muted"><strong>Angular</strong></p>
+                    <div class="hs-ranking-bar-stacker mt-4">
+
+                      <div class="hs-ranking">
+                        <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Almost Advanced"
+                          aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                          ANGULAR
+                        </div>
+                      </div>
+                    </div>
+                  </hs-card-body>
+                  <hs-card-footer color-tone="" slot="card-footer" class="w-100 hs-card_footer">
+                    <div class="hs-card_content p-2">&nbsp;</div>
+                  </hs-card-footer>
+
+                </hs-card>
+
+              </div>
+            </div>
+            <!-- card row 2 -->
+            <div class="row p-0 m-0">
+              <div class="col-md-4 pb-4 m-0 px-2">
+                <!-- CARD 04 -->
+                <hs-card card-id="02" color-tone="" card-size="">
+                  <div slot="card-header" card-size="" class="container-fluid p-2 pt-4">
+                    <img src="/assets/img/logos/Node.js_logo.png" alt="Node JS" class="hs-skills-logo mr-4"
+                      height="65" />
+                    <img src="/assets/img/logos/php.png" alt="PHP" class="hs-skills-logo" height="65" />
+                  </div>
+
+                  <hs-card-body id="cardBody" slot="card-body">
+                    <p class="hs-text-muted"><strong>Node JS</strong></p>
+                    <div class="hs-ranking-bar-stacker">
+                      <div class="hs-ranking">
+                        <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Advanced"
+                          aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                          Node JS
+                        </div>
+                      </div>
+                    </div>
+                    <div class="hs-divider d-flex align-items-center"></div>
+                    <p class="hs-hs-text-muted"><strong>PHP</strong></p>
+                    <div class="hs-ranking-bar-stacker mt-4">
+                      <div class="hs-ranking">
+                        <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Good"
+                          aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                          PHP
+                        </div>
+                      </div>
+                    </div>
+                  </hs-card-body>
+                  <hs-card-footer color-tone="" slot="card-footer" class="w-100 hs-card_footer">
+                    <div class="hs-card_content p-2">&nbsp;</div>
+                  </hs-card-footer>
+                </hs-card>
+              </div>
+
+              <div class="col-md-4 pb-4 m-0 px-2">
+                <!-- CARD 05 -->
+                <hs-card card-id="02" color-tone="" card-size="">
+                  <div slot="card-header" card-size="" class="container-fluid  p-2 pt-4">
+
+                    <img src="/assets/img/logos/mysql.png" alt="mySQL" class="hs-skills-logo mr-2" height="65" />
+                    <img src="/assets/img/logos/sql-server.png" alt="SQL Server" class="hs-skills-logo ml-2"
+                      height="65" />
+
+                  </div>
+
+                  <hs-card-body id="cardBody" slot="card-body">
+                    <p class="hs-text-muted"><strong>MySql</strong></p>
+                    <div class="hs-ranking-bar-stacker">
+                      <div class="hs-ranking">
+                        <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Advanced"
+                          aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                          SKILL LEVEL
+                        </div>
+                      </div>
+                    </div>
+                    <div class="hs-divider d-flex align-items-center"></div>
+                    <p class="hs-hs-text-muted"><strong>SQL Server</strong></p>
+                    <div class="hs-ranking-bar-stacker mt-4">
+                      <div class="hs-ranking">
+                        <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Almost Advanced"
+                          aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                          SKILL LEVEL
+                        </div>
+                      </div>
+                    </div>
+                  </hs-card-body>
+                  <hs-card-footer color-tone="" slot="card-footer" class="w-100 hs-card_footer">
+                    <div class="hs-card_content p-2">&nbsp;</div>
+                  </hs-card-footer>
+                </hs-card>
+              </div>
+
+              <div class="col-md-4 pb-4 m-0 px-2">
+                <!-- CARD 06 -->
+                <hs-card card-id="02" color-tone="" card-size="">
+                  <div slot="card-header" card-size="" class="container-fluid p-2 pt-4">
+                    <img src="/assets/img/logos/webpack-javascript-logo.png" alt="webpack" class="hs-skills-logo mr-4"
+                      height="65" />
+                    <img src="/assets/img/logos/gulp.svg" alt="gulp" class="hs-skills-logo" height="65" />
+                  </div>
+                  <hs-card-body id="cardBody" slot="card-body">
+                    <p class="hs-text-muted"><strong>Webpack</strong></p>
+                    <div class="hs-ranking-bar-stacker">
+                      <div class="hs-ranking">
+                        <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Advanced"
+                          aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                          SKILL LEVEL
+                        </div>
+                      </div>
+                    </div>
+                    <div class="hs-divider d-flex align-items-center"></div>
+                    <p class="hs-hs-text-muted"><strong>Gulp</strong></p>
+                    <div class="hs-ranking-bar-stacker mt-4">
+                      <div class="hs-ranking">
+                        <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Expert"
+                          aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                          SKILL LEVEL
+                        </div>
+                      </div>
+                    </div>
+                  </hs-card-body>
+                  <hs-card-footer color-tone="" slot="card-footer" class="w-100 hs-card_footer">
+                    <div class="hs-card_content p-2">&nbsp;</div>
+                  </hs-card-footer>
+                </hs-card>
+              </div>
             </div>
           </div>
-          <!-- card row 2 -->
-          <div class="row">
-            <div class="col-md-12">
-
-              <hs-card card-id="02" color-tone="dark" card-size="--fluid">
-                <div slot="card-header" card-size="--fluid" class="container-fluid">
-
-                  <div class="row w-100 p-2">
-                    <div class="col-md-6">
-                      <img src="/assets/img/logos/js-logo.jpg" alt="javascript" class="hs-skills-logo mr-2"
-                        height="65" />
-                      <img src="/assets/img/logos/AngularJS_logo.svg.png" alt="AngularJS" class="hs-skills-logo"
-                        height="65" />
-                    </div>
-                    <div class="col-md-6">
-                      <img src="/assets/img/logos/dm-Node.png" alt="Node JS" class="hs-skills-logo mr-4" height="75" />
-                      <img src="/assets/img/logos/php.png" alt="PHP" class="hs-skills-logo" height="65" />
-                    </div>
-                  </div>
-
-                </div>
-
-                <div id="cardBody" slot="card-body">
-
-                  <div class="container-fluid">
-                    <div class="row">
-                      <div class="col-md-6 p-2">
-                        <div class="hs-card_body">
-                          <div class="hs-card_content hs-card-size--fluid">
-
-                            <p class="hs-text-muted"><strong>JavaScript Skill Level</strong></p>
-                            <div class="hs-ranking-bar-stacker">
-                              <div class="hs-radio-group hidden-gone">
-                                <input type="radio" disabled class="hs-radio five" name="21_hs-ranking" value="5"
-                                  id="21_five">
-                                <label for="five" class="hs-label ">OK</label>
-
-                                <input type="radio" disabled class="hs-radio twentyfive" name="21_hs-ranking" value="25"
-                                  id="21_twentyfive">
-                                <label for="twentyfive" class="hs-label">Good</label>
-
-                                <input type="radio" disabled class="hs-radio fifty" name="21_hs-ranking" value="50"
-                                  id="21_fifty">
-                                <label for="fifty" class="hs-label">Very Good</label>
-
-                                <input type="radio" disabled class="hs-radio seventyfive" name="21_hs-ranking"
-                                  value="75" id="21_seventyfive" checked>
-                                <label for="seventyfive" class="hs-label">Advanced</label>
-
-                                <input type="radio" disabled class="hs-radio onehundred" name="21_hs-ranking"
-                                  value="100" id="21_onehundred">
-                                <label for="onehundred" class="hs-label">Expert</label>
-                              </div><!-- </div> -->
-
-                              <div class="hs-ranking">
-                                <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Advanced"
-                                  aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-                                  JAVASCRIPT
-                                </div>
-                              </div>
-
-                            </div>
-                            <div class="hs-divider d-flex align-items-center"></div>
-
-                            <p class="hs-hs-text-muted"><strong>Angular Skill Level</strong></p>
-
-                            <div class="hs-ranking-bar-stacker mt-4">
-                              <div class="hs-radio-group hidden-gone">
-                                <input type="radio" disabled class="hs-radio five" name="22_hs-ranking" value="5"
-                                  id="22_five">
-                                <label for="22_five" class="hs-label">OK</label>
-
-                                <input type="radio" disabled class="hs-radio twentyfive" name="22_hs-ranking" value="25"
-                                  id="22_twentyfive">
-                                <label for="22_twentyfive" class="hs-label">Good</label>
-
-                                <input type="radio" disabled class="hs-radio fifty" name="22_hs-ranking" value="50"
-                                  id="22_fifty" checked>
-                                <label for="22_fifty" class="hs-label">Very Good</label>
-
-                                <input type="radio" disabled class="hs-radio seventyfive" name="22_hs-ranking"
-                                  value="75" id="22_seventyfive">
-                                <label for="22_seventyfive" class="hs-label">Advanced</label>
-
-                                <input type="radio" disabled class="hs-radio onehundred" name="22_hs-ranking"
-                                  value="100" id="22_onehundred">
-                                <label for="22_onehundred" class="hs-label">Expert</label>
-                              </div><!-- </div> -->
-
-                              <div class="hs-ranking">
-                                <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar"
-                                  data-level="Almost Advanced" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                  ANGULAR
-                                </div>
-                              </div>
-
-                            </div>
-
-                          </div>
-                        </div>
-
-                      </div>
-
-                      <div class="col-md-6 p-2">
-                        <div class="hs-card_body">
-                          <div class="hs-card_content hs-card-size--fluid">
-                            <p class="hs-text-muted"><strong>Node JS Skill Level</strong></p>
-                            <div class="hs-ranking-bar-stacker">
-                              <div class="hs-radio-group hidden-gone">
-                                <input type="radio" disabled class="hs-radio five" name="54_hs-ranking" value="5"
-                                  id="54_five">
-                                <label for="54_five" class="hs-label ">OK</label>
-
-                                <input type="radio" disabled class="hs-radio twentyfive" name="54_hs-ranking" value="25"
-                                  id="54_twentyfive">
-                                <label for="54_twentyfive" class="hs-label">Good</label>
-
-                                <input type="radio" disabled class="hs-radio fifty" name="54_hs-ranking" value="50"
-                                  id="54_fifty">
-                                <label for="54_fifty" class="hs-label">Very Good</label>
-
-                                <input type="radio" disabled class="hs-radio seventyfive" name="54_hs-ranking"
-                                  value="75" id="54_seventyfive" checked>
-                                <label for="54_seventyfive" class="hs-label">Advanced</label>
-
-                                <input type="radio" disabled class="hs-radio onehundred" name="54_hs-ranking"
-                                  value="100" id="54_onehundred">
-                                <label for="54_onehundred" class="hs-label">Expert</label>
-                              </div><!-- </div> -->
-
-                              <div class="hs-ranking">
-                                <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Advanced"
-                                  aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-                                  Node JS
-                                </div>
-                              </div>
-
-                            </div>
-
-
-                            <div class="hs-divider d-flex align-items-center"></div>
-                            <p class="hs-hs-text-muted"><strong>PHP Skill Level</strong></p>
-                            <div class="hs-ranking-bar-stacker" style="margin-top: 20px;">
-                              <div class="hs-radio-group hidden-gone">
-                                <input type="radio" disabled class="hs-radio five" name="58_skill" value="5"
-                                  id="58_five">
-                                <label for="58_five" class="hs-label">OK</label>
-
-                                <input type="radio" disabled class="hs-radio twentyfive" name="58_skill" value="25"
-                                  id="58_twentyfive">
-                                <label for="58_twentyfive" class="hs-label">Good</label>
-
-                                <input type="radio" disabled class="hs-radio fifty" name="58_skill" value="50"
-                                  id="58_fifty">
-                                <label for="58_fifty" class="hs-label">Very Good</label>
-
-                                <input type="radio" disabled class="hs-radio seventyfive" name="58_skill" value="75"
-                                  id="58_seventyfive" checked>
-                                <label for="58_seventyfive" class="hs-label">Advanced</label>
-
-                                <input type="radio" disabled class="hs-radio onehundred" name="58_skill" value="100"
-                                  id="58_onehundred">
-                                <label for="58_onehundred" class="hs-label">Expert</label>
-                              </div><!-- </div> -->
-
-                              <div class="hs-ranking">
-                                <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Good"
-                                  aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
-                                  PHP
-                                </div>
-                              </div>
-
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-
-                </div>
-
-              </hs-card>
-
-
-            </div>
-          </div>
-          <!-- card row 3 -->
-          <div class="row">
-            <div class="col-md-12">
-
-              <hs-card card-id="02" color-tone="dark" card-size="--fluid">
-                <div slot="card-header" card-size="--fluid" class="container-fluid">
-
-                  <div class="row w-100 p-2">
-                    <div class="col-md-6">
-                      <img src="/assets/img/logos/dm-mysql.png" alt="mySQL" class="hs-skills-logo mr-4" height="75" /> 
-                      <img src="/assets/img/logos/dm-sql-server.png" alt="SQL Server" class="hs-skills-logo ml-4" height="76"
-                    style="margin-top: -30px;" />
-                    </div>
-                    <div class="col-md-6">
-                      <img src="/assets/img/logos/dm-webpack-javascript-logo.png" alt="webpack" class="hs-skills-logo mr-4" height="49" /> 
-                      <img src="/assets/img/logos/gulp.svg" alt="gulp" class="hs-skills-logo" height="55" />
-                    </div>
-                  </div>
-
-                </div>
-
-                <div id="cardBody" slot="card-body">
-
-                  <div class="container-fluid">
-                    <div class="row">
-                      <div class="col-md-6 p-2">
-                        <div class="hs-card_body">
-                          <div class="hs-card_content hs-card-size--fluid">
-
-                            <p class="hs-text-muted"><strong>JavaScript Skill Level</strong></p>
-                            <div class="hs-ranking-bar-stacker">
-                              <div class="hs-radio-group hidden-gone">
-                                <input type="radio" disabled class="hs-radio five" name="21_hs-ranking" value="5"
-                                  id="21_five">
-                                <label for="five" class="hs-label ">OK</label>
-
-                                <input type="radio" disabled class="hs-radio twentyfive" name="21_hs-ranking" value="25"
-                                  id="21_twentyfive">
-                                <label for="twentyfive" class="hs-label">Good</label>
-
-                                <input type="radio" disabled class="hs-radio fifty" name="21_hs-ranking" value="50"
-                                  id="21_fifty">
-                                <label for="fifty" class="hs-label">Very Good</label>
-
-                                <input type="radio" disabled class="hs-radio seventyfive" name="21_hs-ranking"
-                                  value="75" id="21_seventyfive" checked>
-                                <label for="seventyfive" class="hs-label">Advanced</label>
-
-                                <input type="radio" disabled class="hs-radio onehundred" name="21_hs-ranking"
-                                  value="100" id="21_onehundred">
-                                <label for="onehundred" class="hs-label">Expert</label>
-                              </div><!-- </div> -->
-
-                              <div class="hs-ranking">
-                                <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Advanced"
-                                  aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-                                  JAVASCRIPT
-                                </div>
-                              </div>
-
-                            </div>
-                            <div class="hs-divider d-flex align-items-center"></div>
-
-                            <p class="hs-hs-text-muted"><strong>Angular Skill Level</strong></p>
-
-                            <div class="hs-ranking-bar-stacker mt-4">
-                              <div class="hs-radio-group hidden-gone">
-                                <input type="radio" disabled class="hs-radio five" name="22_hs-ranking" value="5"
-                                  id="22_five">
-                                <label for="22_five" class="hs-label">OK</label>
-
-                                <input type="radio" disabled class="hs-radio twentyfive" name="22_hs-ranking" value="25"
-                                  id="22_twentyfive">
-                                <label for="22_twentyfive" class="hs-label">Good</label>
-
-                                <input type="radio" disabled class="hs-radio fifty" name="22_hs-ranking" value="50"
-                                  id="22_fifty" checked>
-                                <label for="22_fifty" class="hs-label">Very Good</label>
-
-                                <input type="radio" disabled class="hs-radio seventyfive" name="22_hs-ranking"
-                                  value="75" id="22_seventyfive">
-                                <label for="22_seventyfive" class="hs-label">Advanced</label>
-
-                                <input type="radio" disabled class="hs-radio onehundred" name="22_hs-ranking"
-                                  value="100" id="22_onehundred">
-                                <label for="22_onehundred" class="hs-label">Expert</label>
-                              </div><!-- </div> -->
-
-                              <div class="hs-ranking">
-                                <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar"
-                                  data-level="Almost Advanced" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                  ANGULAR
-                                </div>
-                              </div>
-
-                            </div>
-
-                          </div>
-                        </div>
-
-                      </div>
-
-                      <div class="col-md-6 p-2">
-                        <div class="hs-card_body">
-                          <div class="hs-card_content hs-card-size--fluid">
-                            <p class="hs-text-muted"><strong>Node JS Skill Level</strong></p>
-                            <div class="hs-ranking-bar-stacker">
-                              <div class="hs-radio-group hidden-gone">
-                                <input type="radio" disabled class="hs-radio five" name="54_hs-ranking" value="5"
-                                  id="54_five">
-                                <label for="54_five" class="hs-label ">OK</label>
-
-                                <input type="radio" disabled class="hs-radio twentyfive" name="54_hs-ranking" value="25"
-                                  id="54_twentyfive">
-                                <label for="54_twentyfive" class="hs-label">Good</label>
-
-                                <input type="radio" disabled class="hs-radio fifty" name="54_hs-ranking" value="50"
-                                  id="54_fifty">
-                                <label for="54_fifty" class="hs-label">Very Good</label>
-
-                                <input type="radio" disabled class="hs-radio seventyfive" name="54_hs-ranking"
-                                  value="75" id="54_seventyfive" checked>
-                                <label for="54_seventyfive" class="hs-label">Advanced</label>
-
-                                <input type="radio" disabled class="hs-radio onehundred" name="54_hs-ranking"
-                                  value="100" id="54_onehundred">
-                                <label for="54_onehundred" class="hs-label">Expert</label>
-                              </div><!-- </div> -->
-
-                              <div class="hs-ranking">
-                                <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Advanced"
-                                  aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-                                  Node JS
-                                </div>
-                              </div>
-
-                            </div>
-
-
-                            <div class="hs-divider d-flex align-items-center"></div>
-                            <p class="hs-hs-text-muted"><strong>Gulp Skill Level</strong></p>
-
-                <div class="hs-ranking-bar-stacker" style="margin-top: 20px;">
-                  <div class="hs-radio-group hidden-gone">
-                    <input type="radio" disabled class="hs-radio five" name="git_hs-ranking" value="5" id="git_five">
-                    <label for="five" class="hs-label">OK</label>
-
-                    <input type="radio" disabled class="hs-radio twentyfive" name="git_hs-ranking" value="25"
-                      id="git_twentyfive">
-                    <label for="twentyfive" class="hs-label">Good</label>
-
-                    <input type="radio" disabled class="hs-radio fifty" name="git_hs-ranking" value="50" id="git_fifty">
-                    <label for="fifty" class="hs-label">Very Good</label>
-
-                    <input type="radio" disabled class="hs-radio seventyfive" name="git_hs-ranking" value="75"
-                      id="git_seventyfive">
-                    <label for="seventyfive" class="hs-label">Advanced</label>
-
-                    <input type="radio" disabled class="hs-radio onehundred" name="git_hs-ranking" value="100"
-                      id="git_onehundred" checked>
-                    <label for="onehundred" class="hs-label">Expert</label>
-                  </div><!-- </div> -->
-
-                  <div class="hs-ranking">
-                    <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Advanced"
-                      aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
-                      Gulp.js 100%
-                    </div>
-                  </div>
-
-                </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-
-                </div>
-
-              </hs-card>
-
-
-            </div>
-          </div>
-          <!-- card row 4 -->
-
+          <!-- end card row 2 -->
         </div>
 
-        
       </div>
     </section>
 
@@ -707,95 +373,119 @@
         <div class="row mt-5">
           <div class="col-md-3 hs-portfolio-item">
             <!-- CARD 01 -->
-            <hs-card card-id="01" color-tone="dark" card-size="--sm"
-              img-path="/assets/img/portfolio/USAA/usaa-ema-01.jpg" modal-id="#usaa">
+            <hs-card card-id="01" color-tone="" card-size="" img-path="/assets/img/portfolio/USAA/usaa-ema-01.jpg"
+              modal-id="#usaa">
 
-              <div id="cardBody" slot="card-body" class="hs-card_body text-center">
+              <hs-card-body id="cardBody" slot="card-body" class="hs-card_body text-center">
 
-                <div class="hs-card_content hs-card-size--sm">
                   <h2 class="hs-card_title mb-2">Employee Mobile Apps</h2>
-                      <p>
-                        <strong class="hs-card_text-emphisized">USAA </strong><br>
-                        Banking * Insurance * Investments<br>
-                        Full Stack Software Engineer
-                      </p>
-                </div>
-                <!-- <div class="text-center">
+                  <p>
+                    <strong class="hs-card_text-emphisized">USAA </strong><br>
+                    Banking * Insurance * Investments<br>
+                    Full Stack Software Engineer
+                  </p>
+                <div class="text-center">
                   <button class="hs-btn-showmore" type="button" data-toggle="collapse" data-target="#usafb"
                     aria-expanded="false" aria-controls="#usafb">
                     Show more
                   </button>
-                </div> -->
-              </div>
+                </div>
+              </hs-card-body>
               <!-- <hs-card-footer id="cardFooter" class="hs-card_footer">
                 <hs-card-button id="modalButton" modal-id="testModal" button-text="Details"></hs-card-button>
               </hs-card-footer> -->
               <hs-card-footer id="cardFooter" class="hs-card_footer" slot="card-footer">
-                <hs-card-button 
-                  button-id="modalButton" 
-                  button-text="Details" 
-                  action="http://youtube.com" 
-                  modal-id="testModal" 
-                  css-class="btn hs-details-button" 
-                  click-target="testModal" 
-                  action-parameters="" 
-                  button-text="DETAILS"></hs-card-button>
+                <!-- <hs-card-button button-id="modalButton" button-text="Details" action="http://youtube.com"
+                  modal-id="testModal" css-class="btn hs-details-button" click-target="testModal" action-parameters=""
+                  button-text="DETAILS"></hs-card-button> -->
               </hs-card-footer>
             </hs-card>
           </div>
           <!-- CARD 02 -->
           <div class="col-md-3 hs-portfolio-item">
-            <hs-card card-id="02" color-tone="dark" card-size="--sm"
+            <hs-card card-id="02" color-tone="" card-size=""
               img-path="/assets/img/portfolio/Fannie-Mae/blueprint-card-header.jpg" modal-id="#blueprint">
 
               <div id="cardBody" slot="card-body" class="hs-card_body text-center">
 
-                <div class="hs-card_content hs-card-size--sm">
-                  <h2 class="hs-card_title mb-2">Blueprint Design System </h2>
-                      <p>
-                        <strong class="hs-card_text-emphisized">Fannie Mae, Inc.</strong><br>
-                        Mortgage Provider<br>
-                        Interaction Designer - UI/UX Developer
-                      </p>
+                <div class="hs-card_content">
+                  <h2 class="hs-card_title mb-2">Design System</h2>
+                  <p>
+                    <strong class="hs-card_text-emphisized">Heath Shults</strong><br>
+                    Fannie Mae, Inc.<br>
+                    Interaction Designer - UI/UX Developer
+                  </p>
+                  <div class="text-center">
+                    <button class="hs-btn-showmore" type="button" data-toggle="collapse" data-target="#usafb"
+                      aria-expanded="false" aria-controls="#usafb">
+                      Show more
+                    </button>
+                  </div>
                 </div>
               </div>
+              <hs-card-footer id="cardFooter" class="hs-card_footer" slot="card-footer">
+                <!-- <hs-card-button button-id="modalButton" button-text="Details" action="http://youtube.com"
+                  modal-id="testModal" css-class="btn hs-details-button" click-target="testModal" action-parameters=""
+                  button-text="DETAILS"></hs-card-button> -->
+              </hs-card-footer>
             </hs-card>
           </div>
           <!-- CARD 03 -->
-          <div class="col-md-3 hs-portfolio-item">
-            <hs-card card-id="03" color-tone="dark" card-size="--sm"
+          <div class="col-md-3">
+            <hs-card card-id="03" color-tone="" card-size=""
               img-path="/assets/img/portfolio/BlueStarSports/BSS-card-heading.jpg" modal-id="#modBlueStar">
 
               <div id="cardBody" slot="card-body" class="hs-card_body text-center">
 
-                <div class="hs-card_content hs-card-size--sm">
+                <div class="hs-card_content">
                   <h2 class="hs-card_title mb-2">USA Football Database</h2>
-                      <p>
-                        <strong class="hs-card_text-emphisized">Blue Star Sports</strong><br>
-                        Data Services<br>
-                        UI Software Engineer
-                      </p>
+                  <p>
+                    <strong class="hs-card_text-emphisized">Blue Star Sports</strong><br>
+                    Data Services<br>
+                    UI Software Engineer
+                  </p>
+                  <div class="text-center">
+                    <button class="hs-btn-showmore" type="button" data-toggle="collapse" data-target="#usafb"
+                      aria-expanded="false" aria-controls="#usafb">
+                      Show more
+                    </button>
+                  </div>
                 </div>
               </div>
+              <hs-card-footer id="cardFooter" class="hs-card_footer" slot="card-footer">
+                <!-- <hs-card-button button-id="modalButton" button-text="Details" action="http://youtube.com"
+                  modal-id="testModal" css-class="btn hs-details-button" click-target="testModal" action-parameters=""
+                  button-text="DETAILS"></hs-card-button> -->
+              </hs-card-footer>
             </hs-card>
           </div>
           <!-- CARD 04 -->
-          <div class="col-md-3 hs-portfolio-item">
-            <hs-card card-id="04" color-tone="dark" card-size="--sm"
-              img-path="/assets/img/portfolio/bowlopolis/bolopolis-headerImg.jpg" modal-id="#modBowlopolis">
+          <div class="col-md-3">
+            <hs-card card-id="04" color-tone="" card-size="" window-target="_self"
+              img-path="/assets/img/portfolio/bowlopolis/bowlopolis-headerImg.png" modal-id="#modBowlopolis">
 
               <div id="cardBody" slot="card-body" class="hs-card_body text-center">
 
-                <div class="hs-card_content hs-card-size--sm">
-                  <h2 class="hs-card_title mb-2">Bowlopolis - Cartoons & Games</h2>
+                <div class="hs-card_content">
+                  <h2 class="hs-card_title mb-2">Bowlopolis</h2>
                   <p>
-                      <strong class="hs-card_text-emphisized"> BPAA, Inc.</strong><br>
-                      Proprietor Association<br>
-                      Director Technology - App Dev
+                    <span class="fs-5">Kids 3D Cartoons, Videos & Games</span>
                   </p>
+                  <p>
+                    <strong class="hs-card_text-emphisized"> BPAA, Inc.</strong><br>
+                    Proprietor Association<br>
+                    Director Technology - App Dev
+                  </p>
+                  <div class="text-center">
+                    <hs-card-button css-class="hs-card-button" text="More" url="" url-params="_blank" modal-id="#bowlopolis"></hs-card-button>
+                  </div>
                 </div>
               </div>
-
+              <hs-card-footer id="cardFooter" class="hs-card_footer" slot="card-footer">
+                <!-- <hs-card-button button-id="modalButton" button-text="Details" action="http://youtube.com"
+                  modal-id="testModal" css-class="btn hs-details-button" click-target="testModal" action-parameters=""
+                  button-text="DETAILS"></hs-card-button> -->
+              </hs-card-footer>
             </hs-card>
           </div>
 
@@ -821,109 +511,120 @@
 
         <div class="row bg-black-25-opacity p-3">
           <div class="col-lg-12">
-            
+
             <div class="hs-timeline js-hs-timeline">
               <div class="container max-width-lg hs-timeline__container">
                 <div class="hs-timeline__block">
                   <div class="hs-timeline__img hs-timeline__img--picture">
                     <img src="assets/img/hs-icon-picture.svg" alt="Picture">
                   </div> <!-- hs-timeline__img -->
-            
+
                   <div class="hs-timeline__content text-component">
                     <h2>Title of section 1</h2>
-                    <p class="color-contrast-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum
-                      provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus
+                    <p class="color-contrast-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto,
+                      optio, dolorum
+                      provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste
+                      voluptatibus minus
                       veritatis qui ut.</p>
-            
+
                     <div class="flex justify-between items-center">
                       <span class="hs-timeline__date">Jan 14</span>
                       <a href="#0" class="btn btn--subtle">Read more</a>
                     </div>
                   </div> <!-- hs-timeline__content -->
                 </div> <!-- hs-timeline__block -->
-            
+
                 <div class="hs-timeline__block">
                   <div class="hs-timeline__img hs-timeline__img--movie">
                     <img src="assets/img/hs-icon-movie.svg" alt="Movie">
                   </div> <!-- hs-timeline__img -->
-            
+
                   <div class="hs-timeline__content text-component">
                     <h2>Title of section 2</h2>
-                    <p class="color-contrast-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum
+                    <p class="color-contrast-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto,
+                      optio, dolorum
                       provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde?</p>
-            
+
                     <div class="flex justify-between items-center">
                       <span class="hs-timeline__date">Jan 18</span>
                       <a href="#0" class="btn btn--subtle">Read more</a>
                     </div>
                   </div> <!-- hs-timeline__content -->
                 </div> <!-- hs-timeline__block -->
-            
+
                 <div class="hs-timeline__block">
                   <div class="hs-timeline__img hs-timeline__img--picture">
                     <img src="assets/img/hs-icon-picture.svg" alt="Picture">
                   </div> <!-- hs-timeline__img -->
-            
+
                   <div class="hs-timeline__content text-component">
                     <h2>Title of section 3</h2>
-                    <p class="color-contrast-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, obcaecati,
-                      quisquam id molestias eaque asperiores voluptatibus cupiditate error assumenda delectus odit similique earum
-                      voluptatem doloremque dolorem ipsam quae rerum quis. Odit, itaque, deserunt corporis vero ipsum nisi eius odio
-                      natus ullam provident pariatur temporibus quia eos repellat consequuntur perferendis enim amet quae quasi
-                      repudiandae sed quod veniam dolore possimus rem voluptatum eveniet eligendi quis fugiat aliquam sunt similique
+                    <p class="color-contrast-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      Excepturi, obcaecati,
+                      quisquam id molestias eaque asperiores voluptatibus cupiditate error assumenda delectus odit
+                      similique earum
+                      voluptatem doloremque dolorem ipsam quae rerum quis. Odit, itaque, deserunt corporis vero ipsum
+                      nisi eius odio
+                      natus ullam provident pariatur temporibus quia eos repellat consequuntur perferendis enim amet
+                      quae quasi
+                      repudiandae sed quod veniam dolore possimus rem voluptatum eveniet eligendi quis fugiat aliquam
+                      sunt similique
                       aut adipisci.</p>
-            
+
                     <div class="flex justify-between items-center">
                       <span class="hs-timeline__date">Jan 24</span>
                       <a href="#0" class="btn btn--subtle">Read more</a>
                     </div>
                   </div> <!-- hs-timeline__content -->
                 </div> <!-- hs-timeline__block -->
-            
+
                 <div class="hs-timeline__block">
                   <div class="hs-timeline__img hs-timeline__img--location">
                     <img src="assets/img/hs-icon-location.svg" alt="Location">
                   </div> <!-- hs-timeline__img -->
-            
+
                   <div class="hs-timeline__content text-component">
                     <h2>Title of section 4</h2>
-                    <p class="color-contrast-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum
-                      provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus
+                    <p class="color-contrast-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto,
+                      optio, dolorum
+                      provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste
+                      voluptatibus minus
                       veritatis qui ut.</p>
-            
+
                     <div class="flex justify-between items-center">
                       <span class="hs-timeline__date">Feb 14</span>
                       <a href="#0" class="btn btn--subtle">Read more</a>
                     </div>
                   </div> <!-- hs-timeline__content -->
                 </div> <!-- hs-timeline__block -->
-            
+
                 <div class="hs-timeline__block">
                   <div class="hs-timeline__img hs-timeline__img--location">
                     <img src="assets/img/hs-icon-location.svg" alt="Location">
                   </div> <!-- hs-timeline__img -->
-            
+
                   <div class="hs-timeline__content text-component">
                     <h2>Title of section 5</h2>
-                    <p class="color-contrast-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum
+                    <p class="color-contrast-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto,
+                      optio, dolorum
                       provident rerum.</p>
-            
+
                     <div class="flex justify-between items-center">
                       <span class="hs-timeline__date">Feb 18</span>
                       <a href="#0" class="btn btn--subtle">Read more</a>
                     </div>
                   </div> <!-- hs-timeline__content -->
                 </div> <!-- hs-timeline__block -->
-            
+
                 <div class="hs-timeline__block">
                   <div class="hs-timeline__img hs-timeline__img--movie">
                     <img src="assets/img/hs-icon-movie.svg" alt="Movie">
                   </div> <!-- hs-timeline__img -->
-            
+
                   <div class="hs-timeline__content text-component">
                     <h2>Final Section</h2>
                     <p class="color-contrast-medium">This is the content of the last section</p>
-            
+
                     <div class="flex justify-between items-center">
                       <span class="hs-timeline__date">Feb 26</span>
                     </div>
@@ -931,7 +632,7 @@
                 </div> <!-- hs-timeline__block -->
               </div>
             </div> <!-- hs-timeline -->
-            
+
           </div>
         </div>
       </div>
@@ -1048,7 +749,7 @@
           </p>
           carousel
           </div>
-          <div slot="card-footer" color-tone="dark">
+          <div slot="card-footer" color-tone="">
             <div class="hs-input-group">
               <button class="hs-button hs-button--block hs-button--brand"
                 onclick="javascript:closeModal('#modBowlopolis')">Close</button>
@@ -1058,15 +759,14 @@
       </hs-card>
     </hs-modal>
 
-    <hs-modal dismissible full id="modBowlopolis1">
-      <hs-card color-tone="light">
-        <hs-card-header>
-          <h2 class="hs-heading dark">
-            <span class="hs-text-xl">Bowlopolis</span>
-            <div class="hs-heading_sub text-center">Sub-heading</div>
-          </h2>
-        </hs-card-header>
-        <hs-card-body>
+    <hs-modal id="forBowlopolis" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" modal-title="Bowlopolis">
+      <div slot="modal-body">
+        
+              <span class="text-xl">Bowlopolis</span>
+              <div class="text-lg text-center">Sub-heading</div>
+              
+      </div>
+          <div slot="modal-footer">
           <p class="hs-paragraph">
             Web design/development & game development for retention/frequency.
           </p>
@@ -1074,24 +774,18 @@
             <img class="img-responsive img-centered" src="/assets/img/portfolio/bowlopolis/bowlopolis.png" alt="">
           </p>
           </div>
-          <div slot="card-footer" color-tone="dark">
-            <div class="hs-input-group">
-              <button class="hs-button hs-button--block hs-button--brand"
-                onclick="javascript:closeModal('#modBowlopolis')">Close</button>
-              <button class="hs-button hs-button--block hs-button--info">Button</button>
-            </div>
-          </div>
-      </hs-card>
     </hs-modal>
 
     <!-- jQuery  -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <!-- Popper for popups-->
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
+    </script>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+    </script>
+    </script>
     <!-- Contact Form JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqBootstrapValidation/1.3.6/jqBootstrapValidation.min.js">
     </script>
@@ -1110,9 +804,12 @@
         document.querySelector(modal).close();
       }
 
-    </script>
-    <script>
+      let scrollSpy = new bootstrap.ScrollSpy(document.body, {
+        target: '#mainNav'
+      })
+
       //  onclick="javascript:showModal('#modBowlopolis');"
+
       // // ====== RANKING BARS
       var theBars = document.querySelectorAll('.hs-ranking-bar')
       theBars.forEach(aBar => {
@@ -1132,7 +829,7 @@
       // })
 
       // ====== NAV JS ====== //
-      // $('a.js-page-scroll').bind('click', function(event) {
+      // $('a.js-page-scroll').on('click', function(event) {
       //   var $anchor = $(this);
       //   $('html, body').stop().animate({
       //       scrollTop: ($($anchor.attr('href')).offset().top - 50)
@@ -1140,18 +837,18 @@
       //   event.preventDefault();
       //   });
 
-      // Highlight the top nav as scrolling occurs
+      // // Highlight the top nav as scrolling occurs
       // $('body').scrollspy({
       //     target: '.navbar-fixed-top',
       //     offset: 51
       // });
 
-      // Closes the Responsive Menu on Menu Item Click
+      // // Closes the Responsive Menu on Menu Item Click
       // $('.navbar-collapse .navbar-nav .nav-item .nav-link').click(function(){
       //         $('.navbar-toggle:visible').click();
       // });
 
-      // Offset for Main Navigation
+      // // Offset for Main Navigation
       // $('#mainNav').affix({
       //     offset: {
       //         top: 100
@@ -1197,7 +894,7 @@
       // }
 
       // Theme switcher
-      // $dm_btn.bind('click', (event) => {
+      // $dm_btn.on('click', (event) => {
       //     event.preventDefault()
       //     if (localStorage.getItem('dark_mode') === 'true') {
       //       setMode('false'), console.log('set to false')

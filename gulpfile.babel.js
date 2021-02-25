@@ -1,14 +1,14 @@
-/* eslint-disable no-var-requires */
-
+/* eslint-disable no-console */
+/* eslint-disable-next-line @typescript-eslint/no-var-requires */
 require("@babel/register")({
   presets: ["@babel/preset-env"],
   "plugins": [["import", {"libraryName": "@material-ui/core"}], "@babel/plugin-syntax-dynamic-import"]
 });
-/* eslint-disable no-unused-expressions */
-/* eslint-disable no-undef */
-/* eslint-disable camelcase */
-/* eslint-disable no-unused-vars */
-/* eslint-disable prefer-const */
+// eslint-disable no-unused-expressions
+// eslint-disable no-undef
+// eslint-disable camelcase
+// eslint-disable no-unused-vars
+// eslint-disable prefer-const
 import path from 'path';
 
 // let fs = require('fs-extra')
@@ -34,7 +34,7 @@ import {exec} from 'child_process';
 // var postcss = require('gulp-postcss')
 // var postcssCustomProperties = require('postcss-custom-properties')
 import debug from 'gulp-debug';
-
+import fs from 'fs-extra';
 import changed from 'gulp-changed';
 import ejs from 'gulp-ejs';
 import log from 'fancy-log';
@@ -187,7 +187,8 @@ function ejsit(done) {
 exports.ejsit = ejsit;
 
 function babelfry(cb){
-  var fs = require("fs");
+  
+  // var fs = require("fs");
 
   browserify({ debug: true })
   .transform(babelify)
@@ -215,7 +216,7 @@ exports.renderJS = renderJS;
 
 function sassy(done) {
   try {
-    exec(`sass ${srcPath}/scss/styles.scss ${wwwPath}/assets/css/HeathStyle.built.css`, (error, stdout, stderr) => {
+    exec(`sass ${srcPath}/scss/styles.scss ${wwwPath}/assets/css/HeathStyle.built.css`, (error) => {
       if (error) {
           console.log(`error: ${error.message}`);
           return;
@@ -383,7 +384,6 @@ function copy_js(cb) {
 }
 exports.copy_js = copy_js;
 
-
 function render_components(cb) {
   console.log('Initiating render_components()...');
   build_components()
@@ -397,7 +397,7 @@ function build_components(cb) {
   return new Promise((resolve, reject) => {
     try {
       setTimeout(() => {
-  exec('node_modules/.bin/stencil build --dev --docs-readme --debug', (error, stdout, stderr) => {
+  exec('node_modules/.bin/stencil build --dev --docs-readme --debug', (error) => {
     if (error) {
         console.log(chalk.red(`error: ${error.message}`));
         return cb;
@@ -475,12 +475,12 @@ function serve(cb) {
             injectChanges: true
           }
         });
-        resolve();
+        resolve(cb);
       },2000 );
     }
     catch(e) {
       console.log('Error in browsersync: '+e);
-      reject();
+      reject(cb);
     }
   });
     // })
@@ -505,13 +505,13 @@ function watchers(cb) {
         watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], copy_js), callback;
         watch([`${buildPath}/**/*`], copy_components), callback;
         watch([`${p.src_js}/js/HeathScript.js`], babelfry), callback;
-        watch([`${srcCompPath}/**/*`],  render_components).on('change', browserSync.stream()), callback;
+        watch([`${srcCompPath}/**/*.scss`],  render_components).on('change', browserSync.stream()), callback;
         // watch([`${srcCompPath}/**/*`],  series(build_components, copy_components)), callback;
         resolve(callback);
       },2000 );
     }
     catch(e) {
-      console.log('Error in watchers: '+e);
+      console.log(`Error in watchers: ${e}`);
       reject(callback);
     }
 
@@ -554,7 +554,8 @@ function connect_sync(cb) {
   watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], copy_js), callback;
   watch([`${buildPath}/**/*`], copy_components), callback;
   watch([`${p.src_js}/js/HeathScript.js`, `${p.src_js}/js/jqBootstrapValidation.js`, `${p.src_js}/js/contact_me.js`], babelfry), callback;
-  watch([`${srcCompPath}/**/*`],  render_components), callback;
+  watch([`${srcCompPath}/**/*`],  copy_components), callback;
+  // watch([`${srcCompPath}/**/*`],  render_components), callback;
   cb();
 
   // let file = ''
@@ -574,9 +575,6 @@ function close_server(cb) {
     return cb();
 }
 exports.close_server = close_server;
-
-// // Run everything
-// exports.build = series(sassy, minify_css, minify_js, copy_vendors)
 
 exports.setup_develop = series(compileCSS, renderJS, copy_assets, ejsit);
 exports.build = series(copy_assets);

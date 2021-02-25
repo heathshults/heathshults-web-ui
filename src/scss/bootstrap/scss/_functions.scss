@@ -66,8 +66,17 @@
   @return $string;
 }
 
+
 // Color contrast
 @function color-yiq($color, $dark: $yiq-text-dark, $light: $yiq-text-light) {
+  @if type-of($color) != color {
+    @return $light;
+  }
+
+  @if type-of($color) == null {
+    @warn "`#{$color}` is not a color";
+    @return false;
+  }
   $r: red($color);
   $g: green($color);
   $b: blue($color);

@@ -9,7 +9,7 @@
  * @link https://bitbucket:8443/scm/flk/cxd-ds-framekit.git
  * @file ucon-inject.js
  *
- * @copyright Copyright (c) 2018 Fannie Mae, Inc.
+ * @copyright Copyright (c) 2018 Heath Shults
  * @license MIT
  */
 

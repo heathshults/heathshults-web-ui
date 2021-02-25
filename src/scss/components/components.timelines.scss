@@ -1,7 +1,7 @@
 @import '../variables/maps';
 @import '../variables/colors';
 @import '../variables/mixins';
-@import '../variables/css-vars-mixin';
+// @import '../variables/css-vars';
 @import 'mixins/settings';
 @import '../bootstrap/scss/mixins/_breakpoints.scss';
 
@@ -14,33 +14,10 @@
 
 // -------------------------------------------------
 
-@include cssvars;
+
 
 :root {
-  // colors
-  --hs-color-navy: hsl(206, 21%, 24%); // Navy
-  --hs-color-blue: hsl(205, 38%, 89%); // Blue
-  --hs-color-grey: hsl(207, 10%, 55%); // Grey
-  --hs-color-green: hsl(111, 51%, 60%); // Green
-  --hs-color-red: hsl(356, 53%, 49%); // Red
-  --hs-color-yellow: hsl(47, 85%, 61%); // Yellow
-  --hs-color-white: hsl(0, 0%, 100%);
-
-  // header
-  --hs-header-height: 200px;
-
-  // line-height
-  --heading-line-height: 1.2;
-  --body-line-height: 1.4;
-
-  // spacing
-  --hs-spacing--sm: .5rem;
-  --hs-spacing--md: 1rem;
-  --hs-spacing--lg: 1.5 rem;
-
-  // font
-  --hs-font-primary: 'Roboto', sans-serif;
-  --hs-font-secondary: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --hs-custom-prop: 2px;
 }
 
 @supports (--css: variables) {
@@ -221,8 +198,8 @@
   --text-vspace-multiplier: 1
 }
 .text-component {
-  --component-body-line-height: calc(var(--body-line-height) *var(--line-height-multiplier, 1));
-  --component-heading-line-height: calc(var(--heading-line-height) *var(--line-height-multiplier, 1))
+  --component-body-line-height: calc(var(--body-line-height) * var(--line-height-multiplier, 1));
+  --component-heading-line-height: calc(var(--heading-line-height) * var(--line-height-multiplier, 1))
 }
 @include breakpoint(md) {
 

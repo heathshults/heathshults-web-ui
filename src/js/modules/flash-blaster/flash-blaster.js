@@ -3,7 +3,7 @@
  *  while a web page is loading content.
  * 
  *  https://bitbucket:8443/scm/flk/cxd-ds-framekit.git
- *  Copyright (c) 2018 Fannie Mae, Inc.
+ *  Copyright (c) 2018 Heath Shults
  *  @license MIT
  *
  *  @mainfunction:    showChildren() 

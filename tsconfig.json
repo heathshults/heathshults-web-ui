@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "allowUnreachableCode": false,
-    "declaration": false,
+    "declaration": true,
     "experimentalDecorators": true,
     "lib": [
       "dom",
@@ -15,13 +14,18 @@
     "noUnusedParameters": true,
     "jsx": "react",
     "jsxFactory": "h",
-    "allowJs": true
+    "allowJs": true,
+    "strict": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "include": [
-    "src",
-    "types/jsx.d.ts", "backup/contact_me.js", "backup/jqBootstrapValidation.js"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src", "types/jsx.d.ts", "backup/contact_me.js", "backup/jqBootstrapValidation.js"],
+  "exclude": ["node_modules/"],
+  "rules": {
+    "@typescript-eslint/no-unused-vars" : "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off"
+  },
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Recommended"
 }

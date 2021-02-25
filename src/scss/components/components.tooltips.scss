@@ -12,21 +12,21 @@
 
   &::before {
     position: absolute;
-    border: $tooltip-arrow-width solid transparent;
     content: '';
+    border: $tooltip-arrow-width solid transparent;
   }
 
   &::after {
     position: absolute;
     padding: 0.25em 0.5em;
-    color: $tooltip-body-color;
     line-height: $tooltip-line-height;
+    color: $tooltip-body-color;
     white-space: nowrap;
+    visibility: hidden;
+    content: attr(aria-label);
     background-color: $tooltip-body-background-color;
     border: $tooltip-body-border-width $tooltip-body-border-style $tooltip-body-border-color;
     border-radius: $border-radius;
-    content: attr(aria-label);
-    visibility: hidden;
   }
 
   &:hover::before,
