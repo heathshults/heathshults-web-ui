@@ -1,0 +1,68 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
+  <link rel="stylesheet" href="http://blueprint.fanniemae.com:9306/assets/css/blueprint-ui.css?v=">
+  <style>
+    @import"https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700|Source+Code+Pro:300,400,700|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i&display=swap";
+
+body {
+  background-color: #f8f8f8;
+  color: #121212;
+  font-family: Robboto, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 14px;
+}
+.hs-data-table {
+  background: #fff;
+}
+.hs-data-table td {
+  padding: 4px 6px;
+  border-bottom: 1px solid #dedede;
+}
+h2 {
+  font-size: 22px;
+  font-weight: normal;
+}
+.error {
+  color: #ff0000;
+}
+.header-logo {
+  background-color: rgb(255, 255, 255);
+  padding: 6px;
+  text-align: left;
+  height: 85px;
+  box-shadow: 0 2px 7px #bbbbbb;
+}
+</style>
+</head>
+
+<body>
+<div class="header-logo">
+  <table padding="6">
+    <tr>
+      <td height="85">
+        <img src="http://artifacts.fanniemae.com/blue_fm_logo_72x242.png" width="242" height="72">
+      </td>
+    </tr>
+  </table>
+</div>
+<div style="padding: 16px;">
+  <h2>Loan Lifecycle Notification</h2>
+  <p>
+    You have new feedback. See below:
+  </p>
+  <table padding="6">
+    {{ datatable }}
+  </table>
+  
+</div>
+
+</body>
+
+</html>
