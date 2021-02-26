@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "rootDir": "./",
+    "outDir": "./html",
+    "sourceMap": true
+  },
+  "include": ["render.js"]
+}

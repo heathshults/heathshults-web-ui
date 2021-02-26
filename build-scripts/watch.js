@@ -7,7 +7,7 @@ const renderEJS = require('./render-ejs');
 const renderPug = require('./render-pug');
 const renderSCSS = require('./render-scss');
 
-// var destPath =  path.resolve(__dirname, '../www-app-app')
+// var destPath =  path.resolve(__dirname, '../www')
 var srcPath = path.resolve(__dirname, '../src')
 
 function watchers(cb) {
@@ -18,7 +18,7 @@ function watchers(cb) {
   watch([`${srcPath}/scss/**/*.scss`], (cb) => {renderSCSS.renderSCSS(), cb()})
   watch([`${srcPath}/assets/**/*.css`], (cb) => {renderAssets.copy_css(), cb()})
   watch([`${srcPath}/js/*.{js,json,mjs,cjs,tsx}`, `!${srcPath}/js/HeathScript.js`], (cb) => {renderAssets.copy_js(), cb()})
-  watch([`${srcPath}/js/HeathScript.js`], (cb) => {renderJS.HeathenScriptJS('../www-app/assets/js'), cb()})
+  watch([`${srcPath}/js/HeathScript.js`], (cb) => {renderJS.HeathenScriptJS('../www/assets/js'), cb()})
   cb()
 }
 exports.watchers = watchers

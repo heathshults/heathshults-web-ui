@@ -5,7 +5,7 @@ echo "Running Build from AppRoot"
 cd $(npm root) # changes to the node_modules folder (npm root)
 cd .. # changes directories one level up to the app root
 
-npx postcss --use autoprefixer www-app/assets/css/HeathStyle.built.css --output www-app/assets/css/HeathStyle.built.css &
+npx postcss --use autoprefixer www/assets/css/HeathStyle.built.css --output www/assets/css/HeathStyle.built.css &
 
 
 echo "Build complete..."

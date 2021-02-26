@@ -29,12 +29,12 @@
     "typeScript": "tsc -d ./src/js/modules",
     "stylelint": " stylelint --fix src/scss/**/*.scss",
     "scss:compile": "node build-scripts/build-scss.js",
-    "autoprefixer": "npx postcss www-app/assets/css/*.css --use autoprefixer -d www-app/assets/css/",
+    "autoprefixer": "npx postcss www/assets/css/*.css --use autoprefixer -d www/assets/css/",
     "html:components:build": "gulp build_components",
     "html:components:copy": "gulp copy_components",
     "gulp:copy:js": "gulp copy_js",
     "serve": "gulp serve",
-    "serve:php": "php -S localhost:8000 -t www-app/",
+    "serve:php": "php -S localhost:8000 -t www/",
     "serve:proxy": "gulp connect_sync",
     "watch": "node build-scripts/watch.js",
     "gwatch": "gulp watchers",
@@ -44,7 +44,7 @@
     "scss:vars:convert": "node src/js/modules/scss2cssVars/index.js",
     "cssvars": "node_modules/.bin/babel-node src/js/modules/scss2cssVars/index.js",
     "cssvars:cli": "src/js/modules/scss2cssVars/bin/scss2cssVars src/scss/variables/_colors.scss -o src/scss/variables/_css-vars-heathshults.scss",
-    "debug:scss": "sass src/scss/styles.scss www-app/assets/css/HeathStyle.built.css"
+    "debug:scss": "sass src/scss/styles.scss www/assets/css/HeathStyle.built.css"
   }
   
 }

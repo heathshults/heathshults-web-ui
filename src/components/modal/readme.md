@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property      | Attribute     | Description | Type      | Default              |
@@ -14,12 +15,14 @@
 | `overlay`     | `overlay`     |             | `any`     | `undefined`          |
 | `winHeight`   | `win-height`  |             | `any`     | `window.innerHeight` |
 
+
 ## Events
 
 | Event   | Description | Type               |
 | ------- | ----------- | ------------------ |
 | `close` |             | `CustomEvent<any>` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

@@ -10,8 +10,11 @@ export const config: Config = {
   plugins: [
     sass(),
     // postcss({
-    //   plugins: [autoprefixer()],
-    // }),
+    //   plugins: [autoprefixer({
+    //     browsers: ['last 2 versions'],
+    //     cascade: false
+    //   })]
+    // })
   ],
   outputTargets: [
     {
@@ -24,11 +27,16 @@ export const config: Config = {
     {
       type: 'www',
       empty: false,
+      dir: 'www',
+      buildDir: 'components',
+      baseUrl: '/',
       indexHtml: 'index.html',
       serviceWorker: {
         maximumFileSizeToCacheInBytes: 50000,
       }, // disable service workers}
-      buildDir: 'components',
+      // copy: [
+      //   { src: }
+      // ]
     },
   ],
 };

@@ -19,11 +19,11 @@ ESLINTPID=$! # get background process id of ESLINT
 
 # echo "Running css linters" 
 wait $ESLINTPID
-npx stylelint --fix src/scss/**/*.scss  &
+npx stylelint --fix src/scss/**/*.scss &
 STYLELINTPID=$!
 
 # echo "Typechecking [.js, .jsx, .ts, .tsx] files..." 
 wait $STYLELINTPID
-tsc --project ./tsconfig.typecheck.json  &
+tsc --project ./tsconfig.typecheck.json &
 
 echo "Prebuild completed"
