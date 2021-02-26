@@ -1,0 +1,18 @@
+{
+  "name": "ejsrun",
+  "description": "Runs ejs from the command line to produce HTML from ejs templates and multiple data sources",
+  "version": "0.1.0",
+  "main": "index.js",
+  "license": "MIT",
+  "bin": {
+      "ejsrun": ".bin/ejs-cli.js"
+  },
+  "scripts" : {
+    "build": "mkdir -p dist && echo '#!/usr/bin/env node' > dist/cli.js && cat src/ejsrun.js >> dist/cli.js && chmod 755 dist/cli.js"
+  },
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "hjson": "^3.1.1",
+    "opto": "^1.0.1"
+  }
+}

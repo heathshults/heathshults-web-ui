@@ -59,7 +59,7 @@ import appRoot from 'app-root-path';
 const srcPath = path.resolve(__dirname, 'src');
 const srcCompPath = path.resolve(__dirname, 'src/components');
 const buildPath = path.resolve(__dirname, 'www/build');
-const wwwPath =  path.resolve(__dirname, 'www-app');
+const wwwPath =  path.resolve(__dirname, 'www');
 const distPath =  path.resolve(__dirname, 'dist');
 
 let p = {
@@ -195,7 +195,7 @@ let assets = '{jpg,png,gif,svg,mp4}';
 //   return new Promise((resolve, reject) => {
 //     try {
 //       setTimeout(() => {
-//         copy('www/components/**/*', 'www-app/components', done);
+//         copy('www/components/**/*', 'www/components', done);
 //         console.log(chalk.green('web components copied to app-www/components'));
 //         resolve(true);
 //       }, 2000);
@@ -420,7 +420,7 @@ function copy_js(cb) {
           `!${srcPath}/js/HeathScript.js`,
           `!${srcPath}/js/modules/**/*`
         ])
-        .pipe(rename({ dirname: 'www-app/assets/js'}))
+        .pipe(rename({ dirname: 'www/assets/js'}))
         .pipe(dest('./'))
         .pipe(debug({title: 'Copied JS: '}));
 

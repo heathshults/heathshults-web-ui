@@ -16,7 +16,7 @@ const browserSync = require('browser-sync');
 
 // const rootPath = path.resolve(__dirname, '../')
 const srcPath = path.resolve(__dirname, '../src/assets');
-const wwwPath = path.resolve(__dirname, '../www-app/assets');
+const wwwPath = path.resolve(__dirname, '../www/assets');
 
 var onError = (err) => {
   console.log(chalk(`Error: ${err}`));
@@ -164,7 +164,7 @@ function copy_mail(cb) {
         src('src/mail/**/*')
           .pipe(changed('src/mail/**/*'))
           .pipe(ngAnnotate())
-          .pipe(dest('www-app/mail/**/*'))
+          .pipe(dest('www/mail/**/*'))
           .pipe(debug({
             title: 'Copied mail: '
           }))
@@ -260,7 +260,7 @@ function copy_components(cb) {
         // .pipe(debug({
         //   title: 'Copied origin component: '
         // }))
-        .pipe(dest('../www-app/components'))
+        .pipe(dest('../www/components'))
         .pipe(browserSync.stream());
         // .pipe(debug({
         //   title: 'Copied destination component: '

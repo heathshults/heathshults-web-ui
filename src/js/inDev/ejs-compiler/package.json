@@ -1,0 +1,13 @@
+{
+  "name": "ejs-compiler",
+  "version": "0.0.0",
+  "scripts": {
+    "render": "tsc && node dist/render.js"
+  },
+  "devDependencies": {
+    "@types/ejs": "^2.6.2",
+    "@types/node": "^11.9.4",
+    "ejs": "^2.6.1",
+    "typescript": "^3.3.3333"
+  }
+}

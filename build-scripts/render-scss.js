@@ -10,9 +10,9 @@ var chalk = require('chalk');
 var browserSync = require('browser-sync');
 // vars
 const mainStyleSheetIn = `${appRoot}/src/scss/styles.scss`;
-const mainStyleSheetOut = `${appRoot}/www-app/assets/css/HeathStyle.built.css`;
+const mainStyleSheetOut = `${appRoot}/www/assets/css/HeathStyle.built.css`;
 const darkStyleSheetIn = `${appRoot}/src/scss/theme-dark-mode.scss`;
-const darkStyleSheetOut = `${appRoot}/www-app/assets/css/theme-dark-mode.css`;
+const darkStyleSheetOut = `${appRoot}/www/assets/css/theme-dark-mode.css`;
 // console.log('starting outside...')
 
 var theStyleSheets = [

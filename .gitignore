@@ -1,7 +1,7 @@
 node_modules/
 src/DevBox/
 www/
-www-app/
+www/
 **/*/_notes/
 dist/
 .dist/
@@ -9,7 +9,7 @@ dist/
 .sass-cache/
 .vscode/
 .DS_Store
-**/*/www-app/**/*
+**/*/www/**/*
 backup/
 **/*/www/**/*
 src/assets/content/DevBox/

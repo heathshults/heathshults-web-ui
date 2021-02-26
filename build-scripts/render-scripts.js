@@ -45,8 +45,8 @@ const nfs = require('node-fs'),
 
 // let babelify = require('babelify')
 let inFile = path.resolve(__dirname, '../src/index.js');
-let outFile = path.resolve(__dirname, '../www-app/assets/js/HeathScript.built.js');
-let outPath = path.resolve(__dirname, '../www-app/assets/js/');
+let outFile = path.resolve(__dirname, '../www/assets/js/HeathScript.built.js');
+let outPath = path.resolve(__dirname, '../www/assets/js/');
 
 
 // let whoDidIt =

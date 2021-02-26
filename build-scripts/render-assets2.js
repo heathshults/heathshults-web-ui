@@ -4,7 +4,7 @@ const { src, dest } = require('gulp')
 const debug = require('gulp-debug')
 
 const sourcePath = path.resolve(__dirname, '../src/assets');
-const destPath = path.resolve(__dirname, '../www-app/assets');
+const destPath = path.resolve(__dirname, '../www/assets');
 const srcJS = path.resolve(__dirname, '../src/js/')
 
 module.exports = function RenderAssets() {

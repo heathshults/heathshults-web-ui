@@ -1,14 +1,14 @@
-import { r as registerInstance, h } from './index-efdc126d.js';
+import { r as registerInstance, h } from './index-9897d625.js';
 
 const hsButtonCss = ":host{}";
 
 const HsButton = class {
-    constructor(hostRef) {
-        registerInstance(this, hostRef);
-    }
-    render() {
-        return (h("div", null, h("p", null, "Hello HsButton!")));
-    }
+  constructor(hostRef) {
+    registerInstance(this, hostRef);
+  }
+  render() {
+    return (h("div", null, h("p", null, "Hello HsButton!")));
+  }
 };
 HsButton.style = hsButtonCss;
 
