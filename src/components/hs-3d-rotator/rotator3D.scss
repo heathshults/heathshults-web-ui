@@ -13,7 +13,7 @@
 // rotator3D configuration parameters
 $item-width: 40%; // Now we can use percentages!
 $item-separation: 0px; // This now is set with Js
-$viewer-distance: 500px;
+$viewer-distance: 700px;
 
 .rotator3D {
 
@@ -56,7 +56,10 @@ $viewer-distance: 500px;
 .rotator3D__nav {
   display: flex;
   justify-content: center;
+  max-width: 100%;
+  padding: 1rem 2rem;
   margin: 20px 0 0;
+  background: rgba(0, 0, 0, .75);
 
   .rotator3D__button {
     flex: 0 0 auto;
