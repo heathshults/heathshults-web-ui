@@ -7,27 +7,16 @@
 
 ## Properties
 
-| Property          | Attribute             | Description | Type               | Default         |
-| ----------------- | --------------------- | ----------- | ------------------ | --------------- |
-| `HSThreeDRotator` | `h-s-three-d-rotator` |             | `any`              | `undefined`     |
-| `cellCount`       | `cell-count`          |             | `any`              | `undefined`     |
-| `cellHeight`      | `cell-height`         |             | `number \| string` | `undefined`     |
-| `cellWidth`       | `cell-width`          |             | `number \| string` | `undefined`     |
-| `headers`         | --                    |             | `Headers`          | `new Headers()` |
-| `jdata`           | --                    |             | `any[]`            | `undefined`     |
-| `maxCells`        | `max-cells`           |             | `15`               | `undefined`     |
-| `method`          | `method`              |             | `string`           | `'GET'`         |
-| `minCells`        | `min-cells`           |             | `3`                | `undefined`     |
-| `startCellCount`  | `start-cell-count`    |             | `6`                | `undefined`     |
-| `url`             | `url`                 |             | `string`           | `''`            |
-
-
-## Events
-
-| Event        | Description | Type               |
-| ------------ | ----------- | ------------------ |
-| `fetcherror` |             | `CustomEvent<any>` |
-| `resolved`   |             | `CustomEvent<any>` |
+| Property           | Attribute             | Description | Type          | Default     |
+| ------------------ | --------------------- | ----------- | ------------- | ----------- |
+| `currImage`        | `curr-image`          |             | `any`         | `undefined` |
+| `dataBfc`          | `data-bfc`            |             | `any`         | `undefined` |
+| `dataGap`          | `data-gap`            |             | `any`         | `undefined` |
+| `figure`           | --                    |             | `HTMLElement` | `undefined` |
+| `images`           | `images`              |             | `any`         | `undefined` |
+| `nav`              | `nav`                 |             | `any`         | `undefined` |
+| `rotator3DElement` | `rotator-3-d-element` |             | `any`         | `undefined` |
+| `theta`            | `theta`               |             | `any`         | `undefined` |
 
 
 ----------------------------------------------

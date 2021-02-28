@@ -1,4 +1,4 @@
-import { r as registerInstance, e as createEvent } from './index-9897d625.js';
+import { r as registerInstance, e as createEvent } from './index-b5bbd2bc.js';
 
 const hsFetcherCss = ":host{}";
 

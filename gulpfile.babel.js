@@ -207,7 +207,7 @@ let assets = '{jpg,png,gif,svg,mp4}';
 // exports.copy_web_components = copy_web_components;
  
 function ejsit(done) {
-  return src(`${srcPath}/views/**/*.ejs`)
+  return src(`${srcPath}/views/*.ejs`)
     .pipe(plumber())
     .pipe(ejs().on('error', log))
     .pipe(rename({ extname: ".html" }))
@@ -250,16 +250,28 @@ exports.babelfry = babelfry;
 // }
 // exports.babelfry = babelfry;
 
-function renderJS(cb) {
-  console.log(chalk.yellow('starting JS renderrer...'));
-  exec('node build-scripts/build-scripts-launcher.js', (error, stdout, stderr) => {
-    if (error) {
-        console.log(chalk.red("ERROR renderJS: \n stdout: " + stderr + "\n Error Message: " + error.message));
-        return 'renderJS error'+error;
-    }
-    console.log(chalk.green('JS Rendererred: HeathScript.built.js'));
-    return true;
-  });
+function renderJS(method, cb) {
+  if (method === 'dir') {
+    console.log(chalk.yellow('starting JS renderrer...'));
+    exec('npx babel src/js/modules --out-dir www/assets/js/', (error, stdout, stderr) => {
+      if (error) {
+          console.log(chalk.red("ERROR renderJS: \n stdout: " + stderr + "\n Error Message: " + error.message));
+          return 'renderJS error'+error;
+      }
+      console.log(chalk.green('JS Rendererred: HeathScript.built.js'));
+      return true;
+    });
+  }
+  if (method === 'file') {
+    exec('npx babel src/js/modules/HeathScript.ts --out-file www/assets/js/HeathScript.js', (error, stdout, stderr) => {
+      if (error) {
+          console.log(chalk.red("ERROR renderJS: \n stdout: " + stderr + "\n Error Message: " + error.message));
+          return 'renderJS error'+error;
+      }
+      console.log(chalk.green('JS Rendererred: HeathScript.js'));
+      return true;
+    });
+  }  
   if (typeof cb === 'function') cb();
 }
 exports.renderJS = renderJS;
@@ -451,11 +463,13 @@ function build_components(cb) {
   return new Promise((resolve, reject) => {
     try {
       setTimeout(() => {
-  exec('node_modules/.bin/stencil build --dev --docs-readme --debug', (error) => {
+  exec('npm run comp:build:nowatch', (error) => {
     if (error) {
         console.log(chalk.red(`error: ${error.message}`));
         return cb;
-    } else {console.log(chalk.green('Components built!'))}
+    } else {
+      console.log(chalk.green('Components built!'));
+    }
   });
   resolve(cb);
       }, 1000);
@@ -541,33 +555,6 @@ function serve(cb) {
 }
 exports.serve = serve;
 
-function watchers(cb) {
-  return new Promise((resolve, reject) => {
-    try {
-      // eslint-disable-next-line no-sequences
-      var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
-      watch(`${srcPath}/views/*.ejs`, ejsit).on('change', browserSync.reload), callback;
-      watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_images).on('change', browserSync.reload), callback;
-      watch([`${srcPath}/scss/**/*.scss`], compileCSS), callback;
-      watch([`${srcPath}/**/*.html`], ra.copy_html), callback;
-      watch([`${srcPath}/assets/**/*.css`], ra.copy_css), callback;
-      watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], copy_js), callback;
-      watch([`${buildPath}/**/*`], copy_components), callback;
-      watch([`${p.src_js}/js/HeathScript.js`, `${p.src_js}/js/jqBootstrapValidation.js`,  `${p.src_js}/js/modules/**/*.ts`, `${p.src_js}/js/contact_me.js`], babelfry).on('change', browserSync.reload), callback;
-      watch([`${srcCompPath}/**/*`],  exec('npm run comp:buildlight', (e) => console.log(e))), callback;
-      // watch([`${srcCompPath}/**/*`],  render_components), callback;
-  
-        resolve(callback);
-    } catch(e) {
-      console.log(`Error in watchers: ${e}`);
-      reject(callback);
-      
-    }
-    
-  });
-}
-exports.watchers = watchers;
-
 // Configure the browserSync task
 function serveSync(cb) {
   browserSync.init({
@@ -594,22 +581,22 @@ function connect_sync(cb) {
     
   });
   
+let jsfile = '';
+let jsdir = '';
+  // eslint-disable-next-line no-sequences
+  var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
+  watch(`${srcPath}/views/*.ejs`, ejsit).on('change', browserSync.reload), callback;
+  watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_images).on('change', browserSync.reload), callback;
+  watch([`${srcPath}/scss/**/*.scss`], compileCSS).on('change', browserSync.reload), callback;
+  watch([`${srcPath}/**/*.html`], ra.copy_html).on('change', browserSync.reload), callback;
+  watch([`${srcPath}/assets/**/*.css`], ra.copy_css).on('change', browserSync.reload), callback;
+  watch([`"${srcPath}/js/modules/**/*.{js,mjs,cjs,ts}"`, `!${srcPath}/js/HeathScript.js`], renderJS(jsdir)).on('change', browserSync.reload), callback;
+  watch([`${srcPath}/js/HeathScript.ts`], renderJS(jsfile)).on('change', browserSync.reload), callback;
+  // watch([`${srcCompPath}/**/*.{tsx,ts,jsx,js,scss}`], build_components).on('change', browserSync.reload), callback;
+  jsfile = 'file';
+  jsdir = 'dir';
 
-  // // eslint-disable-next-line no-sequences
-  // var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
-  // watch(`${srcPath}/views/*.ejs`, ejsit).on('change', browserSync.reload), callback;
-  // watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_images).on('change', browserSync.reload), callback;
-  // watch([`${srcPath}/scss/**/*.scss`], compileCSS), callback;
-  // watch([`${srcPath}/**/*.html`], ra.copy_html), callback;
-  // watch([`${srcPath}/assets/**/*.css`], ra.copy_css), callback;
-  // watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], copy_js), callback;
-  // watch([`${buildPath}/**/*`], copy_components), callback;
-  // watch([`${p.src_js}/js/HeathScript.js`, `${p.src_js}/js/jqBootstrapValidation.js`,  `${p.src_js}/js/modules/**/*.ts`, `${p.src_js}/js/contact_me.js`], babelfry).on('change', browserSync.reload), callback;
-  // watch([`${srcCompPath}/**/*`],  exec('npm run comp:buildlight', (e) => console.log(e))), callback;
-  // // watch([`${srcCompPath}/**/*`],  render_components), callback;
-  // cb();
-
-  // let file = ''
+  // let file = '';
   // if (typeof cb === 'function') {
   //   cb(null, file);
   //   called = true;
