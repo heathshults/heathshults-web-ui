@@ -133,6 +133,8 @@ export namespace Components {
         "figure": HTMLElement;
         "images": any;
         "nav": any;
+        "navigate": any;
+        "rotateRotator3D": any;
         "rotator3DElement": any;
         "theta": any;
     }
@@ -458,6 +460,8 @@ declare namespace LocalJSX {
         "figure"?: HTMLElement;
         "images"?: any;
         "nav"?: any;
+        "navigate"?: any;
+        "rotateRotator3D"?: any;
         "rotator3DElement"?: any;
         "theta"?: any;
     }

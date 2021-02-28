@@ -15,6 +15,8 @@
 | `figure`           | --                    |             | `HTMLElement` | `undefined` |
 | `images`           | `images`              |             | `any`         | `undefined` |
 | `nav`              | `nav`                 |             | `any`         | `undefined` |
+| `navigate`         | `navigate`            |             | `any`         | `undefined` |
+| `rotateRotator3D`  | `rotate-rotator-3-d`  |             | `any`         | `undefined` |
 | `rotator3DElement` | `rotator-3-d-element` |             | `any`         | `undefined` |
 | `theta`            | `theta`               |             | `any`         | `undefined` |
 

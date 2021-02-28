@@ -13,11 +13,14 @@ export class HS3dRotator {
   @Prop() rotator3DElement: any;
   @Prop() figure: HTMLElement;
   @Prop() nav: any;
+  @Prop() navigate: any;
   @Prop() images: any;
   @Prop() currImage: any;
   @Prop() theta: any;
   @Prop() dataGap: any;
   @Prop() dataBfc: any;
+  @Prop() rotateRotator3D: any;
+  
   
 
   componentWillLoad() {
@@ -30,21 +33,38 @@ export class HS3dRotator {
           const bfc = this.dataBfc;
          
           this.figure = this.el.shadowRoot.querySelector('figure');
-          l(this.figure);
+          const figure = this.figure; // redefine so can be visible throughout scope
           this.nav =  this.el.shadowRoot.querySelector('nav');
-          l(this.nav);
+          const nav = this.nav;
           this.images =  this.el.shadowRoot.querySelectorAll('img');
-          l(this.images);
-          const n = this.images.length;
-
-
-          this.theta =  2 * Math.PI / n;
-          this.currImage = 0;
-          const parseFloatVar = parseFloat(getComputedStyle(this.images[0]).width);
+          const images = this.images;
           
-          setuprotator3D(n, parseFloatVar, this.figure, this.images, this.theta, this.currImage);
+          l(this.figure);
+          l(this.nav);
+          l(this.images);
+          
+          const n = this.images.length;
+          const theta = this.theta =  2 * Math.PI / n;
+          let currImage = 0;
+          const parseFloatVar = parseFloat(getComputedStyle(images[0]).width);
+          const figureWidth = getComputedStyle(figure).width;
+          this.nav.style.width = figureWidth;
+          setuprotator3D(
+            n, 
+            parseFloatVar, 
+            figure, 
+            images, 
+            theta, 
+            currImage);
           window.addEventListener('resize', () => { 
-            setuprotator3D(n, parseFloatVar, this.figure, this.images, this.theta, this.currImage);
+            setuprotator3D(n, 
+              parseFloat(getComputedStyle(images[0]).width), 
+              figure, 
+              images, 
+              theta, 
+              currImage);
+            this.nav.style.width = getComputedStyle(figure).width;
+            l(parseFloatVar);
           });
         
           function setuprotator3D(n, s, figure, images, theta, currImage) {
@@ -62,10 +82,34 @@ export class HS3dRotator {
               for (let i = 0; i < n; i++)
                  images[i].style.backfaceVisibility = 'hidden';
             
-            this.rotateRotator3D(currImage);
+            rotateRotator3D(currImage);
+            // const imageIndex = currImage;
+            
+            // figure.style.transform = `rotateY(${imageIndex * -theta}rad)`;
           }
               
-              
+
+          function rotateRotator3D(imageIndex: any): void {
+            figure.style.transform = `rotateY(${imageIndex * -theta}rad)`;
+          }
+          
+          this.navigate = function navigate(e) {
+            e.stopPropagation();
+            
+            const t = e.target;
+            if (t.tagName.toUpperCase() != 'BUTTON')
+              return;
+            
+            if (t.classList.contains('next')) {
+              currImage++;
+            }
+            else {
+              currImage--;
+            }
+            const imageIndex = currImage;
+            rotateRotator3D(currImage);
+            // figure.style.transform = `rotateY(${imageIndex * -this.theta}rad)`;
+          };
           
               
         }, 5);
@@ -75,29 +119,10 @@ export class HS3dRotator {
         reject(err.message);
       }
     });
-    
   }
   
-  navigate(e) {
-    e.stopPropagation();
-    
-    const t = e.target;
-    if (t.tagName.toUpperCase() != 'BUTTON')
-      return;
-    
-    if (t.classList.contains('next')) {
-      this.currImage++;
-    }
-    else {
-      this.currImage--;
-    }
-    
-    this.rotateRotator3D(this.currImage);
-  }
 
-  rotateRotator3D(imageIndex: any): void {
-    this.figure.style.transform = `rotateY(${imageIndex * -this.theta}rad)`;
-  }
+
   
   render() {
     return (
