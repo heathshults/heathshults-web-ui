@@ -50,9 +50,9 @@
     }
   };
 
-  var verticalTimelines = document.getElementsByClassName("js-hs-timeline"),
-      verticalTimelinesArray = [],
-      scrolling = false;
+  var verticalTimelines = document.getElementsByClassName("js-hs-timeline");
+  var verticalTimelinesArray = [];
+  var scrolling = false;
 
   if (verticalTimelines.length > 0) {
     for (var i = 0; i < verticalTimelines.length; i++) {

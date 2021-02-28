@@ -1,4 +1,4 @@
-import { r as registerInstance, e as createEvent, h } from './index-9897d625.js';
+import { r as registerInstance, e as createEvent, h } from './index-b5bbd2bc.js';
 
 const BackToTop = class {
   constructor(hostRef) {

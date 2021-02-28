@@ -1,4 +1,4 @@
-import { r as registerInstance, h, g as getElement } from './index-9897d625.js';
+import { r as registerInstance, h, g as getElement } from './index-b5bbd2bc.js';
 
 const Sticky = class {
   constructor(hostRef) {

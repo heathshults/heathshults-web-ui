@@ -6,19 +6,6 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface Hs3dRotator {
-        "HSThreeDRotator": any;
-        "cellCount": any;
-        "cellHeight": number | string;
-        "cellWidth": number | string;
-        "headers": Headers;
-        "jdata": Array<any>;
-        "maxCells": 15;
-        "method": string;
-        "minCells": 3;
-        "startCellCount": 6;
-        "url": string;
-    }
     interface HsBackToTop {
         "position": string;
     }
@@ -38,8 +25,6 @@ export namespace Components {
         "clickTarget": string;
         "cloneBaby": any;
         "clonedContent": any;
-        "colorTone": string;
-        "colorToneClass": string;
         "dataTarget"?: string;
         "dataToggle"?: string;
         "fnStatusCallBack": (status: boolean, fnName: string, errorMessage?: any) => any;
@@ -55,9 +40,7 @@ export namespace Components {
     }
     interface HsCardBody {
         "bodyClassList"?: string;
-        "bodyClasses"?: string;
         "contentClassList"?: string;
-        "contentClasses"?: string;
     }
     interface HsCardButton {
         "buttonId"?: string;
@@ -71,8 +54,6 @@ export namespace Components {
         "urlParams"?: any;
     }
     interface HsCardFooter {
-        "colorTone"?: string;
-        "colorToneClass"?: string;
         "modalId"?: string;
     }
     interface HsCardHeader {
@@ -145,6 +126,16 @@ export namespace Components {
         "type": string;
         "value": number;
     }
+    interface HsRotator3d {
+        "currImage": any;
+        "dataBfc": any;
+        "dataGap": any;
+        "figure": HTMLElement;
+        "images": any;
+        "nav": any;
+        "rotator3DElement": any;
+        "theta": any;
+    }
     interface HsSlider {
         "max": number;
         "min": number;
@@ -175,12 +166,6 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLHs3dRotatorElement extends Components.Hs3dRotator, HTMLStencilElement {
-    }
-    var HTMLHs3dRotatorElement: {
-        prototype: HTMLHs3dRotatorElement;
-        new (): HTMLHs3dRotatorElement;
-    };
     interface HTMLHsBackToTopElement extends Components.HsBackToTop, HTMLStencilElement {
     }
     var HTMLHsBackToTopElement: {
@@ -271,6 +256,12 @@ declare global {
         prototype: HTMLHsProgressBarElement;
         new (): HTMLHsProgressBarElement;
     };
+    interface HTMLHsRotator3dElement extends Components.HsRotator3d, HTMLStencilElement {
+    }
+    var HTMLHsRotator3dElement: {
+        prototype: HTMLHsRotator3dElement;
+        new (): HTMLHsRotator3dElement;
+    };
     interface HTMLHsSliderElement extends Components.HsSlider, HTMLStencilElement {
     }
     var HTMLHsSliderElement: {
@@ -308,7 +299,6 @@ declare global {
         new (): HTMLHsTimelineItemElement;
     };
     interface HTMLElementTagNameMap {
-        "hs-3d-rotator": HTMLHs3dRotatorElement;
         "hs-back-to-top": HTMLHsBackToTopElement;
         "hs-button": HTMLHsButtonElement;
         "hs-card": HTMLHsCardElement;
@@ -324,6 +314,7 @@ declare global {
         "hs-modal": HTMLHsModalElement;
         "hs-progress": HTMLHsProgressElement;
         "hs-progress-bar": HTMLHsProgressBarElement;
+        "hs-rotator3d": HTMLHsRotator3dElement;
         "hs-slider": HTMLHsSliderElement;
         "hs-sticky": HTMLHsStickyElement;
         "hs-tab": HTMLHsTabElement;
@@ -333,21 +324,6 @@ declare global {
     }
 }
 declare namespace LocalJSX {
-    interface Hs3dRotator {
-        "HSThreeDRotator"?: any;
-        "cellCount"?: any;
-        "cellHeight"?: number | string;
-        "cellWidth"?: number | string;
-        "headers"?: Headers;
-        "jdata"?: Array<any>;
-        "maxCells"?: 15;
-        "method"?: string;
-        "minCells"?: 3;
-        "onFetcherror"?: (event: CustomEvent<any>) => void;
-        "onResolved"?: (event: CustomEvent<any>) => void;
-        "startCellCount"?: 6;
-        "url"?: string;
-    }
     interface HsBackToTop {
         "onBacktotop"?: (event: CustomEvent<any>) => void;
         "position"?: string;
@@ -368,8 +344,6 @@ declare namespace LocalJSX {
         "clickTarget"?: string;
         "cloneBaby"?: any;
         "clonedContent"?: any;
-        "colorTone"?: string;
-        "colorToneClass"?: string;
         "dataTarget"?: string;
         "dataToggle"?: string;
         "fnStatusCallBack"?: (status: boolean, fnName: string, errorMessage?: any) => any;
@@ -385,9 +359,7 @@ declare namespace LocalJSX {
     }
     interface HsCardBody {
         "bodyClassList"?: string;
-        "bodyClasses"?: string;
         "contentClassList"?: string;
-        "contentClasses"?: string;
     }
     interface HsCardButton {
         "buttonId"?: string;
@@ -401,8 +373,6 @@ declare namespace LocalJSX {
         "urlParams"?: any;
     }
     interface HsCardFooter {
-        "colorTone"?: string;
-        "colorToneClass"?: string;
         "modalId"?: string;
     }
     interface HsCardHeader {
@@ -481,6 +451,16 @@ declare namespace LocalJSX {
         "type"?: string;
         "value"?: number;
     }
+    interface HsRotator3d {
+        "currImage"?: any;
+        "dataBfc"?: any;
+        "dataGap"?: any;
+        "figure"?: HTMLElement;
+        "images"?: any;
+        "nav"?: any;
+        "rotator3DElement"?: any;
+        "theta"?: any;
+    }
     interface HsSlider {
         "max"?: number;
         "min"?: number;
@@ -510,7 +490,6 @@ declare namespace LocalJSX {
         "type"?: string;
     }
     interface IntrinsicElements {
-        "hs-3d-rotator": Hs3dRotator;
         "hs-back-to-top": HsBackToTop;
         "hs-button": HsButton;
         "hs-card": HsCard;
@@ -526,6 +505,7 @@ declare namespace LocalJSX {
         "hs-modal": HsModal;
         "hs-progress": HsProgress;
         "hs-progress-bar": HsProgressBar;
+        "hs-rotator3d": HsRotator3d;
         "hs-slider": HsSlider;
         "hs-sticky": HsSticky;
         "hs-tab": HsTab;
@@ -538,7 +518,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "hs-3d-rotator": LocalJSX.Hs3dRotator & JSXBase.HTMLAttributes<HTMLHs3dRotatorElement>;
             "hs-back-to-top": LocalJSX.HsBackToTop & JSXBase.HTMLAttributes<HTMLHsBackToTopElement>;
             "hs-button": LocalJSX.HsButton & JSXBase.HTMLAttributes<HTMLHsButtonElement>;
             "hs-card": LocalJSX.HsCard & JSXBase.HTMLAttributes<HTMLHsCardElement>;
@@ -554,6 +533,7 @@ declare module "@stencil/core" {
             "hs-modal": LocalJSX.HsModal & JSXBase.HTMLAttributes<HTMLHsModalElement>;
             "hs-progress": LocalJSX.HsProgress & JSXBase.HTMLAttributes<HTMLHsProgressElement>;
             "hs-progress-bar": LocalJSX.HsProgressBar & JSXBase.HTMLAttributes<HTMLHsProgressBarElement>;
+            "hs-rotator3d": LocalJSX.HsRotator3d & JSXBase.HTMLAttributes<HTMLHsRotator3dElement>;
             "hs-slider": LocalJSX.HsSlider & JSXBase.HTMLAttributes<HTMLHsSliderElement>;
             "hs-sticky": LocalJSX.HsSticky & JSXBase.HTMLAttributes<HTMLHsStickyElement>;
             "hs-tab": LocalJSX.HsTab & JSXBase.HTMLAttributes<HTMLHsTabElement>;
