@@ -137,8 +137,12 @@ export class HS3dRotator {
             <img class="rotator3D__img" src="/assets/img/portfolio/bowlopolis/games-page-800x533.jpg" alt="games-page"/>          
           </figure>
           <nav class="rotator3D__nav">
-            <button class="rotator3D__button prev" onClick={this.navigate}>Prev</button>
-            <button class="rotator3D__button next" onClick={this.navigate}>Next</button>
+            <button class="rotator3D__button prev" onClick={this.navigate}>
+            
+            </button>
+            <button class="rotator3D__button next" onClick={this.navigate}>
+              
+            </button>
           </nav>
         </div>
       </Host>
