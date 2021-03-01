@@ -39,16 +39,12 @@ export class HS3dRotator {
           this.images =  this.el.shadowRoot.querySelectorAll('img');
           const images = this.images;
           
-          l(this.figure);
-          l(this.nav);
-          l(this.images);
-          
           const n = this.images.length;
           const theta = this.theta =  2 * Math.PI / n;
           let currImage = 0;
           const parseFloatVar = parseFloat(getComputedStyle(images[0]).width);
-          const figureWidth = getComputedStyle(figure).width;
-          this.nav.style.width = figureWidth;
+          const imageWidth = parseFloat(getComputedStyle(images[0]).width);
+          this.nav.style.width = imageWidth;
           setuprotator3D(
             n, 
             parseFloatVar, 
@@ -56,6 +52,8 @@ export class HS3dRotator {
             images, 
             theta, 
             currImage);
+            
+            
           window.addEventListener('resize', () => { 
             setuprotator3D(n, 
               parseFloat(getComputedStyle(images[0]).width), 
@@ -63,10 +61,20 @@ export class HS3dRotator {
               images, 
               theta, 
               currImage);
-            this.nav.style.width = getComputedStyle(figure).width;
-            l(parseFloatVar);
+            this.nav.style.width = parseFloat(getComputedStyle(images[0]).width);
           });
-        
+          
+          /**
+           * 
+           * @description Function that sets up the layout and angles 
+           * @param  {any} n 
+           * @param  {any} s 
+           * @param  {any} figure 
+           * @param  {any} images 
+           * @param  {any} theta 
+           * @param  {any} currImage 
+           * @return {void}
+           */
           function setuprotator3D(n, s, figure, images, theta, currImage) {
             const apothem = s / (2 * Math.tan(Math.PI / n));
             
@@ -93,6 +101,10 @@ export class HS3dRotator {
             figure.style.transform = `rotateY(${imageIndex * -theta}rad)`;
           }
           
+          /**
+           * @description Function that navigates through the rotator
+           * @param {e} UIEvent 
+           */
           this.navigate = function navigate(e) {
             e.stopPropagation();
             
@@ -110,6 +122,18 @@ export class HS3dRotator {
             rotateRotator3D(currImage);
             // figure.style.transform = `rotateY(${imageIndex * -this.theta}rad)`;
           };
+          
+          // if rotator in a modal listen for modal to be shown and reset the rotator
+          document.addEventListener('shown.bs.modal', () =>{  
+            // this.root.classList.remove('hs-vanish');
+            setuprotator3D(n, 
+              parseFloat(getComputedStyle(images[0]).width), 
+              figure, 
+              images, 
+              theta, 
+              currImage);
+            this.nav.style.width = parseFloat(getComputedStyle(images[0]).width);
+          });
           
               
         }, 5);
@@ -137,12 +161,8 @@ export class HS3dRotator {
             <img class="rotator3D__img" src="/assets/img/portfolio/bowlopolis/games-page-800x533.jpg" alt="games-page"/>          
           </figure>
           <nav class="rotator3D__nav">
-            <button class="rotator3D__button prev" onClick={this.navigate}>
-            
-            </button>
-            <button class="rotator3D__button next" onClick={this.navigate}>
-              
-            </button>
+            <button class="rotator3D__button prev" onClick={this.navigate}></button>
+            <button class="rotator3D__button next" onClick={this.navigate}></button>
           </nav>
         </div>
       </Host>

@@ -33,10 +33,6 @@
  * @note:  tons of room for improvement...
  */
 
-// function TimeStamper() {
-
-  // timerequest();
- 
   class TimeStamper {
     constructor(format) {
       this.dt=new Date();
@@ -45,20 +41,20 @@
   
   
       // ensure date comes as 01, 09 etc
-      const DD=('0'+this.dt.getDate()).slice(-2),
+      const DD=(`0${this.dt.getDate()}`).slice(-2),
   
-        // getMonth returns month from 0
-        MM=('0'+(this.dt.getMonth()+1)).slice(-2),
-        YYYY=this.dt.getFullYear(),
-        hh=('0'+this.dt.getHours()).slice(-2),
-        mm=('0'+this.dt.getMinutes()).slice(-2),
-        ss=('0'+this.dt.getSeconds()).slice(-2),
-  
-        datetime=MM+'-'+DD+'-'+YYYY+' '+hh+':'+mm+':'+ss,
-        datetimereverse=YYYY+'-'+MM+'-'+DD+' '+hh+':'+mm+':'+ss,
-        justdate=MM+'-'+DD+'-'+YYYY,
-        justtime=hh+':'+mm+':'+ss,
-        justyear=YYYY;
+      // getMonth returns month from 0
+      MM=(`0${this.dt.getMonth() + 1}`).slice(-2),
+      YYYY=this.dt.getFullYear(),
+      hh=(`0${this.dt.getHours()}`).slice(-2),
+      mm=(`0${this.dt.getMinutes()}`).slice(-2),
+      ss=(`0${this.dt.getSeconds()}`).slice(-2),
+
+      datetime=`${MM}-${DD}-${YYYY} ${hh}:${mm}:${ss}`,
+      datetimereverse=`${YYYY}-${MM}-${DD} ${hh}:${mm}:${ss}`,
+      justdate=`${MM}-${DD}-${YYYY}`,
+      justtime=`${hh}:${mm}:${ss}`,
+      justyear=YYYY;
   
       if (format==='datetime') {
         this.final=datetime;
@@ -78,10 +74,6 @@
       return this.final;
     }
   }
-  
-  // const _TimeStamper=TimeStamper;
-  // export {_TimeStamper as TimeStamper};
-      
   const d = new TimeStamper('datetime');
   // eslint-disable-next-line no-console
   console.log(d.final);
