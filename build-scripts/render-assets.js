@@ -128,25 +128,10 @@ function copy_images(cb) {
         .pipe(changed(`${wwwPath}/img`))
         .pipe(ngAnnotate())
         .pipe(dest(`${wwwPath}/img`))
-        .pipe(browserSync.stream());
-        // .pipe(debug({
-        //   title: 'Copied images: '
-        // }))
-        // .pipe(dest(`${wwwPath}/img/portfolio`))
-        // .pipe(debug({
-        //   title: 'Copied images: '
-        // }));
-
-      // src(`${srcPath}/img/portfolio/**/*.{png,jpg,gif,svg}`)
-      //   .pipe(changed(`${wwwPath}/img/portfolio`))
-      //   .pipe(ngAnnotate())
-      //   .pipe(dest(`${wwwPath}/img/portfolio`))
-      //   .pipe(debug({
-      //     title: 'Copied images: '
-      //   }));
-      // if (typeof cb === 'function') {
-      //   cb()
-      // }
+        .pipe(browserSync.stream())
+        .pipe(debug({
+          title: 'Copied images: '
+        }));
       console.log(chalk.green('copy_img() complete!'));
       resolve(cb);
     } catch (error) {
@@ -179,6 +164,8 @@ function copy_mail(cb) {
       console.error(chalk.red('Error in copy_assets_content(): ' + error));
       reject(`Rejected copy_assets_content(): ${error}`);
     }
+  }).catch(error => {
+    console.error(chalk.red('Error in copy_assets_content(): ' + error));
   });
 }
 exports.copy_mail = copy_mail;

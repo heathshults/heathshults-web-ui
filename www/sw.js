@@ -31,7 +31,7 @@ self.__precacheManifest = [
   },
   {
     "url": "dev2.html",
-    "revision": "02c8ae0bae25bf882c40d1b7c7447786"
+    "revision": "2cb57d8a3d54c3a25a0cc490e5dba099"
   },
   {
     "url": "flip-cards.html",
@@ -55,23 +55,23 @@ self.__precacheManifest = [
   },
   {
     "url": "assets/css/fonts.css",
-    "revision": "1c294b4c6f38cd3839586fa189c973a1"
+    "revision": "892db3e74c0a13dea476c7015effcca6"
   },
   {
     "url": "assets/css/swiper.css",
-    "revision": "8b2d341f29130c911a6fd07f056a6488"
+    "revision": "74345ef3105d250fd115a5463a1bb6c1"
   },
   {
     "url": "assets/css/test.css",
-    "revision": "4caad7d3083fe1b0be7ec24b3b9e8ddb"
+    "revision": "a0a86460f4293c90722ed907bbefd2c2"
   },
   {
     "url": "assets/css/theme-dark-mode.css",
-    "revision": "417a3a7644e377c981109280fe6038f9"
+    "revision": "edec6309215413889f142a6cddb46a89"
   },
   {
     "url": "assets/css/TTII-DesignDev.css",
-    "revision": "c90806742bcbdc396a72d5f09946a6a9"
+    "revision": "304a468d17f6eb762c641da9812fd853"
   },
   {
     "url": "assets/fa-5140/css/brands.css",
@@ -243,91 +243,91 @@ self.__precacheManifest = [
   },
   {
     "url": "components/hs-back-to-top.entry.js",
-    "revision": "0582ee6f01b924e299873756f8eb0695"
+    "revision": "3781e008cb4d85ad2585f4fc1eb4bb15"
   },
   {
     "url": "components/hs-button.entry.js",
-    "revision": "f7ac3082e1661cf2156c23fa1a0516a4"
+    "revision": "2895005f17b7acd0a046b315e292a7b1"
   },
   {
     "url": "components/hs-card-body.entry.js",
-    "revision": "0312f966c408b962d688970fa8aa1708"
+    "revision": "91b477bb57fec5409869bda75e725272"
   },
   {
     "url": "components/hs-card-button.entry.js",
-    "revision": "7bebd90c884d8fbf88ad03a797c5466c"
+    "revision": "fe72d0f02a95d0e36b94ec61be016ffa"
   },
   {
     "url": "components/hs-card-footer.entry.js",
-    "revision": "7bfb458ed9f2e2ef0617234e9dc8b43b"
+    "revision": "0170d9a10dfe746fa464990144be51b7"
   },
   {
     "url": "components/hs-card-header.entry.js",
-    "revision": "2dd7cadbfea2756edc813bbcef8e12ea"
+    "revision": "d80f9d4bbc8c84aae0eec6fc07ed9acc"
   },
   {
     "url": "components/hs-card-img-header.entry.js",
-    "revision": "b84af50d997bbdfabd9e953680646db6"
+    "revision": "2ad45c1b114730c915a8822933cb0579"
   },
   {
     "url": "components/hs-card.entry.js",
-    "revision": "4c37f0440f1e8035fd807a0018477621"
+    "revision": "dc892f20b90509d5a85c4bde1bb07cf6"
   },
   {
     "url": "components/hs-fetcher.entry.js",
-    "revision": "67707ae6fcde959cda323709215dd628"
+    "revision": "8153a4f6840a18e86ee01cc49b61a737"
   },
   {
     "url": "components/hs-flipper.entry.js",
-    "revision": "5bd750284a3c77d1b4c4e65e4b1dc642"
+    "revision": "1271406e94e8214e4e2c5c88398e14fb"
   },
   {
     "url": "components/hs-media-image.entry.js",
-    "revision": "0fb19cbdf22d13ecb079b7c4f19b64d9"
+    "revision": "d51714d4dfbc489f779ab6f99e420421"
   },
   {
     "url": "components/hs-media-item.entry.js",
-    "revision": "a38534a9613d72f43ff6e777f54012af"
+    "revision": "afe71e7c5d2fb2a2d1347ee4bde53745"
   },
   {
     "url": "components/hs-modal.entry.js",
-    "revision": "2a1c03148677e729439e0f746dd95bfe"
+    "revision": "72587e234e224171b9acad1ce80e985e"
   },
   {
     "url": "components/hs-progress-bar.entry.js",
-    "revision": "ad69f47abfd13798c0b888896f5f399e"
+    "revision": "615c19f4641a9690b0fbb2ca14081b20"
   },
   {
     "url": "components/hs-progress.entry.js",
-    "revision": "ca76b1acb30ca902cab9e13dbcc6b967"
+    "revision": "2478a5fb1fa69df0b2221258dfc5d236"
   },
   {
     "url": "components/hs-rotator3d.entry.js",
-    "revision": "230a1113d7327833fefc1b4bc1d0988a"
+    "revision": "533faeb50f681f17d1620ea0404f745f"
   },
   {
     "url": "components/hs-slider.entry.js",
-    "revision": "b94ba4182f539880b1995ca8cb115e30"
+    "revision": "5204a526b746a944f6bf252bb5cb06aa"
   },
   {
     "url": "components/hs-sticky.entry.js",
-    "revision": "51dc3631dabb5043e9043b1f80145744"
+    "revision": "5b93623baaaa89b217edd6f2f58256e7"
   },
   {
     "url": "components/hs-tab.entry.js",
-    "revision": "615a82f45b2cfa795c5da7984ada13dc"
+    "revision": "9d8458ef72c78e02dd6db012a3c15edf"
   },
   {
     "url": "components/hs-tabs.entry.js",
-    "revision": "74be0f5bd2f41fc18d62a14495b472fc"
+    "revision": "eb1357cba872b978a235067b8a9baae9"
   },
   {
     "url": "components/hs-timeline-item.entry.js",
-    "revision": "cd9865df053dfd0e2ceb16655b680442"
+    "revision": "60fb574b4a0970fbda80c2f968874d91"
   },
   {
     "url": "components/hs-timeline.entry.js",
-    "revision": "50eb6dc45690c36af8da80f63b7f6f21"
+    "revision": "73bd6fbe117fb8f490aae8d55cb49b44"
   },
   {
     "url": "components/index-012f6e02.js",
@@ -335,184 +335,19 @@ self.__precacheManifest = [
   },
   {
     "url": "components/index.esm.js",
-    "revision": "d41d8cd98f00b204e9800998ecf8427e"
+    "revision": "230273d87b89f576de6d614e8b0a038d"
   },
   {
-    "url": "components/p-01ba47ab.entry.js"
+    "url": "components/p-6f7738b5.entry.js"
   },
   {
-    "url": "components/p-01e22d9a.entry.js"
+    "url": "components/p-93407350.entry.js"
   },
   {
-    "url": "components/p-05012b44.entry.js"
+    "url": "components/p-e27165bd.entry.js"
   },
   {
-    "url": "components/p-073944ff.entry.js"
-  },
-  {
-    "url": "components/p-08b60e53.entry.js"
-  },
-  {
-    "url": "components/p-16377a03.entry.js"
-  },
-  {
-    "url": "components/p-191d0134.entry.js"
-  },
-  {
-    "url": "components/p-192617cb.entry.js"
-  },
-  {
-    "url": "components/p-1ccbbf93.entry.js"
-  },
-  {
-    "url": "components/p-211c42df.entry.js"
-  },
-  {
-    "url": "components/p-2233fdf4.entry.js"
-  },
-  {
-    "url": "components/p-2582453e.entry.js"
-  },
-  {
-    "url": "components/p-284eee02.entry.js"
-  },
-  {
-    "url": "components/p-2d376790.entry.js"
-  },
-  {
-    "url": "components/p-2f2cb478.entry.js"
-  },
-  {
-    "url": "components/p-31ab7514.js"
-  },
-  {
-    "url": "components/p-321bb4dc.entry.js"
-  },
-  {
-    "url": "components/p-3dff6cee.entry.js"
-  },
-  {
-    "url": "components/p-45210f50.entry.js"
-  },
-  {
-    "url": "components/p-52df85fb.entry.js"
-  },
-  {
-    "url": "components/p-5368a0cc.entry.js"
-  },
-  {
-    "url": "components/p-56557113.entry.js"
-  },
-  {
-    "url": "components/p-5fbdbc7e.entry.js"
-  },
-  {
-    "url": "components/p-67f29d42.entry.js"
-  },
-  {
-    "url": "components/p-6a299d1c.entry.js"
-  },
-  {
-    "url": "components/p-6b10f5e6.entry.js"
-  },
-  {
-    "url": "components/p-6e4a8b1b.entry.js"
-  },
-  {
-    "url": "components/p-75951b06.entry.js"
-  },
-  {
-    "url": "components/p-84064c8f.entry.js"
-  },
-  {
-    "url": "components/p-8bcc6d76.entry.js"
-  },
-  {
-    "url": "components/p-8c9f1b46.entry.js"
-  },
-  {
-    "url": "components/p-91877407.entry.js"
-  },
-  {
-    "url": "components/p-9858e49e.entry.js"
-  },
-  {
-    "url": "components/p-9f73421c.entry.js"
-  },
-  {
-    "url": "components/p-a1e95ba0.entry.js"
-  },
-  {
-    "url": "components/p-a81d7bc9.entry.js"
-  },
-  {
-    "url": "components/p-aeb3a34f.entry.js"
-  },
-  {
-    "url": "components/p-b044bdf3.entry.js"
-  },
-  {
-    "url": "components/p-b07750dd.entry.js"
-  },
-  {
-    "url": "components/p-b298f745.entry.js"
-  },
-  {
-    "url": "components/p-b4401363.entry.js"
-  },
-  {
-    "url": "components/p-b69bf048.js"
-  },
-  {
-    "url": "components/p-bc6a1e7a.entry.js"
-  },
-  {
-    "url": "components/p-c19c4966.entry.js"
-  },
-  {
-    "url": "components/p-c5c9b84c.entry.js"
-  },
-  {
-    "url": "components/p-c97cad84.entry.js"
-  },
-  {
-    "url": "components/p-d1961367.entry.js"
-  },
-  {
-    "url": "components/p-d263027a.entry.js"
-  },
-  {
-    "url": "components/p-d69f8e9f.entry.js"
-  },
-  {
-    "url": "components/p-dc831be0.entry.js"
-  },
-  {
-    "url": "components/p-e5171f3d.entry.js"
-  },
-  {
-    "url": "components/p-eb0a1039.entry.js"
-  },
-  {
-    "url": "components/p-ee2fe603.entry.js"
-  },
-  {
-    "url": "components/p-efd30943.entry.js"
-  },
-  {
-    "url": "components/p-f7a492be.entry.js"
-  },
-  {
-    "url": "components/p-fb421050.entry.js"
-  },
-  {
-    "url": "components/p-fc5bf42c.entry.js"
-  },
-  {
-    "url": "components/p-fcf8cf9b.entry.js"
-  },
-  {
-    "url": "components/p-fe37fadf.entry.js"
+    "url": "components/p-fa8557f2.entry.js"
   },
   {
     "url": "components/shadow-css-23c95dd7.js",
