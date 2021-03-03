@@ -15,8 +15,9 @@
   ],
   "scripts": {
     "start": "npm run build",
+    "start:parcel": "parcel build src/index.ts --out-file www/assets/js/HeathScript.js",
     "comp:build:nowatch": "node_modules/.bin/stencil build --dev --docs-readme --debug",
-    "comp:build:watch": " node_modules/.bin/stencil build --dev --docs-readme --debug --watch",
+    "comp:build:watch": "node_modules/.bin/stencil build --dev --docs-readme --debug --watch",
     "comp:build": "node_modules/.bin/stencil build --docs-readme --watch",
     "comp:serve": "node_modules/.bin/stencil build --dev --watch --serve",
     "comp:test": "node_modules/.bin/stencil test --spec --e2e",

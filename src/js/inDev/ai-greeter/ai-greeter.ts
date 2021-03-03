@@ -12,39 +12,50 @@
  * @function setGGreetingText        Sets the text in greetingSpan.
  * 
  */
-window.onload = function setGreetingText(ts) {
-  const siteStorage =     window.localStorage;
-  const siteSession =     window.sessionStorage;
-  const visited =         siteStorage.getItem('visited');
-  const greetingSpan =    document.querySelector('#greetingLine');
-  const   sessionStart =    new Date().getTime();
-  const   sessionEnd =      new Date().getTime();
-  let   elapsed;
-  let   greetingHTML;
+export class setGreetingText {
+  public siteStorage: Storage;     
+  public siteSession: any;     
+  public visited: any;         
+  public greetingSpan: HTMLElement;
+  public   sessionStart: Date;    
+  public   sessionEnd: Date;
+  elapsed;
+  greetingHTML;
   
-  function elapsedTime() {
-    return elapsed = sessionEnd - siteSession.getItem('sessionStart');
+  constructor() {
+    this.siteStorage = window.localStorage;
+    this.siteSession = window.sessionStorage;
+    this.visited = siteStorage.getItem('visited');
+    this.greetingSpan = document.querySelector('#greetingLine');
+    this.sessionStart = new Date().getTime();
+    this.sessionEnd = new Date().getTime();
+    this.greeting();
   }
   
-  siteSession.setItem('sessionStart', sessionStart);
-  if (!visited || visited === '' || typeof visited === 'undefined' ) {
-    siteStorage.setItem('visited', 1);
-    
-  } else if (visited === '1') {
-    if (Math.floor(elapsedTime() > 30) ) {
-      greetingSpan.innerHTML = `<p class="hs-intro-heading">Welcome Back!</p>`;
-    } else {
-      greetingSpan.innerHTML = `
-      <p class="hs-intro-lead-in">
-      Hello, I'm Heath.
-      </p>
-      <p class="hs-intro-subheading">
-      Must be your first time here?
-      <!-- It's Nice To Meet You -->
-      </p>
-      <p class="hs-intro-heading">Welcome!</p>`;
+  sessionbegin: any =  siteSession.getItem('sessionStart');
+  
+  elapsedTime():any {
+    return elapsed = sessionEnd - siteSession.getItem('sessionStart');
+  }
+  greeting(): any {
+    this.siteSession.setItem('sessionStart', sessionStart);
+    if (!visited || visited === '' || typeof visited === 'undefined' ) {
+      siteStorage.setItem('visited', 1);
+      
+    } else if (visited === '1') {
+      if (Math.floor(this.elapsedTime() > 30) ) {
+        greetingSpan.innerHTML = `<p class="hs-intro-heading">Welcome Back!</p>`;
+      } else {
+        greetingSpan.innerHTML = `
+        <p class="hs-intro-lead-in">
+        Hello, I'm Heath.
+        </p>
+        <p class="hs-intro-subheading">
+        First time here?</p>
+        <p>It's Nice To Meet You</p>
+        <p class="hs-intro-heading">Welcome!</p>`;
+      }
     }
   }
   return;
-};
-
+}

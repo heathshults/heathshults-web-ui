@@ -40,7 +40,7 @@
     "node_modules", 
     "src/assets",
     "src/env",
-    "src/env",
+    "src/js/**/*",
     "src/global",
     "src/layouts",
     "src/mail",

@@ -1,44 +1,42 @@
-"use strict";
-
 /**
  * @author HeathShults.com - Heath Shults v1.0 (http://heathshults.com)
  * @version 1.0.0
  * @copyright 2020-2020 Heath-Shults
  * @license MIT (https://github.com/heathshults/heathshults.com/LICENSE)
  */
-(window.onload = function () {
+( window.onload = () => {
   // ====== RANKING BARS
-  var theBars = document.querySelectorAll('.hs-ranking-bar');
-  theBars.forEach(function (aBar) {
+  const theBars = document.querySelectorAll('.hs-ranking-bar');
+  theBars.forEach(aBar => {
     // eslint-disable-next-line no-undef
-    var barWidth = document.querySelector(aBar).getAttribute('aria-valuenow');
+    const barWidth = document.querySelector(aBar).getAttribute('aria-valuenow');
     document.querySelector(aBar).setAttribute('style', "width: ".concat(barWidth, "%")); // var barWidth=$(aBar).attr('aria-valuenow');
     // $(aBar).attr('style',`width: ${barWidth}%`);
   });
 })();
+
 /* eslint-disable no-undef, no-unused-vars */
 
-(function () {
+
+(() => {
   // *======* CONTACT FORM *======* //
   window.onload = autofillKill();
-
+  
   function autofillKill() {
-    var qs = document.querySelector;
-    var qsa = document.querySelectorAll;
-    var contactForm = document.querySelector('#contactForm');
-    var contactFormFields = contactForm.document.querySelectorAll('.form-control');
-    var contactFormFieldsValues = []; // console.log(contactForm),console.log(contactFormFields);
+    const qs = document.querySelector;
+    const qsa = document.querySelectorAll;
+    const contactForm = document.querySelector('#contactForm');
+    const contactFormFields = contactForm.document.querySelectorAll('.form-control');
+    const contactFormFieldsValues = []; // console.log(contactForm),console.log(contactFormFields);
     // for(let i=0; i<contactFormFields.length;i++) {
 
-    Array.prototype.slice.call(contactFormFields).forEach(function (field, index) {
-      var name = field.name;
-      var value = field.value;
+    Array.prototype.slice.call(contactFormFields).forEach((field, index) => {
+      const name = field.name;
+      const value = field.value;
       contactFormFieldsValues[index] = {
         name: value
       };
-      field.addEventListener(('onfocus', 'click'), function (_ref3) {
-        var target = _ref3.target;
-
+      field.addEventListener(('onfocus', 'click'), ({target}) => {
         if (target.value && target.parentElement.classList.contains('antiblur')) {
           return;
         } else {
@@ -51,25 +49,25 @@
           target.parentElement.classList.add('antiblur');
         }
       });
-      field.addEventListener('change', function (event) {
+      field.addEventListener('change', event => {
         alert("change!");
       }); // end blur event
     }); //end foreach
     // auto fill battle
 
-    var AUTOFILLED = 'is-autofilled';
+    const AUTOFILLED = 'is-autofilled';
 
-    var onAutoFillStart = function onAutoFillStart(el) {
+    const onAutoFillStart = function onAutoFillStart(el) {
       return el.classList.add(AUTOFILLED);
     };
 
-    var onAutoFillCancel = function onAutoFillCancel(el) {
+    const onAutoFillCancel = function onAutoFillCancel(el) {
       return el.classList.remove(AUTOFILLED);
     };
 
-    var onAnimationStart = function onAnimationStart(_ref) {
-      var target = _ref.target;
-      var animationName = _ref.animationName;
+    const onAnimationStart = function onAnimationStart(_ref) {
+      const target = _ref.target;
+      const animationName = _ref.animationName;
 
       switch (animationName) {
         case 'onAutoFillStart':
@@ -81,14 +79,14 @@
       }
     };
 
-    document.querySelector('#contactForm input,#contactForm textarea').addEventListener('change', function (event) {
+    document.querySelector('#contactForm input,#contactForm textarea').addEventListener('change', event => {
       console.log('Got a CHANGE');
-      event.forEach(function (formField) {// console.log(`new value document.querySelector{formField.name}: document.querySelector{formField.value}`);
+      event.forEach(formField => {// console.log(`new value document.querySelector{formField.name}: document.querySelector{formField.value}`);
       }); // console.log(`new value document.querySelector{event.target.name}: document.querySelector{event.target.value}`);
     });
   }
 
-  var $form = document.querySelector('#contactForm');
+  const $form = document.querySelector('#contactForm');
   document.querySelector('#contactForm input,#contactForm textarea').jqBootstrapValidation({
     preventSubmit: true,
     submitError: function submitError($form, event, errors) {// additional error messages or events
@@ -97,11 +95,11 @@
       event.preventDefault(); // prevent default submit behaviour
       // get values from FORM
 
-      var name = document.querySelector('input#name').val();
-      var email = document.querySelector('input#email').val();
-      var phone = document.querySelector('input#phone').val();
-      var message = document.querySelector('textarea#message').val();
-      var firstName = name; // For Success/Failure Message
+      const name = document.querySelector('input#name').val();
+      const email = document.querySelector('input#email').val();
+      const phone = document.querySelector('input#phone').val();
+      const message = document.querySelector('textarea#message').val();
+      let firstName = name; // For Success/Failure Message
       // Check for white space in name for Success/Fail message
 
       if (firstName.includes(' ')) {
@@ -112,10 +110,10 @@
         url: '/mail/contact_me.php',
         type: 'POST',
         data: {
-          name: name,
-          phone: phone,
-          email: email,
-          message: message
+          name,
+          phone,
+          email,
+          message
         },
         cache: false,
         success: function success() {
@@ -138,33 +136,33 @@
       return this.is(':visible');
     }
   });
-  document.querySelector('a[data-toggle="tab"]').addEventListener('click', function (e) {
+  document.querySelector('a[data-toggle="tab"]').addEventListener('click', e => {
     e.preventDefault();
 
     _this.tab('show');
   });
-  var clearMsgBox = '#name';
+  const clearMsgBox = '#name';
   /*When clicking on Full hide fail/success boxes */
 
-  document.querySelector(clearMsgBox).addEventListener('focus', function () {
+  document.querySelector(clearMsgBox).addEventListener('focus', () => {
     document.querySelector('#success').innerHTML = '';
   });
 })(); // End of use strict
+
 // *======* CONTACT FORM *======* //
 
 
-window.onload = function () {
-  var contactForm = document.querySelector('#contactForm');
-  var contactFormFields = contactForm.querySelectorAll('.form-control');
+window.onload = () => {
+  const contactForm = document.querySelector('#contactForm');
+  const contactFormFields = contactForm.querySelectorAll('.form-control');
   console.log(contactForm), console.log(contactFormFields);
-  contactFormFields.forEach(function (field) {
-    field.addEventListener(('onfocus', 'click'), function (_ref4) {
-      var target = _ref4.target;
-
+  contactFormFields.forEach(field => {
+    field.addEventListener(('onfocus', 'click'), ({target}) => {
       if (target.value && target.parentElement.classList.contains('antiblur')) {
         return;
       } else {
-        target.parentElement.classList.add('antiblur'); // autofill makes me include this inline hack
+        target.parentElement.classList.add('antiblur'); 
+        // autofill makes me include this inline hack
         // event.target.style = 'background: rgba(0, 0, 0, .65); border: 2px solid #fed136; color: #ffffff !important; color: -internal-light-dark(white) !important;'
         // event.target.setAttribute(':focus', )
       }
@@ -176,19 +174,19 @@ window.onload = function () {
   }); //end foreach
   // auto fill battle
 
-  var AUTOFILLED = 'is-autofilled';
+  const AUTOFILLED = 'is-autofilled';
 
-  var onAutoFillStart = function onAutoFillStart(el) {
+  const onAutoFillStart = function onAutoFillStart(el) {
     return el.classList.add(AUTOFILLED);
   };
 
-  var onAutoFillCancel = function onAutoFillCancel(el) {
+  const onAutoFillCancel = function onAutoFillCancel(el) {
     return el.classList.remove(AUTOFILLED);
   };
 
-  var onAnimationStart = function onAnimationStart(_ref2) {
-    var target = _ref2.target;
-    var animationName = _ref2.animationName;
+  const onAnimationStart = function onAnimationStart(_ref2) {
+    const target = _ref2.target;
+    const animationName = _ref2.animationName;
 
     switch (animationName) {
       case 'onAutoFillStart':
@@ -200,3 +198,10 @@ window.onload = function () {
     }
   };
 };
+
+
+
+
+
+
+

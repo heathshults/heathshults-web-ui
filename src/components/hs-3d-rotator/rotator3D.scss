@@ -1,179 +1,218 @@
-@import "../../scss/vars";
+:host {
+  @import "../../scss/vars";
 
-.hs-vanish {
-  opacity: 0;
-  transition: all 1s;
-}
+  // rotator3D configuration parameters
+  $item-width: 70%;
+  $item-separation: 0px; // JS handles this one now.
+  $viewer-distance: 1000px;
 
-.rotator3D__container {
-  position: relative;
-  width: 100%;
-}
+  --rotator3D-item-width: 70%;
+  --rotator3D-viewer-distance: 1000px;
+  --rotator3D-global-transition-speed: .25s;
+  --rotator3D-global-easing: ease-in-out;
+  // end rotator3D parameters
 
-// rotator3D configuration parameters
-$item-width: 40%; // Now we can use percentages!
-$item-separation: 0px; // This now is set with Js
-$viewer-distance: 700px;
-
-.rotator3D {
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  overflow: hidden;
-
-  perspective: $viewer-distance;
-
-  >* {
-    flex: 0 0 auto;
+  .hs-vanish {
+    opacity: 0;
+    transition: all 1s;
   }
 
-  .rotator3D__figure {
-    width: $item-width;
-    margin: 0;
-    transition: transform 0.5s;
-    transform-style: preserve-3d;
+  .rotator3D__container {
+    position: relative;
+    width: 100%;
+  }
 
-    .rotator3D__img {
-      box-sizing: border-box;
-      width: 100%;
-      max-width: 100%;
-      height: auto;
-      padding: 0 $item-separation / 2;
+  .rotator3D {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;
 
-      &:not(:first-of-type) {
-        position: absolute;
-        top: 0;
-        left: 0;
+    perspective: var(--rotator3D-viewer-distance);
+    transition: all var(--rotator3D-global-transition-speed) var(--rotator3D-global-easing);
+
+    >* {
+      flex: 0 0 auto;
+    }
+
+    .rotator3D__figure {
+      width: var(--rotator3D-item-width);
+      margin: 0;
+      transition: all var(--rotator3D-global-transition-speed) var(--rotator3D-global-easing);
+      transform-style: preserve-3d;
+
+      .rotator3D__img {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        padding: 0 $item-separation / 2;
+        transition: all var(--rotator3D-global-transition-speed) var(--rotator3D-global-easing);
+        &:not(:first-of-type) {
+          position: absolute;
+          top: 0;
+          left: 0;
+          transition: all var(--rotator3D-global-transition-speed) var(--rotator3D-global-easing);
+        }
       }
     }
   }
-}
 
+  --rotator3D-nav-background: rgba(0, 0, 0, .5);
+  --rotator3D-nav-width: 20%;
+  --rotator3D-nav-padding: .25rem 1rem;
+  --rotator3D-nav-margin: 20px 0 0;
+  --rotator3D-nav-border: 2px solid transparent;
+  --rotator3D-nav-border-radius: 4px;
+  --rotator3D-navbutton-background: rgba(0, 0, 0, .65);
+  --rotator3D-navbutton-background-hover: alpha(var(--hs-color-5), 50%);
+  --rotator3D-navbutton-border: 1px solid alpha(var(--hs-black), 95%);
+  --rotator3D-navbutton-width: 28px;
+  --rotator3D-navbutton-height: 28px;
+  --rotator3D-navbutton-icon-width: 22px;
+  --rotator3D-navbutton-icon-height: 22px;
+  --rotator3D-navbutton-icon-color: invert(60%) sepia(42%) saturate(4%) hue-rotate(323deg) brightness(93%) contrast(92%);
+  --rotator3D-navbutton-icon-color-hover: invert(100%) sepia(100%) saturate(1%) hue-rotate(306deg) brightness(103%) contrast(101%);
 
-
-.rotator3D__nav {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  z-index: 999;
-  display: inline-flex;
-  justify-content: center;
-  padding: .5rem 1rem;
-  margin: 20px 0 0;
-  background: rgba(0, 0, 0, .75);
-  border: 1px solid var(--hs-black);
-  border-radius: 4px;
-  transform: translateX(-50%);
-
-  .rotator3D__button {
-    display: flex;
-    flex: 0 0 auto;
-    align-items: center;
+  .rotator3D__nav {
+    position: absolute;
+    bottom: 42px;
+    left: 50%;
+    z-index: 999;
+    display: inline-flex;
     justify-content: center;
-    width: 20px;
-    height: 20px;
-    padding: 0;
-    margin: 0 5px;
+    width: var(--rotator3D-nav-width);
+    padding: var(--rotator3D-nav-padding);
+    margin: var(--rotator3D-nav-margin);
+    background: var(--rotator3D-nav-background);
+    border: var(--rotator3D-nav-border);
+    border-bottom: 5px solid rgba(0, 0, 0, .85);
+    border-radius: var(--rotator3D-nav-border-radius);
+    transition: all var(--rotator3D-global-transition-speed) var(--rotator3D-global-easing);
+    transform: translateX(-50%);
 
-    color: var(--hs-white);
-    letter-spacing: 1px;
+    .rotator3D__button {
+      display: flex;
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+      width: var(--rotator3D-navbutton-width);
+      height: var(--rotator3D-navbutton-height);
+      padding: 0;
+      margin: 0 5px;
 
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, .5);
-    border: 1px solid var(--hs-black);
-    &:hover {
-      color: alpha(var(--hs-white), 75%);
-      background-color: alpha(var(--hs-color-5), 50%);
+      color: var(--hs-white);
+      letter-spacing: 1px;
+
+      cursor: pointer;
+      background-color: var(--rotator3D-navbutton-background);
+      border: var(--rotator3D-navbutton-border);
+      transition: all var(--rotator3D-global-transition-speed) var(--rotator3D-global-easing);
+      &:hover {
+        color: alpha(var(--hs-white), 75%);
+        background-color: alpha(var(--hs-color-5), 50%);
+        transition: all var(--rotator3D-global-transition-speed) var(--rotator3D-global-easing);
+      }
+
+      &:focus,
+      &:focus-within {
+        background-color: var(--hs-black_25);
+        outline: 1px solid alpha(var(--hs-white), 5%);
+        transition: all var(--rotator3D-global-transition-speed) var(--rotator3D-global-easing);
+      }
+    }
+    .next {
+      right: 30px;
+      &::before {
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        vertical-align: -.125em;
+        content: "";
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000000' stroke='%23000000' stroke-width='1' stroke-linecap='square' viewBox='0 0 20 20' %3e%3cpath fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e ");
+        filter: var(--rotator3D-navbutton-icon-color);
+        background-repeat: no-repeat;
+        background-size: var(--rotator3D-navbutton-icon-width) var(--rotator3D-navbutton-icon-height);
+        transition: all var(--rotator3D-global-transition-speed) var(--rotator3D-global-easing);
+        &:hover,
+        &:focus {
+          filter: var(--rotator3D-navbutton-icon-color-hover);
+        }
+      }
+      &:hover,
+      &:focus {
+        background: alpha(var(--hs-color-5), 60%);
+        transition: all var(--rotator3D-global-transition-speed) var(--rotator3D-global-easing);
+      }
     }
 
-    &:focus,
-    &:focus-within {
-      background-color: var(--hs-black_25);
-      outline: 1px solid alpha(var(--hs-color-5), 60%);
-    }
+    .prev {
+      left: 30px;
+      &::before {
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        vertical-align: -.125em;
+        content: "";
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000000' stroke='%23000000' stroke-width='1' stroke-linecap='square' viewBox='0 0 20 20' %3e%3cpath fill-rule='evenodd' d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+        filter: var(--rotator3D-navbutton-icon-color);
+        background-repeat: no-repeat;
+        background-size: var(--rotator3D-navbutton-icon-width) var(--rotator3D-navbutton-icon-height);
+        transition: all var(--rotator3D-global-transition-speed) var(--rotator3D-global-easing);
+      }
 
+      &:hover,
+      &:focus {
+        background: alpha(var(--hs-color-5), 60%);
+        transition: all var(--rotator3D-global-transition-speed) var(--rotator3D-global-easing);
+      }
+    }
   }
-  .next {
-    right: 30px;
-    &::before {
-      display: inline-block;
-      width: 1rem;
-      height: 1rem;
-      vertical-align: -.125em;
-      content: "";
-      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23ffffff' viewBox='0 0 16 16'%3e%3cpath fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e ");
-      background-repeat: no-repeat;
-      background-size: 1rem 1rem;
-    }
-    &:hover,
-    &:focus {
-      background: alpha(var(--hs-color-5), 60%);
-    }
-  }
 
-  .prev {
-    left: 30px;
-    &::before {
-      display: inline-block;
-      width: 1rem;
-      height: 1rem;
-      vertical-align: -.125em;
-      content: "";
-      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23ffffff' viewBox='0 0 16 16'%3e%3cpath fill-rule='evenodd' d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
-      background-repeat: no-repeat;
-      background-size: 1rem 1rem;
-    }
-    &:hover,
-    &:focus {
-      background: alpha(var(--hs-color-5), 60%);
-    }
-  }
+  // @mixin rotate3dMaxWidths($map, $key, $value) {
+  //   @debug #{$key};
+  //   @if map-has-key($map, #{$key}) {
+  //     $width: map-deep-get($map, #{$key}, "width");
+  //     @debug $width;
+  //     $height: map-deep-get($map, #{$key}, "height");
+  //     @debug $height;
+  //     @media (min-width: $value) {
+  //       .rotator3D__scene {
+  //         position: relative;
+  //         width: map-deep-get($map, #{$key}, "width") + .08px;
+  //         max-width: 100%;
+  //         height: map-deep-get($map, #{$key}, "height") + .08px;
+  //         margin: (map-deep-get($map, #{$key}, "margin") / 2) auto;
+  //         // margin: 0 auto;
+  //         transition: all 1s;
+  //       }
+
+  //       .rotator3D__img {
+  //         width: map-deep-get($map, #{$key}, "width");
+  //         max-width: 100%;
+  //         height: auto;
+  //         max-height: map-deep-get($map, #{$key}, "height");
+  //         transition: all 1s;
+  //       }
+
+  //       .rotator3D__nav {
+  //         width: (map-deep-get($map, #{$key}, "width") / 2);
+  //       }
+  //       @content;
+  //     }
+  //   }
+  // }
+
+  // @function map-deep-get($map, $keys...) {
+  //   @each $key in $keys {
+  //     $map: map-get($map, $key);
+  //   }
+  //   @return $map;
+  // }
+
+  // @each $key, $value in $breakpoints {
+  //   @include rotate3dMaxWidths($rotate3d-sizes, $key, $value);
+
+  // }
 }
-
-// @mixin rotate3dMaxWidths($map, $key, $value) {
-//   @debug #{$key};
-//   @if map-has-key($map, #{$key}) {
-//     $width: map-deep-get($map, #{$key}, "width");
-//     @debug $width;
-//     $height: map-deep-get($map, #{$key}, "height");
-//     @debug $height;
-//     @media (min-width: $value) {
-//       .rotator3D__scene {
-//         position: relative;
-//         width: map-deep-get($map, #{$key}, "width") + .08px;
-//         max-width: 100%;
-//         height: map-deep-get($map, #{$key}, "height") + .08px;
-//         margin: (map-deep-get($map, #{$key}, "margin") / 2) auto;
-//         // margin: 0 auto;
-//         transition: all 1s;
-//       }
-
-//       .rotator3D__img {
-//         width: map-deep-get($map, #{$key}, "width");
-//         max-width: 100%;
-//         height: auto;
-//         max-height: map-deep-get($map, #{$key}, "height");
-//         transition: all 1s;
-//       }
-
-//       .rotator3D__nav {
-//         width: (map-deep-get($map, #{$key}, "width") / 2);
-//       }
-//       @content;
-//     }
-//   }
-// }
-
-// @function map-deep-get($map, $keys...) {
-//   @each $key in $keys {
-//     $map: map-get($map, $key);
-//   }
-//   @return $map;
-// }
-
-// @each $key, $value in $breakpoints {
-//   @include rotate3dMaxWidths($rotate3d-sizes, $key, $value);
-
-// }

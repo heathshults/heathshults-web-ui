@@ -1,4 +1,3 @@
-import './autofill-dectector/autofill-detector.js';
 import './even-height/even-height.ts';
 import './hs-3d-rotate/hs-3d-rotate.ts';
 import './hs-timeline/hs-timeline-ts.ts';
