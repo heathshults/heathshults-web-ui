@@ -25,10 +25,5 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
-        - npm run comp:buildlight
-        - npm run html:components:copy
-        - npm run js
-        - npm run ejsit
-        - npm run scss
-        - npm run assets:copy
+        - node build.sh
         - echo Completed with no errors!
