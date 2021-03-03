@@ -18,7 +18,7 @@ export class HSCardButton {
   @Prop() url?: any;
   // eslint-disable-next-line no-undef
   @Prop() urlParams?: any;
-  @Prop() dataTarget?: string | null;
+  @Prop({mutable: true}) dataTarget?: string | null;
   @Prop() dataToggle?: string | null;
   @Prop() onclicker: any;
   // @Method() handleClick: function;
@@ -67,14 +67,14 @@ export class HSCardButton {
   }
 
   componentWillLoad(): void {
-    if (this.dataTarget !== 'undefined') {
-    }
+    // if (this.dataTarget !== 'undefined') {
+    // }
     if (this.url) {
       this.onclicker = `(event: Event) => this.handleClick(event, ${this.url}, ${this.urlParams}, ${this.dataTarget})`;
     }
-    if (typeof this.dataToggle === 'undefined'  || this.dataToggle === null) {
-      this.dataToggle = '';
-    }
+    // if (typeof this.dataToggle === 'undefined'  || this.dataToggle === null) {
+    //   this.dataToggle = '';
+    // }
     if (typeof this.dataTarget === 'undefined'  || this.dataTarget === null) {
       this.dataTarget = '';
     }
@@ -86,16 +86,16 @@ export class HSCardButton {
     if (this.url) {
       this.onclicker = `(event: Event) => this.handleClick(event, ${this.url}, ${this.urlParams}, ${this.dataTarget})`;
     }
-    if (typeof this.dataToggle === 'undefined'  || this.dataToggle === null) {
-      this.dataToggle = '';
-    }
+    // if (typeof this.dataToggle === 'undefined'  || this.dataToggle === null) {
+    //   this.dataToggle = '';
+    // }
     if (typeof this.dataTarget === 'undefined'  || this.dataTarget === null) {
       this.dataTarget = '';
     }
     return (
       <button id={this.buttonId}
         class={this.cssClass}
-        data-bs-toggle={this.dataToggle}
+        // data-bs-toggle={this.dataToggle}
         data-bs-target={this.dataTarget}
         onClick={this.onclicker}>
         {this.buttonText}<slot/>

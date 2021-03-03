@@ -9,8 +9,8 @@ function syncServer(callback) {
     try {
       setTimeout(() => {
         browserSync.init({
-          // server: 'www-app/',
-          files: ['www-app/*.html', 'www-app/css/*.css'],
+          // server: 'www/',
+          files: ['www/*.html', 'www/css/*.css'],
           proxy: '127.0.0.1:8800',
           port: 3000
         })

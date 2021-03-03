@@ -3,7 +3,7 @@ const rs = require('./render-scripts.js');
 const lnt = require('./lint');
 const chalk = require('chalk');
 
-var defaultPath = path.resolve(__dirname, '../www-app/assets/js/');
+var defaultPath = path.resolve(__dirname, '../www/assets/js/');
 
 /* eslint-disable-next-line */
 function renderJS(dest) {

@@ -5,7 +5,7 @@ const log = require('fancy-log');
 const manifest = require('gulp-manifest');
 const chalk = require('chalk');
 
-const wwwPath = path.resolve(__dirname, '../www-app');
+const wwwPath = path.resolve(__dirname, '../www');
 
 function appmanifest(cb) {
   

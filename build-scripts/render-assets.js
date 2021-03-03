@@ -16,7 +16,7 @@ const browserSync = require('browser-sync');
 
 // const rootPath = path.resolve(__dirname, '../')
 const srcPath = path.resolve(__dirname, '../src/assets');
-const wwwPath = path.resolve(__dirname, '../www-app/assets');
+const wwwPath = path.resolve(__dirname, '../www/assets');
 
 var onError = (err) => {
   console.log(chalk(`Error: ${err}`));
@@ -128,25 +128,10 @@ function copy_images(cb) {
         .pipe(changed(`${wwwPath}/img`))
         .pipe(ngAnnotate())
         .pipe(dest(`${wwwPath}/img`))
-        .pipe(browserSync.stream());
-        // .pipe(debug({
-        //   title: 'Copied images: '
-        // }))
-        // .pipe(dest(`${wwwPath}/img/portfolio`))
-        // .pipe(debug({
-        //   title: 'Copied images: '
-        // }));
-
-      // src(`${srcPath}/img/portfolio/**/*.{png,jpg,gif,svg}`)
-      //   .pipe(changed(`${wwwPath}/img/portfolio`))
-      //   .pipe(ngAnnotate())
-      //   .pipe(dest(`${wwwPath}/img/portfolio`))
-      //   .pipe(debug({
-      //     title: 'Copied images: '
-      //   }));
-      // if (typeof cb === 'function') {
-      //   cb()
-      // }
+        .pipe(browserSync.stream())
+        .pipe(debug({
+          title: 'Copied images: '
+        }));
       console.log(chalk.green('copy_img() complete!'));
       resolve(cb);
     } catch (error) {
@@ -164,7 +149,7 @@ function copy_mail(cb) {
         src('src/mail/**/*')
           .pipe(changed('src/mail/**/*'))
           .pipe(ngAnnotate())
-          .pipe(dest('www-app/mail/**/*'))
+          .pipe(dest('www/mail/**/*'))
           .pipe(debug({
             title: 'Copied mail: '
           }))
@@ -179,6 +164,8 @@ function copy_mail(cb) {
       console.error(chalk.red('Error in copy_assets_content(): ' + error));
       reject(`Rejected copy_assets_content(): ${error}`);
     }
+  }).catch(error => {
+    console.error(chalk.red('Error in copy_assets_content(): ' + error));
   });
 }
 exports.copy_mail = copy_mail;
@@ -260,7 +247,7 @@ function copy_components(cb) {
         // .pipe(debug({
         //   title: 'Copied origin component: '
         // }))
-        .pipe(dest('../www-app/components'))
+        .pipe(dest('../www/components'))
         .pipe(browserSync.stream());
         // .pipe(debug({
         //   title: 'Copied destination component: '

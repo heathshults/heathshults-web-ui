@@ -4,7 +4,7 @@ var chalk = require('chalk');
 var del = require('del');
 
 const input = path.resolve(__dirname, '../www/components');
-const output = path.resolve(__dirname, '../www-app/components');
+const output = path.resolve(__dirname, '../www/components');
 console.log(input+'/n', output);
 
 module.exports = function deleteFiles() {

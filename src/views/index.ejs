@@ -12,8 +12,8 @@
     <meta name="author" content="">
     
     <title>Heath Shults - Software Developer+</title>
-    <script type="module" src="/components/heathenscript-ui-components.esm.js"></script>
-    <script nomodule src="/components/heathenscript-ui-components.js"> </script>
+    <script type="module" src="/components/heathscript-ui.esm.js"></script>
+    <script nomodule src="/components/heathscript-ui.js"> </script>
 
     <!-- Bootstrap Core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -110,7 +110,8 @@
 
           <div id="m"></div>
           <script>
-            console.log(Window.dtToday)
+            let today = new Date('December 17, 1995 03:24:00')
+            console.log(today)
 
           </script>
         </div>
@@ -393,8 +394,7 @@
                   Full Stack Software Engineer
                 </p>
                 <div class="text-center">
-                  <hs-card-button css-class="hs-card_button hs-card_button-shadowlined--lightest" button-text="More"
-                    url="" url-params="_blank" data-toggle="modal" data-target="#usaaDetails"></hs-card-button>
+                  <hs-card-button css-class="hs-card_button hs-card_button-shadowlined--lightest" button-text="More" url="" url-params="_blank" data-toggle="modal" data-target="#usaaDetails"></hs-card-button>
                 </div>
               </hs-card-body>
             </hs-card>
@@ -439,7 +439,8 @@
                 </p>
 
                 <p>
-                  <strong class="hs-card_text-emphisized">Blue Star Sports</strong><br>
+                  <strong class="hs-card_text-emphisized">Blue Star Sports</strong>
+                  <br>
                   Data Services<br>
                   UI Software Engineer
                 </p>
@@ -456,7 +457,7 @@
               img-path="/assets/img/portfolio/bowlopolis/bowlopolis-headerImg.png" data-toggle="modal"
               data-target="#modBowlopolis">
 
-              <hs-card-body id="card04Body" content-classes="" slot="card-body" class="hs-card_body text-center">
+              <hs-card-body id="card04Body" slot="card-body" class="hs-card_body text-center">
 
                 <h2 class="hs-card_title mb-0">Bowlopolis</h2>
                 <p>
@@ -470,14 +471,6 @@
                 <div class="text-center">
                   <button class="hs-card_button" data-bs-toggle="modal" data-bs-target="#bowlopolisDetails" onclick="carouselHeight(this);">More<slot>
                     </slot></button>
-                  <!-- <hs-card-button 
-                    css-class="hs-card_button" 
-                    button-text="More" 
-                    url="" 
-                    url-params="_blank" 
-                    data-toggle="modal" 
-                    data-target="#bowlopolisDetails"
-                    ></hs-card-button> -->
                 </div>
               </hs-card-body>
             </hs-card>
@@ -684,17 +677,17 @@
                   <div class="form-group" title="Name *">
 
                     <input type="text" class="form-control" id="name" required
-                      data-validation-required-message="Please enter your name.">
+                      data-validation-required-message="Please enter your name."/>
                     <p class="help-block text-danger"></p>
                   </div>
                   <div class="form-group" title="Email *">
                     <input type="email" class="form-control" id="email" required
-                      data-validation-required-message="Please enter your email address.">
+                      data-validation-required-message="Please enter your email address."/>
                     <p class="help-block text-danger"></p>
                   </div>
                   <div class="form-group" title="Phone *">
                     <input type="tel" class="form-control" id="phone" required
-                      data-validation-required-message="Please enter your phone number.">
+                      data-validation-required-message="Please enter your phone number."/>
                     <p class="help-block"></p>
                   </div>
                 </div>
@@ -802,7 +795,7 @@
                   </p>
 
                   <p class="hs-paragraph text-center">
-                    <img class="img-fluid img-centered" src="/assets/img/bg/usaa-mobile.jpg" alt="USAA Mobile Apps">
+                    <img class="img-fluid img-centered" src="/assets/img/bg/usaa-mobile.jpg" alt="USAA Mobile Apps"/>
                   </p>
 
                 </div>
@@ -849,7 +842,7 @@
               </div>
             </p>
             <p class="hs-paragraph text-center">
-              <img class="img-fluid img-centered" src="/assets/img/portfolio/bowlopolis/bowlopolis.png" alt="">
+              <img class="img-fluid img-centered" src="/assets/img/portfolio/bowlopolis/bowlopolis.png" alt=""/>
             </p>
           </div>
           <div class="modal-footer">
@@ -892,7 +885,7 @@
               </div>
             </p>
             <p class="hs-paragraph text-center">
-              <img class="img-fluid img-centered" src="/assets/img/portfolio/bowlopolis/bowlopolis.png" alt="">
+              <img class="img-fluid img-centered" src="/assets/img/portfolio/bowlopolis/bowlopolis.png" alt=""/>
             </p>
           </div>
           <div class="modal-footer">
@@ -907,204 +900,169 @@
       <div class="modal-dialog modal-fullscreen">
         <div class="modal-content">
           <div class="modal-header">
-            <div class="container">
-              <h5 class="modal-title text-xl mr-3 d-inline-block" id="bowlopolisDetailsTitle">Bowlopoli.com </h5>
-              <div class="text-center" style="display: inline-block; flex: none; margin-left: 20px; font-size: 14px">
-                <span class="mx-2">/</span> Website <span class="mx-2">/</span> Games <span class="mx-2">/</span> 3D
-                Cartoons videos <span class="mx-2">/</span></div>
+            <div class="container-sm">
+              <div class="row">
+                <div class="col-md-10 mx-auto">
+                  <h5 class="modal-title text-xl mr-3 d-inline-block" id="bowlopolisDetailsTitle">Bowlopoli.com </h5>
+                  <div class="text-center" style="display: inline-block; flex: none; margin-left: 20px; font-size: 14px">
+                    <span class="mx-2">/</span> Website <span class="mx-2">/</span> Games <span class="mx-2">/</span> 3D
+                    Cartoons videos <span class="mx-2">/</span></div>
+                </div>
+              </div>
             </div>
-
+            
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
           </div>
-          <div class="container-fluid p-0 modal-info-bar-container">
-            <div class="container modal-info-bar">
-              <div class="row">
-                <div class="col-md-12 hs-paragraph">
-                  Web design/development & game development for retention/frequency.
-                </div>
-              </div>
-                <div class="row">
-                  <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>Company</strong>:</div>
-                  <div class="col-md-10">Bowling Proprietors' Association of America</div>
-                </div>
-                <div class="row">
-                  <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>Description </strong>:</div>
-                  <div class="col-md-10"> Kids program designed to build lifetime bowling customers through games
-                    videos, kids club, tracking </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>My Roles</strong>:</div>
-                  <div class="col-md-10">UI/UX Design <span class="hs-text-yellow">&#10038;</span> UI Developer <span
-                      class="hs-text-yellow">&#10038;</span> Quality Assurance</div>
-                </div>
-             
-            </div>
-          </div>
+          
           <div class="modal-body">
-                
-            <!-- 3dslider -->
-            <div class="container">
+            <div class="container-sm">
               <div class="row">
-                <div class="col-md-12">
-                  <!-- HSThreeDRotator -->
-                  <div class="hs-3drotate__container"
-                   data-dataheader="hs3dRotator"
-                   data-dataurl="global/3dRotator.json"
-                   data-datamethod="GET"
-                  >
-                    
-                    <div class="hs-3drotate__scene">
-                      <div class="col hs-3drotate__nav text-center">
-                        <button class="hs-3drotate__prev-button"></button>
-                        <input class="hs-3drotate__cells-range" type="range" min="3" max="15" value="6" />
-                          <button class="hs-3drotate__next-button"></button>
-                      </div>
-                      <div class="hs-3drotate">
-                        
-                        
-                      </div>
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12 text-center">
-                <div class="hs-3drotate__options">
-                  <p>
-                    <label class="hs-3drotate__label">
-                      Orientation:</label>
-                    <label class="hs-3drotate__label">
-                      <input type="radio" class="hs-3drotate__radio-input" name="orientation" value="horizontal" checked />
-                      horizontal
-                    </label>
-                    <label class="hs-3drotate__label">
-                      <input type="radio" class="hs-3drotate__radio-input" name="orientation" value="vertical" />
-                      vertical
-                    </label>
+                <div class="col-md-10 mx-auto">
+
+                  <p class="hs-paragraph lead">
+                    Web design/development &amp; game development for retention/frequency.
                   </p>
+                  <p class="hs-paragraph">
+                    <div class="row">
+                      <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>Company</strong>:</div>
+                      <div class="col-md-10">Bowling Proprietors' Association of America</div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>Description </strong>:</div>
+                      <div class="col-md-10">Kids program designed to build lifetime bowling customers through games
+                        videos, kids club, tracking  </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>My Roles</strong>:</div>
+                      <div class="col-md-10">UI/UX Design <span class="hs-text-yellow">&#10038;</span> UI Developer 
+                        <span class="hs-text-yellow">&#10038;</span> Quality Assurance</div>
+                    </div>
+                  </p>
+
+                  <p class="hs-paragraph text-center">
+                    <!-- hs-rotator3d -->
+                  <hs-rotator3d data-gap="10"></hs-rotator3d>
+                  <!-- /hs-rotator3d -->
+                  </p>
+
                 </div>
               </div>
             </div>
-            </div>
-            <!-- 3dslider -->
           </div>
+          
           <div class="modal-footer">
             <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
     </div>
-    <!-- jQuery  -->
+    <!-- jQuery 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
-    </script>
+    </script> -->
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
     </script>
-    </script>
+
     <!-- Contact Form JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqBootstrapValidation/1.3.6/jqBootstrapValidation.min.js">
     </script>
-    <!-- <script src="js/contact_me.js"></script> -->
 
     <!-- Theme JavaScript -->
-    <script src="/assets/js/HeathShults.built.js" type="module"></script>
-    <!-- <script src="assets/js/hs-3d-rotate.js" type="module"></script> -->
-    <!-- <script src="hScript.bundle.js"></script> -->
+    <script src="/assets/js/HeathScript.bundle.js" type="module"></script>
     
       <!-- <script>
       
-        var rotatorContainer = document.querySelector('.hs-3drotate__container');
-            rotatorContainer.classList.add('hs-vanish');
-        var HSThreeDRotator=document.querySelector('.hs-3drotate');
+        // var rotatorContainer = document.querySelector('.hs-3drotate__container');
+        //     rotatorContainer.classList.add('hs-vanish');
+        // var HSThreeDRotator=document.querySelector('.hs-3drotate');
         
-        var cells=HSThreeDRotator.querySelectorAll('.hs-3drotate__cell');
-        var cellCount; // cellCount set from cells-range input value
-        var selectedIndex=0;
-        var cellWidth=HSThreeDRotator.offsetWidth;
-        var cellHeight=HSThreeDRotator.offsetHeight;
-        var isHorizontal=true;
-        var rotateFn=isHorizontal? 'rotateY':'rotateX';
-        var radius,theta;
-        // console.log( cellWidth, cellHeight );
+        // var cells=HSThreeDRotator.querySelectorAll('.hs-3drotate__cell');
+        // var cellCount; // cellCount set from cells-range input value
+        // var selectedIndex=0;
+        // var cellWidth=HSThreeDRotator.offsetWidth;
+        // var cellHeight=HSThreeDRotator.offsetHeight;
+        // var isHorizontal=true;
+        // var rotateFn=isHorizontal? 'rotateY':'rotateX';
+        // var radius,theta;
+        // // console.log( cellWidth, cellHeight );
 
-        function rotateCarousel() {
-          var angle=theta*selectedIndex*-1;
-          HSThreeDRotator.style.transform='translateZ('+-radius+'px) ' + rotateFn+'('+angle+'deg)';
-        }
+        // function rotateCarousel() {
+        //   var angle=theta*selectedIndex*-1;
+        //   HSThreeDRotator.style.transform='translateZ('+-radius+'px) ' + rotateFn+'('+angle+'deg)';
+        // }
 
-        var prevButton=document.querySelector('.hs-3drotate__prev-button');
-        prevButton.addEventListener('click',function() {
-          selectedIndex--;
-          rotateCarousel();
-        });
+        // var prevButton=document.querySelector('.hs-3drotate__prev-button');
+        // prevButton.addEventListener('click',function() {
+        //   selectedIndex--;
+        //   rotateCarousel();
+        // });
 
-        var nextButton=document.querySelector('.hs-3drotate__next-button');
-        nextButton.addEventListener('click',function() {
-          selectedIndex++;
-          rotateCarousel();
-        });
+        // var nextButton=document.querySelector('.hs-3drotate__next-button');
+        // nextButton.addEventListener('click',function() {
+        //   selectedIndex++;
+        //   rotateCarousel();
+        // });
 
-        var cellsRange=document.querySelector('.hs-3drotate__cells-range');
-        cellsRange.addEventListener('change',update3DRotator);
-        cellsRange.addEventListener('input',update3DRotator);
+        // var cellsRange=document.querySelector('.hs-3drotate__cells-range');
+        // cellsRange.addEventListener('change',update3DRotator);
+        // cellsRange.addEventListener('input',update3DRotator);
 
 
 
-        function update3DRotator() {
-          cellWidth=HSThreeDRotator.offsetWidth;
-          cellHeight=HSThreeDRotator.offsetHeight;
-          console.log(cellHeight)
-          cellCount=cellsRange.value;
-          theta=360/cellCount;
-          var cellSize=isHorizontal? cellWidth:cellHeight;
-          radius=Math.round((cellSize/2)/Math.tan(Math.PI/cellCount));
-          for(var i=0;i<cells.length;i++) {
-            var cell=cells[i];
-            if(i<cellCount) {
-              // visible cell
-              cell.style.opacity=1;
-              var cellAngle=theta*i;
-              cell.style.transform=rotateFn+'('+cellAngle+'deg) translateZ('+radius+'px)';
-            } else {
-              // hidden cell
-              cell.style.opacity=0;
-              cell.style.transform='none';
-            }
-          }
+        // function update3DRotator() {
+        //   cellWidth=HSThreeDRotator.offsetWidth;
+        //   cellHeight=HSThreeDRotator.offsetHeight;
+        //   console.log(cellHeight)
+        //   cellCount=cellsRange.value;
+        //   theta=360/cellCount;
+        //   var cellSize=isHorizontal? cellWidth:cellHeight;
+        //   radius=Math.round((cellSize/2)/Math.tan(Math.PI/cellCount));
+        //   for(var i=0;i<cells.length;i++) {
+        //     var cell=cells[i];
+        //     if(i<cellCount) {
+        //       // visible cell
+        //       cell.style.opacity=1;
+        //       var cellAngle=theta*i;
+        //       cell.style.transform=rotateFn+'('+cellAngle+'deg) translateZ('+radius+'px)';
+        //     } else {
+        //       // hidden cell
+        //       cell.style.opacity=0;
+        //       cell.style.transform='none';
+        //     }
+        //   }
 
-          rotateCarousel();
+        //   rotateCarousel();
           
-        }
+        // }
 
-        var orientationRadios=document.querySelectorAll('input[name="orientation"]');
-        (function() {
-          for(var i=0;i<orientationRadios.length;i++) {
-            var radio=orientationRadios[i];
-            radio.addEventListener('change',onOrientationChange);
-          }
-        })();
+        // var orientationRadios=document.querySelectorAll('input[name="orientation"]');
+        // (function() {
+        //   for(var i=0;i<orientationRadios.length;i++) {
+        //     var radio=orientationRadios[i];
+        //     radio.addEventListener('change',onOrientationChange);
+        //   }
+        // })();
 
-        function onOrientationChange() {
-          var checkedRadio=document.querySelector('input[name="orientation"]:checked');
-          isHorizontal=checkedRadio.value=='horizontal';
-          rotateFn=isHorizontal? 'rotateY':'rotateX';
-          update3DRotator();
-        }
+        // function onOrientationChange() {
+        //   var checkedRadio=document.querySelector('input[name="orientation"]:checked');
+        //   isHorizontal=checkedRadio.value=='horizontal';
+        //   rotateFn=isHorizontal? 'rotateY':'rotateX';
+        //   update3DRotator();
+        // }
 
         // set initials 
-        onOrientationChange();
+        // onOrientationChange();
         
-        setTimeout(() => {window.onresize = update3DRotator}, 500);
-        document.addEventListener('shown.bs.modal', () =>{
+        // setTimeout(() => {window.onresize = update3DRotator}, 500);
+        // document.addEventListener('shown.bs.modal', () =>{
           
-          rotatorContainer.classList.remove('hs-vanish');
-          update3DRotator();
-        });
-    </script> -->
+        //   rotatorContainer.classList.remove('hs-vanish');
+        //   update3DRotator();
+        // });
+    </script>-->
     <script>
       function showModal(modal) {
         document.querySelector(modal).show();

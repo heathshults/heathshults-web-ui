@@ -7,17 +7,17 @@ import { Component, h, Prop } from '@stencil/core';
   shadow: true
 })
 export class HSCardFooter {
-  @Prop({reflect: true}) colorTone? = 'light';
-  @Prop({reflect: true}) colorToneClass? = 'light';
+  // @Prop() colorTone? = 'light';
+  // @Prop() colorToneClass? = 'light';
   @Prop() modalId?: string;
 
   componentWillLoad() {
-    return typeof this.colorTone === 'undefined' || typeof this.colorTone === null || this.colorTone === 'light' ? this.colorToneClass = 'light' :
-      this.colorTone === 'dark' ? this.colorToneClass = 'dark' : this.colorToneClass = 'light';
+    // return typeof this.colorTone === 'undefined' || typeof this.colorTone === null || this.colorTone === 'light' ? this.colorToneClass = 'light' :
+    //   this.colorTone === 'dark' ? this.colorToneClass = 'dark' : this.colorToneClass = 'light';
   }
   render() {
     return (
-      <footer class={`hs-card_footer ${this.colorToneClass} w-100`}>
+      <footer class="hs-card_footer w-100">
         <div class="hs-card_content">
           <slot />
         </div>

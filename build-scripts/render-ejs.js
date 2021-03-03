@@ -7,7 +7,7 @@ const debug = require('gulp-debug');
 const log = require('fancy-log');
 
 const srcPath = path.resolve(__dirname, '../src/views');
-const wwwPath =  path.resolve(__dirname, '../www-app');
+const wwwPath =  path.resolve(__dirname, '../www');
 
 function ejsit() {
   src(`${srcPath}/*.ejs`)

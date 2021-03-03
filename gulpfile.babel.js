@@ -59,7 +59,7 @@ import appRoot from 'app-root-path';
 const srcPath = path.resolve(__dirname, 'src');
 const srcCompPath = path.resolve(__dirname, 'src/components');
 const buildPath = path.resolve(__dirname, 'www/build');
-const wwwPath =  path.resolve(__dirname, 'www-app');
+const wwwPath =  path.resolve(__dirname, 'www');
 const distPath =  path.resolve(__dirname, 'dist');
 
 let p = {
@@ -195,7 +195,7 @@ let assets = '{jpg,png,gif,svg,mp4}';
 //   return new Promise((resolve, reject) => {
 //     try {
 //       setTimeout(() => {
-//         copy('www/components/**/*', 'www-app/components', done);
+//         copy('www/components/**/*', 'www/components', done);
 //         console.log(chalk.green('web components copied to app-www/components'));
 //         resolve(true);
 //       }, 2000);
@@ -207,7 +207,7 @@ let assets = '{jpg,png,gif,svg,mp4}';
 // exports.copy_web_components = copy_web_components;
  
 function ejsit(done) {
-  return src(`${srcPath}/views/**/*.ejs`)
+  return src(`${srcPath}/views/*.ejs`)
     .pipe(plumber())
     .pipe(ejs().on('error', log))
     .pipe(rename({ extname: ".html" }))
@@ -217,23 +217,38 @@ function ejsit(done) {
 exports.ejsit = ejsit;
 
 function typeScript(cb) {
-  return src(`${p.src_js}/modules/*.ts`)
+  return src(`${srcPath}/js/modules/*.ts`)
     .pipe(ts({
       declaration: true
     }))
     // .pipe(sourcemaps.write('.', { includeContent: false, sourceRoot: `${p.src_js}/module` }))
-    .pipe(dest(`${p.src_js}/module/_transpiled_ts`, { sourcemaps: '.' })),cb();
+    .pipe(dest(`${srcPath}/js/module/_transpiled_ts`, { sourcemaps: '.' })),cb();
   
 }
 exports.typeScript = typeScript;
 
 function babelfry(cb) {
   browserify({ debug: true })
-  .transform(babelify)
+  .transform(babelify, {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-typescript",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-object-rest-spread",
+      "babel-plugin-replace-ts-export-assignment",
+      "@babel/plugin-syntax-dynamic-import",
+      "@babel/plugin-proposal-class-properties",
+      ["@babel/plugin-proposal-decorators", { "legacy": true }],
+      "@babel/plugin-transform-runtime",
+      ["import", {"libraryName": "@material-ui/core"}]
+    ]
+  })
   .require(`${srcPath}/index.js`, { entry: true })
   .bundle()
   .on("error", function (err) { console.log(chalk.red("Error: " + err.message)) })
-  .pipe(fs.createWriteStream(`${wwwPath}/assets/js/HeathScript.built.js`)),
+  .pipe(fs.createWriteStream(`${wwwPath}/assets/js/HeathScript.js`)),
   console.log(chalk.green('Babelifried JS')), cb();
 }
 exports.babelfry = babelfry;
@@ -250,16 +265,28 @@ exports.babelfry = babelfry;
 // }
 // exports.babelfry = babelfry;
 
-function renderJS(cb) {
-  console.log(chalk.yellow('starting JS renderrer...'));
-  exec('node build-scripts/build-scripts-launcher.js', (error, stdout, stderr) => {
-    if (error) {
-        console.log(chalk.red("ERROR renderJS: \n stdout: " + stderr + "\n Error Message: " + error.message));
-        return 'renderJS error'+error;
-    }
-    console.log(chalk.green('JS Rendererred: HeathScript.built.js'));
-    return true;
-  });
+function renderJS(method, cb) {
+  if (method === 'dir') {
+    console.log(chalk.yellow('starting JS renderrer...'));
+    exec('npx babel src/js/modules --out-dir www/assets/js/', (error, stdout, stderr) => {
+      if (error) {
+          console.log(chalk.red("ERROR renderJS: \n stdout: " + stderr + "\n Error Message: " + error.message));
+          return 'renderJS error'+error;
+      }
+      console.log(chalk.green('JS Rendererred: HeathScript.built.js'));
+      return true;
+    });
+  }
+  if (method === 'file') {
+    exec('npx babel src/js/modules/HeathScript.ts --out-file www/assets/js/HeathScript.js', (error, stdout, stderr) => {
+      if (error) {
+          console.log(chalk.red("ERROR renderJS: \n stdout: " + stderr + "\n Error Message: " + error.message));
+          return 'renderJS error'+error;
+      }
+      console.log(chalk.green('JS Rendererred: HeathScript.js'));
+      return true;
+    });
+  }  
   if (typeof cb === 'function') cb();
 }
 exports.renderJS = renderJS;
@@ -420,7 +447,7 @@ function copy_js(cb) {
           `!${srcPath}/js/HeathScript.js`,
           `!${srcPath}/js/modules/**/*`
         ])
-        .pipe(rename({ dirname: 'www-app/assets/js'}))
+        .pipe(rename({ dirname: 'www/assets/js'}))
         .pipe(dest('./'))
         .pipe(debug({title: 'Copied JS: '}));
 
@@ -451,11 +478,13 @@ function build_components(cb) {
   return new Promise((resolve, reject) => {
     try {
       setTimeout(() => {
-  exec('node_modules/.bin/stencil build --dev --docs-readme --debug', (error) => {
+  exec('npm run comp:build:nowatch', (error) => {
     if (error) {
         console.log(chalk.red(`error: ${error.message}`));
         return cb;
-    } else {console.log(chalk.green('Components built!'))}
+    } else {
+      console.log(chalk.green('Components built!'));
+    }
   });
   resolve(cb);
       }, 1000);
@@ -541,33 +570,6 @@ function serve(cb) {
 }
 exports.serve = serve;
 
-function watchers(cb) {
-  return new Promise((resolve, reject) => {
-    try {
-      // eslint-disable-next-line no-sequences
-      var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
-      watch(`${srcPath}/views/*.ejs`, ejsit).on('change', browserSync.reload), callback;
-      watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_images).on('change', browserSync.reload), callback;
-      watch([`${srcPath}/scss/**/*.scss`], compileCSS), callback;
-      watch([`${srcPath}/**/*.html`], ra.copy_html), callback;
-      watch([`${srcPath}/assets/**/*.css`], ra.copy_css), callback;
-      watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], copy_js), callback;
-      watch([`${buildPath}/**/*`], copy_components), callback;
-      watch([`${p.src_js}/js/HeathScript.js`, `${p.src_js}/js/jqBootstrapValidation.js`,  `${p.src_js}/js/modules/**/*.ts`, `${p.src_js}/js/contact_me.js`], babelfry).on('change', browserSync.reload), callback;
-      watch([`${srcCompPath}/**/*`],  exec('npm run comp:buildlight', (e) => console.log(e))), callback;
-      // watch([`${srcCompPath}/**/*`],  render_components), callback;
-  
-        resolve(callback);
-    } catch(e) {
-      console.log(`Error in watchers: ${e}`);
-      reject(callback);
-      
-    }
-    
-  });
-}
-exports.watchers = watchers;
-
 // Configure the browserSync task
 function serveSync(cb) {
   browserSync.init({
@@ -594,22 +596,22 @@ function connect_sync(cb) {
     
   });
   
+let jsfile = '';
+let jsdir = '';
+  // eslint-disable-next-line no-sequences
+  var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
+  watch(`${srcPath}/views/*.ejs`, ejsit).on('change', browserSync.reload), callback;
+  watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_images).on('change', browserSync.reload), callback;
+  watch([`${srcPath}/scss/**/*.scss`], compileCSS).on('change', browserSync.reload), callback;
+  watch([`${srcPath}/**/*.html`], ra.copy_html).on('change', browserSync.reload), callback;
+  watch([`${srcPath}/assets/**/*.css`], ra.copy_css).on('change', browserSync.reload), callback;
+  watch([`"${srcPath}/js/modules/**/*.{js,mjs,cjs,ts}"`, `!${srcPath}/js/HeathScript.js`], renderJS(jsdir)).on('change', browserSync.reload), callback;
+  watch([`${srcPath}/js/HeathScript.ts`], renderJS(jsfile)).on('change', browserSync.reload), callback;
+  // watch([`${srcCompPath}/**/*.{tsx,ts,jsx,js,scss}`], build_components).on('change', browserSync.reload), callback;
+  jsfile = 'file';
+  jsdir = 'dir';
 
-  // // eslint-disable-next-line no-sequences
-  // var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
-  // watch(`${srcPath}/views/*.ejs`, ejsit).on('change', browserSync.reload), callback;
-  // watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_images).on('change', browserSync.reload), callback;
-  // watch([`${srcPath}/scss/**/*.scss`], compileCSS), callback;
-  // watch([`${srcPath}/**/*.html`], ra.copy_html), callback;
-  // watch([`${srcPath}/assets/**/*.css`], ra.copy_css), callback;
-  // watch([`${srcPath}/assets/js/*.{js,json,mjs,cjs}`, `!${srcPath}/assets/js/HeathScript.js`], copy_js), callback;
-  // watch([`${buildPath}/**/*`], copy_components), callback;
-  // watch([`${p.src_js}/js/HeathScript.js`, `${p.src_js}/js/jqBootstrapValidation.js`,  `${p.src_js}/js/modules/**/*.ts`, `${p.src_js}/js/contact_me.js`], babelfry).on('change', browserSync.reload), callback;
-  // watch([`${srcCompPath}/**/*`],  exec('npm run comp:buildlight', (e) => console.log(e))), callback;
-  // // watch([`${srcCompPath}/**/*`],  render_components), callback;
-  // cb();
-
-  // let file = ''
+  // let file = '';
   // if (typeof cb === 'function') {
   //   cb(null, file);
   //   called = true;
