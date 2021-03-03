@@ -27,7 +27,7 @@ export class HS3dRotator {
     return new Promise((resolve, reject) => {
       try {
         setTimeout(()=> {
-          const root = this.el.shadowRoot.querySelectorAll('.rotator3D');
+          const root: HTMLDivElement = this.el.shadowRoot.querySelector('.rotator3D');
           l(root);
           const gap = this.dataGap;
           const bfc = this.dataBfc;
@@ -133,6 +133,7 @@ export class HS3dRotator {
               theta, 
               currImage);
             this.nav.style.width = parseFloat(getComputedStyle(images[0]).width);
+            root.classList.contains('hs-vanish') ? root.classList.remove('hs-vanish') : root.classList.add('hs-vanish');
           });
           
               
@@ -151,7 +152,7 @@ export class HS3dRotator {
   render() {
     return (
       <Host>
-        <div id="rotator3D" class="rotator3D" data-gap="20">
+        <div id="rotator3D" class="rotator3D hs-vanish" data-gap="20">
           <figure class="rotator3D__figure">
             <img class="rotator3D__img" src="/assets/img/portfolio/bowlopolis/episodes-page-800x533.jpg" alt="episodes-page"/>
             <img class="rotator3D__img" src="/assets/img/portfolio/bowlopolis/kids-club-page-800x533.jpg" alt="kids-club-page"/>

@@ -16,13 +16,12 @@ TSC=$! # get background process id of stencil
 wait $TSC
 # echo "JAVASCRIPT BUILD..."
 # npx babel system-modules/scss2cssVars/scss2cssVars.ts --out-file system-modules/scss2cssVars/scss2cssVars.js
-npx babel src/js/modules --out-dir src/js/temp/
-npx babel src/js/modules/HeathScript.ts --out-file www/assets/js/HeathScript.js
-# npx parcel src/js/modules/HeathScript.ts --out-file www/assets/js/HeathScript.js &&
-# BABELJS=$!
+npx babel src/js/modules --out-dir src/js/temp/ &&
+# npx babel src/js/modules/HeathScript.ts --out-file www/assets/js/HeathScript.js
+npx parcel build src/js/index.ts -d www/assets/js -o HeathScript.bundle.js &&
+BABELJS=$!
 
-# wait $BABELJS
-
+wait $BABELJS &&
 npx gulp ejsit && # echo "Render HTML pages..."
 
 # echo "Assembling CSS Variables..."

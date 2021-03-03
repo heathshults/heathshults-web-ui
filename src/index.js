@@ -1,6 +1,8 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-/* eslint-disable no-unused-vars, @typescript-eslint/no-unused-vars, @typescript-eslint/no-var-requires, no-console */
-// var babel = require("@babel/core");
 
-import './js/temp/HeathShults.built';
+require('./js/modules/theme-switcher/theme-switcher.js');
+require('./js/modules/show-more-fadebar/show-more.ts');
+require('./js/modules/time-stamper/time-stamper.js');
+require('./js/modules/validate-url/validate-url.ts');
+
+require('./js/modules/HeathScript.js');
 

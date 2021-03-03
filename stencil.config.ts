@@ -5,7 +5,8 @@ import {postcss} from '@stencil/postcss';
 import autoprefixer from 'autoprefixer';
 
 export const config: Config = {
-  namespace: 'heathenscript-ui-components',
+  namespace: 'HeathScript-UI',
+  srcDir: 'src/components',
   globalStyle: 'src/global/variables.css',
   plugins: [
     sass(),

@@ -217,23 +217,38 @@ function ejsit(done) {
 exports.ejsit = ejsit;
 
 function typeScript(cb) {
-  return src(`${p.src_js}/modules/*.ts`)
+  return src(`${srcPath}/js/modules/*.ts`)
     .pipe(ts({
       declaration: true
     }))
     // .pipe(sourcemaps.write('.', { includeContent: false, sourceRoot: `${p.src_js}/module` }))
-    .pipe(dest(`${p.src_js}/module/_transpiled_ts`, { sourcemaps: '.' })),cb();
+    .pipe(dest(`${srcPath}/js/module/_transpiled_ts`, { sourcemaps: '.' })),cb();
   
 }
 exports.typeScript = typeScript;
 
 function babelfry(cb) {
   browserify({ debug: true })
-  .transform(babelify)
+  .transform(babelify, {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-typescript",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-object-rest-spread",
+      "babel-plugin-replace-ts-export-assignment",
+      "@babel/plugin-syntax-dynamic-import",
+      "@babel/plugin-proposal-class-properties",
+      ["@babel/plugin-proposal-decorators", { "legacy": true }],
+      "@babel/plugin-transform-runtime",
+      ["import", {"libraryName": "@material-ui/core"}]
+    ]
+  })
   .require(`${srcPath}/index.js`, { entry: true })
   .bundle()
   .on("error", function (err) { console.log(chalk.red("Error: " + err.message)) })
-  .pipe(fs.createWriteStream(`${wwwPath}/assets/js/HeathScript.built.js`)),
+  .pipe(fs.createWriteStream(`${wwwPath}/assets/js/HeathScript.js`)),
   console.log(chalk.green('Babelifried JS')), cb();
 }
 exports.babelfry = babelfry;

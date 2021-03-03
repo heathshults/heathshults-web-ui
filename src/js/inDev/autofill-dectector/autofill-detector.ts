@@ -4,7 +4,8 @@
  * License: MIT
  */
 (window => {
-  const $ = window.jQuery || window.angular.element;
+    
+  const $ = window.jQuery || window.angular.element || document.querySelectorAll;
   const rootElement = window.document.documentElement;
   const $rootElement = $(rootElement);
 
