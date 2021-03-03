@@ -14,3 +14,4 @@ src/js/modules/ez-form/ezform.config.json
 **/*Zone.Identifier
 *.Identifier
 .cache/
+www/
