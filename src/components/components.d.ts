@@ -94,6 +94,20 @@ export namespace Components {
         "method": string;
         "url": string;
     }
+    interface HsFlipCode {
+        "fliLanguage": string;
+        "flipButton": HTMLButtonElement;
+        "flipCard": HTMLDivElement;
+        "flipCode": any;
+        "flipCodeBlock": any;
+        "flipContainer": HTMLDivElement;
+        "language": any;
+        "processedFlipCode": any;
+    }
+    interface HsFlipcodeBack {
+    }
+    interface HsFlipcodeFront {
+    }
     interface HsFlipper {
         "flipperBackEvents": string;
         "flipperDuration": number;
@@ -222,6 +236,24 @@ declare global {
         prototype: HTMLHsFetcherElement;
         new (): HTMLHsFetcherElement;
     };
+    interface HTMLHsFlipCodeElement extends Components.HsFlipCode, HTMLStencilElement {
+    }
+    var HTMLHsFlipCodeElement: {
+        prototype: HTMLHsFlipCodeElement;
+        new (): HTMLHsFlipCodeElement;
+    };
+    interface HTMLHsFlipcodeBackElement extends Components.HsFlipcodeBack, HTMLStencilElement {
+    }
+    var HTMLHsFlipcodeBackElement: {
+        prototype: HTMLHsFlipcodeBackElement;
+        new (): HTMLHsFlipcodeBackElement;
+    };
+    interface HTMLHsFlipcodeFrontElement extends Components.HsFlipcodeFront, HTMLStencilElement {
+    }
+    var HTMLHsFlipcodeFrontElement: {
+        prototype: HTMLHsFlipcodeFrontElement;
+        new (): HTMLHsFlipcodeFrontElement;
+    };
     interface HTMLHsFlipperElement extends Components.HsFlipper, HTMLStencilElement {
     }
     var HTMLHsFlipperElement: {
@@ -310,6 +342,9 @@ declare global {
         "hs-card-header": HTMLHsCardHeaderElement;
         "hs-card-img-header": HTMLHsCardImgHeaderElement;
         "hs-fetcher": HTMLHsFetcherElement;
+        "hs-flip-code": HTMLHsFlipCodeElement;
+        "hs-flipcode-back": HTMLHsFlipcodeBackElement;
+        "hs-flipcode-front": HTMLHsFlipcodeFrontElement;
         "hs-flipper": HTMLHsFlipperElement;
         "hs-media-image": HTMLHsMediaImageElement;
         "hs-media-item": HTMLHsMediaItemElement;
@@ -418,6 +453,20 @@ declare namespace LocalJSX {
         "onResolved"?: (event: CustomEvent<any>) => void;
         "url"?: string;
     }
+    interface HsFlipCode {
+        "fliLanguage"?: string;
+        "flipButton"?: HTMLButtonElement;
+        "flipCard"?: HTMLDivElement;
+        "flipCode"?: any;
+        "flipCodeBlock"?: any;
+        "flipContainer"?: HTMLDivElement;
+        "language"?: any;
+        "processedFlipCode"?: any;
+    }
+    interface HsFlipcodeBack {
+    }
+    interface HsFlipcodeFront {
+    }
     interface HsFlipper {
         "flipperBackEvents"?: string;
         "flipperDuration"?: number;
@@ -503,6 +552,9 @@ declare namespace LocalJSX {
         "hs-card-header": HsCardHeader;
         "hs-card-img-header": HsCardImgHeader;
         "hs-fetcher": HsFetcher;
+        "hs-flip-code": HsFlipCode;
+        "hs-flipcode-back": HsFlipcodeBack;
+        "hs-flipcode-front": HsFlipcodeFront;
         "hs-flipper": HsFlipper;
         "hs-media-image": HsMediaImage;
         "hs-media-item": HsMediaItem;
@@ -531,6 +583,9 @@ declare module "@stencil/core" {
             "hs-card-header": LocalJSX.HsCardHeader & JSXBase.HTMLAttributes<HTMLHsCardHeaderElement>;
             "hs-card-img-header": LocalJSX.HsCardImgHeader & JSXBase.HTMLAttributes<HTMLHsCardImgHeaderElement>;
             "hs-fetcher": LocalJSX.HsFetcher & JSXBase.HTMLAttributes<HTMLHsFetcherElement>;
+            "hs-flip-code": LocalJSX.HsFlipCode & JSXBase.HTMLAttributes<HTMLHsFlipCodeElement>;
+            "hs-flipcode-back": LocalJSX.HsFlipcodeBack & JSXBase.HTMLAttributes<HTMLHsFlipcodeBackElement>;
+            "hs-flipcode-front": LocalJSX.HsFlipcodeFront & JSXBase.HTMLAttributes<HTMLHsFlipcodeFrontElement>;
             "hs-flipper": LocalJSX.HsFlipper & JSXBase.HTMLAttributes<HTMLHsFlipperElement>;
             "hs-media-image": LocalJSX.HsMediaImage & JSXBase.HTMLAttributes<HTMLHsMediaImageElement>;
             "hs-media-item": LocalJSX.HsMediaItem & JSXBase.HTMLAttributes<HTMLHsMediaItemElement>;
