@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+ 
   <head>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Montserrat:wght@400;600;700&family=Nothing+You+Could+Do&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -12,8 +12,8 @@
     <meta name="author" content="">
 
     <title>Heath Shults - Software Developer+</title>
-    <script type="module" src="/components/heathenscript-ui-components.esm.js"></script>
-    <script nomodule src="/components/heathenscript-ui-components.js"> </script>
+    <script type="module" src="/components/heathscript-ui.esm.js"></script>
+    <script nomodule src="/components/heathscript-ui.js"> </script>
     <!-- react -->
     <!-- <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script> -->
@@ -127,46 +127,18 @@
       <div class="row">
         <div class="col-md-12">
           <!-- HSThreeDRotator -->
-          <div class="hs-3drotate__container"
-          data-headers=""
-          data-method="GET"
-          data-url="/global/3dRotator.json"
-          >
-            
-            <div class="hs-3drotate__scene">
-              <div class="col hs-3drotate__nav text-center">
-                <button class="hs-3drotate__prev-button"></button>
-                <input class="hs-3drotate__cells-range" type="range" min="3" max="15" value="6" />
-                  <button class="hs-3drotate__next-button"></button>
-              </div>
-              <div class="hs-3drotate">
-                
-                
-                <!-- <div class="hs-3drotate__cell"><img class="hs-3drotate__img"
-                  src="/assets/img/portfolio/bowlopolis/episodes-page-800x533.jpg" alt=""></div>
-              <div class="hs-3drotate__cell"><img class="hs-3drotate__img"
-                  src="/assets/img/portfolio/bowlopolis/kids-club-page-800x533.jpg" alt=""></div>
-              <div class="hs-3drotate__cell"><img class="hs-3drotate__img"
-                  src="/assets/img/portfolio/bowlopolis/games-page-800x533.jpg" alt=""></div>
-              <div class="hs-3drotate__cell"><img class="hs-3drotate__img"
-                  src="/assets/img/portfolio/bowlopolis/episodes-page-800x533.jpg" alt=""></div>
-              <div class="hs-3drotate__cell"><img class="hs-3drotate__img"
-                  src="/assets/img/portfolio/bowlopolis/kids-club-page-800x533.jpg" alt=""></div>
-              <div class="hs-3drotate__cell"><img class="hs-3drotate__img"
-                  src="/assets/img/portfolio/bowlopolis/games-page-800x533.jpg" alt=""></div>
-              <div class="hs-3drotate__cell">7</div>
-              <div class="hs-3drotate__cell">8</div>
-              <div class="hs-3drotate__cell">9</div>
-              <div class="hs-3drotate__cell">10</div>
-              <div class="hs-3drotate__cell">11</div>
-              <div class="hs-3drotate__cell">12</div>
-              <div class="hs-3drotate__cell">13</div>
-              <div class="hs-3drotate__cell">14</div>
-              <div class="hs-3drotate__cell">15</div> -->
-              </div>
+          <hs-flip-code>
+            <div slot="front">
+              <img src="/assets/img/portfolio/bowlopolis/episodes-page2.png" width="500"/>
             </div>
             
-          </div>
+            <div slot="back">
+              this.flipHandler = () => {
+                this.flipCard.classList.toggle('is-flipped');
+              };
+            </div>
+            
+          </hs-flip-code>
         </div>
       </div>
       <div class="row">
