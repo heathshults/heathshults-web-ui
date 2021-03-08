@@ -278,7 +278,7 @@ function renderJS(method, cb) {
     });
   }
   if (method === 'file') {
-    exec('npx babel src/js/modules/HeathScript.ts --out-file www/assets/js/HeathScript.js', (error, stdout, stderr) => {
+    exec('npx parcel build src/js/index.ts -d www/assets/js -o HeathScript.bundle.js', (error, stdout, stderr) => {
       if (error) {
           console.log(chalk.red("ERROR renderJS: \n stdout: " + stderr + "\n Error Message: " + error.message));
           return 'renderJS error'+error;
@@ -290,6 +290,20 @@ function renderJS(method, cb) {
   if (typeof cb === 'function') cb();
 }
 exports.renderJS = renderJS;
+
+function parcelJS(cb) {
+  exec('npx parcel build src/js/index.ts -d www/assets/js -o HeathScript.bundle.js', (error, stdout, stderr) => {
+      if (error) {
+          console.log("ERROR compileMain: \n stdout: " + stderr + "\n Error Message: " + error.message);
+          return 'SCSS compile error'+error;
+      }
+      return true;
+
+  });
+
+  if (typeof cb === 'function') cb(null);
+}
+exports.parcelJS = parcelJS;
 
 function sassy(done) {
   try {
@@ -606,7 +620,7 @@ let jsdir = '';
   watch([`${srcPath}/**/*.html`], ra.copy_html).on('change', browserSync.reload), callback;
   watch([`${srcPath}/assets/**/*.css`], ra.copy_css).on('change', browserSync.reload), callback;
   watch([`"${srcPath}/js/modules/**/*.{js,mjs,cjs,ts}"`, `!${srcPath}/js/HeathScript.js`], renderJS(jsdir)).on('change', browserSync.reload), callback;
-  watch([`${srcPath}/js/HeathScript.ts`], renderJS(jsfile)).on('change', browserSync.reload), callback;
+  watch([`${srcPath}/js/modules/HeathScript.js`], renderJS(jsfile)).on('change', browserSync.reload), callback;
   // watch([`${srcCompPath}/**/*.{tsx,ts,jsx,js,scss}`], build_components).on('change', browserSync.reload), callback;
   jsfile = 'file';
   jsdir = 'dir';

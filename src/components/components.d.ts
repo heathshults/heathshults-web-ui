@@ -5,7 +5,19 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { FramekitHighlightCodeAnchor } from "./declarations/fk-highlight-code-anchor";
 export namespace Components {
+    interface FkHighlightCode {
+        "anchor": string;
+        "anchorZoom": string;
+        "findNextAnchor": (enter: boolean) => Promise<FramekitHighlightCodeAnchor>;
+        "hideAnchor": boolean;
+        "highlightLines": string;
+        "language": string;
+        "load": () => Promise<void>;
+        "src": string;
+        "zoomCode": (zoom: boolean) => Promise<void>;
+    }
     interface HsBackToTop {
         "position": string;
     }
@@ -95,14 +107,17 @@ export namespace Components {
         "url": string;
     }
     interface HsFlipCode {
-        "fliLanguage": string;
         "flipButton": HTMLButtonElement;
         "flipCard": HTMLDivElement;
+        "flipCardFront": HTMLDivElement;
+        "flipCardHeight": any;
         "flipCode": any;
         "flipCodeBlock": any;
         "flipContainer": HTMLDivElement;
+        "flipLanguage": string;
         "language": any;
         "processedFlipCode": any;
+        "setHeight": any;
     }
     interface HsFlipcodeBack {
     }
@@ -182,6 +197,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLFkHighlightCodeElement extends Components.FkHighlightCode, HTMLStencilElement {
+    }
+    var HTMLFkHighlightCodeElement: {
+        prototype: HTMLFkHighlightCodeElement;
+        new (): HTMLFkHighlightCodeElement;
+    };
     interface HTMLHsBackToTopElement extends Components.HsBackToTop, HTMLStencilElement {
     }
     var HTMLHsBackToTopElement: {
@@ -333,6 +354,7 @@ declare global {
         new (): HTMLHsTimelineItemElement;
     };
     interface HTMLElementTagNameMap {
+        "fk-highlight-code": HTMLFkHighlightCodeElement;
         "hs-back-to-top": HTMLHsBackToTopElement;
         "hs-button": HTMLHsButtonElement;
         "hs-card": HTMLHsCardElement;
@@ -361,6 +383,15 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface FkHighlightCode {
+        "anchor"?: string;
+        "anchorZoom"?: string;
+        "hideAnchor"?: boolean;
+        "highlightLines"?: string;
+        "language"?: string;
+        "onPrismLanguageLoaded"?: (event: CustomEvent<string>) => void;
+        "src"?: string;
+    }
     interface HsBackToTop {
         "onBacktotop"?: (event: CustomEvent<any>) => void;
         "position"?: string;
@@ -454,14 +485,17 @@ declare namespace LocalJSX {
         "url"?: string;
     }
     interface HsFlipCode {
-        "fliLanguage"?: string;
         "flipButton"?: HTMLButtonElement;
         "flipCard"?: HTMLDivElement;
+        "flipCardFront"?: HTMLDivElement;
+        "flipCardHeight"?: any;
         "flipCode"?: any;
         "flipCodeBlock"?: any;
         "flipContainer"?: HTMLDivElement;
+        "flipLanguage"?: string;
         "language"?: any;
         "processedFlipCode"?: any;
+        "setHeight"?: any;
     }
     interface HsFlipcodeBack {
     }
@@ -543,6 +577,7 @@ declare namespace LocalJSX {
         "type"?: string;
     }
     interface IntrinsicElements {
+        "fk-highlight-code": FkHighlightCode;
         "hs-back-to-top": HsBackToTop;
         "hs-button": HsButton;
         "hs-card": HsCard;
@@ -574,6 +609,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "fk-highlight-code": LocalJSX.FkHighlightCode & JSXBase.HTMLAttributes<HTMLFkHighlightCodeElement>;
             "hs-back-to-top": LocalJSX.HsBackToTop & JSXBase.HTMLAttributes<HTMLHsBackToTopElement>;
             "hs-button": LocalJSX.HsButton & JSXBase.HTMLAttributes<HTMLHsButtonElement>;
             "hs-card": LocalJSX.HsCard & JSXBase.HTMLAttributes<HTMLHsCardElement>;

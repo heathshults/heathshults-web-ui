@@ -23,12 +23,18 @@
   window.onload = autofillKill();
 
   function autofillKill() {
-    var qs = document.querySelector;
-    var qsa = document.querySelectorAll;
+    var qs = document.querySelector();
+    var qsa = document.querySelectorAll();
     var contactForm = document.querySelector('#contactForm');
-    var contactFormFields = contactForm.document.querySelectorAll('.form-control');
+    var contactFormFields;
     var contactFormFieldsValues = []; // console.log(contactForm),console.log(contactFormFields);
-    // for(let i=0; i<contactFormFields.length;i++) {
+
+    if (contactForm) {
+      contactFormFields = contactForm.document.querySelectorAll('.form-control');
+    } else {
+      return console.log('no form fields found');
+    } // for(let i=0; i<contactFormFields.length;i++) {
+
 
     Array.prototype.slice.call(contactFormFields).forEach(function (field, index) {
       var name = field.name;
