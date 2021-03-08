@@ -1,0 +1,700 @@
+@import "./_token-variables";
+
+$hs-tokens: (
+  'color': (
+    'brand': (
+      'navy': (
+        'base': $hs-color-brand-navy-base
+      ),
+      'blue': (
+        'lighter': $hs-color-brand-blue-lighter,
+        'light': $hs-color-brand-blue-light,
+        'base': $hs-color-brand-blue-base,
+        'dark': $hs-color-brand-blue-dark
+      ),
+      'orange': (
+        'lighter': $hs-color-brand-orange-lighter,
+        'light': $hs-color-brand-orange-light,
+        'base': $hs-color-brand-orange-base,
+        'dark': $hs-color-brand-orange-dark,
+        'darker': $hs-color-brand-orange-darker
+      ),
+      'teal': (
+        'lighter': $hs-color-brand-teal-lighter,
+        'light': $hs-color-brand-teal-light,
+        'base': $hs-color-brand-teal-base,
+        'dark': $hs-color-brand-teal-dark,
+        'darker': $hs-color-brand-teal-darker
+      ),
+      'green': (
+        'lighter': $hs-color-brand-green-lighter,
+        'light': $hs-color-brand-green-light,
+        'base': $hs-color-brand-green-base,
+        'dark': $hs-color-brand-green-dark,
+        'darker': $hs-color-brand-green-darker
+      ),
+      'magenta': (
+        'lighter': $hs-color-brand-magenta-lighter,
+        'light': $hs-color-brand-magenta-light,
+        'base': $hs-color-brand-magenta-base,
+        'dark': $hs-color-brand-magenta-dark,
+        'darker': $hs-color-brand-magenta-darker
+      ),
+      'yellow': (
+        'lighter': $hs-color-brand-yellow-lighter,
+        'light': $hs-color-brand-yellow-light,
+        'base': $hs-color-brand-yellow-base,
+        'dark': $hs-color-brand-yellow-dark,
+        'darker': $hs-color-brand-yellow-darker
+      )
+    ),
+    'core': (
+      'blue': (
+        '10': $hs-color-core-blue-10,
+        '20': $hs-color-core-blue-20,
+        '30': $hs-color-core-blue-30,
+        '40': $hs-color-core-blue-40,
+        '50': $hs-color-core-blue-50,
+        '60': $hs-color-core-blue-60,
+        '70': $hs-color-core-blue-70,
+        '80': $hs-color-core-blue-80,
+        '90': $hs-color-core-blue-90,
+        '95': $hs-color-core-blue-95
+      ),
+      'orange': (
+        '10': $hs-color-core-orange-10,
+        '20': $hs-color-core-orange-20,
+        '30': $hs-color-core-orange-30,
+        '40': $hs-color-core-orange-40,
+        '50': $hs-color-core-orange-50,
+        '60': $hs-color-core-orange-60,
+        '70': $hs-color-core-orange-70,
+        '80': $hs-color-core-orange-80,
+        '90': $hs-color-core-orange-90,
+        '95': $hs-color-core-orange-95
+      ),
+      'teal': (
+        '10': $hs-color-core-teal-10,
+        '20': $hs-color-core-teal-20,
+        '30': $hs-color-core-teal-30,
+        '40': $hs-color-core-teal-40,
+        '50': $hs-color-core-teal-50,
+        '60': $hs-color-core-teal-60,
+        '70': $hs-color-core-teal-70,
+        '80': $hs-color-core-teal-80,
+        '90': $hs-color-core-teal-90,
+        '95': $hs-color-core-teal-95
+      ),
+      'green': (
+        '10': $hs-color-core-green-10,
+        '20': $hs-color-core-green-20,
+        '30': $hs-color-core-green-30,
+        '40': $hs-color-core-green-40,
+        '50': $hs-color-core-green-50,
+        '60': $hs-color-core-green-60,
+        '70': $hs-color-core-green-70,
+        '80': $hs-color-core-green-80,
+        '90': $hs-color-core-green-90,
+        '95': $hs-color-core-green-95
+      ),
+      'yellow': (
+        '10': $hs-color-core-yellow-10,
+        '20': $hs-color-core-yellow-20,
+        '30': $hs-color-core-yellow-30,
+        '40': $hs-color-core-yellow-40,
+        '50': $hs-color-core-yellow-50,
+        '60': $hs-color-core-yellow-60,
+        '70': $hs-color-core-yellow-70,
+        '80': $hs-color-core-yellow-80,
+        '90': $hs-color-core-yellow-90,
+        '95': $hs-color-core-yellow-95
+      ),
+      'magenta': (
+        '10': $hs-color-core-magenta-10,
+        '20': $hs-color-core-magenta-20,
+        '30': $hs-color-core-magenta-30,
+        '40': $hs-color-core-magenta-40,
+        '50': $hs-color-core-magenta-50,
+        '60': $hs-color-core-magenta-60,
+        '70': $hs-color-core-magenta-70,
+        '80': $hs-color-core-magenta-80,
+        '90': $hs-color-core-magenta-90,
+        '95': $hs-color-core-magenta-95
+      ),
+      'red': (
+        '10': $hs-color-core-red-10,
+        '20': $hs-color-core-red-20,
+        '30': $hs-color-core-red-30,
+        '40': $hs-color-core-red-40,
+        '50': $hs-color-core-red-50,
+        '60': $hs-color-core-red-60,
+        '70': $hs-color-core-red-70,
+        '80': $hs-color-core-red-80,
+        '90': $hs-color-core-red-90,
+        '95': $hs-color-core-red-95
+      ),
+      'yelloworange': (
+        '10': $hs-color-core-yelloworange-10,
+        '20': $hs-color-core-yelloworange-20,
+        '30': $hs-color-core-yelloworange-30,
+        '40': $hs-color-core-yelloworange-40,
+        '50': $hs-color-core-yelloworange-50,
+        '60': $hs-color-core-yelloworange-60,
+        '70': $hs-color-core-yelloworange-70,
+        '80': $hs-color-core-yelloworange-80,
+        '90': $hs-color-core-yelloworange-90,
+        '95': $hs-color-core-yelloworange-95
+      ),
+      'yellowgreen': (
+        '10': $hs-color-core-yellowgreen-10,
+        '20': $hs-color-core-yellowgreen-20,
+        '30': $hs-color-core-yellowgreen-30,
+        '40': $hs-color-core-yellowgreen-40,
+        '50': $hs-color-core-yellowgreen-50,
+        '60': $hs-color-core-yellowgreen-60,
+        '70': $hs-color-core-yellowgreen-70,
+        '80': $hs-color-core-yellowgreen-80,
+        '90': $hs-color-core-yellowgreen-90,
+        '95': $hs-color-core-yellowgreen-95
+      ),
+      'muted': (
+        'blue': (
+          '10': $hs-color-core-muted-blue-10,
+          '20': $hs-color-core-muted-blue-20,
+          '30': $hs-color-core-muted-blue-30,
+          '40': $hs-color-core-muted-blue-40,
+          '50': $hs-color-core-muted-blue-50,
+          '60': $hs-color-core-muted-blue-60,
+          '70': $hs-color-core-muted-blue-70,
+          '80': $hs-color-core-muted-blue-80,
+          '90': $hs-color-core-muted-blue-90
+        ),
+        'orange': (
+          '10': $hs-color-core-muted-orange-10,
+          '20': $hs-color-core-muted-orange-20,
+          '30': $hs-color-core-muted-orange-30,
+          '40': $hs-color-core-muted-orange-40,
+          '50': $hs-color-core-muted-orange-50,
+          '60': $hs-color-core-muted-orange-60,
+          '70': $hs-color-core-muted-orange-70,
+          '80': $hs-color-core-muted-orange-80,
+          '90': $hs-color-core-muted-orange-90
+        ),
+        'teal': (
+          '10': $hs-color-core-muted-teal-10,
+          '20': $hs-color-core-muted-teal-20,
+          '30': $hs-color-core-muted-teal-30,
+          '40': $hs-color-core-muted-teal-40,
+          '50': $hs-color-core-muted-teal-50,
+          '60': $hs-color-core-muted-teal-60,
+          '70': $hs-color-core-muted-teal-70,
+          '80': $hs-color-core-muted-teal-80,
+          '90': $hs-color-core-muted-teal-90
+        ),
+        'green': (
+          '10': $hs-color-core-muted-green-10,
+          '20': $hs-color-core-muted-green-20,
+          '30': $hs-color-core-muted-green-30,
+          '40': $hs-color-core-muted-green-40,
+          '50': $hs-color-core-muted-green-50,
+          '60': $hs-color-core-muted-green-60,
+          '70': $hs-color-core-muted-green-70,
+          '80': $hs-color-core-muted-green-80,
+          '90': $hs-color-core-muted-green-90
+        ),
+        'yellow': (
+          '10': $hs-color-core-muted-yellow-10,
+          '20': $hs-color-core-muted-yellow-20,
+          '30': $hs-color-core-muted-yellow-30,
+          '40': $hs-color-core-muted-yellow-40,
+          '50': $hs-color-core-muted-yellow-50,
+          '60': $hs-color-core-muted-yellow-60,
+          '70': $hs-color-core-muted-yellow-70,
+          '80': $hs-color-core-muted-yellow-80,
+          '90': $hs-color-core-muted-yellow-90
+        ),
+        'magenta': (
+          '10': $hs-color-core-muted-magenta-10,
+          '20': $hs-color-core-muted-magenta-20,
+          '30': $hs-color-core-muted-magenta-30,
+          '40': $hs-color-core-muted-magenta-40,
+          '50': $hs-color-core-muted-magenta-50,
+          '60': $hs-color-core-muted-magenta-60,
+          '70': $hs-color-core-muted-magenta-70,
+          '80': $hs-color-core-muted-magenta-80,
+          '90': $hs-color-core-muted-magenta-90
+        ),
+        'red': (
+          '10': $hs-color-core-muted-red-10,
+          '20': $hs-color-core-muted-red-20,
+          '30': $hs-color-core-muted-red-30,
+          '40': $hs-color-core-muted-red-40,
+          '50': $hs-color-core-muted-red-50,
+          '60': $hs-color-core-muted-red-60,
+          '70': $hs-color-core-muted-red-70,
+          '80': $hs-color-core-muted-red-80,
+          '90': $hs-color-core-muted-red-90
+        ),
+        'yelloworange': (
+          '10': $hs-color-core-muted-yelloworange-10,
+          '30': $hs-color-core-muted-yelloworange-30
+        ),
+        'yellowgreen': (
+          '10': $hs-color-core-muted-yellowgreen-10,
+          '30': $hs-color-core-muted-yellowgreen-30
+        )
+      ),
+      'neutral': (
+        '10': $hs-color-core-neutral-10,
+        '13': $hs-color-core-neutral-13,
+        '18': $hs-color-core-neutral-18,
+        '20': $hs-color-core-neutral-20,
+        '30': $hs-color-core-neutral-30,
+        '40': $hs-color-core-neutral-40,
+        '50': $hs-color-core-neutral-50,
+        '60': $hs-color-core-neutral-60,
+        '70': $hs-color-core-neutral-70,
+        '80': $hs-color-core-neutral-80,
+        '90': $hs-color-core-neutral-90,
+        '95': $hs-color-core-neutral-95,
+        '00': $hs-color-core-neutral-00
+      )
+    ),
+    'shade': (
+      '10': $hs-color-shade-10,
+      '15': $hs-color-shade-15,
+      '25': $hs-color-shade-25,
+      '50': $hs-color-shade-50,
+      '75': $hs-color-shade-75,
+      '90': $hs-color-shade-90,
+      '05': $hs-color-shade-05
+    ),
+    'tint': (
+      '10': $hs-color-tint-10,
+      '15': $hs-color-tint-15,
+      '25': $hs-color-tint-25,
+      '50': $hs-color-tint-50,
+      '75': $hs-color-tint-75,
+      '90': $hs-color-tint-90,
+      '05': $hs-color-tint-05
+    )
+  ),
+  'depth': (
+    'opacity': (
+      'full': $hs-depth-opacity-full,
+      'heavy': $hs-depth-opacity-heavy,
+      'medium': $hs-depth-opacity-medium,
+      'light': $hs-depth-opacity-light,
+      'none': $hs-depth-opacity-none
+    )
+  ),
+  'motion': (
+    'curve': (
+      'deceleration': $hs-motion-curve-deceleration,
+      'standard': $hs-motion-curve-standard,
+      'acceleration': $hs-motion-curve-acceleration,
+      'sharp': $hs-motion-curve-sharp
+    ),
+    'animation': (
+      'duration': (
+        'immediantly': $hs-motion-animation-duration-immediantly,
+        'quickly': $hs-motion-animation-duration-quickly,
+        'default': $hs-motion-animation-duration-default,
+        'slowly': $hs-motion-animation-duration-slowly,
+        'fade': $hs-motion-animation-duration-fade
+      )
+    )
+  ),
+  'size': (
+    'border': (
+      'radius': (
+        'none': $hs-size-border-radius-none,
+        'sm': $hs-size-border-radius-sm,
+        'md': $hs-size-border-radius-md,
+        'lg': $hs-size-border-radius-lg,
+        'xl': $hs-size-border-radius-xl,
+        'xxl': $hs-size-border-radius-xxl
+      ),
+      'width': (
+        'default': $hs-size-border-width-default,
+        'thin': $hs-size-border-width-thin,
+        'thick': $hs-size-border-width-thick,
+        'thicker': $hs-size-border-width-thicker
+      )
+    ),
+    'icon': (
+      'default': $hs-size-icon-default,
+      'sm': $hs-size-icon-sm,
+      'md': $hs-size-icon-md,
+      'lg': $hs-size-icon-lg
+    ),
+    'text': (
+      'base': $hs-size-text-base,
+      'xxs': $hs-size-text-xxs,
+      'xs': $hs-size-text-xs,
+      'sm': $hs-size-text-sm,
+      'md': $hs-size-text-md,
+      'lg': $hs-size-text-lg,
+      'xl': $hs-size-text-xl,
+      'xxl': $hs-size-text-xxl,
+      'xxxl': $hs-size-text-xxxl,
+      'xxxxl': $hs-size-text-xxxxl,
+      'display-2': $hs-size-text-display-2,
+      'display-1': $hs-size-text-display-1
+    )
+  ),
+  'scale': (
+    'down9': $hs-scale-down-9,
+    'down8': $hs-scale-down-8,
+    'down7': $hs-scale-down-7,
+    'down6': $hs-scale-down-6,
+    'down5': $hs-scale-down-5,
+    'down4': $hs-scale-down-4,
+    'down3': $hs-scale-down-3,
+    'down2': $hs-scale-down-2,
+    'down1': $hs-scale-down-1,
+    'base': $hs-scale-base,
+    'up1': $hs-scale-up-1,
+    'up2': $hs-scale-up-2,
+    'up3': $hs-scale-up-3,
+    'up4': $hs-scale-up-4,
+    'up5': $hs-scale-up-5,
+    'up6': $hs-scale-up-6,
+    'up7': $hs-scale-up-7,
+    'up8': $hs-scale-up-8,
+    'up9': $hs-scale-up-9,
+    'up10': $hs-scale-up-10,
+    'up11': $hs-scale-up-11,
+    'up12': $hs-scale-up-12,
+    'up13': $hs-scale-up-13,
+    'up14': $hs-scale-up-14,
+    'up15': $hs-scale-up-15,
+    'up16': $hs-scale-up-16,
+    'up17': $hs-scale-up-17,
+    'up18': $hs-scale-up-18,
+    'up19': $hs-scale-up-19,
+    'up20': $hs-scale-up-20,
+    'up21': $hs-scale-up-21,
+    'up22': $hs-scale-up-22,
+    'up23': $hs-scale-up-23,
+    'up24': $hs-scale-up-24,
+    'up25': $hs-scale-up-25,
+    'up26': $hs-scale-up-26,
+    'up27': $hs-scale-up-27,
+    'up28': $hs-scale-up-28,
+    'up29': $hs-scale-up-29,
+    'up30': $hs-scale-up-30,
+    'up31': $hs-scale-up-31,
+    'up32': $hs-scale-up-32,
+    'up33': $hs-scale-up-33,
+    'up34': $hs-scale-up-34,
+    'up35': $hs-scale-up-35,
+    'up36': $hs-scale-up-36,
+    'up37': $hs-scale-up-37,
+    'up38': $hs-scale-up-38,
+    'up39': $hs-scale-up-39,
+    'up40': $hs-scale-up-40,
+    'up41': $hs-scale-up-41,
+    'up42': $hs-scale-up-42
+  ),
+  'space': (
+    'spacing': (
+      '0': $hs-space-spacing-0,
+      'xxs': $hs-space-spacing-xxs,
+      'xs': $hs-space-spacing-xs,
+      'sm': $hs-space-spacing-sm,
+      'md': $hs-space-spacing-md,
+      'lg': $hs-space-spacing-lg,
+      'xl': $hs-space-spacing-xl,
+      'xxl': $hs-space-spacing-xxl,
+      'default': $hs-space-spacing-default
+    ),
+    'inline': (
+      'xxs': $hs-space-inline-xxs,
+      'xs': $hs-space-inline-xs,
+      'sm': $hs-space-inline-sm,
+      'md': $hs-space-inline-md,
+      'lg': $hs-space-inline-lg,
+      'xl': $hs-space-inline-xl,
+      'xxl': $hs-space-inline-xxl,
+      'default': $hs-space-inline-default
+    ),
+    'inset': (
+      'xxs': $hs-space-inset-xxs,
+      'xs': $hs-space-inset-xs,
+      'sm': $hs-space-inset-sm,
+      'md': $hs-space-inset-md,
+      'lg': $hs-space-inset-lg,
+      'xl': $hs-space-inset-xl,
+      'xxl': $hs-space-inset-xxl,
+      'default': $hs-space-inset-default
+    ),
+    'squish': (
+      'xs': $hs-space-squish-xs,
+      'sm': $hs-space-squish-sm,
+      'md': $hs-space-squish-md,
+      'lg': $hs-space-squish-lg,
+      'xl': $hs-space-squish-xl,
+      'xxl': $hs-space-squish-xxl,
+      'default': $hs-space-squish-default
+    ),
+    'stack': (
+      'xxs': $hs-space-stack-xxs,
+      'xs': $hs-space-stack-xs,
+      'sm': $hs-space-stack-sm,
+      'md': $hs-space-stack-md,
+      'lg': $hs-space-stack-lg,
+      'xl': $hs-space-stack-xl,
+      'xxl': $hs-space-stack-xxl,
+      'default': $hs-space-stack-default
+    ),
+    'stretch': (
+      'sm': $hs-space-stretch-sm,
+      'md': $hs-space-stretch-md,
+      'lg': $hs-space-stretch-lg,
+      'default': $hs-space-stretch-default
+    )
+  ),
+  'type': (
+    'font-family': (
+      'sans': $hs-type-font-family-sans,
+      'mono': $hs-type-font-family-mono
+    ),
+    'line-height': (
+      'compressed': $hs-type-line-height-compressed,
+      'default': $hs-type-line-height-default,
+      'fluffy': $hs-type-line-height-fluffy
+    ),
+    'measure': (
+      'narrow': $hs-type-measure-narrow,
+      'base': $hs-type-measure-base,
+      'wide': $hs-type-measure-wide
+    ),
+    'font-weight': (
+      'sans': (
+        'light': $hs-type-font-weight-sans-light,
+        'regular': $hs-type-font-weight-sans-regular,
+        'semibold': $hs-type-font-weight-sans-semibold,
+        'bold': $hs-type-font-weight-sans-bold
+      )
+    )
+  ),
+  'dm': (
+    'border': (
+      'primary': $hs-dm-border-primary,
+      'secondary': $hs-dm-border-secondary,
+      'subtle': $hs-dm-border-subtle,
+      'hint': $hs-dm-border-hint,
+      'error': $hs-dm-border-error,
+      'success': $hs-dm-border-success,
+      'selected': $hs-dm-border-selected
+    ),
+    'interactive': (
+      'primary': $hs-dm-interactive-primary,
+      'primaryalt': $hs-dm-interactive-primaryalt,
+      'secondary': $hs-dm-interactive-secondary,
+      'destructive': $hs-dm-interactive-destructive,
+      'disabled': $hs-dm-interactive-disabled,
+      'actionable': $hs-dm-interactive-actionable
+    ),
+    'bg': (
+      'canvas': $hs-dm-bg-canvas,
+      'layer1': $hs-dm-bg-layer-1,
+      'layer2': $hs-dm-bg-layer-2,
+      'layer3': $hs-dm-bg-layer-3,
+      'brand1': $hs-dm-bg-brand-1,
+      'brand2': $hs-dm-bg-brand-2,
+      'overlay': $hs-dm-bg-overlay,
+      'gray1': $hs-dm-bg-gray-1,
+      'gray2': $hs-dm-bg-gray-2
+    ),
+    'messaging': (
+      'error': (
+        'strong': $hs-dm-messaging-error-strong,
+        'accent': $hs-dm-messaging-error-accent,
+        'subtle': $hs-dm-messaging-error-subtle
+      ),
+      'warning': (
+        'strong': $hs-dm-messaging-warning-strong,
+        'accent': $hs-dm-messaging-warning-accent,
+        'subtle': $hs-dm-messaging-warning-subtle
+      ),
+      'success': (
+        'strong': $hs-dm-messaging-success-strong,
+        'accent': $hs-dm-messaging-success-accent,
+        'subtle': $hs-dm-messaging-success-subtle
+      ),
+      'neutral': (
+        'strong': $hs-dm-messaging-neutral-strong,
+        'accent': $hs-dm-messaging-neutral-accent,
+        'subtle': $hs-dm-messaging-neutral-subtle
+      ),
+      'selected': (
+        'strong': $hs-dm-messaging-selected-strong,
+        'accent': $hs-dm-messaging-selected-accent,
+        'subtle': $hs-dm-messaging-selected-subtle
+      ),
+      'active': (
+        'strong': $hs-dm-messaging-active-strong,
+        'accent': $hs-dm-messaging-active-accent,
+        'subtle': $hs-dm-messaging-active-subtle
+      )
+    ),
+    'visualization': (
+      'performance': (
+        'positive': $hs-dm-visualization-performance-positive,
+        'neutral': $hs-dm-visualization-performance-neutral,
+        'negative': $hs-dm-visualization-performance-negative
+      )
+    ),
+    'shadow': (
+      'inset': (
+        'sm': $hs-dm-shadow-inset-sm,
+        'md': $hs-dm-shadow-inset-md,
+        'lg': $hs-dm-shadow-inset-lg
+      ),
+      'outline': (
+        'thin': $hs-dm-shadow-outline-thin,
+        'focus': $hs-dm-shadow-outline-focus,
+        'selected': $hs-dm-shadow-outline-selected
+      ),
+      'outset': (
+        'xs': $hs-dm-shadow-outset-xs,
+        'sm': $hs-dm-shadow-outset-sm,
+        'md': $hs-dm-shadow-outset-md,
+        'lg': $hs-dm-shadow-outset-lg,
+        'xl': $hs-dm-shadow-outset-xl
+      )
+    ),
+    'text': (
+      'primary': $hs-dm-text-primary,
+      'secondary': $hs-dm-text-secondary,
+      'subtle': $hs-dm-text-subtle,
+      'hint': $hs-dm-text-hint,
+      'error': $hs-dm-text-error,
+      'warning': $hs-dm-text-warning,
+      'success': $hs-dm-text-success,
+      'brand1': $hs-dm-text-brand-1,
+      'brand2': $hs-dm-text-brand-2,
+      'brand3': $hs-dm-text-brand-3,
+      'link': $hs-dm-text-link
+    )
+  ),
+  'lm': (
+    'border': (
+      'primary': $hs-lm-border-primary,
+      'secondary': $hs-lm-border-secondary,
+      'subtle': $hs-lm-border-subtle,
+      'hint': $hs-lm-border-hint,
+      'error': $hs-lm-border-error,
+      'success': $hs-lm-border-success,
+      'selected': $hs-lm-border-selected
+    ),
+    'interactive': (
+      'primary': $hs-lm-interactive-primary,
+      'primaryalt': $hs-lm-interactive-primaryalt,
+      'secondary': $hs-lm-interactive-secondary,
+      'destructive': $hs-lm-interactive-destructive,
+      'disabled': $hs-lm-interactive-disabled,
+      'actionable': $hs-lm-interactive-actionable
+    ),
+    'bg': (
+      'canvas': $hs-lm-bg-canvas,
+      'layer1': $hs-lm-bg-layer-1,
+      'layer2': $hs-lm-bg-layer-2,
+      'layer3': $hs-lm-bg-layer-3,
+      'brand1': $hs-lm-bg-brand-1,
+      'brand2': $hs-lm-bg-brand-2,
+      'overlay': $hs-lm-bg-overlay,
+      'gray1': $hs-lm-bg-gray-1,
+      'gray2': $hs-lm-bg-gray-2
+    ),
+    'messaging': (
+      'error': (
+        'strong': $hs-lm-messaging-error-strong,
+        'accent': $hs-lm-messaging-error-accent,
+        'subtle': $hs-lm-messaging-error-subtle
+      ),
+      'warning': (
+        'strong': $hs-lm-messaging-warning-strong,
+        'accent': $hs-lm-messaging-warning-accent,
+        'subtle': $hs-lm-messaging-warning-subtle
+      ),
+      'success': (
+        'strong': $hs-lm-messaging-success-strong,
+        'accent': $hs-lm-messaging-success-accent,
+        'subtle': $hs-lm-messaging-success-subtle
+      ),
+      'neutral': (
+        'strong': $hs-lm-messaging-neutral-strong,
+        'accent': $hs-lm-messaging-neutral-accent,
+        'subtle': $hs-lm-messaging-neutral-subtle
+      ),
+      'selected': (
+        'strong': $hs-lm-messaging-selected-strong,
+        'accent': $hs-lm-messaging-selected-accent,
+        'subtle': $hs-lm-messaging-selected-subtle
+      ),
+      'active': (
+        'strong': $hs-lm-messaging-active-strong,
+        'accent': $hs-lm-messaging-active-accent,
+        'subtle': $hs-lm-messaging-active-subtle
+      )
+    ),
+    'visualization': (
+      'performance': (
+        'positive': $hs-lm-visualization-performance-positive,
+        'neutral': $hs-lm-visualization-performance-neutral,
+        'negative': $hs-lm-visualization-performance-negative
+      )
+    ),
+    'shadow': (
+      'inset': (
+        'sm': $hs-lm-shadow-inset-sm,
+        'md': $hs-lm-shadow-inset-md,
+        'lg': $hs-lm-shadow-inset-lg
+      ),
+      'outline': (
+        'thin': $hs-lm-shadow-outline-thin,
+        'focus': $hs-lm-shadow-outline-focus,
+        'selected': $hs-lm-shadow-outline-selected
+      ),
+      'outset': (
+        'xs': $hs-lm-shadow-outset-xs,
+        'sm': $hs-lm-shadow-outset-sm,
+        'md': $hs-lm-shadow-outset-md,
+        'lg': $hs-lm-shadow-outset-lg,
+        'xl': $hs-lm-shadow-outset-xl
+      )
+    ),
+    'text': (
+      'primary': $hs-lm-text-primary,
+      'secondary': $hs-lm-text-secondary,
+      'subtle': $hs-lm-text-subtle,
+      'hint': $hs-lm-text-hint,
+      'error': $hs-lm-text-error,
+      'warning': $hs-lm-text-warning,
+      'success': $hs-lm-text-success,
+      'brand1': $hs-lm-text-brand-1,
+      'brand2': $hs-lm-text-brand-2,
+      'brand3': $hs-lm-text-brand-3,
+      'link': $hs-lm-text-link
+    )
+  ),
+  'web': (
+    'breakpoints': (
+      'xs': $hs-web-breakpoints-xs,
+      'sm': $hs-web-breakpoints-sm,
+      'md': $hs-web-breakpoints-md,
+      'lg': $hs-web-breakpoints-lg,
+      'xl': $hs-web-breakpoints-xl
+    ),
+    'z-index': (
+      'base': $hs-web-z-index-base,
+      'low': $hs-web-z-index-low,
+      'medium': $hs-web-z-index-medium,
+      'high': $hs-web-z-index-high,
+      'highest': $hs-web-z-index-highest
+    )
+  )
+);

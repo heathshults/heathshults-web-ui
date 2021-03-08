@@ -26,10 +26,15 @@
     const qs = document.querySelector;
     const qsa = document.querySelectorAll;
     const contactForm = document.querySelector('#contactForm');
-    const contactFormFields = contactForm.document.querySelectorAll('.form-control');
+    let contactFormFields;
     const contactFormFieldsValues = []; // console.log(contactForm),console.log(contactFormFields);
+    
+    if (contactForm) {
+      contactFormFields = contactForm.document.querySelectorAll('.form-control');
+    } else {
+      return console.log('no form fields found');
+    }
     // for(let i=0; i<contactFormFields.length;i++) {
-
     Array.prototype.slice.call(contactFormFields).forEach((field, index) => {
       const name = field.name;
       const value = field.value;

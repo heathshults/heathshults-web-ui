@@ -1,0 +1,502 @@
+$hs-color-brand-navy-base: #05314d !default;
+$hs-color-brand-blue-lighter: #49aae6 !default;
+$hs-color-brand-blue-light: #1887cc !default;
+$hs-color-brand-blue-base: #085280 !default;
+$hs-color-brand-blue-dark: #064063 !default;
+$hs-color-brand-orange-lighter: #ff9564 !default;
+$hs-color-brand-orange-light: #e46026 !default;
+$hs-color-brand-orange-base: #c55422 !default;
+$hs-color-brand-orange-dark: #ab491d !default;
+$hs-color-brand-orange-darker: #773314 !default;
+$hs-color-brand-teal-lighter: #45bed6 !default;
+$hs-color-brand-teal-light: #1794ad !default;
+$hs-color-brand-teal-base: #0c7b91 !default;
+$hs-color-brand-teal-dark: #0a6375 !default;
+$hs-color-brand-teal-darker: #074b58 !default;
+$hs-color-brand-green-lighter: #86cc92 !default;
+$hs-color-brand-green-light: #418152 !default;
+$hs-color-brand-green-base: #2c6937 !default;
+$hs-color-brand-green-dark: #25592c !default;
+$hs-color-brand-green-darker: #074512 !default;
+$hs-color-brand-magenta-lighter: #e063a6 !default;
+$hs-color-brand-magenta-light: #c9408c !default;
+$hs-color-brand-magenta-base: #911a5b !default;
+$hs-color-brand-magenta-dark: #77154b !default;
+$hs-color-brand-magenta-darker: #430c2a !default;
+$hs-color-brand-yellow-lighter: #ffe385 !default;
+$hs-color-brand-yellow-light: #ffcb1f !default;
+$hs-color-brand-yellow-base: #ffb400 !default;
+$hs-color-brand-yellow-dark: #edb600 !default;
+$hs-color-brand-yellow-darker: #e0ac00 !default;
+$hs-color-core-blue-10: #a3dcff !default;
+$hs-color-core-blue-20: #6bbef2 !default;
+$hs-color-core-blue-30: #49aae6 !default;
+$hs-color-core-blue-40: #2594d9 !default;
+$hs-color-core-blue-50: #1887cc !default;
+$hs-color-core-blue-60: #0c77ba !default;
+$hs-color-core-blue-70: #0a649d !default;
+$hs-color-core-blue-80: #085280 !default;
+$hs-color-core-blue-90: #064063 !default;
+$hs-color-core-blue-95: #05314d !default;
+$hs-color-core-orange-10: #ffe0d2 !default;
+$hs-color-core-orange-20: #ffbc9d !default;
+$hs-color-core-orange-30: #ff9564 !default;
+$hs-color-core-orange-40: #f97a41 !default;
+$hs-color-core-orange-50: #e46026 !default;
+$hs-color-core-orange-60: #c55422 !default;
+$hs-color-core-orange-70: #ab491d !default;
+$hs-color-core-orange-80: #913e19 !default;
+$hs-color-core-orange-90: #773314 !default;
+$hs-color-core-orange-95: #5c2208 !default;
+$hs-color-core-teal-10: #b8ebf5 !default;
+$hs-color-core-teal-20: #75d3e6 !default;
+$hs-color-core-teal-30: #45bed6 !default;
+$hs-color-core-teal-40: #2cafc9 !default;
+$hs-color-core-teal-50: #26a4bd !default;
+$hs-color-core-teal-60: #1794ad !default;
+$hs-color-core-teal-70: #0c7b91 !default;
+$hs-color-core-teal-80: #0a6375 !default;
+$hs-color-core-teal-90: #074b58 !default;
+$hs-color-core-teal-95: #04343d !default;
+$hs-color-core-green-10: #c0f0c8 !default;
+$hs-color-core-green-20: #a8e6b2 !default;
+$hs-color-core-green-30: #86cc92 !default;
+$hs-color-core-green-40: #71a679 !default;
+$hs-color-core-green-50: #418152 !default;
+$hs-color-core-green-60: #2c6937 !default;
+$hs-color-core-green-70: #25592c !default;
+$hs-color-core-green-80: #195424 !default;
+$hs-color-core-green-90: #074512 !default;
+$hs-color-core-green-95: #05320d !default;
+$hs-color-core-yellow-10: #fff2c7 !default;
+$hs-color-core-yellow-20: #ffeaa3 !default;
+$hs-color-core-yellow-30: #ffe385 !default;
+$hs-color-core-yellow-40: #ffd23d !default;
+$hs-color-core-yellow-50: #ffcb1f !default;
+$hs-color-core-yellow-60: #ffb400 !default;
+$hs-color-core-yellow-70: #edb600 !default;
+$hs-color-core-yellow-80: #e0ac00 !default;
+$hs-color-core-yellow-90: #d4a200 !default;
+$hs-color-core-yellow-95: #ad8500 !default;
+$hs-color-core-magenta-10: #ffd6ed !default;
+$hs-color-core-magenta-20: #f79acd !default;
+$hs-color-core-magenta-30: #e063a6 !default;
+$hs-color-core-magenta-40: #d45099 !default;
+$hs-color-core-magenta-50: #c9408c !default;
+$hs-color-core-magenta-60: #911a5b !default;
+$hs-color-core-magenta-70: #77154b !default;
+$hs-color-core-magenta-80: #5d113a !default;
+$hs-color-core-magenta-90: #430c2a !default;
+$hs-color-core-magenta-95: #2e031b !default;
+$hs-color-core-red-10: #ffadad !default;
+$hs-color-core-red-20: #f26868 !default;
+$hs-color-core-red-30: #de4545 !default;
+$hs-color-core-red-40: #cc3535 !default;
+$hs-color-core-red-50: #bd2b2b !default;
+$hs-color-core-red-60: #ad2323 !default;
+$hs-color-core-red-70: #941e1e !default;
+$hs-color-core-red-80: #801b1b !default;
+$hs-color-core-red-90: #701111 !default;
+$hs-color-core-red-95: #440505 !default;
+$hs-color-core-yelloworange-10: #f6dcb5 !default;
+$hs-color-core-yelloworange-20: #fbd091 !default;
+$hs-color-core-yelloworange-30: #fbc577 !default;
+$hs-color-core-yelloworange-40: #fcb143 !default;
+$hs-color-core-yelloworange-50: #ff9a0d !default;
+$hs-color-core-yelloworange-60: #e68b0c !default;
+$hs-color-core-yelloworange-70: #cc7b0a !default;
+$hs-color-core-yelloworange-80: #b36c09 !default;
+$hs-color-core-yelloworange-90: #804d07 !default;
+$hs-color-core-yelloworange-95: #4c2c04 !default;
+$hs-color-core-yellowgreen-10: #74da87 !default;
+$hs-color-core-yellowgreen-20: #45c15c !default;
+$hs-color-core-yellowgreen-30: #20a138 !default;
+$hs-color-core-yellowgreen-40: #0f9427 !default;
+$hs-color-core-yellowgreen-50: #008719 !default;
+$hs-color-core-yellowgreen-60: #006e14 !default;
+$hs-color-core-yellowgreen-70: #006112 !default;
+$hs-color-core-yellowgreen-80: #00540f !default;
+$hs-color-core-yellowgreen-90: #00470d !default;
+$hs-color-core-yellowgreen-95: #003209 !default;
+$hs-color-core-muted-blue-10: #e6edf2 !default;
+$hs-color-core-muted-blue-20: #cedde6 !default;
+$hs-color-core-muted-blue-30: #b5cbd9 !default;
+$hs-color-core-muted-blue-40: #9cb9cc !default;
+$hs-color-core-muted-blue-50: #83a8bf !default;
+$hs-color-core-muted-blue-60: #6d98b3 !default;
+$hs-color-core-muted-blue-70: #5587a6 !default;
+$hs-color-core-muted-blue-80: #3c7599 !default;
+$hs-color-core-muted-blue-90: #24658d !default;
+$hs-color-core-muted-orange-10: #f9eee9 !default;
+$hs-color-core-muted-orange-20: #f4ddd4 !default;
+$hs-color-core-muted-orange-30: #eeccbe !default;
+$hs-color-core-muted-orange-40: #e9bca9 !default;
+$hs-color-core-muted-orange-50: #e3ab93 !default;
+$hs-color-core-muted-orange-60: #de9a7e !default;
+$hs-color-core-muted-orange-70: #d98a69 !default;
+$hs-color-core-muted-orange-80: #d37953 !default;
+$hs-color-core-muted-orange-90: #ce683e !default;
+$hs-color-core-muted-teal-10: #e7f2f4 !default;
+$hs-color-core-muted-teal-20: #d1e6ea !default;
+$hs-color-core-muted-teal-30: #b9d9e0 !default;
+$hs-color-core-muted-teal-40: #a2cdd6 !default;
+$hs-color-core-muted-teal-50: #8bc0cb !default;
+$hs-color-core-muted-teal-60: #74b4c1 !default;
+$hs-color-core-muted-teal-70: #5da8b7 !default;
+$hs-color-core-muted-teal-80: #459bad !default;
+$hs-color-core-muted-teal-90: #2f8fa3 !default;
+$hs-color-core-muted-green-10: #e9f0eb !default;
+$hs-color-core-muted-green-20: #d5e1d7 !default;
+$hs-color-core-muted-green-30: #bfd2c3 !default;
+$hs-color-core-muted-green-40: #abc3af !default;
+$hs-color-core-muted-green-50: #95b49b !default;
+$hs-color-core-muted-green-60: #80a688 !default;
+$hs-color-core-muted-green-70: #6c9774 !default;
+$hs-color-core-muted-green-80: #568860 !default;
+$hs-color-core-muted-green-90: #42794c !default;
+$hs-color-core-muted-yellow-10: #fff7e7 !default;
+$hs-color-core-muted-yellow-20: #fff0d0 !default;
+$hs-color-core-muted-yellow-30: #fee8b8 !default;
+$hs-color-core-muted-yellow-40: #fee1a1 !default;
+$hs-color-core-muted-yellow-50: #fed989 !default;
+$hs-color-core-muted-yellow-60: #fed272 !default;
+$hs-color-core-muted-yellow-70: #fecb5b !default;
+$hs-color-core-muted-yellow-80: #fdc343 !default;
+$hs-color-core-muted-yellow-90: #fdbc2c !default;
+$hs-color-core-muted-magenta-10: #f4e8ee !default;
+$hs-color-core-muted-magenta-20: #e9d2df !default;
+$hs-color-core-muted-magenta-30: #debbce !default;
+$hs-color-core-muted-magenta-40: #d3a5be !default;
+$hs-color-core-muted-magenta-50: #c88eae !default;
+$hs-color-core-muted-magenta-60: #be789e !default;
+$hs-color-core-muted-magenta-70: #b3628e !default;
+$hs-color-core-muted-magenta-80: #a84b7d !default;
+$hs-color-core-muted-magenta-90: #9d356e !default;
+$hs-color-core-muted-red-10: #f8eaea !default;
+$hs-color-core-muted-red-20: #f2d5d5 !default;
+$hs-color-core-muted-red-30: #ebbfbf !default;
+$hs-color-core-muted-red-40: #e5aaaa !default;
+$hs-color-core-muted-red-50: #de9595 !default;
+$hs-color-core-muted-red-60: #d78080 !default;
+$hs-color-core-muted-red-70: #d16b6b !default;
+$hs-color-core-muted-red-80: #ca5555 !default;
+$hs-color-core-muted-red-90: #c44040 !default;
+$hs-color-core-muted-yelloworange-10: #fcf2e3 !default;
+$hs-color-core-muted-yelloworange-30: #fcf2e3 !default;
+$hs-color-core-muted-yellowgreen-10: #f9fffa !default;
+$hs-color-core-muted-yellowgreen-30: #e7f9ea !default;
+$hs-color-core-neutral-10: #f8f8f8 !default;
+$hs-color-core-neutral-13: #f2f2f2 !default;
+$hs-color-core-neutral-18: #e8e8e8 !default;
+$hs-color-core-neutral-20: #dedede !default;
+$hs-color-core-neutral-30: #c7c7c7 !default;
+$hs-color-core-neutral-40: #adadad !default;
+$hs-color-core-neutral-50: #949494 !default;
+$hs-color-core-neutral-60: #7a7a7a !default;
+$hs-color-core-neutral-70: #616161 !default;
+$hs-color-core-neutral-80: #474747 !default;
+$hs-color-core-neutral-90: #2e2e2e !default;
+$hs-color-core-neutral-95: #121212 !default;
+$hs-color-core-neutral-00: #fff !default;
+$hs-color-shade-10: rgba(18, 18, 18, 0.10) !default;
+$hs-color-shade-15: rgba(18, 18, 18, 0.15) !default;
+$hs-color-shade-25: rgba(18, 18, 18, 0.25) !default;
+$hs-color-shade-50: rgba(18, 18, 18, 0.5) !default;
+$hs-color-shade-75: rgba(18, 18, 18, 0.75) !default;
+$hs-color-shade-90: rgba(18, 18, 18, 0.90) !default;
+$hs-color-shade-05: rgba(18, 18, 18, 0.05) !default;
+$hs-color-tint-10: rgba(255, 255, 255, 0.10) !default;
+$hs-color-tint-15: rgba(255, 255, 255, 0.15) !default;
+$hs-color-tint-25: rgba(255, 255, 255, 0.25) !default;
+$hs-color-tint-50: rgba(255, 255, 255, 0.5) !default;
+$hs-color-tint-75: rgba(255, 255, 255, 0.75) !default;
+$hs-color-tint-90: rgba(255, 255, 255, 0.90) !default;
+$hs-color-tint-05: rgba(255, 255, 255, 0.05) !default;
+$hs-depth-opacity-full: 0 !default;
+$hs-depth-opacity-heavy: 0.75 !default;
+$hs-depth-opacity-medium: 0.5 !default;
+$hs-depth-opacity-light: 0.25 !default;
+$hs-depth-opacity-none: 1 !default;
+$hs-motion-curve-deceleration: cubic-bezier(0, 0, .2, 1) !default;
+$hs-motion-curve-standard: cubic-bezier(.4, 0, .2, 1) !default;
+$hs-motion-curve-acceleration: cubic-bezier(.4, 0, 1, 1) !default;
+$hs-motion-curve-sharp: cubic-bezier(.4, 0, .6, 1) !default;
+$hs-motion-animation-duration-immediantly: .05s !default;
+$hs-motion-animation-duration-quickly: .25s !default;
+$hs-motion-animation-duration-default: .5s !default;
+$hs-motion-animation-duration-slowly: 1s !default;
+$hs-motion-animation-duration-fade: 3s !default;
+$hs-size-border-radius-none: 0px !default;
+$hs-size-border-radius-sm: 2px !default;
+$hs-size-border-radius-md: 4px !default;
+$hs-size-border-radius-lg: 12px !default;
+$hs-size-border-radius-xl: 24px !default;
+$hs-size-border-radius-xxl: 64px !default;
+$hs-size-border-width-default: 1px !default;
+$hs-size-border-width-thin: 1px !default;
+$hs-size-border-width-thick: 2px !default;
+$hs-size-border-width-thicker: 4px !default;
+$hs-size-icon-default: 24px !default;
+$hs-size-icon-sm: 16px !default; // uses base
+$hs-size-icon-md: 24px !default; // uses up4
+$hs-size-icon-lg: 48px !default; // uses up10
+$hs-size-text-base: 16px !default; // base test
+$hs-size-text-xxs: 10px !default; // down4
+$hs-size-text-xs: 12px !default; // down2
+$hs-size-text-sm: 14px !default; // down1
+$hs-size-text-md: 16px !default; // base
+$hs-size-text-lg: 18px !default; // up1
+$hs-size-text-xl: 20px !default; // up2
+$hs-size-text-xxl: 22px !default; // up3
+$hs-size-text-xxxl: 24px !default; // up4
+$hs-size-text-xxxxl: 32px !default; // up6
+$hs-size-text-display-2: 48px !default; // up10
+$hs-size-text-display-1: 72px !default; // up11
+$hs-scale-down-9: .3125 !default; // 5px
+$hs-scale-down-8: .375 !default; // 6px
+$hs-scale-down-7: .4375 !default; // 7px
+$hs-scale-down-6: .5 !default; // 8px
+$hs-scale-down-5: .5625 !default; // 9px
+$hs-scale-down-4: .625 !default; // 10px
+$hs-scale-down-3: .6875 !default; // 11px
+$hs-scale-down-2: .75 !default; // 12px
+$hs-scale-down-1: .875 !default; // 14px
+$hs-scale-base: 16px !default; // 16px
+$hs-scale-up-1: 1.125 !default; // 18px
+$hs-scale-up-2: 1.25 !default; // 20px
+$hs-scale-up-3: 1.375 !default; // 22px
+$hs-scale-up-4: 1.5 !default; // 24px
+$hs-scale-up-5: 1.75 !default; // 28px
+$hs-scale-up-6: 2 !default; // 32px
+$hs-scale-up-7: 2.25 !default; // 36px
+$hs-scale-up-8: 2.5 !default; // 40px
+$hs-scale-up-9: 2.75 !default; // 44px
+$hs-scale-up-10: 3 !default; // 48px
+$hs-scale-up-11: 3.5 !default; // 56px
+$hs-scale-up-12: 4 !default; // 64px
+$hs-scale-up-13: 4.5 !default; // 72px
+$hs-scale-up-14: 5 !default; // 80
+$hs-scale-up-15: 5.5 !default; // 88
+$hs-scale-up-16: 6 !default; // 96
+$hs-scale-up-17: 7 !default; // 112
+$hs-scale-up-18: 8 !default; // 128
+$hs-scale-up-19: 9 !default;
+$hs-scale-up-20: 10 !default; // 160
+$hs-scale-up-21: 11 !default; // 176
+$hs-scale-up-22: 12 !default; // 192
+$hs-scale-up-23: 14 !default; // 224
+$hs-scale-up-24: 16 !default; // 256
+$hs-scale-up-25: 18 !default; // 288
+$hs-scale-up-26: 20 !default; // 320
+$hs-scale-up-27: 22 !default; // 352
+$hs-scale-up-28: 24 !default; // 384
+$hs-scale-up-29: 28 !default;
+$hs-scale-up-30: 32 !default; // 512px
+$hs-scale-up-31: 36 !default; // 576px
+$hs-scale-up-32: 40 !default; // 640px
+$hs-scale-up-33: 44 !default; // 704px
+$hs-scale-up-34: 48 !default; // 768px
+$hs-scale-up-35: 56 !default; // 896px
+$hs-scale-up-36: 64 !default; // 1024px
+$hs-scale-up-37: 72 !default; // 1152px
+$hs-scale-up-38: 80 !default; // 1280px
+$hs-scale-up-39: 88 !default; // 1408px
+$hs-scale-up-40: 96 !default; // 1536
+$hs-scale-up-41: 112 !default; // 1792
+$hs-scale-up-42: 128 !default; // 2048px
+$hs-space-spacing-0: 0 !default;
+$hs-space-spacing-xxs: 4px !default;
+$hs-space-spacing-xs: 8px !default;
+$hs-space-spacing-sm: 12px !default;
+$hs-space-spacing-md: 16px !default;
+$hs-space-spacing-lg: 24px !default;
+$hs-space-spacing-xl: 48px !default;
+$hs-space-spacing-xxl: 96px !default;
+$hs-space-spacing-default: 16px !default;
+$hs-space-inline-xxs: 0 4px 0 0 !default;
+$hs-space-inline-xs: 0 8px 0 0 !default;
+$hs-space-inline-sm: 0 12px 0 0 !default;
+$hs-space-inline-md: 0 16px 0 0 !default;
+$hs-space-inline-lg: 0 24px 0 0 !default;
+$hs-space-inline-xl: 0 48px 0 0 !default;
+$hs-space-inline-xxl: 0 96px 0 0 !default;
+$hs-space-inline-default: 0 16px 0 0 !default;
+$hs-space-inset-xxs: 2px 2px 2px 2px !default;
+$hs-space-inset-xs: 8px 8px 8px 8px !default;
+$hs-space-inset-sm: 12px 12px 12px 12px !default;
+$hs-space-inset-md: 16px 16px 16px 16px !default;
+$hs-space-inset-lg: 24px 24px 24px 24px !default;
+$hs-space-inset-xl: 48px 48px 48px 48px !default;
+$hs-space-inset-xxl: 96px 96px 96px 96px !default;
+$hs-space-inset-default: 16px 16px 16px 16px !default;
+$hs-space-squish-xs: 4px 8px 4px 8px !default;
+$hs-space-squish-sm: 8px 12px 8px 12px !default;
+$hs-space-squish-md: 8px 16px 8px 16px !default;
+$hs-space-squish-lg: 12px 24px 12px 24px !default;
+$hs-space-squish-xl: 24px 48px 24px 48px !default;
+$hs-space-squish-xxl: 48px 96px 48px 96px !default;
+$hs-space-squish-default: 8px 16px 8px 16px !default;
+$hs-space-stack-xxs: 0 0 4px 0 !default;
+$hs-space-stack-xs: 0 0 8px 0 !default;
+$hs-space-stack-sm: 0 0 12px 0 !default;
+$hs-space-stack-md: 0 0 16px 0 !default;
+$hs-space-stack-lg: 0 0 24px 0 !default;
+$hs-space-stack-xl: 0 0 48px 0 !default;
+$hs-space-stack-xxl: 0 0 96px 0 !default;
+$hs-space-stack-default: 0 0 16px 0 !default;
+$hs-space-stretch-sm: 18px 12px 18px 12px !default;
+$hs-space-stretch-md: 24px 16px 24px 16px !default;
+$hs-space-stretch-lg: 48px 24px 48px 24px !default;
+$hs-space-stretch-default: 24px 16px 24px 16px !default;
+$hs-type-font-family-sans: Source Sans Pro !default;
+$hs-type-font-family-mono: Source Code Pro !default;
+$hs-type-line-height-compressed: 1.25 !default;
+$hs-type-line-height-default: 1.5 !default;
+$hs-type-line-height-fluffy: 1.750 !default;
+$hs-type-measure-narrow: 20rem !default;
+$hs-type-measure-base: 30rem !default;
+$hs-type-measure-wide: 40rem !default;
+$hs-type-font-weight-sans-light: 300 !default;
+$hs-type-font-weight-sans-regular: 400 !default;
+$hs-type-font-weight-sans-semibold: 600 !default;
+$hs-type-font-weight-sans-bold: 700 !default;
+$hs-dm-border-primary: rgba(255, 255, 255, 0.5) !default;
+$hs-dm-border-secondary: rgba(255, 255, 255, 0.25) !default;
+$hs-dm-border-subtle: rgba(255, 255, 255, 0.15) !default;
+$hs-dm-border-hint: rgba(255, 255, 255, 0.10) !default;
+$hs-dm-border-error: #cc3535 !default;
+$hs-dm-border-success: #008719 !default;
+$hs-dm-border-selected: #1887cc !default;
+$hs-dm-interactive-primary: #0c77ba !default;
+$hs-dm-interactive-primaryalt: #0a6375 !default;
+$hs-dm-interactive-secondary: #616161 !default;
+$hs-dm-interactive-destructive: #bd2b2b !default;
+$hs-dm-interactive-disabled: rgba(255, 255, 255, 0.10) !default;
+$hs-dm-interactive-actionable: rgba(18, 18, 18, 0.10) !default;
+$hs-dm-bg-canvas: #2e2e2e !default;
+$hs-dm-bg-layer-1: #262626 !default;
+$hs-dm-bg-layer-2: #1F1F1F !default;
+$hs-dm-bg-layer-3: #171717 !default;
+$hs-dm-bg-brand-1: #05314d !default;
+$hs-dm-bg-brand-2: #085280 !default;
+$hs-dm-bg-overlay: #121212 !default;
+$hs-dm-bg-gray-1: #2e2e2e !default;
+$hs-dm-bg-gray-2: #474747 !default;
+$hs-dm-messaging-error-strong: #bd2b2b !default;
+$hs-dm-messaging-error-accent: #cc3535 !default;
+$hs-dm-messaging-error-subtle: #c44040 !default;
+$hs-dm-messaging-warning-strong: #ff9a0d !default;
+$hs-dm-messaging-warning-accent: #fbc577 !default;
+$hs-dm-messaging-warning-subtle: #fdc343 !default;
+$hs-dm-messaging-success-strong: #008719 !default;
+$hs-dm-messaging-success-accent: #45c15c !default;
+$hs-dm-messaging-success-subtle: #e7f9ea !default;
+$hs-dm-messaging-neutral-strong: #f2f2f2 !default;
+$hs-dm-messaging-neutral-accent: #c7c7c7 !default;
+$hs-dm-messaging-neutral-subtle: #949494 !default;
+$hs-dm-messaging-selected-strong: #0a649d !default;
+$hs-dm-messaging-selected-accent: #2594d9 !default;
+$hs-dm-messaging-selected-subtle: rgba(230, 239, 245, .5) !default;
+$hs-dm-messaging-active-strong: #0a649d !default;
+$hs-dm-messaging-active-accent: #2594d9 !default;
+$hs-dm-messaging-active-subtle: rgba(230, 239, 245, .5) !default;
+$hs-dm-visualization-performance-positive: #2c6937 !default;
+$hs-dm-visualization-performance-neutral: #adadad !default;
+$hs-dm-visualization-performance-negative: #ad2323 !default;
+$hs-dm-shadow-inset-sm: inset 0 0 2px 0 rgba(18, 18, 18, 0.3) !default;
+$hs-dm-shadow-inset-md: inset 0 0 0 1px rgba(18, 18, 18, .01), inset 0 1px 1px 0 rgba(18, 18, 18, 0.3) !default;
+$hs-dm-shadow-inset-lg: inset 0 1px 1px 0px rgba(18, 18, 18, 0.2), inset 0 1px 2px 2px rgba(18, 18, 18, 0.1) !default;
+$hs-dm-shadow-outline-thin: 0 0 0 1px rgba(18, 18, 18, .5) !default;
+$hs-dm-shadow-outline-focus: 0 0 0 3px rgba(10, 100, 157, .25) !default;
+$hs-dm-shadow-outline-selected: 0 0 0 3px rgba(10, 100, 157, .75) !default;
+$hs-dm-shadow-outset-xs: 0 1px 1px rgba(18, 18, 18, 0.75) !default;
+$hs-dm-shadow-outset-sm: 0 1px 5px rgba(18, 18, 18, 0.75) !default;
+$hs-dm-shadow-outset-md: 0 6px 22px 1px rgba(0, 0, 0, .15), 0px 3px 5px 0 rgba(0, 0, 0, 0.17) !default;
+$hs-dm-shadow-outset-lg: 0px 12px 18px -1px rgba(0, 0, 0, .1), 0px 3px 13px 0 rgba(0, 0, 0, 0.3) !default;
+$hs-dm-shadow-outset-xl:  0px 16px 32px red,  0px 0px 64px rgba(0, 0, 0, 0.2) !default;
+$hs-dm-text-primary: #fff !default;
+$hs-dm-text-secondary: rgba(255, 255, 255, 0.75) !default;
+$hs-dm-text-subtle: rgba(255, 255, 255, 0.5) !default;
+$hs-dm-text-hint: rgba(255, 255, 255, 0.25) !default;
+$hs-dm-text-error: #f26868 !default;
+$hs-dm-text-warning: #e68b0c !default;
+$hs-dm-text-success: #45c15c !default;
+$hs-dm-text-brand-1: #085280 !default;
+$hs-dm-text-brand-2: #0c7b91 !default;
+$hs-dm-text-brand-3: #c55422 !default;
+$hs-dm-text-link: #2594d9 !default;
+$hs-lm-border-primary: rgba(18, 18, 18, 0.5) !default;
+$hs-lm-border-secondary: rgba(18, 18, 18, 0.25) !default;
+$hs-lm-border-subtle: rgba(18, 18, 18, 0.15) !default;
+$hs-lm-border-hint: rgba(18, 18, 18, 0.10) !default;
+$hs-lm-border-error: #bd2b2b !default;
+$hs-lm-border-success: #006e14 !default;
+$hs-lm-border-selected: #1887cc !default;
+$hs-lm-interactive-primary: #0a649d !default;
+$hs-lm-interactive-primaryalt: #0c7b91 !default;
+$hs-lm-interactive-secondary: #fff !default;
+$hs-lm-interactive-destructive: #ad2323 !default;
+$hs-lm-interactive-disabled: rgba(18, 18, 18, 0.10) !default;
+$hs-lm-interactive-actionable: rgba(18, 18, 18, 0.05) !default;
+$hs-lm-bg-canvas: #fff !default;
+$hs-lm-bg-layer-1: #f8f8f8 !default;
+$hs-lm-bg-layer-2: #e8e8e8 !default;
+$hs-lm-bg-layer-3: #dedede !default;
+$hs-lm-bg-brand-1: #05314d !default;
+$hs-lm-bg-brand-2: #085280 !default;
+$hs-lm-bg-overlay: #121212 !default;
+$hs-lm-bg-gray-1: #2e2e2e !default;
+$hs-lm-bg-gray-2: #474747 !default;
+$hs-lm-messaging-error-strong: #bd2b2b !default;
+$hs-lm-messaging-error-accent: #cc3535 !default;
+$hs-lm-messaging-error-subtle: #f8eaea !default;
+$hs-lm-messaging-warning-strong: #ff9a0d !default;
+$hs-lm-messaging-warning-accent: #fcb143 !default;
+$hs-lm-messaging-warning-subtle: #fff0d0 !default;
+$hs-lm-messaging-success-strong: #008719 !default;
+$hs-lm-messaging-success-accent: #45c15c !default;
+$hs-lm-messaging-success-subtle: #e7f9ea !default;
+$hs-lm-messaging-neutral-strong: #474747 !default;
+$hs-lm-messaging-neutral-accent: #7a7a7a !default;
+$hs-lm-messaging-neutral-subtle: #c7c7c7 !default;
+$hs-lm-messaging-selected-strong: #0a649d !default;
+$hs-lm-messaging-selected-accent: #2594d9 !default;
+$hs-lm-messaging-selected-subtle: rgba(230, 239, 245, .5) !default;
+$hs-lm-messaging-active-strong: #0a649d !default;
+$hs-lm-messaging-active-accent: #2594d9 !default;
+$hs-lm-messaging-active-subtle: rgba(230, 239, 245, .5) !default;
+$hs-lm-visualization-performance-positive: #2c6937 !default;
+$hs-lm-visualization-performance-neutral: #adadad !default;
+$hs-lm-visualization-performance-negative: #ad2323 !default;
+$hs-lm-shadow-inset-sm: inset 0 0 2px 0 rgba(18, 18, 18, 0.3) !default;
+$hs-lm-shadow-inset-md: inset 0 0 0 1px rgba(18, 18, 18, .01), inset 0 1px 1px 0 rgba(18, 18, 18, 0.3) !default;
+$hs-lm-shadow-inset-lg: inset 0 1px 1px 0px rgba(18, 18, 18, 0.2), inset 0 1px 2px 2px rgba(18, 18, 18, 0.1) !default;
+$hs-lm-shadow-outline-thin: 0 0 0 1px rgba(18, 18, 18, .5) !default;
+$hs-lm-shadow-outline-focus: 0 0 0 3px rgba(10, 100, 157, .25) !default;
+$hs-lm-shadow-outline-selected: 0 0 0 3px rgba(10, 100, 157, .75) !default;
+$hs-lm-shadow-outset-xs: 0 1px 1px rgba(27, 31, 35, 0.25) !default;
+$hs-lm-shadow-outset-sm: 0 1px 5px rgba(27, 31, 35, 0.25) !default;
+$hs-lm-shadow-outset-md: 0 6px 22px 1px rgba(0, 0, 0, .05), 0px 3px 5px 0 rgba(0, 0, 0, 0.17) !default;
+$hs-lm-shadow-outset-lg: 0px 12px 18px -1px rgba(0, 0, 0, .1), 0px 3px 13px 0 rgba(0, 0, 0, 0.3) !default;
+$hs-lm-shadow-outset-xl:  0px 16px 32px rgba(0, 0, 0, 0.15),  0px 0px 64px rgba(0, 0, 0, 0.15) !default;
+$hs-lm-text-primary: #2e2e2e !default;
+$hs-lm-text-secondary: rgba(18, 18, 18, 0.75) !default;
+$hs-lm-text-subtle: rgba(18, 18, 18, 0.5) !default;
+$hs-lm-text-hint: rgba(18, 18, 18, 0.25) !default;
+$hs-lm-text-error: #bd2b2b !default;
+$hs-lm-text-warning: #804d07 !default;
+$hs-lm-text-success: #008719 !default;
+$hs-lm-text-brand-1: #085280 !default;
+$hs-lm-text-brand-2: #0c7b91 !default;
+$hs-lm-text-brand-3: #c55422 !default;
+$hs-lm-text-link: #0c77ba !default;
+$hs-web-breakpoints-xs: 320px !default; // 0 - 767px
+$hs-web-breakpoints-sm: 768px !default; // 768px - 1024px
+$hs-web-breakpoints-md: 960px !default; // 1365px-1536px: Default.
+$hs-web-breakpoints-lg: 1378px !default; // 1536px - 1919px
+$hs-web-breakpoints-xl: 1741px !default; // 1920px and up
+$hs-web-z-index-base: 1 !default; // Default, most page elements
+$hs-web-z-index-low: 100 !default; // Docked overlay elements,including Tooltips and Popovers
+$hs-web-z-index-medium: 500 !default; // Page element slide overs, sticky bars and navigation
+$hs-web-z-index-high: 1000 !default; // Modal overlay, Dialogs, Notifications
+$hs-web-z-index-highest: 9000 !default; // System alert modal, reserved for edge cases

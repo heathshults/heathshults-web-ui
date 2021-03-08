@@ -132,33 +132,33 @@
               <img src="/assets/img/portfolio/bowlopolis/episodes-page2.png" width="500"/>
             </div>
             
-            <div slot="back">
-              this.flipHandler = () => {
-                this.flipCard.classList.toggle('is-flipped');
-              };
-            </div>
+<div id="snippet" slot="back">
+  <pre class="hs-pre">
+    <code class="hs-code javascript hljs">
+      
+      this.flipHandler = () => {
+        this.flipCard.classList.toggle('is-flipped');
+      };
+    </code>
+  </pre>
+</div>
             
           </hs-flip-code>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12 text-center">
-        <div class="hs-3drotate__options">
-          <p>
-            <label class="hs-3drotate__label">
-              Orientation:</label>
-            <label class="hs-3drotate__label">
-              <input type="radio" class="hs-3drotate__radio-input" name="orientation" value="horizontal" checked />
-              horizontal
-            </label>
-            <label class="hs-3drotate__label">
-              <input type="radio" class="hs-3drotate__radio-input" name="orientation" value="vertical" />
-              vertical
-            </label>
-          </p>
+        <div class="col-md-12">
+          <div id="snippet" slot="back">
+            <pre class="hs-pre">
+              <code class="hs-code javascript">
+                this.flipHandler = () => {
+                  this.flipCard.classList.toggle('is-flipped');
+                };
+              </code>
+            </pre>
+          </div>
         </div>
       </div>
-    </div>
     </div>
     
     <!-- /HSThreeDRotator -->
@@ -339,11 +339,10 @@
     <!-- <script src="js/contact_me.js"></script> -->
 
     <!-- Theme JavaScript -->
-    <script src="/assets/js/HeathScript.js" type="module"></script>
+    <script src="/assets/js/HeathScript.bundle.js" type="module"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
     <script>
-      
-        
-      
     </script>
     <script>
     // // ====== SHOWMORE ==== //
