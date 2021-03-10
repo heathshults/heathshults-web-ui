@@ -1,0 +1,611 @@
+:host {
+  //colors
+  $black: black;
+  $white:  white;
+  $color_sail_approx: #b3d4fc;
+  $color_pampas_approx: #f5f2f0;
+  $slate_gray: slategray;
+  $color_martini_approx: #999;
+  $color_fresh_eggplant_approx: #905;
+  $color_limeade_approx: #690;
+  $color_cape_palliser_approx: #9a6e3a;
+  $white_50: rgba(255, 255, 255, 0.5);
+  $color_deep_cerulean_approx: #07a;
+  $color_cabaret_approx: #dd4a68;
+  $color_california_approx: #e90;
+  $color_mariner_approx: #2170c4;
+  $yellow: yellow;
+  $color_spring_wood_approx: #f8f8f2;
+  $black_30: rgba(0, 0, 0, 0.3);
+  $color_rangitoto_approx: #272822;
+  $color_radical_red_approx: #f92672;
+  $color_heliotrope_approx: #ae81ff;
+  $color_atlantis_approx: #a6e22e;
+  $color_chenin_approx: #e6db74;
+  $color_turquoise_blue_approx: #66d9ef;
+  $color_tree_poppy_approx: #fd971f;
+  $color_flamingo_approx: #f26428;
+  $color_yellow_orange_approx: #f9b038;
+
+  //fonts
+  $font_0: 'Fira Code';
+  $font_1: 'Cascadia Code';
+  $font_2: 'Meslo NGF';
+  $font_3: 'Consolas';
+  $font_4: 'Monaco';
+  $font_5: 'Andale Mono';
+  $font_6: 'Ubuntu Mono';
+  $font_7: 'Courier New';
+  $font_8: 'Courier';
+  $font_9: 'monospace';
+  $font_10: 'Fira Code';
+  $font_11: 'Cascadia Code';
+  $font_12: 'Meslo NGF';
+  $font_13: 'Consolas';
+  $font_14: 'Monaco';
+  $font_15: 'Andale Mono';
+  $font_16: 'Ubuntu Mono';
+  $font_17: 'Courier New';
+  $font_18: 'Courier';
+  $font_19: 'monospace';
+  $font_20: 'Fira Code';
+  $font_21: 'Cascadia Code';
+  $font_22: 'Meslo NGF';
+  $font_23: 'Consolas';
+  $font_24: 'Monaco';
+  $font_25: 'Andale Mono';
+  $font_26: 'Ubuntu Mono';
+  $font_27: 'Courier New';
+  $font_28: 'Courier';
+  $font_29: 'monospace';
+  $font_30: 'Fira Code';
+  $font_31: 'Cascadia Code';
+  $font_32: 'Meslo NGF';
+  $font_33: 'Consolas';
+  $font_34: 'Monaco';
+  $font_35: 'Andale Mono';
+  $font_36: 'Ubuntu Mono';
+  $font_37: 'Courier New';
+  $font_38: 'Courier';
+  $font_39: 'monospace';
+  display: block;
+
+  //@extend-elements
+  //original selectors
+  //syntax-highlighter .light code[class*='language-'], syntax-highlighter .light pre[class*='language-']
+  %extend_1 {
+    font-family: $font_0, $font_1, $font_2, $font_3, $font_4, $font_5, $font_6, $font_7, $font_8, $font_9;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    //Instead of the line below you could use @include hyphens($value)
+    hyphens: none;
+    line-height: 1.5;
+    color: $black;
+    text-align: left;
+    //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    text-shadow: 0 1px $white;
+    //Instead of the line below you could use @include word-break($value)
+    word-break: normal;
+    word-spacing: normal;
+    word-wrap: normal;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    white-space: pre;
+    background: none;
+  }
+
+
+  syntax-highlighter {
+    .syntaxhighlighter__hidden {
+      display: none;
+    }
+    pre {
+      //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+      border-radius: 5px;
+    }
+    .light {
+      code[class*='language-'] {
+        @extend %extend_1;
+        ::-moz-selection {
+          //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+          text-shadow: none;
+          background: $color_sail_approx;
+        }
+        ::selection {
+          //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+          text-shadow: none;
+          background: $color_sail_approx;
+        }
+      }
+      pre[class*='language-'] {
+        padding: 1em;
+        margin: 0.5em 0;
+        overflow: auto;
+        background: $color_pampas_approx;
+        @extend %extend_1;
+        ::-moz-selection {
+          //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+          text-shadow: none;
+          background: $color_sail_approx;
+        }
+        ::selection {
+          //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+          text-shadow: none;
+          background: $color_sail_approx;
+        }
+      }
+      pre[class*='language-']::-moz-selection {
+        //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+        text-shadow: none;
+        background: $color_sail_approx;
+      }
+      code[class*='language-']::-moz-selection {
+        //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+        text-shadow: none;
+        background: $color_sail_approx;
+      }
+      pre[class*='language-']::selection {
+        //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+        text-shadow: none;
+        background: $color_sail_approx;
+      }
+      code[class*='language-']::selection {
+        //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+        text-shadow: none;
+        background: $color_sail_approx;
+      }
+      .token {
+        &.comment {
+          color: $slate_gray;
+        }
+        &.prolog {
+          color: $slate_gray;
+        }
+        &.doctype {
+          color: $slate_gray;
+        }
+        &.cdata {
+          color: $slate_gray;
+        }
+        &.punctuation {
+          color: $color_martini_approx;
+        }
+        &.property {
+          color: $color_fresh_eggplant_approx;
+        }
+        &.tag {
+          color: $color_fresh_eggplant_approx;
+        }
+        &.boolean {
+          color: $color_fresh_eggplant_approx;
+        }
+        &.number {
+          color: $color_fresh_eggplant_approx;
+        }
+        &.constant {
+          color: $color_fresh_eggplant_approx;
+        }
+        &.symbol {
+          color: $color_fresh_eggplant_approx;
+        }
+        &.deleted {
+          color: $color_fresh_eggplant_approx;
+        }
+        &.selector {
+          color: $color_limeade_approx;
+        }
+        &.attr-name {
+          color: $color_limeade_approx;
+        }
+        &.string {
+          color: $color_limeade_approx;
+        }
+        &.char {
+          color: $color_limeade_approx;
+        }
+        &.builtin {
+          color: $color_limeade_approx;
+        }
+        &.inserted {
+          color: $color_limeade_approx;
+        }
+        &.operator {
+          color: $color_cape_palliser_approx;
+          background: $white_50;
+        }
+        &.entity {
+          color: $color_cape_palliser_approx;
+          cursor: help;
+          background: $white_50;
+        }
+        &.url {
+          color: $color_cape_palliser_approx;
+          background: $white_50;
+        }
+        &.atrule {
+          color: $color_deep_cerulean_approx;
+        }
+        &.attr-value {
+          color: $color_deep_cerulean_approx;
+        }
+        &.keyword {
+          color: $color_deep_cerulean_approx;
+        }
+        &.function {
+          color: $color_cabaret_approx;
+        }
+        &.class-name {
+          color: $color_cabaret_approx;
+        }
+        &.regex {
+          color: $color_california_approx;
+        }
+        &.important {
+          font-weight: bold;
+          color: $color_california_approx;
+        }
+        &.variable {
+          color: $color_california_approx;
+        }
+        &.bold {
+          font-weight: bold;
+        }
+        &.italic {
+          font-style: italic;
+        }
+      }
+      .namespace {
+        opacity: 0.7;
+      }
+      .syntaxhighlighter__code-toolbar {
+        pre {
+          border-top: solid 10px $color_mariner_approx;
+        }
+        .syntaxhighlighter__toolbar {
+          opacity: 1;
+          .syntaxhighlighter__language-label {
+            padding: 8px;
+            margin-right: 10px;
+            font-family: $font_10, $font_11, $font_12, $font_13, $font_14, $font_15, $font_16, $font_17, $font_18, $font_19;
+            font-size: 12px;
+            font-weight: bolder;
+            color: $white;
+            background: $color_mariner_approx;
+            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+            border-radius: 5px;
+            //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+            box-shadow: none;
+            &:hover {
+              color: $white;
+            }
+          }
+          .syntaxhighlighter__copy-button {
+            padding: 8px;
+            margin-right: 10px;
+            font-family: $font_10, $font_11, $font_12, $font_13, $font_14, $font_15, $font_16, $font_17, $font_18, $font_19;
+            font-size: 12px;
+            font-weight: bolder;
+            color: $white;
+            background: $color_mariner_approx;
+            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+            border-radius: 5px;
+            //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+            box-shadow: none;
+            &::before {
+              margin-right: 2px;
+              content: '📋';
+            }
+            &:hover {
+              color: $yellow;
+            }
+          }
+        }
+      }
+      :not(pre) > code[class*='language-'] {
+        padding: 0.1em;
+        white-space: normal;
+        background: $color_pampas_approx;
+        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+        border-radius: 0.3em;
+      }
+      .language-css .token.string {
+        color: $color_cape_palliser_approx;
+        background: $white_50;
+      }
+      .style .token.string {
+        color: $color_cape_palliser_approx;
+        background: $white_50;
+      }
+    }
+    .dark {
+      code[class*='language-'] {
+        font-family: $font_20, $font_21, $font_22, $font_23, $font_24, $font_25, $font_26, $font_27, $font_28, $font_29;
+        -webkit-hyphens: none;
+        -moz-hyphens: none;
+        -ms-hyphens: none;
+        //Instead of the line below you could use @include hyphens($value)
+        hyphens: none;
+        line-height: 1.5;
+        color: $color_spring_wood_approx;
+        text-align: left;
+        //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+        text-shadow: 0 1px $black_30;
+        //Instead of the line below you could use @include word-break($value)
+        word-break: normal;
+        word-spacing: normal;
+        word-wrap: normal;
+        -moz-tab-size: 4;
+        -o-tab-size: 4;
+        tab-size: 4;
+        white-space: pre;
+        background: none;
+      }
+      pre[class*='language-'] {
+        padding: 1em;
+        margin: 0.5em 0;
+        overflow: auto;
+        font-family: $font_20, $font_21, $font_22, $font_23, $font_24, $font_25, $font_26, $font_27, $font_28, $font_29;
+        -webkit-hyphens: none;
+        -moz-hyphens: none;
+        -ms-hyphens: none;
+        //Instead of the line below you could use @include hyphens($value)
+        hyphens: none;
+        line-height: 1.5;
+        color: $color_spring_wood_approx;
+        text-align: left;
+        //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+        text-shadow: 0 1px $black_30;
+        //Instead of the line below you could use @include word-break($value)
+        word-break: normal;
+        word-spacing: normal;
+        word-wrap: normal;
+        -moz-tab-size: 4;
+        -o-tab-size: 4;
+        tab-size: 4;
+        white-space: pre;
+        background: none;
+        background: $color_rangitoto_approx;
+        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+        border-radius: 0.3em;
+      }
+      .token {
+        &.comment {
+          color: $slate_gray;
+        }
+        &.prolog {
+          color: $slate_gray;
+        }
+        &.doctype {
+          color: $slate_gray;
+        }
+        &.cdata {
+          color: $slate_gray;
+        }
+        &.punctuation {
+          color: $color_spring_wood_approx;
+        }
+        &.property {
+          color: $color_radical_red_approx;
+        }
+        &.tag {
+          color: $color_radical_red_approx;
+        }
+        &.constant {
+          color: $color_radical_red_approx;
+        }
+        &.symbol {
+          color: $color_radical_red_approx;
+        }
+        &.deleted {
+          color: $color_radical_red_approx;
+        }
+        &.boolean {
+          color: $color_heliotrope_approx;
+        }
+        &.number {
+          color: $color_heliotrope_approx;
+        }
+        &.selector {
+          color: $color_atlantis_approx;
+        }
+        &.attr-name {
+          color: $color_atlantis_approx;
+        }
+        &.string {
+          color: $color_atlantis_approx;
+        }
+        &.char {
+          color: $color_atlantis_approx;
+        }
+        &.builtin {
+          color: $color_atlantis_approx;
+        }
+        &.inserted {
+          color: $color_atlantis_approx;
+        }
+        &.operator {
+          color: $color_spring_wood_approx;
+        }
+        &.entity {
+          color: $color_spring_wood_approx;
+          cursor: help;
+        }
+        &.url {
+          color: $color_spring_wood_approx;
+        }
+        &.variable {
+          color: $color_spring_wood_approx;
+        }
+        &.atrule {
+          color: $color_chenin_approx;
+        }
+        &.attr-value {
+          color: $color_chenin_approx;
+        }
+        &.function {
+          color: $color_chenin_approx;
+        }
+        &.class-name {
+          color: $color_chenin_approx;
+        }
+        &.keyword {
+          color: $color_turquoise_blue_approx;
+        }
+        &.regex {
+          color: $color_tree_poppy_approx;
+        }
+        &.important {
+          font-weight: bold;
+          color: $color_tree_poppy_approx;
+        }
+        &.bold {
+          font-weight: bold;
+        }
+        &.italic {
+          font-style: italic;
+        }
+      }
+      .namespace {
+        opacity: 0.7;
+      }
+      .syntaxhighlighter__code-toolbar {
+        pre {
+          white-space: pre-wrap;
+          border-top: solid 10px $color_flamingo_approx;
+        }
+        .syntaxhighlighter__toolbar {
+          opacity: 1;
+          .syntaxhighlighter__language-label {
+            display: inline;
+            padding: 8px;
+            margin-right: 10px;
+            font-family: $font_30, $font_31, $font_32, $font_33, $font_34, $font_35, $font_36, $font_37, $font_38, $font_39;
+            font-size: 12px;
+            font-weight: bolder;
+            color: $white;
+            text-decoration: underline;
+            cursor: pointer;
+            background: $color_flamingo_approx;
+            border: none;
+            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+            border-radius: 5px;
+            //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+            box-shadow: none;
+            &:hover {
+              color: $white;
+            }
+          }
+          .syntaxhighlighter__copy-button {
+            display: inline;
+            padding: 8px;
+            margin-right: 10px;
+            font-family: $font_30, $font_31, $font_32, $font_33, $font_34, $font_35, $font_36, $font_37, $font_38, $font_39;
+            font-size: 12px;
+            font-weight: bolder;
+            color: $white;
+            text-decoration: underline;
+            cursor: pointer;
+            background: $color_flamingo_approx;
+            border: none;
+            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+            border-radius: 5px;
+            //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+            box-shadow: none;
+            &::before {
+              margin-right: 2px;
+              content: '📋';
+            }
+            &:hover {
+              color: $color_yellow_orange_approx;
+            }
+          }
+        }
+      }
+      :not(pre) > code[class*='language-'] {
+        padding: 0.1em;
+        white-space: normal;
+        background: $color_rangitoto_approx;
+        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+        border-radius: 0.3em;
+      }
+      .language-css .token.string {
+        color: $color_spring_wood_approx;
+      }
+      .style .token.string {
+        color: $color_spring_wood_approx;
+      }
+    }
+    div.syntaxhighlighter__code-toolbar {
+      position: relative;
+      > .syntaxhighlighter__toolbar {
+        position: absolute;
+        top: 0.3em;
+        right: 0.2em;
+        opacity: 0;
+        //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+        transition: opacity 0.3s ease-in-out;
+        .syntaxhighlighter__toolbar-item {
+          display: inline-block;
+        }
+        a {
+          cursor: pointer;
+          &:hover {
+            color: inherit;
+            text-decoration: none;
+          }
+          &:focus {
+            color: inherit;
+            text-decoration: none;
+          }
+        }
+        button {
+          padding: 0;
+          overflow: visible;
+          font: inherit;
+          line-height: normal;
+          color: inherit;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          background: none;
+          border: 0;
+          &:hover {
+            color: inherit;
+            text-decoration: none;
+          }
+          &:focus {
+            color: inherit;
+            text-decoration: none;
+          }
+        }
+        span {
+          &:hover {
+            color: inherit;
+            text-decoration: none;
+          }
+          &:focus {
+            color: inherit;
+            text-decoration: none;
+          }
+        }
+      }
+      &:hover > .syntaxhighlighter__toolbar {
+        opacity: 1;
+      }
+    }
+  }
+  @media print {
+    syntax-highlighter .light {
+      code[class*='language-'] {
+        //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+        text-shadow: none;
+      }
+      pre[class*='language-'] {
+        //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+        text-shadow: none;
+      }
+    }
+  }
+}

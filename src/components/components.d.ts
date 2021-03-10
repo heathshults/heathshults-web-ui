@@ -5,19 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { FramekitHighlightCodeAnchor } from "./declarations/fk-highlight-code-anchor";
 export namespace Components {
-    interface FkHighlightCode {
-        "anchor": string;
-        "anchorZoom": string;
-        "findNextAnchor": (enter: boolean) => Promise<FramekitHighlightCodeAnchor>;
-        "hideAnchor": boolean;
-        "highlightLines": string;
-        "language": string;
-        "load": () => Promise<void>;
-        "src": string;
-        "zoomCode": (zoom: boolean) => Promise<void>;
-    }
     interface HsBackToTop {
         "position": string;
     }
@@ -99,6 +87,31 @@ export namespace Components {
         "showHide": string;
         "validURL": (str: any) => any;
     }
+    interface HsCode {
+    }
+    interface HsCodeHighlighter {
+        /**
+          * The content to show in the syntax highlighter element
+         */
+        "content": string;
+        /**
+          * The text inside the "copy to clipboard" button
+          * @remark This is primarily for if you want to provide i18n with your syntax highlighted component
+          * @example "Kopieer naar klembord"
+          * @default "Copy to clipboard"
+         */
+        "copyButtonLabel": string;
+        /**
+          * The language to highlight for
+          * @default html
+         */
+        "language": string;
+        /**
+          * The theme to use, one of light or dark
+          * @default dark
+         */
+        "theme": 'dark' | 'light';
+    }
     interface HsFetcher {
         "buttonLabel": string;
         "headers": Headers;
@@ -106,18 +119,23 @@ export namespace Components {
         "method": string;
         "url": string;
     }
-    interface HsFlipCode {
+    interface HsFlipcode {
         "flipButton": HTMLButtonElement;
         "flipCard": HTMLDivElement;
+        "flipCardBack": HTMLDivElement;
         "flipCardFront": HTMLDivElement;
         "flipCardHeight": any;
+        "flipCardSnipp": HTMLDivElement;
         "flipCode": any;
-        "flipCodeBlock": any;
+        "flipCodeBlock": HTMLElement;
+        "flipCodePre": HTMLElement;
+        "flipCodeSlot": HTMLElement | any;
+        "flipCodeSlotDiv": HTMLElement;
         "flipContainer": HTMLDivElement;
         "flipLanguage": string;
         "language": any;
-        "processedFlipCode": any;
         "setHeight": any;
+        "unprocessedFlipCode": any;
     }
     interface HsFlipcodeBack {
     }
@@ -197,12 +215,6 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLFkHighlightCodeElement extends Components.FkHighlightCode, HTMLStencilElement {
-    }
-    var HTMLFkHighlightCodeElement: {
-        prototype: HTMLFkHighlightCodeElement;
-        new (): HTMLFkHighlightCodeElement;
-    };
     interface HTMLHsBackToTopElement extends Components.HsBackToTop, HTMLStencilElement {
     }
     var HTMLHsBackToTopElement: {
@@ -251,17 +263,29 @@ declare global {
         prototype: HTMLHsCardImgHeaderElement;
         new (): HTMLHsCardImgHeaderElement;
     };
+    interface HTMLHsCodeElement extends Components.HsCode, HTMLStencilElement {
+    }
+    var HTMLHsCodeElement: {
+        prototype: HTMLHsCodeElement;
+        new (): HTMLHsCodeElement;
+    };
+    interface HTMLHsCodeHighlighterElement extends Components.HsCodeHighlighter, HTMLStencilElement {
+    }
+    var HTMLHsCodeHighlighterElement: {
+        prototype: HTMLHsCodeHighlighterElement;
+        new (): HTMLHsCodeHighlighterElement;
+    };
     interface HTMLHsFetcherElement extends Components.HsFetcher, HTMLStencilElement {
     }
     var HTMLHsFetcherElement: {
         prototype: HTMLHsFetcherElement;
         new (): HTMLHsFetcherElement;
     };
-    interface HTMLHsFlipCodeElement extends Components.HsFlipCode, HTMLStencilElement {
+    interface HTMLHsFlipcodeElement extends Components.HsFlipcode, HTMLStencilElement {
     }
-    var HTMLHsFlipCodeElement: {
-        prototype: HTMLHsFlipCodeElement;
-        new (): HTMLHsFlipCodeElement;
+    var HTMLHsFlipcodeElement: {
+        prototype: HTMLHsFlipcodeElement;
+        new (): HTMLHsFlipcodeElement;
     };
     interface HTMLHsFlipcodeBackElement extends Components.HsFlipcodeBack, HTMLStencilElement {
     }
@@ -354,7 +378,6 @@ declare global {
         new (): HTMLHsTimelineItemElement;
     };
     interface HTMLElementTagNameMap {
-        "fk-highlight-code": HTMLFkHighlightCodeElement;
         "hs-back-to-top": HTMLHsBackToTopElement;
         "hs-button": HTMLHsButtonElement;
         "hs-card": HTMLHsCardElement;
@@ -363,8 +386,10 @@ declare global {
         "hs-card-footer": HTMLHsCardFooterElement;
         "hs-card-header": HTMLHsCardHeaderElement;
         "hs-card-img-header": HTMLHsCardImgHeaderElement;
+        "hs-code": HTMLHsCodeElement;
+        "hs-code-highlighter": HTMLHsCodeHighlighterElement;
         "hs-fetcher": HTMLHsFetcherElement;
-        "hs-flip-code": HTMLHsFlipCodeElement;
+        "hs-flipcode": HTMLHsFlipcodeElement;
         "hs-flipcode-back": HTMLHsFlipcodeBackElement;
         "hs-flipcode-front": HTMLHsFlipcodeFrontElement;
         "hs-flipper": HTMLHsFlipperElement;
@@ -383,15 +408,6 @@ declare global {
     }
 }
 declare namespace LocalJSX {
-    interface FkHighlightCode {
-        "anchor"?: string;
-        "anchorZoom"?: string;
-        "hideAnchor"?: boolean;
-        "highlightLines"?: string;
-        "language"?: string;
-        "onPrismLanguageLoaded"?: (event: CustomEvent<string>) => void;
-        "src"?: string;
-    }
     interface HsBackToTop {
         "onBacktotop"?: (event: CustomEvent<any>) => void;
         "position"?: string;
@@ -476,6 +492,39 @@ declare namespace LocalJSX {
         "showHide"?: string;
         "validURL"?: (str: any) => any;
     }
+    interface HsCode {
+    }
+    interface HsCodeHighlighter {
+        /**
+          * The content to show in the syntax highlighter element
+         */
+        "content"?: string;
+        /**
+          * The text inside the "copy to clipboard" button
+          * @remark This is primarily for if you want to provide i18n with your syntax highlighted component
+          * @example "Kopieer naar klembord"
+          * @default "Copy to clipboard"
+         */
+        "copyButtonLabel"?: string;
+        /**
+          * The language to highlight for
+          * @default html
+         */
+        "language"?: string;
+        /**
+          * The callback that will be fired when ClipboardJS fails to copy the text
+          * @remark You can use this to, for example, show notifications to users
+          * @remark This event will bubble up through the DOM
+          * @default undefined
+          * @example ```html <body> 	<syntax-highlighter id="example-highlight" theme="dark" language="typescript" content="console.log('example')" /> 	<script> 		const syntaxHighlighterElement = document.querySelector('#example-highlight'); 		syntaxHighlighterElement.addEventListener('clipboardJsError', event => { 			console.log('handling'); 		}); 	</script> </body> ```
+         */
+        "onClipboardJsError"?: (event: CustomEvent<ClipboardJS.Event>) => void;
+        /**
+          * The theme to use, one of light or dark
+          * @default dark
+         */
+        "theme"?: 'dark' | 'light';
+    }
     interface HsFetcher {
         "buttonLabel"?: string;
         "headers"?: Headers;
@@ -484,18 +533,23 @@ declare namespace LocalJSX {
         "onResolved"?: (event: CustomEvent<any>) => void;
         "url"?: string;
     }
-    interface HsFlipCode {
+    interface HsFlipcode {
         "flipButton"?: HTMLButtonElement;
         "flipCard"?: HTMLDivElement;
+        "flipCardBack"?: HTMLDivElement;
         "flipCardFront"?: HTMLDivElement;
         "flipCardHeight"?: any;
+        "flipCardSnipp"?: HTMLDivElement;
         "flipCode"?: any;
-        "flipCodeBlock"?: any;
+        "flipCodeBlock"?: HTMLElement;
+        "flipCodePre"?: HTMLElement;
+        "flipCodeSlot"?: HTMLElement | any;
+        "flipCodeSlotDiv"?: HTMLElement;
         "flipContainer"?: HTMLDivElement;
         "flipLanguage"?: string;
         "language"?: any;
-        "processedFlipCode"?: any;
         "setHeight"?: any;
+        "unprocessedFlipCode"?: any;
     }
     interface HsFlipcodeBack {
     }
@@ -577,7 +631,6 @@ declare namespace LocalJSX {
         "type"?: string;
     }
     interface IntrinsicElements {
-        "fk-highlight-code": FkHighlightCode;
         "hs-back-to-top": HsBackToTop;
         "hs-button": HsButton;
         "hs-card": HsCard;
@@ -586,8 +639,10 @@ declare namespace LocalJSX {
         "hs-card-footer": HsCardFooter;
         "hs-card-header": HsCardHeader;
         "hs-card-img-header": HsCardImgHeader;
+        "hs-code": HsCode;
+        "hs-code-highlighter": HsCodeHighlighter;
         "hs-fetcher": HsFetcher;
-        "hs-flip-code": HsFlipCode;
+        "hs-flipcode": HsFlipcode;
         "hs-flipcode-back": HsFlipcodeBack;
         "hs-flipcode-front": HsFlipcodeFront;
         "hs-flipper": HsFlipper;
@@ -609,7 +664,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "fk-highlight-code": LocalJSX.FkHighlightCode & JSXBase.HTMLAttributes<HTMLFkHighlightCodeElement>;
             "hs-back-to-top": LocalJSX.HsBackToTop & JSXBase.HTMLAttributes<HTMLHsBackToTopElement>;
             "hs-button": LocalJSX.HsButton & JSXBase.HTMLAttributes<HTMLHsButtonElement>;
             "hs-card": LocalJSX.HsCard & JSXBase.HTMLAttributes<HTMLHsCardElement>;
@@ -618,8 +672,10 @@ declare module "@stencil/core" {
             "hs-card-footer": LocalJSX.HsCardFooter & JSXBase.HTMLAttributes<HTMLHsCardFooterElement>;
             "hs-card-header": LocalJSX.HsCardHeader & JSXBase.HTMLAttributes<HTMLHsCardHeaderElement>;
             "hs-card-img-header": LocalJSX.HsCardImgHeader & JSXBase.HTMLAttributes<HTMLHsCardImgHeaderElement>;
+            "hs-code": LocalJSX.HsCode & JSXBase.HTMLAttributes<HTMLHsCodeElement>;
+            "hs-code-highlighter": LocalJSX.HsCodeHighlighter & JSXBase.HTMLAttributes<HTMLHsCodeHighlighterElement>;
             "hs-fetcher": LocalJSX.HsFetcher & JSXBase.HTMLAttributes<HTMLHsFetcherElement>;
-            "hs-flip-code": LocalJSX.HsFlipCode & JSXBase.HTMLAttributes<HTMLHsFlipCodeElement>;
+            "hs-flipcode": LocalJSX.HsFlipcode & JSXBase.HTMLAttributes<HTMLHsFlipcodeElement>;
             "hs-flipcode-back": LocalJSX.HsFlipcodeBack & JSXBase.HTMLAttributes<HTMLHsFlipcodeBackElement>;
             "hs-flipcode-front": LocalJSX.HsFlipcodeFront & JSXBase.HTMLAttributes<HTMLHsFlipcodeFrontElement>;
             "hs-flipper": LocalJSX.HsFlipper & JSXBase.HTMLAttributes<HTMLHsFlipperElement>;

@@ -1,5 +1,38 @@
-
+.hs-flip2Code-button {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  z-index: 100;
+  padding: .2rem .5rem .2em;
+  margin: 0;
+  font-family: var(--hs-font-primary);
+  font-size: .8rem;
+  color: var(--hs-white--a60);
+  text-decoration: none;
+  background-color: var(--hs-black--a50);
+  border-top: 3px solid var(--hs-black);
+  border-right: 3px solid var(--hs-black);
+  border-bottom: 3px solid var(--hs-black);
+  border-left: 3px solid var(--hs-black);
+  &:hover {
+    color: rgba(242, 176, 30, .90);
+    cursor: pointer;
+    background: var(--hs-black--a75);
+    border-bottom: 3px solid rgba(242, 176, 30, 0.75);
+    border-left: 3px solid rgba(254, 211, 54, 0.75);
+  }
+  &:focus {
+    background: var(--hs-black--a75);
+    border-top: 3px solid var(--hs-black);
+    border-right: 3px solid var(--hs-black);
+    border-bottom: 3px solid rgba(254, 211, 54, 0.95);
+    border-left: 3px solid rgba(254, 211, 54, 0.95);
+    outline-width: 0;
+    outline-color: var(--primary)
+  }
+}
 .hs-flip2Code-card__scene {
+  position: relative;
   align-self: stretch;
   width: 500px;
   height: 100%;
@@ -56,18 +89,25 @@ hue-6:   #d19a66
 hue-6-2: #e6c07b
 */
 
-.hs-pre {
-  display: block;
+#flip2CodeSnipp > .hs-pre {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: stretch;
+  align-self: stretch;
   margin: 1em 0px;
+  overflow-x: hidden;
+  overflow-y: auto;
   font-family: monospace;
   white-space: pre;
 }
-#snippet .hs-pre .hs-code {
+#flip2CodeSnipp > .hs-pre > .hs-code {
   display: block;
-  height: 19em;
+  flex: 1 1 auto;
+  align-self: stretch;
+  height: 100%;
   padding: 1em;
-  overflow-x: hidden;
-  overflow-y: auto;
+  color: var(--hs-white);
+
 }
 
 .hljs {
