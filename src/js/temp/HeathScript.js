@@ -23,8 +23,8 @@
   window.onload = autofillKill();
 
   function autofillKill() {
-    var qs = document.querySelector();
-    var qsa = document.querySelectorAll();
+    var qs = document.querySelector;
+    var qsa = document.querySelectorAll;
     var contactForm = document.querySelector('#contactForm');
     var contactFormFields;
     var contactFormFieldsValues = []; // console.log(contactForm),console.log(contactFormFields);

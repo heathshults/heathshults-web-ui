@@ -127,36 +127,31 @@
       <div class="row">
         <div class="col-md-12">
           <!-- HSThreeDRotator -->
-          <hs-flip-code>
+          <hs-flipcode>
             <div slot="front">
               <img src="/assets/img/portfolio/bowlopolis/episodes-page2.png" width="500"/>
             </div>
-            
-<div id="snippet" slot="back">
-  <pre class="hs-pre">
-    <code class="hs-code javascript hljs">
-      
-      this.flipHandler = () => {
-        this.flipCard.classList.toggle('is-flipped');
-      };
-    </code>
-  </pre>
-</div>
-            
-          </hs-flip-code>
+                            
+              <div slot="back" class="hs-code javascript hljs">
+                this.flipHandler = () => {
+                  this.flipCard.classList.toggle('is-flipped');
+                };                
+              </div>
+              
+          </hs-flipcode>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
-          <div id="snippet" slot="back">
-            <pre class="hs-pre">
-              <code class="hs-code javascript">
-                this.flipHandler = () => {
-                  this.flipCard.classList.toggle('is-flipped');
-                };
-              </code>
-            </pre>
-          </div>
+<div id="snippet" slot="back">
+<pre class="hs-pre">
+<code class="hs-code lang-javascript">
+  this.flipHandler = () => {
+    this.flipCard.classList.toggle('is-flipped');
+  };
+</code>
+</pre>
+</div>
         </div>
       </div>
     </div>
@@ -177,14 +172,9 @@
       </div>
       <div class="row">
         <div id="react" class="col-12">
-          <script type="text/babel">
-
-            ReactDOM.render(
-              <h1>Hello, world!</h1>,
-              document.getElementById('react')
-            );
-      
-          </script>
+          Stuff goes here
+          
+          
         </div>
       </div>
 
@@ -340,8 +330,8 @@
 
     <!-- Theme JavaScript -->
     <script src="/assets/js/HeathScript.bundle.js" type="module"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script> -->
     <script>
     </script>
     <script>

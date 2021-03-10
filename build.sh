@@ -14,6 +14,11 @@ tsc --project ./tsconfig.typecheck.json
 TSC=$! # get background process id of stencil
 
 wait $TSC
+echo "STENCILjs WEB COMPONENTS BUILD..."
+npx stencil build --dev --ci --next --no-cache --docs-readme &
+STENCILPID=$! # get background process id of stencil
+
+wait $STENCILPID &
 echo "JAVASCRIPT BUILD..."
 
 # npx babel system-modules/scss2cssVars/scss2cssVars.ts --out-file system-modules/scss2cssVars/scss2cssVars.js
@@ -56,10 +61,6 @@ FILECOPY=$!
 wait $FILECOPY
 
 
-echo "STENCILjs WEB COMPONENTS BUILD..."
-npx stencil build --dev --ci --next --no-cache --docs-readme &
-STENCILPID=$! # get background process id of stencil
 
-wait $STENCILPID &&
 
-echo "Build complete..."
+echo "Build complete..." &
