@@ -14,6 +14,7 @@
 | `dataGap`          | `data-gap`            |             | `any`         | `undefined` |
 | `figure`           | --                    |             | `HTMLElement` | `undefined` |
 | `images`           | `images`              |             | `any`         | `undefined` |
+| `mode`             | `mode`                |             | `any`         | `undefined` |
 | `nav`              | `nav`                 |             | `any`         | `undefined` |
 | `navigate`         | `navigate`            |             | `any`         | `undefined` |
 | `rotateRotator3D`  | `rotate-rotator-3-d`  |             | `any`         | `undefined` |

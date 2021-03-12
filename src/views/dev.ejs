@@ -127,18 +127,18 @@
       <div class="row">
         <div class="col-md-12">
           <!-- HSThreeDRotator -->
-          <hs-flipcode>
+          <hs-flip2code flip-language="javascript" flip-height="300px">
             <div slot="front">
-              <img src="/assets/img/portfolio/bowlopolis/episodes-page2.png" width="500"/>
+              <hs-rotator3d data-gap="10"></hs-rotator3d>
             </div>
-                            
-              <div slot="back" class="hs-code javascript hljs">
-                this.flipHandler = () => {
-                  this.flipCard.classList.toggle('is-flipped');
-                };                
+              <div id="flip2CodeSnipp" slot="back" class="hs-code flip2CodeSnipp">
+                <pre class="hs-pre">
+                  <code id="rawFlipCode" class="hs-code lang-javascript">
+                    &lt;hs-rotator3d data-gap="10"&gt;&lt;/hs-rotator3d&gt;
+                  </code>
+                </pre>             
               </div>
-              
-          </hs-flipcode>
+          </hs-flip2code>
         </div>
       </div>
       <div class="row">
@@ -330,8 +330,10 @@
 
     <!-- Theme JavaScript -->
     <script src="/assets/js/HeathScript.bundle.js" type="module"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
     <script>
     </script>
     <script>

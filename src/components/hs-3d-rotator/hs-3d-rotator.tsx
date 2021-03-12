@@ -20,6 +20,7 @@ export class HS3dRotator {
   @Prop() dataGap: any;
   @Prop() dataBfc: any;
   @Prop() rotateRotator3D: any;
+  @Prop() mode: any;
   
   
 
@@ -123,19 +124,22 @@ export class HS3dRotator {
             // figure.style.transform = `rotateY(${imageIndex * -this.theta}rad)`;
           };
           
+          if (this.mode === 'modal') {
           // if rotator in a modal listen for modal to be shown and reset the rotator
-          document.addEventListener('shown.bs.modal', () =>{  
-            // this.root.classList.remove('hs-vanish');
-            setuprotator3D(n, 
-              parseFloat(getComputedStyle(images[0]).width), 
-              figure, 
-              images, 
-              theta, 
-              currImage);
-            this.nav.style.width = parseFloat(getComputedStyle(images[0]).width);
-            root.classList.contains('hs-vanish') ? root.classList.remove('hs-vanish') : root.classList.add('hs-vanish');
-          });
-          
+            document.addEventListener('shown.bs.modal', () =>{  
+              // this.root.classList.remove('hs-vanish');
+              setuprotator3D(n, 
+                parseFloat(getComputedStyle(images[0]).width), 
+                figure, 
+                images, 
+                theta, 
+                currImage);
+              this.nav.style.width = parseFloat(getComputedStyle(images[0]).width);
+              root.classList.contains('hs-vanish') ? root.classList.remove('hs-vanish') : '';
+            });
+          } else {
+            root.classList.remove('hs-vanish');
+          }
               
         }, 5);
           resolve(true);
