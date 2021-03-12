@@ -87,8 +87,6 @@ export namespace Components {
         "showHide": string;
         "validURL": (str: any) => any;
     }
-    interface HsCode {
-    }
     interface HsCodeHighlighter {
         /**
           * The content to show in the syntax highlighter element
@@ -119,8 +117,14 @@ export namespace Components {
         "method": string;
         "url": string;
     }
-    interface HsFlipcode {
-        "flipButton": HTMLButtonElement;
+    interface HsFlip2code {
+        /**
+          * The text inside the "copy to clipboard" button
+          * @remark This is primarily for if you want to provide i18n with your syntax highlighted component
+          * @example "Kopieer naar klembord"
+          * @default "Copy to clipboard"
+         */
+        "copyButtonLabel": string;
         "flipCard": HTMLDivElement;
         "flipCardBack": HTMLDivElement;
         "flipCardFront": HTMLDivElement;
@@ -128,18 +132,18 @@ export namespace Components {
         "flipCardSnipp": HTMLDivElement;
         "flipCode": any;
         "flipCodeBlock": HTMLElement;
+        "flipCodeButton": HTMLButtonElement;
+        "flipCodeButtonLabel"?: string;
         "flipCodePre": HTMLElement;
         "flipCodeSlot": HTMLElement | any;
         "flipCodeSlotDiv": HTMLElement;
         "flipContainer": HTMLDivElement;
-        "flipLanguage": string;
+        "flipLanguage"?: string;
         "language": any;
+        "rawFlipCode": any;
         "setHeight": any;
-        "unprocessedFlipCode": any;
     }
     interface HsFlipcodeBack {
-    }
-    interface HsFlipcodeFront {
     }
     interface HsFlipper {
         "flipperBackEvents": string;
@@ -179,6 +183,7 @@ export namespace Components {
         "dataGap": any;
         "figure": HTMLElement;
         "images": any;
+        "mode": any;
         "nav": any;
         "navigate": any;
         "rotateRotator3D": any;
@@ -263,12 +268,6 @@ declare global {
         prototype: HTMLHsCardImgHeaderElement;
         new (): HTMLHsCardImgHeaderElement;
     };
-    interface HTMLHsCodeElement extends Components.HsCode, HTMLStencilElement {
-    }
-    var HTMLHsCodeElement: {
-        prototype: HTMLHsCodeElement;
-        new (): HTMLHsCodeElement;
-    };
     interface HTMLHsCodeHighlighterElement extends Components.HsCodeHighlighter, HTMLStencilElement {
     }
     var HTMLHsCodeHighlighterElement: {
@@ -281,23 +280,17 @@ declare global {
         prototype: HTMLHsFetcherElement;
         new (): HTMLHsFetcherElement;
     };
-    interface HTMLHsFlipcodeElement extends Components.HsFlipcode, HTMLStencilElement {
+    interface HTMLHsFlip2codeElement extends Components.HsFlip2code, HTMLStencilElement {
     }
-    var HTMLHsFlipcodeElement: {
-        prototype: HTMLHsFlipcodeElement;
-        new (): HTMLHsFlipcodeElement;
+    var HTMLHsFlip2codeElement: {
+        prototype: HTMLHsFlip2codeElement;
+        new (): HTMLHsFlip2codeElement;
     };
     interface HTMLHsFlipcodeBackElement extends Components.HsFlipcodeBack, HTMLStencilElement {
     }
     var HTMLHsFlipcodeBackElement: {
         prototype: HTMLHsFlipcodeBackElement;
         new (): HTMLHsFlipcodeBackElement;
-    };
-    interface HTMLHsFlipcodeFrontElement extends Components.HsFlipcodeFront, HTMLStencilElement {
-    }
-    var HTMLHsFlipcodeFrontElement: {
-        prototype: HTMLHsFlipcodeFrontElement;
-        new (): HTMLHsFlipcodeFrontElement;
     };
     interface HTMLHsFlipperElement extends Components.HsFlipper, HTMLStencilElement {
     }
@@ -386,12 +379,10 @@ declare global {
         "hs-card-footer": HTMLHsCardFooterElement;
         "hs-card-header": HTMLHsCardHeaderElement;
         "hs-card-img-header": HTMLHsCardImgHeaderElement;
-        "hs-code": HTMLHsCodeElement;
         "hs-code-highlighter": HTMLHsCodeHighlighterElement;
         "hs-fetcher": HTMLHsFetcherElement;
-        "hs-flipcode": HTMLHsFlipcodeElement;
+        "hs-flip2code": HTMLHsFlip2codeElement;
         "hs-flipcode-back": HTMLHsFlipcodeBackElement;
-        "hs-flipcode-front": HTMLHsFlipcodeFrontElement;
         "hs-flipper": HTMLHsFlipperElement;
         "hs-media-image": HTMLHsMediaImageElement;
         "hs-media-item": HTMLHsMediaItemElement;
@@ -492,8 +483,6 @@ declare namespace LocalJSX {
         "showHide"?: string;
         "validURL"?: (str: any) => any;
     }
-    interface HsCode {
-    }
     interface HsCodeHighlighter {
         /**
           * The content to show in the syntax highlighter element
@@ -533,8 +522,14 @@ declare namespace LocalJSX {
         "onResolved"?: (event: CustomEvent<any>) => void;
         "url"?: string;
     }
-    interface HsFlipcode {
-        "flipButton"?: HTMLButtonElement;
+    interface HsFlip2code {
+        /**
+          * The text inside the "copy to clipboard" button
+          * @remark This is primarily for if you want to provide i18n with your syntax highlighted component
+          * @example "Kopieer naar klembord"
+          * @default "Copy to clipboard"
+         */
+        "copyButtonLabel"?: string;
         "flipCard"?: HTMLDivElement;
         "flipCardBack"?: HTMLDivElement;
         "flipCardFront"?: HTMLDivElement;
@@ -542,18 +537,26 @@ declare namespace LocalJSX {
         "flipCardSnipp"?: HTMLDivElement;
         "flipCode"?: any;
         "flipCodeBlock"?: HTMLElement;
+        "flipCodeButton"?: HTMLButtonElement;
+        "flipCodeButtonLabel"?: string;
         "flipCodePre"?: HTMLElement;
         "flipCodeSlot"?: HTMLElement | any;
         "flipCodeSlotDiv"?: HTMLElement;
         "flipContainer"?: HTMLDivElement;
         "flipLanguage"?: string;
         "language"?: any;
+        /**
+          * The callback that will be fired when ClipboardJS fails to copy the text
+          * @remark You can use this to, for example, show notifications to users
+          * @remark This event will bubble up through the DOM
+          * @default undefined
+          * @example ```html <body> 	<hs-flip2code id="example-highlight" theme="dark" language="typescript" content="console.log('example')" /> 	  <script> 		  const syntaxHighlighterElement = document.querySelector('#example-highlight'); 		  syntaxHighlighterElement.addEventListener('clipboardJsError', event => { 			  console.log('handling'); 		  }); 	  </script>   </hs-flip2code> </body> ```
+         */
+        "onClipboardJsError"?: (event: CustomEvent<ClipboardJS.Event>) => void;
+        "rawFlipCode"?: any;
         "setHeight"?: any;
-        "unprocessedFlipCode"?: any;
     }
     interface HsFlipcodeBack {
-    }
-    interface HsFlipcodeFront {
     }
     interface HsFlipper {
         "flipperBackEvents"?: string;
@@ -596,6 +599,7 @@ declare namespace LocalJSX {
         "dataGap"?: any;
         "figure"?: HTMLElement;
         "images"?: any;
+        "mode"?: any;
         "nav"?: any;
         "navigate"?: any;
         "rotateRotator3D"?: any;
@@ -639,12 +643,10 @@ declare namespace LocalJSX {
         "hs-card-footer": HsCardFooter;
         "hs-card-header": HsCardHeader;
         "hs-card-img-header": HsCardImgHeader;
-        "hs-code": HsCode;
         "hs-code-highlighter": HsCodeHighlighter;
         "hs-fetcher": HsFetcher;
-        "hs-flipcode": HsFlipcode;
+        "hs-flip2code": HsFlip2code;
         "hs-flipcode-back": HsFlipcodeBack;
-        "hs-flipcode-front": HsFlipcodeFront;
         "hs-flipper": HsFlipper;
         "hs-media-image": HsMediaImage;
         "hs-media-item": HsMediaItem;
@@ -672,12 +674,10 @@ declare module "@stencil/core" {
             "hs-card-footer": LocalJSX.HsCardFooter & JSXBase.HTMLAttributes<HTMLHsCardFooterElement>;
             "hs-card-header": LocalJSX.HsCardHeader & JSXBase.HTMLAttributes<HTMLHsCardHeaderElement>;
             "hs-card-img-header": LocalJSX.HsCardImgHeader & JSXBase.HTMLAttributes<HTMLHsCardImgHeaderElement>;
-            "hs-code": LocalJSX.HsCode & JSXBase.HTMLAttributes<HTMLHsCodeElement>;
             "hs-code-highlighter": LocalJSX.HsCodeHighlighter & JSXBase.HTMLAttributes<HTMLHsCodeHighlighterElement>;
             "hs-fetcher": LocalJSX.HsFetcher & JSXBase.HTMLAttributes<HTMLHsFetcherElement>;
-            "hs-flipcode": LocalJSX.HsFlipcode & JSXBase.HTMLAttributes<HTMLHsFlipcodeElement>;
+            "hs-flip2code": LocalJSX.HsFlip2code & JSXBase.HTMLAttributes<HTMLHsFlip2codeElement>;
             "hs-flipcode-back": LocalJSX.HsFlipcodeBack & JSXBase.HTMLAttributes<HTMLHsFlipcodeBackElement>;
-            "hs-flipcode-front": LocalJSX.HsFlipcodeFront & JSXBase.HTMLAttributes<HTMLHsFlipcodeFrontElement>;
             "hs-flipper": LocalJSX.HsFlipper & JSXBase.HTMLAttributes<HTMLHsFlipperElement>;
             "hs-media-image": LocalJSX.HsMediaImage & JSXBase.HTMLAttributes<HTMLHsMediaImageElement>;
             "hs-media-item": LocalJSX.HsMediaItem & JSXBase.HTMLAttributes<HTMLHsMediaItemElement>;
