@@ -3,11 +3,17 @@ import {Config} from '@stencil/core';
 import {sass} from '@stencil/sass';
 import {postcss} from '@stencil/postcss';
 import autoprefixer from 'autoprefixer';
+// import nodePolyfills from 'rollup-plugin-node-polyfills';
 
 export const config: Config = {
   namespace: 'HeathScript-UI',
   srcDir: 'src/components',
   globalStyle: 'src/global/variables.css',
+  // rollupPlugins: {
+  //   after: [
+  //     nodePolyfills(),
+  //   ]
+  // },
   plugins: [
     sass(),
     // postcss({
