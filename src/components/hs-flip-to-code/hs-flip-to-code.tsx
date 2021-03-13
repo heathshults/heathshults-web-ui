@@ -36,21 +36,31 @@ export class HSFlip2Code {
         setTimeout(()=> {
           const l = console.log;
           this.flipContainer = this.el.shadowRoot.querySelector('#flip2CodeContainer');
+          l(this.flipContainer);
           this.flipCodeButton = this.el.shadowRoot.querySelector('#flipCodeButton');
+          l( this.flipCodeButton);
           this.flipCard = this.el.shadowRoot.querySelector('#flip2Code');
+          l(this.flipCard);
           this.flipCardFront = this.el.shadowRoot.querySelector('#flip2CodeFront');
+          l(this.flipCardFront);
           this.flipCardBack = this.el.shadowRoot.querySelector('#flip2CodeBack');
+          l(this.flipCardBack);
           
           this.flipCardSnipp = this.el.shadowRoot.querySelector('#flip2CodeSnipp');
+          l(this.flipCardSnipp);
           this.flipCodeSlot = this.el.shadowRoot.querySelector('slot[name="back"]');
-          this.flipCodePre = this.el.shadowRoot.querySelector('pre#flipCodePre');
-          this.flipCodeBlock = this.el.shadowRoot.querySelector('#flipCodeBlock'); //<code id="flipCodeBlock" class="hs-code">
+          l(this.flipCodeSlot);
           this.flipCodeSlotElements = this.flipCodeSlot.assignedElements();
+          l(this.flipCodeSlotElements);
+          this.flipCodePre = this.el.shadowRoot.querySelector('#flipCodePre');
+          l(this.flipCodePre);
+          this.flipCodeBlock = this.el.shadowRoot.querySelector('#flipCodeBlock'); //<code id="flipCodeBlock" class="hs-code">
+          l(this.flipCodeBlock);
           this.flipCode = this.flipCodeSlotElements[0].firstElementChild.firstElementChild.innerHTML;
-          l(`flipContainer: ${this.flipContainer}`);
+          l(`flipcode: ${this.flipCode}`);
+          const flipPostPre = this.flipCodeSlotElements[0].firstElementChild;
           l(this.flipCodeSlotElements[0].firstElementChild.firstElementChild);
           l(escape(this.flipCode));
-
 
           
           this.setHeight = ():number => {
@@ -64,11 +74,12 @@ export class HSFlip2Code {
           this.flipCardSnipp.style.height = `${this.setHeight()}px`;
           this.flipCodeSlot.style.height = `${this.setHeight()}px`; // doesnt need height fix this
           this.flipCodePre.style.height = `${this.setHeight()}px`;
-          this.flipCodeSlotElements[0].firstElementChild.firstElementChild.style.minHeight = `${this.setHeight()}px`;
-          
+          this.flipCodeSlotElements[0].firstElementChild.closest('pre').style.minHeight = `${this.setHeight()}px`;
+          flipPostPre.style.height = `${this.setHeight()}px`;
+          this.flipCodeBlock.innerHTML = this.flipCode;
+          this.flipCodeSlot.style.opacity = 0;
+          this.flipCodeSlot.style.transform = 'scale(0);';
           // this.flipCodeBlock.innerHTML = this.flipCode;
-          
-          
           resolve(true);
         }, 500);
       }
@@ -76,13 +87,12 @@ export class HSFlip2Code {
         console.log(err.message);
         reject(false);
       }
-      
     });
   }
 
   /**
    *  @description: Fixes the pre tag indentation issue.
-     *  @param {string} str  
+   *  @param {string} str  
    */
   cleanIndentation(str: unknown):any {
     const pattern = str.match(/\s*\n[\t\s]*/);
@@ -122,15 +132,12 @@ export class HSFlip2Code {
   
   @Event({ bubbles: true })
   public clipboardJsError: EventEmitter<ClipboardJS.Event>;
-  
   private clipboardJsInstance: ClipboardJS;
-
   public componentWillLoad():Promise<any> {
     this.clipboardJsInstance = new ClipboardJS('#flipClipButton');
     this.clipboardJsInstance //
     .on('success', (event) => event.clearSelection()) 
     .on('error', (event) => this.clipboardJsError.emit(event));
-
   }
     
   flipHandler(): void {
@@ -146,18 +153,14 @@ export class HSFlip2Code {
             <a href="javascript:void(0);" id="flipClipButton" class="hs-flip2Code-button" data-clipboard-target="#flipCodeBlock">{this.copyButtonLabel}</a>
           </div>
           <div id="flip2Code" class="hs-flip2Code-card">
-            
             <div id="flip2CodeFront" class="hs-flip2Code-card__face hs-flip2Code-card__face--front">
-            
               <slot name="front"></slot>
-              
             </div> 
-            
             <div id="flip2CodeBack" class="hs-flip2Code-card__face hs-flip2Code-card__face--back">
               <div id="flip2CodeSnipp">
                 <slot name="back"></slot>
-                  <pre id="flipCodePre" class="hs-pre">
-                    <code id="flipCodeBlock" class="hs-code lang-javascript"></code>
+                  <pre id="flipCodePre" class="hs-pre language-javascript">
+                    <code id="flipCodeBlock" class="hs-code language-javascript"></code>
                   </pre>
               </div>
             </div>
