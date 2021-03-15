@@ -82,6 +82,8 @@
     "rxjs": "^6.6.3"
   },
   "devDependencies": {
+    "@angular/common": "^11.2.5",
+    "@angular/core": "^11.2.5",
     "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
     "@babel/node": "^7.12.10",
@@ -121,6 +123,7 @@
     "babel-loader": "^8.1.0",
     "babel-plugin-import": "^1.13.3",
     "babel-plugin-import-7": "^1.6.7",
+    "babel-plugin-prismjs": "^2.0.1",
     "babel-plugin-replace-ts-export-assignment": "^0.0.2",
     "babelify": "^10.0.0",
     "browser-sync": "^2.26.14",
@@ -219,6 +222,7 @@
     "sass-to-css-variables": "^1.0.1",
     "shelljs": "0.8.4",
     "slick-carousel": "^1.8.1",
+    "stencil-router-v2": "^0.6.0",
     "style-loader": "^1.2.0",
     "stylelint": "^13.6.1",
     "stylelint-config-standard": "^20.0.0",
