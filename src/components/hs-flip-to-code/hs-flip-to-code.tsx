@@ -3,6 +3,30 @@
 import { Component, Host,Prop, Element, Event, EventEmitter, h } from '@stencil/core';
 import ClipboardJS from 'clipboard';
 import { escape, unescape } from 'html-escaper';
+import Prism from 'prismjs';
+import { loadLanguages } from 'prismjs/components/';
+// loadLanguages([
+//   'html',
+//   'javascript',
+//   'typescript',
+//   'css',
+//   'scss',
+//   'php',
+//   'handlebars',
+//   'mysql',
+//   'sql',
+//   'ejs',
+//   'json',
+//   'jsx',
+//   'tsx',
+//   'markdown',
+//   'markup',
+//   'mongodb',
+//   'bash',
+//   'shell',
+//   'regex',
+//   'xml-doc'
+// ]);
 
 @Component({
   tag: 'hs-flip2code',
@@ -30,37 +54,78 @@ export class HSFlip2Code {
   @Prop({mutable: true}) setHeight: any;
   @Prop({ mutable: true, reflect: true }) flipCodeButtonLabel? = 'Flip Code';
 
-  componentDidLoad() {
+// *========== FORMATTING ===========* //
+
+  /**
+   * @description: Fixes the pre tag indentation issue.
+   * @param {string} str  
+   */
+   cleanIndentation(str: unknown):any {
+    const pattern = str.match(/\s*\n[\t\s]*/);
+    return str.replace(new RegExp(pattern, 'g'), '\n');
+  }
+
+/**
+ * Sets height on containers for consistency and uniformity
+ * @return 
+ * @memberof HSFlip2Code
+ * @returns { number } representing the containers height
+ */
+  setHeight():number {
+    return this.el.shadowRoot.querySelector('#flip2CodeFront').scrollHeight;
+  }
+
+/**
+ * Refreshes the highlighted code when called
+ * @return * 
+ * @memberof HSFlip2Code
+ */
+  highlight():any {
+    if (this.el && this.el.current) {
+      Prism.highlightElement(this.ref.current);
+    }
+    return;
+  }
+
+componentDidRender():Promise<Element, string> {
     return new Promise((resolve, reject) => {
       try {
         setTimeout(()=> {
-          const l = console.log;
+          const log = console.log;
           this.flipContainer = this.el.shadowRoot.querySelector('#flip2CodeContainer');
-          l(this.flipContainer);
+          log(this.flipContainer);
           this.flipCodeButton = this.el.shadowRoot.querySelector('#flipCodeButton');
-          l( this.flipCodeButton);
+          log( this.flipCodeButton);
           this.flipCard = this.el.shadowRoot.querySelector('#flip2Code');
-          l(this.flipCard);
+          log(this.flipCard);
           this.flipCardFront = this.el.shadowRoot.querySelector('#flip2CodeFront');
-          l(this.flipCardFront);
+          log(this.flipCardFront);
           this.flipCardBack = this.el.shadowRoot.querySelector('#flip2CodeBack');
-          l(this.flipCardBack);
+          log(this.flipCardBack);
           
           this.flipCardSnipp = this.el.shadowRoot.querySelector('#flip2CodeSnipp');
-          l(this.flipCardSnipp);
+          log(this.flipCardSnipp);
+
           this.flipCodeSlot = this.el.shadowRoot.querySelector('slot[name="back"]');
-          l(this.flipCodeSlot);
-          this.flipCodeSlotElements = this.flipCodeSlot.assignedElements();
-          l(this.flipCodeSlotElements);
+          log(this.flipCodeSlot);
+
+          this.flipCodeSlotChildEls = this.flipCodeSlot.assignedElements();
+          log(this.flipCodeSlotChildEls);
+
           this.flipCodePre = this.el.shadowRoot.querySelector('#flipCodePre');
-          l(this.flipCodePre);
-          this.flipCodeBlock = this.el.shadowRoot.querySelector('#flipCodeBlock'); //<code id="flipCodeBlock" class="hs-code">
-          l(this.flipCodeBlock);
-          this.flipCode = this.flipCodeSlotElements[0].firstElementChild.firstElementChild.innerHTML;
-          l(`flipcode: ${this.flipCode}`);
-          const flipPostPre = this.flipCodeSlotElements[0].firstElementChild;
-          l(this.flipCodeSlotElements[0].firstElementChild.firstElementChild);
-          l(escape(this.flipCode));
+          log(this.flipCodePre);
+
+          this.flipCodeBlock = this.el.shadowRoot.querySelector('#flipCodeBlock');
+          log(this.flipCodeBlock);
+
+          
+          this.flipCode = this.flipCodeSlotChildEls[0].firstElementChild.firstElementChild.innerHTML;
+          log(`flipcode: ${this.flipCode}`);
+          
+          this.flipPostPre = this.flipCodeSlotChildEls[0].firstElementChild;
+          
+          log(this.flipCodeSlotChildEls[0].firstElementChild.firstElementChild);
+          log(escape(this.flipCode));
 
           
           this.setHeight = ():number => {
@@ -72,14 +137,14 @@ export class HSFlip2Code {
           this.flipCardFront.style.height = `${this.setHeight()}px`;
           this.flipCardBack.style.height = `${this.setHeight()}px`;
           this.flipCardSnipp.style.height = `${this.setHeight()}px`;
-          this.flipCodeSlot.style.height = `${this.setHeight()}px`; // doesnt need height fix this
           this.flipCodePre.style.height = `${this.setHeight()}px`;
-          this.flipCodeSlotElements[0].firstElementChild.closest('pre').style.minHeight = `${this.setHeight()}px`;
-          flipPostPre.style.height = `${this.setHeight()}px`;
+          this.flipCodeBlock.style.height = `${this.setHeight()}px`;
           this.flipCodeBlock.innerHTML = this.flipCode;
-          this.flipCodeSlot.style.opacity = 0;
-          this.flipCodeSlot.style.transform = 'scale(0);';
-          // this.flipCodeBlock.innerHTML = this.flipCode;
+          this.flipCodeSlot.style.height = `${this.setHeight()}px`; // doesnt need height fix this
+          this.flipCodeSlotChildEls[0].firstElementChild.closest('pre').style.minHeight = `${this.setHeight()}px`;
+          this.flipPostPre.style.height = `${this.setHeight()}px`;
+          // this.flipCodeSlot.style.display = 'none';
+          
           resolve(true);
         }, 500);
       }
@@ -90,14 +155,13 @@ export class HSFlip2Code {
     });
   }
 
-  /**
-   *  @description: Fixes the pre tag indentation issue.
-   *  @param {string} str  
-   */
-  cleanIndentation(str: unknown):any {
-    const pattern = str.match(/\s*\n[\t\s]*/);
-    return str.replace(new RegExp(pattern, 'g'), '\n');
-  }
+  // componentDidLoad():any {
+  //   setTimeout(() => Prism.highlightElement(), 0);
+  // }
+
+  // componentDidUpdate():any {
+  //   setTimeout(() => Prism.highlightElement(), 0);
+  // }
   
   //* ==================== CLIPBOARD ====================== *//
 
@@ -107,42 +171,43 @@ export class HSFlip2Code {
    * @example "Kopieer naar klembord"
    * @default "Copy to clipboard"
    */
-  @Prop({ mutable: true, reflect: true })
-  public copyButtonLabel = 'Copy';
-  
-  /**
-  * The callback that will be fired when ClipboardJS fails to copy the text
-  * @remark You can use this to, for example, show notifications to users
-  * @remark This event will bubble up through the DOM
-  * @default undefined
-  * @example
-  * ```html
-  *	<body>
-  *		<hs-flip2code id="example-highlight" theme="dark" language="typescript" content="console.log('example')" />
-  *		  <script>
-  *			  const syntaxHighlighterElement = document.querySelector('#example-highlight');
-  *			  syntaxHighlighterElement.addEventListener('clipboardJsError', event => {
-  *				  console.log('handling');
-  *			  });
-  *		  </script>
-      </hs-flip2code>
-  *	</body>
-  * ```
-  */
-  
-  @Event({ bubbles: true })
-  public clipboardJsError: EventEmitter<ClipboardJS.Event>;
-  private clipboardJsInstance: ClipboardJS;
-  public componentWillLoad():Promise<any> {
-    this.clipboardJsInstance = new ClipboardJS('#flipClipButton');
-    this.clipboardJsInstance //
-    .on('success', (event) => event.clearSelection()) 
-    .on('error', (event) => this.clipboardJsError.emit(event));
-  }
-    
-  flipHandler(): void {
-    this.flipCard.classList.toggle('is-flipped');
-  }
+   @Prop({ mutable: true, reflect: true })
+   public copyButtonLabel = 'Copy';
+   
+   /**
+   * The callback that will be fired when ClipboardJS fails to copy the text
+   * @remark You can use this to, for example, show notifications to users
+   * @remark This event will bubble up through the DOM
+   * @default undefined
+   * @example
+   * ```html
+   *	<body>
+   *		<hs-flip2code id="example-highlight" theme="dark" language="typescript" content="console.log('example')" />
+   *		  <script>
+   *			  const syntaxHighlighterElement = document.querySelector('#example-highlight');
+   *			  syntaxHighlighterElement.addEventListener('clipboardJsError', event => {
+   *				  console.log('handling');
+   *			  });
+   *		  </script>
+       </hs-flip2code>
+   *	</body>
+   * ```
+   */
+   
+   @Event({ bubbles: true })
+   public clipboardJsError: EventEmitter<ClipboardJS.Event>;
+   private clipboardJsInstance: ClipboardJS;
+   public componentWillLoad():Promise<any> {
+     this.clipboardJsInstance = new ClipboardJS('#flipClipButton');
+     this.clipboardJsInstance //
+     .on('success', (event) => event.clearSelection()) 
+     .on('error', (event) => this.clipboardJsError.emit(event));
+   }
+     
+   flipHandler(): void {
+     this.flipCard.classList.toggle('is-flipped');
+   }
+   
   
   render():any {
     return (
@@ -158,10 +223,12 @@ export class HSFlip2Code {
             </div> 
             <div id="flip2CodeBack" class="hs-flip2Code-card__face hs-flip2Code-card__face--back">
               <div id="flip2CodeSnipp">
-                <slot name="back"></slot>
-                  <pre id="flipCodePre" class="hs-pre language-javascript">
-                    <code id="flipCodeBlock" class="hs-code language-javascript"></code>
-                  </pre>
+                <pre id="flipCodePre" class="hs-pre language-javascript">
+                  <code id="flipCodeBlock" class="hs-code language-javascript">
+                    <slot name="back"></slot>
+                    
+                  </code>
+                </pre>
               </div>
             </div>
             

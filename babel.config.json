@@ -11,7 +11,18 @@
     "@babel/plugin-proposal-class-properties",
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
     "@babel/plugin-transform-runtime",
-    ["import", {"libraryName": "@material-ui/core"}]
+    ["import", {"libraryName": "@material-ui/core"}],
+    ["prismjs", {
+      "languages": [
+        "html","javascript","typescript","css","scss",
+        "php","handlebars","mysql","sql","ejs","json",
+        "jsx","tsx","markdown","markup","mongodb","bash",
+        "shell","regex", "xml-doc"
+      ],
+      "plugins": ["line-numbers", "show-language"],
+      "theme": "okaidia",
+      "css": true
+    }]
   ],
   "compact": false
 }

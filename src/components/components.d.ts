@@ -143,8 +143,6 @@ export namespace Components {
         "rawFlipCode": any;
         "setHeight": any;
     }
-    interface HsFlipcodeBack {
-    }
     interface HsFlipper {
         "flipperBackEvents": string;
         "flipperDuration": number;
@@ -286,12 +284,6 @@ declare global {
         prototype: HTMLHsFlip2codeElement;
         new (): HTMLHsFlip2codeElement;
     };
-    interface HTMLHsFlipcodeBackElement extends Components.HsFlipcodeBack, HTMLStencilElement {
-    }
-    var HTMLHsFlipcodeBackElement: {
-        prototype: HTMLHsFlipcodeBackElement;
-        new (): HTMLHsFlipcodeBackElement;
-    };
     interface HTMLHsFlipperElement extends Components.HsFlipper, HTMLStencilElement {
     }
     var HTMLHsFlipperElement: {
@@ -382,7 +374,6 @@ declare global {
         "hs-code-highlighter": HTMLHsCodeHighlighterElement;
         "hs-fetcher": HTMLHsFetcherElement;
         "hs-flip2code": HTMLHsFlip2codeElement;
-        "hs-flipcode-back": HTMLHsFlipcodeBackElement;
         "hs-flipper": HTMLHsFlipperElement;
         "hs-media-image": HTMLHsMediaImageElement;
         "hs-media-item": HTMLHsMediaItemElement;
@@ -556,8 +547,6 @@ declare namespace LocalJSX {
         "rawFlipCode"?: any;
         "setHeight"?: any;
     }
-    interface HsFlipcodeBack {
-    }
     interface HsFlipper {
         "flipperBackEvents"?: string;
         "flipperDuration"?: number;
@@ -646,7 +635,6 @@ declare namespace LocalJSX {
         "hs-code-highlighter": HsCodeHighlighter;
         "hs-fetcher": HsFetcher;
         "hs-flip2code": HsFlip2code;
-        "hs-flipcode-back": HsFlipcodeBack;
         "hs-flipper": HsFlipper;
         "hs-media-image": HsMediaImage;
         "hs-media-item": HsMediaItem;
@@ -677,7 +665,6 @@ declare module "@stencil/core" {
             "hs-code-highlighter": LocalJSX.HsCodeHighlighter & JSXBase.HTMLAttributes<HTMLHsCodeHighlighterElement>;
             "hs-fetcher": LocalJSX.HsFetcher & JSXBase.HTMLAttributes<HTMLHsFetcherElement>;
             "hs-flip2code": LocalJSX.HsFlip2code & JSXBase.HTMLAttributes<HTMLHsFlip2codeElement>;
-            "hs-flipcode-back": LocalJSX.HsFlipcodeBack & JSXBase.HTMLAttributes<HTMLHsFlipcodeBackElement>;
             "hs-flipper": LocalJSX.HsFlipper & JSXBase.HTMLAttributes<HTMLHsFlipperElement>;
             "hs-media-image": LocalJSX.HsMediaImage & JSXBase.HTMLAttributes<HTMLHsMediaImageElement>;
             "hs-media-item": LocalJSX.HsMediaItem & JSXBase.HTMLAttributes<HTMLHsMediaItemElement>;
