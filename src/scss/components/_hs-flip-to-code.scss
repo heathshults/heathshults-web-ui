@@ -43,6 +43,7 @@
 
 .hs-flip2Code-card__scene {
   position: relative;
+  display: flex;
   align-self: stretch;
   width: 100%;
   height: 100%;
@@ -53,6 +54,7 @@
 
 .hs-flip2Code-card {
   position: relative;
+  flex: 1 1 auto;
   width: 100%;
   height: 100%;
   cursor: pointer;
@@ -66,6 +68,7 @@
 
 .hs-flip2Code-card__face {
   position: absolute;
+  flex: 1 1 auto;
   width: 100%;
   height: 100%;
 
@@ -99,16 +102,25 @@ hue-6:   #d19a66
 hue-6-2: #e6c07b
 */
 
-#flip2CodeSnipp > .hs-pre {
+#flip2CodeSnipp.flip2CodeSnipp {
+  display: flex;
+  align-items: stretch;
+  align-self: stretch;
+  height: 100%;
+  transition: all .25s ease-in-out;
+}
+.flip2CodeSnipp > .hs-pre {
   display: flex;
   flex: 1 1 auto;
   align-items: stretch;
   align-self: stretch;
+  height: 100%;
   margin: 0;
   overflow-x: hidden;
   overflow-y: auto;
   white-space: pre;
   background: var(--hs-black);
+  transition: all .25s ease-in-out;
 }
 
 .hs-code {
@@ -122,10 +134,12 @@ hue-6-2: #e6c07b
   line-height: normal;
   color: var(--hs-white);
   white-space: nowrap;
+  transition: all .25s ease-in-out;
 }
 .flip2CodeSnipp > .hs-pre > .hs-code > .hs-pre-post {
   overflow-y: auto;
   white-space: nowrap;
+  transition: all .25s ease-in-out;
 }
 
 // .disappear {
