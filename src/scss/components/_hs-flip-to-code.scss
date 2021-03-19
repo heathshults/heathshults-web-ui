@@ -50,6 +50,8 @@
   margin: 0;
   // border: 1px solid #CCC;
   perspective: 600px;
+  transition: all .5s ease-out;
+
 }
 
 .hs-flip2Code-card {
@@ -57,20 +59,33 @@
   flex: 1 1 auto;
   width: 100%;
   height: 100%;
-  cursor: pointer;
-  transition: all .25s ease-in-out;
+  align-self: stretch;
+  transition: all .5s ease-in;
   transform-style: preserve-3d;
+  .hs-flip2Code-card__face--front {
+    opacity: 1;
+    background: var(--hs-black--a90);
+    transition: all .5s ease-out;
+  }
+  .hs-flip2Code-card__face--back {
+    background: var(--hs-black);
+    opacity: 0;
+    transition: all .5s ease-in;
+    
+  }
   &.is-flipped {
-    transition: all 1s ease-in-out;
+    transition: all .5s ease-out;
     transform: rotateY(180deg);
     .hs-flip2Code-card__face--front {
       opacity: 0;
-      transition: all 1s ease-in-out;
+      background: var(--hs-black--a90);
+      transition: all .5s ease-in;
     }
     .hs-flip2Code-card__face--back {
-      background: var(--hs-black);
       opacity: 1;
-      transition: all 1s ease-in-out;
+      background: var(--hs-black--a90);
+      transition: all .5s ease-in;
+      
     }
   }
 }
@@ -80,22 +95,33 @@
   flex: 1 1 auto;
   width: 100%;
   height: 100%;
-  transition: all .25s ease-in-out;
-
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  transition: all .5s ease-out;
+  -webkit-backface-visibility: visible;
+   backface-visibility: visible;
+  
 }
 
-.hs-flip2Code-card__face--front {
-  background: var(--hs-black);
-  transition: all .25s ease-in-out;
-}
+// .hs-flip2Code-card__face--front {
+//   background: var(--hs-black--a90);
+//   transition: all .5s ease-in-out;
+// }
 
-.hs-flip2Code-card__face--back {
-  background: var(--hs-black);
-  transition: all .25s ease-in-out;
-  // opacity: 0;
-  transform: rotateY(180deg);
+// .hs-flip2Code-card__face--back {
+//   background: var(--hs-black--a90);
+//   transition: all .5s ease-in-out;
+//   // opacity: 0;
+//   transform: rotateY(180deg);
+// }
+
+div[slot="front"] {
+  flex: 1 1 auto;
+  align-self: stretch;
+  align-items: stretch;
+}
+div[slot="back"] {
+  flex: 1 1 auto;
+  align-self: stretch;
+  align-items: stretch;
 }
 
 .hs-flip2Code-toolbar {
@@ -142,7 +168,7 @@
 
 
 // .hs-flip2Code-card.is-flipped + .hs-flip2Code-card__face--back {
-//   background: var(--hs-black);
+//   background: var(--hs-black--a75);
 // }
 
 
@@ -169,6 +195,7 @@
   align-items: stretch;
   align-self: stretch;
   height: 100%;
+  background: var(--hs-black--a75);
   transition: all .25s ease-in-out;
 }
 .flip2CodeSnipp > .hs-pre {
@@ -177,11 +204,12 @@
   align-items: stretch;
   align-self: stretch;
   height: 100%;
+  min-height: 0;
   margin: 0;
   overflow-x: hidden;
   overflow-y: hidden;
   white-space: pre;
-  background: alpha(var(--hs-black), 90%);
+  background: var(--hs-black--a75);
   transition: all .25s ease-in-out;
 }
 
@@ -189,6 +217,7 @@
   display: block;
   flex: 1 1 auto;
   align-self: stretch;
+  width: 100%;
   height: 100%;
   padding: 1em;
   font-family: monospace;
@@ -199,7 +228,7 @@
   transition: all .25s ease-in-out;
 }
 .flip2CodeSnipp > .hs-pre > .hs-code > .hs-pre-post {
-  overflow-y: hidden;
+  // overflow-y: hidden;
   white-space: nowrap;
   transition: all .25s ease-in-out;
 }
@@ -208,6 +237,13 @@
   width: 0px;
   height: 0px;
   opacity: 0;
+}
+.remove {
+  display: none;
+}
+
+span.flip2code-highlight-code-anchor-hidden {
+  visibility: hidden;
 }
 
 
@@ -284,93 +320,6 @@
 }
 
 
-
-/* perfect scrollbar */
-
-.ps {
-  overflow: hidden !important;
-  touch-action: auto;
-  overflow-anchor: none;
-}
-.ps__rail-x {
-  position: absolute;
-  bottom: 0px;
-  display: none;
-  height: 15px;
-  opacity: 0;
-  transition: background-color .2s linear, opacity .2s linear;
-}
-.ps__rail-y {
-  position: absolute;
-  right: 0;
-  display: none;
-  width: 15px;
-  opacity: 0;
-  transition: background-color .2s linear, opacity .2s linear;
-}
-.ps--active-x > .ps__rail-x,
-.ps--active-y > .ps__rail-y {
-  display: block;
-  background-color: transparent;
-}
-.ps:hover > .ps__rail-x,
-.ps:hover > .ps__rail-y,
-.ps--focus > .ps__rail-x,
-.ps--focus > .ps__rail-y,
-.ps--scrolling-x > .ps__rail-x,
-.ps--scrolling-y > .ps__rail-y {
-  opacity: .6;
-}
-.ps .ps__rail-x:hover,
-.ps .ps__rail-y:hover,
-.ps .ps__rail-x:focus,
-.ps .ps__rail-y:focus,
-.ps .ps__rail-x.ps--clicking,
-.ps .ps__rail-y.ps--clicking {
-  background-color: #eee;
-  opacity: .9;
-}
-.ps__thumb-x {
-  position: absolute;
-  bottom: 2px;
-  height: 6px;
-  background-color: #aaa;
-  border-radius: 6px;
-  transition: background-color .2s linear, height .2s ease-in-out;
-}
-.ps__thumb-y {
-  position: absolute;
-  right: 2px;
-  width: 6px;
-  background-color: #aaa;
-  border-radius: 6px;
-  transition: background-color .2s linear, width .2s ease-in-out;
-}
-.ps__rail-x:hover > .ps__thumb-x,
-.ps__rail-x:focus > .ps__thumb-x,
-.ps__rail-x.ps--clicking .ps__thumb-x {
-  height: 11px;
-  background-color: #999;
-}
-.ps__rail-y:hover > .ps__thumb-y,
-.ps__rail-y:focus > .ps__thumb-y,
-.ps__rail-y.ps--clicking .ps__thumb-y {
-  width: 11px;
-  background-color: #999;
-}
-
-/* MS supports */
-@supports (-ms-overflow-style: none) {
-  .ps {
-    overflow: auto !important;
-  }
-}
-
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  .ps {
-    overflow: auto !important;
-  }
-}
 
 
 // // .hljs {

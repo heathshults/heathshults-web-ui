@@ -143,24 +143,24 @@ export namespace Components {
         "setHeight": any;
     }
     interface HsFlip2codeDev {
-        "builder": () => Promise<any>;
-        "comp_layout": NodeList;
-        "comp_template": HTMLElement;
-        "flip2code": any;
-        "flip2codeBack": HTMLDivElement;
-        "flip2codeBlock": HTMLElement;
-        "flip2codeButtonLabel"?: string;
-        "flip2codeContainer": HTMLDivElement;
-        "flip2codeFront": HTMLDivElement;
-        "flip2codeHeight": any;
-        "flip2codeInnerContainer": HTMLDivElement;
-        "flip2codeLanguage"?: string;
-        "flip2codePre": HTMLElement;
-        "flip2codeSlot": HTMLElement | any;
-        "flip2codeSlotDiv": HTMLElement;
-        "flip2codeSnipp": HTMLDivElement;
-        "flip2codeToolbar": HTMLDivElement;
+        "back": HTMLDivElement;
+        "button": HTMLButtonElement;
+        "codeElement": any;
+        "contentBack": any;
+        "copyButtonText"?: string;
+        "earlySet": any;
+        "flipButtonText"?: string;
+        "front": HTMLDivElement;
+        "height": any;
+        "innerContainer": HTMLDivElement;
+        "language"?: string;
+        "outerContainer": HTMLDivElement;
         "setHeight": any;
+        "slotBack": HTMLElement | any;
+        "slotFront": HTMLElement;
+        "snipp": HTMLDivElement;
+        "toolbar": HTMLElement;
+        "width": any;
     }
     interface HsFlipper {
         "flipperBackEvents": string;
@@ -573,23 +573,24 @@ declare namespace LocalJSX {
         "setHeight"?: any;
     }
     interface HsFlip2codeDev {
-        "comp_layout"?: NodeList;
-        "comp_template"?: HTMLElement;
-        "flip2code"?: any;
-        "flip2codeBack"?: HTMLDivElement;
-        "flip2codeBlock"?: HTMLElement;
-        "flip2codeButtonLabel"?: string;
-        "flip2codeContainer"?: HTMLDivElement;
-        "flip2codeFront"?: HTMLDivElement;
-        "flip2codeHeight"?: any;
-        "flip2codeInnerContainer"?: HTMLDivElement;
-        "flip2codeLanguage"?: string;
-        "flip2codePre"?: HTMLElement;
-        "flip2codeSlot"?: HTMLElement | any;
-        "flip2codeSlotDiv"?: HTMLElement;
-        "flip2codeSnipp"?: HTMLDivElement;
-        "flip2codeToolbar"?: HTMLDivElement;
+        "back"?: HTMLDivElement;
+        "button"?: HTMLButtonElement;
+        "codeElement"?: any;
+        "contentBack"?: any;
+        "copyButtonText"?: string;
+        "earlySet"?: any;
+        "flipButtonText"?: string;
+        "front"?: HTMLDivElement;
+        "height"?: any;
+        "innerContainer"?: HTMLDivElement;
+        "language"?: string;
+        "outerContainer"?: HTMLDivElement;
         "setHeight"?: any;
+        "slotBack"?: HTMLElement | any;
+        "slotFront"?: HTMLElement;
+        "snipp"?: HTMLDivElement;
+        "toolbar"?: HTMLElement;
+        "width"?: any;
     }
     interface HsFlipper {
         "flipperBackEvents"?: string;

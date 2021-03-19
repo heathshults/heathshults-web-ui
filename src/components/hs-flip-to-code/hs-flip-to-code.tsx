@@ -57,7 +57,7 @@ export class HSFlip2Code {
   @Prop({mutable: true, reflect: true}) flipcodeLanguage? = 'html';
   @Prop({mutable: true}) setHeight: any;
   @Prop({ mutable: true, reflect: true }) flipcodeButtontext? = 'Flip Code';
-
+//#region 
 // *========== FORMATTING ===========* //
 
   /**
@@ -83,20 +83,7 @@ export class HSFlip2Code {
     }
   }
 
-/**
- * Refreshes the highlighted code when called
- * @return * 
- * @memberof HSFlip2Code
- */
-  highlight():any {
-    if (this.el && this.el.current) {
-      Prism.highlightElement(this.ref.current);
-    }
-    return;
-  }
-
   connectedCallback():Promise<any> {
-    
     return new Promise((resolve, reject) => {
       try {
         setTimeout(()=> {
@@ -110,8 +97,6 @@ export class HSFlip2Code {
           
           this.flipCodeFront = this.el.shadowRoot.querySelector('#flip2CodeFront');
           this.flipCodeBack = this.el.shadowRoot.querySelector('#flip2CodeBack');
-          
-          
           
           this.flipCodeSlot = this.el.shadowRoot.querySelector('slot[name="back"]');
           this.flipCodeSlotChildEls = this.flipCodeSlot.assignedElements();
@@ -130,22 +115,22 @@ export class HSFlip2Code {
           this.flipCodeSnipp.appendChild(this.flipCodePre); 
           Prism.highlightElement(this.flipCodeBlock, true,);
           
-          this.flipPostPre = this.flipCodeSlotChildEls[0].firstElementChild;
+          this.flipCodePrePost = this.flipCodeSlotChildEls[0].firstElementChild;
           l(this.flipCodeSlotChildEls[0].firstElementChild.firstElementChild);
           l(escape(this.flipCode));
 
 
-          l(this.flipContainer);
-          l( this.flipCodeButton);
-          l(this.flipCodeInnerContainer);
-          l(this.flipCodeFront);
-          l(this.flipCodeBack);
-          l(this.flipCodeSnipp);
-          l(this.flipCodeSlot);
-          l(this.flipCodeSlotChildEls);
-          l(`flipcode: ${this.flipCode}`);
-          l(this.flipCodeBlock);
-          l(this.flipCodePre);
+          // l(this.flipContainer);
+          // l( this.flipCodeButton);
+          // l(this.flipCodeInnerContainer);
+          // l(this.flipCodeFront);
+          // l(this.flipCodeBack);
+          // l(this.flipCodeSnipp);
+          // l(this.flipCodeSlot);
+          // l(this.flipCodeSlotChildEls);
+          // l(`flipcode: ${this.flipCode}`);
+          // l(this.flipCodeBlock);
+          // l(this.flipCodePre);
           
 
           
@@ -161,7 +146,7 @@ export class HSFlip2Code {
           this.flipCodeBlock.style.height = `${this.flipcodeHeight}px`;
           this.flipCodeSlot.style.height = `${this.flipcodeHeight}px`; // doesnt need height fix this
           // this.flipCodeSlotChildEls[0].firstElementChild.closest('pre').style.minHeight = this.setHeight();
-          // this.flipPostPre.style.height = this.setHeight();
+          // this.flipCodePrePost.style.height = this.setHeight();
           // this.flipCodeSlot.style.display = 'none';
           
           
@@ -216,8 +201,8 @@ export class HSFlip2Code {
    * @example "Kopieer naar klembord"
    * @default "Copy to clipboard"
    */
-   @Prop({ mutable: true, reflect: true })
-   public copyButtonLabel = 'Copy';
+  @Prop({ mutable: true, reflect: true })
+  public copyButtonLabel = 'Copy';
    
    /**
    * The callback that will be fired when ClipboardJS fails to copy the text
@@ -239,21 +224,23 @@ export class HSFlip2Code {
    * ```
    */
    
-   @Event({ bubbles: true })
-   public clipboardJsError: EventEmitter<ClipboardJS.Event>;
-   private clipboardJsInstance: ClipboardJS;
-   public componentWillLoad():Promise<any> {
-     this.clipboardJsInstance = new ClipboardJS('#flipClipButton');
-     this.clipboardJsInstance //
-     .on('success', (event) => event.clearSelection()) 
-     .on('error', (event) => this.clipboardJsError.emit(event));
-   }
+  @Event({ bubbles: true })
+  public clipboardJsError: EventEmitter<ClipboardJS.Event>;
+  private clipboardJsInstance: ClipboardJS;
+  public componentWillLoad():Promise<any> {
+    this.clipboardJsInstance = new ClipboardJS('#flipClipButton');
+    this.clipboardJsInstance //
+    .on('success', (event) => event.clearSelection()) 
+    .on('error', (event) => this.clipboardJsError.emit(event));
+  }
      
-   flipHandler(): void {
-     this.flipCodeInnerContainer.classList.toggle('is-flipped');
-   }
-   
+  flipHandler(): void {
+    this.flipCodeInnerContainer.classList.toggle('is-flipped');
+  }
+//#endregion
   
+  
+
   render():any {
     return (
       <Host>

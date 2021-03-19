@@ -1,4 +1,4 @@
-export interface FramekitHighlightCodeAnchor {
+export interface HighlightCodeAnchor {
   offsetTop: number;
   hasLineZoom: boolean;
 }
