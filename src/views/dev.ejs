@@ -127,14 +127,12 @@
       <div class="row">
         <div class="col-md-12">
           <!-- HSThreeDRotator -->
-          <hs-flip2code flip-language="javascript" flip-height="300px">
+          <hs-flip2code flipcode-language="javascript">
             <div slot="front">
               <hs-rotator3d data-gap="10"></hs-rotator3d>
             </div>
-            
-              <div id="flip2CodeSnipp" slot="back" class="flip2CodeSnipp">
-                <pre class="hs-pre language-typescript">
-                  <code class="hs-code language-typescript">
+              <div slot="back">
+                <pre>
                     @Component({
                       tag: 'hs-flip2code',
                       styleUrl: 'hs-flip-to-code.scss',
@@ -261,9 +259,7 @@
                           }
                         });
                       }
-                  </code>
-
-                </pre>
+                    </pre>
               </div>
           </hs-flip2code>
         </div>

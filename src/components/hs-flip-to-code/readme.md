@@ -7,33 +7,38 @@
 
 ## Properties
 
-| Property              | Attribute                | Description                                    | Type                | Default       |
-| --------------------- | ------------------------ | ---------------------------------------------- | ------------------- | ------------- |
-| `copyButtonLabel`     | `copy-button-label`      | The text inside the "copy to clipboard" button | `string`            | `'Copy'`      |
-| `flipCard`            | --                       |                                                | `HTMLDivElement`    | `undefined`   |
-| `flipCardBack`        | --                       |                                                | `HTMLDivElement`    | `undefined`   |
-| `flipCardFront`       | --                       |                                                | `HTMLDivElement`    | `undefined`   |
-| `flipCardHeight`      | `flip-card-height`       |                                                | `any`               | `undefined`   |
-| `flipCardSnipp`       | --                       |                                                | `HTMLDivElement`    | `undefined`   |
-| `flipCode`            | `flip-code`              |                                                | `any`               | `undefined`   |
-| `flipCodeBlock`       | --                       |                                                | `HTMLElement`       | `undefined`   |
-| `flipCodeButton`      | --                       |                                                | `HTMLButtonElement` | `undefined`   |
-| `flipCodeButtonLabel` | `flip-code-button-label` |                                                | `string`            | `'Flip Code'` |
-| `flipCodePre`         | --                       |                                                | `HTMLElement`       | `undefined`   |
-| `flipCodeSlot`        | `flip-code-slot`         |                                                | `any`               | `undefined`   |
-| `flipCodeSlotDiv`     | --                       |                                                | `HTMLElement`       | `undefined`   |
-| `flipContainer`       | --                       |                                                | `HTMLDivElement`    | `undefined`   |
-| `flipLanguage`        | `flip-language`          |                                                | `string`            | `'html'`      |
-| `language`            | `language`               |                                                | `any`               | `undefined`   |
-| `rawFlipCode`         | `raw-flip-code`          |                                                | `any`               | `undefined`   |
-| `setHeight`           | `set-height`             |                                                | `any`               | `undefined`   |
+| Property                  | Attribute                 | Description | Type             | Default       |
+| ------------------------- | ------------------------- | ----------- | ---------------- | ------------- |
+| `comp_layout`             | --                        |             | `NodeList`       | `undefined`   |
+| `comp_template`           | --                        |             | `HTMLElement`    | `undefined`   |
+| `flip2code`               | `flip-2code`              |             | `any`            | `undefined`   |
+| `flip2codeBack`           | --                        |             | `HTMLDivElement` | `undefined`   |
+| `flip2codeBlock`          | --                        |             | `HTMLElement`    | `undefined`   |
+| `flip2codeButtonLabel`    | `flip-2code-button-label` |             | `string`         | `'Flip Code'` |
+| `flip2codeContainer`      | --                        |             | `HTMLDivElement` | `undefined`   |
+| `flip2codeFront`          | --                        |             | `HTMLDivElement` | `undefined`   |
+| `flip2codeHeight`         | `flip-2code-height`       |             | `any`            | `undefined`   |
+| `flip2codeInnerContainer` | --                        |             | `HTMLDivElement` | `undefined`   |
+| `flip2codeLanguage`       | `flip-2code-language`     |             | `string`         | `'html'`      |
+| `flip2codePre`            | --                        |             | `HTMLElement`    | `undefined`   |
+| `flip2codeSlot`           | `flip-2code-slot`         |             | `any`            | `undefined`   |
+| `flip2codeSlotDiv`        | --                        |             | `HTMLElement`    | `undefined`   |
+| `flip2codeSnipp`          | --                        |             | `HTMLDivElement` | `undefined`   |
+| `flip2codeToolbar`        | --                        |             | `HTMLDivElement` | `undefined`   |
+| `setHeight`               | `set-height`              |             | `any`            | `undefined`   |
 
 
-## Events
+## Methods
 
-| Event              | Description                                                             | Type                 |
-| ------------------ | ----------------------------------------------------------------------- | -------------------- |
-| `clipboardJsError` | The callback that will be fired when ClipboardJS fails to copy the text | `CustomEvent<Event>` |
+### `builder() => Promise<any>`
+
+
+
+#### Returns
+
+Type: `Promise<any>`
+
+
 
 
 ----------------------------------------------

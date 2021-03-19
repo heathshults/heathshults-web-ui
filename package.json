@@ -140,6 +140,7 @@
     "cross-env": "^7.0.3",
     "css-loader": "^3.5.3",
     "cssnano": "^4.1.10",
+    "custom-syntax-highlighter": "^1.0.1",
     "del": "^5.1.0",
     "directory-tree": "^2.2.4",
     "ejs": "^3.1.6",
