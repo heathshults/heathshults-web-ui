@@ -10,6 +10,23 @@
   --rotator3D-viewer-distance: 1000px;
   --rotator3D-global-transition-speed: .25s;
   --rotator3D-global-easing: ease-in-out;
+
+  
+  --rotator3D-nav-background: rgba(0, 0, 0, .5);
+  --rotator3D-nav-width: 20%;
+  --rotator3D-nav-padding: .25rem 1rem;
+  --rotator3D-nav-margin: 20px 0 0;
+  --rotator3D-nav-border: 2px solid transparent;
+  --rotator3D-nav-border-radius: 4px;
+  --rotator3D-navbutton-background: rgba(0, 0, 0, .65);
+  --rotator3D-navbutton-background-hover: alpha(var(--hs-color-5), 50%);
+  --rotator3D-navbutton-border: 1px solid alpha(var(--hs-black), 95%);
+  --rotator3D-navbutton-width: 28px;
+  --rotator3D-navbutton-height: 28px;
+  --rotator3D-navbutton-icon-width: 22px;
+  --rotator3D-navbutton-icon-height: 22px;
+  --rotator3D-navbutton-icon-color: invert(60%) sepia(42%) saturate(4%) hue-rotate(323deg) brightness(93%) contrast(92%);
+  --rotator3D-navbutton-icon-color-hover: invert(100%) sepia(100%) saturate(1%) hue-rotate(306deg) brightness(103%) contrast(101%);
   // end rotator3D parameters
 
   .hs-vanish {
@@ -59,21 +76,6 @@
     }
   }
 
-  --rotator3D-nav-background: rgba(0, 0, 0, .5);
-  --rotator3D-nav-width: 20%;
-  --rotator3D-nav-padding: .25rem 1rem;
-  --rotator3D-nav-margin: 20px 0 0;
-  --rotator3D-nav-border: 2px solid transparent;
-  --rotator3D-nav-border-radius: 4px;
-  --rotator3D-navbutton-background: rgba(0, 0, 0, .65);
-  --rotator3D-navbutton-background-hover: alpha(var(--hs-color-5), 50%);
-  --rotator3D-navbutton-border: 1px solid alpha(var(--hs-black), 95%);
-  --rotator3D-navbutton-width: 28px;
-  --rotator3D-navbutton-height: 28px;
-  --rotator3D-navbutton-icon-width: 22px;
-  --rotator3D-navbutton-icon-height: 22px;
-  --rotator3D-navbutton-icon-color: invert(60%) sepia(42%) saturate(4%) hue-rotate(323deg) brightness(93%) contrast(92%);
-  --rotator3D-navbutton-icon-color-hover: invert(100%) sepia(100%) saturate(1%) hue-rotate(306deg) brightness(103%) contrast(101%);
 
   .rotator3D__nav {
     position: absolute;

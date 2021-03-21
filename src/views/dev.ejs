@@ -14,7 +14,7 @@
     <title>Heath Shults - Software Developer+</title>
     <script type="module" src="/components/heathscript-ui.esm.js"></script>
     <script nomodule src="/components/heathscript-ui.js"> </script>
-    <script nomodule src="/assets/js/vendor/build/framekit-highlight-code.js"> </script>
+    <script src="/assets/js/vendor/123/framekit-highlight-code.js"></script>
     <!-- react -->
     <!-- <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script> -->
@@ -123,31 +123,23 @@
   <!-- Services Section -->
   <section id="skills" class="hs-section hs-skills">
     <!-- HSThreeDRotator -->
-    <fk-highlight-code language="markup"><code slot="code"><script type="tedt/plain" class="language-markup">
-      <div id="flip2Codetoolbar" class="hs-flip2Code-toolbar">
-        <a href="javascript:void(0);" id="flipButton" class="hs-flip2Code-button" onClick={() => this.flipHandler()}>{this.flipButtonText}</a>
-        <a href="javascript:void(0);" id="flipClipbutton" class="hs-flip2Code-button" data-clipboard-target="#block">{this.copyButtonText}</a>
-      </div>
-    </script>
-    </code>
-  </fk-highlight-code>
+    
     <div class="container">
       <div class="row">
         <div class="col-md-12">
           <!-- HSThreeDRotator -->
-          <hs-flip2code-dev flipcode-language="javascript" flipcode-height="">
+          <hs-flip2code-dev flipcode-language="javascript" flip-height="470px" flip-width="100%">
             <div slot="front">
-              <hs-rotator3d data-gap="10"></hs-rotator3d>
+              <hs-rotator3d data-gap="10" style="max-width: 936px;"></hs-rotator3d>
             </div>
-            <div slot="back"> 
-              <fk-highlight-code language="markup"><code slot="code"><script type="tedt/plain" class="language-markup">
-                <div id="flip2Codetoolbar" class="hs-flip2Code-toolbar">
-                  <a href="javascript:void(0);" id="flipButton" class="hs-flip2Code-button" onClick={() => this.flipHandler()}>{this.flipButtonText}</a>
-                  <a href="javascript:void(0);" id="flipClipbutton" class="hs-flip2Code-button" data-clipboard-target="#block">{this.copyButtonText}</a>
-                </div>
-                </script>
-                </code>
-              </fk-highlight-code>
+            <div class="flip2code-backslot" style="overflow: hidden; overflow-y: auto;" slot="back"> 
+              <fk-highlight-code
+                style="display: block; margin-left: 100px;"
+                line-numbers="true"
+                id="rotate3D"
+                terminal="none"
+                src="https://raw.githubusercontent.com/heathshults/heathshults-web-ui/master/src/js/inDev/toggler-system/toggler.js"
+              >
           </div>
           </hs-flip2code-dev>
         </div>
@@ -183,8 +175,15 @@
       </div>
       <div class="row">
         <div id="react" class="col-12">
-          Stuff goes here
-          
+          <h4>Stuff goes here</h4>
+          <hs-flip2code-dev language="markup">
+            <script type="tedt/plain" slot="code" class="language-markup">
+              <div id="flip2Codetoolbar" class="hs-flip2Code-toolbar">
+                <a href="javascript:void(0);" id="flipButton" class="hs-flip2Code-button" onClick={() => this.flipHandler()}>{this.flipButtonText}</a>
+                <a href="javascript:void(0);" id="flipClipbutton" class="hs-flip2Code-button" data-clipboard-target="#block">{this.copyButtonText}</a>
+              </div>
+            </script>
+          </hs-flip2code-dev>
           
         </div>
       </div>

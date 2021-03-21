@@ -1,0 +1,215 @@
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #9a6e3a;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function,
+.token.class-name {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+div.fk-highlight-code-container {
+  color: var(--fk-highlight-code-color, inherit);
+  background: var(--fk-highlight-code-background);
+  padding: var(--fk-highlight-code-padding);
+  border-radius: var(--fk-highlight-code-border-radius);
+  margin: var(--fk-highlight-code-margin, 0 0 64px);
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
+  transition: all .2s ease-in-out;
+  -webkit-transform: scale(var(--fk-highlight-code-zoom, 1));
+          transform: scale(var(--fk-highlight-code-zoom, 1));
+  direction: var(--fk-highlight-code-direction, ltr);
+  text-align: var(--fk-highlight-code-text-align, start); }
+  div.fk-highlight-code-container code {
+    overflow-y: scroll;
+    white-space: pre-wrap;
+    font-size: var(--fk-highlight-code-font-size);
+    font-family: var(--fk-highlight-code-font-family, monospace);
+    /* Prism style override */ }
+    div.fk-highlight-code-container code div:empty {
+      min-height: 1rem; }
+    div.fk-highlight-code-container code span.fk-highlight-code-anchor-hidden {
+      visibility: hidden; }
+    div.fk-highlight-code-container code span.fk-highlight-code-line {
+      background: var(--fk-highlight-code-line-background);
+      padding: var(--fk-highlight-code-line-padding);
+      border-top: var(--fk-highlight-code-line-border-top);
+      border-bottom: var(--fk-highlight-code-line-border-bottom); }
+    div.fk-highlight-code-container code .language-css .token.string:not(.fk-highlight-code-line),
+    div.fk-highlight-code-container code .style .token.string:not(.fk-highlight-code-line),
+    div.fk-highlight-code-container code .token.entity:not(.fk-highlight-code-line),
+    div.fk-highlight-code-container code .token.operator:not(.fk-highlight-code-line),
+    div.fk-highlight-code-container code .token.url:not(.fk-highlight-code-line) {
+      background: inherit; }
+    div.fk-highlight-code-container code .token.comment,
+    div.fk-highlight-code-container code .token.prolog,
+    div.fk-highlight-code-container code .token.doctype,
+    div.fk-highlight-code-container code .token.cdata {
+      color: var(--fk-highlight-code-token-comment, slategray); }
+    div.fk-highlight-code-container code .token.punctuation {
+      color: var(--fk-highlight-code-token-punctuation, #999); }
+    div.fk-highlight-code-container code .token.property,
+    div.fk-highlight-code-container code .token.tag,
+    div.fk-highlight-code-container code .token.boolean,
+    div.fk-highlight-code-container code .token.number,
+    div.fk-highlight-code-container code .token.constant,
+    div.fk-highlight-code-container code .token.symbol,
+    div.fk-highlight-code-container code .token.deleted {
+      color: var(--fk-highlight-code-token-property, #905); }
+    div.fk-highlight-code-container code .token.selector,
+    div.fk-highlight-code-container code .token.attr-name,
+    div.fk-highlight-code-container code .token.string,
+    div.fk-highlight-code-container code .token.char,
+    div.fk-highlight-code-container code .token.builtin,
+    div.fk-highlight-code-container code .token.inserted {
+      color: var(--fk-highlight-code-token-selector, #690); }
+    div.fk-highlight-code-container code .token.operator,
+    div.fk-highlight-code-container code .token.entity,
+    div.fk-highlight-code-container code .token.url,
+    div.fk-highlight-code-container code .language-css .token.string,
+    div.fk-highlight-code-container code .style .token.string {
+      color: var(--fk-highlight-code-token-operator, #9a6e3a); }
+    div.fk-highlight-code-container code .token.atrule,
+    div.fk-highlight-code-container code .token.attr-value,
+    div.fk-highlight-code-container code .token.keyword {
+      color: var(--fk-highlight-code-token-atrule, #07a); }
+    div.fk-highlight-code-container code .token.function,
+    div.fk-highlight-code-container code .token.class-name {
+      color: var(--fk-highlight-code-token-function, #DD4A68); }
+    div.fk-highlight-code-container code .token.regex,
+    div.fk-highlight-code-container code .token.important,
+    div.fk-highlight-code-container code .token.variable {
+      color: var(--fk-highlight-code-token-regex, #e90); }
+
+::slotted([slot="code"]) {
+  display: none; }
