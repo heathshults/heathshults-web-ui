@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { FramekitHighlightCodeAnchor } from "./declarations/fk-highlight-code-anchor";
 export namespace Components {
     interface HsBackToTop {
         "position": string;
@@ -147,20 +148,19 @@ export namespace Components {
         "button": HTMLButtonElement;
         "codeElement": any;
         "contentBack": any;
-        "copyButtonText"?: string;
-        "earlySet": any;
-        "flipButtonText"?: string;
+        "flipHeight": any;
+        "flipWidth": any;
+        "flipcodeButtontext"?: string;
+        "flipcopyButtonText"?: string;
         "front": HTMLDivElement;
-        "height": any;
+        "frontFlip": HTMLDivElement;
         "innerContainer": HTMLDivElement;
         "language"?: string;
         "outerContainer": HTMLDivElement;
-        "setHeight": any;
         "slotBack": HTMLElement | any;
         "slotFront": HTMLElement;
         "snipp": HTMLDivElement;
         "toolbar": HTMLElement;
-        "width": any;
     }
     interface HsFlipper {
         "flipperBackEvents": string;
@@ -168,6 +168,17 @@ export namespace Components {
         "flipperEvents": string;
         "flipperTimingFunction": string;
         "isflipperped": boolean;
+    }
+    interface HsHighlightCode {
+        "anchor": string;
+        "anchorZoom": string;
+        "findNextAnchor": (enter: boolean) => Promise<FramekitHighlightCodeAnchor>;
+        "hideAnchor": boolean;
+        "highlightLines": string;
+        "language": string;
+        "load": () => Promise<void>;
+        "src": string;
+        "zoomCode": (zoom: boolean) => Promise<void>;
     }
     interface HsMediaImage {
         "alt": string;
@@ -315,6 +326,12 @@ declare global {
         prototype: HTMLHsFlipperElement;
         new (): HTMLHsFlipperElement;
     };
+    interface HTMLHsHighlightCodeElement extends Components.HsHighlightCode, HTMLStencilElement {
+    }
+    var HTMLHsHighlightCodeElement: {
+        prototype: HTMLHsHighlightCodeElement;
+        new (): HTMLHsHighlightCodeElement;
+    };
     interface HTMLHsMediaImageElement extends Components.HsMediaImage, HTMLStencilElement {
     }
     var HTMLHsMediaImageElement: {
@@ -401,6 +418,7 @@ declare global {
         "hs-flip2code": HTMLHsFlip2codeElement;
         "hs-flip2code-dev": HTMLHsFlip2codeDevElement;
         "hs-flipper": HTMLHsFlipperElement;
+        "hs-highlight-code": HTMLHsHighlightCodeElement;
         "hs-media-image": HTMLHsMediaImageElement;
         "hs-media-item": HTMLHsMediaItemElement;
         "hs-modal": HTMLHsModalElement;
@@ -577,20 +595,19 @@ declare namespace LocalJSX {
         "button"?: HTMLButtonElement;
         "codeElement"?: any;
         "contentBack"?: any;
-        "copyButtonText"?: string;
-        "earlySet"?: any;
-        "flipButtonText"?: string;
+        "flipHeight"?: any;
+        "flipWidth"?: any;
+        "flipcodeButtontext"?: string;
+        "flipcopyButtonText"?: string;
         "front"?: HTMLDivElement;
-        "height"?: any;
+        "frontFlip"?: HTMLDivElement;
         "innerContainer"?: HTMLDivElement;
         "language"?: string;
         "outerContainer"?: HTMLDivElement;
-        "setHeight"?: any;
         "slotBack"?: HTMLElement | any;
         "slotFront"?: HTMLElement;
         "snipp"?: HTMLDivElement;
         "toolbar"?: HTMLElement;
-        "width"?: any;
     }
     interface HsFlipper {
         "flipperBackEvents"?: string;
@@ -598,6 +615,15 @@ declare namespace LocalJSX {
         "flipperEvents"?: string;
         "flipperTimingFunction"?: string;
         "isflipperped"?: boolean;
+    }
+    interface HsHighlightCode {
+        "anchor"?: string;
+        "anchorZoom"?: string;
+        "hideAnchor"?: boolean;
+        "highlightLines"?: string;
+        "language"?: string;
+        "onPrismLanguageLoaded"?: (event: CustomEvent<string>) => void;
+        "src"?: string;
     }
     interface HsMediaImage {
         "alt"?: string;
@@ -682,6 +708,7 @@ declare namespace LocalJSX {
         "hs-flip2code": HsFlip2code;
         "hs-flip2code-dev": HsFlip2codeDev;
         "hs-flipper": HsFlipper;
+        "hs-highlight-code": HsHighlightCode;
         "hs-media-image": HsMediaImage;
         "hs-media-item": HsMediaItem;
         "hs-modal": HsModal;
@@ -713,6 +740,7 @@ declare module "@stencil/core" {
             "hs-flip2code": LocalJSX.HsFlip2code & JSXBase.HTMLAttributes<HTMLHsFlip2codeElement>;
             "hs-flip2code-dev": LocalJSX.HsFlip2codeDev & JSXBase.HTMLAttributes<HTMLHsFlip2codeDevElement>;
             "hs-flipper": LocalJSX.HsFlipper & JSXBase.HTMLAttributes<HTMLHsFlipperElement>;
+            "hs-highlight-code": LocalJSX.HsHighlightCode & JSXBase.HTMLAttributes<HTMLHsHighlightCodeElement>;
             "hs-media-image": LocalJSX.HsMediaImage & JSXBase.HTMLAttributes<HTMLHsMediaImageElement>;
             "hs-media-item": LocalJSX.HsMediaItem & JSXBase.HTMLAttributes<HTMLHsMediaItemElement>;
             "hs-modal": LocalJSX.HsModal & JSXBase.HTMLAttributes<HTMLHsModalElement>;

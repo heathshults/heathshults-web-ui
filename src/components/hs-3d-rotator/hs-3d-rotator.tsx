@@ -138,6 +138,12 @@ export class HS3dRotator {
               root.classList.contains('hs-vanish') ? root.classList.remove('hs-vanish') : '';
             });
           } else {
+            setuprotator3D(n, 
+              parseFloat(getComputedStyle(images[0]).width), 
+              figure, 
+              images, 
+              theta, 
+              currImage);
             root.classList.remove('hs-vanish');
           }
               

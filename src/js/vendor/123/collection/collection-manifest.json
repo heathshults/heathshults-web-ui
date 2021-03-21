@@ -1,0 +1,87 @@
+{
+  "components": [
+    {
+      "tag": "fk-highlight-code",
+      "dependencies": [],
+      "componentClass": "FramekitHighlightCode",
+      "componentPath": "components/highlight-code/fk-highlight-code.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/highlight-code/fk-highlight-code.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "anchor",
+          "type": "String",
+          "attr": "anchor"
+        },
+        {
+          "name": "anchorZoom",
+          "type": "String",
+          "attr": "anchor-zoom"
+        },
+        {
+          "name": "hideAnchor",
+          "type": "Boolean",
+          "attr": "hide-anchor"
+        },
+        {
+          "name": "highlightLines",
+          "type": "String",
+          "attr": "highlight-lines"
+        },
+        {
+          "name": "language",
+          "type": "String",
+          "attr": "language",
+          "watch": [
+            "loadLanguage"
+          ]
+        },
+        {
+          "name": "src",
+          "type": "String",
+          "attr": "src"
+        }
+      ],
+      "listeners": [
+        {
+          "event": "document:prismLanguageLoaded",
+          "method": "languageLoaded",
+          "passive": false,
+          "capture": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "findNextAnchor"
+        },
+        {
+          "name": "load"
+        },
+        {
+          "name": "zoomCode"
+        }
+      ],
+      "hostElement": {
+        "name": "el"
+      },
+      "events": [
+        {
+          "event": "prismLanguageLoaded"
+        }
+      ],
+      "shadow": true
+    }
+  ],
+  "collections": [],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "0.18.0",
+    "typescriptVersion": "3.3.3"
+  },
+  "bundles": []
+}

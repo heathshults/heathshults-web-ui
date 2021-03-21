@@ -30,7 +30,7 @@
     "types/jsx.d.ts",
     "types/**/*.ts",
     "dist/types/components.d.ts",
-    "src/components/declarations/highlight-code-anchor.d.ts"  
+    "src/components/declarations/highlight-code-anchor.d.tsx"  
   ],
   "exclude": [
     "backup",

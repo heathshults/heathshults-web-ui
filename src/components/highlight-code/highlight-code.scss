@@ -1,0 +1,146 @@
+/* highlighter code */
+
+:root {
+  // css variables
+  @import './themes/prism-dark.css';
+  --hs-color-core-blue-60: #0c77ba;
+  --hs-color-core-blue-70: #0a649d;
+  --hs-color-core-blue-90: #064063;
+  --hs-color-core-neutral-13: #f2f2f2;
+  --hs-color-core-neutral-17: #ededed;
+  --hs-color-core-neutral-20: #dedede;
+  --hs-color-core-neutral-60: #7a7a7a;
+  --hs-color-core-neutral-90: #2e2e2e;
+  --hs-color-core-muted-yellow-90: #fdbc2c;
+  --hs-color-background-light-layer0-base: #f8f8f8;
+  --hs-color-border-lightest: #dedede;
+  --hs-color-brand-orange-base: #c55422;
+  --hs-color-brand-yellow-darker: #e0ac00;
+  --hs-color-brand-green-base: #2c6937;
+  --hs-color-brand-green-darker: #074512;
+  --hs-color-core-red-50: #bd2b2b;
+  --hs-color-core-red-40: #cc3535;
+  --hs-color-background-code: #282c34;
+  --hs-highlight-code-font-family: 'Source Code Pro', sans-serif, monospace;
+  --hs-highlight-code-font-size: 1.01rem;
+  --hs-highlight-code-line-height: 1.75rem;
+  --hs-button--showMore-padding: 2px 10px 4px 10px;
+}
+
+.hs-highlight-code-container,
+pre.hs-highlight-code-container {
+  width: 100%;
+  padding: 10px 20px 0 20px;
+  font-family: var(--hs-highlight-code-font-family, 'Source Code Pro', sans-serif, monospace);
+  font-size: var(--hs-highlight-code-font-size, .9rem);
+  color: var(--hs-highlight-code-color, #eaeae9);
+  text-align: var(--hs-highlight-code-text-align, start);
+  tab-size: 2;
+  background: var(--hs-color-background-code, #282c34);
+  border-bottom: 10px solid var(--hs-color-background-code, #282c34);
+  border-radius: var(--hs-highlight-code-border-radius, 0);
+  transition: all .2s ease-in-out;
+  transform: scale(var(--hs-highlight-code-zoom, 1));
+  transform-origin: bottom left;
+  direction: var(--hs-highlight-code-direction, ltr);
+
+  code.theCodeTag {
+    width: 100%;
+    font-family: var(--hs-highlight-code-font-family);
+    font-size: var(--hs-highlight-code-font-size);
+    line-height: var(--hs-highlight-code-line-height, 1.75rem);
+    color: var(--hs-color-core-neutral-17, #ededed);
+    tab-size: 2;
+    overflow-y: scroll;
+    white-space: pre-wrap;
+    div:empty {
+      min-height: 1rem;
+    }
+
+    span.hs-highlight-code-anchor-hidden {
+      visibility: hidden;
+    }
+
+    span.hs-highlight-code-line {
+      padding: var(--hs-highlight-code-line-padding, 10px);
+      background: var(--hs-highlight-code-line-background);
+      border-top: var(--hs-highlight-code-line-border-top);
+      border-bottom: var(--hs-highlight-code-line-border-bottom);
+    }
+
+    /* Prism style override */
+
+    /**
+     * heathscript-dark theme for `prism.js`
+     * Based on Atom's `atom-dark` theme: https://github.com/atom/atom-dark-syntax
+     * @author Heath Shults
+     */
+    .language-css .token.string:not(.hs-highlight-code-line),
+    .style .token.string:not(.hs-highlight-code-line),
+    .token.entity:not(.hs-highlight-code-line),
+    .token.operator:not(.hs-highlight-code-line),
+    .token.url:not(.hs-highlight-code-line) {
+      background: inherit;
+    }
+
+    .token.comment,
+    .token.prolog,
+    .token.doctype,
+    .token.cdata {
+      color: var(--hs-highlight-code-token-comment, #6f705e);
+    }
+
+    .token.punctuation {
+      color: var(--hs-highlight-code-token-punctuation, #edede7);
+    }
+
+    .token.property,
+    .token.tag,
+    .token.boolean,
+    .token.number,
+    .token.constant,
+    .token.symbol,
+    .token.deleted {
+      color: var(--hs-highlight-code-token-property, #e25e88);
+    }
+
+    .token.selector,
+    .token.attr-name,
+    .token.string,
+    .token.char,
+    .token.builtin,
+    .token.inserted {
+      color: var(--hs-highlight-code-token-selector, #f3ac9f);
+    }
+
+    .token.operator,
+    .token.entity,
+    .token.url,
+    .language-css .token.string,
+    .style .token.string {
+      color: var(--hs-highlight-code-token-operator, #a2a2ff);
+    }
+
+    .token.keyword {
+      color: vaf(--hs-highlight-code-token-keyword, #7a7afe);
+    }
+
+    .token.atrule,
+    .token.attr-value {
+      color: var(--hs-highlight-code-token-atrule, #f0e9ab);
+    }
+
+    .token.function,
+    .token.class-name {
+      color: var(--hs-highlight-code-token-function, #eb3c42);
+    }
+    .token.regex,
+    .token.important,
+    .token.variable {
+      color: var(--hs-highlight-code-token-regex, #e90);
+    }
+  }
+}
+::slotted([slot="code"]) {
+  display: none;
+}

@@ -1,0 +1,109 @@
+@import "~prismjs/themes/prism.css";
+
+div.fk-highlight-code-container {
+  color: var(--fk-highlight-code-color, inherit);
+  background: var(--fk-highlight-code-background);
+  padding: var(--fk-highlight-code-padding);
+  border-radius: var(--fk-highlight-code-border-radius);
+
+  margin: var(--fk-highlight-code-margin, 0 0 64px);
+
+  transform-origin: bottom left;
+  transition: all .2s ease-in-out;
+  transform: scale(var(--fk-highlight-code-zoom, 1));
+
+  direction: var(--fk-highlight-code-direction, ltr);
+  text-align: var(--fk-highlight-code-text-align, start);
+
+  code {
+    overflow-y: scroll;
+
+    white-space: pre-wrap;
+
+    font-size: var(--fk-highlight-code-font-size);
+    font-family: var(--fk-highlight-code-font-family, monospace);
+
+    div:empty {
+      min-height: 1rem;
+    }
+
+    span.fk-highlight-code-anchor-hidden {
+      visibility: hidden;
+    }
+
+    span.fk-highlight-code-line {
+      background: var(--fk-highlight-code-line-background);
+      padding: var(--fk-highlight-code-line-padding);
+      border-top: var(--fk-highlight-code-line-border-top);
+      border-bottom: var(--fk-highlight-code-line-border-bottom);
+    }
+
+    /* Prism style override */
+    .language-css .token.string:not(.fk-highlight-code-line),
+    .style .token.string:not(.fk-highlight-code-line),
+    .token.entity:not(.fk-highlight-code-line),
+    .token.operator:not(.fk-highlight-code-line),
+    .token.url:not(.fk-highlight-code-line) {
+      background: inherit;
+    }
+
+    .token.comment,
+    .token.prolog,
+    .token.doctype,
+    .token.cdata {
+      color: var(--fk-highlight-code-token-comment, slategray);
+    }
+
+    .token.punctuation {
+      color: var(--fk-highlight-code-token-punctuation, #999);
+    }
+
+    .token.property,
+    .token.tag,
+    .token.boolean,
+    .token.number,
+    .token.constant,
+    .token.symbol,
+    .token.deleted {
+      color: var(--fk-highlight-code-token-property, #905);
+    }
+
+    .token.selector,
+    .token.attr-name,
+    .token.string,
+    .token.char,
+    .token.builtin,
+    .token.inserted {
+      color: var(--fk-highlight-code-token-selector, #690);
+    }
+
+    .token.operator,
+    .token.entity,
+    .token.url,
+    .language-css .token.string,
+    .style .token.string {
+      color: var(--fk-highlight-code-token-operator, #9a6e3a);
+    }
+
+    .token.atrule,
+    .token.attr-value,
+    .token.keyword {
+      color: var(--fk-highlight-code-token-atrule, #07a);
+    }
+
+    .token.function,
+    .token.class-name {
+      color: var(--fk-highlight-code-token-function, #DD4A68);
+    }
+
+    .token.regex,
+    .token.important,
+    .token.variable {
+      color: var(--fk-highlight-code-token-regex, #e90);
+    }
+  }
+}
+
+::slotted([slot="code"]) {
+  display: none;
+}

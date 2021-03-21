@@ -948,7 +948,20 @@
 
                   <p class="hs-paragraph text-center">
                     <!-- hs-rotator3d -->
-                  <hs-rotator3d data-gap="10"></hs-rotator3d>
+                    <hs-flip2code-dev flipcode-language="javascript" flip-height="470px" flip-width="100%">
+                      <div slot="front">
+                        <hs-rotator3d data-gap="10" style="max-width: 936px;"></hs-rotator3d>
+                      </div>
+                      <div class="flip2code-backslot" style="overflow: hidden; overflow-y: auto;" slot="back"> 
+                        <fk-highlight-code
+                          style="display: block; margin-left: 100px;"
+                          line-numbers="true"
+                          id="rotate3D"
+                          terminal="none"
+                          src="https://raw.githubusercontent.com/heathshults/heathshults-web-ui/master/src/js/inDev/toggler-system/toggler.js"
+                        >
+                    </div>
+                    </hs-flip2code-dev>
                   <!-- /hs-rotator3d -->
                   </p>
 
