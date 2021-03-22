@@ -3,6 +3,7 @@
   flex: 1 1 auto;
   font-family: var(--hs-font-primary);
   @import "../../scss/components/hs-flip-to-code";
+  @import "../../scss/variables/aspect-ratio";
 }
 
 // .hs-flip-card__scene {

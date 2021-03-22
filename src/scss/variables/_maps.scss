@@ -99,15 +99,24 @@ $hs-card-header-sizes: (
 ) !default;
 
 // Aspect Ratio
-$aspect-ratios: (
-  'ratio-16-9': 56.25%,
-  'ratio-4-3': 75%,
-  'ratio-3-2': 66.66%,
-  'ratio-1-1': 100%
+$aspect-ratio: (
+  'ratio-1x1': 100%,
+  'ratio-3x2': calc(3 / 2 * 100%),
+  'ratio-4x3': calc(3 / 4 * 100%),
+  'ratio-16x9': calc(9 / 16 * 100%),
+  'ratio-21x9': calc(9 / 21 * 100%)
 ) !default;
 
+// $aspect-ratios: (
+//   'ratio-16-9': 56.25%,
+//   'ratio-4-3': 75%,
+//   'ratio-3-2': 66.66%,
+//   'ratio-1-1': 100%
+// ) !default;
+
 $breakpoints: (
-  xxs: 0,
+  xxxs: 0,
+  xxs: 360px, // ~32rem
   xs: 512px, // ~32rem
   sm: 768px, // ~48rem
   md: 1024px, // ~64rem

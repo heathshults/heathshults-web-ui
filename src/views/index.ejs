@@ -14,6 +14,7 @@
     <title>Heath Shults - Software Developer+</title>
     <script type="module" src="/components/heathscript-ui.esm.js"></script>
     <script nomodule src="/components/heathscript-ui.js"> </script>
+    <script src="/assets/js/vendor/123/framekit-highlight-code.js"></script>
 
     <!-- Bootstrap Core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -23,6 +24,7 @@
     <link rel="stylesheet" href="/global/variables.css">
     <link href="/assets/css/fontawesome.css" rel="stylesheet" type="text/css">
 
+    <link rel="stylesheet" href="/assets/js/vendor/perfect-scrollbar-1.4.0/css/perfect-scrollbar.css">
     <!-- CSS only -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"> -->
@@ -704,6 +706,13 @@
                   <button type="submit" class="btn btn-xl submit-button">Send Message</button>
                   <div id="success"></div>
                 </div>
+                <div class="row">
+                  <div class="col-log-12">
+
+                    
+
+                  </div>
+                </div>
               </div>
             </form>
           </div>
@@ -945,26 +954,26 @@
                         <span class="hs-text-yellow">&#10038;</span> Quality Assurance</div>
                     </div>
                   </p>
-
-                  <p class="hs-paragraph text-center">
-                    <!-- hs-rotator3d -->
-                    <hs-flip2code-dev flipcode-language="javascript" flip-height="470px" flip-width="100%">
-                      <div slot="front">
-                        <hs-rotator3d data-gap="10" style="max-width: 936px;"></hs-rotator3d>
+                  <div class="row">
+                    <div class="col-md-12 hs-paragraph text-center">
+                      <!-- hs-rotator3d -->
+                      <hs-flip2code-dev flipcode-language="javascript" flip-height="auto" flip-width="100%">
+                        <div slot="front" class="flip2code-frontslot">
+                          <hs-rotator3d data-gap="10" class="mt-5" mode="modal"></hs-rotator3d>
+                        </div>
+                        <div id="codeblock01" class="flip2code-backslot" slot="back"> 
+                          <fk-highlight-code
+                            style="display: block; margin-left: 10%;"
+                            line-numbers="true"
+                            id="rotate3D"
+                            terminal="none"
+                            src="https://raw.githubusercontent.com/heathshults/heathshults-web-ui/master/src/js/inDev/toggler-system/toggler.js"
+                          >
                       </div>
-                      <div class="flip2code-backslot" style="overflow: hidden; overflow-y: auto;" slot="back"> 
-                        <fk-highlight-code
-                          style="display: block; margin-left: 100px;"
-                          line-numbers="true"
-                          id="rotate3D"
-                          terminal="none"
-                          src="https://raw.githubusercontent.com/heathshults/heathshults-web-ui/master/src/js/inDev/toggler-system/toggler.js"
-                        >
+                      </hs-flip2code-dev>
+                      <!-- /hs-rotator3d -->
                     </div>
-                    </hs-flip2code-dev>
-                  <!-- /hs-rotator3d -->
-                  </p>
-
+                  </div>
                 </div>
               </div>
             </div>
@@ -992,6 +1001,7 @@
 
     <!-- Theme JavaScript -->
     <script src="/assets/js/HeathScript.bundle.js" type="module"></script>
+    <script src="/assets/js/vendor/perfect-scrollbar-1.4.0/dist/perfect-scrollbar.js" type="module"></script>
     
       <!-- <script>
       
