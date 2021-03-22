@@ -144,6 +144,7 @@ export namespace Components {
         "setHeight": any;
     }
     interface HsFlip2codeDev {
+        "aspectRatio"?: string;
         "back": HTMLDivElement;
         "button": HTMLButtonElement;
         "codeElement": any;
@@ -591,6 +592,7 @@ declare namespace LocalJSX {
         "setHeight"?: any;
     }
     interface HsFlip2codeDev {
+        "aspectRatio"?: string;
         "back"?: HTMLDivElement;
         "button"?: HTMLButtonElement;
         "codeElement"?: any;

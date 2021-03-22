@@ -39,13 +39,14 @@ export class HS3dRotator {
           const nav = this.nav;
           this.images =  this.el.shadowRoot.querySelectorAll('img');
           const images = this.images;
+
+         
           
           const n = this.images.length;
           const theta = this.theta =  2 * Math.PI / n;
           let currImage = 0;
           const parseFloatVar = parseFloat(getComputedStyle(images[0]).width);
           const imageWidth = parseFloat(getComputedStyle(images[0]).width);
-          this.nav.style.width = imageWidth;
           setuprotator3D(
             n, 
             parseFloatVar, 
@@ -54,7 +55,6 @@ export class HS3dRotator {
             theta, 
             currImage);
             
-            
           window.addEventListener('resize', () => { 
             setuprotator3D(n, 
               parseFloat(getComputedStyle(images[0]).width), 
@@ -62,7 +62,6 @@ export class HS3dRotator {
               images, 
               theta, 
               currImage);
-            this.nav.style.width = parseFloat(getComputedStyle(images[0]).width);
           });
           
           /**
@@ -134,8 +133,8 @@ export class HS3dRotator {
                 images, 
                 theta, 
                 currImage);
-              this.nav.style.width = parseFloat(getComputedStyle(images[0]).width);
-              root.classList.contains('hs-vanish') ? root.classList.remove('hs-vanish') : '';
+                // this.nav.style.width = parseFloat(getComputedStyle(images[0]).width);
+                root.classList.remove('hs-vanish');
             });
           } else {
             setuprotator3D(n, 
@@ -156,9 +155,6 @@ export class HS3dRotator {
     });
   }
   
-
-
-  
   render() {
     return (
       <Host>
@@ -172,8 +168,13 @@ export class HS3dRotator {
             <img class="rotator3D__img" src="/assets/img/portfolio/bowlopolis/games-page-800x533.jpg" alt="games-page"/>          
           </figure>
           <nav class="rotator3D__nav">
-            <button class="rotator3D__button prev" onClick={this.navigate}></button>
-            <button class="rotator3D__button next" onClick={this.navigate}></button>
+            <div class="rotator3D__nav-button-col">
+              <button class="rotator3D__button prev" onClick={this.navigate}></button>
+            </div>
+            <div class="rotator3D__nav-caption">Bowlopolis: Web <span class="hs-text-yellow">&#10038;</span> Games <span class="hs-text-yellow">&#10038;</span> Kids Club</div>
+            <div class="rotator3D__nav-button-col">
+              <button class="rotator3D__button next" onClick={this.navigate}></button>
+            </div>
           </nav>
         </div>
       </Host>

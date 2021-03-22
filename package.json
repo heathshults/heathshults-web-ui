@@ -77,6 +77,7 @@
     "highlight.js": "^10.6.0",
     "install-peerdeps": "^2.0.3",
     "moment": "^2.29.1",
+    "perfect-scrollbar": "^1.5.0",
     "popper.js": "^1.16.1",
     "pretty-quick": "3.1.0",
     "rxjs": "^6.6.3"
