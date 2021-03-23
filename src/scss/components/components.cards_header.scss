@@ -3,9 +3,10 @@
 }
 .hs-card_header {
   position: relative;
-  flex: 1 1 auto;
+  // flex: 1 1 auto;
   width: 100%;
   height: auto;
+  height: 110px;
   min-height: 1px;
   padding: 0;
   margin-bottom: 0;
@@ -101,7 +102,7 @@
 .hs-card-img,
 .hs-card-img-top,
 .hs-card-img-bottom {
-  flex-shrink: 0; // For IE: https://github.com/twbs/bootstrap/issues/29396
+  // flex-shrink: 0; // For IE: https://github.com/twbs/bootstrap/issues/29396
   width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
 }
 
@@ -123,7 +124,7 @@
 
 
 .hs-card_header {
-  display: flex;
+  // display: flex;
   width: 100%;
   height: auto;
   max-height: 100%;
@@ -193,10 +194,13 @@
   .hs-card {
     & > {
       .hs-card_header {
-        display: flex;
-        align-items: center;
+        position: relative;
+        flex: none;
+        // display: flex;
+        // align-items: center;
         width: 100%;
-        max-height: calc(100% - 8px);
+        height: 110px;
+        // max-height: calc(100% - 8px);
       }
     }
   }
@@ -204,8 +208,8 @@
 
 @include breakpoint(sm) {
   .hs-card_header {
-    position: relative;
-    display: flex;
+    // position: relative;
+    // display: flex;
     align-items: center;
     width: 100%;
     height: auto;

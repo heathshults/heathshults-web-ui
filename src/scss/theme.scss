@@ -371,7 +371,7 @@ body {
 
 @include media-breakpoint-up(md) {
   .hs-section {
-    padding: 4em 0;
+    padding: 6em 0;
   }
 }
 
@@ -1138,6 +1138,9 @@ input:not(:-webkit-autofill) {
     }
   }
 }
+.info-title {
+  white-space: nowrap;
+}
 .star {
   display: inline-block;
   width: 23px;
@@ -1176,3 +1179,4 @@ input:not(:-webkit-autofill) {
   position: absolute;
   z-index: auto;
 }
+
