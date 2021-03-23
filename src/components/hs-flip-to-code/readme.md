@@ -19,7 +19,8 @@
 | `flipcodeButtontext` | `flipcode-buttontext`  |             | `string`            | `'Flip Code'`              |
 | `flipcopyButtonText` | `flipcopy-button-text` |             | `string`            | `'Copy'`                   |
 | `front`              | --                     |             | `HTMLDivElement`    | `undefined`                |
-| `frontFlip`          | --                     |             | `HTMLDivElement`    | `undefined`                |
+| `frontFlipA`         | --                     |             | `HTMLDivElement`    | `undefined`                |
+| `frontFlipB`         | --                     |             | `HTMLDivElement`    | `undefined`                |
 | `innerContainer`     | --                     |             | `HTMLDivElement`    | `undefined`                |
 | `language`           | `language`             |             | `string`            | `'html'`                   |
 | `outerContainer`     | --                     |             | `HTMLDivElement`    | `undefined`                |

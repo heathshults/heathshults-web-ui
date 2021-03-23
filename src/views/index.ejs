@@ -64,8 +64,7 @@
           aria-expanded="false" >
           <span class="hs-text-white navbar-toggler-ico">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-              class="bi bi-three-dots-vertical" viewBox="0 0 16 16" data-darkreader-inline-fill=""
-              style="--darkreader-inline-fill: currentColor;">
+              class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
               <path
                 d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z">
               </path>
@@ -991,130 +990,14 @@
     </script> -->
 
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
-    </script>
-
-    <!-- Contact Form JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqBootstrapValidation/1.3.6/jqBootstrapValidation.min.js">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="/assets/js/vendor/perfect-scrollbar-1.4.0/dist/perfect-scrollbar.js" type="module"></script>
 
     <!-- Theme JavaScript -->
     <script src="/assets/js/HeathScript.bundle.js" type="module"></script>
-    <script src="/assets/js/vendor/perfect-scrollbar-1.4.0/dist/perfect-scrollbar.js" type="module"></script>
     
-      <!-- <script>
       
-        // var rotatorContainer = document.querySelector('.hs-3drotate__container');
-        //     rotatorContainer.classList.add('hs-vanish');
-        // var HSThreeDRotator=document.querySelector('.hs-3drotate');
-        
-        // var cells=HSThreeDRotator.querySelectorAll('.hs-3drotate__cell');
-        // var cellCount; // cellCount set from cells-range input value
-        // var selectedIndex=0;
-        // var cellWidth=HSThreeDRotator.offsetWidth;
-        // var cellHeight=HSThreeDRotator.offsetHeight;
-        // var isHorizontal=true;
-        // var rotateFn=isHorizontal? 'rotateY':'rotateX';
-        // var radius,theta;
-        // // console.log( cellWidth, cellHeight );
-
-        // function rotateCarousel() {
-        //   var angle=theta*selectedIndex*-1;
-        //   HSThreeDRotator.style.transform='translateZ('+-radius+'px) ' + rotateFn+'('+angle+'deg)';
-        // }
-
-        // var prevButton=document.querySelector('.hs-3drotate__prev-button');
-        // prevButton.addEventListener('click',function() {
-        //   selectedIndex--;
-        //   rotateCarousel();
-        // });
-
-        // var nextButton=document.querySelector('.hs-3drotate__next-button');
-        // nextButton.addEventListener('click',function() {
-        //   selectedIndex++;
-        //   rotateCarousel();
-        // });
-
-        // var cellsRange=document.querySelector('.hs-3drotate__cells-range');
-        // cellsRange.addEventListener('change',update3DRotator);
-        // cellsRange.addEventListener('input',update3DRotator);
-
-
-
-        // function update3DRotator() {
-        //   cellWidth=HSThreeDRotator.offsetWidth;
-        //   cellHeight=HSThreeDRotator.offsetHeight;
-        //   console.log(cellHeight)
-        //   cellCount=cellsRange.value;
-        //   theta=360/cellCount;
-        //   var cellSize=isHorizontal? cellWidth:cellHeight;
-        //   radius=Math.round((cellSize/2)/Math.tan(Math.PI/cellCount));
-        //   for(var i=0;i<cells.length;i++) {
-        //     var cell=cells[i];
-        //     if(i<cellCount) {
-        //       // visible cell
-        //       cell.style.opacity=1;
-        //       var cellAngle=theta*i;
-        //       cell.style.transform=rotateFn+'('+cellAngle+'deg) translateZ('+radius+'px)';
-        //     } else {
-        //       // hidden cell
-        //       cell.style.opacity=0;
-        //       cell.style.transform='none';
-        //     }
-        //   }
-
-        //   rotateCarousel();
-          
-        // }
-
-        // var orientationRadios=document.querySelectorAll('input[name="orientation"]');
-        // (function() {
-        //   for(var i=0;i<orientationRadios.length;i++) {
-        //     var radio=orientationRadios[i];
-        //     radio.addEventListener('change',onOrientationChange);
-        //   }
-        // })();
-
-        // function onOrientationChange() {
-        //   var checkedRadio=document.querySelector('input[name="orientation"]:checked');
-        //   isHorizontal=checkedRadio.value=='horizontal';
-        //   rotateFn=isHorizontal? 'rotateY':'rotateX';
-        //   update3DRotator();
-        // }
-
-        // set initials 
-        // onOrientationChange();
-        
-        // setTimeout(() => {window.onresize = update3DRotator}, 500);
-        // document.addEventListener('shown.bs.modal', () =>{
-          
-        //   rotatorContainer.classList.remove('hs-vanish');
-        //   update3DRotator();
-        // });
-    </script>-->
-    <script>
-      function showModal(modal) {
-        document.querySelector(modal).show();
-      };
-
-      function closeModal(modal) {
-        document.querySelector(modal).close();
-      };
-
-      let scrollSpy = new bootstrap.ScrollSpy(document.body, {
-        target: '#mainNav'
-      });
-
-      //  onclick="javascript:showModal('#modBowlopolis');"
-
-      // // ====== RANKING BARS
-      var theBars = document.querySelectorAll('.hs-ranking-bar')
-      theBars.forEach(aBar => {
-        var barWidth = $(aBar).attr('aria-valuenow')
-        $(aBar).attr('style', `width: ${barWidth}%`);
-      });
-    </script>
+    
   </body>
 
 </html>

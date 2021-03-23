@@ -29,19 +29,23 @@ wait $BABELJS &&
 npx babel src/js/modules/ --out-file src/js/temp/HeathScript-all-concat.js &&
 BABELJS=$!
 
-wait $BABELJS &&
-npx parcel build src/js/index.ts -d www/assets/js -o HeathScript.bundle.js &&
-BABELJS=$!
+# npx NODE_ENV=development parcel build src/js/index.ts -d www/assets/js -o HeathScript.bundle.js --no-minify &&
+# BABELJS=$!
+
+# wait $BABELJS &&
 
 wait $BABELJS &&
+browserify src/index.js -o www/assets/js/HeathScript.bundle.js &&
+BROWSERIFYJS=$!
+
+wait $BROWSERIFYJS &&
 
 echo "Render HTML pages..."
-npx gulp ejsit && 
-
+npx gulp ejsit & 
 # echo "Assembling CSS Variables..."
 #  node system-modules/scss2cssVars/dist/scss2cssVars.js
 
-# echo "SCSS-2-CSS..." 
+echo "SCSS-2-CSS..." 
 node build-scripts/build-scss.js &&
 
 echo "Copying supporting files..." 

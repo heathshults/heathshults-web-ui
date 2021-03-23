@@ -1,23 +1,24 @@
-require('./js/modules/theme-switcher/theme-switcher.js');
-require('./js/modules/show-more-fadebar/show-more.ts');
-require('./js/modules/time-stamper/time-stamper.js');
-require('./js/modules/validate-url/validate-url.ts');
-require('./js/modules/HeathScript.js');
+require('./js/temp/theme-switcher/theme-switcher.js');
+require('./js/temp/even-height');
+require('./js/temp/hs-timeline');
+require('./js/temp/show-more-fadebar/bak/show-more.js');
+require('./js/temp/time-stamper/time-stamper.js');
+require('./js/temp/validate-url/validate-url.js');
+require('./js/temp/HeathScript');
 
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+// import './index.css';
+// import App from './App';
+// import registerServiceWorker from './registerServiceWorker';
 
-// test-component is the name of our made up Web Component that we have
-// published to npm:
-import { applyPolyfills, defineCustomElements } from 'test-components/loader';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+// import { applyPolyfills, defineCustomElements } from 'test-components/loader';
 
-applyPolyfills().then(() => {
-  defineCustomElements();
-});
+// ReactDOM.render(<App />, document.getElementById('root'));
+// registerServiceWorker();
+
+// applyPolyfills().then(() => {
+//   defineCustomElements();
+// });

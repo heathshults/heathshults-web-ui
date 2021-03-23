@@ -11,12 +11,12 @@ const l = console.log;
 export class HS3dRotator {
   @Element() el: HTMLElement;
   @Prop() rotator3DElement: any;
-  @Prop() figure: HTMLElement;
-  @Prop() nav: any;
-  @Prop() navigate: any;
-  @Prop() images: any;
+  @Prop({mutable: true}) figure: HTMLElement;
+  @Prop({mutable: true}) nav: any;
+  @Prop({mutable: true}) navigate: any;
+  @Prop({mutable: true}) images: any;
   @Prop() currImage: any;
-  @Prop() theta: any;
+  @Prop({mutable: true}) theta: any;
   @Prop() dataGap: any;
   @Prop() dataBfc: any;
   @Prop() rotateRotator3D: any;
