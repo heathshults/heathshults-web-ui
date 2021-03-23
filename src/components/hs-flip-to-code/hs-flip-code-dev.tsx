@@ -13,7 +13,8 @@ export class HSFlip2Code {
   @Prop({mutable: true}) button: HTMLButtonElement;
   @Prop({mutable: true}) outerContainer: HTMLDivElement;
   @Prop({mutable: true}) innerContainer: HTMLDivElement;
-  @Prop({mutable: true}) frontFlip: HTMLDivElement;
+  @Prop({mutable: true}) frontFlipA: HTMLDivElement;
+  @Prop({mutable: true}) frontFlipB: HTMLDivElement;
   @Prop({mutable: true, reflect: true}) flipHeight: any = 'auto';
   @Prop({mutable: true, reflect: true}) flipWidth: any = '936px';
   @Prop({mutable: true}) front: HTMLDivElement;
@@ -36,7 +37,8 @@ export class HSFlip2Code {
    * @description: Fixes the pre tag indentation issue.
    * @param {string} str  
    */
-   cleanIndentation(str: any):any {
+   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+   cleanIndentation(str):any {
     const pattern = str.match(/\s*\n[\t\s]*/);
     return str.replace(new RegExp(pattern, 'g'), '\n');
   }
@@ -49,7 +51,7 @@ export class HSFlip2Code {
  */
   public setHeight():any {
     if  (!this.flipHeight) {
-      const newHeight = this.el.shadowRoot.querySelector('#flip2CodeFront').scrollHeight;
+      const newHeight = this.el.shadowRoot.querySelector('#flip2CodeFrontA').scrollHeight;
         return `${newHeight}px`;
     } else {
       return this.flipHeight;
@@ -69,10 +71,11 @@ export class HSFlip2Code {
           
           this.innerContainer = this.el.shadowRoot.querySelector('#flip2CodeInnerContainer');
           //this.innerContainer.style.height = `${this.setHeight}`;
-          this.frontFlip = this.el.shadowRoot.querySelector('#flip2CodeFront');
+          this.frontFlipA = this.el.shadowRoot.querySelector('#flip2CodeFrontA');
+          this.frontFlipB = this.el.shadowRoot.querySelector('#flip2CodeFrontB');
           this.snipp = this.el.shadowRoot.querySelector('#flip2CodeSnipp.flip2CodeSnipp');
           
-          this.front = this.el.shadowRoot.querySelector('#flip2CodeFront.hs-flip2Code-card__face');
+          this.front = this.el.shadowRoot.querySelector('#flip2CodeFrontA.hs-flip2Code-card__face');
           this.back = this.el.shadowRoot.querySelector('#flip2CodeBack.hs-flip2Code-card__face');
           //this.back.style.height = `${this.setHeight}`;
           
@@ -109,7 +112,7 @@ export class HSFlip2Code {
           };
 
           this.outerContainer.style.height = `${this.flipHeight} + 40px`;
-          // this.frontFlip.style.height = `${this.flipHeight}`;
+          // this.frontFlipA.style.height = `${this.flipHeight}`;
           // this.innerContainer.style.height = `${this.flipHeight}`;
           // this.back.style.height = `${this.flipHeight}`;
 
@@ -175,8 +178,8 @@ export class HSFlip2Code {
         </div>
         <div class={`hs-flip2Code-grid__content ${this.aspectRatio}`}>
           <div id="flip2CodeInnerContainer" class={`hs-flip2Code-card ${this.aspectRatio}`}>
-            <div id="flip2CodeFront" class={`hs-flip2Code-card__face ${this.aspectRatio}`}>
-            <div id="flip2CodeFront" class={`hs-flip2Code-card__face--front  ${this.aspectRatio}`}>
+            <div id="flip2CodeFrontA" class={`hs-flip2Code-card__face ${this.aspectRatio}`}>
+            <div id="flip2CodeFrontB" class={`hs-flip2Code-card__face--front  ${this.aspectRatio}`}>
               <slot name="front"></slot>
             </div> 
             </div> 

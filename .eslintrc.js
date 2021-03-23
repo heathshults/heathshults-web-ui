@@ -16,6 +16,7 @@ module.exports = {
     'no-undef': 0,
     'no-unused-vars': 0,
     'no-var-requires': 0,
+    'font-family-no-missing-generic-family-keyword': 0,
     semi: [
       2,
       'always',

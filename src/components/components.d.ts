@@ -154,7 +154,8 @@ export namespace Components {
         "flipcodeButtontext"?: string;
         "flipcopyButtonText"?: string;
         "front": HTMLDivElement;
-        "frontFlip": HTMLDivElement;
+        "frontFlipA": HTMLDivElement;
+        "frontFlipB": HTMLDivElement;
         "innerContainer": HTMLDivElement;
         "language"?: string;
         "outerContainer": HTMLDivElement;
@@ -602,7 +603,8 @@ declare namespace LocalJSX {
         "flipcodeButtontext"?: string;
         "flipcopyButtonText"?: string;
         "front"?: HTMLDivElement;
-        "frontFlip"?: HTMLDivElement;
+        "frontFlipA"?: HTMLDivElement;
+        "frontFlipB"?: HTMLDivElement;
         "innerContainer"?: HTMLDivElement;
         "language"?: string;
         "outerContainer"?: HTMLDivElement;
