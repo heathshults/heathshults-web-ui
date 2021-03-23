@@ -110,3 +110,51 @@
   }
 }
 
+.portfolio-cards-grid {
+  box-sizing: border-box;
+  display: flex;
+  display: grid;
+  align-items: stretch;
+  height: 400px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px 4px;
+}
+.c1 {
+  grid-area: c1;
+  height: 100%;
+}
+
+.c2 {
+  grid-area: c2;
+  height: 100%;
+}
+
+.c3 {
+  grid-area: c3;
+  height: 100%;
+}
+
+.c4 {
+  grid-area: c4;
+  height: 100%;
+}
+
+// PORTFOLIO CARDS GRID 
+@include media-breakpoint-up(md) {
+  .portfolio-cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+
+    grid-template-areas: "c1 c2 c3 c4";
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .portfolio-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+      "c1 c2"
+      "c3 c4";
+  }
+}

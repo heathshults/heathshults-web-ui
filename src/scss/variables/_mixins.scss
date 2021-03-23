@@ -3,9 +3,10 @@
 @import "../bootstrap/scss/mixins";
 @import "../bootstrap/scss/mixins/border-radius";
 
-@import "../variables/maps";
-@import "../variables/functions";
-@import "../variables/colors";
+@import "./maps";
+@import "./functions";
+@import "./colors";
+@import "./breakpoints";
 
 // @import "../variables/typography";
 // @import "../variables/spacing";

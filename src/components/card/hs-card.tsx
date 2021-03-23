@@ -138,12 +138,11 @@ export class HSCard {
   }
 
   render() {
-    
+    this.imgPath ? this.showHide = 'hs-display-block' : this.showHide = 'hs-display-none';
     return (
       <div id={`${this.cardId}`} class="hs-card">
-        <header class={`hs-card_header`}>
-          { this.imgPath ? <a id="imgHeaderOverlay" class={`hs-overlay hs-ratio hs-ratio-16x9 ${this.showHide} p-0 m-0`} data-bs-toggle={this.dataToggle} data-bs-target={this.dataTarget} href="javascript:void(0);" ><img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img ${this.showHide} p-0 m-0`} alt="header image" /></a> 
-            : !this.imgPath ? (this.showHide = 'hs-display-none') : (this.showHide = 'hs-display-block')}
+        <header class={`hs-card_header hs-ratio hs-ratio-16x9`}>
+          <a id="imgHeaderOverlay" class={`hs-overlay ${this.showHide} p-0 m-0`} data-bs-toggle={this.dataToggle} data-bs-target={this.dataTarget} href="javascript:void(0);" ><img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img ${this.showHide} p-0 m-0`} alt="header image" /></a> 
         <slot name="card-header" />
         </header>
         <div id="cloneBaby" class="hs-card_body">
