@@ -1130,9 +1130,9 @@ input:not(:-webkit-autofill) {
   color: inherit;
 }
 .modal-info-bar-container {
-  background: var(--hs-gray-950);
+  background: var(--hs-black--a30);
   .modal-info-bar {
-    padding: var(--space-sm);
+    padding: 0;
     .info-title {
       white-space: nowrap;
     }

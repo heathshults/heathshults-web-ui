@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types, no-console, no-unused-vars, no-undefined */
-import { Component, Element, Prop, h } from '@stencil/core';
+// @ts-ignore
+import { Component, Element, Prop, Listen, Event, h } from '@stencil/core';
 
 @Component({
   tag: 'hs-card',
@@ -25,8 +27,8 @@ export class HSCard {
   @Prop() imgPath:string;
   @Prop() showHide:string;
 
-  @Prop() dataTarget?: string;
-  @Prop() dataToggle? = 'modal';
+  @Prop() dataTarget: HTMLAnchorElement | string;
+  @Prop() dataToggle: any = 'modal' || 'link';
   
   @Prop() autoFooter: boolean;
   @Prop() footerDiv: HTMLDivElement;
@@ -63,44 +65,9 @@ export class HSCard {
   @Prop() builderOne;
   @Prop() builderTwo;
   @Prop() builderThree;
-  
-  // // modalLancher: EventEmitter;
-  // @Event() modalLancher: EventEmitter;
-  // launchModalEventHandler(event: Event) {
-  //   this.modalLancher.emit(event);
-  // }
-  
-  // @Listen('launchModal')
-  // launchModalHandler(event: Event) {
-  //   // showModal(`#${this.clickTarget}`)
-  //   event.preventDefault();
-  //   const clicker: HTMLElement = this.el.shadowRoot.querySelector('.hs-card_button');
-  //   this.dataTarget ? clicker.click() : 
-  //   // this.dataTarget ? document.querySelector(this.dataTarget).classList.add('hs-display-block') : 
-  //   this.validURL(this.clickTarget) === true ? window.location.href = this.clickTarget : '';
-  // }
-  
-  @Prop() fnStatusCallBack = (status: boolean, fnName: string, errorMessage?: any): any => {
-    status === true ? console.log(`${fnName} finished`) : console.log(`${fnName} failed because: /n ${errorMessage}`) ;
-    return;
-  }
-  
-  @Prop() validURL = (str): any => {
-    const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
-      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
-      '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
-      '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
-      '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
-      '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
-    return !!pattern.test(str);
-  }
-    
-  componentWillLoad() {
-    this.validURL(this.imgPath) ? '' : '';
-    // typeof this.colorTone === 'undefined' || typeof this.colorTone === null || !this.colorTone.length ? this.colorTone = '' :
-    // this.colorTone === 'dark' ? this.colorToneClass = 'dark' : this.colorToneClass = 'light';
-    
-    
+
+  connectedCallback() {
+    this.validURL(this.imgPath) ? this.showHide = 'hs-display-block' : this.showHide = 'hs-display-none';
   }
   
   componenentWillRender() {
@@ -136,13 +103,43 @@ export class HSCard {
 
     return;
   }
+ 
+  @Listen('click')
+  clickHandler(mode: string, target: string, event: Event) {
+    event.preventDefault();
+    const clicker = event.target as HTMLAnchorElement; //this.el.shadowRoot.querySelector('.hs-card_button');
+    if (mode==='modal' && target) {
+      const theModal = document.querySelector(`#${target}`) as HTMLElement;
+      theModal.toggle();
+    } else {
+      if (this.validURL(target)) window.location.href = target;
+    }
+      return;
+  }
+
+
+  
+  @Prop() fnStatusCallBack = (status: boolean, fnName: string, errorMessage?: any): any => {
+    status === true ? console.log(`${fnName} finished`) : console.log(`${fnName} failed because: /n ${errorMessage}`) ;
+    return;
+  }
+  
+  public validURL = (str): any => {
+    const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+      '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+      '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+      '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+      '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+    return !!pattern.test(str);
+  };
 
   render() {
-    this.imgPath ? this.showHide = 'hs-display-block' : this.showHide = 'hs-display-none';
+
     return (
       <div id={`${this.cardId}`} class="hs-card">
-        <header class={`hs-card_header hs-ratio hs-ratio-16x9`}>
-          <a id="imgHeaderOverlay" class={`hs-overlay ${this.showHide} p-0 m-0`} data-bs-toggle={this.dataToggle} data-bs-target={this.dataTarget} href="javascript:void(0);" ><img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img ${this.showHide} p-0 m-0`} alt="header image" /></a> 
+        <header class={`hs-card_header`}>
+          <a id="imgHeaderOverlay" class={`hs-overlay ${this.showHide} p-0 m-0`} href={this.clickHandler(this.dataToggle, this.dataTarget, event)} ><img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img ${this.showHide} p-0 m-0`} alt="header image" /></a> 
         <slot name="card-header" />
         </header>
         <div id="cloneBaby" class="hs-card_body">
@@ -153,6 +150,6 @@ export class HSCard {
         </div>
       </div>
     );
-  }  
-}
+  }
 
+}

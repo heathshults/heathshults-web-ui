@@ -6,31 +6,32 @@
   line-height: 1.2;
   color: $hs-card-color;
   background: $hs-card-body-bg;
-
-  .hs-card_content {
-    width: 100%;
-    padding: $hs-spacing--lg;
-    font-size: .84rem;
-    line-height: 1.2;
-    text-align: left;
-    background-color: $hs-white;
-  }
-
-  .hs-card_title {
-    margin-bottom: $hs-card-spacer-y - .5;
-    font-size: 1.5em;
-  }
-
-  .hs-card_subtitle {
-    margin-top: -$hs-card-spacer-y / 2;
-    margin-bottom: 0;
-    font-size: 1em
-  }
-
-  .hs-card_linkhover {
-    text-decoration: none;
-  }
 }
+.hs-card_content {
+  width: 100%;
+  padding: $hs-spacing--lg;
+  padding-bottom: 50px;
+  font-size: .84rem;
+  line-height: 1.2;
+  text-align: left;
+  background-color: $hs-white;
+}
+
+.hs-card_title {
+  margin-bottom: $hs-card-spacer-y - .5;
+  font-size: 1.6em;
+}
+
+.hs-card_subtitle {
+  margin-top: -$hs-card-spacer-y / 2;
+  margin-bottom: 0;
+  font-size: 1em
+}
+
+.hs-card_linkhover {
+  text-decoration: none;
+}
+
 .hs-card_img,
 .hs-card_img--top,
 .hs-card_img--bottom {

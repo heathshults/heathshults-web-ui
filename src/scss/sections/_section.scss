@@ -8,6 +8,13 @@ section, .hs-section {
     margin-bottom: 15px;
     font-size: 4rem;
     text-shadow: $hs-text-shadow-light-spread;
+    .hs-tiny-sub {
+      margin-bottom: 1rem;
+      font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: .455em;
+      text-shadow: $hs-text-shadow-light-spread;
+      text-transform: uppercase;
+    }
   }
   h3.hs-section-subheading {
     margin-bottom: 4rem;
