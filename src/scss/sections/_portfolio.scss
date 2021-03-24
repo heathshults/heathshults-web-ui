@@ -117,7 +117,7 @@
   align-items: stretch;
   height: 400px;
   grid-template-columns: repeat(4, 1fr);
-  gap: 4px 4px;
+  gap: 8px 8px;
 }
 .c1 {
   grid-area: c1;
@@ -139,7 +139,7 @@
   height: 100%;
 }
 
-// PORTFOLIO CARDS GRID 
+// PORTFOLIO CARDS GRID
 @include media-breakpoint-up(md) {
   .portfolio-cards-grid {
     grid-template-columns: repeat(4, 1fr);

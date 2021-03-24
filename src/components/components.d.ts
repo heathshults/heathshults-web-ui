@@ -26,8 +26,8 @@ export namespace Components {
         "clickTarget": string;
         "cloneBaby": any;
         "clonedContent": any;
-        "dataTarget"?: string;
-        "dataToggle"?: string;
+        "dataTarget": HTMLAnchorElement | string;
+        "dataToggle": any;
         "fnStatusCallBack": (status: boolean, fnName: string, errorMessage?: any) => any;
         "footerDiv": HTMLDivElement;
         "imgElem": any;
@@ -37,7 +37,6 @@ export namespace Components {
         "imgPath": string;
         "overlay": any;
         "showHide": string;
-        "validURL": (str: any) => any;
     }
     interface HsCardBody {
         "bodyClassList"?: string;
@@ -456,8 +455,8 @@ declare namespace LocalJSX {
         "clickTarget"?: string;
         "cloneBaby"?: any;
         "clonedContent"?: any;
-        "dataTarget"?: string;
-        "dataToggle"?: string;
+        "dataTarget"?: HTMLAnchorElement | string;
+        "dataToggle"?: any;
         "fnStatusCallBack"?: (status: boolean, fnName: string, errorMessage?: any) => any;
         "footerDiv"?: HTMLDivElement;
         "imgElem"?: any;
@@ -467,7 +466,6 @@ declare namespace LocalJSX {
         "imgPath"?: string;
         "overlay"?: any;
         "showHide"?: string;
-        "validURL"?: (str: any) => any;
     }
     interface HsCardBody {
         "bodyClassList"?: string;

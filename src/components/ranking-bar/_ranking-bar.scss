@@ -1,25 +1,38 @@
-.hs-ranking-bar-container {
-  width: 400px;
-  margin: 60px auto;
-  text-align: center;
-
-  .hs-ranking {
-    width: 400px;
-    margin: 0 auto;
-  }
+@font-face {
+  font-family: 'Open 24 Display St', 'Courier New', Courier, monospace;
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url('/assets/webfonts/Open-24-Display-St.ttf') format('ttf');
 }
 
+// .hs-ranking-bar-container {
+//   width: 400px;
+//   margin: 60px auto;
+//   text-align: center;
+
+//   .hs-ranking {
+//     width: 400px;
+//     margin: 0 auto;
+//   }
+// }
+.hs-ranking-bar-container {
+  flex: 1 100%;
+  height: 150px;
+  margin: auto;
+}
 .hs-ranking {
   padding: 3px;
   margin-top: 6px;
   font-size: 10px;
   text-align: left;
   text-transform: uppercase;
-  background: var(--hs-gray);
+  background: var(--hs-gray-700);
   //Instead of the line below you could use @include border-radius(var(--hs-radius, var(--hs-vertical-radius)
-  border-radius: 0px;
+  border-top-right-radius: 500px;
+  border-bottom-right-radius: 500px;
   //Instead of the line below you could use @include box-shadow(var(--hs-shadow-1, var(--hs-shadow-2, var(--hs-shadow-3, var(--hs-shadow-4, var(--hs-shadow-5, var(--hs-shadow-6, var(--hs-shadow-7, var(--hs-shadow-8, var(--hs-shadow-9, var(--hs-shadow-10)
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5), 0 1px rgba(255, 255, 255, 0.16);
+  box-shadow: inset 0 1px 2px var(--black--a50), 0 1px var(--black--a15);
 }
 
 .hs-ranking-bar {
@@ -30,36 +43,38 @@
   font-weight: 700;
   line-height: 10px;
   color: #2e2e2e;
-  background-image: linear-gradient(to right, #e8921e, #f2d32f, var(--hs-color_lime));
-  border-radius: 0px;
-  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+  background-image: linear-gradient(to right, #ff8000 5%, #ffc800 20%, #7dd31b 50%);
+  border-top-right-radius: 500px;
+  // background-image: linear-gradient(to right, #e8921e, #f2d32f, var(--hs-color_lime));
+  border-bottom-right-radius: 500px;
+  box-shadow: 0 0 1px 1px var(--black--a25), inset 0 1px var(--black--a15);
   transition: 0.4s linear;
   transition-property: width, background-color;
 
   &::before {
     position: absolute;
-    top: -22px;
-    right: -5px;
-    z-index: 99;
+    top: 16px;
+    right: -2px;
+    z-index: 100;
     display: inline-block;
     padding: 4px 8px 4px 8px;
     color: var(--hs-white);
     content: attr(data-level);
-    background-color: #404040;
+    background-color: var(--gray-700);
     // transform: translateX(-50%);
   }
 
   &::after {
     position: absolute;
-    top: -4px;
+    top: 9px;
     right: 0;
     z-index: 99;
     width: 0;
     height: 0;
     content: "";
-    border-top: 6px solid #404040;
-    border-right: 6px solid transparent;
-    border-left: 6px solid transparent;
+    border-top: 8px solid #404040;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
     // transform: translateX(-50%);
   }
 }
@@ -84,6 +99,23 @@
   visibility: hidden;
   //Instead of the line below you could use @include border-radius(var(--hs-radius, var(--hs-vertical-radius)
   border-radius: 0px;
+}
+.position-relative {
+  position: relative;
+}
+.hs-skill-result-label {
+  padding: .5rem;
+  font-family: 'Digital-7', 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  font-weight: normal;
+  color: var(--hs-color-lime);
+  text-align: center;
+  letter-spacing: 1pt;
+  background: var(--hs-gray-900);
+  &.offset-down-20 {
+    position: absolute;
+    top: -20px;
+  }
 }
 
 #five:checked ~ .hs-ranking > .hs-ranking-bar {
