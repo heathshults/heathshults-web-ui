@@ -66,44 +66,6 @@ export class HSCard {
   @Prop() builderTwo;
   @Prop() builderThree;
 
-  connectedCallback() {
-    this.validURL(this.imgPath) ? this.showHide = 'hs-display-block' : this.showHide = 'hs-display-none';
-  }
-  
-  componenentWillRender() {
-    (() => {
-      // return new Promise((resolve, reject): any => {
-        setTimeout((): any => {
-          try {
-            this.cloneBaby = this.el.shadowRoot.querySelector('#cloneBaby.hs-card_body');
-            console.log(this.cloneBaby);
-
-            this.cardContent = this.el.shadowRoot.querySelector('.hs-card_content');
-            console.log(this.cardContent);
-            
-            this.clonedContent = this.cardContent.cloneNode(true);            
-            this.footerDiv = this.el.shadowRoot.querySelector('#foot');
-
-            if (this.autoFooter) {
-              this.footerDiv.innerHTML = this.basicFooter;
-            }
-            this.cardContent.classList.add('hs-card_content');
-            this.cloneBaby.appendChild(this.clonedContent);
-            this.fnStatusCallBack(true, 'buildCardElements');
-            
-            return true;
-          }
-          catch(error) {
-            this.fnStatusCallBack(false, 'buildCard', error);
-            return false;
-          }
-        }, 700); 
-
-    })();
-
-    return;
-  }
- 
   @Listen('click')
   clickHandler(mode: string, target: string, event: Event) {
     event.preventDefault();
@@ -133,6 +95,78 @@ export class HSCard {
       '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
     return !!pattern.test(str);
   };
+
+  connectedCallback() {
+    this.validURL(this.imgPath) ? this.showHide = 'hs-display-block' : this.showHide = 'hs-display-none';
+
+    return new Promise((resolve, reject): any => {
+      setTimeout((): any => {
+        try {
+          this.cloneBaby = this.el.shadowRoot.querySelector('#cloneBaby.hs-card_body');
+          console.log(this.cloneBaby);
+
+          this.cardContent = this.el.shadowRoot.querySelector('.hs-card_content');
+          console.log(this.cardContent);
+          
+          this.clonedContent = this.cardContent.cloneNode(true);            
+          this.footerDiv = this.el.shadowRoot.querySelector('#foot');
+
+          if (this.autoFooter) {
+            this.footerDiv.innerHTML = this.basicFooter;
+          }
+          this.cardContent.classList.add('hs-card_content');
+          this.cloneBaby.appendChild(this.clonedContent);
+          // this.fnStatusCallBack(true, 'buildCardElements');
+          resolve(true);
+          return true;
+        }
+        catch(error) {
+          reject(false);
+          // this.fnStatusCallBack(false, 'buildCard', error);
+          return false;
+        }
+      }, 700); 
+
+    });
+
+     
+  } 
+  
+  componenentWillRender() {
+    // (() => {
+    //   // return new Promise((resolve, reject): any => {
+    //     setTimeout((): any => {
+    //       try {
+    //         this.cloneBaby = this.el.shadowRoot.querySelector('#cloneBaby.hs-card_body');
+    //         console.log(this.cloneBaby);
+
+    //         this.cardContent = this.el.shadowRoot.querySelector('.hs-card_content');
+    //         console.log(this.cardContent);
+            
+    //         this.clonedContent = this.cardContent.cloneNode(true);            
+    //         this.footerDiv = this.el.shadowRoot.querySelector('#foot');
+
+    //         if (this.autoFooter) {
+    //           this.footerDiv.innerHTML = this.basicFooter;
+    //         }
+    //         this.cardContent.classList.add('hs-card_content');
+    //         this.cloneBaby.appendChild(this.clonedContent);
+    //         this.fnStatusCallBack(true, 'buildCardElements');
+            
+    //         return true;
+    //       }
+    //       catch(error) {
+    //         this.fnStatusCallBack(false, 'buildCard', error);
+    //         return false;
+    //       }
+    //     }, 700); 
+
+    // })();
+
+    // return;
+  }
+ 
+  
 
   render() {
 
