@@ -50,7 +50,7 @@ hs-modal hs-card hs-card-footer {
 
 hs-card-header .hs-heading {
   &.dark {
-    color: $hs-theme-primary;
+    color: $hs-primary;
     .hs-heading_sub {
       color: $hs-blueGray-medium;
     }
@@ -65,12 +65,12 @@ hs-modal hs-card-body {
 
 ::-moz-selection {
   text-shadow: none;
-  background: $hs-theme-primary;
+  background: $hs-primary;
 }
 
 ::selection {
   text-shadow: none;
-  background: $hs-theme-primary;
+  background: $hs-primary;
 }
 
 img::-moz-selection {
@@ -212,10 +212,10 @@ img::selection {
     color: #fff;
     background: $hs-black--a75;
     .hs-info-link {
-      color: $hs-theme-primary;
+      color: $hs-primary;
       text-decoration: none;
       &:visited {
-        color: $hs-theme-primary;
+        color: $hs-primary;
       }
       &:hover {
         color: $hs-white;

@@ -38,10 +38,12 @@
         color: $hs-white;
         letter-spacing: $headings-letter-spacing;
         transition: all .25s ease-in-out;
-
+        &:visited {
+          color: $hs-white;
+        }
         &.active,
         &:hover {
-          color: $primary;
+          color: $hs-primary;
           transition: all .25s ease-in-out;
         }
       }

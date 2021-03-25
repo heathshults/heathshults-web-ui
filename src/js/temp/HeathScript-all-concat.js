@@ -1,210 +1,87 @@
+/* eslint-disable no-undef, no-unused-vars */
 "use strict";
-
 /**
  * @author HeathShults.com - Heath Shults v1.0 (http://heathshults.com)
  * @version 1.0.0
  * @copyright 2020-2020 Heath-Shults
  * @license MIT (https://github.com/heathshults/heathshults.com/LICENSE)
  */
-(window.onload = function () {
-  // ====== RANKING BARS
-  var theBars = document.querySelectorAll('.hs-ranking-bar');
-  theBars.forEach(function (aBar) {
-    // eslint-disable-next-line no-undef
-    var barWidth = document.querySelector(aBar).getAttribute('aria-valuenow');
-    document.querySelector(aBar).setAttribute('style', "width: ".concat(barWidth, "%")); // var barWidth=$(aBar).attr('aria-valuenow');
-    // $(aBar).attr('style',`width: ${barWidth}%`);
-  });
-})();
-/* eslint-disable no-undef, no-unused-vars */
-
-(function () {
-  // *======* CONTACT FORM *======* //
-  window.onload = autofillKill();
-
-  function autofillKill() {
-    var qs = document.querySelector;
-    var qsa = document.querySelectorAll;
-    var contactForm = document.querySelector('#contactForm');
-    var contactFormFields;
-    var contactFormFieldsValues = []; // console.log(contactForm),console.log(contactFormFields);
-
-    if (contactForm) {
-      contactFormFields = contactForm.document.querySelectorAll('.form-control');
-    } else {
-      return console.log('no form fields found');
-    } // for(let i=0; i<contactFormFields.length;i++) {
-
-
-    Array.prototype.slice.call(contactFormFields).forEach(function (field, index) {
-      var name = field.name;
-      var value = field.value;
-      contactFormFieldsValues[index] = {
-        name: value
-      };
-      field.addEventListener(('onfocus', 'click'), function (_ref3) {
-        var target = _ref3.target;
-
-        if (target.value && target.parentElement.classList.contains('antiblur')) {
-          return;
-        } else {
-          target.parentElement.classList.add('antiblur'); // autofill makes me include this inline hack
-          // event.target.style = 'background: rgba(0, 0, 0, .65); border: 2px solid #fed136; color: #ffffff !important; color: -internal-light-dark(white) !important;'
-          // event.target.setAttribute(':focus', )
-        }
-
-        if (!target.value && !target.parentElement.classList.contains('antiblur')) {
-          target.parentElement.classList.add('antiblur');
-        }
-      });
-      field.addEventListener('change', function (event) {
-        alert("change!");
-      }); // end blur event
-    }); //end foreach
-    // auto fill battle
-
-    var AUTOFILLED = 'is-autofilled';
-
-    var onAutoFillStart = function onAutoFillStart(el) {
-      return el.classList.add(AUTOFILLED);
-    };
-
-    var onAutoFillCancel = function onAutoFillCancel(el) {
-      return el.classList.remove(AUTOFILLED);
-    };
-
-    var onAnimationStart = function onAnimationStart(_ref) {
-      var target = _ref.target;
-      var animationName = _ref.animationName;
-
-      switch (animationName) {
-        case 'onAutoFillStart':
-          el.target.style = 'background: rgba(0, 0, 0, .65); border: 2px solid #fed136; color: #ffffff !important; color: -internal-light-dark(white) !important;';
-          return onAutoFillStart(target);
-
-        case 'onAutoFillCancel':
-          return onAutoFillCancel(target);
-      }
-    };
-
-    document.querySelector('#contactForm input,#contactForm textarea').addEventListener('change', function (event) {
-      console.log('Got a CHANGE');
-      event.forEach(function (formField) {// console.log(`new value document.querySelector{formField.name}: document.querySelector{formField.value}`);
-      }); // console.log(`new value document.querySelector{event.target.name}: document.querySelector{event.target.value}`);
-    });
-  }
-
-  var $form = document.querySelector('#contactForm');
-  document.querySelector('#contactForm input,#contactForm textarea').jqBootstrapValidation({
-    preventSubmit: true,
-    submitError: function submitError($form, event, errors) {// additional error messages or events
-    },
-    submitSuccess: function submitSuccess($form, event) {
-      event.preventDefault(); // prevent default submit behaviour
-      // get values from FORM
-
-      var name = document.querySelector('input#name').val();
-      var email = document.querySelector('input#email').val();
-      var phone = document.querySelector('input#phone').val();
-      var message = document.querySelector('textarea#message').val();
-      var firstName = name; // For Success/Failure Message
-      // Check for white space in name for Success/Fail message
-
-      if (firstName.includes(' ')) {
-        firstName = name.split(' ').slice(0, -1).join(' ');
-      }
-
-      $.ajax({
-        url: '/mail/contact_me.php',
-        type: 'POST',
-        data: {
-          name: name,
-          phone: phone,
-          email: email,
-          message: message
-        },
-        cache: false,
-        success: function success() {
-          // Success message
-          document.querySelector('#success').innerHTML = '<div class="alert alert-success">';
-          document.querySelector("#success > .alert-success").innerHTML += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><p><strong>Your message has been sent. </strong></p></div>'; //clear all fields
-
-          document.querySelector('#contactForm').trigger('reset');
-        },
-        error: function error() {
-          // Fail message
-          document.querySelector('#success').innerHTML = '<div class="alert alert-danger">';
-          document.querySelector('#success > .alert-danger').innerHTML = "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button><p><strong>Sorry ".concat(firstName, ", it seems that my mail server is not responding. Please try again later!</p></div>"); //clear all fields
-
-          document.querySelector('#contactForm').reset();
-        }
-      });
-    },
-    filter: function filter() {
-      return this.is(':visible');
-    }
-  });
-  document.querySelector('a[data-toggle="tab"]').addEventListener('click', function (e) {
-    e.preventDefault();
-
-    _this.tab('show');
-  });
-  var clearMsgBox = '#name';
-  /*When clicking on Full hide fail/success boxes */
-
-  document.querySelector(clearMsgBox).addEventListener('focus', function () {
-    document.querySelector('#success').innerHTML = '';
-  });
-})(); // End of use strict
-// *======* CONTACT FORM *======* //
-
+// ====== RANKING BARS
 
 window.onload = function () {
-  var contactForm = document.querySelector('#contactForm');
-  var contactFormFields = contactForm.querySelectorAll('.form-control');
-  console.log(contactForm), console.log(contactFormFields);
-  contactFormFields.forEach(function (field) {
-    field.addEventListener(('onfocus', 'click'), function (_ref4) {
-      var target = _ref4.target;
+  var theBars = document.querySelectorAll('.hs-ranking-bar');
+  theBars.forEach(function (aBar) {
+    aBar.style = "width: ".concat(aBar.getAttribute('aria-valuenow'), "%");
+  });
+}(); // ======* MODAL FUNCTION *====== //
 
-      if (target.value && target.parentElement.classList.contains('antiblur')) {
-        return;
-      } else {
-        target.parentElement.classList.add('antiblur'); // autofill makes me include this inline hack
-        // event.target.style = 'background: rgba(0, 0, 0, .65); border: 2px solid #fed136; color: #ffffff !important; color: -internal-light-dark(white) !important;'
-        // event.target.setAttribute(':focus', )
-      }
 
-      if (!target.value && !target.parentElement.classList.contains('antiblur')) {
-        target.parentElement.classList.add('antiblur');
-      }
-    }); // end blur event
-  }); //end foreach
-  // auto fill battle
+function showModal(modal) {
+  document.querySelector(modal).show();
+}
 
-  var AUTOFILLED = 'is-autofilled';
+function closeModal(modal) {
+  document.querySelector(modal).close();
+} // ======* SCROLLSPY INIT & MENU FUNCTIONS *====== //
+// SCROLLSPY
 
-  var onAutoFillStart = function onAutoFillStart(el) {
-    return el.classList.add(AUTOFILLED);
-  };
 
-  var onAutoFillCancel = function onAutoFillCancel(el) {
-    return el.classList.remove(AUTOFILLED);
-  };
+var scrollSpy = new bootstrap.ScrollSpy(document.body, {
+  target: '#mainNav'
+}); // NAVBAR EFFECTS
 
-  var onAnimationStart = function onAnimationStart(_ref2) {
-    var target = _ref2.target;
-    var animationName = _ref2.animationName;
+window.onscroll = function scrollFunction() {
+  var navbarElement = document.querySelector('#mainNav');
 
-    switch (animationName) {
-      case 'onAutoFillStart':
-        el.target.style = 'background: rgba(0, 0, 0, .65); border: 2px solid #fed136; color: #ffffff !important; color: -internal-light-dark(white) !important;';
-        return onAutoFillStart(target);
+  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+    navbarElement.classList.add('hs-navbar-semitransparent');
+  } else {
+    navbarElement.classList.remove('hs-navbar-semitransparent');
+  }
+}; // *====== DRAG and Drop Submit *======//
 
-      case 'onAutoFillCancel':
-        return onAutoFillCancel(target);
+
+window.onload = function anibutton() {
+  //animated checkbox
+  var animatedCheckMark = "<svg class=\"svg-checkmark\" x=\"0px\" y=\"0px\" viewBox=\"0 0 135 110\" width=\"40px\" height=\"50px\">\n          <path class=\"check\" d=\"M126.8,14L55.7,85.1L29.2,63.4\"/>\n        </svg>";
+  var dz = document.querySelector('.hs-dropzone');
+  var arrows = document.querySelector('#arrows');
+
+  function onAllowDrop(ev) {
+    ev.preventDefault(); // dz.style.cursor = 'move';
+
+    if (!dz.classList.contains('hs-dropzone-hover')) {
+      dz.classList.toggle('hs-dropzone-hover');
     }
-  };
+
+    if (!arrows.classList.contains('hs-fadeout')) {
+      arrows.classList.add('hs-fadeout');
+    }
+  }
+
+  function onDragLeave(ev) {
+    if (arrows.classList.contains('hs-fadeout')) {
+      arrows.classList.remove('hs-fadeout');
+    }
+  }
+
+  function onDrag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+    ev.currentTarget.style.cursor = 'move'; //  ev.currentTarget.style.background = 'yellow';
+  }
+
+  function onDrop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+    document.getElementById(data).classList.add('hs-fadeout');
+    dz.classList.add('hs-dropzone-has-file'); //  dz.innerHTML = animatedCheckMark;
+
+    var checky = document.createElement('span');
+    checky.classList.add('hs-animated-checkbox-container');
+    checky.innerHTML = animatedCheckMark;
+    dz.appendChild(checky);
+  }
 };
 "use strict";
 
@@ -255,6 +132,995 @@ var even_height_1 = require("./even-height");
 
 var __EvenHeight = even_height_1["default"];
 exports.EvenHeight = __EvenHeight;
+"use strict";
+
+// Contact Form Scripts
+var $ = require('jquery');
+
+require('./jqbootstrapvalidator');
+
+$(function () {
+  $("#contactForm input,#contactForm textarea").jqBootstrapValidation({
+    preventSubmit: true,
+    submitError: function submitError($form, event, errors) {// additional error messages or events
+    },
+    submitSuccess: function submitSuccess($form, event) {
+      event.preventDefault(); // prevent default submit behaviour
+      // get values from FORM
+
+      var name = $("input#name").val();
+      var email = $("input#email").val();
+      var phone = $("input#phone").val();
+      var message = $("textarea#message").val();
+      var firstName = name; // For Success/Failure Message
+      // Check for white space in name for Success/Fail message
+
+      if (firstName.indexOf(' ') >= 0) {
+        firstName = name.split(' ').slice(0, -1).join(' ');
+      }
+
+      $.ajax({
+        url: "././mail/contact_me.php",
+        type: "POST",
+        data: {
+          name: name,
+          phone: phone,
+          email: email,
+          message: message
+        },
+        cache: false,
+        success: function success() {
+          // Success message
+          $('#success').html("<div class='alert alert-success'>");
+          $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;").append("</button>");
+          $('#success > .alert-success').append("<strong>Your message has been sent. </strong>");
+          $('#success > .alert-success').append('</div>'); //clear all fields
+
+          $('#contactForm').trigger("reset");
+        },
+        error: function error() {
+          // Fail message
+          $('#success').html("<div class='alert alert-danger'>");
+          $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;").append("</button>");
+          $('#success > .alert-danger').append("<strong>Sorry " + firstName + ", it seems that my mail server is not responding. Please try again later!");
+          $('#success > .alert-danger').append('</div>'); //clear all fields
+
+          $('#contactForm').trigger("reset");
+        }
+      });
+    },
+    filter: function filter() {
+      return $(this).is(":visible");
+    }
+  });
+  $("a[data-toggle=\"tab\"]").click(function (e) {
+    e.preventDefault();
+    $(this).tab("show");
+  });
+});
+/*When clicking on Full hide fail/success boxes */
+
+$('#name').focus(function () {
+  $('#success').html('');
+});
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _typeof2 = _interopRequireDefault(require("@babel/runtime/helpers/typeof"));
+
+/* jqBootstrapValidation
+ * A plugin for automating validation on Twitter Bootstrap formatted forms.
+ *
+ * v1.3.6
+ *
+ * License: MIT <http://opensource.org/licenses/mit-license.php> - see LICENSE file
+ *
+ * http://ReactiveRaven.github.com/jqBootstrapValidation/
+ */
+(function ($) {
+  var createdElements = [];
+  var defaults = {
+    options: {
+      prependExistingHelpBlock: false,
+      sniffHtml: true,
+      // sniff for 'required', 'maxlength', etc
+      preventSubmit: true,
+      // stop the form submit event from firing if validation fails
+      submitError: false,
+      // function called if there is an error when trying to submit
+      submitSuccess: false,
+      // function called just before a successful submit event is sent to the server
+      semanticallyStrict: false,
+      // set to true to tidy up generated HTML output
+      autoAdd: {
+        helpBlocks: true
+      },
+      filter: function filter() {
+        // return $(this).is(":visible"); // only validate elements you can see
+        return true; // validate everything
+      }
+    },
+    methods: {
+      init: function init(options) {
+        var settings = $.extend(true, {}, defaults);
+        settings.options = $.extend(true, settings.options, options);
+        var $siblingElements = this;
+        var uniqueForms = $.unique($siblingElements.map(function () {
+          return $(this).parents("form")[0];
+        }).toArray());
+        $(uniqueForms).bind("submit", function (e) {
+          var $form = $(this);
+          var warningsFound = 0;
+          var $inputs = $form.find("input,textarea,select").not("[type=submit],[type=image]").filter(settings.options.filter);
+          $inputs.trigger("submit.validation").trigger("validationLostFocus.validation");
+          $inputs.each(function (i, el) {
+            var $this = $(el),
+                $controlGroup = $this.parents(".form-group").first();
+
+            if ($controlGroup.hasClass("warning")) {
+              $controlGroup.removeClass("warning").addClass("error");
+              warningsFound++;
+            }
+          });
+          $inputs.trigger("validationLostFocus.validation");
+
+          if (warningsFound) {
+            if (settings.options.preventSubmit) {
+              e.preventDefault();
+            }
+
+            $form.addClass("error");
+
+            if ($.isFunction(settings.options.submitError)) {
+              settings.options.submitError($form, e, $inputs.jqBootstrapValidation("collectErrors", true));
+            }
+          } else {
+            $form.removeClass("error");
+
+            if ($.isFunction(settings.options.submitSuccess)) {
+              settings.options.submitSuccess($form, e);
+            }
+          }
+        });
+        return this.each(function () {
+          // Get references to everything we're interested in
+          var $this = $(this),
+              $controlGroup = $this.parents(".form-group").first(),
+              $helpBlock = $controlGroup.find(".help-block").first(),
+              $form = $this.parents("form").first(),
+              validatorNames = []; // create message container if not exists
+
+          if (!$helpBlock.length && settings.options.autoAdd && settings.options.autoAdd.helpBlocks) {
+            $helpBlock = $('<div class="help-block" />');
+            $controlGroup.find('.controls').append($helpBlock);
+            createdElements.push($helpBlock[0]);
+          } // =============================================================
+          //                                     SNIFF HTML FOR VALIDATORS
+          // =============================================================
+          // *snort sniff snuffle*
+
+
+          if (settings.options.sniffHtml) {
+            var message = ""; // ---------------------------------------------------------
+            //                                                   PATTERN
+            // ---------------------------------------------------------
+
+            if ($this.attr("pattern") !== undefined) {
+              message = "Not in the expected format<!-- data-validation-pattern-message to override -->";
+
+              if ($this.data("validationPatternMessage")) {
+                message = $this.data("validationPatternMessage");
+              }
+
+              $this.data("validationPatternMessage", message);
+              $this.data("validationPatternRegex", $this.attr("pattern"));
+            } // ---------------------------------------------------------
+            //                                                       MAX
+            // ---------------------------------------------------------
+
+
+            if ($this.attr("max") !== undefined || $this.attr("aria-valuemax") !== undefined) {
+              var max = $this.attr("max") !== undefined ? $this.attr("max") : $this.attr("aria-valuemax");
+              message = "Too high: Maximum of '" + max + "'<!-- data-validation-max-message to override -->";
+
+              if ($this.data("validationMaxMessage")) {
+                message = $this.data("validationMaxMessage");
+              }
+
+              $this.data("validationMaxMessage", message);
+              $this.data("validationMaxMax", max);
+            } // ---------------------------------------------------------
+            //                                                       MIN
+            // ---------------------------------------------------------
+
+
+            if ($this.attr("min") !== undefined || $this.attr("aria-valuemin") !== undefined) {
+              var min = $this.attr("min") !== undefined ? $this.attr("min") : $this.attr("aria-valuemin");
+              message = "Too low: Minimum of '" + min + "'<!-- data-validation-min-message to override -->";
+
+              if ($this.data("validationMinMessage")) {
+                message = $this.data("validationMinMessage");
+              }
+
+              $this.data("validationMinMessage", message);
+              $this.data("validationMinMin", min);
+            } // ---------------------------------------------------------
+            //                                                 MAXLENGTH
+            // ---------------------------------------------------------
+
+
+            if ($this.attr("maxlength") !== undefined) {
+              message = "Too long: Maximum of '" + $this.attr("maxlength") + "' characters<!-- data-validation-maxlength-message to override -->";
+
+              if ($this.data("validationMaxlengthMessage")) {
+                message = $this.data("validationMaxlengthMessage");
+              }
+
+              $this.data("validationMaxlengthMessage", message);
+              $this.data("validationMaxlengthMaxlength", $this.attr("maxlength"));
+            } // ---------------------------------------------------------
+            //                                                 MINLENGTH
+            // ---------------------------------------------------------
+
+
+            if ($this.attr("minlength") !== undefined) {
+              message = "Too short: Minimum of '" + $this.attr("minlength") + "' characters<!-- data-validation-minlength-message to override -->";
+
+              if ($this.data("validationMinlengthMessage")) {
+                message = $this.data("validationMinlengthMessage");
+              }
+
+              $this.data("validationMinlengthMessage", message);
+              $this.data("validationMinlengthMinlength", $this.attr("minlength"));
+            } // ---------------------------------------------------------
+            //                                                  REQUIRED
+            // ---------------------------------------------------------
+
+
+            if ($this.attr("required") !== undefined || $this.attr("aria-required") !== undefined) {
+              message = settings.builtInValidators.required.message;
+
+              if ($this.data("validationRequiredMessage")) {
+                message = $this.data("validationRequiredMessage");
+              }
+
+              $this.data("validationRequiredMessage", message);
+            } // ---------------------------------------------------------
+            //                                                    NUMBER
+            // ---------------------------------------------------------
+
+
+            if ($this.attr("type") !== undefined && $this.attr("type").toLowerCase() === "number") {
+              message = settings.builtInValidators.number.message;
+
+              if ($this.data("validationNumberMessage")) {
+                message = $this.data("validationNumberMessage");
+              }
+
+              $this.data("validationNumberMessage", message);
+            } // ---------------------------------------------------------
+            //                                                     EMAIL
+            // ---------------------------------------------------------
+
+
+            if ($this.attr("type") !== undefined && $this.attr("type").toLowerCase() === "email") {
+              message = "Not a valid email address<!-- data-validator-validemail-message to override -->";
+
+              if ($this.data("validationValidemailMessage")) {
+                message = $this.data("validationValidemailMessage");
+              } else if ($this.data("validationEmailMessage")) {
+                message = $this.data("validationEmailMessage");
+              }
+
+              $this.data("validationValidemailMessage", message);
+            } // ---------------------------------------------------------
+            //                                                MINCHECKED
+            // ---------------------------------------------------------
+
+
+            if ($this.attr("minchecked") !== undefined) {
+              message = "Not enough options checked; Minimum of '" + $this.attr("minchecked") + "' required<!-- data-validation-minchecked-message to override -->";
+
+              if ($this.data("validationMincheckedMessage")) {
+                message = $this.data("validationMincheckedMessage");
+              }
+
+              $this.data("validationMincheckedMessage", message);
+              $this.data("validationMincheckedMinchecked", $this.attr("minchecked"));
+            } // ---------------------------------------------------------
+            //                                                MAXCHECKED
+            // ---------------------------------------------------------
+
+
+            if ($this.attr("maxchecked") !== undefined) {
+              message = "Too many options checked; Maximum of '" + $this.attr("maxchecked") + "' required<!-- data-validation-maxchecked-message to override -->";
+
+              if ($this.data("validationMaxcheckedMessage")) {
+                message = $this.data("validationMaxcheckedMessage");
+              }
+
+              $this.data("validationMaxcheckedMessage", message);
+              $this.data("validationMaxcheckedMaxchecked", $this.attr("maxchecked"));
+            }
+          } // =============================================================
+          //                                       COLLECT VALIDATOR NAMES
+          // =============================================================
+          // Get named validators
+
+
+          if ($this.data("validation") !== undefined) {
+            validatorNames = $this.data("validation").split(",");
+          } // Get extra ones defined on the element's data attributes
+
+
+          $.each($this.data(), function (i, el) {
+            var parts = i.replace(/([A-Z])/g, ",$1").split(",");
+
+            if (parts[0] === "validation" && parts[1]) {
+              validatorNames.push(parts[1]);
+            }
+          }); // =============================================================
+          //                                     NORMALISE VALIDATOR NAMES
+          // =============================================================
+
+          var validatorNamesToInspect = validatorNames;
+          var newValidatorNamesToInspect = [];
+
+          do // repeatedly expand 'shortcut' validators into their real validators
+          {
+            // Uppercase only the first letter of each name
+            $.each(validatorNames, function (i, el) {
+              validatorNames[i] = formatValidatorName(el);
+            }); // Remove duplicate validator names
+
+            validatorNames = $.unique(validatorNames); // Pull out the new validator names from each shortcut
+
+            newValidatorNamesToInspect = [];
+            $.each(validatorNamesToInspect, function (i, el) {
+              if ($this.data("validation" + el + "Shortcut") !== undefined) {
+                // Are these custom validators?
+                // Pull them out!
+                $.each($this.data("validation" + el + "Shortcut").split(","), function (i2, el2) {
+                  newValidatorNamesToInspect.push(el2);
+                });
+              } else if (settings.builtInValidators[el.toLowerCase()]) {
+                // Is this a recognised built-in?
+                // Pull it out!
+                var validator = settings.builtInValidators[el.toLowerCase()];
+
+                if (validator.type.toLowerCase() === "shortcut") {
+                  $.each(validator.shortcut.split(","), function (i, el) {
+                    el = formatValidatorName(el);
+                    newValidatorNamesToInspect.push(el);
+                    validatorNames.push(el);
+                  });
+                }
+              }
+            });
+            validatorNamesToInspect = newValidatorNamesToInspect;
+          } while (validatorNamesToInspect.length > 0); // =============================================================
+          //                                       SET UP VALIDATOR ARRAYS
+          // =============================================================
+
+
+          var validators = {};
+          $.each(validatorNames, function (i, el) {
+            // Set up the 'override' message
+            var message = $this.data("validation" + el + "Message");
+            var hasOverrideMessage = message !== undefined;
+            var foundValidator = false;
+            message = message ? message : "'" + el + "' validation failed <!-- Add attribute 'data-validation-" + el.toLowerCase() + "-message' to input to change this message -->";
+            $.each(settings.validatorTypes, function (validatorType, validatorTemplate) {
+              if (validators[validatorType] === undefined) {
+                validators[validatorType] = [];
+              }
+
+              if (!foundValidator && $this.data("validation" + el + formatValidatorName(validatorTemplate.name)) !== undefined) {
+                validators[validatorType].push($.extend(true, {
+                  name: formatValidatorName(validatorTemplate.name),
+                  message: message
+                }, validatorTemplate.init($this, el)));
+                foundValidator = true;
+              }
+            });
+
+            if (!foundValidator && settings.builtInValidators[el.toLowerCase()]) {
+              var validator = $.extend(true, {}, settings.builtInValidators[el.toLowerCase()]);
+
+              if (hasOverrideMessage) {
+                validator.message = message;
+              }
+
+              var validatorType = validator.type.toLowerCase();
+
+              if (validatorType === "shortcut") {
+                foundValidator = true;
+              } else {
+                $.each(settings.validatorTypes, function (validatorTemplateType, validatorTemplate) {
+                  if (validators[validatorTemplateType] === undefined) {
+                    validators[validatorTemplateType] = [];
+                  }
+
+                  if (!foundValidator && validatorType === validatorTemplateType.toLowerCase()) {
+                    $this.data("validation" + el + formatValidatorName(validatorTemplate.name), validator[validatorTemplate.name.toLowerCase()]);
+                    validators[validatorType].push($.extend(validator, validatorTemplate.init($this, el)));
+                    foundValidator = true;
+                  }
+                });
+              }
+            }
+
+            if (!foundValidator) {
+              $.error("Cannot find validation info for '" + el + "'");
+            }
+          }); // =============================================================
+          //                                         STORE FALLBACK VALUES
+          // =============================================================
+
+          $helpBlock.data("original-contents", $helpBlock.data("original-contents") ? $helpBlock.data("original-contents") : $helpBlock.html());
+          $helpBlock.data("original-role", $helpBlock.data("original-role") ? $helpBlock.data("original-role") : $helpBlock.attr("role"));
+          $controlGroup.data("original-classes", $controlGroup.data("original-clases") ? $controlGroup.data("original-classes") : $controlGroup.attr("class"));
+          $this.data("original-aria-invalid", $this.data("original-aria-invalid") ? $this.data("original-aria-invalid") : $this.attr("aria-invalid")); // =============================================================
+          //                                                    VALIDATION
+          // =============================================================
+
+          $this.bind("validation.validation", function (event, params) {
+            var value = getValue($this); // Get a list of the errors to apply
+
+            var errorsFound = [];
+            $.each(validators, function (validatorType, validatorTypeArray) {
+              if (value || value.length || params && params.includeEmpty || !!settings.validatorTypes[validatorType].blockSubmit && params && !!params.submitting) {
+                $.each(validatorTypeArray, function (i, validator) {
+                  if (settings.validatorTypes[validatorType].validate($this, value, validator)) {
+                    errorsFound.push(validator.message);
+                  }
+                });
+              }
+            });
+            return errorsFound;
+          });
+          $this.bind("getValidators.validation", function () {
+            return validators;
+          }); // =============================================================
+          //                                             WATCH FOR CHANGES
+          // =============================================================
+
+          $this.bind("submit.validation", function () {
+            return $this.triggerHandler("change.validation", {
+              submitting: true
+            });
+          });
+          $this.bind(["keyup", "focus", "blur", "click", "keydown", "keypress", "change"].join(".validation ") + ".validation", function (e, params) {
+            var value = getValue($this);
+            var errorsFound = [];
+            $controlGroup.find("input,textarea,select").each(function (i, el) {
+              var oldCount = errorsFound.length;
+              $.each($(el).triggerHandler("validation.validation", params), function (j, message) {
+                errorsFound.push(message);
+              });
+
+              if (errorsFound.length > oldCount) {
+                $(el).attr("aria-invalid", "true");
+              } else {
+                var original = $this.data("original-aria-invalid");
+                $(el).attr("aria-invalid", original !== undefined ? original : false);
+              }
+            });
+            $form.find("input,select,textarea").not($this).not("[name=\"" + $this.attr("name") + "\"]").trigger("validationLostFocus.validation");
+            errorsFound = $.unique(errorsFound.sort()); // Were there any errors?
+
+            if (errorsFound.length) {
+              // Better flag it up as a warning.
+              $controlGroup.removeClass("success error").addClass("warning"); // How many errors did we find?
+
+              if (settings.options.semanticallyStrict && errorsFound.length === 1) {
+                // Only one? Being strict? Just output it.
+                $helpBlock.html(errorsFound[0] + (settings.options.prependExistingHelpBlock ? $helpBlock.data("original-contents") : ""));
+              } else {
+                // Multiple? Being sloppy? Glue them together into an UL.
+                $helpBlock.html("<ul role=\"alert\"><li>" + errorsFound.join("</li><li>") + "</li></ul>" + (settings.options.prependExistingHelpBlock ? $helpBlock.data("original-contents") : ""));
+              }
+            } else {
+              $controlGroup.removeClass("warning error success");
+
+              if (value.length > 0) {
+                $controlGroup.addClass("success");
+              }
+
+              $helpBlock.html($helpBlock.data("original-contents"));
+            }
+
+            if (e.type === "blur") {
+              $controlGroup.removeClass("success");
+            }
+          });
+          $this.bind("validationLostFocus.validation", function () {
+            $controlGroup.removeClass("success");
+          });
+        });
+      },
+      destroy: function destroy() {
+        return this.each(function () {
+          var $this = $(this),
+              $controlGroup = $this.parents(".form-group").first(),
+              $helpBlock = $controlGroup.find(".help-block").first(); // remove our events
+
+          $this.unbind('.validation'); // events are namespaced.
+          // reset help text
+
+          $helpBlock.html($helpBlock.data("original-contents")); // reset classes
+
+          $controlGroup.attr("class", $controlGroup.data("original-classes")); // reset aria
+
+          $this.attr("aria-invalid", $this.data("original-aria-invalid")); // reset role
+
+          $helpBlock.attr("role", $this.data("original-role")); // remove all elements we created
+
+          if (createdElements.indexOf($helpBlock[0]) > -1) {
+            $helpBlock.remove();
+          }
+        });
+      },
+      collectErrors: function collectErrors(includeEmpty) {
+        var errorMessages = {};
+        this.each(function (i, el) {
+          var $el = $(el);
+          var name = $el.attr("name");
+          var errors = $el.triggerHandler("validation.validation", {
+            includeEmpty: true
+          });
+          errorMessages[name] = $.extend(true, errors, errorMessages[name]);
+        });
+        $.each(errorMessages, function (i, el) {
+          if (el.length === 0) {
+            delete errorMessages[i];
+          }
+        });
+        return errorMessages;
+      },
+      hasErrors: function hasErrors() {
+        var errorMessages = [];
+        this.each(function (i, el) {
+          errorMessages = errorMessages.concat($(el).triggerHandler("getValidators.validation") ? $(el).triggerHandler("validation.validation", {
+            submitting: true
+          }) : []);
+        });
+        return errorMessages.length > 0;
+      },
+      override: function override(newDefaults) {
+        defaults = $.extend(true, defaults, newDefaults);
+      }
+    },
+    validatorTypes: {
+      callback: {
+        name: "callback",
+        init: function init($this, name) {
+          return {
+            validatorName: name,
+            callback: $this.data("validation" + name + "Callback"),
+            lastValue: $this.val(),
+            lastValid: true,
+            lastFinished: true
+          };
+        },
+        validate: function validate($this, value, validator) {
+          if (validator.lastValue === value && validator.lastFinished) {
+            return !validator.lastValid;
+          }
+
+          if (validator.lastFinished === true) {
+            validator.lastValue = value;
+            validator.lastValid = true;
+            validator.lastFinished = false;
+            var rrjqbvValidator = validator;
+            var rrjqbvThis = $this;
+            executeFunctionByName(validator.callback, window, $this, value, function (data) {
+              if (rrjqbvValidator.lastValue === data.value) {
+                rrjqbvValidator.lastValid = data.valid;
+
+                if (data.message) {
+                  rrjqbvValidator.message = data.message;
+                }
+
+                rrjqbvValidator.lastFinished = true;
+                rrjqbvThis.data("validation" + rrjqbvValidator.validatorName + "Message", rrjqbvValidator.message); // Timeout is set to avoid problems with the events being considered 'already fired'
+
+                setTimeout(function () {
+                  rrjqbvThis.trigger("change.validation");
+                }, 1); // doesn't need a long timeout, just long enough for the event bubble to burst
+              }
+            });
+          }
+
+          return false;
+        }
+      },
+      ajax: {
+        name: "ajax",
+        init: function init($this, name) {
+          return {
+            validatorName: name,
+            url: $this.data("validation" + name + "Ajax"),
+            lastValue: $this.val(),
+            lastValid: true,
+            lastFinished: true
+          };
+        },
+        validate: function validate($this, value, validator) {
+          if ("" + validator.lastValue === "" + value && validator.lastFinished === true) {
+            return validator.lastValid === false;
+          }
+
+          if (validator.lastFinished === true) {
+            validator.lastValue = value;
+            validator.lastValid = true;
+            validator.lastFinished = false;
+            $.ajax({
+              url: validator.url,
+              data: "value=" + value + "&field=" + $this.attr("name"),
+              dataType: "json",
+              success: function success(data) {
+                if ("" + validator.lastValue === "" + data.value) {
+                  validator.lastValid = !!data.valid;
+
+                  if (data.message) {
+                    validator.message = data.message;
+                  }
+
+                  validator.lastFinished = true;
+                  $this.data("validation" + validator.validatorName + "Message", validator.message); // Timeout is set to avoid problems with the events being considered 'already fired'
+
+                  setTimeout(function () {
+                    $this.trigger("change.validation");
+                  }, 1); // doesn't need a long timeout, just long enough for the event bubble to burst
+                }
+              },
+              failure: function failure() {
+                validator.lastValid = true;
+                validator.message = "ajax call failed";
+                validator.lastFinished = true;
+                $this.data("validation" + validator.validatorName + "Message", validator.message); // Timeout is set to avoid problems with the events being considered 'already fired'
+
+                setTimeout(function () {
+                  $this.trigger("change.validation");
+                }, 1); // doesn't need a long timeout, just long enough for the event bubble to burst
+              }
+            });
+          }
+
+          return false;
+        }
+      },
+      regex: {
+        name: "regex",
+        init: function init($this, name) {
+          return {
+            regex: regexFromString($this.data("validation" + name + "Regex"))
+          };
+        },
+        validate: function validate($this, value, validator) {
+          return !validator.regex.test(value) && !validator.negative || validator.regex.test(value) && validator.negative;
+        }
+      },
+      required: {
+        name: "required",
+        init: function init($this, name) {
+          return {};
+        },
+        validate: function validate($this, value, validator) {
+          return !!(value.length === 0 && !validator.negative) || !!(value.length > 0 && validator.negative);
+        },
+        blockSubmit: true
+      },
+      match: {
+        name: "match",
+        init: function init($this, name) {
+          var element = $this.parents("form").first().find("[name=\"" + $this.data("validation" + name + "Match") + "\"]").first();
+          element.bind("validation.validation", function () {
+            $this.trigger("change.validation", {
+              submitting: true
+            });
+          });
+          return {
+            "element": element
+          };
+        },
+        validate: function validate($this, value, validator) {
+          return value !== validator.element.val() && !validator.negative || value === validator.element.val() && validator.negative;
+        },
+        blockSubmit: true
+      },
+      max: {
+        name: "max",
+        init: function init($this, name) {
+          return {
+            max: $this.data("validation" + name + "Max")
+          };
+        },
+        validate: function validate($this, value, validator) {
+          return parseFloat(value, 10) > parseFloat(validator.max, 10) && !validator.negative || parseFloat(value, 10) <= parseFloat(validator.max, 10) && validator.negative;
+        }
+      },
+      min: {
+        name: "min",
+        init: function init($this, name) {
+          return {
+            min: $this.data("validation" + name + "Min")
+          };
+        },
+        validate: function validate($this, value, validator) {
+          return parseFloat(value) < parseFloat(validator.min) && !validator.negative || parseFloat(value) >= parseFloat(validator.min) && validator.negative;
+        }
+      },
+      maxlength: {
+        name: "maxlength",
+        init: function init($this, name) {
+          return {
+            maxlength: $this.data("validation" + name + "Maxlength")
+          };
+        },
+        validate: function validate($this, value, validator) {
+          return value.length > validator.maxlength && !validator.negative || value.length <= validator.maxlength && validator.negative;
+        }
+      },
+      minlength: {
+        name: "minlength",
+        init: function init($this, name) {
+          return {
+            minlength: $this.data("validation" + name + "Minlength")
+          };
+        },
+        validate: function validate($this, value, validator) {
+          return value.length < validator.minlength && !validator.negative || value.length >= validator.minlength && validator.negative;
+        }
+      },
+      maxchecked: {
+        name: "maxchecked",
+        init: function init($this, name) {
+          var elements = $this.parents("form").first().find("[name=\"" + $this.attr("name") + "\"]");
+          elements.bind("click.validation", function () {
+            $this.trigger("change.validation", {
+              includeEmpty: true
+            });
+          });
+          return {
+            maxchecked: $this.data("validation" + name + "Maxchecked"),
+            elements: elements
+          };
+        },
+        validate: function validate($this, value, validator) {
+          return validator.elements.filter(":checked").length > validator.maxchecked && !validator.negative || validator.elements.filter(":checked").length <= validator.maxchecked && validator.negative;
+        },
+        blockSubmit: true
+      },
+      minchecked: {
+        name: "minchecked",
+        init: function init($this, name) {
+          var elements = $this.parents("form").first().find("[name=\"" + $this.attr("name") + "\"]");
+          elements.bind("click.validation", function () {
+            $this.trigger("change.validation", {
+              includeEmpty: true
+            });
+          });
+          return {
+            minchecked: $this.data("validation" + name + "Minchecked"),
+            elements: elements
+          };
+        },
+        validate: function validate($this, value, validator) {
+          return validator.elements.filter(":checked").length < validator.minchecked && !validator.negative || validator.elements.filter(":checked").length >= validator.minchecked && validator.negative;
+        },
+        blockSubmit: true
+      }
+    },
+    builtInValidators: {
+      email: {
+        name: "Email",
+        type: "shortcut",
+        shortcut: "validemail"
+      },
+      validemail: {
+        name: "Validemail",
+        type: "regex",
+        regex: "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\\.[A-Za-z]{2,4}",
+        message: "Not a valid email address<!-- data-validator-validemail-message to override -->"
+      },
+      passwordagain: {
+        name: "Passwordagain",
+        type: "match",
+        match: "password",
+        message: "Does not match the given password<!-- data-validator-paswordagain-message to override -->"
+      },
+      positive: {
+        name: "Positive",
+        type: "shortcut",
+        shortcut: "number,positivenumber"
+      },
+      negative: {
+        name: "Negative",
+        type: "shortcut",
+        shortcut: "number,negativenumber"
+      },
+      number: {
+        name: "Number",
+        type: "regex",
+        regex: "([+-]?\\\d+(\\\.\\\d*)?([eE][+-]?[0-9]+)?)?",
+        message: "Must be a number<!-- data-validator-number-message to override -->"
+      },
+      integer: {
+        name: "Integer",
+        type: "regex",
+        regex: "[+-]?\\\d+",
+        message: "No decimal places allowed<!-- data-validator-integer-message to override -->"
+      },
+      positivenumber: {
+        name: "Positivenumber",
+        type: "min",
+        min: 0,
+        message: "Must be a positive number<!-- data-validator-positivenumber-message to override -->"
+      },
+      negativenumber: {
+        name: "Negativenumber",
+        type: "max",
+        max: 0,
+        message: "Must be a negative number<!-- data-validator-negativenumber-message to override -->"
+      },
+      required: {
+        name: "Required",
+        type: "required",
+        message: "This is required<!-- data-validator-required-message to override -->"
+      },
+      checkone: {
+        name: "Checkone",
+        type: "minchecked",
+        minchecked: 1,
+        message: "Check at least one option<!-- data-validation-checkone-message to override -->"
+      }
+    }
+  };
+
+  var formatValidatorName = function formatValidatorName(name) {
+    return name.toLowerCase().replace(/(^|\s)([a-z])/g, function (m, p1, p2) {
+      return p1 + p2.toUpperCase();
+    });
+  };
+
+  var getValue = function getValue($this) {
+    // Extract the value we're talking about
+    var value = $this.val();
+    var type = $this.attr("type");
+
+    if (type === "checkbox") {
+      value = $this.is(":checked") ? value : "";
+    }
+
+    if (type === "radio") {
+      value = $('input[name="' + $this.attr("name") + '"]:checked').length > 0 ? value : "";
+    }
+
+    return value;
+  };
+
+  function regexFromString(inputstring) {
+    return new RegExp("^" + inputstring + "$");
+  }
+  /**
+   * Thanks to Jason Bunting via StackOverflow.com
+   *
+   * http://stackoverflow.com/questions/359788/how-to-execute-a-javascript-function-when-i-have-its-name-as-a-string#answer-359910
+   * Short link: http://tinyurl.com/executeFunctionByName
+  **/
+
+
+  function executeFunctionByName(functionName, context
+  /*, args*/
+  ) {
+    var args = Array.prototype.slice.call(arguments).splice(2);
+    var namespaces = functionName.split(".");
+    var func = namespaces.pop();
+
+    for (var i = 0; i < namespaces.length; i++) {
+      context = context[namespaces[i]];
+    }
+
+    return context[func].apply(this, args);
+  }
+
+  $.fn.jqBootstrapValidation = function (method) {
+    if (defaults.methods[method]) {
+      return defaults.methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
+    } else if ((0, _typeof2.default)(method) === 'object' || !method) {
+      return defaults.methods.init.apply(this, arguments);
+    } else {
+      $.error('Method ' + method + ' does not exist on jQuery.jqBootstrapValidation');
+      return null;
+    }
+  };
+
+  $.jqBootstrapValidation = function (options) {
+    $(":input").not("[type=image],[type=submit]").jqBootstrapValidation.apply(this, arguments);
+  };
+})(jQuery);
+"use strict";
+
+/* eslint-disable no-unsafe-negation */
+(function () {
+  // Vertical Timeline - by CodyHouse.co
+  function VerticalTimeline(element) {
+    this.element = element;
+    this.blocks = this.element.getElementsByClassName("hs-timeline__block");
+    this.images = this.element.getElementsByClassName("hs-timeline__img");
+    this.contents = this.element.getElementsByClassName("hs-timeline__content");
+    this.offset = 0.8;
+    this.hideBlocks();
+  }
+
+  VerticalTimeline.prototype.hideBlocks = function () {
+    if (!"classList" in document.documentElement) {
+      return; // no animation on older browsers
+    } //hide timeline blocks which are outside the viewport
+
+
+    var self = this;
+
+    for (var i = 0; i < this.blocks.length; i++) {
+      (function (i) {
+        if (self.blocks[i].getBoundingClientRect().top > window.innerHeight * self.offset) {
+          self.images[i].classList.add("hs-timeline__img--hidden");
+          self.contents[i].classList.add("hs-timeline__content--hidden");
+        }
+      })(i);
+    }
+  };
+
+  VerticalTimeline.prototype.showBlocks = function () {
+    if (!"classList" in document.documentElement) {
+      return;
+    }
+
+    var self = this;
+
+    for (var i = 0; i < this.blocks.length; i++) {
+      (function (i) {
+        if (self.contents[i].classList.contains("hs-timeline__content--hidden") && self.blocks[i].getBoundingClientRect().top <= window.innerHeight * self.offset) {
+          // add bounce-in animation
+          self.images[i].classList.add("hs-timeline__img--bounce-in");
+          self.contents[i].classList.add("hs-timeline__content--bounce-in");
+          self.images[i].classList.remove("hs-timeline__img--hidden");
+          self.contents[i].classList.remove("hs-timeline__content--hidden");
+        }
+      })(i);
+    }
+  };
+
+  var verticalTimelines = document.getElementsByClassName("js-hs-timeline");
+  var verticalTimelinesArray = [];
+  var scrolling = false;
+
+  if (verticalTimelines.length > 0) {
+    for (var i = 0; i < verticalTimelines.length; i++) {
+      (function (i) {
+        verticalTimelinesArray.push(new VerticalTimeline(verticalTimelines[i]));
+      })(i);
+    } //show timeline blocks on scrolling
+
+
+    window.addEventListener("scroll", function (event) {
+      if (!scrolling) {
+        scrolling = true;
+        !window.requestAnimationFrame ? setTimeout(checkTimelineScroll, 250) : window.requestAnimationFrame(checkTimelineScroll);
+      }
+    });
+  }
+
+  function checkTimelineScroll() {
+    verticalTimelinesArray.forEach(function (timeline) {
+      timeline.showBlocks();
+    });
+    scrolling = false;
+  }
+})(); // if (!document.documentElement.hasAttribute('classList')) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -438,10 +1304,11 @@ Object.defineProperty(exports, "__esModule", {
 exports.ThemeSwitcher = void 0;
 
 /* eslint-disable no-console */
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 function ThemeSwitcher() {
   // ** ====== MODE WIDHET ====== ** //
   // (() => {
-  var $dm_btn = $('#mode_widget');
+  var $dm_btn = document.querySelector('#mode_widget');
   var lsGetMode = localStorage.getItem('dark_mode'); // set button text
 
   if (lsGetMode === 'fasle') {
@@ -455,7 +1322,7 @@ function ThemeSwitcher() {
     var lightHTML = '<span class="which-mode"> Light Mode<i id="mode_icon" class="fa fa-sun mode-icon"></i></span>';
     var modeHTML;
     mode === 'true' ? modeHTML = darkHTML : modeHTML = lightHTML;
-    $dm_btn.html(modeHTML);
+    $dm_btn.innerHTML = modeHTML;
   }
 
   function setMode(mode) {
@@ -464,16 +1331,17 @@ function ThemeSwitcher() {
 
     if (mode === 'true') {
       document.querySelector('#darkmode').disabled = false;
-      $dm_btn.html('<span class="which-mode"> Dark Mode<i id="mode_icon" class="fa fa-moon mode-icon"></i></span>'); // document.querySelector('link[href="css/theme-dark-mode.css"]').disabled = false;
+      $dm_btn.innerHTML = '<span class="which-mode"> Dark Mode<i id="mode_icon" class="fa fa-moon mode-icon"></i></span>'; // document.querySelector('link[href="css/theme-dark-mode.css"]').disabled = false;
+      // document.querySelector('link[href="css/theme-dark-mode.css"]').disabled = false;
     } else {
-      $dm_btn.html('<span class="which-mode"> Light Mode<i id="mode_icon" class="fa fa-sun mode-icon"></i></span>');
+      $dm_btn.innerHTML = '<span class="which-mode"> Light Mode<i id="mode_icon" class="fa fa-sun mode-icon"></i></span>';
     }
 
     return setModeText(mode);
   } // Theme switcher
 
 
-  $dm_btn.on('click', function (event) {
+  $dm_btn.addEventListener('click', function (event) {
     event.preventDefault();
 
     if (localStorage.getItem('dark_mode') === 'true') {

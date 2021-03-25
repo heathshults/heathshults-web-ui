@@ -1,6 +1,21 @@
 // Styling for the footer
 .footer {
+  padding: 1.5rem;
   font-family: $headings-font-family;
   font-size: 0.9rem;
+  color: var(--hs-white);
   text-align: center;
+  background: var(--hs-blueGray-light);
+
+
+
+
+
+
+  a:link {
+    color: var(--hs-color-yellow);
+    @include states;
+
+
+  }
 }

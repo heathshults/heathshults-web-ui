@@ -262,16 +262,15 @@
   
   let dz = document.querySelector('.hs-dropzone')
   let arrows = document.querySelector('#arrows')
+
+  // ondragover allowdrop function
   function onAllowDrop(ev) {
     ev.preventDefault();
     // dz.style.cursor = 'move';
-    if (!dz.classList.contains('hs-dropzone-hover')) {
-      dz.classList.toggle('hs-dropzone-hover');
-    }
-    if (!arrows.classList.contains('hs-fadeout')){
-      arrows.classList.add('hs-fadeout')
-    }
+    !dz.classList.contains('hs-dropzone-hover') ?  dz.classList.add('hs-dropzone-hover') : dz.classList.remove('hs-dropzone-hover');
+    !arrows.classList.contains('hs-fadeout') ? arrows.classList.add('hs-fadeout') : '';
   }
+  
   function onDragLeave(ev) {
     if (arrows.classList.contains('hs-fadeout')){
       arrows.classList.remove('hs-fadeout')
@@ -283,6 +282,10 @@
     ev.dataTransfer.setData("text", ev.target.id);
     ev.currentTarget.style.cursor = 'move';
     //  ev.currentTarget.style.background = 'yellow';
+   }
+
+   function onDragOver {
+
    }
    
    function onDrop(ev) {

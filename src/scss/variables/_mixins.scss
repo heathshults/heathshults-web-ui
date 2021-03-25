@@ -112,14 +112,14 @@
 
   &:focus,
   &.focus {
-    color: $hs-theme-color-text;
+    color: $hs-color-text;
     background-color: darken($hs-gray-50, 10%);
     /* stylelint-disable-next-line */
     border-color: darken($hs-gray-200, 25%);
   }
 
   &:hover {
-    color: $hs-theme-color-text;
+    color: $hs-color-text;
     background-color: darken($hs-gray-50, 10%);
     /* stylelint-disable-next-line */
     border-color: darken($hs-gray-200, 12%);
@@ -128,7 +128,7 @@
   &:active,
   &.active,
   .open >&.dropdown-toggle {
-    color: $hs-theme-color-text;
+    color: $hs-color-text;
     background-color: darken($hs-gray-50, 10%);
     /* stylelint-disable-next-line */
     border-color: darken($hs-gray-200, 12%);
@@ -136,7 +136,7 @@
     &:hover,
     &:focus,
     &.focus {
-      color: $hs-theme-color-text;
+      color: $hs-color-text;
       background-color: darken($hs-gray-50, 17%);
       /* stylelint-disable-next-line */
       border-color: darken($hs-gray-200, 25%);
@@ -164,27 +164,27 @@
 
   .badge {
     color: $hs-gray-50;
-    background-color: $hs-theme-color-text;
+    background-color: $hs-color-text;
   }
 }
 
 // Bootstrap Button Variant
 
-@mixin hs-button-variant($hs-theme-color-text, $hs-gray-50, $hs-gray-200) {
-  color: $hs-theme-color-text;
+@mixin hs-button-variant($hs-color-text, $hs-gray-50, $hs-gray-200) {
+  color: $hs-color-text;
   background-color: $hs-gray-50;
   border-color: $hs-gray-200;
 
   &:focus,
   &.focus {
-    color: $hs-theme-color-text;
+    color: $hs-color-text;
     background-color: darken($hs-gray-50, 10%);
     /* stylelint-disable-next-line */
     border-color: darken($hs-gray-200, 25%);
   }
 
   &:hover {
-    color: $hs-theme-color-text;
+    color: $hs-color-text;
     background-color: darken($hs-gray-50, 10%);
     /* stylelint-disable-next-line */
     border-color: darken($hs-gray-200, 12%);
@@ -193,7 +193,7 @@
   &:active,
   &.active,
   .open > &.dropdown-toggle {
-    color: $hs-theme-color-text;
+    color: $hs-color-text;
     background-color: darken($hs-gray-50, 10%);
     /* stylelint-disable-next-line */
     border-color: darken($hs-gray-200, 12%);
@@ -201,7 +201,7 @@
     &:hover,
     &:focus,
     &.focus {
-      color: $hs-theme-color-text;
+      color: $hs-color-text;
       background-color: darken($hs-gray-50, 17%);
       /* stylelint-disable-next-line */
       border-color: darken($hs-gray-200, 25%);
@@ -229,23 +229,23 @@
 
   .badge {
     color: $hs-gray-50;
-    background-color: $hs-theme-color-text;
+    background-color: $hs-color-text;
   }
 }
 
-@mixin hs-button-color($hs-button-background-color: $hs-button-background-color, $hs-theme-color-text: $hs-button-color) {
-  color: $hs-theme-color-text;
+@mixin hs-button-color($hs-button-background-color: $hs-button-background-color, $hs-color-text: $hs-button-color) {
+  color: $hs-color-text;
   background-color: $hs-button-background-color;
   border: $hs-button-border;
 
   &.hs-card-button--active {
-    background-color: darken($hs-button-background-color, $hs-theme-color-text-tint);
+    background-color: darken($hs-button-background-color, $hs-color-text-tint);
   }
 
   &:not(:disabled):not([disabled]) {
     &:not(:active) {
       &:hover {
-        background-color: lighten($hs-button-background-color, $hs-theme-color-text-tint);
+        background-color: lighten($hs-button-background-color, $hs-color-text-tint);
       }
     }
 
@@ -255,27 +255,27 @@
     }
 
     &:active {
-      background-color: darken($hs-button-background-color, $hs-theme-color-text-tint);
+      background-color: darken($hs-button-background-color, $hs-color-text-tint);
     }
   }
 }
 
-@mixin hs-card-button--ghost($hs-theme-color-text: $hs-button-ghost-color, $hs-theme-color-text-hover: $hs-button-ghost-hover-color) {
-  color: $hs-theme-color-text;
+@mixin hs-card-button--ghost($hs-color-text: $hs-button-ghost-color, $hs-color-text-hover: $hs-button-ghost-hover-color) {
+  color: $hs-color-text;
   background-color: transparent;
-  border: $hs-button-ghost-border-width $hs-button-ghost-border-style $hs-theme-color-text;
+  border: $hs-button-ghost-border-width $hs-button-ghost-border-style $hs-color-text;
 
   &.hs-card-button--active {
-    color: $hs-theme-color-text-hover;
-    background-color: darken($hs-theme-color-text, $hs-theme-color-text-tint);
-    border-color: darken($hs-theme-color-text, $hs-theme-color-text-tint);
+    color: $hs-color-text-hover;
+    background-color: darken($hs-color-text, $hs-color-text-tint);
+    border-color: darken($hs-color-text, $hs-color-text-tint);
   }
 
   &:not(:disabled):not([disabled]) {
     &:not(:active) {
       &:hover {
-        color: $hs-theme-color-text-hover;
-        background-color: $hs-theme-color-text;
+        color: $hs-color-text-hover;
+        background-color: $hs-color-text;
       }
     }
 
@@ -285,20 +285,20 @@
     }
 
     &:active {
-      color: $hs-theme-color-text-hover;
-      background-color: darken($hs-theme-color-text, $hs-theme-color-text-tint);
-      border-color: darken($hs-theme-color-text, $hs-theme-color-text-tint);
+      color: $hs-color-text-hover;
+      background-color: darken($hs-color-text, $hs-color-text-tint);
+      border-color: darken($hs-color-text, $hs-color-text-tint);
     }
   }
 }
 
 @mixin button-shadowlined-variant($hs-button-background-color, $hs-lightnessMultiplier) {
-  // @debug darken($hs-button-background-color, $hs-theme-darken-tint);
-  // @debug lighten($hs-button-background-color, $hs-theme-lighten-tint);
+  // @debug darken($hs-button-background-color, $hs-darken-tint);
+  // @debug lighten($hs-button-background-color, $hs-lighten-tint);
   // @debug "set color:" set-color($hs-button-background-color, $hs-lightnessMultiplier);
 
-  $darkenColor: darken($hs-button-background-color, $hs-theme-darken-tint);
-  $lightenColor: lighten($hs-button-background-color, $hs-theme-lighten-tint);
+  $darkenColor: darken($hs-button-background-color, $hs-darken-tint);
+  $lightenColor: lighten($hs-button-background-color, $hs-lighten-tint);
 
   color: set-color($hs-button-background-color, $hs-lightnessMultiplier);
   background-color: $hs-button-background-color;
@@ -306,24 +306,24 @@
   box-shadow: v(hs-shadow-sm);
 
   &.card-button--active {
-    background-color: darken($hs-button-background-color, $hs-theme-darken-tint);
+    background-color: darken($hs-button-background-color, $hs-darken-tint);
   }
 
   &:not(:disabled):not([disabled]) {
     &:not(:active) {
       &:hover {
-        background-color: lighten($hs-button-background-color, $hs-theme-lighten-tint);
+        background-color: lighten($hs-button-background-color, $hs-lighten-tint);
       }
     }
 
     &:focus {
-      border-color: darken($hs-button-background-color, ($hs-theme-darken-tint + 2%));
-      box-shadow: darken($hs-button-background-color, ($hs-theme-darken-tint + 2%));
+      border-color: darken($hs-button-background-color, ($hs-darken-tint + 2%));
+      box-shadow: darken($hs-button-background-color, ($hs-darken-tint + 2%));
       box-shadow: v(hs-shadow-sm);
     }
 
     &:active {
-      background-color: darken($hs-button-background-color, ($hs-theme-darken-tint + 5%));
+      background-color: darken($hs-button-background-color, ($hs-darken-tint + 5%));
     }
   }
 }
@@ -707,7 +707,7 @@
   font-size: 11px;
   color: $hs-white;
   text-transform: uppercase;
-  background: $hs-theme-color-text_green--dark;
+  background: $hs-color-text_green--dark;
 }
 
 // codyhouse.co

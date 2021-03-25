@@ -32,6 +32,7 @@
     "serve:proxy": "gulp connect_sync",
     "test": "jest --no-cache",
     "test.watch": "jest --watch --no-cache",
+    "js:build": "npx babel src/js/modules --out-dir src/js/temp/ && npx babel src/js/modules/ --out-file src/js/temp/HeathScript-all-concat.js && browserify src/index.js -o www/assets/js/HeathScript.bundle.js",
     "scss:vars:convert": "node src/js/modules/scss2cssVars/index.js",
     "cssvars": "node_modules/.bin/babel-node src/js/modules/scss2cssVars/index.js",
     "cssvars:cli": "src/js/modules/scss2cssVars/bin/scss2cssVars src/scss/variables/_colors.scss -o src/scss/variables/_css-vars-heathshults.scss",

@@ -26,7 +26,7 @@ export namespace Components {
         "clickTarget": string;
         "cloneBaby": any;
         "clonedContent": any;
-        "dataTarget": HTMLAnchorElement | string;
+        "dataTarget": string;
         "dataToggle": any;
         "fnStatusCallBack": (status: boolean, fnName: string, errorMessage?: any) => any;
         "footerDiv": HTMLDivElement;
@@ -455,7 +455,7 @@ declare namespace LocalJSX {
         "clickTarget"?: string;
         "cloneBaby"?: any;
         "clonedContent"?: any;
-        "dataTarget"?: HTMLAnchorElement | string;
+        "dataTarget"?: string;
         "dataToggle"?: any;
         "fnStatusCallBack"?: (status: boolean, fnName: string, errorMessage?: any) => any;
         "footerDiv"?: HTMLDivElement;

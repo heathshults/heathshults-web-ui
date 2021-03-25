@@ -79,7 +79,7 @@ header.masthead,
         @include serif-font;
         // padding-bottom: 75px;
         font-size: 2rem;
-        font-style: italic;
+        // // font-style: italic;
         line-height: normal;
         text-shadow: $hs-text-shadow-light;
         &::after {
@@ -93,7 +93,7 @@ header.masthead,
         padding-left: 50px;
         margin-bottom: 0px;
         font-size: 2.6rem;
-        font-style: italic;
+        // font-style: italic;
         line-height: normal;
         @include heading-font;
       }
@@ -124,7 +124,7 @@ header.masthead,
           @include serif-font;
           padding-bottom: 75px;
           font-size: rem(40px);
-          font-style: italic;
+          // font-style: italic;
           line-height: rem(40px);
         }
         .hs-intro-heading {
@@ -159,7 +159,7 @@ header.masthead,
     @include serif-font;
     // padding-bottom: 75px;
     // font-size: 40px;
-    font-style: italic;
+    // font-style: italic;
     // line-height: 40px;
   }
   .hs-intro-heading {
@@ -199,7 +199,7 @@ header.masthead,
     margin: 20px auto;
     @include serif-font;
     font-size: 2rem;
-    font-style: italic;
+    // // font-style: italic;
   }
   .hs-intro-heading {
     position: relative;
@@ -240,7 +240,7 @@ header.masthead,
     position: relative;
     display: inline-block;
     margin: 20px auto;
-    font-style: italic;
+    // // font-style: italic;
     @include serif-font;
   }
   .hs-intro-heading {

@@ -19,19 +19,19 @@
   border: $hs-button-border-width solid transparent;
 }
 
-@mixin card-button-color($hs-button-background-color: $hs-button-background-color, $hs-theme-color-text: $hs-button-color) {
-  color: $hs-theme-color-text;
+@mixin card-button-color($hs-button-background-color: $hs-button-background-color, $hs-color-text: $hs-button-color) {
+  color: $hs-color-text;
   background-color: $hs-button-background-color;
   border: $hs-button-border;
 
   &.hs-card-button--active {
-    background-color: darken($hs-button-background-color, $hs-theme-color-text-tint);
+    background-color: darken($hs-button-background-color, $hs-color-text-tint);
   }
 
   &:not(:disabled):not([disabled]) {
     &:not(:active) {
       &:hover {
-        background-color: lighten($hs-button-background-color, $hs-theme-color-text-tint);
+        background-color: lighten($hs-button-background-color, $hs-color-text-tint);
       }
     }
 
@@ -41,27 +41,27 @@
     }
 
     &:active {
-      background-color: darken($hs-button-background-color, $hs-theme-color-text-tint);
+      background-color: darken($hs-button-background-color, $hs-color-text-tint);
     }
   }
 }
 
-@mixin hs-card-button--ghost($hs-theme-color-text: $hs-button-ghost-color, $hs-theme-color-text-hover: $hs-button-ghost-hover-color) {
-  color: $hs-theme-color-text;
+@mixin hs-card-button--ghost($hs-color-text: $hs-button-ghost-color, $hs-color-text-hover: $hs-button-ghost-hover-color) {
+  color: $hs-color-text;
   background-color: transparent;
-  border: $hs-button-ghost-border-width $hs-button-ghost-border-style $hs-theme-color-text;
+  border: $hs-button-ghost-border-width $hs-button-ghost-border-style $hs-color-text;
 
   &.hs-card-button--active {
-    color: $hs-theme-color-text-hover;
-    background-color: darken($hs-theme-color-text, $hs-theme-color-text-tint);
-    border-color: darken($hs-theme-color-text, $hs-theme-color-text-tint);
+    color: $hs-color-text-hover;
+    background-color: darken($hs-color-text, $hs-color-text-tint);
+    border-color: darken($hs-color-text, $hs-color-text-tint);
   }
 
   &:not(:disabled):not([disabled]) {
     &:not(:active) {
       &:hover {
-        color: $hs-theme-color-text-hover;
-        background-color: $hs-theme-color-text;
+        color: $hs-color-text-hover;
+        background-color: $hs-color-text;
       }
     }
 
@@ -71,9 +71,9 @@
     }
 
     &:active {
-      color: $hs-theme-color-text-hover;
-      background-color: darken($hs-theme-color-text, $hs-theme-color-text-tint);
-      border-color: darken($hs-theme-color-text, $hs-theme-color-text-tint);
+      color: $hs-color-text-hover;
+      background-color: darken($hs-color-text, $hs-color-text-tint);
+      border-color: darken($hs-color-text, $hs-color-text-tint);
     }
   }
 }

@@ -10,8 +10,8 @@ $hs-black--a50: rgba(0, 0, 0, 0.5) !default;
 $hs-black--a75: rgba(0, 0, 0, 0.75) !default;
 
 // Tint
-$hs-theme-darken-tint: 15% !default;
-$hs-theme-lighten-tint: 15% !default;
+$hs-darken-tint: 15% !default;
+$hs-lighten-tint: 15% !default;
 $hs-lightnessMultiplier: 0.9 !default;
 
 $hs-white: #fff !default;
@@ -56,54 +56,210 @@ $hs-white--a30: rgba(255, 255, 255, 0.3) !default;
 $hs-white--a60: rgba(255, 255, 255, 0.6) !default;
 
 // Override Bootstrap color system
-$yellow: #fed136;
+$yellow:     #fed136 !default;
 
 // Override Bootstrap default state color
-$primary: $yellow;
+$hs-primary:   $yellow !default;
+$hs-primary--a50: rgba(254, 211, 54, 0.486) !default;
+$primary:      $yellow !default;
 
 // Override Bootstrap yiq lightness value
-$yiq-contrasted-threshold: 205;
+$hs-yiq-contrasted-threshold: 205 !default;
+$yiq-contrasted-threshold:    205 !default;
 
-// Color Variables
-$hs-color-red: #e12036 !default;
-$hs-color-pink: #e83e8c !default;
-$hs-color-red-orange: #f63a0f !default;
-$hs-color-orange: #f27011 !default;
-$hs-color-yellow--light: #ffe659 !default;
-$hs-color-yellow: #fed136 !default;
-$hs-color-yellow--dark: #e2b900 !default;
-$hs-color-yellow--darker: #f2b01e !default;
-$hs-color-lime--light: #e7ffcb !default;
-$hs-color-lime: #86e01e !default;
-$hs-color-green--light: #93ff7e !default;
-$hs-color-green: #28a745 !default;
-$hs-color-green--dark: #468c1f !default;
-$hs-color-green--darker: #28610f !default;
-$hs-color-teal: #20c997 !default;
-$hs-color-silver: #aaa !default;
-$hs-color-purple: #6f42c1 !default;
-$hs-color-cyan: #17a2b8 !default;
-$hs-color-turquoise: #5ac8fa !default;
-$hs-color-blue-semimuted: #4997cd !default;
-$hs-color-blue: #007bff !default;
-$hs-color-indigo: #6610f2 !default;
+// fusv-enable
+
+$hs-blue:    #0051bb !default;
+$hs-indigo:  #766cff !default;
+$hs-purple:  #5d0181 !default;
+$hs-pink:    #e83e8c !default;
+$hs-red:     #cf162b !default;
+$hs-orange:  #ff7505 !default;
+$hs-yellow:  #fed136 !default;
+$hs-green:   #008d4b !default;
+$hs-teal:    #20c9bb !default;
+$hs-cyan:    #05a0b8 !default;
+
+// scss-docs-start colors-map
+
+$hs-colors: (
+  "blue":       $hs-blue,
+  "indigo":     $hs-indigo,
+  "purple":     $hs-purple,
+  "pink":       $hs-pink,
+  "red":        $hs-red,
+  "orange":     $hs-orange,
+  "yellow":     $hs-yellow,
+  "green":      $hs-green,
+  "teal":       $hs-teal,
+  "cyan":       $hs-cyan,
+  "white":      $hs-white,
+  "gray":       $hs-gray-600,
+  "gray-dark":  $hs-gray-800
+) !default;
+// scss-docs-end colors-map
+
+$hs-primary:       $hs-blue !default;
+$hs-secondary:     $hs-gray-600 !default;
+$hs-success:       $hs-green !default;
+$hs-info:          $hs-cyan !default;
+$hs-warning:       $hs-yellow !default;
+$hs-danger:        $hs-red !default;
+$hs-light:         $hs-gray-100 !default;
+$hs-dark:          $hs-gray-900 !default;
+
+$interaction-colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$interaction-colors: map-merge(
+  (
+    "primary": $hs-primary,
+    "secondary": $hs-secondary,
+    "success": $hs-success,
+    "info": $hs-info,
+    "warning": $hs-warning,
+    "danger": $hs-danger,
+    "light": $hs-gray-100,
+    "white": $hs-white,
+    "dark": $hs-gray-600,
+  ),
+  $interaction-colors
+);
+
+
+// The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7.
+// See https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast
+$hs-min-contrast-ratio:       4.5 !default;
+
+// Customize the light and dark text colors for use in our color contrast function.
+$hs-contrast-dark:      $hs-black !default;
+$hs-contrast-light:     $hs-white !default;
+
+// fusv-disable
+$hs-blue-100: tint-color($hs-blue, 80%) !default;
+$hs-blue-200: tint-color($hs-blue, 60%) !default;
+$hs-blue-300: tint-color($hs-blue, 40%) !default;
+$hs-blue-400: tint-color($hs-blue, 20%) !default;
+$hs-blue-500: $hs-blue !default;
+$hs-blue-600: shade-color($hs-blue, 20%) !default;
+$hs-blue-700: shade-color($hs-blue, 40%) !default;
+$hs-blue-800: shade-color($hs-blue, 60%) !default;
+$hs-blue-900: shade-color($hs-blue, 80%) !default;
+
+$hs-indigo-100: tint-color($hs-indigo, 80%) !default;
+$hs-indigo-200: tint-color($hs-indigo, 60%) !default;
+$hs-indigo-300: tint-color($hs-indigo, 40%) !default;
+$hs-indigo-400: tint-color($hs-indigo, 20%) !default;
+$hs-indigo-500: $hs-indigo !default;
+$hs-indigo-600: shade-color($hs-indigo, 20%) !default;
+$hs-indigo-700: shade-color($hs-indigo, 40%) !default;
+$hs-indigo-800: shade-color($hs-indigo, 60%) !default;
+$hs-indigo-900: shade-color($hs-indigo, 80%) !default;
+
+$hs-purple-100: tint-color($hs-purple, 80%) !default;
+$hs-purple-200: tint-color($hs-purple, 60%) !default;
+$hs-purple-300: tint-color($hs-purple, 40%) !default;
+$hs-purple-400: tint-color($hs-purple, 20%) !default;
+$hs-purple-500: $hs-purple !default;
+$hs-purple-600: shade-color($hs-purple, 20%) !default;
+$hs-purple-700: shade-color($hs-purple, 40%) !default;
+$hs-purple-800: shade-color($hs-purple, 60%) !default;
+$hs-purple-900: shade-color($hs-purple, 80%) !default;
+
+$hs-pink-100: tint-color($hs-pink, 80%) !default;
+$hs-pink-200: tint-color($hs-pink, 60%) !default;
+$hs-pink-300: tint-color($hs-pink, 40%) !default;
+$hs-pink-400: tint-color($hs-pink, 20%) !default;
+$hs-pink-500: $hs-pink !default;
+$hs-pink-600: shade-color($hs-pink, 20%) !default;
+$hs-pink-700: shade-color($hs-pink, 40%) !default;
+$hs-pink-800: shade-color($hs-pink, 60%) !default;
+$hs-pink-900: shade-color($hs-pink, 80%) !default;
+
+$hs-red-100: tint-color($hs-red, 80%) !default;
+$hs-red-200: tint-color($hs-red, 60%) !default;
+$hs-red-300: tint-color($hs-red, 40%) !default;
+$hs-red-400: tint-color($hs-red, 20%) !default;
+$hs-red-500: $hs-red !default;
+$hs-red-600: shade-color($hs-red, 20%) !default;
+$hs-red-700: shade-color($hs-red, 40%) !default;
+$hs-red-800: shade-color($hs-red, 60%) !default;
+$hs-red-900: shade-color($hs-red, 80%) !default;
+
+$hs-orange-100: tint-color($hs-orange, 80%) !default;
+$hs-orange-200: tint-color($hs-orange, 60%) !default;
+$hs-orange-300: tint-color($hs-orange, 40%) !default;
+$hs-orange-400: tint-color($hs-orange, 20%) !default;
+$hs-orange-500: $hs-orange !default;
+$hs-orange-600: shade-color($hs-orange, 20%) !default;
+$hs-orange-700: shade-color($hs-orange, 40%) !default;
+$hs-orange-800: shade-color($hs-orange, 60%) !default;
+$hs-orange-900: shade-color($hs-orange, 80%) !default;
+
+$hs-yellow-100: tint-color($hs-yellow, 80%) !default;
+$hs-yellow-200: tint-color($hs-yellow, 60%) !default;
+$hs-yellow-300: tint-color($hs-yellow, 40%) !default;
+$hs-yellow-400: tint-color($hs-yellow, 20%) !default;
+$hs-yellow-500: $hs-yellow !default;
+$hs-yellow-600: shade-color($hs-yellow, 20%) !default;
+$hs-yellow-700: shade-color($hs-yellow, 40%) !default;
+$hs-yellow-800: shade-color($hs-yellow, 60%) !default;
+$hs-yellow-900: shade-color($hs-yellow, 80%) !default;
+
+$hs-green-100: tint-color($hs-green, 80%) !default;
+$hs-green-200: tint-color($hs-green, 60%) !default;
+$hs-green-300: tint-color($hs-green, 40%) !default;
+$hs-green-400: tint-color($hs-green, 20%) !default;
+$hs-green-500: $hs-green !default;
+$hs-green-600: shade-color($hs-green, 20%) !default;
+$hs-green-700: shade-color($hs-green, 40%) !default;
+$hs-green-800: shade-color($hs-green, 60%) !default;
+$hs-green-900: shade-color($hs-green, 80%) !default;
+
+$hs-teal-100: tint-color($hs-teal, 80%) !default;
+$hs-teal-200: tint-color($hs-teal, 60%) !default;
+$hs-teal-300: tint-color($hs-teal, 40%) !default;
+$hs-teal-400: tint-color($hs-teal, 20%) !default;
+$hs-teal-500: $hs-teal !default;
+$hs-teal-600: shade-color($hs-teal, 20%) !default;
+$hs-teal-700: shade-color($hs-teal, 40%) !default;
+$hs-teal-800: shade-color($hs-teal, 60%) !default;
+$hs-teal-900: shade-color($hs-teal, 80%) !default;
+
+$hs-cyan-100: tint-color($hs-cyan, 80%) !default;
+$hs-cyan-200: tint-color($hs-cyan, 60%) !default;
+$hs-cyan-300: tint-color($hs-cyan, 40%) !default;
+$hs-cyan-400: tint-color($hs-cyan, 20%) !default;
+$hs-cyan-500: $hs-cyan !default;
+$hs-cyan-600: shade-color($hs-cyan, 20%) !default;
+$hs-cyan-700: shade-color($hs-cyan, 40%) !default;
+$hs-cyan-800: shade-color($hs-cyan, 60%) !default;
+$hs-cyan-900: shade-color($hs-cyan, 80%) !default;
+// fusv-enable
+
+// background colors
+$hs-background-primary: $hs-gray-50 !default;
+$hs-background-secondary: $hs-gray-200 !default;
+
+
+// Random Color Varient Variables
+$hs-red-orange: #f63a0f !default;
+$hs-yellow--light: #ffe659 !default;
+$hs-yellow--dark: #e2b900 !default;
+$hs-yellow--darker: #f2b01e !default;
+$hs-lime--light: #e7ffcb !default;
+$hs-lime: #86e01e !default;
+$hs-green--light: #93ff7e !default;
+$hs-green--dark: #468c1f !default;
+$hs-green--darker: #28610f !default;
+$hs-silver: #aaa !default;
+$hs-turquoise: #5ac8fa !default;
+$hs-blue-semimuted: #4997cd !default;
 $hs-hsl-grey: hsl(207, 10%, 55%);
 $hs-hsl-grey-light: hsl(206, 13%, 79%);
 $hs-hsl-green: hsl(111, 51%, 60%);
 $hs-hsl-red: hsl(353, 76%, 50%);
 $hs-hsl-yellow: hsl(47, 85%, 61%);
 $hs-hsl-white: hsl(0, 0%, 100%);
-
-// Theme colors
-$hs-theme-primary: $hs-color-yellow !default;
-$hs-theme-primary--a50: rgba(254, 211, 54, 0.5) !default;
-$hs-theme-secondary: $hs-gray-600 !default;
-$hs-theme-success: $hs-color-green !default;
-$hs-theme-info: #17a2b8 !default;
-$hs-theme-danger: #e74c3c !default;
-$hs-theme-warning: #007bff !default;
-$hs-theme-background-primary: $hs-gray-50 !default;
-$hs-theme-background-secondary: $hs-gray-200 !default;
 
 // Dark Mode Colors
 $hs-blueGray-medium: #507386 !default;
@@ -127,38 +283,89 @@ $hs-blue--lightest-muted: #9bcbe6 !default;
 $hs-blue--light-shadow: #3ab1c3 !default;
 $hs-blue--light-background: #117a8b !default;
 $hs-blue--dark: #1e364e !default;
-$hs-link--primary: $hs-theme-primary !default;
+$hs-link--primary: $hs-primary !default;
 $hs-clip-background: content-box !default;
 
 $hs-baige-light: #cac1ac !default;
 $hs-baige-medium: #a79e8b !default;
 
-$interaction-colors: () !default;
-// stylelint-disable-next-line scss/dollar-variable-default
-$interaction-colors: map-merge(
-  (
-    "primary": $hs-theme-primary,
-    "secondary": $hs-theme-secondary,
-    "success": $hs-theme-success,
-    "info": $hs-theme-info,
-    "warning": $hs-theme-warning,
-    "danger": $hs-theme-danger,
-    "light": $hs-gray-100,
-    "white": $hs-white,
-    "dark": $hs-gray-600,
-  ),
-  $interaction-colors
-);
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
 
-$hs-theme-color-text: $hs-gray-700 !default;
-$hs-theme-color-text-onDark: $hs-white !default;
+$hs-enable-caret:                true !default;
+$hs-enable-rounded:              true !default;
+$hs-enable-shadows:              false !default;
+$hs-enable-gradients:            false !default;
+$hs-enable-transitions:          true !default;
+$hs-enable-reduced-motion:       true !default;
+$hs-enable-smooth-scroll:        true !default;
+$hs-enable-grid-classes:         true !default;
+$hs-enable-button-pointers:      true !default;
+$hs-enable-rfs:                  true !default;
+$hs-enable-validation-icons:     true !default;
+$hs-enable-negative-margins:     false !default;
+$hs-enable-deprecation-messages: true !default;
+$hs-enable-important-utilities:  true !default;
 
-$hs-font-primary: "Roboto", sans-serif !default;
+// Prefix for :root CSS variables
+
+$-variable-prefix:             hs- !default;
+
+// Gradient
+//
+// The gradient which is added to components if `$hs-enable-gradients` is `true`
+// This gradient is also added to elements with `.bg-gradient`
+$hs-gradient: linear-gradient(180deg, rgba($hs-white, .15), rgba($hs-white, 0)) !default;
+
+// Spacing
+//
+// Control the default styling of most Bootstrap elements by modifying these
+// variables. Mostly focused on spacing.
+// You can add more entries to the $spacers map, should you need more variation.
+
+
+// Body
+//
+// Settings for the `<body>` element.
+
+$hs-body-bg:                   $hs-white !default;
+$hs-body-color:                $hs-gray-900 !default;
+$hs-body-text-align:           null !default;
+
+
+// Links
+//
+// Style anchor elements.
+
+$hs-link-color:                              $hs-yellow--dark !default;
+$hs-link-decoration:                         underline !default;
+$hs-link-shade-percentage:                   20% !default;
+$hs-link-hover-color:                        shift-color($hs-link-color, $hs-link-shade-percentage) !default;
+$hs-link-hover-decoration:                   null !default;
+
+$hs-stretched-link-pseudo-element:           after !default;
+$hs-stretched-link-z-index:                  1 !default;
+
+$hs-color-text: $hs-gray-700 !default;
+$hs-color-text-onDark: $hs-white !default;
+
+$font-family: 'Roboto', sans-serif;
+// stylelint-disable value-keyword-case
+$hs-font-family-sans-serif:      system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$hs-font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+// stylelint-enable value-keyword-case
+// $hs-font-family-base:            var(--#{$variable-prefix}font-sans-serif) !default;
+// $hs-font-family-code:            var(--#{$variable-prefix}font-monospace) !default;
+
+
+$hs-font-primary: 'Roboto', sans-serif !default;
 $hs-font-secondary: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $hs-font-serif: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $hs-font-cursive-Caveat: "Caveat", cursive !default;
 $hs-font-cursive-NYCD: "Nothing You Could Do", cursive !default;
 $hs-font-cursive-Sedgwick: "Sedgwick Ave Display", cursive !default;
+$hs-font-size-root: 1rem;
 $hs-font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
 $hs-font-size-lg: $hs-font-size-base * 1.25 !default;
 $hs-font-size-sm: $hs-font-size-base * 0.875 !default;
@@ -224,7 +431,7 @@ $hs-grid-row-columns: 6 !default;
 $hs-border-width: 1px !default;
 $hs-border-color: $hs-gray-300 !default;
 
-$enable-rounded: true !default;
+$hs-enable-rounded: true !default;
 
 $hs-border-radius: 0.25rem !default; // 4px
 $hs-border-radius-sm: 0.125rem !default; // 2px
@@ -250,12 +457,12 @@ $hs-shadow-none: none !default;
 $hs-card-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.45), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) !default;
 $hs-card-shadow-2: 0 4px 6px 2px rgba(0, 0, 0, 0.3) !default;
 $hs-button-shadow-nocolor: 0px 1px 5px 1px !default;
-$hs-button-focus: $hs-button-shadow-nocolor $hs-theme-primary--a50 !default;
+$hs-button-focus: $hs-button-shadow-nocolor $hs-primary--a50 !default;
 $hs-button-secondary-focus: $hs-button-shadow-nocolor $hs-gray-600 !default;
-$hs-button-success-shadow: $hs-button-shadow-nocolor rgba(darken($hs-color-green--darker, 5%), 45%) !default;
+$hs-button-success-shadow: $hs-button-shadow-nocolor rgba(darken($hs-green--darker, 5%), 45%) !default;
 $hs-button-info-shadow: $hs-button-shadow-nocolor rgba(darken($hs-blue--light-shadow, 5%), 45%) !default;
-$hs-button-warning-shadow: $hs-button-shadow-nocolor rgba(darken($hs-color-orange, 5%), 45%) !default;
-$hs-button-danger-shadow: $hs-button-shadow-nocolor rgba(darken($hs-color-red, 5%), 45%) !default;
+$hs-button-warning-shadow: $hs-button-shadow-nocolor rgba(darken($hs-orange, 5%), 45%) !default;
+$hs-button-danger-shadow: $hs-button-shadow-nocolor rgba(darken($hs-red, 5%), 45%) !default;
 // Backgrounds
 $hs-bg-black-to-transparent: linear-gradient(0deg, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 1) 100%) !default;
 

@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types, no-console, no-unused-vars, no-undefined */
 // @ts-ignore
 import { Component, Element, Prop, Listen, Event, h } from '@stencil/core';
+import * as bootstrap from './bootstrap';
 
 @Component({
   tag: 'hs-card',
@@ -27,7 +28,7 @@ export class HSCard {
   @Prop() imgPath:string;
   @Prop() showHide:string;
 
-  @Prop() dataTarget: HTMLAnchorElement | string;
+  @Prop() dataTarget: string;
   @Prop() dataToggle: any = 'modal' || 'link';
   
   @Prop() autoFooter: boolean;
@@ -67,17 +68,31 @@ export class HSCard {
   @Prop() builderThree;
 
   @Listen('click')
-  clickHandler(mode: string, target: string, event: Event) {
-    event.preventDefault();
-    const clicker = event.target as HTMLAnchorElement; //this.el.shadowRoot.querySelector('.hs-card_button');
-    if (mode==='modal' && target) {
-      const theModal = document.querySelector(`#${target}`) as HTMLElement;
-      theModal.toggle();
-    } else {
-      if (this.validURL(target)) window.location.href = target;
-    }
+  clickHandler(event: Event): any {
+      try {
+        event.preventDefault();
+        const clicker = event.target as HTMLAnchorElement; //this.el.shadowRoot.querySelector('.hs-card_button');
+        const theModal: HTMLElement = document.querySelector(`#${this.dataTarget}`);
+          if (this.dataToggle === 'modal' && this.dataTarget) {
+            return theModal.style.display = 'block',
+            theModal.classList.add('show');
+          } else {
+            if (this.validURL(this.dataTarget)) {
+              const go = window.location.href = this.dataTarget;
+              return go;
+            }
+          } 
+      } catch(err) {
+        throw new Error(err);
+      }
+
       return;
   }
+    
+
+      
+    
+  
 
 
   
@@ -97,7 +112,7 @@ export class HSCard {
   };
 
   connectedCallback() {
-    this.validURL(this.imgPath) ? this.showHide = 'hs-display-block' : this.showHide = 'hs-display-none';
+    
 
     return new Promise((resolve, reject): any => {
       setTimeout((): any => {
@@ -168,12 +183,12 @@ export class HSCard {
  
   
 
-  render() {
-
+  render(): any  {
+    !this.imgPath ? this.showHide = 'hs-display-none' : this.showHide = 'hs-display-block';
     return (
       <div id={`${this.cardId}`} class="hs-card">
         <header class={`hs-card_header`}>
-          <a id="imgHeaderOverlay" class={`hs-overlay ${this.showHide} p-0 m-0`} href={this.clickHandler(this.dataToggle, this.dataTarget, event)} ><img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img ${this.showHide} p-0 m-0`} alt="header image" /></a> 
+          <a id="imgHeaderOverlay" class={`hs-overlay ${this.showHide} p-0 m-0`}  data-mode={this.dataToggle} data-target={this.dataTarget}  href="#" ><img id="hsHeaderImg" src={`${this.imgPath}`} class={`hs-card_img-header_img ${this.showHide} p-0 m-0`} alt="header image" /></a> 
         <slot name="card-header" />
         </header>
         <div id="cloneBaby" class="hs-card_body">
