@@ -876,7 +876,12 @@ input:not(:-webkit-autofill) {
 // ======* ANIMATED CHECKBOX **======>
 .hs-slide-submit {
   position: relative;
-  width: 250px;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 260px;
   height: 48px;
   padding: 6px;
   margin: auto;
@@ -891,12 +896,15 @@ input:not(:-webkit-autofill) {
     margin: 0;
   }
   .hs-slide-submit_left {
+    flex: 0 32px;
+    width: 156px;
     height: 32px;
     padding: 0;
     margin: 0;
     text-align: left;
     .hs-slide-submit-button {
       position: relative;
+      flex: 1 1 auto;
       width: 32px;
       height: 32px;
       font-size: 1.5rem;
@@ -931,6 +939,7 @@ input:not(:-webkit-autofill) {
       top: 50%;
       left: 50%;
       z-index: 1000;
+      flex: 1 1 auto;
       font-weight: 700;
       // margin: auto;
       color: $hs-gray-300;
@@ -988,37 +997,38 @@ input:not(:-webkit-autofill) {
 
   }
   .hs-slide-submit_right {
+    flex: 1 1 auto;
+    width: 32px;
     height: 32px;
     padding: 0;
     margin: 0;
     text-align: right;
-    .hs-slide-submit-button_drop {
+
+
+    // border-radius: 500px;
+    &.hs-dropzone {
+      position: absolute;
+      top: -2px;
+      right: 0;
+      display: inline-flex;
+      flex: 1 1 auto;
+      width: 32px;
+      height: 32px;
       font-size: 1.5rem;
       color: #6f6f6f;
       background-color: rgba(255, 255, 255, 0.3);
-      border: 2px solid #fff;
+      border: 2px dashed #fff;
       transition: all .35s ease-in-out;
-      // border-radius: 500px;
-      &.hs-dropzone {
-        position: absolute;
-        top: -2px;
-        right: 0;
-        width: 36px;
-        height: 36px;
-        background: transparent;
-        border-style: dashed;
-      }
-
-      &.hs-dropzone-hover {
-        border-color: rgb(22, 71, 162);
-      }
-      &.hs-dropzone-has-file {
-        background-color: #fff;
-        border: 2px solid green;
-      }
-
-
     }
+
+    &.hs-dropzone-hover {
+      border-color: rgb(22, 71, 162);
+    }
+    &.hs-dropzone-has-file {
+      background-color: #fff;
+      border: 2px solid green;
+    }
+
   }
 }
 

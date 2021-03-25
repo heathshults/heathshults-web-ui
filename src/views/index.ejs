@@ -684,10 +684,10 @@
                 </div>
 
                 <!-- anibutton -->
-                <div class="col-lg-12 text-center">
+                <!-- <div class="col-lg-12 text-center"> -->
                   <div type="submit" class="hs-slide-submit" >
-                    <div closs="container-fluid">
-                      <div class="row w-100 m-0">
+                    <!-- <div closs="container-fluid"> -->
+                      <!-- <div class="row w-100 m-0"> -->
                         <div class="col-md-2 hs-slide-submit_left p-0 m-0">
                           <div id="drag1"
                             src="img_logo.gif" 
@@ -702,6 +702,7 @@
                             </svg>
                           </div>
                         </div>
+
                         <div class="hs-slide-submit-center col-md-8 m-0">
                           <span class="hs-slide-submit_label">SEND</span>
                           <!-- animated arrows -->
@@ -717,22 +718,23 @@
                         </svg>
                           </div>
                         </div >
+
                         <div class="col-md-2 hs-slide-submit_right p-0 m-0">
-                          <div id="dzone"
-                            ondragover ="onAllowDrop(event)"
-                            ondrop="onDrop(event)"
-                            class="hs-slide-submit-button_drop hs-dropzone">
-                          </div>
+                        <div id="dzone" 
+                          ondragover ="onAllowDrop(event)"
+                          ondrop="onDrop(event)"
+                          ondragenter="onPenetration(event)"
+                          class="  hs-dropzone p-0 m-0">
                         </div>
+                      </div>
                       </div>
                       
                       
-                      
-                    </div>
-                  </div>
+                    <!-- </div> -->
+                  <!-- </div> -->
                   
                   <div id="success"></div>
-                </div>
+                <!-- </div> -->
                 <!-- anibutton -->
 
                 <div class="row">
