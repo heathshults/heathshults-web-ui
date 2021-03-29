@@ -208,16 +208,234 @@
   <svg class="svg-checkmark" x="0px" y="0px" viewBox="0 0 135 110" width="35px" height="43px">
     <rect class="box" x="5" y="5" width="100" height="100" transform="rotate(90 55 55)"/>
     <path class="check" d="M126.8,14L55.7,85.1L29.2,63.4"/>
-  </svg> 
+  </svg>
   <style>
+    .slide-button-grid {
+      display: grid;
+      grid-template-columns: 42px 1fr 42px;
+      gap: 0px 0px;
+      grid-template-areas: "grid__left grid__center grid__right";
+      width: 270px;
+      padding: 2px;
+      margin: auto;
+      background-color: rgba(255, 255, 255, 0.5);
+      border: 2px solid #fff;
+    }
+    .slide-button-grid .slide-button-grid__left {
+      grid-area: grid__left;
+      display: flex;
+      flex: 0 0 42px;
+      align-items: center;
+      height: 42px;
+    }
+    .slide-button-grid .slide-button-grid__left .grid-left__inner {
+      padding: 2px;
+      border: 2px solid transparent;
+    }
+    .slide-button-grid .slide-button-grid__center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 42px;
+      font-size: .9rem;
+      font-weight: 700;
+      color: $hs-gray-300;
+      text-align: center;
+      grid-area: grid__center;
+    }
+    .slide-button-grid .slide-button-grid__right {
+      grid-area: grid__right;
+      display: flex;
+      align-items: center;
+      height: 42px;
+    }
+
+    /* .slide-button-grid .slide-button-grid__right .grid-right__inner {
+      text-align: center;
+    } */
+
+    .slide-button {
+      width: 32px;
+      height: 32px;
+      cursor: grab;
+      background-image: url('../assets/img/svg/slide-submit-button.svg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 32px 32px;
+    }
+
+    .dropzone {
+      width: 32px;
+      height: 32px;
+      font-size: .8rem;
+      font-weight: 700px;
+      line-height: .7rem;
+      text-align: center;
+      border: 2px dashed #fff;
+      transition: all .35s ease-in-out
+    }
+    .dropzone.drop-ready {
+
+      border-color: var(--hs-flip2code-color-core-blue-70);
+      transition: all .35s ease-in-out
+    }
+    .dropzone.drop-now {
+      border-color: green;
+      transition: all .35s ease-in-out;
+      transform: scale(1.2)
+    }
   </style>
+<div class="slide-button-grid">
+  <div class="slide-button-grid__left">
+    <div class="grid-left__inner">
+      <div id="slideButton" class="slide-button draggable" draggable="true"></div>
+    </div>
+  </div>
+  <div class="slide-button-grid__center">
+    SEND
+  </div>
+  <div class="slide-button-grid__right">
+    <!-- <div id="dropzoneOutter" class="grid-right__inner"> -->
+      <div id="dropzone" class="dropzone"></div>
+    <!-- </div> -->
+  </div>
+</div>
+  
+
+<script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+
+<script>
+var slideButton = document.querySelector('#slideButton')
+var dropzone = document.querySelector('#dropzone')
+var finalX;
+var finalY;
+console.log(slideButton)
+console.log(dropzone)
+
+interact('.draggable').draggable({
+  
+  inertia: true,
+  modifiers: [
+    interact.modifiers.restrictRect({
+      restriction: 'parent',
+      endOnly: true
+    })
+  ],
+  autoScroll: true,
+  listeners: {
+    move: dragMoveListener,
+
+    start (event) {
+      dropzone.classList.add('drop-ready')
+    },
+    // call this function on every dragend event
+    end (event) {
+      slideButton.style.webkitTransform =
+        slideButton.style.transform = 'translate(' + finalX + 'px, ' + finalY + 'px)'
+
+      // update the   posiion attributes
+      slideButton.setAttribute('data-x', finalX)
+      slideButton.setAttribute('data-y', finalY)
+      
+      // var textEl = event.target.querySelector('p')
+      // textEl && (textEl.textContent =
+      //   'moved a distance of ' +
+      //   (Math.sqrt(Math.pow(event.pageX - event.x0, 2) +
+      //              Math.pow(event.pageY - event.y0, 2) | 0)).toFixed(2) + 'px')
+    }
+  }
+})
+
+function dragMoveListener (event) {
+  
+  var target = event.target
+  // keep the dragged position in the data-x/data-y attributes
+  var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
+  var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
+
+  // translate the element
+  target.style.webkitTransform =
+    target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
+
+  // update the posiion attributes
+  target.setAttribute('data-x', x)
+  target.setAttribute('data-y', y)
+
+ 
+}
+
+// this function is used later in the resizing and gesture demos
+window.dragMoveListener = dragMoveListener
 
 
 
+interact('.dropzone').dropzone({
+  // only accept elements matching this CSS selector
+  accept: '.slide-button',
+  // Require a 75% element overlap for a drop to be possible
+  overlap: 0.25,
+
+  ondragenter: function (event) {
+    var draggableElement = event.relatedTarget
+    var dropzoneElement = event.target
+    dropzone.classList.remove('drop-ready')
+    dropzone.classList.add('drop-now')
+    // feedback the possibility of a drop
+
+    slideButton.textContent = 'Drop!'
     
-    <script>
+  },
+  ondragleave: function (event) {
+    // remove the drop feedback style
+    dropzone.classList.remove('drop-target')
+    dropzone.classList.remove('drop-now')
+    slideButton.classList.remove('can-drop')
+    slideButton.textContent = 'Bye'
+  },
+  ondrop: function (event) {
+    var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
+    var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
+    var finalX = x
+    var finalY = y
+    // translate the element
+    target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
+    target.style.webkitTransform = target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
 
-    </script>
+    // update the posiion attributes
+    target.setAttribute('data-x', x)
+    target.setAttribute('data-y', y)
+
+    event.relatedTarget.textContent = 'Dropped'
+    slideButton.style.webkitTransform =
+        slideButton.style.transform = 'translate(' + finalX + 'px, ' + finalY + 'px)'
+
+      // update the   posiion attributes
+      slideButton.setAttribute('data-x', finalX)
+      slideButton.setAttribute('data-y', finalY)
+
+  },
+  ondropdeactivate: function (event) {
+    // remove active dropzone feedback
+    event.target.classList.remove('drop-active')
+    event.target.classList.remove('drop-target')
+
+  }
+})
+interact('.slide-button')
+  .draggable({
+    inertia: true,
+    modifiers: [
+      interact.modifiers.restrictRect({
+        restriction: 'parent',
+        endOnly: true
+      })
+    ],
+    autoScroll: true,
+    // dragMoveListener from the dragging demo above
+    listeners: { move: dragMoveListener }
+  })
+
+</script>
  
 
 </div >
@@ -232,7 +450,6 @@
 
 <section>
 </section>
-<script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
 
 <script>
 
@@ -288,23 +505,18 @@
    
  </script>
   
-  <!-- jQuery  -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
-
-  <!-- Bootstrap Core JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-  <!-- Plugin JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-
   <!-- Contact Form JavaScript -->
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/jqBootstrapValidation/1.3.6/jqBootstrapValidation.min.js"></script>
+  <!-- <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jqBootstrapValidation/1.3.6/jqBootstrapValidation.min.js"></script> -->
   <!-- <script src="js/contact_me.js"></script> -->
 
   <!-- Theme JavaScript -->
-   <!-- <script src="/assets/js/HeathScript.js" type="module"></script>
-  <script src="hScript.bundle.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  <script src="/assets/js/vendor/perfect-scrollbar-1.4.0/dist/perfect-scrollbar.js" type="module"></script>
+
+  <!-- Theme JavaScript -->
+  <script src="/assets/js/HeathScript.bundle.js" type="module"></script>
+
   
   <script src="/assets/js/autofill-detector.js"></script>
 
