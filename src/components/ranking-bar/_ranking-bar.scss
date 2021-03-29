@@ -45,7 +45,7 @@
   color: #2e2e2e;
   background-image: linear-gradient(to right, #ff8000 5%, #ffc800 20%, #7dd31b 50%);
   border-top-right-radius: 500px;
-  // background-image: linear-gradient(to right, #e8921e, #f2d32f, var(--hs-color_lime));
+  // background-image: linear-gradient(to right, #e8921e, #f2d32f, var(--hs-lime));
   border-bottom-right-radius: 500px;
   box-shadow: 0 0 1px 1px var(--black--a25), inset 0 1px var(--black--a15);
   transition: 0.4s linear;
@@ -108,7 +108,7 @@
   font-family: 'Digital-7', 'Courier New', Courier, monospace;
   font-size: 1rem;
   font-weight: normal;
-  color: var(--hs-color-lime);
+  color: var(--hs-lime);
   text-align: center;
   letter-spacing: 1pt;
   background: var(--hs-gray-900);
@@ -120,25 +120,25 @@
 
 #five:checked ~ .hs-ranking > .hs-ranking-bar {
   width: 5%;
-  background-color: var(---hs-color_red-orange);
+  background-color: var(---hs-red-orange);
 }
 
 #twentyfive:checked ~ .hs-ranking > .hs-ranking-bar {
   width: 25%;
-  background-color: var(---hs-color_orange);
+  background-color: var(---hs-orange);
 }
 
 #fifty:checked ~ .hs-ranking > .hs-ranking-bar {
   width: 50%;
-  background-color: var(--hs-color_dark-yellow);
+  background-color: var(--hs-dark-yellow);
 }
 
 #seventyfive:checked ~ .hs-ranking > .hs-ranking-bar {
   width: 75%;
-  background-color: var(--hs-color_yellow);
+  background-color: var(--hs-yellow);
 }
 
 #onehundred:checked ~ .hs-ranking > .hs-ranking-bar {
   width: 100%;
-  background-color: var(--hs-color_lime);
+  background-color: var(--hs-lime);
 }

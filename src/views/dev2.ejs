@@ -73,7 +73,7 @@
       <div class="container  pt-5">
         <div class="row">
           <div class="col-lg-12 text-center text-color--white">
-              <hs-rotator3d data-gap="10"></hs-rotator3d>
+              <p>Empty work space</p>
           </div>
         </div>
         <div class="row">
@@ -108,15 +108,15 @@
 
   <section id="contact" class="hs-contact hs-section pt-5">
   <div class="container  pt-5">
+    <div class="row">
+      <div class="col-lg-12 text-center text-color--white">
+        <h2 class="hs-section-heading">Contact Me</h2>
+        <h3 class="hs-section-subheading hs-text-muted">
+            &#10038 Get the job done right the first time. &#10038
+        </h3 >
+      </div >
+    </div >
   <div class="row">
-  <div class="col-lg-12 text-center text-color--white">
-  <h2 class="hs-section-heading">Contact Me</h2>
-  <h3 class="hs-section-subheading hs-text-muted">
-  &#10038 Get the job done right the first time. &#10038
-  </h3 >
-  </div >
-  </div >
-  <div class="row" style="max-height: 270px;" >
   <div class="col-lg-12 pt-4" >
     <form name="sentMessage" autocomplete="off" id="contactForm" class="mt-5" novalidate>
       <div class="row">
@@ -202,20 +202,24 @@
         </div>
       </div>
     </form>
-    
-<!-- <span class="hs-animated-checkbox-container"> -->
-<svg class="svg-checkmark" x="0px" y="0px" viewBox="0 0 135 110" width="35px" height="43px">
-  <rect class="box" x="5" y="5" width="100" height="100" transform="rotate(90 55 55)"/>
-  <path class="check" d="M126.8,14L55.7,85.1L29.2,63.4"/>
-</svg> 
-    
-
-    <!-- </span> -->
-    
-    
-    
+    </div >
   </div >
-</div >
+<!-- <span class="hs-animated-checkbox-container"> -->
+  <svg class="svg-checkmark" x="0px" y="0px" viewBox="0 0 135 110" width="35px" height="43px">
+    <rect class="box" x="5" y="5" width="100" height="100" transform="rotate(90 55 55)"/>
+    <path class="check" d="M126.8,14L55.7,85.1L29.2,63.4"/>
+  </svg> 
+  <style>
+  </style>
+
+
+
+    
+    <script>
+
+    </script>
+ 
+
 </div >
 
 </div >
@@ -224,82 +228,63 @@
 </section >
 
 <section class="hs-section">
-  <hs-timeline loading>
-    <hs-timeline-item left>Nothing</hs-timeline-item>
-    <hs-timeline-item type="brand">
-      Big bang
-      <p class="hs-paragraph">
-        Widely considered to be how the universe began
-      </p>
-    </hs-timeline-item>
-    <hs-timeline-item type="info">Galaxies go everywhere</hs-timeline-item>
-    <hs-timeline-item type="warning">Solar systems form</hs-timeline-item>
-    <hs-timeline-item type="success">Earth appears</hs-timeline-item>
-    <hs-timeline-item type="error">Human infestation occurs!</hs-timeline-item>
-    <hs-timeline-item last>All this has happened before and will happen again</hs-timeline-item>
-    <hs-timeline-item loading>Evolution</hs-timeline-item>
-  </hs-timeline>
 </section>
 
 <section>
-  <hs-card-img-header 
-    img-path="/assets/img/portfolio/Fannie-Mae/blueprint-card-header.jpg"
-    modal-id="#modBowlopolis"
-    card-size="--small">
-    
-  </hs-card-img-header>
 </section>
+<script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
 
 <script>
+
   // *====== DRAG and Drop Submit *======//
   
   //animated checkbox
-  let animatedCheckMark = 
-    `<svg class="svg-checkmark" x="0px" y="0px" viewBox="0 0 135 110" width="40px" height="50px">
-        <path class="check" d="M126.8,14L55.7,85.1L29.2,63.4"/>
-      </svg>`
+  // let animatedCheckMark = 
+  //   `<svg class="svg-checkmark" x="0px" y="0px" viewBox="0 0 135 110" width="40px" height="50px">
+  //       <path class="check" d="M126.8,14L55.7,85.1L29.2,63.4"/>
+  //     </svg>`
     
   
-  let dz = document.querySelector('.hs-dropzone')
-  let arrows = document.querySelector('#arrows')
+  // let dz = document.querySelector('.hs-dropzone')
+  // let arrows = document.querySelector('#arrows')
 
-  // ondragover allowdrop function
-  function onAllowDrop(ev) {
-    ev.preventDefault();
-    // dz.style.cursor = 'move';
-    !dz.classList.contains('hs-dropzone-hover') ?  dz.classList.add('hs-dropzone-hover') : dz.classList.remove('hs-dropzone-hover');
-    !arrows.classList.contains('hs-fadeout') ? arrows.classList.add('hs-fadeout') : '';
-  }
+  // // ondragover allowdrop function
+  // function onAllowDrop(ev) {
+  //   ev.preventDefault();
+  //   // dz.style.cursor = 'move';
+  //   !dz.classList.contains('hs-dropzone-hover') ?  dz.classList.add('hs-dropzone-hover') : dz.classList.remove('hs-dropzone-hover');
+  //   !arrows.classList.contains('hs-fadeout') ? arrows.classList.add('hs-fadeout') : '';
+  // }
   
-  function onDragLeave(ev) {
-    if (arrows.classList.contains('hs-fadeout')){
-      arrows.classList.remove('hs-fadeout')
-    }
-  }
+  // function onDragLeave(ev) {
+  //   if (arrows.classList.contains('hs-fadeout')){
+  //     arrows.classList.remove('hs-fadeout')
+  //   }
+  // }
 
    
-  function onDrag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-    ev.currentTarget.style.cursor = 'move';
-    //  ev.currentTarget.style.background = 'yellow';
-   }
+  // function onDrag(ev) {
+  //   ev.dataTransfer.setData("text", ev.target.id);
+  //   ev.currentTarget.style.cursor = 'move';
+  //   //  ev.currentTarget.style.background = 'yellow';
+  //  }
 
-   function onDragOver {
+  //  function onDragOver {
 
-   }
+  //  }
    
-   function onDrop(ev) {
-     ev.preventDefault();
-     var data = ev.dataTransfer.getData("text");
-     ev.target.appendChild(document.getElementById(data));
-     document.getElementById(data).classList.add('hs-fadeout')
-     dz.classList.add('hs-dropzone-has-file');
-    //  dz.innerHTML = animatedCheckMark;
-    let checky = document.createElement('span');
-    checky.classList.add('hs-animated-checkbox-container')
-    checky.innerHTML = animatedCheckMark;
-    dz.appendChild(checky)
-   }
+  //  function onDrop(ev) {
+  //    ev.preventDefault();
+  //    var data = ev.dataTransfer.getData("text");
+  //    ev.target.appendChild(document.getElementById(data));
+  //    document.getElementById(data).classList.add('hs-fadeout')
+  //    dz.classList.add('hs-dropzone-has-file');
+  //   //  dz.innerHTML = animatedCheckMark;
+  //   let checky = document.createElement('span');
+  //   checky.classList.add('hs-animated-checkbox-container')
+  //   checky.innerHTML = animatedCheckMark;
+  //   dz.appendChild(checky)
+  //  }
    
  </script>
   

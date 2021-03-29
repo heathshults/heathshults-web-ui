@@ -1,4 +1,8 @@
+"use strict";
+
 /* eslint-disable no-undef, no-unused-vars */
+var interact = require('interactjs');
+
 "use strict";
 /**
  * @author HeathShults.com - Heath Shults v1.0 (http://heathshults.com)
@@ -7,6 +11,7 @@
  * @license MIT (https://github.com/heathshults/heathshults.com/LICENSE)
  */
 // ====== RANKING BARS
+
 
 window.onload = function () {
   var theBars = document.querySelectorAll('.hs-ranking-bar');
@@ -42,47 +47,142 @@ window.onscroll = function scrollFunction() {
 
 
 window.onload = function anibutton() {
-  //animated checkbox
-  var animatedCheckMark = "<svg class=\"svg-checkmark\" x=\"0px\" y=\"0px\" viewBox=\"0 0 135 110\" width=\"40px\" height=\"50px\">\n          <path class=\"check\" d=\"M126.8,14L55.7,85.1L29.2,63.4\"/>\n        </svg>";
+  var animatedCheckMark = "<svg class=\"svg-checkmark\" x=\"0px\" y=\"0px\" viewBox=\"0 0 135 110\" width=\"40px\" height=\"50px\"><path class=\"check\" d=\"M126.8,14L55.7,85.1L29.2,63.4\"/></svg>";
+  var slideButton = document.querySelector('#drag1');
   var dz = document.querySelector('.hs-dropzone');
   var arrows = document.querySelector('#arrows');
+  /* The dragging code for '.draggable' from the demo above
+  * applies to this demo as well so it doesn't have to be repeated. */
+  // enable draggables to be dropped into this
 
-  function onAllowDrop(ev) {
-    ev.preventDefault(); // dz.style.cursor = 'move';
+  interact('.dzone').dropzone({
+    // only accept elements matching this CSS selector
+    accept: '#drag1',
+    // Require a 75% element overlap for a drop to be possible
+    overlap: 0.75,
+    // listen for drop related events:
+    ondropactivate: function ondropactivate(event) {
+      // add active dropzone feedback
+      event.target.classList.add('drop-active');
+    },
+    ondragenter: function ondragenter(event) {
+      var draggableElement = event.relatedTarget;
+      var dropzoneElement = event.target; // feedback the possibility of a drop
 
-    if (!dz.classList.contains('hs-dropzone-hover')) {
-      dz.classList.toggle('hs-dropzone-hover');
+      dropzoneElement.classList.add('hs-dropzone-hover');
+      draggableElement.style.cursor = url('/assets/img/icons/bootstrap-icons-1.3.0/envelope-fill.svg');
+      event.relatedTarget.textContent = 'Drop It!';
+    },
+    ondragleave: function ondragleave(event) {
+      dropzoneElement.classList.remove('hs-dropzone-hover');
+      draggableElement.style.cursor; // remove the drop feedback style
+
+      event.target.classList.remove('drop-target');
+      event.relatedTarget.classList.remove('can-drop');
+      event.relatedTarget.textContent = 'Wait its to the right!';
+    },
+    ondrop: function ondrop(event) {
+      dropzoneElement.classList.add('hs-dropzone-has-file');
+      event.relatedTarget.textContent = 'Dropped!';
+    },
+    ondropdeactivate: function ondropdeactivate(event) {
+      // remove active dropzone feedback
+      dropzoneElement.classList.remove('hs-dropzone-has-file');
+      event.target.classList.add('hs-fadeout');
     }
-
-    if (!arrows.classList.contains('hs-fadeout')) {
-      arrows.classList.add('hs-fadeout');
+  });
+  interact('.drag-drop').draggable({
+    inertia: true,
+    modifiers: [interact.modifiers.restrictRect({
+      restriction: 'parent',
+      endOnly: true
+    })],
+    autoScroll: true,
+    // dragMoveListener from the dragging demo above
+    listeners: {
+      move: dragMoveListener
     }
-  }
-
-  function onDragLeave(ev) {
-    if (arrows.classList.contains('hs-fadeout')) {
-      arrows.classList.remove('hs-fadeout');
-    }
-  }
-
-  function onDrag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-    ev.currentTarget.style.cursor = 'move'; //  ev.currentTarget.style.background = 'yellow';
-  }
-
-  function onDrop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
-    document.getElementById(data).classList.add('hs-fadeout');
-    dz.classList.add('hs-dropzone-has-file'); //  dz.innerHTML = animatedCheckMark;
-
-    var checky = document.createElement('span');
-    checky.classList.add('hs-animated-checkbox-container');
-    checky.innerHTML = animatedCheckMark;
-    dz.appendChild(checky);
-  }
+  }); // let animatedCheckMark = 
+  //   `<svg class="svg-checkmark" x="0px" y="0px" viewBox="0 0 135 110" width="40px" height="50px">
+  //       <path class="check" d="M126.8,14L55.7,85.1L29.2,63.4"/>
+  //     </svg>`;
+  // let slideButton;
+  // let dz = document.querySelector('.hs-dropzone');
+  // let arrows = document.querySelector('#arrows');
+  // function makeDraggable(evt) {
+  //   var svg = evt.target;
+  //   svg.addEventListener('mousedown', startDrag);
+  //   svg.addEventListener('mousemove', drag);
+  //   svg.addEventListener('mouseup', endDrag);
+  //   svg.addEventListener('mouseleave', endDrag);
+  //   function onDragStart(ev) {
+  //     ev.target.classList.id === 'drag1' ? slideButton = ev.target : '';
+  //     ev.dataTransfer.setData("image/svg+xml", ev.target.id);
+  //     ev.currentTarget.style.cursor = 'move';
+  //     //  ev.currentTarget.style.background = 'yellow';
+  //   }
+  //   function onDragEnter(ev) {
+  //     dz.classList.toggle('hs-dropzone-hover');
+  //   }
+  //   function onAllowDrop(ev) {
+  //     ev.preventDefault();
+  //     // dz.style.cursor = 'move';
+  //     if (!dz.classList.contains('hs-dropzone-hover')) {
+  //       dz.classList.toggle('hs-dropzone-hover');
+  //     }
+  //     if (!arrows.classList.contains('hs-fadeout')){
+  //       arrows.classList.add('hs-fadeout');
+  //     }
+  //   }
+  //   function onDrop(ev) {
+  //     ev.preventDefault();
+  //     var data = ev.dataTransfer.getData("image/svg+xml");
+  //     ev.target.appendChild(document.getElementById(data));
+  //     document.getElementById(data).classList.add('hs-fadeout');
+  //     dz.classList.add('hs-dropzone-has-file');
+  //   //  dz.innerHTML = animatedCheckMark;
+  //   let checky = document.createElement('span');
+  //   checky.classList.add('hs-animated-checkbox-container');
+  //   checky.innerHTML = animatedCheckMark;
+  //   dz.appendChild(checky);
+  //   }
+  //   function onDragLeave(ev) {
+  //     arrows.classList.toggle('hs-fadeout');
+  //   }
+  // }
 };
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = PluginsSnappable;
+
+var _draggable = require("@shopify/draggable");
+
+function PluginsSnappable() {
+  var containerSelector = '#Snappable .BlockLayout';
+  var containers = document.querySelectorAll(containerSelector);
+
+  if (containers.length === 0) {
+    return false;
+  }
+
+  var swappable = new _draggable.Swappable(containers, {
+    mirror: {
+      appendTo: containerSelector,
+      constrainDimensions: true
+    },
+    plugins: [_draggable.Plugins.Snappable]
+  }); // --- Draggable events --- //
+
+  swappable.on('drag:start', function (evt) {
+    if (evt.originalSource.classList.contains('Block--typeStripes')) {
+      evt.cancel();
+    }
+  });
+  return swappable;
+}
 "use strict";
 
 exports.__esModule = true;

@@ -117,31 +117,24 @@ export class HSCard {
     return new Promise((resolve, reject): any => {
       setTimeout((): any => {
         try {
-          this.cloneBaby = this.el.shadowRoot.querySelector('#cloneBaby.hs-card_body');
-          console.log(this.cloneBaby);
-
-          this.cardContent = this.el.shadowRoot.querySelector('.hs-card_content');
-          console.log(this.cardContent);
-          
-          this.clonedContent = this.cardContent.cloneNode(true);            
           this.footerDiv = this.el.shadowRoot.querySelector('#foot');
 
           if (this.autoFooter) {
             this.footerDiv.innerHTML = this.basicFooter;
           }
-          this.cardContent.classList.add('hs-card_content');
-          this.cloneBaby.appendChild(this.clonedContent);
+          !this.imgPath ? this.showHide = 'hs-display-none' : this.showHide = 'hs-display-block';
           // this.fnStatusCallBack(true, 'buildCardElements');
+          
           resolve(true);
-          return true;
         }
         catch(error) {
-          reject(false);
           // this.fnStatusCallBack(false, 'buildCard', error);
-          return false;
+          reject(error);
         }
       }, 700); 
 
+    }).catch(error => {
+      throw new Error(error.message);
     });
 
      
@@ -184,7 +177,6 @@ export class HSCard {
   
 
   render(): any  {
-    !this.imgPath ? this.showHide = 'hs-display-none' : this.showHide = 'hs-display-block';
     return (
       <div id={`${this.cardId}`} class="hs-card">
         <header class={`hs-card_header`}>
