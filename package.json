@@ -36,7 +36,7 @@
     "scss:vars:convert": "node system-modules/scss2cssVars/dist/index.js",
     "cssvars": "node_modules/.bin/babel-node system-modules/scss2cssVars/dist/index.js",
     "cssvars:cli": "system-modules/scss2cssVars/bin/scss2cssVars src/scss/variables/_colors.scss -o src/scss/variables/_css-vars-heathshults.scss",
-    "debug:scss": "sass src/scss/styles.scss www/assets/css/HeathStyle.built.css"
+    "scss": "sass src/scss/styles.scss www/assets/css/HeathStyle.built.css"
   },
   "description": "Heath Shults - .coder - .thinker - .father",
   "keywords": [

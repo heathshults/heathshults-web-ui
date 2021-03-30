@@ -1,0 +1,54 @@
+
+@import './mixins';
+
+// @mixin color-modifiers($color, $prefix: '$hs-', $separator: '-') {
+//   @each $name, $color in $colors {
+//     @each $shade in $shades {
+//       #{$prefix}#{$separator}#{$name}: tint-color($color, 80%);
+//       #{$prefix}#{$separator}#{$name}: tint-color($color, 60%);
+//       #{$prefix}#{$separator}#{$name}: tint-color($color, 40%);
+//       #{$prefix}#{$separator}#{$name}: tint-color($color, 20%);
+//       #{$prefix}#{$separator}#{$name}: $color;
+//       #{$prefix}#{$separator}#{$name}: shade-color($color, 80%);
+//       #{$prefix}#{$separator}#{$name}: shade-color($color, 60%);
+//       #{$prefix}#{$separator}#{$name}: shade-color($color, 40%);
+//       #{$prefix}#{$separator}#{$name}: shade-color($color, 20%);
+//     }
+//   }
+// }
+
+$shades: (
+  '100': 100,
+  '200': 200,
+  '300': 300,
+  '400': 400,
+  '500': 500,
+  '600': 600,
+  '700': 700,
+  '800': 800,
+  '900': 900
+) !default;
+
+$colors: (
+  'blue': #0051bb,
+  'indigo': #766cff,
+  'purple': #5d0181,
+  'pink': #e83e8c,
+  'red': #cf162b,
+  'orange': #ff7505,
+  'yellow': #fed136 ,
+  'green': #008d4b,
+  'teal': #20c9bb,
+  'cyan': #05a0b8,
+) !default;
+
+$shade-percentages: (
+  20,
+  40,
+  60,
+  80,
+) !default;
+
+// :root {
+//   @include color-modifiers('$hs-', '-');
+// }

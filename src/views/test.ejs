@@ -17,13 +17,107 @@
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <fk-highlight-code
-    style="display: block"
-    line-numbers="true"
-    id="deckGoCode"
-    terminal="none"
-    src="https://raw.githubusercontent.com/heathshults/heathshults-web-ui/master/src/js/inDev/toggler-system/toggler.js"
-    >
+    <style>
+      #Logo {
+        position: absolute;
+        top: 30%;
+        right: -25%;
+        bottom: 0;
+        left: -25%;
+        display: block;
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        fill: green;
+        stroke: green;
+        stroke-miterlimit: 5;
+      }
+
+      .Animate-Draw {
+        /* Making where the lines join rouned */
+        animation-name: DrawLine, FadeStroke, FillIn;
+
+        /* Declares the animation names for our keyframes */
+        animation-duration: 500ms, 500ms, 800ms;
+
+        /* Sets the opacity of the fill to 0 or none */
+        animation-timing-function: ease-in-out;
+
+        /* First applies to DrawLine, seccond is FadeStroke, third is FillIn */
+        animation-delay: 0s, 800ms, 800ms;
+        fill-opacity: 0;
+
+        /* Slow start end end to the animation */
+        animation-fill-mode: forwards;
+
+        /* Will retain styles set in the last keyframe */
+        animation-iteration: 1;
+
+        /* How many times the animation runs */
+        stroke-width: 3px;
+
+        /* Making the drawn line wider */
+        stroke-linecap: round;
+
+        /* Making the end of the line rounded */
+        strong-linejoin: round;
+
+        /* First applies to DrawLine, seccond is FadeStroke, third is FillIn */
+      }
+
+      #Draw-Circle {
+        stroke-dasharray: 1100;
+        stroke-dashoffset: 1100;
+
+        /* This causes the draw effect */
+      }
+
+      #Draw-Check {
+        /* First applies to DrawLine, seccond is FadeStroke, third is Fill In */
+        animation-duration: 1.5s, 1s, 1s;
+        animation-delay: 800ms, 1s, 1.3s;
+
+        /* First applies to DrawLine, seccond is FadeStroke, third is FillIn */
+        stroke-dasharray: 1500;
+        stroke-dashoffset: 1500;
+
+        /* This causes the draw effect */
+      }
+
+      @keyframes DrawLine {
+        to { stroke-dashoffset: 0; }
+      }
+
+      @keyframes FadeStroke {
+        to { stroke-opacity: 0; }
+      }
+
+      @keyframes FillIn {
+        from { fill-opacity: 0; }
+        to { fill-opacity: 1; }
+      }
+      </style>
+      
+      <!--ANIMATED CHECKMARK -->
+      
+      <svg id="40d74f06-7bcb-4fa8-83d7-fe4849e923a7" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" >
+          <defs>
+              <style>.b3923ed5-d817-4490-83ed-173754ea24b3{ fill: #231f20; }
+</style>
+          <title>checkmark</title>
+              <g id="circlegroup">
+                  <path id="circle" class="circle-shape" d="M172.93,113.49a77.45,77.45,0,1,1-25.12-28.84l17.71-15.9a100.68,100.68,0,1,0,25.24,28.74Z" transform="translate(-3 -10.83)"/>
+                  <path id="check" class="check-shape" d="M52.82,141.33l27-27L104.4,148.4s74-93.06,164.45-137.57c0,0-111.83,86.66-168.93,194.83C99.92,205.66,72.19,162.9,52.82,141.33Z" transform="translate(-3 -10.83)"/>
+              </g>
+          </defs>
+      </svg>
+      
+      
+      <svg id="Logo" class="Animate-Path" width="100%" height="100%" viewBox="0 0 612 792" xml:space="preserve">
+        <use id="Draw-Circle" class="Animate-Draw" xlink:href="#circle" />
+        <use id="Draw-Check" class="Animate-Draw" xlink:href="#check" />
+        <!--<use class="Animate-Fill" xlink:href="#Logo-Group" /> -->
+      </svg>
       
     <script src="" async defer></script>
   </body>

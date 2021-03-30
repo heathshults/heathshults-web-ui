@@ -1,0 +1,258 @@
+//colors
+$color_0: #fff;
+$color_1: #dee2e6;
+$color_2: rgba(255, 255, 255, 0.5);
+$color_3: #d15400;
+--hs-white--a50: rgba(255, 255, 255, .5);
+
+$color_8: #387ea9;
+
+//fonts
+$Montserrat: 'Montserrat';
+segoe-ui: 'Segoe-UI';
+$Roboto: 'Roboto';
+$Helvetica-Neue: 'Helvetica Neue';
+$Apple-Color-Emoji: 'Apple Color Emoji';
+$Segoe-UI-Emoji: 'Segoe-UI Emoji';
+$Segoe-UI-Symbol: 'Segoe-UI Symbol';
+$Noto-Color-Emoji: 'Noto Color Emoji';
+$Arial: 'Arial';
+$sans-serif: 'sans-serif';
+$segoe-ui0: '-apple-system';
+$segoe-ui1: 'BlinkMacSystemFont';
+
+//urls
+$slide-button: url('../assets/img/svg/slide-submit-button.svg');
+
+@keyframes draw {
+  0% {
+    stroke-dashoffset: -400;
+  }
+  100% {
+    stroke-dashoffset: 400;
+  }
+}
+@keyframes check {
+  0% {
+    stroke-dashoffset: -400;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@media (max-width: 360px) {
+  body {
+    overflow: scroll;
+  }
+}
+@keyframes arrow-anim {
+  from {
+    fill: transparent;
+    stroke-width: 2px;
+    stroke: transparent;
+    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+    transform: translateX(1rem);
+  }
+  50% {
+    fill: $color_0;
+    stroke-width: 2px;
+    stroke: $color_0;
+  }
+  to {
+    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+    transform: translateX(9rem);
+    fill: transparent;
+    stroke-width: 2px;
+    stroke: transparent;
+  }
+}
+@keyframes arrow-fixed-anim {
+  5% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.hs-slide-submit_label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+  flex: 1 1 auto;
+  font-family: $Montserrat, $Segoe-UI, $Roboto, $Helvetica-Neue, $Apple-Color-Emoji, $Segoe-UI-Emoji, $Segoe-UI-Symbol, $Noto-Color-Emoji, $Arial, $sans-serif, $segoe-ui0, $segoe-ui1;
+  font-weight: 700;
+  color: $color_1;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+  transform: translate(-50%, -50%);
+}
+.hs-animated-arrow-container {
+  position: absolute;
+  left: 4px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  height: 32px;
+  .hs-animated-arrow {
+    width: 22px;
+    height: auto;
+    margin: 0 2rem 0 -15px;
+    overflow: visible;
+    cursor: move;
+    polygon {
+      //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+      transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
+      fill: transparent;
+      stroke: transparent;
+      stroke-width: 2px;
+    }
+    path {
+      //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+      transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
+      fill: transparent;
+      stroke: transparent;
+      stroke-width: 2px;
+    }
+    .hs-arrow {
+      animation-name: 'arrow-anim';
+      animation-duration: 2.5s;
+      animation-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+      animation-iteration-count: infinite;
+      fill: transparent;
+      &.a-3 {
+        animation-delay: 0.25s;
+      }
+      &.a-2 {
+        animation-delay: 0.15s;
+      }
+      &.a-1 {
+        animation-delay: 0s;
+      }
+    }
+    .hs-arrow-fixed {
+      animation: 'arrow-fixed-anim' 2.5s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+    }
+  }
+}
+.slide-button-grid {
+  display: grid;
+  grid-template-columns: 42px 1fr 42px;
+  gap: 0 0;
+  grid-template-areas: "grid__left grid__center grid__right";
+  width: 250px;
+  padding: 2px;
+  margin: auto;
+  background-color: $color_2;
+  border: 2px solid $color_0;
+  .slide-button-grid__left {
+    grid-area: grid__left;
+    display: flex;
+    flex: 0 0 42px;
+    align-items: center;
+    height: 42px;
+    .grid-left__inner {
+      padding: 2px;
+      border: 2px solid transparent;
+    }
+  }
+  .slide-button-grid__center {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 42px;
+    font-size: .9rem;
+    font-weight: 700;
+    color: $hs-gray-300;
+    text-align: center;
+    grid-area: grid__center;
+  }
+  .slide-button-grid__right {
+    grid-area: grid__right;
+    display: flex;
+    align-items: center;
+    height: 42px;
+  }
+}
+.slide-button {
+  width: 32px;
+  height: 32px;
+  cursor: grab;
+  background-image: $slide-button;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 32px 32px;
+  &.dropped {
+    opacity: 0;
+    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+    transition: all 2s ease-in-out;
+    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+    transform: scale(0);
+  }
+}
+.dropzone {
+  width: 32px;
+  height: 32px;
+  font-size: .8rem;
+  font-weight: 700px;
+  line-height: .7rem;
+  text-align: center;
+  border: 2px dashed $color_0;
+  //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+  transition: all .35s ease-in-out;
+  &.dropzone-indicator {
+    border-color: var(--hs-flip2code-color-core-blue-70);
+    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+    transition: all .35s ease-in-out;
+  }
+  &.drag-enter {
+    border-color: $color_3;
+    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+    transition: all .35s ease-in-out;
+    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+    transform: scale(1.2);
+  }
+  &.drop-ready {
+    border-color: var(--hs-green);
+    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+    transition: all .35s ease-in-out;
+    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+    transform: scale(1.2);
+  }
+  &.border-white {
+    background: var(--hs-white--a50);
+    border-color: $color_0;
+    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+    transition: all 2s ease-in-out;
+    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+    transform: scale(1);
+  }
+}
+.svg-checkmark {
+  position: absolute;
+  top: -12px;
+  left: 0;
+}
+.check {
+  stroke: var(--hs-green);
+  fill: none;
+  stroke-width: 20;
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  stroke-miterlimit: 5;
+  stroke-linecap: square;
+  animation: check .75s linear forwards;
+}
+.svg .box {
+  stroke: var(--hs-red);
+  stroke-width: 12;
+  fill: none;
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: draw 1s linear forwards;
+}

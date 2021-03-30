@@ -1159,33 +1159,33 @@ input:not(:-webkit-autofill) {
 }
 .hs-checkmark{ fill: #231f20; }
 
-.svg-checkmark {
-  position: absolute;
-  top: -12px;
-  left: 0;
-  .check {
-    stroke: #005c00; /* red */
-    stroke: green; /* blue */
-    fill: none;
-    stroke-width: 20;
-    stroke-dasharray: 400;
-    stroke-dashoffset: 400;
-    stroke-miterlimit: 5;
-    stroke-linecap: square;
+// .svg-checkmark {
+//   position: absolute;
+//   top: -12px;
+//   left: 0;
+//   .check {
+//     stroke: #005c00; /* red */
+//     stroke: green; /* blue */
+//     fill: none;
+//     stroke-width: 20;
+//     stroke-dasharray: 400;
+//     stroke-dashoffset: 400;
+//     stroke-miterlimit: 5;
+//     stroke-linecap: square;
 
-    animation: check .75s linear forwards;
-  }
+//     animation: check .75s linear forwards;
+//   }
 
-  .svg .box {
-    stroke: #cc181e; /* red */
-    stroke: #387ea9; /* blue */
-    stroke-width: 12;
-    fill: none;
-    stroke-dasharray: 400;
-    stroke-dashoffset: 400;
-    animation: draw 1s linear forwards;
-  }
-}
+//   .svg .box {
+//     stroke: #cc181e; /* red */
+//     stroke: #387ea9; /* blue */
+//     stroke-width: 12;
+//     fill: none;
+//     stroke-dasharray: 400;
+//     stroke-dashoffset: 400;
+//     animation: draw 1s linear forwards;
+//   }
+// }
 @keyframes draw {
   0% { stroke-dashoffset: -400; }
   100% { stroke-dashoffset: 400; }

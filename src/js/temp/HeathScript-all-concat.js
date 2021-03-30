@@ -1,8 +1,5 @@
-"use strict";
-
 /* eslint-disable no-undef, no-unused-vars */
-var interact = require('interactjs');
-
+// const interact = require('interactjs');
 "use strict";
 /**
  * @author HeathShults.com - Heath Shults v1.0 (http://heathshults.com)
@@ -11,7 +8,6 @@ var interact = require('interactjs');
  * @license MIT (https://github.com/heathshults/heathshults.com/LICENSE)
  */
 // ====== RANKING BARS
-
 
 window.onload = function () {
   var theBars = document.querySelectorAll('.hs-ranking-bar');
@@ -43,66 +39,25 @@ window.onscroll = function scrollFunction() {
   } else {
     navbarElement.classList.remove('hs-navbar-semitransparent');
   }
-}; // *====== DRAG and Drop Submit *======//
+}; // SHOW MORE SETTINGS
 
+
+var ShowMoreSettings = {
+  fbInitButtonText: 'Show More',
+  fbOpenButtonText: 'Show Less',
+  fbButtonWidth: '80px',
+  fbBoxHeight: '100%',
+  fbHeight: '35px',
+  fbBoxPaddingBottom: '0',
+  fbStartColor: 'rgba(255,255,255,1)',
+  fbEndColor: 'rgba(255,255,255,1)'
+}; // *====== DRAG and Drop Submit *======//
 
 window.onload = function anibutton() {
   var animatedCheckMark = "<svg class=\"svg-checkmark\" x=\"0px\" y=\"0px\" viewBox=\"0 0 135 110\" width=\"40px\" height=\"50px\"><path class=\"check\" d=\"M126.8,14L55.7,85.1L29.2,63.4\"/></svg>";
-  var slideButton = document.querySelector('#drag1');
-  var dz = document.querySelector('.hs-dropzone');
-  var arrows = document.querySelector('#arrows');
-  /* The dragging code for '.draggable' from the demo above
-  * applies to this demo as well so it doesn't have to be repeated. */
-  // enable draggables to be dropped into this
-
-  interact('.dzone').dropzone({
-    // only accept elements matching this CSS selector
-    accept: '#drag1',
-    // Require a 75% element overlap for a drop to be possible
-    overlap: 0.75,
-    // listen for drop related events:
-    ondropactivate: function ondropactivate(event) {
-      // add active dropzone feedback
-      event.target.classList.add('drop-active');
-    },
-    ondragenter: function ondragenter(event) {
-      var draggableElement = event.relatedTarget;
-      var dropzoneElement = event.target; // feedback the possibility of a drop
-
-      dropzoneElement.classList.add('hs-dropzone-hover');
-      draggableElement.style.cursor = url('/assets/img/icons/bootstrap-icons-1.3.0/envelope-fill.svg');
-      event.relatedTarget.textContent = 'Drop It!';
-    },
-    ondragleave: function ondragleave(event) {
-      dropzoneElement.classList.remove('hs-dropzone-hover');
-      draggableElement.style.cursor; // remove the drop feedback style
-
-      event.target.classList.remove('drop-target');
-      event.relatedTarget.classList.remove('can-drop');
-      event.relatedTarget.textContent = 'Wait its to the right!';
-    },
-    ondrop: function ondrop(event) {
-      dropzoneElement.classList.add('hs-dropzone-has-file');
-      event.relatedTarget.textContent = 'Dropped!';
-    },
-    ondropdeactivate: function ondropdeactivate(event) {
-      // remove active dropzone feedback
-      dropzoneElement.classList.remove('hs-dropzone-has-file');
-      event.target.classList.add('hs-fadeout');
-    }
-  });
-  interact('.drag-drop').draggable({
-    inertia: true,
-    modifiers: [interact.modifiers.restrictRect({
-      restriction: 'parent',
-      endOnly: true
-    })],
-    autoScroll: true,
-    // dragMoveListener from the dragging demo above
-    listeners: {
-      move: dragMoveListener
-    }
-  }); // let animatedCheckMark = 
+  var slideButton = document.querySelector('.slide-button');
+  var dz = document.querySelector('.dropzone');
+  var arrows = document.querySelector('#arrows'); // let animatedCheckMark = 
   //   `<svg class="svg-checkmark" x="0px" y="0px" viewBox="0 0 135 110" width="40px" height="50px">
   //       <path class="check" d="M126.8,14L55.7,85.1L29.2,63.4"/>
   //     </svg>`;
@@ -151,38 +106,6 @@ window.onload = function anibutton() {
   //   }
   // }
 };
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = PluginsSnappable;
-
-var _draggable = require("@shopify/draggable");
-
-function PluginsSnappable() {
-  var containerSelector = '#Snappable .BlockLayout';
-  var containers = document.querySelectorAll(containerSelector);
-
-  if (containers.length === 0) {
-    return false;
-  }
-
-  var swappable = new _draggable.Swappable(containers, {
-    mirror: {
-      appendTo: containerSelector,
-      constrainDimensions: true
-    },
-    plugins: [_draggable.Plugins.Snappable]
-  }); // --- Draggable events --- //
-
-  swappable.on('drag:start', function (evt) {
-    if (evt.originalSource.classList.contains('Block--typeStripes')) {
-      evt.cancel();
-    }
-  });
-  return swappable;
-}
 "use strict";
 
 exports.__esModule = true;
@@ -1142,6 +1065,232 @@ var _typeof2 = _interopRequireDefault(require("@babel/runtime/helpers/typeof"));
     $(":input").not("[type=image],[type=submit]").jqBootstrapValidation.apply(this, arguments);
   };
 })(jQuery);
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+var Draggable = /*#__PURE__*/function () {
+  function Draggable() {
+    (0, _classCallCheck2.default)(this, Draggable);
+    this.container = document.querySelector('.box__dragabble');
+    this.box = document.querySelectorAll('.box');
+
+    this._addEventListener();
+  }
+
+  (0, _createClass2.default)(Draggable, [{
+    key: "_addEventListener",
+    value: function _addEventListener() {
+      var _this = this;
+
+      this.box.forEach(function (element) {
+        element.addEventListener('dragenter', _this.dragenter);
+        element.addEventListener('dragleave', _this.dragleave);
+        element.addEventListener('dragover', _this.dragover);
+        element.addEventListener('drop', _this.drop);
+      });
+      this.container.addEventListener('dragstart', this.dragstart);
+      this.container.addEventListener('dragend', this.dragend);
+    }
+  }, {
+    key: "dragstart",
+    value: function dragstart(e) {
+      var _this2 = this;
+
+      this.classList.add('drag_start');
+      setTimeout(function () {
+        _this2.classList.add('invisible');
+      }, 0);
+    }
+  }, {
+    key: "dragend",
+    value: function dragend(e) {
+      console.log('dragend');
+      this.classList.remove('invisible');
+      this.classList.remove('drag_start');
+    }
+  }, {
+    key: "dragenter",
+    value: function dragenter(e) {
+      e.preventDefault();
+      console.log('dragenter');
+      this.classList.add('drag_enter');
+    }
+  }, {
+    key: "dragleave",
+    value: function dragleave(e) {
+      console.log('dragleave');
+      this.classList.remove('drag_enter');
+    }
+  }, {
+    key: "dragover",
+    value: function dragover(e) {
+      e.preventDefault();
+      console.log('dragover');
+    }
+  }, {
+    key: "drop",
+    value: function drop() {
+      var container = document.querySelector('.box__dragabble');
+      this.classList.remove('drag_enter');
+      this.append(container);
+    }
+  }], [{
+    key: "init",
+    value: function init() {
+      return new this();
+    }
+  }]);
+  return Draggable;
+}();
+
+document.addEventListener('load', Draggable.init());
+"use strict";
+
+exports.__esModule = true;
+exports.SlideButton = void 0;
+
+var SlideButton =
+/** @class */
+function () {
+  function SlideButton(slideButton, dropzone, animatedCheckmark) {
+    if (slideButton === void 0) {
+      slideButton = document.querySelector('.slide-button');
+    }
+
+    if (dropzone === void 0) {
+      dropzone = document.querySelector('.dropzone');
+    }
+
+    if (animatedCheckmark === void 0) {
+      animatedCheckmark = getAnimatedCheckmark();
+    }
+
+    this.slideButton = slideButton;
+    this.dropzone = dropzone;
+    this.animatedCheckmark = animatedCheckmark;
+
+    this.getAnimatedCheckmark = function () {
+      var svgCheckmark = "<svg class=\"svg-checkmark\" x=\"0px\" y=\"0px\" viewBox=\"0 0 135 110\" width=\"40px\" height=\"50px\">\n    <path class=\"check\" d=\"M126.8,14L55.7,85.1L29.2,63.4\"/>\n  </svg>";
+      return svgCheckmark;
+    };
+
+    this.slideButton = slideButton;
+    this.dropzone = dropzone;
+    this.animatedCheckMark = animatedCheckMark; // `<svg class="svg-checkmark" x="0px" y="0px" viewBox="0 0 135 110" width="40px" height="50px">
+    //   <path class="check" d="M126.8,14L55.7,85.1L29.2,63.4"/>
+    // </svg>`;
+
+    this._addEventListener();
+  }
+  /**
+   * Add event listeners for each dragon-drop event
+   * @return {void}@memberof SlideButton
+   */
+
+
+  SlideButton.prototype._addEventListener = function () {
+    this.dropzone.addEventListener('dragenter', this.dragenter);
+    this.dropzone.addEventListener('dragleave', this.dragleave);
+    this.dropzone.addEventListener('dragover', this.dragover);
+    this.dropzone.addEventListener('drop', this.drop);
+    this.slideButton.addEventListener('dragstart', this.dragstart);
+    this.slideButton.addEventListener('dragend', this.dragend);
+  };
+  /**
+   * When the slide-button begins to be dragged
+   * @param  {UIEvent} e
+   * @return {void}@memberof SlideButton
+   */
+
+
+  SlideButton.prototype.dragstart = function (e) {
+    var _this = this;
+
+    this.slideButton.classList.add('drag_start');
+    this.dropzone.classList.add('dropzone-indicator');
+    setTimeout(function () {
+      _this.slideButton.classList.add('invisible');
+    }, 0);
+  };
+  /**
+   * When the slide-button stops getting dragged
+   * @param  {UIEvent} e
+   * @return {void}@memberof SlideButton
+   */
+
+
+  SlideButton.prototype.dragend = function (e) {
+    console.log('dragend');
+    this.slideButton.classList.remove('dropped');
+    this.slideButton.classList.remove('drag_start');
+    this.dropzone.classList.remove('dropzone-indicator');
+  };
+  /**
+   * When the slide-button is first touching the dropzone
+   * @param  {UIEvent} e
+   * @return {void}@memberof SlideButton
+   */
+
+
+  SlideButton.prototype.dragenter = function (e) {
+    e.preventDefault();
+    console.log('dragenter');
+    this.dropzone.classList.add('drag-enter');
+  };
+  /**
+   * When the slide-button is dragged back out of the dropzone
+   * @param  {UIEvent} e
+   * @return {void}@memberof SlideButton
+   */
+
+
+  SlideButton.prototype.dragleave = function (e) {
+    console.log('dragleave');
+    this.dropzone.classList.remove('drag_enter');
+  };
+  /**
+   * When the slide-button is directly over the dropzone and ready to be dropped
+   * @param  {UIEvent} e
+   * @return {void}@memberof SlideButton
+   */
+
+
+  SlideButton.prototype.dragover = function (e) {
+    e.preventDefault();
+    console.log('dragover');
+    this.dropzone.classList.remove('drag-enter');
+    this.dropzone.classList.add('drop-ready');
+  };
+  /**
+   * When the slide-button is dropped into the dropzone
+   * @return {void}@memberof SlideButton
+   */
+
+
+  SlideButton.prototype.drop = function () {
+    this.dropzone.append(this.slideButton);
+    this.slideButton.classList.add('dropped');
+    this.dropzone.classList.remove('drop-ready');
+    var checky = document.createElement('span');
+    checky.classList.add('hs-animated-checkbox-container');
+    checky.innerHTML = this.animatedCheckMark;
+    this.dropzone.appendChild(checky);
+  };
+
+  SlideButton.init = function () {
+    return new this();
+  };
+
+  return SlideButton;
+}();
+
+exports.SlideButton = SlideButton;
+document.addEventListener('load', SlideButton.init());
 "use strict";
 
 /* eslint-disable no-unsafe-negation */

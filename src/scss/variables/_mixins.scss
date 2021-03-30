@@ -806,8 +806,8 @@
   }
 }
 
-// edit text unit on a component level
-@mixin textUnit($text-unit) {
+
+@mixin textUnit($text-unit)  {
   --text-unit: #{$text-unit};
   font-size: var(--text-unit);
 }
@@ -843,3 +843,15 @@
     @media (min-width: map-get($map: $breakpoints, $key: $breakpoint)) { @content; }
   }
 }
+
+// Make color bariables
+// @mixin color-modifiers($prefix, $separator) {
+//   @each $name, $color in $colors {
+//     @each $shade in $shades {
+//       #{$prefix}#{$separator}#{$name}: $color;
+//       @each $percent in $shade-percentages {
+//         #{$prefix}#{$name}#{$separator}#{$shade}: tint-color($color, $percent);
+//       }
+//     }
+//   }
+// }

@@ -14,5 +14,6 @@ require('./show-more-fadebar/show-more.ts');
 require('./time-stamper/time-stamper.js');
 
 require('./validate-url/validate-url.ts');
+require('./validate-url/validate-url.ts');
 
 require('./HeathScript.js');

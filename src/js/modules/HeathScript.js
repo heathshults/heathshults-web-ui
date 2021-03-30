@@ -34,8 +34,6 @@ const scrollSpy = new bootstrap.ScrollSpy(document.body, {
 });
 
 // NAVBAR EFFECTS
-
-
 window.onscroll = function scrollFunction() {
   const navbarElement = document.querySelector('#mainNav');
   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
@@ -45,6 +43,17 @@ window.onscroll = function scrollFunction() {
   }
 };
 
+// SHOW MORE SETTINGS
+let ShowMoreSettings={
+  fbInitButtonText: 'Show More',
+  fbOpenButtonText: 'Show Less',
+  fbButtonWidth: '80px',
+  fbBoxHeight: '100%',
+  fbHeight: '35px',
+  fbBoxPaddingBottom: '0',
+  fbStartColor: 'rgba(255,255,255,1)',
+  fbEndColor: 'rgba(255,255,255,1)'
+};
 
 // *====== DRAG and Drop Submit *======//
 

@@ -1,524 +1,555 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Portfolio website for Heath Shults - Web Developer Manager &amp; Director">
-    <meta name="author" content="Heath Shults">
 
-    <title>Heath Shults - Software Developer+</title>
-    <script type="module" src="/components/heathenscript-ui-components.esm.js"></script>
-    <script nomodule src="/components/heathenscript-ui-components.js"> </script> 
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio website for Heath Shults - Web Developer Manager &amp; Director">
+  <meta name="author" content="Heath Shults">
 
-    <!-- Custom Fonts -->
-    <link href="/assets/fa-5140/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Montserrat:wght@500;700&family=Nothing+You+Could+Do&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <!-- <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
-    
-    <!-- Theme CSS -->
-    <link href="/assets/css/HeathStyle.built.css" rel="stylesheet">
-    <link disabled id="darkmode" rel="stylesheet" href="/assets/css/theme-dark-mode.css">
+  <title>Heath Shults - Software Developer+</title>
+  <script type="module" src="/components/heathenscript-ui-components.esm.js"></script>
+  <script nomodule src="/components/heathenscript-ui-components.js"> </script>
 
-    <script>
-      var lsGetMode=localStorage.getItem('dark_mode')
-      var dm_btn=document.getElementById('mode_widget')
-      if (lsGetMode==="true") {
-        document.querySelector('#darkmode').disabled=false;
-        // document.querySelector('link[href="css/theme-dark-mode.css"]').disabled = false;
-      }
-      let ShowMoreSettings={
-        fbInitButtonText: 'Show More',
-        fbOpenButtonText: 'Show Less',
-        fbButtonWidth: '80px',
-        fbBoxHeight: '100%',
-        fbHeight: '35px',
-        fbBoxPaddingBottom: '0',
-        fbStartColor: 'rgba(255,255,255,1)',
-        fbEndColor: 'rgba(255,255,255,1)'
-      };
-    </script>
-  </head>
+  <!-- Custom Fonts -->
+  <link href="/assets/fa-5140/css/all.min.css" rel="stylesheet" type="text/css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Montserrat:wght@500;700&family=Nothing+You+Could+Do&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
 
-  <body id="page-top" class="index">
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top hs-bg-grad-black-trans" id="mainNav">
-      <div class="container">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
-          aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <a class="navbar-brand js-scroll-trigger site-logo" href="#page-top"><span
-              class="hs-brand-symbol">@</span><span>HeathShults.com</span></a>
-          <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
-            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
-            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>
-            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
-          </ul>
-          <div class="form-inline my-2 my-lg-0">
-            <button class="hs-mode-widget" id="mode_widget"></button>
-            <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <!-- <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+
+  <!-- Theme CSS -->
+  <link href="/assets/css/HeathStyle.built.css" rel="stylesheet">
+  <link disabled id="darkmode" rel="stylesheet" href="/assets/css/theme-dark-mode.css">
+
+  <script>
+    var lsGetMode = localStorage.getItem('dark_mode')
+    var dm_btn = document.getElementById('mode_widget')
+    if (lsGetMode === "true") {
+      document.querySelector('#darkmode').disabled = false;
+      // document.querySelector('link[href="css/theme-dark-mode.css"]').disabled = false;
+    }
+    let ShowMoreSettings = {
+      fbInitButtonText: 'Show More',
+      fbOpenButtonText: 'Show Less',
+      fbButtonWidth: '80px',
+      fbBoxHeight: '100%',
+      fbHeight: '35px',
+      fbBoxPaddingBottom: '0',
+      fbStartColor: 'rgba(255,255,255,1)',
+      fbEndColor: 'rgba(255,255,255,1)'
+    };
+
+  </script>
+</head>
+
+<body id="page-top" class="index">
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top hs-bg-grad-black-trans" id="mainNav">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+        aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand js-scroll-trigger site-logo" href="#page-top"><span
+            class="hs-brand-symbol">@</span><span>HeathShults.com</span></a>
+        <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+        </ul>
+        <div class="form-inline my-2 my-lg-0">
+          <button class="hs-mode-widget" id="mode_widget"></button>
+          <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
-          </div>
         </div>
       </div>
-    </nav>
-    
-    <section id="contact" class="hs-contact hs-section pt-5">
-      <div class="container  pt-5">
-        <div class="row">
-          <div class="col-lg-12 text-center text-color--white">
-              <p>Empty work space</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4 mx-auto">
-            <!-- backface-demo -->
-            <div id="output" class="output large">
-              <section id="default-example" class="default-example">
-                  <div id="example-element" style="backface-visibility: visible;">
-                      <div class="face front">1</div>
-                      <div class="face back">2</div>
-                      <div class="face right">3</div>
-                      <div class="face bottom">6</div>
-                  </div>
-              </section>
-              <button class="btn btn-outline-success backface-button" onclick="bfv();">Toggle Backface</button>
-              <script>
-                function bfv() {
-                  const exampleElement = document.getElementById('example-element');
-                  if (exampleElement.style.backfaceVisibility === 'visible') {
-                    exampleElement.style.backfaceVisibility = 'hidden';
-                  } else {
-                    exampleElement.style.backfaceVisibility = 'visible';
-                  }
-                }
-              </script>
-          </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
+    </div>
+  </nav>
 
   <section id="contact" class="hs-contact hs-section pt-5">
-  <div class="container  pt-5">
-    <div class="row">
-      <div class="col-lg-12 text-center text-color--white">
-        <h2 class="hs-section-heading">Contact Me</h2>
-        <h3 class="hs-section-subheading hs-text-muted">
-            &#10038 Get the job done right the first time. &#10038
-        </h3 >
-      </div >
-    </div >
-  <div class="row">
-  <div class="col-lg-12 pt-4" >
-    <form name="sentMessage" autocomplete="off" id="contactForm" class="mt-5" novalidate>
+    <div class="container  pt-5">
       <div class="row">
-        <div class="col-md-6">
-          <div class="form-group" title="Name *" >
-            
-            <input type="text" class="form-control"  id="name"required
-              autocomplete="off" data-validation-required-message="Please enter your name.">
-            <p class="help-block text-danger"></p>
-          </div>
-          <div class="form-group" title="Email *">
-            <input type="email" class="form-control" id="email" required
-            autocomplete="off" data-validation-required-message="Please enter your email address.">
-            <p class="help-block text-danger"></p>
-          </div>
-          <div class="form-group" title="Phone *">
-            <input type="tel" class="form-control" id="phone" required
-            autocomplete="off" data-validation-required-message="Please enter your phone number.">
-            <p class="help-block"></p>
-          </div>
-        </div>
-        
-        <div class="col-md-6 d-flex align-items-stretch 0b-2">
-          <div class="form-group w-100 flex-item;" title="Message *">
-            <textarea class="form-control hs-form-textarea flex-item align-self-stretch w-100 h-100" 
-              id="message" required data-validation-required-message="Please enter a message."></textarea>
-            <p class="help-block"></p>
-          </div>
-        </div>
-<style>
-
-
-/* -webkit-tap-highlight-color: rgba(232, 230, 227, 0); */
-  </style>
-        <div class="col-lg-12 text-center">
-          <div type="submit" class="hs-slide-submit" >
-            <div closs="container-fluid">
-              <div class="row w-100 m-0">
-                <div class="col-md-2 hs-slide-submit_left p-0 m-0">
-                  <div id="drag1"
-                    src="img_logo.gif" 
-                    draggable="true" 
-                    ondragstart="onDrag(event)"
-                    class="hs-slide-submit-button">
-                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                       width="26px" height="26px" viewBox="187 187 26 26" class="hs-slide_icon">
-                      <path fill="currentColor" d="M206.897,200.932l-10.683,10.682c-0.516,0.516-1.352,0.516-1.866,0l-1.245-1.244
-                        c-0.515-0.515-0.516-1.349-0.002-1.864l8.463-8.505l-8.463-8.505c-0.514-0.515-0.513-1.349,0.002-1.863l1.245-1.245
-                        c0.515-0.516,1.351-0.516,1.866,0l10.683,10.682C207.412,199.584,207.412,200.416,206.897,200.932z"/>
-                    </svg>
-                  </div>
-                </div>
-                <div class="hs-slide-submit-center col-md-8 m-0">
-                  <span class="hs-slide-submit_label">SEND</span>
-                  <!-- animated arrows -->
-                  <div class="hs-animated-arrow-container">
-                  <svg id="arrows" class="hs-animated-arrow" width="18px" height="17px" viewBox="-1 0 18 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <g>
-                        <polygon class="hs-arrow a-3" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
-                        <polygon class="hs-arrow a-2" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
-                        <polygon class="hs-arrow a-1" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
-                        <polygon class="hs-arrow-fixed" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
-                        <!-- <path d="M-4.58892184e-16,0.56157424 L-4.58892184e-16,16.1929159 L9.708,8.33860465 L-1.64313008e-15,0.56157424 L-4.58892184e-16,0.56157424 Z M1.33333333,3.30246869 L7.62533333,8.34246869 L1.33333333,13.4327013 L1.33333333,3.30246869 L1.33333333,3.30246869 Z"></path> -->
-                    </g>
-                </svg>
-                  </div>
-                </div >
-                <div class="col-md-2 hs-slide-submit_right p-0 m-0">
-                  <div id="dzone"
-                    ondragover ="onAllowDrop(event)"
-                    ondrop="onDrop(event)"
-                    class="hs-slide-submit-button_drop hs-dropzone">
-                  </div>
-                </div>
-              </div>
-              
-              
-              
-            </div>
-          </div>
-          
-          <div id="success"></div>
+        <div class="col-lg-12 text-center text-color--white">
+          <p>Empty work space</p>
         </div>
       </div>
-    </form>
-    </div >
-  </div >
-<!-- <span class="hs-animated-checkbox-container"> -->
-  <svg class="svg-checkmark" x="0px" y="0px" viewBox="0 0 135 110" width="35px" height="43px">
-    <rect class="box" x="5" y="5" width="100" height="100" transform="rotate(90 55 55)"/>
-    <path class="check" d="M126.8,14L55.7,85.1L29.2,63.4"/>
-  </svg>
-  <style>
-    .slide-button-grid {
-      display: grid;
-      grid-template-columns: 42px 1fr 42px;
-      gap: 0px 0px;
-      grid-template-areas: "grid__left grid__center grid__right";
-      width: 270px;
-      padding: 2px;
-      margin: auto;
-      background-color: rgba(255, 255, 255, 0.5);
-      border: 2px solid #fff;
-    }
-    .slide-button-grid .slide-button-grid__left {
-      grid-area: grid__left;
-      display: flex;
-      flex: 0 0 42px;
-      align-items: center;
-      height: 42px;
-    }
-    .slide-button-grid .slide-button-grid__left .grid-left__inner {
-      padding: 2px;
-      border: 2px solid transparent;
-    }
-    .slide-button-grid .slide-button-grid__center {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 42px;
-      font-size: .9rem;
-      font-weight: 700;
-      color: $hs-gray-300;
-      text-align: center;
-      grid-area: grid__center;
-    }
-    .slide-button-grid .slide-button-grid__right {
-      grid-area: grid__right;
-      display: flex;
-      align-items: center;
-      height: 42px;
-    }
+      <div class="row">
+        <div class="col-md-4 mx-auto">
+          <!-- backface-demo -->
+          <div id="output" class="output large">
+            <section id="default-example" class="default-example">
+              <div id="example-element" style="backface-visibility: visible;">
+                <div class="face front">1</div>
+                <div class="face back">2</div>
+                <div class="face right">3</div>
+                <div class="face bottom">6</div>
+              </div>
+            </section>
+            <button class="btn btn-outline-success backface-button" onclick="bfv();">Toggle Backface</button>
+            <script>
+              function bfv() {
+                const exampleElement = document.getElementById('example-element');
+                if (exampleElement.style.backfaceVisibility === 'visible') {
+                  exampleElement.style.backfaceVisibility = 'hidden';
+                } else {
+                  exampleElement.style.backfaceVisibility = 'visible';
+                }
+              }
 
-    /* .slide-button-grid .slide-button-grid__right .grid-right__inner {
-      text-align: center;
-    } */
-
-    .slide-button {
-      width: 32px;
-      height: 32px;
-      cursor: grab;
-      background-image: url('../assets/img/svg/slide-submit-button.svg');
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: 32px 32px;
-    }
-
-    .dropzone {
-      width: 32px;
-      height: 32px;
-      font-size: .8rem;
-      font-weight: 700px;
-      line-height: .7rem;
-      text-align: center;
-      border: 2px dashed #fff;
-      transition: all .35s ease-in-out
-    }
-    .dropzone.drop-ready {
-
-      border-color: var(--hs-flip2code-color-core-blue-70);
-      transition: all .35s ease-in-out
-    }
-    .dropzone.drop-now {
-      border-color: green;
-      transition: all .35s ease-in-out;
-      transform: scale(1.2)
-    }
-  </style>
-<div class="slide-button-grid">
-  <div class="slide-button-grid__left">
-    <div class="grid-left__inner">
-      <div id="slideButton" class="slide-button draggable" draggable="true"></div>
+            </script>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="slide-button-grid__center">
-    SEND
-  </div>
-  <div class="slide-button-grid__right">
-    <!-- <div id="dropzoneOutter" class="grid-right__inner"> -->
-      <div id="dropzone" class="dropzone"></div>
-    <!-- </div> -->
-  </div>
-</div>
-  
-
-<script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
-
-<script>
-var slideButton = document.querySelector('#slideButton')
-var dropzone = document.querySelector('#dropzone')
-var finalX;
-var finalY;
-console.log(slideButton)
-console.log(dropzone)
-
-interact('.draggable').draggable({
-  
-  inertia: true,
-  modifiers: [
-    interact.modifiers.restrictRect({
-      restriction: 'parent',
-      endOnly: true
-    })
-  ],
-  autoScroll: true,
-  listeners: {
-    move: dragMoveListener,
-
-    start (event) {
-      dropzone.classList.add('drop-ready')
-    },
-    // call this function on every dragend event
-    end (event) {
-      slideButton.style.webkitTransform =
-        slideButton.style.transform = 'translate(' + finalX + 'px, ' + finalY + 'px)'
-
-      // update the   posiion attributes
-      slideButton.setAttribute('data-x', finalX)
-      slideButton.setAttribute('data-y', finalY)
-      
-      // var textEl = event.target.querySelector('p')
-      // textEl && (textEl.textContent =
-      //   'moved a distance of ' +
-      //   (Math.sqrt(Math.pow(event.pageX - event.x0, 2) +
-      //              Math.pow(event.pageY - event.y0, 2) | 0)).toFixed(2) + 'px')
-    }
-  }
-})
-
-function dragMoveListener (event) {
-  
-  var target = event.target
-  // keep the dragged position in the data-x/data-y attributes
-  var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
-  var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
-
-  // translate the element
-  target.style.webkitTransform =
-    target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
-
-  // update the posiion attributes
-  target.setAttribute('data-x', x)
-  target.setAttribute('data-y', y)
-
- 
-}
-
-// this function is used later in the resizing and gesture demos
-window.dragMoveListener = dragMoveListener
+  </section>
 
 
+  <section id="contact" class="hs-contact hs-section pt-5">
+    <div class="container  pt-5">
+      <div class="row">
+        <div class="col-lg-12 text-center text-color--white">
+          <h2 class="hs-section-heading">Contact Me</h2>
+          <h3 class="hs-section-subheading hs-text-muted">
+            &#10038 Get the job done right the first time. &#10038
+          </h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 pt-4">
+          <div name="sentMessage" autocomplete="off" id="contactForm" class="mt-5" novalidate>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group" title="Name *">
 
-interact('.dropzone').dropzone({
-  // only accept elements matching this CSS selector
-  accept: '.slide-button',
-  // Require a 75% element overlap for a drop to be possible
-  overlap: 0.25,
+                  <input type="text" class="form-control" id="name" required autocomplete="off"
+                    data-validation-required-message="Please enter your name.">
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="form-group" title="Email *">
+                  <input type="email" class="form-control" id="email" required autocomplete="off"
+                    data-validation-required-message="Please enter your email address.">
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="form-group" title="Phone *">
+                  <input type="tel" class="form-control" id="phone" required autocomplete="off"
+                    data-validation-required-message="Please enter your phone number.">
+                  <p class="help-block"></p>
+                </div>
+              </div>
 
-  ondragenter: function (event) {
-    var draggableElement = event.relatedTarget
-    var dropzoneElement = event.target
-    dropzone.classList.remove('drop-ready')
-    dropzone.classList.add('drop-now')
-    // feedback the possibility of a drop
+              <div class="col-md-6 d-flex align-items-stretch 0b-2">
+                <div class="form-group w-100 flex-item;" title="Message *">
+                  <textarea class="form-control hs-form-textarea flex-item align-self-stretch w-100 h-100" id="message"
+                    required data-validation-required-message="Please enter a message."></textarea>
+                  <p class="help-block"></p>
+                </div>
+              </div>
+              <style>
+                /* -webkit-tap-highlight-color: rgba(232, 230, 227, 0); */
 
-    slideButton.textContent = 'Drop!'
-    
-  },
-  ondragleave: function (event) {
-    // remove the drop feedback style
-    dropzone.classList.remove('drop-target')
-    dropzone.classList.remove('drop-now')
-    slideButton.classList.remove('can-drop')
-    slideButton.textContent = 'Bye'
-  },
-  ondrop: function (event) {
-    var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
-    var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
-    var finalX = x
-    var finalY = y
-    // translate the element
-    target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
-    target.style.webkitTransform = target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
+              </style>
+              <div class="col-lg-12 text-center">
+                <div type="submit" class="hs-slide-submit">
 
-    // update the posiion attributes
-    target.setAttribute('data-x', x)
-    target.setAttribute('data-y', y)
 
-    event.relatedTarget.textContent = 'Dropped'
-    slideButton.style.webkitTransform =
-        slideButton.style.transform = 'translate(' + finalX + 'px, ' + finalY + 'px)'
+                  <div id="success"></div>
+                </div>
+              </div>
+              </form>
+            </div>
+          </div>
+          <!-- <span class="hs-animated-checkbox-container"> -->
+          <svg class="svg-checkmark" x="0px" y="0px" viewBox="0 0 135 110" width="35px" height="43px">
+            <rect class="box" x="5" y="5" width="100" height="100" transform="rotate(90 55 55)" />
+            <path class="check" d="M126.8,14L55.7,85.1L29.2,63.4" />
+          </svg>
+          <style>
+            /* animated checkbox */
+            @keyframes draw {
+              0% {
+                stroke-dashoffset: -400;
+              }
 
-      // update the   posiion attributes
-      slideButton.setAttribute('data-x', finalX)
-      slideButton.setAttribute('data-y', finalY)
+              100% {
+                stroke-dashoffset: 400;
+              }
+            }
 
-  },
-  ondropdeactivate: function (event) {
-    // remove active dropzone feedback
-    event.target.classList.remove('drop-active')
-    event.target.classList.remove('drop-target')
+            @keyframes check {
+              0% {
+                stroke-dashoffset: -400;
+              }
 
-  }
-})
-interact('.slide-button')
-  .draggable({
-    inertia: true,
-    modifiers: [
-      interact.modifiers.restrictRect({
-        restriction: 'parent',
-        endOnly: true
-      })
-    ],
-    autoScroll: true,
-    // dragMoveListener from the dragging demo above
-    listeners: { move: dragMoveListener }
-  })
+              100% {
+                stroke-dashoffset: 0;
+              }
+            }
 
-</script>
- 
+            @media (max-width: 360px) {
+              body {
+                overflow: scroll;
+              }
+            }
 
-</div >
+            /* end animated checkbox */
 
-</div >
-</div >
-</div >
-</section >
+            /* animated arrows */
+            @keyframes arrow-anim {
+              from {
+                fill: transparent;
+                stroke-width: 2px;
+                stroke: transparent;
+                transform: translateX(1rem);
+              }
 
-<section class="hs-section">
-</section>
+              50% {
+                fill: #FFF;
+                stroke-width: 2px;
+                stroke: #FFF;
+              }
 
-<section>
-</section>
+              to {
+                transform: translateX(9rem);
+                fill: transparent;
+                stroke-width: 2px;
+                stroke: transparent;
+              }
+            }
 
-<script>
+            @keyframes arrow-fixed-anim {
+              5% {
+                opacity: 0;
+              }
 
-  // *====== DRAG and Drop Submit *======//
-  
-  //animated checkbox
-  // let animatedCheckMark = 
-  //   `<svg class="svg-checkmark" x="0px" y="0px" viewBox="0 0 135 110" width="40px" height="50px">
-  //       <path class="check" d="M126.8,14L55.7,85.1L29.2,63.4"/>
-  //     </svg>`
-    
-  
-  // let dz = document.querySelector('.hs-dropzone')
-  // let arrows = document.querySelector('#arrows')
+              20% {
+                opacity: 0.4;
+              }
 
-  // // ondragover allowdrop function
-  // function onAllowDrop(ev) {
-  //   ev.preventDefault();
-  //   // dz.style.cursor = 'move';
-  //   !dz.classList.contains('hs-dropzone-hover') ?  dz.classList.add('hs-dropzone-hover') : dz.classList.remove('hs-dropzone-hover');
-  //   !arrows.classList.contains('hs-fadeout') ? arrows.classList.add('hs-fadeout') : '';
-  // }
-  
-  // function onDragLeave(ev) {
-  //   if (arrows.classList.contains('hs-fadeout')){
-  //     arrows.classList.remove('hs-fadeout')
-  //   }
-  // }
+              100% {
+                opacity: 1;
+              }
+            }
 
-   
-  // function onDrag(ev) {
-  //   ev.dataTransfer.setData("text", ev.target.id);
-  //   ev.currentTarget.style.cursor = 'move';
-  //   //  ev.currentTarget.style.background = 'yellow';
-  //  }
+            .hs-slide-submit_label {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              z-index: 1000;
+              flex: 1 1 auto;
+              font-family: "Montserrat", "Segoe UI", "Roboto", "Helvetica Neue", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", Arial, sans-serif, -apple-system, BlinkMacSystemFont;
+              font-weight: 700;
+              color: #dee2e6;
+              text-transform: uppercase;
+              letter-spacing: 2px;
+              transform: translate(-50%, -50%);
+            }
 
-  //  function onDragOver {
+            .hs-animated-arrow-container {
+              position: absolute;
+              left: 4px;
+              z-index: 1;
+              display: flex;
+              align-items: center;
+              height: 32px;
+            }
 
-  //  }
-   
-  //  function onDrop(ev) {
-  //    ev.preventDefault();
-  //    var data = ev.dataTransfer.getData("text");
-  //    ev.target.appendChild(document.getElementById(data));
-  //    document.getElementById(data).classList.add('hs-fadeout')
-  //    dz.classList.add('hs-dropzone-has-file');
-  //   //  dz.innerHTML = animatedCheckMark;
-  //   let checky = document.createElement('span');
-  //   checky.classList.add('hs-animated-checkbox-container')
-  //   checky.innerHTML = animatedCheckMark;
-  //   dz.appendChild(checky)
-  //  }
-   
- </script>
-  
-  <!-- Contact Form JavaScript -->
-  <!-- <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/jqBootstrapValidation/1.3.6/jqBootstrapValidation.min.js"></script> -->
+            .hs-animated-arrow-container .hs-animated-arrow {
+              width: 22px;
+              height: auto;
+              margin: 0 2rem 0 -15px;
+              overflow: visible;
+              cursor: move;
+            }
+
+            .hs-animated-arrow-container .hs-animated-arrow polygon,
+            .hs-animated-arrow-container .hs-animated-arrow path {
+              transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
+              fill: transparent;
+              stroke: transparent;
+              stroke-width: 2px;
+            }
+
+            .hs-animated-arrow-container .hs-animated-arrow .hs-arrow {
+              animation-name: arrow-anim;
+              animation-duration: 2.5s;
+              animation-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+              animation-iteration-count: infinite;
+              fill: transparent;
+            }
+
+            .hs-animated-arrow-container .hs-animated-arrow .hs-arrow.a-3 {
+              animation-delay: 0.25s;
+            }
+
+            .hs-animated-arrow-container .hs-animated-arrow .hs-arrow.a-2 {
+              animation-delay: 0.15s;
+            }
+
+            .hs-animated-arrow-container .hs-animated-arrow .hs-arrow.a-1 {
+              animation-delay: 0s;
+            }
+
+            .hs-animated-arrow-container .hs-animated-arrow .hs-arrow-fixed {
+              animation: arrow-fixed-anim 2.5s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+            }
+
+            /* end animated arrows */
+
+            /* slide-button */
+            .slide-button-grid {
+              display: grid;
+              grid-template-columns: 42px 1fr 42px;
+              gap: 0px 0px;
+              grid-template-areas: "grid__left grid__center grid__right";
+              width: 250px;
+              padding: 2px;
+              margin: auto;
+              background-color: rgba(255, 255, 255, 0.5);
+              border: 2px solid #fff;
+            }
+
+            .slide-button-grid .slide-button-grid__left {
+              grid-area: grid__left;
+              display: flex;
+              flex: 0 0 42px;
+              align-items: center;
+              height: 42px;
+            }
+
+            .slide-button-grid .slide-button-grid__left .grid-left__inner {
+              padding: 2px;
+              border: 2px solid transparent;
+            }
+
+            .slide-button-grid .slide-button-grid__center {
+              position: relative;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              height: 42px;
+              font-size: .9rem;
+              font-weight: 700;
+              color: $hs-gray-300;
+              text-align: center;
+              grid-area: grid__center;
+            }
+
+            .slide-button-grid .slide-button-grid__right {
+              grid-area: grid__right;
+              display: flex;
+              align-items: center;
+              height: 42px;
+            }
+
+            .slide-button {
+              width: 32px;
+              height: 32px;
+              cursor: grab;
+              background-image: url('../assets/img/svg/slide-submit-button.svg');
+              background-repeat: no-repeat;
+              background-position: center center;
+              background-size: 32px 32px;
+            }
+
+            .dropzone {
+              width: 32px;
+              height: 32px;
+              font-size: .8rem;
+              font-weight: 700px;
+              line-height: .7rem;
+              text-align: center;
+              border: 2px dashed #fff;
+              transition: all .35s ease-in-out
+            }
+
+            .dropzone.dropzone-indicator {
+
+              border-color: var(--hs-flip2code-color-core-blue-70);
+              transition: all .35s ease-in-out
+            }
+
+            .dropzone.drag-enter {
+              border-color: #d15400;
+              transition: all .35s ease-in-out;
+              transform: scale(1.2)
+            }
+
+            .dropzone.drop-ready {
+              border-color: green;
+              transition: all .35s ease-in-out;
+              transform: scale(1.2)
+            }
+
+            .slide-button.dropped {
+              opacity: 0;
+              transition: all 2s ease-in-out;
+              transform: scale(0);
+            }
+
+            .dropzone.border-white {
+              background: rgba(255, 255, 255, .5);
+              border-color: #fff;
+              transition: all 2s ease-in-out;
+              transform: scale(1);
+            }
+
+            .svg-checkmark {
+              position: absolute;
+              top: -12px;
+              left: 0;
+            }
+
+            .check {
+              stroke: #005c00;
+
+              /* red */
+              stroke: green;
+
+              /* blue */
+              fill: none;
+              stroke-width: 20;
+              stroke-dasharray: 400;
+              stroke-dashoffset: 400;
+              stroke-miterlimit: 5;
+              stroke-linecap: square;
+
+              animation: check .75s linear forwards;
+            }
+
+            .svg .box {
+              stroke: #cc181e;
+              stroke: #387ea9;
+              stroke-width: 12;
+              fill: none;
+              stroke-dasharray: 400;
+              stroke-dashoffset: 400;
+              animation: draw 1s linear forwards;
+            }
+
+          </style>
+
+          <div class="slide-button-grid">
+            <div class="slide-button-grid__left">
+              <div class="grid-left__inner">
+                <div id="slideButton" class="slide-button draggable" draggable="true" ondragstart="dragstart(event)"
+                  ondragend="dragend(event)"></div>
+              </div>
+            </div>
+            <div class="slide-button-grid__center">
+              <span class="hs-slide-submit_label">SEND</span>
+              <!-- animated arrows -->
+              <div class="hs-animated-arrow-container">
+                <svg id="arrows" class="hs-animated-arrow" width="18px" height="17px" viewBox="-1 0 18 17" version="1.1"
+                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <g>
+                    <polygon class="hs-arrow a-3"
+                      points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596">
+                    </polygon>
+                    <polygon class="hs-arrow a-2"
+                      points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596">
+                    </polygon>
+                    <polygon class="hs-arrow a-1"
+                      points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596">
+                    </polygon>
+                    <polygon class="hs-arrow-fixed"
+                      points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596">
+                    </polygon>
+                    <!-- <path d="M-4.58892184e-16,0.56157424 L-4.58892184e-16,16.1929159 L9.708,8.33860465 L-1.64313008e-15,0.56157424 L-4.58892184e-16,0.56157424 Z M1.33333333,3.30246869 L7.62533333,8.34246869 L1.33333333,13.4327013 L1.33333333,3.30246869 L1.33333333,3.30246869 Z"></path> -->
+                  </g>
+                </svg>
+              </div>
+            </div>
+            <div class="slide-button-grid__right">
+              <div id="dropzone" class="dropzone" ondragenter="dragenter(event)" ondragleave="dragleave(event)"
+                ondragover="dragover(event)" ondrop="drop(event)"></div>
+            </div>
+          </div>
+
+
+
+          <!-- <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script> -->
+
+          <script>
+            var slideButton = document.querySelector('#slideButton');
+            var dropzone = document.querySelector('#dropzone')
+            var arrows = document.querySelector('.hs-animated-arrow-container')
+            var animatedCheckMark =
+              `<svg class="svg-checkmark" x="0px" y="0px" viewBox="0 0 135 110" width="35px" height="43px">
+    <path class="check" d="M126.8,14L55.7,85.1L29.2,63.4"/>
+  </svg>`
+
+            function dragstart(ev) {
+              ev.dataTransfer.setData("text", ev.target.id);
+            }
+
+            function dragenter(ev) {
+              ev.preventDefault();
+              arrows.style.opacity = '0';
+            }
+
+            function dragleave(ev) {
+              ev.preventDefault();
+              arrows.style.opacity = '1';
+            }
+
+            function dragover(ev) {
+              ev.preventDefault();
+              dropzone.classList.add('drop-ready');
+            }
+
+            function drop(ev) {
+              ev.preventDefault();
+              var data = ev.dataTransfer.getData("text");
+              ev.target.appendChild(document.getElementById(data));
+              slideButton.classList.remove('drop-ready');
+              slideButton.classList.add('dropped');
+
+              var checky = document.createElement('span');
+              checky.classList.add('hs-animated-checkbox-container');
+              checky.innerHTML = animatedCheckMark;
+              dropzone.appendChild(checky);
+              dropzone.classList.add('border-white');
+            }
+
+          </script>
+
+
+        </div>
+
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section class="hs-section">
+  </section>
+
+  <section>
+  </section>
+
+
+
   <!-- <script src="js/contact_me.js"></script> -->
 
   <!-- Theme JavaScript -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-  <script src="/assets/js/vendor/perfect-scrollbar-1.4.0/dist/perfect-scrollbar.js" type="module"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+  </script>
+  <!-- <script src="/assets/js/vendor/perfect-scrollbar-1.4.0/dist/perfect-scrollbar.js" type="module"></script> -->
 
   <!-- Theme JavaScript -->
   <script src="/assets/js/HeathScript.bundle.js" type="module"></script>
 
-  
-  <script src="/assets/js/autofill-detector.js"></script>
+
+  <!-- <script src="/assets/js/autofill-detector.js"></script> -->
 
   <script>
     function showModal(modal) {
@@ -528,15 +559,15 @@ interact('.slide-button')
     function closeModal(modal) {
       document.querySelector(modal).close();
     }
-   
+
   </script>
   <script>
     //  onclick="javascript:showModal('#modBowlopolis');"
     // // ====== RANKING BARS
-    var theBars=document.querySelectorAll('.hs-ranking-bar')
+    var theBars = document.querySelectorAll('.hs-ranking-bar')
     theBars.forEach(aBar => {
-      var barWidth=$(aBar).attr('aria-valuenow')
-      $(aBar).attr('style',`width: ${barWidth}%`);
+      var barWidth = $(aBar).attr('aria-valuenow')
+      $(aBar).attr('style', `width: ${barWidth}%`);
     });
 
   </script>
