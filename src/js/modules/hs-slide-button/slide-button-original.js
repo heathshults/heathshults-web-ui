@@ -9,10 +9,10 @@ class Draggable {
 
   _addEventListener() {
       this.box.forEach(element => {
-          element.addEventListener('dragenter', this.dragenter)
-          element.addEventListener('dragleave', this.dragleave)
-          element.addEventListener('dragover', this.dragover)
-          element.addEventListener('drop', this.drop)
+          element.addEventListener('dragenter', this.dragenter);
+          element.addEventListener('dragleave', this.dragleave);
+          element.addEventListener('dragover', this.dragover);
+          element.addEventListener('drop', this.drop);
       });
 
       this.container.addEventListener('dragstart', this.dragstart);
@@ -27,7 +27,7 @@ class Draggable {
   }
 
   dragend(e) {
-      console.log('dragend')
+      console.log('dragend');
       this.classList.remove('invisible');
       this.classList.remove('drag_start');
   }
@@ -35,24 +35,24 @@ class Draggable {
   dragenter(e) {
       e.preventDefault();
       
-      console.log('dragenter')
+      console.log('dragenter');
        this.classList.add('drag_enter');
   }
 
   dragleave(e) {
-      console.log('dragleave')
+      console.log('dragleave');
       this.classList.remove('drag_enter');
   }
 
   dragover(e) {
       e.preventDefault();
-      console.log('dragover')
+      console.log('dragover');
   }
 
   drop() {
        let container = document.querySelector('.box__dragabble');
-       this.classList.remove('drag_enter')
-      this.append(container)
+       this.classList.remove('drag_enter');
+      this.append(container);
   }
 
   static init() {

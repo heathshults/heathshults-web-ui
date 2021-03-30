@@ -1,15 +1,12 @@
 //colors
-$color_0: #fff;
-$color_1: #dee2e6;
-$color_2: rgba(255, 255, 255, 0.5);
-$color_3: #d15400;
---hs-white--a50: rgba(255, 255, 255, .5);
-
-$color_8: #387ea9;
+$white: #fff;
+$super-light-gray: #dee2e6;
+$dark-orange: #d15400;
+$blue-muted: #387ea9;
 
 //fonts
 $Montserrat: 'Montserrat';
-segoe-ui: 'Segoe-UI';
+$segoe-ui: 'Segoe-UI';
 $Roboto: 'Roboto';
 $Helvetica-Neue: 'Helvetica Neue';
 $Apple-Color-Emoji: 'Apple Color Emoji';
@@ -54,9 +51,9 @@ $slide-button: url('../assets/img/svg/slide-submit-button.svg');
     transform: translateX(1rem);
   }
   50% {
-    fill: $color_0;
+    fill: $white;
     stroke-width: 2px;
-    stroke: $color_0;
+    stroke: $white;
   }
   to {
     //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
@@ -85,7 +82,7 @@ $slide-button: url('../assets/img/svg/slide-submit-button.svg');
   flex: 1 1 auto;
   font-family: $Montserrat, $Segoe-UI, $Roboto, $Helvetica-Neue, $Apple-Color-Emoji, $Segoe-UI-Emoji, $Segoe-UI-Symbol, $Noto-Color-Emoji, $Arial, $sans-serif, $segoe-ui0, $segoe-ui1;
   font-weight: 700;
-  color: $color_1;
+  color: $super-light-gray;
   text-transform: uppercase;
   letter-spacing: 2px;
   //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
@@ -147,8 +144,8 @@ $slide-button: url('../assets/img/svg/slide-submit-button.svg');
   width: 250px;
   padding: 2px;
   margin: auto;
-  background-color: $color_2;
-  border: 2px solid $color_0;
+  background-color: var(--hs-white--a50);
+  border: 2px solid $white;
   .slide-button-grid__left {
     grid-area: grid__left;
     display: flex;
@@ -202,7 +199,7 @@ $slide-button: url('../assets/img/svg/slide-submit-button.svg');
   font-weight: 700px;
   line-height: .7rem;
   text-align: center;
-  border: 2px dashed $color_0;
+  border: 2px dashed $white;
   //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
   transition: all .35s ease-in-out;
   &.dropzone-indicator {
@@ -211,7 +208,7 @@ $slide-button: url('../assets/img/svg/slide-submit-button.svg');
     transition: all .35s ease-in-out;
   }
   &.drag-enter {
-    border-color: $color_3;
+    border-color: $dark-orange;
     //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
     transition: all .35s ease-in-out;
     //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
@@ -226,7 +223,7 @@ $slide-button: url('../assets/img/svg/slide-submit-button.svg');
   }
   &.border-white {
     background: var(--hs-white--a50);
-    border-color: $color_0;
+    border-color: $white;
     //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
     transition: all 2s ease-in-out;
     //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)

@@ -2,58 +2,55 @@ $hs-ns: "hs";
 
 
 // Gray and Brand Colors for use across theme
-$hs-black: #000 !default;
+$hs-black:      #000 !default;
 $hs-black--a15: rgba(0, 0, 0, 0.15) !default;
 $hs-black--a25: rgba(0, 0, 0, 0.25) !default;
 $hs-black--a45: rgba(0, 0, 0, 0.45) !default;
 $hs-black--a50: rgba(0, 0, 0, 0.5) !default;
 $hs-black--a75: rgba(0, 0, 0, 0.75) !default;
 
-// Tint
-$hs-darken-tint: 15% !default;
-$hs-lighten-tint: 15% !default;
-$hs-lightnessMultiplier: 0.9 !default;
 
-$hs-white: #fff !default;
-$hs-gray-50:  #f2f2f2 !default;
-$hs-gray-100: #f8f8f8 !default;
-$hs-gray-200: #ebebeb !default;
-$hs-gray-300: #dee2e6 !default;
-$hs-gray-400: #ced4da !default;
-$hs-gray-500: #adb5bd !default;
-$hs-gray-600: #6c757d !default;
-$hs-gray-700: #495057 !default;
-$hs-gray-800: #343a40 !default;
-$hs-gray-900: #212529 !default;
-$hs-gray-950: #151515 !default;
-$hs-black: #000 !default;
-// $hs-grays: () !default;
-
-// // stylelint-disable-next-line scss/dollar-variable-default
-// $hs-grays: map-merge(
-//   (
-//     "0": $hs-white,
-//     "100": $hs-gray-100,
-//     "200": $hs-gray-200,
-//     "300": $hs-gray-300,
-//     "400": $hs-gray-400,
-//     "500": $hs-gray-500,
-//     "600": $hs-gray-600,
-//     "700": $hs-gray-700,
-//     "800": $hs-gray-800,
-//     "900": $hs-gray-900,
-//     "950": $hs-gray-950,
-//     "1000": $hs-black,
-//   ),
-//   $hs-grays
-// );
-
-
-$hs-gray: $hs-gray-500 !default;
 $hs-white--a08: rgba(255, 255, 255, 0.08) !default;
 $hs-white--a10: rgba(255, 255, 255, 0.1) !default;
 $hs-white--a30: rgba(255, 255, 255, 0.3) !default;
+$hs-white--a50: rgba(255, 255, 255, 0.5) !default;
 $hs-white--a60: rgba(255, 255, 255, 0.6) !default;
+$hs-white--a75: rgba(255, 255, 255, 0.75) !default;
+$hs-white--a90: rgba(255, 255, 255, 0.9) !default;
+
+$hs-white:      #fff !default;
+$hs-gray-50:    #f2f2f2 !default;
+$hs-gray-100:   #f8f8f8 !default;
+$hs-gray-200:   #ebebeb !default;
+$hs-gray-300:   #dee2e6 !default;
+$hs-gray-400:   #ced4da !default;
+$hs-gray-500:   #adb5bd !default;
+$hs-gray-600:   #6c757d !default;
+$hs-gray-700:   #495057 !default;
+$hs-gray-800:   #343a40 !default;
+$hs-gray-900:   #212529 !default;
+$hs-gray-950:   #151515 !default;
+$hs-black:      #000 !default;
+$hs-gray:         $hs-gray-500 !default;
+
+// // stylelint-disable-next-line scss/dollar-variable-default
+$hs-grays: map-merge(
+  (
+    "0": $hs-white,
+    "100": $hs-gray-100,
+    "200": $hs-gray-200,
+    "300": $hs-gray-300,
+    "400": $hs-gray-400,
+    "500": $hs-gray-500,
+    "600": $hs-gray-600,
+    "700": $hs-gray-700,
+    "800": $hs-gray-800,
+    "900": $hs-gray-900,
+    "950": $hs-gray-950,
+    "1000": $hs-black,
+  ),
+  $hs-grays
+);
 
 // Override Bootstrap color system
 $yellow:     #f2b01e !default;
@@ -63,12 +60,16 @@ $hs-primary:   $yellow !default;
 $hs-primary--a50: rgba(254, 211, 54, 0.486) !default;
 $primary:      $yellow !default;
 
+// Tint
+$hs-darken-tint: 15% !default;
+$hs-lighten-tint: 15% !default;
+$hs-lightnessMultiplier: 0.9 !default;
+
 // Override Bootstrap yiq lightness value
 $hs-yiq-contrasted-threshold: 205 !default;
 $yiq-contrasted-threshold:    205 !default;
 
 // fusv-enable
-
 $hs-blue:    #0051bb !default;
 $hs-indigo:  #766cff !default;
 $hs-purple:  #5d0181 !default;
@@ -81,7 +82,6 @@ $hs-teal:    #20c9bb !default;
 $hs-cyan:    #05a0b8 !default;
 
 // scss-docs-start colors-map
-
 $hs-colors: (
   "blue":       $hs-blue,
   "indigo":     $hs-indigo,

@@ -56,7 +56,6 @@ file_copy() {
   npx copy "src/global/**/*" www/global/
   npx copy "src/php/**/*" www/php/
   npx copy "src/mail/**/*" www/mail/
-  npx copy "src/favicon.ico" www/
 }
 file_copy &
 

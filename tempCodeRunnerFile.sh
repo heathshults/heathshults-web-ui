@@ -1,1 +1,0 @@
-npx parcel src/js/modules/index.ts --out-file src/js/temp/HeathScript.bundle.js

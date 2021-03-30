@@ -264,16 +264,15 @@ exports.babelfry = babelfry;
 //   console.log(chalk.green('Babelifried JS')), cb();
 // }
 // exports.babelfry = babelfry;
-
 function renderJS(method, cb) {
   if (method === 'dir') {
     console.log(chalk.yellow('starting JS renderrer...'));
-    exec('npx babel src/js/modules --out-dir src/js/temp && browserify src/index.js --dir www/assets/js/', (error) => {
+    exec('npx del src/js/temp/**/*.js !HeathScript.js && npx del www/assets/js/**/*.js !HeathScript.bundle.js && npx babel src/js/modules/ --out-file src/js/temp/HeathScript-all-concat.js && npx babel src/js/modules --out-dir src/js/temp && browserify src/index.js --dir www/assets/js/', (error) => {
       if (error) {
         console.log(chalk.red(`ERROR Build JS:\n ${error.message}`));
         return `SCSS compile error${error}`;
       }
-      console.log(chalk.green('JS Rendererred: HeathScript.built.js'));
+      console.log(chalk.green('JS Rendererred: HeathScript.bundle.js'));
       return true;
   
     });
@@ -281,7 +280,7 @@ function renderJS(method, cb) {
     if (typeof cb === 'function') cb(null);
   }
   if (method === 'file') {
-    exec('npx babel src/js/modules --out-dir src/js/temp && browserify src/index.js -o www/assets/js/HeathScript.bundle.js', (error) => {
+    exec('npx del www/assets/js/HeathScript.bundle.js && npx del src/js/temp/HeathScript.js && npx babel src/js/modules --out-dir src/js/temp && browserify src/index.js -o www/assets/js/HeathScript.bundle.js', (error) => {
       if (error) {
         console.log(`ERROR Build JS:\n ${error.message}`);
         return `SCSS compile error${error}`;
@@ -624,7 +623,7 @@ let jsdir = '';
   watch([`${srcPath}/scss/**/*.scss`], compileCSS).on('change', browserSync.reload), callback;
   watch([`${srcPath}/**/*.html`], ra.copy_html).on('change', browserSync.reload), callback;
   watch([`${srcPath}/assets/**/*.css`], ra.copy_css).on('change', browserSync.reload), callback;
-  watch([`"${srcPath}/js/modules/**/*.{js,mjs,cjs,ts}"`, `!${srcPath}/js/HeathScript.js`], /*renderJS(jsdir))*/renderJS(jsfile)).on('change', browserSync.reload), callback;
+  watch([`"${srcPath}/js/modules/**/*.{js,mjs,cjs,ts}"`, `!${srcPath}/js/HeathScript.js`],renderJS(jsdir)).on('change', browserSync.reload), callback;
   watch([`${srcPath}/js/modules/HeathScript.js`], renderJS(jsfile)).on('change', browserSync.reload), callback;
   // watch([`${srcCompPath}/**/*.{tsx,ts,jsx,js,scss}`], build_components).on('change', browserSync.reload), callback;
   jsfile = 'file';

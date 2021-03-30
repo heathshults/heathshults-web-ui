@@ -1,9 +1,10 @@
-require('./js/temp/theme-switcher/theme-switcher.js');
+require('./js/temp/theme-switcher/theme-switcher');
 require('./js/temp/even-height');
 require('./js/temp/hs-timeline');
-require('./js/temp/show-more-fadebar/bak/show-more.js');
-require('./js/temp/time-stamper/time-stamper.js');
-require('./js/temp/validate-url/validate-url.js');
+require('./js/temp/show-more-fadebar/show-more');
+require('./js/temp/time-stamper/time-stamper');
+require('./js/temp/validate-url/validate-url');
+require('./js/temp/hs-slide-button/slide-button');
 require('./js/temp/HeathScript');
 
 
