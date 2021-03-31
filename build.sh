@@ -22,11 +22,11 @@ wait $STENCILPID &
 echo "JAVASCRIPT BUILD..."
 
 # npx babel system-modules/scss2cssVars/scss2cssVars.ts --out-file system-modules/scss2cssVars/scss2cssVars.js
-npx babel src/js/modules --out-dir src/js/temp/ &&
+npx babel src/js/modules/**/*.ts --out-dir src/js/temp/ &&
 BABELJS=$!
 
 wait $BABELJS &&
-npx babel src/js/modules/ --out-file src/js/temp/HeathScript-all-concat.js &&
+npx babel src/js/modules/**/*.ts --out-file src/js/temp/HeathScript-all-concat.js &&
 BABELJS=$!
 
 # npx NODE_ENV=development parcel build src/js/index.ts -d www/assets/js -o HeathScript.bundle.js --no-minify &&
@@ -35,7 +35,7 @@ BABELJS=$!
 # wait $BABELJS &&
 
 wait $BABELJS &&
-browserify src/index.js -o www/assets/js/HeathScript.bundle.js &&
+npx browserify src/index.js -o www/assets/js/HeathScript.bundle.js &&
 BROWSERIFYJS=$!
 
 wait $BROWSERIFYJS &&

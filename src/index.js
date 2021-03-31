@@ -1,6 +1,6 @@
 require('./js/temp/theme-switcher/theme-switcher');
-require('./js/temp/even-height');
-require('./js/temp/hs-timeline');
+require('./js/temp/even-height/even-height.js');
+require('./js/temp/hs-timeline/hs-timelineJS');
 require('./js/temp/show-more-fadebar/show-more');
 require('./js/temp/time-stamper/time-stamper');
 require('./js/temp/validate-url/validate-url');

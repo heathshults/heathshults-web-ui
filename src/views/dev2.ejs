@@ -13,7 +13,7 @@
   <script nomodule src="/components/heathenscript-ui-components.js"> </script>
 
   <!-- Custom Fonts -->
-  <link href="/assets/fa-5140/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="/assets/css/fa-all.min.css" rel="stylesheet" type="text/css">
   <link
     href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Montserrat:wght@500;700&family=Nothing+You+Could+Do&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap"
     rel="stylesheet">
@@ -439,10 +439,9 @@
           <div class="slide-button-grid">
             <div class="slide-button-grid__left">
               <div class="grid-left__inner">
-                <div id="slideButton" class="slide-button" draggable="true"></div>
-                <!-- <div id="slideButton" class="slide-button draggable" draggable="true" 
+                <div id="slideButton" class="slide-button draggable" draggable="true" 
                 ondragstart="dragstart(event)"
-                ondragend="dragend(event)"></div> -->
+                ondragend="dragend(event)"></div>
               </div>
             </div>
             <div class="slide-button-grid__center">
@@ -470,12 +469,11 @@
               </div>
             </div>
             <div class="slide-button-grid__right">
-              <div id="dropzone" class="dropzone"></div>
-              <!-- <div id="dropzone" class="dropzone" 
+              <div id="dropzone" class="dropzone" 
                 ondragenter="dragenter(event)" 
                 ondragleave="dragleave(event)"
                 ondragover="dragover(event)" 
-                ondrop="drop(event)"></div> -->
+                ondrop="drop(event)"></div>
             </div>
           </div>
           <p class="text-center"><a href="javascript:void(0);" onclick="resetSlideButton();">reset submit button</a> | clear form</p>
@@ -485,7 +483,7 @@
 
           <script>
             // window.load = (() => {
-/*
+
             var validateIssue = false;
             var slideButton = document.querySelector('#slideButton');
             var dropzone = document.querySelector('#dropzone')
@@ -545,13 +543,14 @@
               dropzone.classList.remove('dropped');
               dropzone.classList.remove('drop-ready');
               checky.remove();
+              l(document.querySelector('.grid-left__inner'))
               document.querySelector('.grid-left__inner').appendChild(slideButton)
               dropzone.classList.remove('border-white');
               arrows.style.opacity = '1';
             }
 
           // })();
-          */
+          
           </script>
 
 

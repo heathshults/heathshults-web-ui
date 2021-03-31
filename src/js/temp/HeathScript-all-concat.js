@@ -54,52 +54,73 @@ var ShowMoreSettings = {
 };
 "use strict";
 
-exports.__esModule = true;
+require("./even-height/even-height");
 
-var EvenHeight =
-/** @class */
-function () {
-  function EvenHeight(_a) {
-    var ehSelector = _a.ehSelector,
-        ehChildSelector = _a.ehChildSelector,
-        evenRows = _a.evenRows,
-        evenRowChildren = _a.evenRowChildren;
-    setTimeout(function () {
-      evenRows = Array.prototype.slice.call(document.querySelectorAll(ehSelector));
-      console.log('evenRows: ');
-      console.log(evenRows);
-      evenRows.forEach(function (row) {
-        var height = row.offsetHeight;
-        evenRowChildren = Array.prototype.slice.call(row.querySelectorAll(ehChildSelector));
-        console.log('height: ' + height);
-        console.log('childnodes: ');
-        console.log(evenRowChildren);
-        evenRowChildren.forEach(function (node) {
-          var child = node;
-          child.setAttribute('style', "height: " + height + "px");
-        });
+require("./show-more-fadebar/show-more");
+
+require("./theme-switcher/theme-switcher");
+
+require("./time-stamper/time-stamper");
+
+require("./validate-url/validate-url");
+
+require("./hs-slide-button/slide-button");
+
+require("./hs-timeline/hs-timeline-ts");
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var EvenHeight = function EvenHeight(_ref) {
+  var ehSelector = _ref.ehSelector,
+      ehChildSelector = _ref.ehChildSelector,
+      evenRows = _ref.evenRows,
+      evenRowChildren = _ref.evenRowChildren;
+  (0, _classCallCheck2.default)(this, EvenHeight);
+  setTimeout(function () {
+    evenRows = Array.prototype.slice.call(document.querySelectorAll(ehSelector));
+    console.log('evenRows: ');
+    console.log(evenRows);
+    evenRows.forEach(function (row) {
+      var height = row.offsetHeight;
+      evenRowChildren = Array.prototype.slice.call(row.querySelectorAll(ehChildSelector));
+      console.log('height: ' + height);
+      console.log('childnodes: ');
+      console.log(evenRowChildren);
+      evenRowChildren.forEach(function (node) {
+        var child = node;
+        child.setAttribute('style', "height: ".concat(height, "px"));
       });
-    }, 2000);
-  }
-
-  return EvenHeight;
-}();
-
-exports["default"] = EvenHeight; // const _EvenHeight = EvenHeight;
+    });
+  }, 2000);
+}; // const _EvenHeight = EvenHeight;
 // export { _EvenHeight as EvenHeight };
 
+
+exports.default = EvenHeight;
 new EvenHeight({
   ehSelector: '.even-height',
   ehChildSelector: 'col-md-3'
 });
 "use strict";
 
-exports.__esModule = true;
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.EvenHeight = void 0;
 
-var even_height_1 = require("./even-height");
+var _evenHeight = _interopRequireDefault(require("./even-height"));
 
-var __EvenHeight = even_height_1["default"];
+var __EvenHeight = _evenHeight.default;
 exports.EvenHeight = __EvenHeight;
 "use strict";
 
@@ -171,6 +192,11 @@ $(function () {
 
 $('#name').focus(function () {
   $('#success').html('');
+});
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
 "use strict";
 
@@ -258,6 +284,220 @@ var Draggable = /*#__PURE__*/function () {
 document.addEventListener('load', Draggable.init());
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+var SlideButton = /*#__PURE__*/function () {
+  function SlideButton() {
+    (0, _classCallCheck2.default)(this, SlideButton);
+  }
+
+  (0, _createClass2.default)(SlideButton, null, [{
+    key: "dragondrop",
+    value: function dragondrop() {
+      var l = console.log;
+      var validateIssue = false;
+      var slideButton = document.querySelector('#slideButton');
+      l(slidedeButton);
+      var dropzone = document.querySelector('#dropzone');
+      l(dropzone);
+      var arrows = document.querySelector('.hs-animated-arrow-container');
+      var animatedCheckMark = "<svg class=\"svg-checkmark\" x=\"0px\" y=\"0px\" viewBox=\"0 0 135 110\" width=\"35px\" height=\"43px\"><path class=\"check\" d=\"M126.8,14L55.7,85.1L29.2,63.4\"/></svg>";
+      var eventtarget;
+      var checky;
+      var x;
+      var y;
+      slideButton.setAttribute('ondragstart', dragonstart(event));
+      slideButton.addEvensetAttributetListener('ondrag', drag(event));
+      slideButton.setAttribute('ondragend', dragonend(event));
+      dropzone.addEventListener('dragenter', dragonenter(event));
+      dropzone.addEventListener('dragleave', dragonleave(event));
+      dropzone.addEventListener('dragover', dragonover(event));
+      dropzone.addEventListener('drop', drop(event));
+
+      function dragonstart(ev) {
+        eventtarget = ev.target;
+        x = ev.offsetX;
+        y = ev.offsetY;
+        eventtarget.dataTransfer.setData('text', eventtarget.id);
+        return;
+      }
+
+      function drag(ev) {
+        eventtarget = ev.target;
+        eventtarget.style.cursor = 'url(/assets/img/star.svg)';
+        return;
+      }
+
+      function dragend(ev) {
+        eventtarget = ev.target;
+        return;
+      }
+
+      function dragonenter(ev) {
+        ev.preventDefault();
+        arrows.style.opacity = '0';
+        return;
+      }
+
+      function dragonleave(ev) {
+        arrows.style.opacity = '1';
+        return;
+      }
+
+      function dragonover(ev) {
+        ev.preventDefault();
+        eventtarget = ev.target;
+        eventtarget.classList.add('drop-ready');
+        return;
+      }
+
+      function drop(ev) {
+        ev.stopPropagation();
+        eventtarget = ev.target;
+        var data = ev.dataTransfer.getData('text');
+        eventtarget.appendChild(document.getElementById(data));
+        eventtarget.classList.remove('drop-ready');
+        eventtarget.classList.add('dropped');
+        checky = document.createElement('span');
+        checky.classList.add('hs-animated-checkbox-container');
+        checky.innerHTML = animatedCheckMark;
+        eventtarget.appendChild(checky);
+        eventtarget.classList.add('border-white');
+        return false;
+      }
+
+      function resetSlideButton() {
+        dropzone.classList.remove('dropped');
+        dropzone.classList.remove('drop-ready');
+        checky.remove();
+        document.querySelector('.grid-left__inner').appendChild(slideButton);
+        dropzone.classList.remove('border-white');
+        arrows.style.opacity = '1';
+      }
+
+      return;
+    }
+  }]);
+  return SlideButton;
+}();
+
+exports.default = SlideButton;
+document.addEventListener('load', SlideButton.dragondrop());
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+// Vertical Timeline - by CodyHouse.co
+var VerticalTimeline = /*#__PURE__*/function () {
+  function VerticalTimeline(element) {
+    (0, _classCallCheck2.default)(this, VerticalTimeline);
+    this.element = element;
+    this.blocks = this.element.getElementsByClassName('hs-timeline__block');
+    this.images = this.element.getElementsByClassName('hs-timeline__img');
+    this.contents = this.element.getElementsByClassName('hs-timeline__content');
+    this.offset = 0.8; // this.hideBlocks();
+
+    this.History(VerticalTimeline).hideBlocks();
+  }
+
+  (0, _createClass2.default)(VerticalTimeline, [{
+    key: "History",
+    value: function History(_VerticalTimeline) {
+      this.prototype.hideBlocks = function () {
+        // if (!document.documentElement.hasAttribute('classList')) {
+        if (!'classList' in document.documentElement) {
+          return; // no animation on older browsers
+        } //hide timeline blocks which are outside the viewport
+
+
+        var self = this;
+
+        for (var i = 0; i < this.blocks.length; i++) {
+          (function (i) {
+            if (self.blocks[i].getBoundingClientRect().top > window.innerHeight * self.offset) {
+              self.images[i].classList.add('hs-timeline__img--hidden');
+              self.contents[i].classList.add('hs-timeline__content--hidden');
+            }
+          })(i);
+        }
+      };
+
+      _VerticalTimeline.prototype.showBlocks = function () {
+        // if (!document.documentElement.hasAttribute('classList')) {
+        if (!'classList' in document.documentElement) {
+          return;
+        }
+
+        var self = this;
+
+        for (var i = 0; i < this.blocks.length; i++) {
+          (function (i) {
+            if (self.contents[i].classList.contains('hs-timeline__content--hidden') && self.blocks[i].getBoundingClientRect().top <= window.innerHeight * self.offset) {
+              // add bounce-in animation
+              self.images[i].classList.add('hs-timeline__img--bounce-in');
+              self.contents[i].classList.add('hs-timeline__content--bounce-in');
+              self.images[i].classList.remove('hs-timeline__img--hidden');
+              self.contents[i].classList.remove('hs-timeline__content--hidden');
+            }
+          })(i);
+        }
+      }; // eslint-disable-next-line prefer-const
+
+
+      var verticalTimelines = document.getElementsByClassName('js-hs-timeline');
+      var verticalTimelinesArray = [];
+      var scrolling = false;
+
+      if (verticalTimelines.length > 0) {
+        for (var i = 0; i < verticalTimelines.length; i++) {
+          (function (i) {
+            verticalTimelinesArray.push(new _VerticalTimeline(verticalTimelines[i]));
+          })(i);
+        } //show timeline blocks on scrolling
+
+
+        window.addEventListener('scroll', function (event) {
+          console.log(event.target);
+
+          if (!scrolling) {
+            scrolling = true;
+            !window.requestAnimationFrame ? setTimeout(checkTimelineScroll, 250) : window.requestAnimationFrame(checkTimelineScroll);
+          }
+        });
+      }
+
+      function checkTimelineScroll() {
+        verticalTimelinesArray.forEach(function (timeline) {
+          timeline.showBlocks();
+        });
+        scrolling = false;
+      }
+    }
+  }]);
+  return VerticalTimeline;
+}();
+
+exports.default = VerticalTimeline;
+"use strict";
+
 /* eslint-disable no-unsafe-negation */
 (function () {
   // Vertical Timeline - by CodyHouse.co
@@ -337,9 +577,177 @@ document.addEventListener('load', Draggable.init());
 })(); // if (!document.documentElement.hasAttribute('classList')) {
 "use strict";
 
+require("./hs-timeline");
+"use strict";
+
 var ShowMore = require('./show-more');
 
 exports.ShowMore = ShowMore;
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+/* eslint-disable no-unused-vars */
+var log = console.log;
+
+var ShowMore = // return new Promise((resolve, reject) => {
+//   try {
+function ShowMore() {
+  var _this = this;
+
+  (0, _classCallCheck2.default)(this, ShowMore);
+  var VERSION = '0.0.1';
+  var NAME = 'ShowMore_FadeBar';
+  log("Now using ".concat(NAME, " version ").concat(VERSION)); // prepare the style tage for some css luvin
+
+  this.styleEl = document.createElement('style');
+  this.headEl = document.head || document.getElementsByTagName('head')[0];
+  this.options = settings();
+  this.cssText = FadeBarCSS(this.options); // log(this.options);
+
+  this.styleEl.setAttribute('id', 'fbCSS');
+  this.styleEl.textContent = this.cssText; // this.headEl.append(this.styleEl);
+
+  try {
+    var theFaders = Array.prototype.slice.call(document.querySelectorAll('.j-showmore'));
+    theFaders.forEach(function (node) {
+      var theContainer = node;
+      var theFadeBar = document.createElement('div');
+      var theShowMoreButton = document.createElement('button'); // const zindex = 'auto';
+
+      theFadeBar.classList.add('j-fader');
+      theShowMoreButton.classList.add('j-fader_button');
+      theShowMoreButton.innerText = _this.options.fbInitButtonText;
+      theFadeBar.appendChild(theShowMoreButton);
+      theContainer.before(theFadeBar);
+      _this.openHeight = theContainer.offsetHeight;
+      log(_this.openHeight);
+      theShowMoreButton.addEventListener('click', function (ev) {
+        ev.preventDefault();
+        var evButon = ev.target;
+        evButon.classList.toggle('is-visible');
+        var thisFadeBar = evButon.parentElement;
+        thisFadeBar.classList.toggle('is-visible');
+        thisFadeBar.nextElementSibling.classList.toggle('is-visible');
+        evButon.classList.contains('is-visible') ? evButon.innerText = _this.options.fbOpenButtonText : evButon.innerText = _this.options.fbInitButtonText;
+      }, false);
+      theShowMoreButton.addEventListener('mouseout', function (ev) {
+        var evButton = ev.target;
+        evButton.blur();
+      });
+    });
+  } catch (err) {
+    console.error(err);
+  }
+
+  function appendCSS(styles) {
+    // return;  comment out below for no js css
+    this.styleEl = document.createElement('style');
+    this.headEl = document.head || document.getElementsByTagName('head')[0]; // const cssStyles = css
+
+    this.styleEl.textContent = styles;
+    this.headEl.appendChild(this.styleEl);
+    this.styleEl.type = 'text/css';
+
+    if (this.styleEl.styleSheet) {
+      // This is required for IE8 and below.
+      this.styleEl.styleSheet.this.cssText = styles;
+    } else {
+      this.styleEl.appendChild(document.createTextNode(styles));
+    }
+
+    return;
+  }
+
+  function defaults() {
+    return {
+      fbWidth: '100%',
+      fbHeight: '50px',
+      fbBoxHeight: '300px',
+      fbBoxPaddingBottom: '60px',
+      fbStartColor: 'rgba(0,0,0,0)',
+      fbEndColor: 'rgba(0,0,0,0)',
+      fbBottomBorder: '0px solid #f2f2f2',
+      fbInitButtonText: 'Show More',
+      fbOpenButtonText: 'Show Less',
+      fbButtonPosition: 'center',
+      fbButtonBackground: '#fff',
+      fbButtonBackgroundHover: '#fff;',
+      fbButtonBackgroundFocus: '#fff;',
+      fbButtonTextColor: '#333',
+      fbButtonTextColorHover: '#333',
+      fbButtonLineHeight: '1',
+      fbButtonTextColorFocus: '#333',
+      fbButtonBorderColor: '#fff',
+      fbButtonBorderColorFocus: '#dedede',
+      fbButtonBorderRadius: '4px',
+      fbButtonWidth: '100px',
+      fbButtonHeight: '20px',
+      fbClassList: 'u-text-center',
+      fbBtnClassList: 'btn btn-primary mx-auto'
+    };
+  }
+
+  function settings() {
+    var ShowMoreSettings;
+    var fbCon;
+
+    if (typeof ShowMoreSettings === 'undefined') {
+      fbCon = defaults();
+    } else {
+      fbCon = ShowMoreSettings;
+    }
+
+    var styles = {
+      classBase: 'button-show-more',
+      classActive: 'is-fully-opened',
+      classFocused: 'is-focused',
+      fadebarClassList: 'animate text-center',
+      fadebarbButtonClassList: 'btn mx-auto'
+    };
+    var fbActionBtn = {
+      // showMore: 'Show More',
+      // showLess: 'Show Less',
+      positionX: 'center',
+      positionY: 'bottom'
+    };
+
+    try {
+      var mergedOptions = Object.assign(defaults(), styles, fbActionBtn, fbCon);
+      log('mergedOptions');
+      log(mergedOptions); // cssBuilder(this.options);
+
+      return mergedOptions;
+    } catch (e) {
+      log('object assign error: ' + e);
+    }
+  } // document.addEventListener('DOMContentLoaded', FadeBarCSS = () => {
+
+
+  function FadeBarCSS(options) {
+    var cssValues = options;
+    var fbCSS = "\n          .j-showmore {\n            position: absolute;\n            left: -9999px;\n            min-height: ".concat(cssValues.fbBoxHeight, ";\n            max-height: 400px;\n            overflow: hidden;\n            padding-bottom: ").concat(cssValues.fbBoxPaddingBottom, ";\n            -webkit-transition: max-height .25s ease-in-out;\n               -moz-transition: max-height .25s ease-in-out;\n                 -o-transition: max-height .25s ease-in-out;\n                    transition: max-height .25s ease-in-out;\n\n            /* -webkit-transition-timing-function: ease-in-out;\n              -moz-transition-timing-function: ease-in-out;\n                -o-transition-timing-function: ease-in-out;\n                    transition-timing-function: ease-in-out; */\n          }\n          .j-showmore.is-visible {\n            left: 0px;\n            max-height: 400px;\n            -webkit-transition: max-height .25s ease-in-out;\n               -moz-transition: max-height .25s ease-in-out;\n                 -o-transition: max-height .25s ease-in-out;\n                    transition: max-height .25s ease-in-out;\n\n        /* -webkit-transition-timing-function: ease-in-out;\n              -moz-transition-timing-function: ease-in-out;\n                -o-transition-timing-function: ease-in-out;\n                    transition-timing-function: ease-in-out; */\n          }\n          .j-fader {\n            position: absolute;\n            z-index: 100;\n            width: ").concat(cssValues.fbWidth, ";\n            height: ").concat(cssValues.fbHeight, ";\n            text-align: center;\n            vertical-align: bottom;\n            cursor: pointer;\n            border-bottom: ").concat(cssValues.fbBottomBorder, ";\n            background: -moz-linear-gradient(top, ").concat(cssValues.fbStartColor, ", ").concat(cssValues.fbEndColor, " 60%);\n            background: -webkit-linear-gradient(top, ").concat(cssValues.fbStartColor, ", ").concat(cssValues.fbEndColor, " 60%);\n            background: linear-gradient(to bottom, ").concat(cssValues.fbStartColor, ", ").concat(cssValues.fbEndColor, " 60%);\n            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='").concat(cssValues.fbStartColor, "', endColorstr='").concat(cssValues.fbEndColor, "',GradientType=0 );\n            /* box-shadow: 0px -2px 4px 0px rgba(0, 0, 0, 0.45); */\n          }\n          .hs-code .j-fader {\n            border-bottom: 5px solid #f2f2f2;\n            background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.6), #ffffff 60%);\n            background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.6), #ffffff 60%);\n            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), #ffffff 60%);\n            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 );\n          }\n          .j-fader > .j-fader_button {\n            position: absolute;\n            bottom: -6px;\n            left: 50%;\n            display: inline-block;\n            width:  ").concat(cssValues.fbButtonWidth, ";\n            height: ").concat(cssValues.fbButtonHeight, ";\n            padding: 4px 6px;\n            margin: 0 auto;\n            font-size: 0.8rem;\n            line-height: ").concat(cssValues.fbButtonLineHeight, ";\n            color: ").concat(cssValues.fbButtonTextColor, ";\n            white-space: nowrap;\n            cursor: pointer;\n            background-color: ").concat(cssValues.fbButtonBackground, ";\n            border: 1px solid ").concat(cssValues.fbButtonBorderColor, ";\n            border-bottom: 0 solid ").concat(cssValues.fbButtonBorderColor, ";\n            border-radius: ").concat(cssValues.fbButtonBorderRadius, ";\n            box-shadow: 0 -2px 4px 0 $hs-black--a45;\n            transform: translateX(-50%);\n          }\n          .j-fader > .j-fader_button::before {\n            display: block;\n            position: absolute;\n            left: 50%;\n            top: 5%;\n            z-index: 100;\n            transform: translate(-50%);\n            width: 100%;\n            content: '").concat(cssValues.fbInitButtonText, "';\n            font-size: 0.75rem;\n          }\n          .j-fader > .j-fader_button.is-visible::before {\n            content: '").concat(cssValues.fbOpenButtonText, "';\n          }\n          .j-fader > .j-fader_button:hover {\n            background-color: ").concat(cssValues.fbButtonBackgroundHover, ";\n            color: ").concat(cssValues.fbButtonTextColorHover, ";\n          }\n          .j-fader > .j-fader_button:focus {\n            outline-color: ").concat(cssValues.fbButtonBorderColorFocus, ";\n            background-color: ").concat(cssValues.fbButtonBorderColorFocus, ";\n            color: ").concat(cssValues.fbButtonTextColorFocus, ";\n            border: 1px solid ").concat(cssValues.fbButtonBorderColorFocus, ";\n            border-bottom: 5px solid ").concat(cssValues.fbButtonBorderColorFocus, ";\n            box-shadow: unset;\n          }\n          .j-fader > .j-fader_button.is-visible {\n            background-color: ").concat(cssValues.fbButtonBorderColorFocus, ";\n            color: ").concat(cssValues.fbButtonTextColorFocus, ";\n            border: 1px solid ").concat(cssValues.fbButtonBorderColorFocus, ";\n            border-bottom: 5px solid ").concat(cssValues.fbButtonBorderColorFocus, ";\n          }\n          .j-fader > .j-fader.is-visible {\n            border-bottom: 5px solid ").concat(cssValues.fbButtonBorderColorFocus, ";\n          }\n          @keyframes slideOpen {\n            from { height: 300px; }\n            to { height: 100%; }\n          }\n          @keyframes slideClosed {\n            from { height: 100%; }\n            to { height: 300px; }\n          }\n        ");
+    return appendCSS(fbCSS); // return fbCSS;
+  } // resolve(true);
+  //   }
+  //   catch(evt) {
+  //     log(`ERROR: ${evt}`);
+  //     reject(false);
+  //   }
+  // });
+
+}; // export default ShowMore;
+
+
+exports.default = ShowMore;
+new ShowMore();
 "use strict";
 
 require("./theme-switcher");
@@ -412,6 +820,9 @@ function ThemeSwitcher() {
 var _ThemeSwitcher = ThemeSwitcher;
 exports.ThemeSwitcher = _ThemeSwitcher;
 ThemeSwitcher();
+"use strict";
+
+module.exports = require('./time-stamper.js');
 "use strict";
 
 module.exports = require('./time-stamper.js');
@@ -591,19 +1002,202 @@ var d = new TimeStamper('datetime'); // eslint-disable-next-line no-console
 console.log(d.final);
 "use strict";
 
-exports.__esModule = true;
-exports.validurl = void 0;
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var validate_url_1 = require("./validate-url");
+var _typeof2 = _interopRequireDefault(require("@babel/runtime/helpers/typeof"));
 
-exports.validurl = validate_url_1.ValidURL;
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+/**
+* @fileOverview
+* @author Heath Shults
+* @version 1.0.0
+*/
+
+/**
+* @description
+* Just JavaScript - Timestamp
+*
+* @class  TimeStamper
+* @param {(date|Object)} dt = new Date - object to hold the date and time
+* @param {string} [format] - specify the format: datetime, date, time and justyear
+* @param {string} [DD] - Returns the day formatted like '19'.
+* @param {string} [MM] - Returns the month farmatted like '01.
+* @param {string} [YYYY] - Returns the year farmatted like '2020.
+* @param {string} [datetime] - Returns all constiables concatenated like 01-29-2020 13:05:22.
+* @param {string} [datetimereverse] - Returns all constiables concatenated like 2020-01-29 13:05:22.
+* @param {string} [date] - Returns all constiables associated with the date like 01-29-2020.
+* @param {string} [time] - Returns time constiables like 13:05:22.
+* @param {string} [mm] - Returns minutes formatted like 01-29-2020 13:05:22.
+* @param {string} [ss] - Returns the seconds formatted like 01-29-2020 13:05:22.
+*/
+
+/**
+ * @usage
+ * 
+ * <script>
+ *  let htmlelement = document.getElementById('dd')
+ *  htmlelement.innerHTML = JSON.stringify(TimeStamper('datetime'));  
+ * </script>
+ * 
+ * @note:  tons of room for improvement...
+ */
+// function TimeStamper() {
+// timerequest();
+var TimeStamper = function TimeStamper(format) {
+  (0, _classCallCheck2.default)(this, TimeStamper);
+  this.dt = new Date();
+  this.format = format;
+  this.final; // ensure date comes as 01, 09 etc
+
+  var DD = ('0' + this.dt.getDate()).slice(-2),
+      // getMonth returns month from 0
+  MM = ('0' + (this.dt.getMonth() + 1)).slice(-2),
+      YYYY = this.dt.getFullYear(),
+      hh = ('0' + this.dt.getHours()).slice(-2),
+      mm = ('0' + this.dt.getMinutes()).slice(-2),
+      ss = ('0' + this.dt.getSeconds()).slice(-2),
+      datetime = MM + '-' + DD + '-' + YYYY + ' ' + hh + ':' + mm + ':' + ss,
+      datetimereverse = YYYY + '-' + MM + '-' + DD + ' ' + hh + ':' + mm + ':' + ss,
+      justdate = MM + '-' + DD + '-' + YYYY,
+      justtime = hh + ':' + mm + ':' + ss,
+      justyear = YYYY;
+
+  if (format === 'datetime') {
+    this.final = datetime;
+  } else if (format === 'datetimereverse') {
+    this.final = datetimereverse;
+  } else if (format === 'justdate') {
+    this.final = justdate;
+  } else if (format === 'justtime') {
+    this.final = justtime;
+  } else if (format === 'justyear') {
+    this.final = justyear;
+  } else if (format === '' || (0, _typeof2.default)('undefined')) {
+    this.final = datetime;
+  } else {
+    this.final = TimeStamper.datetime;
+  }
+
+  return this.final;
+}; // const _TimeStamper=TimeStamper;
+// export {_TimeStamper as TimeStamper};
+
+
+var d = new TimeStamper('datetime'); // eslint-disable-next-line no-console
+
+console.log(d.final);
 "use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _typeof2 = _interopRequireDefault(require("@babel/runtime/helpers/typeof"));
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+/**
+* @fileOverview
+* @author Heath Shults
+* @version 1.0.0
+*/
+
+/**
+* @description
+* Just JavaScript - Timestamp
+*
+* @class  TimeStamper
+* @param {(date|Object)} dt = new Date - object to hold the date and time
+* @param {string} [format] - specify the format: datetime, date, time and justyear
+* @param {string} [DD] - Returns the day formatted like '19'.
+* @param {string} [MM] - Returns the month farmatted like '01.
+* @param {string} [YYYY] - Returns the year farmatted like '2020.
+* @param {string} [datetime] - Returns all constiables concatenated like 01-29-2020 13:05:22.
+* @param {string} [datetimereverse] - Returns all constiables concatenated like 2020-01-29 13:05:22.
+* @param {string} [date] - Returns all constiables associated with the date like 01-29-2020.
+* @param {string} [time] - Returns time constiables like 13:05:22.
+* @param {string} [mm] - Returns minutes formatted like 01-29-2020 13:05:22.
+* @param {string} [ss] - Returns the seconds formatted like 01-29-2020 13:05:22.
+*/
+
+/**
+ * @usage
+ * 
+ * <script>
+ *  let htmlelement = document.getElementById('dd')
+ *  htmlelement.innerHTML = JSON.stringify(TimeStamper('datetime'));  
+ * </script>
+ * 
+ * @note:  tons of room for improvement...
+ */
+// function TimeStamper() {
+// timerequest();
+var TimeStamper = function TimeStamper(format) {
+  (0, _classCallCheck2.default)(this, TimeStamper);
+  this.dt = new Date();
+  this.format = format;
+  this.final; // ensure date comes as 01, 09 etc
+
+  var DD = ('0' + this.dt.getDate()).slice(-2),
+      // getMonth returns month from 0
+  MM = ('0' + (this.dt.getMonth() + 1)).slice(-2),
+      YYYY = this.dt.getFullYear(),
+      hh = ('0' + this.dt.getHours()).slice(-2),
+      mm = ('0' + this.dt.getMinutes()).slice(-2),
+      ss = ('0' + this.dt.getSeconds()).slice(-2),
+      datetime = MM + '-' + DD + '-' + YYYY + ' ' + hh + ':' + mm + ':' + ss,
+      datetimereverse = YYYY + '-' + MM + '-' + DD + ' ' + hh + ':' + mm + ':' + ss,
+      justdate = MM + '-' + DD + '-' + YYYY,
+      justtime = hh + ':' + mm + ':' + ss,
+      justyear = YYYY;
+
+  if (format === 'datetime') {
+    this.final = datetime;
+  } else if (format === 'datetimereverse') {
+    this.final = datetimereverse;
+  } else if (format === 'justdate') {
+    this.final = justdate;
+  } else if (format === 'justtime') {
+    this.final = justtime;
+  } else if (format === 'justyear') {
+    this.final = justyear;
+  } else if (format === '' || (0, _typeof2.default)('undefined')) {
+    this.final = datetime;
+  } else {
+    this.final = TimeStamper.datetime;
+  }
+
+  return this.final;
+}; // const _TimeStamper=TimeStamper;
+// export {_TimeStamper as TimeStamper};
+
+
+var d = new TimeStamper('datetime'); // eslint-disable-next-line no-console
+
+console.log(d.final);
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "validurl", {
+  enumerable: true,
+  get: function get() {
+    return _validateUrl.ValidURL;
+  }
+});
+
+var _validateUrl = require("./validate-url");
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ValidURL = ValidURL;
+
 /* eslint-disable no-unused-vars */
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-exports.__esModule = true;
-exports.ValidURL = void 0;
 /**
  * @function valieURL - Checks if a string is a url.
  *
@@ -616,7 +1210,6 @@ exports.ValidURL = void 0;
  * validURL('http://hello.com');
  *
  */
-
 function ValidURL(url) {
   var pattern = new RegExp( // protocol
   '^(https?:\\/\\/)?' + // domain name
@@ -627,5 +1220,3 @@ function ValidURL(url) {
   '(\\#[-a-z\\d_]*)?$', 'i');
   return !!pattern.test(url.toString());
 }
-
-exports.ValidURL = ValidURL;

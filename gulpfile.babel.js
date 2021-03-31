@@ -248,7 +248,7 @@ function babelfry(cb) {
   .require(`${srcPath}/index.js`, { entry: true })
   .bundle()
   .on("error", function (err) { console.log(chalk.red("Error: " + err.message)) })
-  .pipe(fs.createWriteStream(`${wwwPath}/assets/js/HeathScript.js`)),
+  .pipe(fs.createWriteStream(`${wwwPath}/assets/js/HeathScript.bundle.js`)),
   console.log(chalk.green('Babelifried JS')), cb();
 }
 exports.babelfry = babelfry;
@@ -267,7 +267,7 @@ exports.babelfry = babelfry;
 function renderJS(method, cb) {
   if (method === 'dir') {
     console.log(chalk.yellow('starting JS renderrer...'));
-    exec('npx del src/js/temp/**/*.js !HeathScript.js && npx del www/assets/js/**/*.js !HeathScript.bundle.js && npx babel src/js/modules/ --out-file src/js/temp/HeathScript-all-concat.js && npx babel src/js/modules --out-dir src/js/temp && browserify src/index.js --dir www/assets/js/', (error) => {
+    exec('npx del src/js/temp/**/*.js !src/js/temp/HeathScript.js && npx del www/assets/js/**/*.js !www/assets/js/HeathScript.bundle.js && npx babel src/js/modules/ --out-file src/js/temp/HeathScript-all-concat.js && npx babel src/js/modules --out-dir src/js/temp && browserify src/index.js --dir www/assets/js/', (error) => {
       if (error) {
         console.log(chalk.red(`ERROR Build JS:\n ${error.message}`));
         return `SCSS compile error${error}`;

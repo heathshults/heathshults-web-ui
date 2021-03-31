@@ -11,7 +11,7 @@ echo "Building HeathShults Web UI on $DNOW $TNOW"
 echo "Prebuild activated..." 
 
 # echo "Cleaning...." 
-node build-scripts/clean-components.js &&
+node build-scripts/clean.js &&
 
 # echo "Running Javascript linters...." 
 npx eslint --fix src/js/modules/**/*.ts &
