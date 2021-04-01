@@ -5,13 +5,14 @@ const del = require('del');
 // const sh = require('shelljs');
 const path = require('path');
 
-const destPath = path.resolve(path.dirname(__filename), '../www' );
+const www = path.resolve(path.dirname(__filename), '../www' );
+const src = path.resolve(path.dirname(__filename), '../src' );
 // sh.rm('-rf', `${destPath}/**/*.*`)
 
 (async () => {
   const deletedPaths = await del([
-    `${destPath}/**/*.*`
-    // `${destPath}/**/*.*`,
+    `${www}/**/*`,
+    `${src}/js/temp/**/*`,
     // `!${destPath}/build/*`,
     // `!${destPath}/assets/**/*`
   ]);

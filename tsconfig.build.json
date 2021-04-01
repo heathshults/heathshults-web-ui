@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Node 14",
+  "compilerOptions": {
+    "allowUnreachableCode": false,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "lib": ["dom", "es2017"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "noImplicitReturns": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "outDir": "src/js/temp",
+    "removeComments": false,
+    "sourceMap": true,
+    "jsx": "react",
+    "jsxFactory": "h",
+    "target": "esnext"
+  },
+  "include": [
+    "src/js/modules/**/*",
+    "src/js/modules/HeathScript.js",
+    "src/js/modules/bundle.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "src/components"
+  ],
+  "rules": {
+    "@typescript-eslint/no-unused-vars" : "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off"
+  }
+}

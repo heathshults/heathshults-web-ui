@@ -9,37 +9,33 @@ cd .. # changes directories one level up to the app root
 echo "Build initializing..."
 sleep 3
 
-echo "Typechecking [.js, .jsx, .ts, .tsx] files..."
-tsc --project ./tsconfig.typecheck.json
+echo "Typechecking and compiling [.js, .jsx, .ts, .tsx] files..."
+tsc --project ./tsconfig.build.json &&
 TSC=$! # get background process id of stencil
-
-wait $TSC
+wait $TSC 
 echo "STENCILjs WEB COMPONENTS BUILD..."
 npx stencil build --dev --ci --next --no-cache --docs-readme &
 STENCILPID=$! # get background process id of stencil
 
-wait $STENCILPID &
+wait $STENCILPID 
+sleep 2
 echo "JAVASCRIPT BUILD..."
-
-# npx babel system-modules/scss2cssVars/scss2cssVars.ts --out-file system-modules/scss2cssVars/scss2cssVars.js
-npx babel src/js/modules/**/*.ts --out-dir src/js/temp/ &&
+npx babel src/js/temp --out-dir src/js/temp &&
 BABELJS=$!
 
-wait $BABELJS &&
-npx babel src/js/modules/**/*.ts --out-file src/js/temp/HeathScript-all-concat.js &&
-BABELJS=$!
-
-# npx NODE_ENV=development parcel build src/js/index.ts -d www/assets/js -o HeathScript.bundle.js --no-minify &&
-# BABELJS=$!
-
-# wait $BABELJS &&
-
-wait $BABELJS &&
+wait $BABELJS
+npx babel src/js/modules/HeathScript.js -o src/js/temp/HeathScript.js &&
+BABELHS=$!
+wait BABELHS
+npx babel src/js/modules/bundle.js -o src/js/temp/bundle.js &&
+BABELBUNDLE=$!
+wait BABELBUNDLE
+npx browserify src/js/temp/bundle.js -o www/assets/js/HeathScript.concat.js &&
+BRWSRIFYCONCAT=$!
+wait $BRWSRIFYCONCAT
 npx browserify src/index.js -o www/assets/js/HeathScript.bundle.js &&
-BROWSERIFYJS=$!
-
-wait $BROWSERIFYJS &&
-
+BRWSRIFYHS=$!
+wait $BRWSRIFYHS
 echo "Render HTML pages..."
 npx gulp ejsit & 
 # echo "Assembling CSS Variables..."

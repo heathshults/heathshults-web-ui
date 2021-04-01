@@ -1,3 +1,4 @@
+// require("@babel/polyfill");
 require('./js/temp/theme-switcher/theme-switcher');
 require('./js/temp/even-height/even-height.js');
 require('./js/temp/hs-timeline/hs-timelineJS');

@@ -1,1 +1,1 @@
-import { SlideButton } from './slide-button';
+import SlideButton from './slide-button';

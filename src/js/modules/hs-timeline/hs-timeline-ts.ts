@@ -1,21 +1,27 @@
-
-  // Vertical Timeline - by CodyHouse.co
+// Vertical Timeline - by CodyHouse.co
 export default class VerticalTimeline {
+	element: HTMLElement;
+	blocks: any;
+	images: any;
+	contents: any;
+	offset: number;
+	prototype: any;
 	
-	constructor( element: HTMLElement ): void {
+	constructor( element: HTMLElement ) {
 		this.element = element;
 		this.blocks = this.element.getElementsByClassName('hs-timeline__block');
 		this.images = this.element.getElementsByClassName('hs-timeline__img');
 		this.contents = this.element.getElementsByClassName('hs-timeline__content');
 		this.offset = 0.8;
 		// this.hideBlocks();
+		
 		this.History(VerticalTimeline).hideBlocks();
 	}
 
-	private History(VerticalTimeline: typeof VerticalTimeline) {
-		this.prototype.hideBlocks = function () {
+	private History(VerticalTimeline):any {
+		VerticalTimeline.prototype.hideBlocks = function () {
 			// if (!document.documentElement.hasAttribute('classList')) {
-			if(!'classList' in document.documentElement) {
+			if((!"classList" as any) in document.documentElement) {
 				return; // no animation on older browsers
 			}
 			//hide timeline blocks which are outside the viewport
@@ -32,7 +38,7 @@ export default class VerticalTimeline {
 
 		VerticalTimeline.prototype.showBlocks = function () {
 			// if (!document.documentElement.hasAttribute('classList')) {
-			if(!'classList' in document.documentElement) {
+			if((!"classList" as any) in document.documentElement) {
 				return;
 			}
 			const self = this;

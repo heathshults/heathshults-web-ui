@@ -73,21 +73,22 @@ export default class ShowMore {
 
       function appendCSS(styles): void {
         // return;  comment out below for no js css
-  
-          this.styleEl = document.createElement('style');
-          this.headEl = document.head || document.getElementsByTagName('head')[0];
-          // const cssStyles = css
+        const _styles = styles;
+        console.log(_styles);
+          // this.styleEl = document.createElement('style');
+          // this.headEl = document.head || document.getElementsByTagName('head')[0];
+          // // const cssStyles = css
 
-          this.styleEl.textContent = styles;
-          this.headEl.appendChild(this.styleEl);
+          // this.styleEl.textContent = styles;
+          // this.headEl.appendChild(this.styleEl);
 
-          this.styleEl.type = 'text/css';
-          if (this.styleEl.styleSheet) {
-            // This is required for IE8 and below.
-            this.styleEl.styleSheet.this.cssText = styles;
-          } else {
-            this.styleEl.appendChild(document.createTextNode(styles));
-          }
+          // this.styleEl.type = 'text/css';
+          // if (this.styleEl.styleSheet) {
+          //   // This is required for IE8 and below.
+          //   this.styleEl.styleSheet.this.cssText = styles;
+          // } else {
+          //   this.styleEl.appendChild(document.createTextNode(styles));
+          // }
         return;
       }
 

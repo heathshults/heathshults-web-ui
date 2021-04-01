@@ -1,20 +1,20 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
 
-var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var EvenHeight = function EvenHeight(_ref) {
   var ehSelector = _ref.ehSelector,
       ehChildSelector = _ref.ehChildSelector,
       evenRows = _ref.evenRows,
       evenRowChildren = _ref.evenRowChildren;
-  (0, _classCallCheck2.default)(this, EvenHeight);
+
+  _classCallCheck(this, EvenHeight);
+
   setTimeout(function () {
     evenRows = Array.prototype.slice.call(document.querySelectorAll(ehSelector));
     console.log('evenRows: ');

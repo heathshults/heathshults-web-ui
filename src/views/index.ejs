@@ -683,52 +683,310 @@
                   </div>
                 </div>
 
-                <!-- anibutton -->
-                <!-- <div class="col-lg-12 text-center"> -->
-<!-- anibutton -->
-                <!-- <div class="col-lg-12 text-center"> -->
-                  <div type="submit" class="hs-slide-submit" >
-                    <!-- <div closs="container-fluid"> -->
-                      <!-- <div class="row w-100 m-0"> -->
-                        <div class="col-md-2 hs-slide-submit_left p-0 m-0">
-                          <div id="drag1"
-                            src="img_logo.gif" 
-                            draggable="true" 
-                            ondragstart="onDrag(event)"
-                            class="hs-slide-submit-button">
-                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                               width="26px" height="26px" viewBox="187 187 26 26" class="hs-slide_icon">
-                              <path fill="currentColor" d="M206.897,200.932l-10.683,10.682c-0.516,0.516-1.352,0.516-1.866,0l-1.245-1.244
-                                c-0.515-0.515-0.516-1.349-0.002-1.864l8.463-8.505l-8.463-8.505c-0.514-0.515-0.513-1.349,0.002-1.863l1.245-1.245
-                                c0.515-0.516,1.351-0.516,1.866,0l10.683,10.682C207.412,199.584,207.412,200.416,206.897,200.932z"/>
-                            </svg>
-                          </div>
-                        </div>
+                  <!-- slidebutton -->
+                  <style>
+                    /* animated checkbox */
+                    @keyframes draw {
+                      0% {
+                        stroke-dashoffset: -400;
+                      }
 
-                        <div class="hs-slide-submit-center col-md-8 m-0">
-                          <span class="hs-slide-submit_label">SEND</span>
-                          <!-- animated arrows -->
-                          <div class="hs-animated-arrow-container">
-                            <svg id="arrows" class="hs-animated-arrow" width="18px" height="17px" viewBox="-1 0 18 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                              <g>
-                                  <polygon class="hs-arrow a-3" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
-                                  <polygon class="hs-arrow a-2" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
-                                  <polygon class="hs-arrow a-1" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
-                                  <polygon class="hs-arrow-fixed" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
-                                  <!-- <path d="M-4.58892184e-16,0.56157424 L-4.58892184e-16,16.1929159 L9.708,8.33860465 L-1.64313008e-15,0.56157424 L-4.58892184e-16,0.56157424 Z M1.33333333,3.30246869 L7.62533333,8.34246869 L1.33333333,13.4327013 L1.33333333,3.30246869 L1.33333333,3.30246869 Z"></path> -->
-                              </g>
-                            </svg>
-                          </div>
-                        </div>
+                      100% {
+                        stroke-dashoffset: 400;
+                      }
+                    }
 
-                        
-                        <div id="dzone" 
-                          ondragover ="onAllowDrop(event)"
-                          ondrop="onDrop(event)"
-                          ondragenter="onDragEnter(event)"
-                          class="slideButton-grid__right hs-dropzone">
-                        </div>
-                      
+                    @keyframes check {
+                      0% {
+                        stroke-dashoffset: -400;
+                      }
+
+                      100% {
+                        stroke-dashoffset: 0;
+                      }
+                    }
+
+                    @media (max-width: 360px) {
+                      body {
+                        overflow: scroll;
+                      }
+                    }
+
+                    /* end animated checkbox */
+
+                    /* animated arrows */
+                    @keyframes arrow-anim {
+                      from {
+                        fill: transparent;
+                        stroke-width: 2px;
+                        stroke: transparent;
+                        transform: translateX(1rem);
+                      }
+
+                      50% {
+                        fill: #FFF;
+                        stroke-width: 2px;
+                        stroke: #FFF;
+                      }
+
+                      to {
+                        transform: translateX(9rem);
+                        fill: transparent;
+                        stroke-width: 2px;
+                        stroke: transparent;
+                      }
+                    }
+
+                    @keyframes arrow-fixed-anim {
+                      5% {
+                        opacity: 0;
+                      }
+
+                      20% {
+                        opacity: 0.4;
+                      }
+
+                      100% {
+                        opacity: 1;
+                      }
+                    }
+
+                    .hs-slide-submit_label {
+                      position: absolute;
+                      top: 50%;
+                      left: 50%;
+                      z-index: 1000;
+                      flex: 1 1 auto;
+                      font-family: "Montserrat", "Segoe UI", "Roboto", "Helvetica Neue", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", Arial, sans-serif, -apple-system, BlinkMacSystemFont;
+                      font-weight: 700;
+                      color: #dee2e6;
+                      text-transform: uppercase;
+                      letter-spacing: 2px;
+                      transform: translate(-50%, -50%);
+                    }
+
+                    .hs-animated-arrow-container {
+                      position: absolute;
+                      left: 4px;
+                      z-index: 1;
+                      display: flex;
+                      align-items: center;
+                      height: 32px;
+                    }
+
+                    .hs-animated-arrow-container .hs-animated-arrow {
+                      width: 22px;
+                      height: auto;
+                      margin: 0 2rem 0 -15px;
+                      overflow: visible;
+                      cursor: move;
+                    }
+
+                    .hs-animated-arrow-container .hs-animated-arrow polygon,
+                    .hs-animated-arrow-container .hs-animated-arrow path {
+                      transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
+                      fill: transparent;
+                      stroke: transparent;
+                      stroke-width: 2px;
+                    }
+
+                    .hs-animated-arrow-container .hs-animated-arrow .hs-arrow {
+                      animation-name: arrow-anim;
+                      animation-duration: 2.5s;
+                      animation-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+                      animation-iteration-count: infinite;
+                      fill: transparent;
+                    }
+
+                    .hs-animated-arrow-container .hs-animated-arrow .hs-arrow.a-3 {
+                      animation-delay: 0.25s;
+                    }
+
+                    .hs-animated-arrow-container .hs-animated-arrow .hs-arrow.a-2 {
+                      animation-delay: 0.15s;
+                    }
+
+                    .hs-animated-arrow-container .hs-animated-arrow .hs-arrow.a-1 {
+                      animation-delay: 0s;
+                    }
+
+                    .hs-animated-arrow-container .hs-animated-arrow .hs-arrow-fixed {
+                      animation: arrow-fixed-anim 2.5s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+                    }
+
+                    /* end animated arrows */
+
+                    /* slide-button */
+                    .slide-button-grid {
+                      display: grid;
+                      grid-template-columns: 42px 1fr 42px;
+                      gap: 0px 0px;
+                      grid-template-areas: "grid__left grid__center grid__right";
+                      width: 250px;
+                      padding: 2px;
+                      margin: auto;
+                      background-color: rgba(255, 255, 255, 0.5);
+                      border: 2px solid #fff;
+                    }
+
+                    .slide-button-grid .slide-button-grid__left {
+                      grid-area: grid__left;
+                      display: flex;
+                      flex: 0 0 42px;
+                      align-items: center;
+                      height: 42px;
+                    }
+
+                    .slide-button-grid .slide-button-grid__left .grid-left__inner {
+                      padding: 2px;
+                      border: 2px solid transparent;
+                    }
+
+                    .slide-button-grid .slide-button-grid__center {
+                      position: relative;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      height: 42px;
+                      font-size: .9rem;
+                      font-weight: 700;
+                      color: $hs-gray-300;
+                      text-align: center;
+                      grid-area: grid__center;
+                    }
+
+                    .slide-button-grid .slide-button-grid__right {
+                      grid-area: grid__right;
+                      display: flex;
+                      align-items: center;
+                      height: 42px;
+                    }
+
+                    .slide-button {
+                      width: 32px;
+                      height: 32px;
+                      cursor: grab;
+                      background-image: url('../assets/img/svg/slide-submit-button.svg');
+                      background-repeat: no-repeat;
+                      background-position: center center;
+                      background-size: 32px 32px;
+                    }
+
+                    .dropzone {
+                      width: 32px;
+                      height: 32px;
+                      font-size: .8rem;
+                      font-weight: 700px;
+                      line-height: .7rem;
+                      text-align: center;
+                      border: 2px dashed #fff;
+                      transition: all .35s ease-in-out
+                    }
+
+                    .dropzone.dropzone-indicator {
+
+                      border-color: var(--hs-flip2code-color-core-blue-70);
+                      transition: all .35s ease-in-out
+                    }
+
+                    .dropzone.drag-enter {
+                      border-color: #d15400;
+                      transition: all .35s ease-in-out;
+                      transform: scale(1.4)
+                    }
+
+                    .dropzone.drop-ready {
+                      border-color: green;
+                      transition: all .35s ease-in-out;
+                      transform: scale(1.2)
+                    }
+
+                    .slide-button.dropped {
+                      opacity: 0;
+                      transition: all 2s ease-in-out;
+                      transform: scale(0);
+                    }
+
+                    .dropzone.border-white {
+                      background: rgba(255, 255, 255, .5);
+                      border-color: #fff;
+                      transition: all 2s ease-in-out;
+                      transform: scale(1);
+                    }
+
+                    .svg-checkmark {
+                      position: absolute;
+                      top: -12px;
+                      left: 0;
+                    }
+
+                    .check {
+                      stroke: #005c00;
+
+                      /* red */
+                      stroke: green;
+
+                      /* blue */
+                      fill: none;
+                      stroke-width: 20;
+                      stroke-dasharray: 400;
+                      stroke-dashoffset: 400;
+                      stroke-miterlimit: 5;
+                      stroke-linecap: square;
+
+                      animation: check .75s linear forwards;
+                    }
+
+                    .svg .box {
+                      stroke: #cc181e;
+                      stroke: #387ea9;
+                      stroke-width: 12;
+                      fill: none;
+                      stroke-dasharray: 400;
+                      stroke-dashoffset: 400;
+                      animation: draw 1s linear forwards;
+                    }
+
+                  </style>
+                  <div class="slide-button-grid">
+                    <div class="slide-button-grid__left">
+                      <div class="grid-left__inner">
+                        <div id="slideButton" class="slide-button draggable" draggable="true" 
+                        ondragstart="dragstart(event)"
+                        ondragend="dragend(event)"></div>
+                      </div>
+                    </div>
+                    <div class="slide-button-grid__center">
+                      <span class="hs-slide-submit_label">SEND</span>
+                      <div class="hs-animated-arrow-container">
+                        <svg id="arrows" class="hs-animated-arrow" width="18px" height="17px" viewBox="-1 0 18 17" version="1.1"
+                          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                          <g>
+                            <polygon class="hs-arrow a-3"
+                              points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596">
+                            </polygon>
+                            <polygon class="hs-arrow a-2"
+                              points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596">
+                            </polygon>
+                            <polygon class="hs-arrow a-1"
+                              points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596">
+                            </polygon>
+                            <polygon class="hs-arrow-fixed"
+                              points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596">
+                            </polygon>
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="slide-button-grid__right">
+                      <div id="dropzone" class="dropzone" 
+                        ondragenter="dragenter(event)" 
+                        ondragleave="dragleave(event)"
+                        ondragover="dragover(event)" 
+                        ondrop="drop(event)"></div>
+                    </div>
+                  </div>
+                      <!-- end slidebutton -->
               </div>
                       
                     <!-- </div> -->
@@ -1134,7 +1392,75 @@ modal-title="Fannie Mae">
     <!-- Theme JavaScript -->
     <script src="/assets/js/HeathScript.bundle.js" type="module"></script>
     
-      
+    <script>
+window.load = (() => {
+            var validateIssue = false;
+            var slideButton = document.querySelector('#slideButton');
+            var dropzone = document.querySelector('#dropzone')
+            var arrows = document.querySelector('.hs-animated-arrow-container')
+            var checky;
+            var animatedCheckMark =
+              `<svg class="svg-checkmark" x="0px" y="0px" viewBox="0 0 135 110" width="35px" height="43px">
+    <path class="check" d="M126.8,14L55.7,85.1L29.2,63.4"/>
+  </svg>`
+            let x;
+            let y;
+            function dragstart(ev) {
+              x = ev.offsetX;
+              y = ev.offsetY;
+              ev.dataTransfer.setData("text", ev.target.id);
+            }
+
+            function drag(ev) {
+              e.target.style.cursor = 'url(/assets/img/star.svg)'
+            }
+
+            function dragend(ev) {
+              
+              
+            }
+
+            function dragenter(ev) {
+              ev.preventDefault();
+              arrows.style.opacity = '0';
+            }
+
+            function dragleave(ev) {
+              
+              arrows.style.opacity = '1';
+            }
+
+            function dragover(ev) {
+              ev.preventDefault();
+              dropzone.classList.add('drop-ready');
+            }
+
+            function drop(ev) {
+              
+              var data = ev.dataTransfer.getData("text");
+              ev.target.appendChild(document.getElementById(data));
+              slideButton.classList.remove('drop-ready');
+              slideButton.classList.add('dropped');
+
+              checky = document.createElement('span');
+              checky.classList.add('hs-animated-checkbox-container');
+              checky.innerHTML = animatedCheckMark;
+              dropzone.appendChild(checky);
+              dropzone.classList.add('border-white');
+            }
+
+            function resetSlideButton() {
+              dropzone.classList.remove('dropped');
+              dropzone.classList.remove('drop-ready');
+              checky.remove();
+              l(document.querySelector('.grid-left__inner'))
+              document.querySelector('.grid-left__inner').appendChild(slideButton)
+              dropzone.classList.remove('border-white');
+              arrows.style.opacity = '1';
+            }
+          })();
+
+    </script>
     
   </body>
 

@@ -1,15 +1,17 @@
 "use strict";
 
-require("./even-height/even-height");
+require('./even-height/even-height');
 
-require("./show-more-fadebar/show-more");
+require('./hs-slide-button/slide-button');
 
-require("./theme-switcher/theme-switcher");
+require('./hs-timeline/hs-timelineJS');
 
-require("./time-stamper/time-stamper");
+require('./show-more-fadebar/show-more');
 
-require("./validate-url/validate-url");
+require('./theme-switcher/theme-switcher');
 
-require("./hs-slide-button/slide-button");
+require('./time-stamper/time-stamper');
 
-require("./hs-timeline/hs-timeline-ts");
+require('./validate-url/validate-url');
+
+require('./HeathScript');
