@@ -685,270 +685,343 @@
 
                   <!-- slidebutton -->
                   <style>
-                    /* animated checkbox */
-                    @keyframes draw {
-                      0% {
-                        stroke-dashoffset: -400;
-                      }
+/* animated checkbox */
+@keyframes draw {
+  0% {
+    stroke-dashoffset: -400;
+  }
 
-                      100% {
-                        stroke-dashoffset: 400;
-                      }
-                    }
+  100% {
+    stroke-dashoffset: 400;
+  }
+}
 
-                    @keyframes check {
-                      0% {
-                        stroke-dashoffset: -400;
-                      }
+@keyframes check {
+  0% {
+    stroke-dashoffset: -400;
+  }
 
-                      100% {
-                        stroke-dashoffset: 0;
-                      }
-                    }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
 
-                    @media (max-width: 360px) {
-                      body {
-                        overflow: scroll;
-                      }
-                    }
+@media (max-width: 360px) {
+  body {
+    overflow: scroll;
+  }
+}
 
-                    /* end animated checkbox */
+/* end animated checkbox */
 
-                    /* animated arrows */
-                    @keyframes arrow-anim {
-                      from {
-                        fill: transparent;
-                        stroke-width: 2px;
-                        stroke: transparent;
-                        transform: translateX(1rem);
-                      }
+/* animated arrows */
+@keyframes arrow-anim {
+  from {
+    fill: transparent;
+    stroke-width: 2px;
+    stroke: transparent;
+    transform: translateX(1rem);
+  }
 
-                      50% {
-                        fill: #FFF;
-                        stroke-width: 2px;
-                        stroke: #FFF;
-                      }
+  50% {
+    fill: #FFF;
+    stroke-width: 2px;
+    stroke: #FFF;
+  }
 
-                      to {
-                        transform: translateX(9rem);
-                        fill: transparent;
-                        stroke-width: 2px;
-                        stroke: transparent;
-                      }
-                    }
+  90% {
+    z-index: 2;
+    transition: all .25s ease-out;
+  }
 
-                    @keyframes arrow-fixed-anim {
-                      5% {
-                        opacity: 0;
-                      }
+  to {
+    transform: translateX(9rem);
+    fill: transparent;
+    stroke-width: 2px;
+    stroke: transparent;
+  }
+}
 
-                      20% {
-                        opacity: 0.4;
-                      }
+@keyframes arrow-fixed-anim {
+  5% {
+    opacity: 0;
+  }
 
-                      100% {
-                        opacity: 1;
-                      }
-                    }
+  20% {
+    opacity: 0.4;
+  }
 
-                    .hs-slide-submit_label {
-                      position: absolute;
-                      top: 50%;
-                      left: 50%;
-                      z-index: 1000;
-                      flex: 1 1 auto;
-                      font-family: "Montserrat", "Segoe UI", "Roboto", "Helvetica Neue", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", Arial, sans-serif, -apple-system, BlinkMacSystemFont;
-                      font-weight: 700;
-                      color: #dee2e6;
-                      text-transform: uppercase;
-                      letter-spacing: 2px;
-                      transform: translate(-50%, -50%);
-                    }
+  100% {
+    opacity: 1;
+  }
+}
 
-                    .hs-animated-arrow-container {
-                      position: absolute;
-                      left: 4px;
-                      z-index: 1;
-                      display: flex;
-                      align-items: center;
-                      height: 32px;
-                    }
+.hs-slide-button__label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+  flex: 1 1 auto;
+  font-family: "Montserrat", "Segoe UI", "Roboto", "Helvetica Neue", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", Arial, sans-serif, -apple-system, BlinkMacSystemFont;
+  font-weight: 900;
+  color: var(--hs-color-1);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transform: translate(-50%, -50%);
+}
 
-                    .hs-animated-arrow-container .hs-animated-arrow {
-                      width: 22px;
-                      height: auto;
-                      margin: 0 2rem 0 -15px;
-                      overflow: visible;
-                      cursor: move;
-                    }
+.hs-animated-arrow-container {
+  position: absolute;
+  left: 4px;
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  height: 32px;
+}
 
-                    .hs-animated-arrow-container .hs-animated-arrow polygon,
-                    .hs-animated-arrow-container .hs-animated-arrow path {
-                      transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
-                      fill: transparent;
-                      stroke: transparent;
-                      stroke-width: 2px;
-                    }
+.hs-animated-arrow-container .hs-animated-arrow {
+  width: 22px;
+  height: auto;
+  margin: 0 2rem 0 -15px;
+  overflow: visible;
+  cursor: move;
+}
 
-                    .hs-animated-arrow-container .hs-animated-arrow .hs-arrow {
-                      animation-name: arrow-anim;
-                      animation-duration: 2.5s;
-                      animation-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
-                      animation-iteration-count: infinite;
-                      fill: transparent;
-                    }
+.hs-animated-arrow-container .hs-animated-arrow polygon,
+.hs-animated-arrow-container .hs-animated-arrow path {
+  transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
+  fill: transparent;
+  stroke: transparent;
+  stroke-width: 2px;
+}
 
-                    .hs-animated-arrow-container .hs-animated-arrow .hs-arrow.a-3 {
-                      animation-delay: 0.25s;
-                    }
+.hs-animated-arrow-container .hs-animated-arrow .hs-arrow {
+  animation-name: arrow-anim;
+  animation-duration: 2.5s;
+  animation-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  animation-iteration-count: infinite;
+  fill: transparent;
+}
 
-                    .hs-animated-arrow-container .hs-animated-arrow .hs-arrow.a-2 {
-                      animation-delay: 0.15s;
-                    }
+.hs-animated-arrow-container .hs-animated-arrow .hs-arrow.a-3 {
+  animation-delay: 0.25s;
+}
 
-                    .hs-animated-arrow-container .hs-animated-arrow .hs-arrow.a-1 {
-                      animation-delay: 0s;
-                    }
+.hs-animated-arrow-container .hs-animated-arrow .hs-arrow.a-2 {
+  animation-delay: 0.15s;
+}
 
-                    .hs-animated-arrow-container .hs-animated-arrow .hs-arrow-fixed {
-                      animation: arrow-fixed-anim 2.5s cubic-bezier(0.2, 1, 0.3, 1) infinite;
-                    }
+.hs-animated-arrow-container .hs-animated-arrow .hs-arrow.a-1 {
+  animation-delay: 0s;
+}
 
-                    /* end animated arrows */
+.hs-animated-arrow-container .hs-animated-arrow .hs-arrow-fixed {
+  animation: arrow-fixed-anim 2.5s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+}
 
-                    /* slide-button */
-                    .slide-button-grid {
-                      display: grid;
-                      grid-template-columns: 42px 1fr 42px;
-                      gap: 0px 0px;
-                      grid-template-areas: "grid__left grid__center grid__right";
-                      width: 250px;
-                      padding: 2px;
-                      margin: auto;
-                      background-color: rgba(255, 255, 255, 0.5);
-                      border: 2px solid #fff;
-                    }
+/* end animated arrows */
 
-                    .slide-button-grid .slide-button-grid__left {
-                      grid-area: grid__left;
-                      display: flex;
-                      flex: 0 0 42px;
-                      align-items: center;
-                      height: 42px;
-                    }
+/* slide-button */
+.slide-button-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 250px;
+  height: 42px;
+  margin: auto;
+}
+.slide-button-grid {
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 42px 1fr 42px;
+  gap: 0px 0px;
+  grid-template-areas: "grid__left grid__center grid__right";
+  width: 250px;
+  padding: 2px;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid #fff;
+}
 
-                    .slide-button-grid .slide-button-grid__left .grid-left__inner {
-                      padding: 2px;
-                      border: 2px solid transparent;
-                    }
+.slide-button-grid .slide-button-grid__left {
+  grid-area: grid__left;
+  display: flex;
+  flex: 0 0 42px;
+  align-items: center;
+  height: 42px;
+}
 
-                    .slide-button-grid .slide-button-grid__center {
-                      position: relative;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                      height: 42px;
-                      font-size: .9rem;
-                      font-weight: 700;
-                      color: $hs-gray-300;
-                      text-align: center;
-                      grid-area: grid__center;
-                    }
+.slide-button-grid .slide-button-grid__left .grid-left__inner {
+  align-self: stretch;
+  width: 100%;
+  height: 100%;
+  padding: 2px;
+  border: 2px solid transparent;
+}
 
-                    .slide-button-grid .slide-button-grid__right {
-                      grid-area: grid__right;
-                      display: flex;
-                      align-items: center;
-                      height: 42px;
-                    }
+.slide-button-grid .slide-button-grid__center {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  font-size: .9rem;
+  font-weight: 700;
+  text-align: center;
+  grid-area: grid__center;
+}
 
-                    .slide-button {
-                      width: 32px;
-                      height: 32px;
-                      cursor: grab;
-                      background-image: url('../assets/img/svg/slide-submit-button.svg');
-                      background-repeat: no-repeat;
-                      background-position: center center;
-                      background-size: 32px 32px;
-                    }
+.slide-button-grid .slide-button-grid__right {
+  grid-area: grid__right;
+  display: flex;
+  align-items: center;
+  height: 42px;
+}
 
-                    .dropzone {
-                      width: 32px;
-                      height: 32px;
-                      font-size: .8rem;
-                      font-weight: 700px;
-                      line-height: .7rem;
-                      text-align: center;
-                      border: 2px dashed #fff;
-                      transition: all .35s ease-in-out
-                    }
+.hs-animated-checkbox-container {
+  position: absolute;
+  z-index: 3;
+}
 
-                    .dropzone.dropzone-indicator {
+.slide-button {
+  width: 32px;
+  height: 32px;
+  cursor: grab;
+  background-image: url('../assets/img/svg/slide-submit-button.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 32px 32px;
+}
 
-                      border-color: var(--hs-flip2code-color-core-blue-70);
-                      transition: all .35s ease-in-out
-                    }
+.dropzone {
+  position: absolute;
+  z-index: 1;
+  width: 32px;
+  height: 32px;
 
-                    .dropzone.drag-enter {
-                      border-color: #d15400;
-                      transition: all .35s ease-in-out;
-                      transform: scale(1.4)
-                    }
+  /* overflow: hidden; */
+  font-size: .8rem;
+  font-weight: 700px;
+  line-height: .7rem;
+  text-align: center;
+  background: var(--hs-white--a40);
+  border: 2px dashed #fff;
+  transition: all .35s ease-in-out
+}
 
-                    .dropzone.drop-ready {
-                      border-color: green;
-                      transition: all .35s ease-in-out;
-                      transform: scale(1.2)
-                    }
+.dropzone.dropzone-indicator {
 
-                    .slide-button.dropped {
-                      opacity: 0;
-                      transition: all 2s ease-in-out;
-                      transform: scale(0);
-                    }
+  border-color: var(--hs-flip2code-color-core-blue-70);
+  transition: all .35s ease-in-out
+}
 
-                    .dropzone.border-white {
-                      background: rgba(255, 255, 255, .5);
-                      border-color: #fff;
-                      transition: all 2s ease-in-out;
-                      transform: scale(1);
-                    }
+.dropzone.shadow {
+  box-shadow: -8px 0px 7px 5px rgb(0 0 0 / 25%);
+}
 
-                    .svg-checkmark {
-                      position: absolute;
-                      top: -12px;
-                      left: 0;
-                    }
+.dropzone.drag-enter {
+  border-color: #d15400;
+  transition: all .35s ease-in-out;
+  transform: scale(1.4)
+}
 
-                    .check {
-                      stroke: #005c00;
+.dropzone.drop-ready {
+  border-color: green;
+  transition: all .35s ease-in-out;
+  transform: scale(1.2)
+}
 
-                      /* red */
-                      stroke: green;
+.slide-button.dropped {
+  display: none;
+  transition: all 2s ease-in-out;
+  transform: scale(0);
+}
 
-                      /* blue */
-                      fill: none;
-                      stroke-width: 20;
-                      stroke-dasharray: 400;
-                      stroke-dashoffset: 400;
-                      stroke-miterlimit: 5;
-                      stroke-linecap: square;
+.dropzone.border-white {
+  background: rgba(255, 255, 255, .5);
+  border-color: #fff;
+  transition: all 2s ease-in-out;
+  transform: scale(1);
+}
 
-                      animation: check .75s linear forwards;
-                    }
+.svg-checkmark {
+  position: absolute;
+  top: -12px;
+  left: 0;
+}
 
-                    .svg .box {
-                      stroke: #cc181e;
-                      stroke: #387ea9;
-                      stroke-width: 12;
-                      fill: none;
-                      stroke-dasharray: 400;
-                      stroke-dashoffset: 400;
-                      animation: draw 1s linear forwards;
-                    }
+.check {
+  stroke: #005c00;
 
-                  </style>
-                  <div class="slide-button-grid">
+  /* red */
+  stroke: green;
+
+  /* blue */
+  fill: none;
+  stroke-width: 20;
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  stroke-miterlimit: 5;
+  stroke-linecap: square;
+
+  animation: check .75s linear forwards;
+}
+
+.svg .box {
+  stroke: #cc181e;
+  stroke: #387ea9;
+  stroke-width: 12;
+  fill: none;
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: draw 1s linear forwards;
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.stripes-background {
+  background-color: var(--hs-gray-600);
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, .15) 35%,
+      transparent 25%,
+      transparent 50%,
+      rgba(255, 255, 255, .15) 60%,
+      rgba(255, 255, 255, .15) 85%,
+      transparent 85%,
+      transparent
+    );
+  background-size: 15px 15px;
+  animation-name: animate-stripes;
+  animation-duration: 1.25s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+
+</style>
+                  <div id="slideButton"></div>
+                  <!-- <div class="slide-button-grid">
                     <div class="slide-button-grid__left">
                       <div class="grid-left__inner">
                         <div id="slideButton" class="slide-button draggable" draggable="true" 
@@ -986,8 +1059,8 @@
                         ondrop="drop(event)"></div>
                     </div>
                   </div>
-                      <!-- end slidebutton -->
-              </div>
+                </div> -->
+                <!-- end slidebutton  -->
                       
                     <!-- </div> -->
                   <!-- </div> -->
@@ -1082,7 +1155,8 @@
       </div>
     </footer>
   </div>
-    <!-- Portfolio Modals -->
+  
+  <!--  Portfolio Modals -->
     <div class="modal fade" id="usaaDetails" tabindex="-1" aria-labelledby="USAADetailsTitle" aria-hidden="true"
       modal-title="USAA">
       <div class="modal-dialog modal-fullscreen">
@@ -1146,159 +1220,140 @@
             <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
-      </div>
     </div>
-    <script>
-      var usaaModal = new bootstrap.Modal(document.getElementById('usaaDetails'), {
-        keyboard: false
-      })
-    </script>
-
-<div class="modal fade" id="fanniemaeDetails" tabindex="-1" aria-labelledby="fanniemaeDetails" aria-hidden="true"
-modal-title="Fannie Mae">
-  <div class="modal-dialog modal-fullscreen">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="container-sm">
-          <div class="row">
-            <div class="col-md-10 mx-auto">
-              <h5 class="modal-title text-xl mr-3" id="USAADetailsTitle">Fannie Mae
-                <div class="text-center"
-                  style="display: inline-block; flex: 1 1 auto; margin-left: 20px; font-size: 14px">
-                  Enterprise Design System
-                </div>
-              </h5>
-            </div>
-          </div>
-        </div>
-
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
-      </div>
-      <div class="modal-body">
-        
-        <div class="container-sm">
-          <div class="row">
-            <div class="col-md-10 mx-auto">
-
-              <p class="hs-paragraph lead">
-                Design System Design &amp; Development for Fannie Mae Designers and Developers.
-              </p>
-              <p class="hs-paragraph">
-                <div class="row">
-                  <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>Company</strong>:</div>
-                  <div class="col-md-10">Fannie Mae</div>
-                </div>
-                <div class="row">
-                  <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>Description</strong>:</div>
-                  <div class="col-md-10">Enterprise design system to aid in consistency of corporate identity and quality of public facing digital assets.</div>
-                </div>
-                <div class="row">
-                  <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>My Roles</strong>:</div>
-                  <div class="col-md-10">Interaction Design <span class="hs-text-yellow">&#10038;</span> Product Design &amp; Prototyping <span class="hs-text-yellow">&#10038;</span>
-                  <div class="col-md-2 info-title"></div>
-                  <div class="col-md-10">UI Engineer <span class="hs-text-yellow">&#10038;</span> Mockups &amp; Converting creative to interactive web digital <span class="hs-text-yellow">&#10038;</span>
+    </div>
+    <div class="modal fade" id="fanniemaeDetails" tabindex="-1" aria-labelledby="fanniemaeDetails" aria-hidden="true"
+    modal-title="Fannie Mae">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="container-sm">
+              <div class="row">
+                <div class="col-md-10 mx-auto">
+                  <h5 class="modal-title text-xl mr-3" id="USAADetailsTitle">Fannie Mae
+                    <div class="text-center"
+                      style="display: inline-block; flex: 1 1 auto; margin-left: 20px; font-size: 14px">
+                      Enterprise Design System
                     </div>
-                </div>
-              </p>
-
-              
-            </div>
-            <p class="hs-paragraph text-center">
-              <img class="img-fluid img-centered" src="../assets/img/portfolio/Fannie-Mae/blueprint-design-system.jpg" alt="UBlue Star Sports"/>
-            </p>
-          </div>
-        </div>
-        <!-- end front face -->
-        <!-- back face -->
-        
-        
-        <!-- end back face -->
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-    <script>
-      var fannieMaefModal = new bootstrap.Modal(document.getElementById('fanniemaeDetails'), {
-        keyboard: false
-      })
-    </script>
-        <!-- Portfolio Modals -->
-        <div class="modal fade" id="bluestarDetails" tabindex="-1" aria-labelledby="bluestarDetails" aria-hidden="true"
-      modal-title="Blue Star Sports">
-        <div class="modal-dialog modal-fullscreen">
-          <div class="modal-content">
-            <div class="modal-header">
-              <div class="container-sm">
-                <div class="row">
-                  <div class="col-md-10 mx-auto">
-                    <h5 class="modal-title text-xl mr-3" id="USAADetailsTitle">Blue Star Sports
-                      <div class="text-center"
-                        style="display: inline-block; flex: 1 1 auto; margin-left: 20px; font-size: 14px">
-                        Youth Athlete Tracking System 
-                      </div>
-                    </h5>
-                  </div>
+                  </h5>
                 </div>
               </div>
-  
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
             </div>
-            <div class="modal-body">
-              
-              <div class="container-sm">
-                <div class="row">
-                  <div class="col-md-10 mx-auto">
-  
-                    <p class="hs-paragraph lead">
-                      Progressive Web App Design &amp; CRM Development for youth league football.
-                    </p>
-                    <p class="hs-paragraph">
-                      <div class="row">
-                        <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>Company</strong>:</div>
-                        <div class="col-md-10">Blue Star Sports</div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>Description</strong>:</div>
-                        <div class="col-md-10"> Youth athlete management and stats tracking. </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>My Roles</strong>:</div>
-                        <div class="col-md-10">UI Engineer <span class="hs-text-yellow">&#10038;</span> Product Design &amp; Prototyping <span class="hs-text-yellow">&#10038;</span>
-                          </div>
-                      </div>
-                    </p>
-  
-                    
-                  </div>
-                  <p class="hs-paragraph text-center">
-                    <img class="img-fluid img-centered" src="../assets/img/portfolio/BlueStarSports/collage-of-stuff-blue-star-sports.jpg" alt="UBlue Star Sports"/>
+
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+          </div>
+          <div class="modal-body">
+            
+            <div class="container-sm">
+              <div class="row">
+                <div class="col-md-10 mx-auto">
+
+                  <p class="hs-paragraph lead">
+                    Design System Design &amp; Development for Fannie Mae Designers and Developers.
                   </p>
+                  <p class="hs-paragraph">
+                    <div class="row">
+                      <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>Company</strong>:</div>
+                      <div class="col-md-10">Fannie Mae</div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>Description</strong>:</div>
+                      <div class="col-md-10">Enterprise design system to aid in consistency of corporate identity and quality of public facing digital assets.</div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>My Roles</strong>:</div>
+                      <div class="col-md-10">Interaction Design <span class="hs-text-yellow">&#10038;</span> Product Design &amp; Prototyping <span class="hs-text-yellow">&#10038;</span>
+                      <div class="col-md-2 info-title"></div>
+                      <div class="col-md-10">UI Engineer <span class="hs-text-yellow">&#10038;</span> Mockups &amp; Converting creative to interactive web digital <span class="hs-text-yellow">&#10038;</span>
+                        </div>
+                    </div>
+                  </p>
+
+                  
                 </div>
-              </div>
-              <!-- end front face -->
-              <!-- back face -->
-              
-              
-              <!-- end back face -->
+                <p class="hs-paragraph text-center">
+                  <img class="img-fluid img-centered" src="../assets/img/portfolio/Fannie-Mae/blueprint-design-system.jpg" alt="UBlue Star Sports"/>
+                </p>
               </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+            <!-- end front face -->
+            <!-- back face -->
+            
+            
+            <!-- end back face -->
             </div>
           </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+          </div>
         </div>
-      </div>
-      <script>
-        var blueStarModal = new bootstrap.Modal(document.getElementById('bluestarDetails'), {
-          keyboard: false
-        })
-      </script>
-  
+    </div>
+    </div>
+    <div class="modal fade" id="bluestarDetails" tabindex="-1" aria-labelledby="bluestarDetails" aria-hidden="true"
+    modal-title="Blue Star Sports">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="container-sm">
+              <div class="row">
+                <div class="col-md-10 mx-auto">
+                  <h5 class="modal-title text-xl mr-3" id="USAADetailsTitle">Blue Star Sports
+                    <div class="text-center"
+                      style="display: inline-block; flex: 1 1 auto; margin-left: 20px; font-size: 14px">
+                      Youth Athlete Tracking System 
+                    </div>
+                  </h5>
+                </div>
+              </div>
+            </div>
 
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+          </div>
+          <div class="modal-body">
+            
+            <div class="container-sm">
+              <div class="row">
+                <div class="col-md-10 mx-auto">
+
+                  <p class="hs-paragraph lead">
+                    Progressive Web App Design &amp; CRM Development for youth league football.
+                  </p>
+                  <p class="hs-paragraph">
+                    <div class="row">
+                      <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>Company</strong>:</div>
+                      <div class="col-md-10">Blue Star Sports</div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>Description</strong>:</div>
+                      <div class="col-md-10"> Youth athlete management and stats tracking. </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>My Roles</strong>:</div>
+                      <div class="col-md-10">UI Engineer <span class="hs-text-yellow">&#10038;</span> Product Design &amp; Prototyping <span class="hs-text-yellow">&#10038;</span>
+                        </div>
+                    </div>
+                  </p>
+
+                  
+                </div>
+                <p class="hs-paragraph text-center">
+                  <img class="img-fluid img-centered" src="../assets/img/portfolio/BlueStarSports/collage-of-stuff-blue-star-sports.jpg" alt="UBlue Star Sports"/>
+                </p>
+              </div>
+            </div>
+            <!-- end front face -->
+            <!-- back face -->
+            
+            
+            <!-- end back face -->
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+    </div>
+    </div>
     <div class="modal fade" id="bowlopolisDetails" tabindex="-1" aria-labelledby="bowlopolisDetails" aria-hidden="true"
       modal-title="Bowlopolis">
       <div class="modal-dialog modal-fullscreen">
@@ -1373,26 +1428,28 @@ modal-title="Fannie Mae">
         </div>
       </div>
     </div>
-    <script>
-      var bowlopolisModal = new bootstrap.Modal(document.getElementById('bowlopolisDetails'), {
-        keyboard: false
-      })
-    </script>
-
-    
-    <!-- jQuery 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
-      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
-    </script> -->
-
+  <!-- end modals-->
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <script src="/assets/js/vendor/perfect-scrollbar-1.4.0/dist/perfect-scrollbar.js" type="module"></script>
 
     <!-- Theme JavaScript -->
     <script src="/assets/js/HeathScript.bundle.js" type="module"></script>
-    
     <script>
+      var blueStarModal = new bootstrap.Modal(document.getElementById('bluestarDetails'), {
+        keyboard: false
+      })
+        var bowlopolisModal = new bootstrap.Modal(document.getElementById('bowlopolisDetails'), {
+        keyboard: false
+      })
+      var fannieMaefModal = new bootstrap.Modal(document.getElementById('fanniemaeDetails'), {
+        keyboard: false
+      })
+      var usaaModal = new bootstrap.Modal(document.getElementById('usaaDetails'), {
+        keyboard: false
+      })
+    </script>
+    <!--<script>
 window.load = (() => {
             var validateIssue = false;
             var slideButton = document.querySelector('#slideButton');
@@ -1460,7 +1517,7 @@ window.load = (() => {
             }
           })();
 
-    </script>
+    </script> -->
     
   </body>
 

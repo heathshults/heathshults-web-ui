@@ -9,16 +9,16 @@ cd .. # changes directories one level up to the app root
 echo "Build initializing..."
 sleep 3
 
-echo "Typechecking and compiling [.js, .jsx, .ts, .tsx] files..."
-tsc --project ./tsconfig.build.json &&
-TSC=$! # get background process id of stencil
-wait $TSC 
 echo "STENCILjs WEB COMPONENTS BUILD..."
 npx stencil build --dev --ci --next --no-cache --docs-readme &
 STENCILPID=$! # get background process id of stencil
 
 wait $STENCILPID 
 sleep 2
+echo "Typechecking and compiling [.js, .jsx, .ts, .tsx] files..."
+tsc --project ./tsconfig.build.json &&
+TSC=$! # get background process id of stencil
+wait $TSC 
 echo "JAVASCRIPT BUILD..."
 npx babel src/js/temp --out-dir src/js/temp &&
 BABELJS=$!

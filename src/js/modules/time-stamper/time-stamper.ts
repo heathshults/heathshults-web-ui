@@ -49,7 +49,7 @@
       this.dt=new Date();
       this.format=format;
       this.final;
-  
+
       // ensure date comes as 01, 09 etc
       const DD=('0'+this.dt.getDate()).slice(-2),
   

@@ -74,7 +74,7 @@ export default class ShowMore {
       function appendCSS(styles): void {
         // return;  comment out below for no js css
         const _styles = styles;
-        console.log(_styles);
+        _styles;
           // this.styleEl = document.createElement('style');
           // this.headEl = document.head || document.getElementsByTagName('head')[0];
           // // const cssStyles = css

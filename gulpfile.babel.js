@@ -264,10 +264,10 @@ exports.babelfry = babelfry;
 //   console.log(chalk.green('Babelifried JS')), cb();
 // }
 // exports.babelfry = babelfry;
-function renderJS(method, cb) {
-  if (method === 'dir') {
+function renderJS(cb) {
+ 
     console.log(chalk.yellow('starting JS renderrer...'));
-    exec('npx del src/js/temp/**/*.js !src/js/temp/HeathScript.js && npx del www/assets/js/**/*.js !www/assets/js/HeathScript.bundle.js && npx babel src/js/modules/ --out-file src/js/temp/HeathScript-all-concat.js && npx babel src/js/modules --out-dir src/js/temp && browserify src/index.js --dir www/assets/js/', (error) => {
+    exec('sh build-scripts/build-js.sh', (error) => {
       if (error) {
         console.log(chalk.red(`ERROR Build JS:\n ${error.message}`));
         return `SCSS compile error${error}`;
@@ -278,20 +278,7 @@ function renderJS(method, cb) {
     });
   
     if (typeof cb === 'function') cb(null);
-  }
-  if (method === 'file') {
-    exec('npx del www/assets/js/HeathScript.bundle.js && npx del src/js/temp/HeathScript.js && npx babel src/js/modules --out-dir src/js/temp && browserify src/index.js -o www/assets/js/HeathScript.bundle.js', (error) => {
-      if (error) {
-        console.log(`ERROR Build JS:\n ${error.message}`);
-        return `SCSS compile error${error}`;
-      }
-      return true;
-  
-    });
-  
-    if (typeof cb === 'function') cb(null);
-  }  
-  if (typeof cb === 'function') cb();
+
 }
 exports.renderJS = renderJS;
 
@@ -614,8 +601,7 @@ function connect_sync(cb) {
     
   });
   
-let jsfile = '';
-let jsdir = '';
+
   // eslint-disable-next-line no-sequences
   var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
   watch(`${srcPath}/views/*.ejs`, ejsit).on('change', browserSync.reload), callback;
@@ -623,11 +609,8 @@ let jsdir = '';
   watch([`${srcPath}/scss/**/*.scss`], compileCSS).on('change', browserSync.reload), callback;
   watch([`${srcPath}/**/*.html`], ra.copy_html).on('change', browserSync.reload), callback;
   watch([`${srcPath}/assets/**/*.css`], ra.copy_css).on('change', browserSync.reload), callback;
-  watch([`"${srcPath}/js/modules/**/*.{js,mjs,cjs,ts}"`, `!${srcPath}/js/HeathScript.js`],renderJS(jsdir)).on('change', browserSync.reload), callback;
-  watch([`${srcPath}/js/modules/HeathScript.js`], renderJS(jsfile)).on('change', browserSync.reload), callback;
-  // watch([`${srcCompPath}/**/*.{tsx,ts,jsx,js,scss}`], build_components).on('change', browserSync.reload), callback;
-  jsfile = 'file';
-  jsdir = 'dir';
+  watch([`${srcPath}/js/modules/**/*.{js,mjs,cjs,ts}`],renderJS).on('change', browserSync.reload), callback;
+
 
   // let file = '';
   // if (typeof cb === 'function') {

@@ -114,6 +114,11 @@ export class HSCard {
   connectedCallback() {
     
 
+   
+     
+  } 
+  
+  componenentWillRender() {
     return new Promise((resolve, reject): any => {
       setTimeout((): any => {
         try {
@@ -137,10 +142,6 @@ export class HSCard {
       throw new Error(error.message);
     });
 
-     
-  } 
-  
-  componenentWillRender() {
     // (() => {
     //   // return new Promise((resolve, reject): any => {
     //     setTimeout((): any => {
