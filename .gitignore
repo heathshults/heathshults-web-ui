@@ -13,6 +13,7 @@ dist/
 .vscode/
 src/js/modules/ez-form/ezform.config.json
 .cache/
+src/js/temp/
 
 # files
 **/*Zone.Identifier
