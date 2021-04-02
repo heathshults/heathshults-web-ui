@@ -4,6 +4,7 @@ $hs-tokens: (
   'color': (
     'brand': (
       'navy': (
+<<<<<<< HEAD
         'base': $hs-brand-navy-base
       ),
       'blue': (
@@ -46,10 +47,55 @@ $hs-tokens: (
         'base': $hs-brand-yellow-base,
         'dark': $hs-brand-yellow-dark,
         'darker': $hs-brand-yellow-darker
+=======
+        'base': $hs-color-brand-navy-base
+      ),
+      'blue': (
+        'lighter': $hs-color-brand-blue-lighter,
+        'light': $hs-color-brand-blue-light,
+        'base': $hs-color-brand-blue-base,
+        'dark': $hs-color-brand-blue-dark
+      ),
+      'orange': (
+        'lighter': $hs-color-brand-orange-lighter,
+        'light': $hs-color-brand-orange-light,
+        'base': $hs-color-brand-orange-base,
+        'dark': $hs-color-brand-orange-dark,
+        'darker': $hs-color-brand-orange-darker
+      ),
+      'teal': (
+        'lighter': $hs-color-brand-teal-lighter,
+        'light': $hs-color-brand-teal-light,
+        'base': $hs-color-brand-teal-base,
+        'dark': $hs-color-brand-teal-dark,
+        'darker': $hs-color-brand-teal-darker
+      ),
+      'green': (
+        'lighter': $hs-color-brand-green-lighter,
+        'light': $hs-color-brand-green-light,
+        'base': $hs-color-brand-green-base,
+        'dark': $hs-color-brand-green-dark,
+        'darker': $hs-color-brand-green-darker
+      ),
+      'magenta': (
+        'lighter': $hs-color-brand-magenta-lighter,
+        'light': $hs-color-brand-magenta-light,
+        'base': $hs-color-brand-magenta-base,
+        'dark': $hs-color-brand-magenta-dark,
+        'darker': $hs-color-brand-magenta-darker
+      ),
+      'yellow': (
+        'lighter': $hs-color-brand-yellow-lighter,
+        'light': $hs-color-brand-yellow-light,
+        'base': $hs-color-brand-yellow-base,
+        'dark': $hs-color-brand-yellow-dark,
+        'darker': $hs-color-brand-yellow-darker
+>>>>>>> 625292f8f2dc176a54c1a864c27f10b2d2fc6c2e
       )
     ),
     'core': (
       'blue': (
+<<<<<<< HEAD
         '10': $hs-core-blue-10,
         '20': $hs-core-blue-20,
         '30': $hs-core-blue-30,
@@ -277,6 +323,235 @@ $hs-tokens: (
       '75': $hs-tint-75,
       '90': $hs-tint-90,
       '05': $hs-tint-05
+=======
+        '10': $hs-color-core-blue-10,
+        '20': $hs-color-core-blue-20,
+        '30': $hs-color-core-blue-30,
+        '40': $hs-color-core-blue-40,
+        '50': $hs-color-core-blue-50,
+        '60': $hs-color-core-blue-60,
+        '70': $hs-color-core-blue-70,
+        '80': $hs-color-core-blue-80,
+        '90': $hs-color-core-blue-90,
+        '95': $hs-color-core-blue-95
+      ),
+      'orange': (
+        '10': $hs-color-core-orange-10,
+        '20': $hs-color-core-orange-20,
+        '30': $hs-color-core-orange-30,
+        '40': $hs-color-core-orange-40,
+        '50': $hs-color-core-orange-50,
+        '60': $hs-color-core-orange-60,
+        '70': $hs-color-core-orange-70,
+        '80': $hs-color-core-orange-80,
+        '90': $hs-color-core-orange-90,
+        '95': $hs-color-core-orange-95
+      ),
+      'teal': (
+        '10': $hs-color-core-teal-10,
+        '20': $hs-color-core-teal-20,
+        '30': $hs-color-core-teal-30,
+        '40': $hs-color-core-teal-40,
+        '50': $hs-color-core-teal-50,
+        '60': $hs-color-core-teal-60,
+        '70': $hs-color-core-teal-70,
+        '80': $hs-color-core-teal-80,
+        '90': $hs-color-core-teal-90,
+        '95': $hs-color-core-teal-95
+      ),
+      'green': (
+        '10': $hs-color-core-green-10,
+        '20': $hs-color-core-green-20,
+        '30': $hs-color-core-green-30,
+        '40': $hs-color-core-green-40,
+        '50': $hs-color-core-green-50,
+        '60': $hs-color-core-green-60,
+        '70': $hs-color-core-green-70,
+        '80': $hs-color-core-green-80,
+        '90': $hs-color-core-green-90,
+        '95': $hs-color-core-green-95
+      ),
+      'yellow': (
+        '10': $hs-color-core-yellow-10,
+        '20': $hs-color-core-yellow-20,
+        '30': $hs-color-core-yellow-30,
+        '40': $hs-color-core-yellow-40,
+        '50': $hs-color-core-yellow-50,
+        '60': $hs-color-core-yellow-60,
+        '70': $hs-color-core-yellow-70,
+        '80': $hs-color-core-yellow-80,
+        '90': $hs-color-core-yellow-90,
+        '95': $hs-color-core-yellow-95
+      ),
+      'magenta': (
+        '10': $hs-color-core-magenta-10,
+        '20': $hs-color-core-magenta-20,
+        '30': $hs-color-core-magenta-30,
+        '40': $hs-color-core-magenta-40,
+        '50': $hs-color-core-magenta-50,
+        '60': $hs-color-core-magenta-60,
+        '70': $hs-color-core-magenta-70,
+        '80': $hs-color-core-magenta-80,
+        '90': $hs-color-core-magenta-90,
+        '95': $hs-color-core-magenta-95
+      ),
+      'red': (
+        '10': $hs-color-core-red-10,
+        '20': $hs-color-core-red-20,
+        '30': $hs-color-core-red-30,
+        '40': $hs-color-core-red-40,
+        '50': $hs-color-core-red-50,
+        '60': $hs-color-core-red-60,
+        '70': $hs-color-core-red-70,
+        '80': $hs-color-core-red-80,
+        '90': $hs-color-core-red-90,
+        '95': $hs-color-core-red-95
+      ),
+      'yelloworange': (
+        '10': $hs-color-core-yelloworange-10,
+        '20': $hs-color-core-yelloworange-20,
+        '30': $hs-color-core-yelloworange-30,
+        '40': $hs-color-core-yelloworange-40,
+        '50': $hs-color-core-yelloworange-50,
+        '60': $hs-color-core-yelloworange-60,
+        '70': $hs-color-core-yelloworange-70,
+        '80': $hs-color-core-yelloworange-80,
+        '90': $hs-color-core-yelloworange-90,
+        '95': $hs-color-core-yelloworange-95
+      ),
+      'yellowgreen': (
+        '10': $hs-color-core-yellowgreen-10,
+        '20': $hs-color-core-yellowgreen-20,
+        '30': $hs-color-core-yellowgreen-30,
+        '40': $hs-color-core-yellowgreen-40,
+        '50': $hs-color-core-yellowgreen-50,
+        '60': $hs-color-core-yellowgreen-60,
+        '70': $hs-color-core-yellowgreen-70,
+        '80': $hs-color-core-yellowgreen-80,
+        '90': $hs-color-core-yellowgreen-90,
+        '95': $hs-color-core-yellowgreen-95
+      ),
+      'muted': (
+        'blue': (
+          '10': $hs-color-core-muted-blue-10,
+          '20': $hs-color-core-muted-blue-20,
+          '30': $hs-color-core-muted-blue-30,
+          '40': $hs-color-core-muted-blue-40,
+          '50': $hs-color-core-muted-blue-50,
+          '60': $hs-color-core-muted-blue-60,
+          '70': $hs-color-core-muted-blue-70,
+          '80': $hs-color-core-muted-blue-80,
+          '90': $hs-color-core-muted-blue-90
+        ),
+        'orange': (
+          '10': $hs-color-core-muted-orange-10,
+          '20': $hs-color-core-muted-orange-20,
+          '30': $hs-color-core-muted-orange-30,
+          '40': $hs-color-core-muted-orange-40,
+          '50': $hs-color-core-muted-orange-50,
+          '60': $hs-color-core-muted-orange-60,
+          '70': $hs-color-core-muted-orange-70,
+          '80': $hs-color-core-muted-orange-80,
+          '90': $hs-color-core-muted-orange-90
+        ),
+        'teal': (
+          '10': $hs-color-core-muted-teal-10,
+          '20': $hs-color-core-muted-teal-20,
+          '30': $hs-color-core-muted-teal-30,
+          '40': $hs-color-core-muted-teal-40,
+          '50': $hs-color-core-muted-teal-50,
+          '60': $hs-color-core-muted-teal-60,
+          '70': $hs-color-core-muted-teal-70,
+          '80': $hs-color-core-muted-teal-80,
+          '90': $hs-color-core-muted-teal-90
+        ),
+        'green': (
+          '10': $hs-color-core-muted-green-10,
+          '20': $hs-color-core-muted-green-20,
+          '30': $hs-color-core-muted-green-30,
+          '40': $hs-color-core-muted-green-40,
+          '50': $hs-color-core-muted-green-50,
+          '60': $hs-color-core-muted-green-60,
+          '70': $hs-color-core-muted-green-70,
+          '80': $hs-color-core-muted-green-80,
+          '90': $hs-color-core-muted-green-90
+        ),
+        'yellow': (
+          '10': $hs-color-core-muted-yellow-10,
+          '20': $hs-color-core-muted-yellow-20,
+          '30': $hs-color-core-muted-yellow-30,
+          '40': $hs-color-core-muted-yellow-40,
+          '50': $hs-color-core-muted-yellow-50,
+          '60': $hs-color-core-muted-yellow-60,
+          '70': $hs-color-core-muted-yellow-70,
+          '80': $hs-color-core-muted-yellow-80,
+          '90': $hs-color-core-muted-yellow-90
+        ),
+        'magenta': (
+          '10': $hs-color-core-muted-magenta-10,
+          '20': $hs-color-core-muted-magenta-20,
+          '30': $hs-color-core-muted-magenta-30,
+          '40': $hs-color-core-muted-magenta-40,
+          '50': $hs-color-core-muted-magenta-50,
+          '60': $hs-color-core-muted-magenta-60,
+          '70': $hs-color-core-muted-magenta-70,
+          '80': $hs-color-core-muted-magenta-80,
+          '90': $hs-color-core-muted-magenta-90
+        ),
+        'red': (
+          '10': $hs-color-core-muted-red-10,
+          '20': $hs-color-core-muted-red-20,
+          '30': $hs-color-core-muted-red-30,
+          '40': $hs-color-core-muted-red-40,
+          '50': $hs-color-core-muted-red-50,
+          '60': $hs-color-core-muted-red-60,
+          '70': $hs-color-core-muted-red-70,
+          '80': $hs-color-core-muted-red-80,
+          '90': $hs-color-core-muted-red-90
+        ),
+        'yelloworange': (
+          '10': $hs-color-core-muted-yelloworange-10,
+          '30': $hs-color-core-muted-yelloworange-30
+        ),
+        'yellowgreen': (
+          '10': $hs-color-core-muted-yellowgreen-10,
+          '30': $hs-color-core-muted-yellowgreen-30
+        )
+      ),
+      'neutral': (
+        '10': $hs-color-core-neutral-10,
+        '13': $hs-color-core-neutral-13,
+        '18': $hs-color-core-neutral-18,
+        '20': $hs-color-core-neutral-20,
+        '30': $hs-color-core-neutral-30,
+        '40': $hs-color-core-neutral-40,
+        '50': $hs-color-core-neutral-50,
+        '60': $hs-color-core-neutral-60,
+        '70': $hs-color-core-neutral-70,
+        '80': $hs-color-core-neutral-80,
+        '90': $hs-color-core-neutral-90,
+        '95': $hs-color-core-neutral-95,
+        '00': $hs-color-core-neutral-00
+      )
+    ),
+    'shade': (
+      '10': $hs-color-shade-10,
+      '15': $hs-color-shade-15,
+      '25': $hs-color-shade-25,
+      '50': $hs-color-shade-50,
+      '75': $hs-color-shade-75,
+      '90': $hs-color-shade-90,
+      '05': $hs-color-shade-05
+    ),
+    'tint': (
+      '10': $hs-color-tint-10,
+      '15': $hs-color-tint-15,
+      '25': $hs-color-tint-25,
+      '50': $hs-color-tint-50,
+      '75': $hs-color-tint-75,
+      '90': $hs-color-tint-90,
+      '05': $hs-color-tint-05
+>>>>>>> 625292f8f2dc176a54c1a864c27f10b2d2fc6c2e
     )
   ),
   'depth': (

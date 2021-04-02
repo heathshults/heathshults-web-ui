@@ -5,7 +5,11 @@
 }
 
 .text-primary {
+<<<<<<< HEAD
   color: $hs-primary;
+=======
+  color: $hs-theme-primary;
+>>>>>>> 625292f8f2dc176a54c1a864c27f10b2d2fc6c2e
 }
 
 p {
@@ -26,14 +30,22 @@ a.active {
 }
 
 a:link {
+<<<<<<< HEAD
   color: $hs-primary;
+=======
+  color: $hs-theme-primary;
+>>>>>>> 625292f8f2dc176a54c1a864c27f10b2d2fc6c2e
 }
 
 a:hover,
 a:focus,
 a:active,
 a.active {
+<<<<<<< HEAD
   color: darken($hs-primary, 10%);
+=======
+  color: darken($hs-theme-primary, 10%);
+>>>>>>> 625292f8f2dc176a54c1a864c27f10b2d2fc6c2e
 }
 
 h1,
@@ -67,14 +79,22 @@ h6 {
 // Restyled Primary Buttons
 
 .btn-primary {
+<<<<<<< HEAD
   // // @include button-variant@include button-variant(white, $hs-primary, $hs-primary);
+=======
+  // // @include button-variant@include button-variant(white, $hs-theme-primary, $hs-theme-primary);
+>>>>>>> 625292f8f2dc176a54c1a864c27f10b2d2fc6c2e
   @include heading-font;
 
   font-weight: 700;
 }
 
 .btn-xl {
+<<<<<<< HEAD
   // // @include button-variant@include button-variant($hs-gray-900, $hs-primary, $hs-primary);
+=======
+  // // @include button-variant@include button-variant($hs-gray-900, $hs-theme-primary, $hs-theme-primary);
+>>>>>>> 625292f8f2dc176a54c1a864c27f10b2d2fc6c2e
   @include heading-font;
   padding: 20px 40px;
   font-size: 18px;
@@ -98,7 +118,11 @@ h6 {
 //   font-size: 100%;
 //   font-weight: 400;
 //   letter-spacing: 1px;
+<<<<<<< HEAD
 //   color: $hs-primary;
+=======
+//   color: $hs-theme-primary;
+>>>>>>> 625292f8f2dc176a54c1a864c27f10b2d2fc6c2e
 //   background-color: transparent !important;
 //   padding: 0.8rem 1.2rem;
 //   border: 0 !important;
@@ -127,7 +151,11 @@ h6 {
 //     .mode-widget_link {
 //       //padding-left: 28px !important;
 //       transition: all 0.25s ease-out;
+<<<<<<< HEAD
 //       color: $hs-primary;
+=======
+//       color: $hs-theme-primary;
+>>>>>>> 625292f8f2dc176a54c1a864c27f10b2d2fc6c2e
 //     }
 //   }
 
@@ -143,7 +171,11 @@ h6 {
 
 //     &:hover,
 //     &:focus {
+<<<<<<< HEAD
 //       color: $hs-primary;
+=======
+//       color: $hs-theme-primary;
+>>>>>>> 625292f8f2dc176a54c1a864c27f10b2d2fc6c2e
 //       outline: none;
 //       text-decoration: none;
 //     }
@@ -230,7 +262,11 @@ h6 {
   border-color: transparent;
 
   .navbar-brand {
+<<<<<<< HEAD
     color: $hs-primary;
+=======
+    color: $hs-theme-primary;
+>>>>>>> 625292f8f2dc176a54c1a864c27f10b2d2fc6c2e
 
     @include cursive-font;
 
@@ -238,7 +274,11 @@ h6 {
     &:focus,
     &:active,
     &.active {
+<<<<<<< HEAD
       color: darken($hs-primary, 10%);
+=======
+      color: darken($hs-theme-primary, 10%);
+>>>>>>> 625292f8f2dc176a54c1a864c27f10b2d2fc6c2e
     }
   }
 
@@ -250,14 +290,23 @@ h6 {
     font-size: 12px;
 
     color: white;
+<<<<<<< HEAD
     background-color: $hs-primary;
     border-color: $hs-primary;
+=======
+    background-color: $hs-theme-primary;
+    border-color: $hs-theme-primary;
+>>>>>>> 625292f8f2dc176a54c1a864c27f10b2d2fc6c2e
 
     @include heading-font;
 
     &:hover,
     &:focus {
+<<<<<<< HEAD
       background-color: $hs-primary;
+=======
+      background-color: $hs-theme-primary;
+>>>>>>> 625292f8f2dc176a54c1a864c27f10b2d2fc6c2e
     }
   }
 
@@ -272,7 +321,11 @@ h6 {
 
         &:hover,
         &:focus {
+<<<<<<< HEAD
           color: $hs-primary;
+=======
+          color: $hs-theme-primary;
+>>>>>>> 625292f8f2dc176a54c1a864c27f10b2d2fc6c2e
           outline: none;
         }
       }
@@ -281,14 +334,22 @@ h6 {
 
   .navbar-nav >.active >a {
     color: white;
+<<<<<<< HEAD
     background-color: $hs-primary;
+=======
+    background-color: $hs-theme-primary;
+>>>>>>> 625292f8f2dc176a54c1a864c27f10b2d2fc6c2e
     border-radius: 0;
   }
 
   .navbar-nav >.active >a:hover,
   .navbar-nav >.active >a:focus {
     color: white;
+<<<<<<< HEAD
     background-color: darken($hs-primary, 10%);
+=======
+    background-color: darken($hs-theme-primary, 10%);
+>>>>>>> 625292f8f2dc176a54c1a864c27f10b2d2fc6c2e
   }
 }
 
@@ -440,7 +501,11 @@ section {
         position: absolute;
         width: 100%;
         height: 100%;
+<<<<<<< HEAD
         background: fade-out($hs-primary, 0.9);
+=======
+        background: fade-out($hs-theme-primary, 0.9);
+>>>>>>> 625292f8f2dc176a54c1a864c27f10b2d2fc6c2e
         opacity: 0;
         -webkit-transition: all ease 0.5s;
         -moz-transition: all ease 0.5s;
@@ -571,7 +636,11 @@ section {
       margin-left: 0;
       color: white;
       text-align: center;
+<<<<<<< HEAD
       background-color: $hs-primary;
+=======
+      background-color: $hs-theme-primary;
+>>>>>>> 625292f8f2dc176a54c1a864c27f10b2d2fc6c2e
       border: 7px solid #f1f1f1;
       border-radius: 100%;
 
@@ -780,7 +849,11 @@ section#contact {
   }
 
   .form-control:focus {
+<<<<<<< HEAD
     border-color: $hs-primary;
+=======
+    border-color: $hs-theme-primary;
+>>>>>>> 625292f8f2dc176a54c1a864c27f10b2d2fc6c2e
     box-shadow: none;
   }
 
@@ -864,7 +937,11 @@ ul.social-buttons {
       &:hover,
       &:focus,
       &:active {
+<<<<<<< HEAD
         background-color: $hs-primary;
+=======
+        background-color: $hs-theme-primary;
+>>>>>>> 625292f8f2dc176a54c1a864c27f10b2d2fc6c2e
       }
     }
   }
@@ -972,12 +1049,20 @@ ul.social-buttons {
 
 ::-moz-selection {
   text-shadow: none;
+<<<<<<< HEAD
   background: $hs-primary;
+=======
+  background: $hs-theme-primary;
+>>>>>>> 625292f8f2dc176a54c1a864c27f10b2d2fc6c2e
 }
 
 ::selection {
   text-shadow: none;
+<<<<<<< HEAD
   background: $hs-primary;
+=======
+  background: $hs-theme-primary;
+>>>>>>> 625292f8f2dc176a54c1a864c27f10b2d2fc6c2e
 }
 
 img::-moz-selection {
@@ -993,7 +1078,11 @@ img::-moz-selection {
 }
 
 body {
+<<<<<<< HEAD
   webkit-tap-highlight-color: $hs-primary;
+=======
+  webkit-tap-highlight-color: $hs-theme-primary;
+>>>>>>> 625292f8f2dc176a54c1a864c27f10b2d2fc6c2e
 }
 
 .card_row {

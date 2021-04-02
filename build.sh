@@ -9,10 +9,19 @@ cd .. # changes directories one level up to the app root
 echo "Build initializing..."
 sleep 3
 
+<<<<<<< HEAD
+=======
+echo "Typechecking [.js, .jsx, .ts, .tsx] files..."
+tsc --project ./tsconfig.typecheck.json
+TSC=$! # get background process id of stencil
+
+wait $TSC
+>>>>>>> 625292f8f2dc176a54c1a864c27f10b2d2fc6c2e
 echo "STENCILjs WEB COMPONENTS BUILD..."
 npx stencil build --dev --ci --next --no-cache --docs-readme &
 STENCILPID=$! # get background process id of stencil
 
+<<<<<<< HEAD
 wait $STENCILPID 
 sleep 2
 echo "Typechecking and compiling [.js, .jsx, .ts, .tsx] files..."
@@ -36,6 +45,30 @@ wait $BRWSRIFYCONCAT
 npx browserify src/index.js -o www/assets/js/HeathScript.bundle.js &&
 BRWSRIFYHS=$!
 wait $BRWSRIFYHS
+=======
+wait $STENCILPID &
+echo "JAVASCRIPT BUILD..."
+
+# npx babel system-modules/scss2cssVars/scss2cssVars.ts --out-file system-modules/scss2cssVars/scss2cssVars.js
+npx babel src/js/modules --out-dir src/js/temp/ &&
+BABELJS=$!
+
+wait $BABELJS &&
+npx babel src/js/modules/ --out-file src/js/temp/HeathScript-all-concat.js &&
+BABELJS=$!
+
+# npx NODE_ENV=development parcel build src/js/index.ts -d www/assets/js -o HeathScript.bundle.js --no-minify &&
+# BABELJS=$!
+
+# wait $BABELJS &&
+
+wait $BABELJS &&
+browserify src/index.js -o www/assets/js/HeathScript.bundle.js &&
+BROWSERIFYJS=$!
+
+wait $BROWSERIFYJS &&
+
+>>>>>>> 625292f8f2dc176a54c1a864c27f10b2d2fc6c2e
 echo "Render HTML pages..."
 npx gulp ejsit & 
 # echo "Assembling CSS Variables..."
@@ -52,6 +85,10 @@ file_copy() {
   npx copy "src/global/**/*" www/global/
   npx copy "src/php/**/*" www/php/
   npx copy "src/mail/**/*" www/mail/
+<<<<<<< HEAD
+=======
+  npx copy "src/favicon.ico" www/
+>>>>>>> 625292f8f2dc176a54c1a864c27f10b2d2fc6c2e
 }
 file_copy &
 

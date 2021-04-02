@@ -278,7 +278,6 @@ function renderJS(cb) {
     });
   
     if (typeof cb === 'function') cb(null);
-
 }
 exports.renderJS = renderJS;
 
@@ -601,7 +600,6 @@ function connect_sync(cb) {
     
   });
   
-
   // eslint-disable-next-line no-sequences
   var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
   watch(`${srcPath}/views/*.ejs`, ejsit).on('change', browserSync.reload), callback;
