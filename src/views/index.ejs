@@ -893,6 +893,11 @@
   background-size: 32px 32px;
 }
 
+.slide-button.drag {
+  background: #fff;
+  box-shadow: -8px 0px 6px 10px rgb(0 0 0 / 25%);
+}
+
 .dropzone {
   position: absolute;
   z-index: 1;
@@ -915,20 +920,38 @@
   transition: all .35s ease-in-out
 }
 
-.dropzone.shadow {
-  box-shadow: -8px 0px 7px 5px rgb(0 0 0 / 25%);
-}
+
 
 .dropzone.drag-enter {
   border-color: #d15400;
   transition: all .35s ease-in-out;
-  transform: scale(1.4)
+  transform: scale(2);
 }
 
 .dropzone.drop-ready {
-  border-color: green;
+  background-color: var(--hs-green);
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, .15) 35%,
+      transparent 25%,
+      transparent 50%,
+      rgba(255, 255, 255, .15) 60%,
+      rgba(255, 255, 255, .15) 85%,
+      transparent 85%,
+      transparent
+    );
+  background-size: 15px 15px;
+
+  border-color: var(--hs-green);
   transition: all .35s ease-in-out;
-  transform: scale(1.2)
+  transform: scale(1.2);
+  animation-name: animate-stripes;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
 }
 
 .slide-button.dropped {
@@ -946,7 +969,7 @@
 
 .svg-checkmark {
   position: absolute;
-  top: -12px;
+  bottom: -2px;
   left: 0;
 }
 
@@ -1012,7 +1035,7 @@
     );
   background-size: 15px 15px;
   animation-name: animate-stripes;
-  animation-duration: 1.25s;
+  animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: normal;
@@ -1020,7 +1043,7 @@
 }
 
 </style>
-                  <div id="slideButton"></div>
+                  <div id="slideButton" class="slide-button-wrapper"></div>
                   <!-- <div class="slide-button-grid">
                     <div class="slide-button-grid__left">
                       <div class="grid-left__inner">
@@ -1441,7 +1464,7 @@
     <script src="/assets/js/vendor/perfect-scrollbar-1.4.0/dist/perfect-scrollbar.js" type="module"></script>
 
     <!-- Theme JavaScript -->
-    <script src="/assets/js/HeathScript.bundle.js" type="module"></script>
+    <script src="/assets/js/HeathScript.parcel.js" type="module"></script>
     <script>
       var blueStarModal = new bootstrap.Modal(document.getElementById('bluestarDetails'), {
         keyboard: false

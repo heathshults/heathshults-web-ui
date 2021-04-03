@@ -1,10 +1,14 @@
 "use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ValidURL = ValidURL;
+
 /* eslint-disable no-unused-vars */
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-exports.__esModule = true;
-exports.ValidURL = void 0;
 /**
  * @function valieURL - Checks if a string is a url.
  *
@@ -17,7 +21,6 @@ exports.ValidURL = void 0;
  * validURL('http://hello.com');
  *
  */
-
 function ValidURL(url) {
   var pattern = new RegExp( // protocol
   '^(https?:\\/\\/)?' + // domain name
@@ -28,5 +31,3 @@ function ValidURL(url) {
   '(\\#[-a-z\\d_]*)?$', 'i');
   return !!pattern.test(url.toString());
 }
-
-exports.ValidURL = ValidURL;

@@ -1,3 +1,29 @@
+"use strict";
+
+require("./theme-switcher/theme-switcher");
+
+require("./even-height/even-height");
+
+require("./hs-timeline/hs-timelineJS");
+
+require("./show-more-fadebar/show-more");
+
+require("./time-stamper/time-stamper");
+
+require("./validate-url/validate-url");
+
+require("./hs-slide-button/slide-button");
+
+require("./HeathScript");
+
+require('@babel/core').transformSync('code', {
+  presets: ['@babel/preset-typescript', '@babel/preset-env', '@babel/preset-react'],
+  plugins: ['babel-plugin-transform-class-properties', {
+    "spec": true
+  }]
+}); // require("@babel/polyfill");
+
+
 /* eslint-disable no-undef, no-unused-vars */
 // const interact = require('interactjs');
 "use strict";
@@ -8,6 +34,7 @@
  * @license MIT (https://github.com/heathshults/heathshults.com/LICENSE)
  */
 // ====== RANKING BARS
+
 
 window.onload = function () {
   var theBars = document.querySelectorAll('.hs-ranking-bar');

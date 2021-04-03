@@ -1,7 +1,14 @@
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Timeline = void 0;
+
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+
 /* eslint-disable no-unsafe-negation */
-(function () {
+function Timeline() {
   // Vertical Timeline - by CodyHouse.co
   function VerticalTimeline(element) {
     this.element = element;
@@ -76,4 +83,8 @@
     });
     scrolling = false;
   }
-})(); // if (!document.documentElement.hasAttribute('classList')) {
+}
+
+var _Timeline = Timeline; // if (!document.documentElement.hasAttribute('classList')) {
+
+exports.Timeline = _Timeline;

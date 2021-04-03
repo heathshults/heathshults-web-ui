@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.ThemeSwitcher = void 0;
+exports.default = ThemeSwitcher;
 
 /* eslint-disable no-console */
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -28,11 +28,12 @@ function ThemeSwitcher() {
   }
 
   function setMode(mode) {
+    var darkmodeLinkTag = document.querySelector('#darkmode');
     localStorage.setItem('dark_mode', "".concat(mode));
-    document.querySelector('#darkmode').disabled = mode;
+    darkmodeLinkTag.disabled = mode;
 
     if (mode === 'true') {
-      document.querySelector('#darkmode').disabled = false;
+      darkmodeLinkTag.disabled = false;
       $dm_btn.innerHTML = '<span class="which-mode"> Dark Mode<i id="mode_icon" class="fa fa-moon mode-icon"></i></span>'; // document.querySelector('link[href="css/theme-dark-mode.css"]').disabled = false;
       // document.querySelector('link[href="css/theme-dark-mode.css"]').disabled = false;
     } else {
@@ -57,6 +58,4 @@ function ThemeSwitcher() {
   // eslint-disable-next-line no-undef
 }
 
-var _ThemeSwitcher = ThemeSwitcher;
-exports.ThemeSwitcher = _ThemeSwitcher;
 ThemeSwitcher();

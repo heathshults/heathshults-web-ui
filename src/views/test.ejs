@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+
 <html>
   <head>
     <meta charset="utf-8">
@@ -14,9 +11,7 @@
     <script src="assets/js/vendor/123/framekit-highlight-code.js"></script>
   </head>
   <body>
-    <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+
     <style>
       #Logo {
         position: absolute;
@@ -51,7 +46,7 @@
         animation-fill-mode: forwards;
 
         /* Will retain styles set in the last keyframe */
-        animation-iteration: 1;
+        -o-animation-iteration-count: 1;
 
         /* How many times the animation runs */
         stroke-width: 3px;
@@ -60,7 +55,7 @@
         stroke-linecap: round;
 
         /* Making the end of the line rounded */
-        strong-linejoin: round;
+        stroke-linejoin: round;
 
         /* First applies to DrawLine, seccond is FadeStroke, third is FillIn */
       }

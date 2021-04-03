@@ -1,8 +1,13 @@
 "use strict";
 
-exports.__esModule = true;
-exports.validurl = void 0;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "validurl", {
+  enumerable: true,
+  get: function get() {
+    return _validateUrl.ValidURL;
+  }
+});
 
-var validate_url_1 = require("./validate-url");
-
-exports.validurl = validate_url_1.ValidURL;
+var _validateUrl = require("./validate-url");

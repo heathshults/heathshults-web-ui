@@ -16,7 +16,7 @@ export default class SlideButton {
   public yOffset: number | any = 0;
   public checky: any;
   public eventtarget: any;
-  public animatedCheckMark: SVGElement;
+  // public animatedCheckMark: SVGElement;
 
   constructor(
     location: string, 
@@ -77,7 +77,6 @@ export default class SlideButton {
     this.gridLeftInner = document.querySelector('#slideButton > div.slide-button-grid > div.slide-button-grid__left > div.grid-left__inner');
     l(this.gridLeftInner);
     this.gridLeftInner.appendChild(this.slidebutton);
-    
 
     // Create the this.dropzone and add it to the component
     this.dropzone = document.createElement('div');
@@ -95,9 +94,6 @@ export default class SlideButton {
     this.gridRightInner.appendChild(this.dropzone);
   }
 
-  
-  
-  
 
   setTranslate(xPos, yPos, el) {
     el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
@@ -110,8 +106,6 @@ export default class SlideButton {
     this.initialX = ev.clientX - this.xOffset;
     this.initialY = ev.clientY - this.yOffset;
     
-    
-
     // const dragImg = new Image();
     // dragImg.src = '/assets/img/icons/drag.svg';
     // ev.dataTransfer.setDragImage(dragImg, 0, 0);
@@ -138,8 +132,8 @@ export default class SlideButton {
       this.setTranslate(this.currentX, this.currentY, this.slidebutton);
       
       this.eventtarget = ev.target as HTMLElement;
-      this.eventtarget.style.cursor = 'url(/assets/img/star.svg)';
-      this.eventtarget.classList.add('shadow');
+      this.eventtarget.style.cursor = 'move';
+      this.slidebutton.classList.add('drag');
 
       this.dropzone.classList.add('stripes-background');
 
@@ -163,11 +157,9 @@ export default class SlideButton {
   public dragonEnter(ev: DragEvent) {
     ev.preventDefault();
     
-    
     this.slidebutton.style.right = '0';
     
     return this.arrows.style.opacity = '0';
-
     
   }
 
@@ -188,29 +180,51 @@ export default class SlideButton {
 
   public drop(ev: DragEvent) {
     ev.preventDefault();
-    const data = ev.dataTransfer.getData('text');
-
-    this.slidebutton.classList.remove('shadow');
-
     this.eventtarget = ev.target as HTMLElement;
-    this.eventtarget.appendChild(this.slidebutton);
+    const checkDrop = this.eventtarget.firstElementChild;
 
-    this.eventtarget.classList.remove('drop-ready');
-    this.eventtarget.classList.remove('stripes-background');
-    this.slidebutton.classList.add('dropped');
+    console.log(checkDrop);
+    
+    if (checkDrop !== this.slidebutton) {
+      
+      return;
+    } else {
 
-    this.animatedCheckMark.innerHTML = `
-    <svg class="svg-checkmark" x="0px" y="0px" viewBox="0 0 135 110" width="35px" height="43px">
-      <path class="check" d="M126.8,14L55.7,85.1L29.2,63.4"/>
-    </svg>`;
+      const data = ev.dataTransfer.getData('text');
+      console.log(data);
+      this.slidebutton.classList.remove('shadow');
 
-    this.checky = document.createElement('span');
-    this.checky.classList.add('hs-animated-checkbox-container');
-    this.checky.innerHTML = this.animatedCheckMark;
-    this.dropzone.appendChild(this.animatedCheckMark);
-    // this.eventtarget.classList.add('border-white');
+      this.eventtarget.appendChild(this.slidebutton);
 
-    return false;
+      this.eventtarget.classList.remove('drop-ready');
+      this.eventtarget.classList.remove('stripes-background');
+      this.slidebutton.classList.add('dropped');
+      
+      const animatedCheckMark = document.createElement('svg');
+      Object.assign(animatedCheckMark, {
+        className: 'svg-checkmark',
+        id: 'aniCheck',
+        x: '0px',
+        y: '0px',
+        viewBox: '0 0 135 110',
+        width: '35px',
+        height: '43px'
+      });
+      animatedCheckMark.innerHTML = `
+      <svg class="svg-checkmark" x="0px" y="0px" viewBox="0 0 135 110" width="35px" height="43px">
+        <path class="check" d="M126.8,14L55.7,85.1L29.2,63.4"/>
+      </svg>`;
+
+      this.checky = document.createElement('span');
+      this.checky.classList.add('hs-animated-checkbox-container');
+      this.checky.innerHTML = animatedCheckMark;
+      this.dropzone.appendChild(animatedCheckMark);
+      // this.eventtarget.classList.add('border-white');
+
+      setTimeout(this.resetSlideButton, 3000);
+
+      return;
+    }
   }
 
   resetSlideButton() {
@@ -219,7 +233,7 @@ export default class SlideButton {
     this.checky.remove();
     document.querySelector('.grid-left__inner').appendChild(this.slidebutton);
     this.dropzone.classList.remove('border-white');
-    this.arrows.style.opacity = '1';
+    this.arrows.style.display = 'unset';
   }
 
   static init(loc): any {
@@ -230,4 +244,3 @@ export default class SlideButton {
 }
 
 document.addEventListener('load', SlideButton.init('#slideButton'));
-

@@ -1,18 +1,40 @@
 "use strict";
 
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+require('@babel/register')({
+  extensions: ['.ts', '.cjs', '.jsx', '.js', '.mjs'],
+  cache: true
+});
 
-/* eslint-disable no-unused-vars, @typescript-eslint/no-unused-vars, @typescript-eslint/no-var-requires, no-console */
-var babel = require("@babel/core");
+require('@babel/core').transformSync('code', {
+  presets: ['@babel/preset-typescript', '@babel/preset-env', '@babel/preset-react'],
+  plugins: ['babel-plugin-transform-class-properties', {
+    "spec": true
+  }]
+}); // require("@babel/polyfill");
 
-require('./theme-switcher/theme-switcher.js');
 
-require('./autofill-dectector/autofill-detector.js');
+require('../temp/theme-switcher/theme-switcher');
 
-require('./show-more-fadebar/show-more.ts');
+require('../temp/even-height/even-height');
 
-require('./time-stamper/time-stamper.js');
+require('../temp/hs-timeline/hs-timelineJS');
 
-require('./validate-url/validate-url.ts');
+require('../temp/show-more-fadebar/show-more');
 
-require('./HeathScript.js');
+require('../temp/time-stamper/time-stamper');
+
+require('../temp/validate-url/validate-url');
+
+require('../temp/hs-slide-button/slide-button');
+
+require('../temp/HeathScript'); // import React from 'react';
+// import ReactDOM from 'react-dom';
+// import './index.css';
+// import App from './App';
+// import registerServiceWorker from './registerServiceWorker';
+// import { applyPolyfills, defineCustomElements } from 'test-components/loader';
+// ReactDOM.render(<App />, document.getElementById('root'));
+// registerServiceWorker();
+// applyPolyfills().then(() => {
+//   defineCustomElements();
+// });

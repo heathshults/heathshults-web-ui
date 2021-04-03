@@ -1,10 +1,8 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-var _typeof2 = _interopRequireDefault(require("@babel/runtime/helpers/typeof"));
-
-var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /**
 * @fileOverview
@@ -32,18 +30,19 @@ var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/cl
 
 /**
  * @usage
- * 
+ *
  * <script>
  *  let htmlelement = document.getElementById('dd')
- *  htmlelement.innerHTML = JSON.stringify(TimeStamper('datetime'));  
+ *  htmlelement.innerHTML = JSON.stringify(TimeStamper('datetime'));
  * </script>
- * 
+ *
  * @note:  tons of room for improvement...
  */
 // function TimeStamper() {
 // timerequest();
 var TimeStamper = function TimeStamper(format) {
-  (0, _classCallCheck2.default)(this, TimeStamper);
+  _classCallCheck(this, TimeStamper);
+
   this.dt = new Date();
   this.format = format;
   this.final; // ensure date comes as 01, 09 etc
@@ -71,7 +70,7 @@ var TimeStamper = function TimeStamper(format) {
     this.final = justtime;
   } else if (format === 'justyear') {
     this.final = justyear;
-  } else if (format === '' || (0, _typeof2.default)('undefined')) {
+  } else if (format === '' || _typeof('undefined')) {
     this.final = datetime;
   } else {
     this.final = TimeStamper.datetime;

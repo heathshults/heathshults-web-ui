@@ -5,34 +5,10 @@
     "@babel/preset-react"
   ],
   "plugins": [
-<<<<<<< HEAD
     ["@babel/plugin-transform-typescript", {"allowDeclareFields": true, "isTSX": true}],
-    ["@babel/plugin-proposal-decorators", { "legacy": true }],
     "@babel/plugin-transform-modules-commonjs",
-    "@babel/plugin-transform-modules-amd"
+    ["babel-plugin-transform-class-properties", { "spec": true }]
   ],
   "compact": false,
   "sourceMap": true
-=======
-    "@babel/plugin-proposal-object-rest-spread",
-    "babel-plugin-replace-ts-export-assignment",
-    "@babel/plugin-syntax-dynamic-import",
-    "@babel/plugin-proposal-class-properties",
-    ["@babel/plugin-proposal-decorators", { "legacy": true }],
-    "@babel/plugin-transform-runtime",
-    ["import", {"libraryName": "@material-ui/core"}],
-    ["prismjs", {
-      "languages": [
-        "html","javascript","typescript","css","scss",
-        "php","handlebars","mysql","sql","ejs","json",
-        "jsx","tsx","markdown","markup","mongodb","bash",
-        "shell","regex", "xml-doc"
-      ],
-      "plugins": ["line-numbers", "show-language"],
-      "theme": "okaidia",
-      "css": true
-    }]
-  ],
-  "compact": false
->>>>>>> 625292f8f2dc176a54c1a864c27f10b2d2fc6c2e
 }

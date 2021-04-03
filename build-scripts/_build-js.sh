@@ -29,9 +29,14 @@ wait $BABELJS
 echo "Browserfry till crispy..."
 npx browserify src/js/temp/bundle.js -o www/assets/js/HeathScript.concat.js &&
 BRWSRIFYCONCAT=$!
+
 wait $BRWSRIFYCONCAT
 npx browserify src/index.js -o www/assets/js/HeathScript.bundle.js &&
 BRWSRIFYHS=$!
+
 wait $BRWSRIFYHS
 echo "// ======* JAVASCRIPT BUILD COMPLETE! *====== //"
 echo "Done cooking..."
+
+#parcel build src/js/modules/**/.ts -d www/assets/js -d HeathScript.parcel.js
+# npx parcel build src/js/index.ts -d www/assets/js -o HeathScript.bundle.js

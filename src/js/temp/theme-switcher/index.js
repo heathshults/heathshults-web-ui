@@ -1,10 +1,13 @@
 "use strict";
 
-require("./theme-switcher");
-
-require("@babel/register")({
-  presets: ["@babel/preset-env"],
-  "plugins": [["import", {
-    "libraryName": "@material-ui/core"
-  }], "@babel/plugin-syntax-dynamic-import"]
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
+exports.ThemeSwitcher = void 0;
+
+var _themeSwitcher = _interopRequireDefault(require("./theme-switcher"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _ThemeSwitcher = _themeSwitcher.default;
+exports.ThemeSwitcher = _ThemeSwitcher;

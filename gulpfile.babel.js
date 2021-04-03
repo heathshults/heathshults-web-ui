@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable no-console,  no-useless-escape*/
 /* eslint-disable-next-line @typescript-eslint/no-var-requires */
 require("@babel/register")({
   presets: [
@@ -587,7 +587,7 @@ function serveSync(cb) {
   }
 }
 exports.serveSync = serveSync;
-
+var jsWatcher;
 function connect_sync(cb) {
 
   connect.server({base: `${wwwPath}`}, function (){
@@ -607,26 +607,57 @@ function connect_sync(cb) {
   watch([`${srcPath}/scss/**/*.scss`], compileCSS).on('change', browserSync.reload), callback;
   watch([`${srcPath}/**/*.html`], ra.copy_html).on('change', browserSync.reload), callback;
   watch([`${srcPath}/assets/**/*.css`], ra.copy_css).on('change', browserSync.reload), callback;
-  watch([`${srcPath}/js/modules/**/*.{js,mjs,cjs,ts}`],renderJS).on('change', browserSync.reload), callback;
+  watch([`${srcPath}/js/modules/**/*.css`], exec(` sh build-scripts/_build-js.sh`, (error) =>  errorman(error)).on('change', browserSync.reload)), callback;
+  function errorman(error) {
+    console.log(chalk.red(`typescript error: ${error}`));
+  }
+  jsWatcher = watch([`${srcPath}/js/modules/**/*.ts`, `${srcPath}/js/modules/**/*.js`, `${srcPath}/js/modules/**/*.tsx`, `${srcPath}/js/modules/**/*.jsx`]);
+  
+  // const droppath = '/home/heathshults/_appdev/heathshults-web-ui/heathshults.com/src/js/modules';
 
+  jsWatcher.on('change', function(path, stats) {
+    exec(` sh build-scripts/_build-js.sh`, (error) => {
+      console.log(chalk.red(`typescript error: ${error}`));
+    });
 
-  // let file = '';
-  // if (typeof cb === 'function') {
-  //   cb(null, file);
-  //   called = true;
-  // }
+    // exec(`tsc --project ./tsconfig.build.json`, 
+    // (error) => console.log(chalk.red(`typescript error: ${error}`)));
 
+    // exec(`npx babel src/js/temp/${path.replace(droppath, '').replace(/.ts/, '.js')} -o www/assets/js/${path.replace(droppath, '').replace(/.ts/, '.js')}`, 
+    // (error) => console.log(chalk.red(`error: ${error}`)));
+
+    // exec(`npx browserify src/js/temp/${path.replace(droppath, '').replace(/.ts/, '.js')} -o www/assets/js/${path.replace(droppath, '').replace(/.ts/, '.js')}`, 
+    // (error) => console.log(chalk.red(`error: ${error}`)));
+  });
+
+  jsWatcher.on('add', function(path, stats) {
+      console.log(`File ${path.replace(/^.*[\\\/]/, '').replace(/.ts/, '.js')} was added`);
+  }), browserSync.reload;
+
+  jsWatcher.on('unlink', function(path, stats) {
+    console.log(`File ${path.replace(/^.*[\\\/]/, '').replace(/.ts/, '.js')} was removed`);
+  }), browserSync.reload;
+
+  // jsWatcher.close();
+
+    // let file = '';
+    // if (typeof cb === 'function') {
+    //   cb(null, file);
+    //   called = true;
+    // }
+
+  
 }
+
 exports.connect_sync = connect_sync;
+exports.jsWatcher = jsWatcher;
 
-var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
-// close the server
-function close_server(cb) {
-  connect.closeServer();
-   if (typeof cb === 'function') 
-    return cb();
-}
-exports.close_server = close_server;
 
-exports.setup_develop = series(compileCSS, renderJS, copy_assets, ejsit);
-exports.build = series(copy_assets);
+// var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
+// // close the server
+// function close_server(cb) {
+//   connect.closeServer();
+//    if (typeof cb === 'function') 
+//     return cb();
+// }
+// exports.close_server = close_server;

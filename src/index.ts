@@ -1,27 +1,33 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-/* eslint-disable no-unused-vars, @typescript-eslint/no-unused-vars, @typescript-eslint/no-var-requires, no-console */
+"use strict";
 
-import './js/modules/theme-switcher/theme-switcher.js';
-import './js/modules/show-more-fadebar/show-more.ts';
-import './js/modules/time-stamper/time-stamper.js';
-import './js/modules/validate-url/validate-url.ts';
+require('@babel/register')({
+  extensions: ['.ts', '.cjs', '.jsx', '.js', '.mjs'],
+  cache: true
+});
 
-import './js/modules/HeathScript.js';
+require('@babel/core').transformSync('code', {
+  presets: ['@babel/preset-typescript', '@babel/preset-env', '@babel/preset-react'],
+  plugins: ['babel-plugin-transform-class-properties', {
+    "spec": true
+  }]
+}); // require("@babel/polyfill");
 
-
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import './theme-switcher/theme-switcher';
+import './even-height/even-height';
+import './hs-timeline/hs-timelineJS';
+import './show-more-fadebar/show-more';
+import './time-stamper/time-stamper';
+import './validate-url/validate-url';
+import './hs-slide-button/slide-button';
+import './HeathScript';
 
 // test-component is the name of our made up Web Component that we have
 // published to npm:
-import { applyPolyfills, defineCustomElements } from 'test-components/loader';
+// import { applyPolyfills, defineCustomElements } from 'test-components/loader';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+// ReactDOM.render(<App />, document.getElementById('root'));
+// registerServiceWorker();
 
-applyPolyfills().then(() => {
-  defineCustomElements();
-});
+// applyPolyfills().then(() => {
+//   defineCustomElements();
+// });
