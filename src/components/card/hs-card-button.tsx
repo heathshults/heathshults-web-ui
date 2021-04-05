@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Component, Prop, Element, Method, Listen, Event, EventEmitter, h } from '@stencil/core';
-import { validurl } from '../../js/modules/validate-url';
 
 
 @Component({
@@ -21,17 +20,25 @@ export class HSCardButton {
   @Prop({mutable: true}) dataTarget?: string | null;
   @Prop() dataToggle?: string | null;
   @Prop() onclicker: any;
-  // @Method() handleClick: function;
+
+
+  public validurl(url: string): any {
+    const pattern = new RegExp(
+      // protocol
+      '^(https?:\\/\\/)?' +
+      // domain name
+      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' +
+      // OR ip (v4) address
+      '((\\d{1,3}\\.){3}\\d{1,3}))' +
+      // port and path
+      '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' +
+      // query string
+      '(\\?[;&a-z\\d%_.~+=-]*)?' +
+      // fragment locator 
+      '(\\#[-a-z\\d_]*)?$', 'i');
   
-  // @Prop() validURL = (str): any => {
-  //   const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
-  //     '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
-  //     '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
-  //     '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
-  //     '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
-  //     '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
-  //   return !!pattern.test(str);
-  // }
+    return !!pattern.test(url.toString());
+  }
   
   // modalLancher: EventEmitter;
   @Event() modalLancher: EventEmitter;
@@ -59,7 +66,7 @@ export class HSCardButton {
 
   handleLink(url, urlParams) {
     if (typeof url !== 'undefined') {
-      const validateUrl: boolean = validurl(url);
+      const validateUrl: boolean = this.validurl(url);
       if (validateUrl === true) {
         window.open(url, urlParams);
       } 

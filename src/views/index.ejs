@@ -884,9 +884,11 @@
 }
 
 .slide-button {
+  /* position: absolute;
+  z-index: 1000; */
   width: 32px;
   height: 32px;
-  cursor: grab;
+  cursor: move;
   background-image: url('../assets/img/svg/slide-submit-button.svg');
   background-repeat: no-repeat;
   background-position: center center;
@@ -894,15 +896,15 @@
 }
 
 .slide-button.drag {
-  background: #fff;
+  background-color: #fff;
   box-shadow: -8px 0px 6px 10px rgb(0 0 0 / 25%);
 }
 
 .dropzone {
   position: absolute;
   z-index: 1;
-  width: 32px;
-  height: 32px;
+  width: 42px;
+  height: 42px;
 
   /* overflow: hidden; */
   font-size: .8rem;
@@ -1464,7 +1466,7 @@
     <script src="/assets/js/vendor/perfect-scrollbar-1.4.0/dist/perfect-scrollbar.js" type="module"></script>
 
     <!-- Theme JavaScript -->
-    <script src="/assets/js/HeathScript.parcel.js" type="module"></script>
+    <script src="/assets/js/HeathScript.bundle.js" type="module"></script>
     <script>
       var blueStarModal = new bootstrap.Modal(document.getElementById('bluestarDetails'), {
         keyboard: false

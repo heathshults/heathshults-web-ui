@@ -2,7 +2,7 @@ const {exec} = require('child_process');
 
 
 
-let filestocheck = 'src/js/HeathScript.js src/js/modules/hs-3d-rotate/index.ts src/js/modules/hs-timeline/hs-timeline-ts.ts src/js/modules/back-to-top/index.ts src/js/modules/show-more-fadebar/index.ts';
+let filestocheck = 'src/js/modules/**/*.ts';
 
 const lint_js = function() { 
   return new Promise((resolve, reject) => {

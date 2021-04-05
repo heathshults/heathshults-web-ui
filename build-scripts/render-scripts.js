@@ -1,96 +1,83 @@
 // 'use strict';
 /* eslint-disable no-octal, @typescript-eslint/explicit-module-boundary-types, no-unused-vars, @typescript-eslint/no-unused-vars, @typescript-eslint/no-var-requires, no-console */
-var babel = require("@babel/core");
-// require("@babel/core").transform("code", {
-//   presets: [
-    // '@babel/preset-env', 
-    // '@babel/preset-typescript',
-    // '@babel/preset-react'
-  // ],
-  // plugins: [
-    // "@babel/plugin-transform-typescript",
-    // 'babel-plugin-replace-ts-export-assignment',
-    // '@babel/plugin-syntax-dynamic-import',
-    // '@babel/plugin-proposal-class-properties',
-    // ['@babel/plugin-proposal-decorators', { 'legacy': true }],
-    // '@babel/plugin-transform-runtime',
-    // ['import', {'libraryName': '@material-ui/core'}]
-  // ],
-  // compact: false
-// });
-// require('@babel/register')({
-//   presets: [
-//     '@babel/preset-env', 
-//     '@babel/preset-react', 
-//     '@babel/preset-typescript'
-//   ],
-//   plugins: [
-//     '@babel/plugin-transform-typescript',
-//     '@babel/plugin-syntax-dynamic-import',
-//     '@babel/plugin-proposal-class-properties',
-//     ['@babel/plugin-proposal-decorators', { 'legacy': true }],
-//     '@babel/plugin-transform-runtime',
-//     ['import', {'libraryName': '@material-ui/core'}]
-//   ],
-//   compact: false,
-// });
+// var babel = require('@babel/core');
+require('@babel/register')({
+  extensions: [`.ts`, `.js`, `.tsx`, `.jsx`, `.json`]
+});
+
 const nfs = require('node-fs'),
-  fs = require('fs'),
+  fs = require('fs-extra'),
   path = require('path'),
   browserify = require('browserify'),
   browserSync = require('browser-sync'),
   chalk = require('chalk'),
-  { exec } = require('child_process');
-  theLinters = require('./lint');
+  {exec} = require('child_process');
+// theLinters = require('./lint');
 
-// let babelify = require('babelify')
+let babelify = require('babelify');
 let inFile = path.resolve(__dirname, '../src/index.js');
 let outFile = path.resolve(__dirname, '../www/assets/js/HeathScript.built.js');
 let outPath = path.resolve(__dirname, '../www/assets/js/');
 
-
+function cb() {
+  console.log('Done!');
+}
 // let whoDidIt =
 // let giveProps = require('./goCreds.js');
+l = console.log;
 
-function HeathenScriptJS(jsdest) {
-  
-  function paths(){ console.log(chalk.blue('checking directories...'));
-    if (jsdest) {
-      outPath = path.resolve(__dirname, jsdest);
+function HeathenScriptJS(jsdest, inFile, outFile, outPath) {
+  l(chalk.yellow('Lets begin\n'));
+
+  !inFile ? (inFile = path.resolve(__dirname, '../src/index.js')) : '';
+  !outFile ? (outFile = path.resolve(__dirname, '../www/assets/js/HeathScript.bundle.js')) : '';
+  !outPath ? (outPath = path.resolve(__dirname, '../www/assets/js/')) : '';
+  !jsdest ? (jsdest = outPath) : '';
+
+  function errorHendler(message) {
+    if (message) {
+      throw new Error(message);
     }
-    makeDirectory(outPath)
-    .then(processJS(inFile));
+    return;
   }
-    /**
-   * create js directory if not exist
+
+  let paths;
+
+  paths = (outPath) => {
+    l(chalk.blue('Checking for user input...\n'));
+    let outFilePath;
+    try {
+      // console.log(chalk.blue('checking directories...'));
+      if (jsdest) outFilePath = path.resolve(__dirname, jsdest);
+      else outFilePath = outPath;
+
+      checkDirectory(outFilePath);
+    } catch (e) {
+      reject(errorHandler(e));
+    }
+    return;
+  };
+
+  paths(outPath);
+
+  /**
+   * check if outPath exist - if not create it
    *
    * @param {*} path  string
    */
-  // makeDirectory(outPath)
-  function makeDirectory(path, cb) {
+  function checkDirectory(path) {
+    l(chalk.yellow('Checking for out put directory..\n'));
     return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        try {
-          fs.mkdirSync(path);
-          resolve(true);
-        } catch (err) {
-          // if (err.code === 'EEXIST') { // curDir already exists!
-          //   console.log(chalk.red('path exists'))
-          //   return path;
-          // }
-          // // To avoid `EISDIR` error on Mac and `EACCES`-->`ENOENT` and `EPERM` on Windows.
-          // if (err.code === 'ENOENT') { // Throw the original parentDir error on curDir `ENOENT` failure.
-          //   throw new Error(`EACCES: permission denied, mkdir '${path}'`);
-          // }
-
-          // const caughtErr = ['EACCES', 'EPERM', 'EISDIR'].indexOf(err.code) > -1;
-          // if (!caughtErr || caughtErr && path === path.resolve(path)) {
-          //   throw err; // Throw if it's just the last created dir.
-          // }
-          reject(false);
+      try {
+        if (fs.existsSync(path)) {
+          processJS(inFile);
+        } else {
+          fs.mkdirSync(outPath);
         }
-      }, 2000);
-      return processJS(outFile);
+        resolve(processJS(inFile));
+      } catch (e) {
+        throw new Error(e);
+      }
     });
   }
 
@@ -102,60 +89,43 @@ function HeathenScriptJS(jsdest) {
    * @param {*} callback function
    */
   function processJS(jsFile, cb) {
+    l(chalk.yellow('Processing JS with Babel and Browserify\n'));
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        console.log(chalk.green('Initializing process...'));
+        console.log(chalk.green('Initializing process...\n'));
         if (!jsFile) jsFile = inFile;
 
         // make the js file and save it to the makeDirectory path
         try {
-          console.log(chalk.yellow('Browserfrying JS...'));
-          browserify(jsFile)
+          console.log(chalk.magenta('Browserfrying JS...\n'));
+          browserify(jsFile, {extensions: [`.ts`, `.js`, `.jsx`, `.tsx`, `.json`]})
             .transform('babelify', {
-              presets: [
-                '@babel/preset-env', 
-                '@babel/preset-typescript',
-                '@babel/preset-react'
-              ],
+              extensions: [`.ts`, `.js`, `.tsx`, `.jsx`, `.json`],
+              presets: ['@babel/preset-env', '@babel/preset-typescript', '@babel/preset-react'],
               plugins: [
-                "@babel/plugin-transform-typescript",
+                '@babel/plugin-transform-typescript',
                 'babel-plugin-replace-ts-export-assignment',
                 '@babel/plugin-syntax-dynamic-import',
                 '@babel/plugin-proposal-class-properties',
-                ['@babel/plugin-proposal-decorators', { 'legacy': true }],
+                ['@babel/plugin-proposal-decorators', {legacy: true}],
                 '@babel/plugin-transform-runtime',
-                ['import', {'libraryName': '@material-ui/core'}]
-              ]
+                ['import', {libraryName: '@material-ui/core'}],
+              ],
             })
             .bundle()
             .pipe(nfs.createWriteStream(outFile));
-          console.log(chalk.green(`Compiled: ${outFile}`));
+          console.log(chalk.magenta(`Finished transpiline: ${outFile}`));
+          l(chalk.green('JS processing completed.\n'));
+          resolve(cb);
         } catch (e) {
           console.log(chalk.red(`Browserfy Error: ${e}`));
-          console.log(chalk.yellow('Using bash to compile'));
-          reject(bashcompileJS());
+          console.log(chalk.yellow('Using bash to compile\n'));
+          reject(/*bashcompileJS()*/);
         }
-        resolve(cb);
       }, 2000);
     });
   }
-  exports.processJS = processJS;
-
-  function bashcompileJS(cb) {
-    return new Promise((resolve, reject) => {
-      exec(`browserify ${inFile} -o ${outFile} -t [ babelify --presets ["@babel/preset-env", "@babel/preset-typescript", "@babel/preset-react" ] --plugins [ @babel/plugin-transform-typescript babel-plugin-replace-ts-export-assignment @babel/plugin-proposal-decorators @babel/plugin-transform-runtime ] ]`,
-        function (err) {
-          if (err) return `Browserify Error: ${err}`;
-          reject(cb);
-        });
-      console.log(chalk.green('Finished browserfrying JS...'));
-      resolve(cb);
-    });
-  }
-  exports.bashcompileJS = bashcompileJS;
-  if (typeof callback === 'function'){cb()}
-  browserSync.stream();
-  return true;
 }
-exports.HeathenScriptJS = HeathenScriptJS;
+// browserSync.stream();
 
+HeathenScriptJS();

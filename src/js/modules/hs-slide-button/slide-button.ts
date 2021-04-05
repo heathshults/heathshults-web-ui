@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+const l = console.log;
 export default class SlideButton {
-  l = console.log;
   public validateIssue: boolean;
   public slidebutton?: HTMLElement;
   public dropzone?: HTMLElement;
@@ -16,6 +16,7 @@ export default class SlideButton {
   public yOffset: number | any = 0;
   public checky: any;
   public eventtarget: any;
+  public dragParent: HTMLElement;
   // public animatedCheckMark: SVGElement;
 
   constructor(
@@ -73,10 +74,17 @@ export default class SlideButton {
         ondragend: (e)=> this.dragonEnd(e)
       });
     }, 0);
+    // this.slidebutton.addEventListener('mouseup', this.dropHandler);
 
     this.gridLeftInner = document.querySelector('#slideButton > div.slide-button-grid > div.slide-button-grid__left > div.grid-left__inner');
     l(this.gridLeftInner);
     this.gridLeftInner.appendChild(this.slidebutton);
+
+    // Store the original coordinates as attributes
+    const orgLocationX = this.slidebutton.getBoundingClientRect().left;
+    const orgLocationY = this.slidebutton.getBoundingClientRect().top;
+    this.slidebutton.setAttribute('data-origx', `${orgLocationX}`);
+    this.slidebutton.setAttribute('data-origy', `${orgLocationY}`);
 
     // Create the this.dropzone and add it to the component
     this.dropzone = document.createElement('div');
@@ -95,17 +103,28 @@ export default class SlideButton {
   }
 
 
-  setTranslate(xPos, yPos, el) {
-    el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
-  }
+  // setTranslate(xPos, yPos, el) {
+  //   el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+  // }
 
+  // public mouseupHandler(ev: DragEvent) {
+  //   const slidebuttonParent = document.querySelector('.slidebutton').parentElement;
+    
+  //   if (slidebuttonParent.classList.contains('dropzone')) { 
+  //     this.dropHandler(ev);
+  //   } else {
+  //     this.goHome();
+  //   }
+  // } 
+  
   public dragonStart(ev: DragEvent) {
     this.eventtarget = ev.target as HTMLElement;
     this.eventtarget.classList.add('shadow');
+    this.dragParent = this.eventtarget.parentElement;
+    window.addEventListener('drop', this.dropHandler(ev));
     
     this.initialX = ev.clientX - this.xOffset;
     this.initialY = ev.clientY - this.yOffset;
-    
     // const dragImg = new Image();
     // dragImg.src = '/assets/img/icons/drag.svg';
     // ev.dataTransfer.setDragImage(dragImg, 0, 0);
@@ -122,22 +141,22 @@ export default class SlideButton {
   public drag(ev: DragEvent) {
     if (this.active) {
       ev.preventDefault();
-
+      
       this.currentX = ev.clientX - this.initialX;
       this.currentY = ev.clientY - this.initialY;
 
       this.xOffset = this.currentX;
       this.yOffset = this.currentY;
       
-      this.setTranslate(this.currentX, this.currentY, this.slidebutton);
-      
+      this.slidebutton.style.transform = `translate3d(${this.currentX}px, ${this.currentY}px, 0)`;
+
       this.eventtarget = ev.target as HTMLElement;
-      this.eventtarget.style.cursor = 'move';
+      // this.eventtarget.style.cursor = 'move';
       this.slidebutton.classList.add('drag');
 
       this.dropzone.classList.add('stripes-background');
 
-     this.arrows.style.display = 'none';
+      this.arrows.style.display = 'none';
     }
 
     return;
@@ -156,81 +175,142 @@ export default class SlideButton {
 
   public dragonEnter(ev: DragEvent) {
     ev.preventDefault();
-    
-    this.slidebutton.style.right = '0';
-    
+    this.eventtarget = ev.target as HTMLElement;
+    this.dropzone.classList.add('drop-ready');
+   
     return this.arrows.style.opacity = '0';
     
   }
 
   public dragonLeave(ev: DragEvent) {
+    this.dropzone.classList.remove('drop-ready');
     return this.arrows.style.opacity = '1';
-
-    
   }
 
   public dragonOver(ev: DragEvent) {
     ev.preventDefault();
-    const eventtarget = ev.target as HTMLElement;
-    eventtarget.classList.add('drop-ready');
-    ev.dataTransfer.dropEffect = "move";
-
+    this.eventtarget = ev.target as HTMLElement;
+    // ev.dataTransfer.dropEffect = "move";
+    
     return;
   }
 
-  public drop(ev: DragEvent) {
-    ev.preventDefault();
-    this.eventtarget = ev.target as HTMLElement;
-    const checkDrop = this.eventtarget.firstElementChild;
-
-    console.log(checkDrop);
+  public dropHandler(ev): any {
+    ev.stopPropagation();
+     // remove the 'drop' listener
+    window.removeEventListener('drop', this.dropHandler);
+    for (let el = this.slidebutton; el.tagName !== 'HTML'; el = el.parentElement) {
+      if (el !== this.dragParent) { l('#p1 was dropped outside dragParent');
+        setTimeout(() => {
+          this.slidebutton.style.transform = `translate3d('0px', '0px', 0)`;
+        }, 500);
+        return;
+      } else {
+        l('#p1 was dropped inside dragParent');
+        this.dropzone.appendChild(this.slidebutton);
+        this.slidebutton.classList.remove('shadow');
+        
+        // the parent of the dragged element
+        this.eventtarget.classList.remove('drop-ready');
+        this.eventtarget.classList.remove('stripes-background');
+        // this.slidebutton.classList.add('dropped');
+        
+        const animatedCheckMark = document.createElement('svg');
+        Object.assign(animatedCheckMark, {
+          className: 'svg-checkmark',
+          id: 'aniCheck',
+          x: '0px',
+          y: '0px',
+          viewBox: '0 0 135 110',
+          width: '35px',
+          height: '43px'
+        });
+        animatedCheckMark.innerHTML = `
+        <svg class="svg-checkmark" x="0px" y="0px" viewBox="0 0 135 110" width="35px" height="43px">
+          <path class="check" d="M126.8,14L55.7,85.1L29.2,63.4"/>
+        </svg>`;
     
-    if (checkDrop !== this.slidebutton) {
-      
-      return;
-    } else {
-
-      const data = ev.dataTransfer.getData('text');
-      console.log(data);
-      this.slidebutton.classList.remove('shadow');
-
-      this.eventtarget.appendChild(this.slidebutton);
-
-      this.eventtarget.classList.remove('drop-ready');
-      this.eventtarget.classList.remove('stripes-background');
-      this.slidebutton.classList.add('dropped');
-      
-      const animatedCheckMark = document.createElement('svg');
-      Object.assign(animatedCheckMark, {
-        className: 'svg-checkmark',
-        id: 'aniCheck',
-        x: '0px',
-        y: '0px',
-        viewBox: '0 0 135 110',
-        width: '35px',
-        height: '43px'
-      });
-      animatedCheckMark.innerHTML = `
-      <svg class="svg-checkmark" x="0px" y="0px" viewBox="0 0 135 110" width="35px" height="43px">
-        <path class="check" d="M126.8,14L55.7,85.1L29.2,63.4"/>
-      </svg>`;
-
-      this.checky = document.createElement('span');
-      this.checky.classList.add('hs-animated-checkbox-container');
-      this.checky.innerHTML = animatedCheckMark;
-      this.dropzone.appendChild(animatedCheckMark);
-      // this.eventtarget.classList.add('border-white');
-
-      setTimeout(this.resetSlideButton, 3000);
-
-      return;
+        this.checky = document.createElement('span');
+        this.checky.classList.add('hs-animated-checkbox-container');
+        this.checky.innerHTML = animatedCheckMark;
+        this.dropzone.appendChild(animatedCheckMark);
+        // this.eventtarget.classList.add('border-white');
+      }
     }
+
+    
+
+    setTimeout(this.resetSlideButton, 3000);
   }
+
+  public drop(ev: DragEvent) {
+    ev.stopPropagation();
+    this.eventtarget = ev.target as HTMLElement;
+    for (let el = this.slidebutton; el.tagName !== 'HTML'; el = el.parentElement) {
+      if (el !== this.dragParent) { l('#p1 was dropped outside dragParent');
+        setTimeout(() => {
+          this.slidebutton.style.transform = `translate3d('0px', '0px', 0)`;
+        }, 500);
+        return;
+      } else {
+        l('#p1 was dropped inside dragParent');
+        this.dropzone.appendChild(this.slidebutton);
+        this.slidebutton.classList.remove('shadow');
+        
+        // the parent of the dragged element
+        this.eventtarget.classList.remove('drop-ready');
+        this.eventtarget.classList.remove('stripes-background');
+        // this.slidebutton.classList.add('dropped');
+        
+        const animatedCheckMark = document.createElement('svg');
+        Object.assign(animatedCheckMark, {
+          className: 'svg-checkmark',
+          id: 'aniCheck',
+          x: '0px',
+          y: '0px',
+          viewBox: '0 0 135 110',
+          width: '35px',
+          height: '43px'
+        });
+        animatedCheckMark.innerHTML = `
+        <svg class="svg-checkmark" x="0px" y="0px" viewBox="0 0 135 110" width="35px" height="43px">
+          <path class="check" d="M126.8,14L55.7,85.1L29.2,63.4"/>
+        </svg>`;
+    
+        this.checky = document.createElement('span');
+        this.checky.classList.add('hs-animated-checkbox-container');
+        this.checky.innerHTML = animatedCheckMark;
+        this.dropzone.appendChild(animatedCheckMark);
+        // this.eventtarget.classList.add('border-white');
+      }
+    }
+
+    
+
+    setTimeout(this.resetSlideButton, 3000);
+    // this.dropzone.appendChild(this.slidebutton);
+    // this.dropHandler(ev);
+    return;
+  }
+
+  goHome() {
+    if (this.slidebutton.parentElement === document.querySelector('.grid-left__inner')) {
+      this.slidebutton.style.transform = `translate3d('0px', '0px', 0)`;
+    } else {
+      document.querySelector('.grid-left__inner').appendChild(this.slidebutton);
+    }
+    // const x = this.slidebutton.dataset.origx;
+    // const y = this.slidebutton.dataset.origy;
+    // this.slidebutton.style.top = `${x}`;
+    // this.slidebutton.style.left = `${y}`;
+  }
+
 
   resetSlideButton() {
     this.dropzone.classList.remove('dropped');
     this.dropzone.classList.remove('drop-ready');
-    this.checky.remove();
+    this.dropzone.querySelector('.svg-checkmark').remove();
+    
     document.querySelector('.grid-left__inner').appendChild(this.slidebutton);
     this.dropzone.classList.remove('border-white');
     this.arrows.style.display = 'unset';

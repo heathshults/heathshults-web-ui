@@ -13,7 +13,7 @@
  * validURL('http://hello.com');
  * 
  */
-function ValidURL(url: string): any {
+ function ValidURL(url: string): any {
   const pattern = new RegExp(
     // protocol
     '^(https?:\\/\\/)?' +
@@ -31,4 +31,4 @@ function ValidURL(url: string): any {
   return !!pattern.test(url.toString());
 }
 const validurl = ValidURL;
-export default validurl;
+module.exports = ValidURL;

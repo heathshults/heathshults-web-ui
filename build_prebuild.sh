@@ -7,18 +7,21 @@ cd .. # changes directories one level up to the app root
 
 DNOW=$(date +'%A %b %d %Y')
 TNOW=$(date +'%r')
-echo "Building HeathShults Web UI on $DNOW $TNOW" 
+echo "Building HeathShults Web UI on $DNOW $TNOW \n" 
 echo "Prebuild activated..." 
 
-# echo "Cleaning...." 
+echo "Cleaning...." 
 node build-scripts/clean.js &&
+CLEANER=$! # get background process id of ESLINT
 
-# echo "Running Javascript linters...." 
+# echo "Running css linters" 
+wait $CLEANER
+echo "Running Javascript linters.... \N" 
 npx eslint --fix src/js/modules/**/*.ts &
 ESLINTPID=$! # get background process id of ESLINT
 
-# echo "Running css linters" 
 wait $ESLINTPID
+echo "Running css linters" 
 npx stylelint --fix src/scss/**/*.scss &
 STYLELINTPID=$!
 

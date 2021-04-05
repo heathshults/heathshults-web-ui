@@ -1,5 +1,5 @@
 import { Component, Prop, Event, EventEmitter, Listen, h } from '@stencil/core';
-import { validurl } from '../../js/modules/validate-url';
+
 @Component({
   tag: 'hs-card-header',
   styleUrl: './hs-card_img-header.scss',
@@ -18,6 +18,24 @@ export class HSCardHeader {
   @Prop() clickTarget: string;
   @Prop() colorTone: string;
 
+  public validurl(url: string): any {
+    const pattern = new RegExp(
+      // protocol
+      '^(https?:\\/\\/)?' +
+      // domain name
+      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' +
+      // OR ip (v4) address
+      '((\\d{1,3}\\.){3}\\d{1,3}))' +
+      // port and path
+      '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' +
+      // query string
+      '(\\?[;&a-z\\d%_.~+=-]*)?' +
+      // fragment locator 
+      '(\\#[-a-z\\d_]*)?$', 'i');
+  
+    return !!pattern.test(url.toString());
+  }
+
     // modalLancher: EventEmitter;
     @Event() modalLancher: EventEmitter;
     launchModalEventHandler(event: Event): void {
@@ -29,7 +47,7 @@ export class HSCardHeader {
       // showModal(`#${this.clickTarget}`)
       event.preventDefault();
       this.modalId ? document.querySelector(this.modalId).classList.add('hs-display-block') : 
-      validurl(this.clickTarget) === true ? window.location.href = this.clickTarget : '';
+      this.validurl(this.clickTarget) === true ? window.location.href = this.clickTarget : '';
     }
     
     @Prop() fnStatusCallBack = (status: boolean, fnName: string, errorMessage?: unknown): any => {

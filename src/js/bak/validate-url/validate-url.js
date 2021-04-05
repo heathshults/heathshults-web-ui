@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 "use strict";
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -31,4 +32,5 @@ function ValidURL(url) {
         '(\\#[-a-z\\d_]*)?$', 'i');
     return !!pattern.test(url.toString());
 }
-exports.ValidURL = ValidURL;
+
+export default ValidURL;

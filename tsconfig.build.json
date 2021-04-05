@@ -6,6 +6,7 @@
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
     "declaration": false,
+    "noEmit": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "esModuleInterop": true,

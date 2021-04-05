@@ -587,7 +587,7 @@ function serveSync(cb) {
   }
 }
 exports.serveSync = serveSync;
-var jsWatcher;
+
 function connect_sync(cb) {
 
   connect.server({base: `${wwwPath}`}, function (){
@@ -599,44 +599,35 @@ function connect_sync(cb) {
     });
     
   });
+  watchers();
   
-  // eslint-disable-next-line no-sequences
-  var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
-  watch(`${srcPath}/views/*.ejs`, ejsit).on('change', browserSync.reload), callback;
-  watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_images).on('change', browserSync.reload), callback;
-  watch([`${srcPath}/scss/**/*.scss`], compileCSS).on('change', browserSync.reload), callback;
-  watch([`${srcPath}/**/*.html`], ra.copy_html).on('change', browserSync.reload), callback;
-  watch([`${srcPath}/assets/**/*.css`], ra.copy_css).on('change', browserSync.reload), callback;
-  watch([`${srcPath}/js/modules/**/*.css`], exec(` sh build-scripts/_build-js.sh`, (error) =>  errorman(error)).on('change', browserSync.reload)), callback;
-  function errorman(error) {
-    console.log(chalk.red(`typescript error: ${error}`));
-  }
-  jsWatcher = watch([`${srcPath}/js/modules/**/*.ts`, `${srcPath}/js/modules/**/*.js`, `${srcPath}/js/modules/**/*.tsx`, `${srcPath}/js/modules/**/*.jsx`]);
   
-  // const droppath = '/home/heathshults/_appdev/heathshults-web-ui/heathshults.com/src/js/modules';
+  // jsWatcher = watch([`${srcPath}/js/modules/**/*.ts`, `${srcPath}/js/modules/**/*.js`, `${srcPath}/js/modules/**/*.tsx`, `${srcPath}/js/modules/**/*.jsx`]);
+  
+  // // const droppath = '/home/heathshults/_appdev/heathshults-web-ui/heathshults.com/src/js/modules';
 
-  jsWatcher.on('change', function(path, stats) {
-    exec(` sh build-scripts/_build-js.sh`, (error) => {
-      console.log(chalk.red(`typescript error: ${error}`));
-    });
+  // jsWatcher.on('change', function(path, stats) {
+  //   exec(` sh build-scripts/_build-js.sh`, (error) => {
+  //     console.log(chalk.red(`typescript error: ${error}`));
+  //   });
 
-    // exec(`tsc --project ./tsconfig.build.json`, 
-    // (error) => console.log(chalk.red(`typescript error: ${error}`)));
+  //   // exec(`tsc --project ./tsconfig.build.json`, 
+  //   // (error) => console.log(chalk.red(`typescript error: ${error}`)));
 
-    // exec(`npx babel src/js/temp/${path.replace(droppath, '').replace(/.ts/, '.js')} -o www/assets/js/${path.replace(droppath, '').replace(/.ts/, '.js')}`, 
-    // (error) => console.log(chalk.red(`error: ${error}`)));
+  //   // exec(`npx babel src/js/temp/${path.replace(droppath, '').replace(/.ts/, '.js')} -o www/assets/js/${path.replace(droppath, '').replace(/.ts/, '.js')}`, 
+  //   // (error) => console.log(chalk.red(`error: ${error}`)));
 
-    // exec(`npx browserify src/js/temp/${path.replace(droppath, '').replace(/.ts/, '.js')} -o www/assets/js/${path.replace(droppath, '').replace(/.ts/, '.js')}`, 
-    // (error) => console.log(chalk.red(`error: ${error}`)));
-  });
+  //   // exec(`npx browserify src/js/temp/${path.replace(droppath, '').replace(/.ts/, '.js')} -o www/assets/js/${path.replace(droppath, '').replace(/.ts/, '.js')}`, 
+  //   // (error) => console.log(chalk.red(`error: ${error}`)));
+  // });
 
-  jsWatcher.on('add', function(path, stats) {
-      console.log(`File ${path.replace(/^.*[\\\/]/, '').replace(/.ts/, '.js')} was added`);
-  }), browserSync.reload;
+  // jsWatcher.on('add', function(path, stats) {
+  //     console.log(`File ${path.replace(/^.*[\\\/]/, '').replace(/.ts/, '.js')} was added`);
+  // }), browserSync.reload;
 
-  jsWatcher.on('unlink', function(path, stats) {
-    console.log(`File ${path.replace(/^.*[\\\/]/, '').replace(/.ts/, '.js')} was removed`);
-  }), browserSync.reload;
+  // jsWatcher.on('unlink', function(path, stats) {
+  //   console.log(`File ${path.replace(/^.*[\\\/]/, '').replace(/.ts/, '.js')} was removed`);
+  // }), browserSync.reload;
 
   // jsWatcher.close();
 
@@ -645,13 +636,33 @@ function connect_sync(cb) {
     //   cb(null, file);
     //   called = true;
     // }
-
   
 }
 
 exports.connect_sync = connect_sync;
-exports.jsWatcher = jsWatcher;
 
+function watchers() {
+  // eslint-disable-next-line no-sequences
+  var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
+  watch(`${srcPath}/views/*.ejs`, ejsit).on('change', browserSync.reload), callback;
+  watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_images).on('change', browserSync.reload), callback;
+  watch([`${srcPath}/scss/**/*.scss`], compileCSS).on('change', browserSync.reload), callback;
+  watch([`${srcPath}/**/*.html`], ra.copy_html).on('change', browserSync.reload), callback;
+  watch([`${srcPath}/assets/**/*.css`], ra.copy_css).on('change', browserSync.reload), callback;
+  watch([`${srcPath}/assets/**/*.css`], ra.copy_css).on('change', browserSync.reload), callback;
+  watch([`${srcPath}/js/modules/**/*.{js,ts,tsx}`], babelized).on('change', browserSync.reload), callback;
+  // watch([`${srcPath}/js/modules/HeathScript.js`], renderJS(jsfile)).on('change', browserSync.reload), callback;  
+
+  function babelized(cb) {
+    exec(` sh build-scripts/_build-js.sh`, (error) =>  errorman(error));
+  }
+  
+  function errorman(error) {
+    console.log(chalk.red(`typescript error: ${error}`));
+  }
+
+}
+exports.watchers = watchers;
 
 // var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
 // // close the server
