@@ -654,6 +654,7 @@ function watchers() {
   // watch([`${srcPath}/js/modules/HeathScript.js`], renderJS(jsfile)).on('change', browserSync.reload), callback;  
 
   function babelized(cb) {
+    console.log('JS change detected...');
     exec(` sh build-scripts/_build-js.sh`, (error) =>  errorman(error));
   }
   

@@ -57,11 +57,13 @@ export default class SlideButton {
           </div>
           <div class="slide-button-grid__right">
         </div>
-      </div>`;
+      </div>
+      <div class="mx-auto"><a id="redoButton" href="javascript:void(0);">Reset Button</a></div>`;
     buttonContainer.innerHTML = skeleton;
 
     this.arrows = document.querySelector('.hs-animated-arrow-container');
     console.log(this.arrows);
+
     // Create button and add it to the component
     this.slidebutton = document.createElement('div');
     setTimeout(()=>{
@@ -81,10 +83,10 @@ export default class SlideButton {
     this.gridLeftInner.appendChild(this.slidebutton);
 
     // Store the original coordinates as attributes
-    const orgLocationX = this.slidebutton.getBoundingClientRect().left;
-    const orgLocationY = this.slidebutton.getBoundingClientRect().top;
-    this.slidebutton.setAttribute('data-origx', `${orgLocationX}`);
-    this.slidebutton.setAttribute('data-origy', `${orgLocationY}`);
+    this.initialX = this.slidebutton.getBoundingClientRect().left;
+    this.initialY = this.slidebutton.getBoundingClientRect().top;
+    this.slidebutton.setAttribute('data-origx', `${this.initialX}`);
+    this.slidebutton.setAttribute('data-origy', `${this.initialY}`);
 
     // Create the this.dropzone and add it to the component
     this.dropzone = document.createElement('div');
@@ -121,7 +123,6 @@ export default class SlideButton {
     this.eventtarget = ev.target as HTMLElement;
     this.eventtarget.classList.add('shadow');
     this.dragParent = this.eventtarget.parentElement;
-    window.addEventListener('drop', this.dropHandler(ev));
     
     this.initialX = ev.clientX - this.xOffset;
     this.initialY = ev.clientY - this.yOffset;
@@ -163,11 +164,11 @@ export default class SlideButton {
   }
 
   public dragonEnd(ev: DragEvent) {
+    ev.preventDefault();
     this.eventtarget = ev.target as HTMLElement;
 
-    this.initialX = this.currentX;
-    this.initialY = this.currentY;
-
+    
+    this.slidebutton.style.transform = `translate3d('0px', '0px', 0)`;
     this.active = false;
 
     return;
@@ -244,15 +245,9 @@ export default class SlideButton {
   }
 
   public drop(ev: DragEvent) {
-    ev.stopPropagation();
+    ev.preventDefault();
     this.eventtarget = ev.target as HTMLElement;
-    for (let el = this.slidebutton; el.tagName !== 'HTML'; el = el.parentElement) {
-      if (el !== this.dragParent) { l('#p1 was dropped outside dragParent');
-        setTimeout(() => {
-          this.slidebutton.style.transform = `translate3d('0px', '0px', 0)`;
-        }, 500);
-        return;
-      } else {
+    
         l('#p1 was dropped inside dragParent');
         this.dropzone.appendChild(this.slidebutton);
         this.slidebutton.classList.remove('shadow');
@@ -282,8 +277,8 @@ export default class SlideButton {
         this.checky.innerHTML = animatedCheckMark;
         this.dropzone.appendChild(animatedCheckMark);
         // this.eventtarget.classList.add('border-white');
-      }
-    }
+      
+    
 
     
 
@@ -297,7 +292,7 @@ export default class SlideButton {
     if (this.slidebutton.parentElement === document.querySelector('.grid-left__inner')) {
       this.slidebutton.style.transform = `translate3d('0px', '0px', 0)`;
     } else {
-      document.querySelector('.grid-left__inner').appendChild(this.slidebutton);
+      this.gridLeftInner.appendChild(this.slidebutton);
     }
     // const x = this.slidebutton.dataset.origx;
     // const y = this.slidebutton.dataset.origy;

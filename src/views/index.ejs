@@ -830,8 +830,9 @@
   margin: auto;
 }
 .slide-button-grid {
-  position: absolute;
-  z-index: 1;
+  position: relative;
+
+  /* z-index: 1; */
   display: grid;
   grid-template-columns: 42px 1fr 42px;
   gap: 0px 0px;
@@ -903,8 +904,8 @@
 .dropzone {
   position: absolute;
   z-index: 1;
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
 
   /* overflow: hidden; */
   font-size: .8rem;
@@ -946,7 +947,7 @@
   background-size: 15px 15px;
 
   border-color: var(--hs-green);
-  transition: all .35s ease-in-out;
+  transition: all .15s ease-in-out;
   transform: scale(1.2);
   animation-name: animate-stripes;
   animation-duration: 2s;
