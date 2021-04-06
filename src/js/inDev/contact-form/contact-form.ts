@@ -3,11 +3,9 @@
   
   
   // *======* CONTACT FORM *======* //
-  window.onload = () => {
-    const qs = document.querySelector;
-    const qsa = document.querySelectorAll;
-    const contactForm =qs ('#contactForm');
-    const contactFormFields = contactForm.qsa('.form-control');
+  window.onload = function SendForm() {
+    const contactForm = document.querySelector('#contactForm');
+    const contactFormFields = contactForm.querySelectorAll('.form-control');
     const contactFormFieldsValues = [];
     // console.log(contactForm),console.log(contactFormFields);
 
@@ -16,8 +14,8 @@
       const name = field.name;
       const value = field.value;
       contactFormFieldsValues[index] = {name: value};
-      field.addEventListener(('onfocus','click'),(event) => {
-        if (event.target.value&&event.target.parentElement.classList.contains('antiblur')) {
+      field.addEventListener(('focus','click'),(event) => {
+        if (event.target.value && event.target.parentElement.classList.contains('antiblur')) {
           return;
         } else {
           event.target.parentElement.classList.add('antiblur');
@@ -41,7 +39,7 @@
     const AUTOFILLED='is-autofilled';
     const onAutoFillStart=(el) => el.classList.add(AUTOFILLED);
     const onAutoFillCancel=(el) => el.classList.remove(AUTOFILLED);
-    const onAnimationStart=({target,animationName}) => {
+    const onAnimationStart=(el, {target,animationName}) => {
       switch (animationName) {
         case 'onAutoFillStart':
           el.target.style='background: rgba(0, 0, 0, .65); border: 2px solid #fed136; color: #ffffff !important; color: -internal-light-dark(white) !important;';
@@ -52,34 +50,60 @@
     };
   
   
-    qs('#contactForm input,#contactForm textarea').addEventListener('change', function(event) {
+    document.querySelectorAll('#contactForm input,#contactForm textarea').addEventListener('change', function(ev): any {
       console.log('Got a CHANGE');
-      event.forEach(formField => {
-        // console.log(`new value qs{formField.name}: qs{formField.value}`);
+      ev.forEach(formField => {
+        console.log(`new value document.querySelector{formField.name}: document.querySelector{formField.value}`);
       });
-      // console.log(`new value qs{event.target.name}: qs{event.target.value}`);
+      console.log(`new value document.querySelector{event.target.name}: document.querySelector{event.target.value}`);
     });
   };
   
-  const $form = qs('#contactForm');
-  qs('#contactForm input,#contactForm textarea').jqBootstrapValidation({
-    preventSubmit: true,
-    submitError: function($form, event, errors) {
+  function contactForm(): any {
+  const $form = document.querySelector('#contactForm');
+    
+    function submitError($form, event, errors) {
         // additional error messages or events
-    },
-    submitSuccess: function($form, event) {
+    }
+    function sendForm($form, event) {
       event.preventDefault(); // prevent default submit behaviour
       // get values from FORM
-      const name = qs('input#name').val();
-      const email = qs('input#email').val();
-      const phone = qs('input#phone').val();
-      const message = qs('textarea#message').val();
-      let firstName = name; // For Success/Failure Message
+      const name: HTMLInputElement = document.querySelector('input#name') as HTMLInputElement;
+      const email: HTMLInputElement = document.querySelector('input#email') as HTMLInputElement;
+      const phone: HTMLInputElement = document.querySelector('input#phone') as HTMLInputElement;
+      const message: HTMLInputElement = document.querySelector('textarea#message') as HTMLInputElement;
+      let firstName: string = name.value; // For Success/Failure Message
       
       // Check for white space in name for Success/Fail message
       if (firstName.indexOf(' ') >= 0) {
-          firstName = name.split(' ').slice(0, -1).join(' ');
+          firstName = firstName.split(' ').slice(0, -1).join(' ');
       }
+      // TODO: Implement this instead of jq
+      (async () => {
+        const rawResponse = await fetch('https://httpbin.org/post', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({a: 1, b: 'Textual content'})
+        });
+        const content = await rawResponse.json();
+      
+        console.log(content);
+      })();
+
+      fetch(api_url, {
+          method: 'post',
+          body: JSON.stringify(opts)
+        }).then(function(response) {
+          return response.json();
+        }).then(function(data) {
+          ChromeSamples.log('Created Gist:', data.html_url);
+        });
+      }
+
+      
       $.ajax({
         url: '/mail/contact_me.php',
         type: 'POST',
@@ -92,18 +116,18 @@
         cache: false,
         success: function() {
           // Success message
-          qs('#success').innerHTML = '<div class="alert alert-success">';
-          qs("#success > .alert-success").innerHTML += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><p><strong>Your message has been sent. </strong></p></div>';
+          document.querySelector('#success').innerHTML = '<div class="alert alert-success">';
+          document.querySelector("#success > .alert-success").innerHTML += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><p><strong>Your message has been sent. </strong></p></div>';
           //clear all fields
-          qs('#contactForm').trigger('reset');
+          document.querySelector('#contactForm').trigger('reset');
         },
         error: function() {
           // Fail message
-          qs('#success').innerHTML = '<div class="alert alert-danger">';
-          qs('#success > .alert-danger').innerHTML = `<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><p><strong>Sorry ${firstName}, it seems that my mail server is not responding. Please try again later!</p></div>`;
+          document.querySelector('#success').innerHTML = '<div class="alert alert-danger">';
+          document.querySelector('#success > .alert-danger').innerHTML = `<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><p><strong>Sorry ${firstName}, it seems that my mail server is not responding. Please try again later!</p></div>`;
 
           //clear all fields
-          qs('#contactForm').reset();
+          document.querySelector('#contactForm').reset();
         }
       });
     },
@@ -111,7 +135,7 @@
           return this.is(':visible');
         }
   });
-        qs('a[data-toggle="tab"]').addEventListener('click', (e) => {
+        document.querySelector('a[data-toggle="tab"]').addEventListener('click', (e) => {
             e.preventDefault();
             this.tab('show');
         });
@@ -120,10 +144,10 @@
 
         const clearMsgBox='#name';
       /*When clicking on Full hide fail/success boxes */
-        qs(clearMsgBox).addEventListener('focus', () => {
-            qs('#success').innerHTML = '';
+        document.querySelector(clearMsgBox).addEventListener('focus', () => {
+            document.querySelector('#success').innerHTML = '';
         });
   
     
-
+}
 })(); // End of use strict

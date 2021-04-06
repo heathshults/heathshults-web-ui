@@ -6,7 +6,11 @@ echo "Switching to AppRoot\n"
 cd $(npm root) # changes to the node_modules folder (npm root)
 cd ../ # changes directories one level up to the app root
 
+del www/assets/js/HeathScript.bundle.js &&
+DEL=$! # get background process id of ESLINT
+
 # Lint JS
+wait $DEL
 echo "Checking JS for syntax errors... \n"
 echo "Running Javascript linters.... \n" 
 npx eslint --fix src/js/modules/**/*.ts &&
@@ -28,10 +32,10 @@ wait $BABELIFY
 echo "Battering with Browserify\n"
 sleep 1
 echo "Cooking until crispy...\n"
-npx ncp src/js/vendor www/assets/js/vendor &&
-COPYJS=$!
+# npx ncp src/js/vendor www/assets/js/vendor &&
+# COPYJS=$!
 
-wait $COPYJS &&
+# wait $COPYJS &&
 echo "Done cooking!\n"
 sleep 1
 

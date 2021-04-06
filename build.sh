@@ -10,7 +10,7 @@ echo "Build initializing..."
 sleep 3
 
 echo "STENCILjs WEB COMPONENTS BUILD..."
-npx stencil build --dev --ci --next --no-cache --docs-readme &
+npx stencil build --dev --docs-readme --ci --next --no-cache --debug &
 STENCILPID=$! # get background process id of stencil
 
 wait $STENCILPID 

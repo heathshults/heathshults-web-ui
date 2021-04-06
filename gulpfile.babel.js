@@ -228,28 +228,39 @@ function typeScript(cb) {
 exports.typeScript = typeScript;
 
 function babelfry(cb) {
-  browserify({ debug: true })
+  browserify(`${srcPath}/js/modules/bundle.js`, { entry: true, debug: true, extensions: ['.ts', '.js', '.tsx', '.jsx'] })
   .transform(babelify, {
+    "extensions": ['.ts', '.js', '.tsx', '.jsx'],
     "presets": [
       "@babel/preset-env",
       "@babel/preset-typescript",
       "@babel/preset-react"
     ],
     "plugins": [
-      "@babel/plugin-proposal-object-rest-spread",
-      "babel-plugin-replace-ts-export-assignment",
-      "@babel/plugin-syntax-dynamic-import",
-      "@babel/plugin-proposal-class-properties",
-      ["@babel/plugin-proposal-decorators", { "legacy": true }],
-      "@babel/plugin-transform-runtime",
-      ["import", {"libraryName": "@material-ui/core"}]
-    ]
+      ["@babel/plugin-transform-typescript", {"allowDeclareFields": true, "isTSX": true}],
+      "@babel/plugin-transform-modules-commonjs",
+      ["babel-plugin-transform-class-properties", { "legacy": true }],
+      "@babel/plugin-transform-runtime"
+    ],
+    "compact": false,
+    "sourceMap": true
   })
-  .require(`${srcPath}/index.js`, { entry: true })
   .bundle()
   .on("error", function (err) { console.log(chalk.red("Error: " + err.message)) })
-  .pipe(fs.createWriteStream(`${wwwPath}/assets/js/HeathScript.bundle.js`)),
-  console.log(chalk.green('Babelifried JS')), cb();
+  .pipe(fs.createWriteStream(`${wwwPath}/assets/js/HeathScript.bundle.js`));
+  
+  console.log(chalk.green('Babelifried JS'));
+
+   return () => {
+    let file = '';
+    if (typeof cb === 'function') {
+      cb(null, file);
+      called = true;
+    }
+  };
+
+
+ 
 }
 exports.babelfry = babelfry;
 // exports.babelfry = series(typeScript, babelJS);
@@ -599,7 +610,7 @@ function connect_sync(cb) {
     });
     
   });
-  watchers();
+  watchers;
   
   
   // jsWatcher = watch([`${srcPath}/js/modules/**/*.ts`, `${srcPath}/js/modules/**/*.js`, `${srcPath}/js/modules/**/*.tsx`, `${srcPath}/js/modules/**/*.jsx`]);
@@ -642,6 +653,7 @@ function connect_sync(cb) {
 exports.connect_sync = connect_sync;
 
 function watchers() {
+  watchJS;
   // eslint-disable-next-line no-sequences
   var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
   watch(`${srcPath}/views/*.ejs`, ejsit).on('change', browserSync.reload), callback;
@@ -650,21 +662,52 @@ function watchers() {
   watch([`${srcPath}/**/*.html`], ra.copy_html).on('change', browserSync.reload), callback;
   watch([`${srcPath}/assets/**/*.css`], ra.copy_css).on('change', browserSync.reload), callback;
   watch([`${srcPath}/assets/**/*.css`], ra.copy_css).on('change', browserSync.reload), callback;
-  watch([`${srcPath}/js/modules/**/*.{js,ts,tsx}`], babelized).on('change', browserSync.reload), callback;
+  watch([`${srcPath}/js/modules/**/*.{js,ts,tsx}`], babelfry).on('change', browserSync.reload), callback;
   // watch([`${srcPath}/js/modules/HeathScript.js`], renderJS(jsfile)).on('change', browserSync.reload), callback;  
 
-  function babelized(cb) {
-    console.log('JS change detected...');
-    exec(` sh build-scripts/_build-js.sh`, (error) =>  errorman(error));
-  }
   
-  function errorman(error) {
-    console.log(chalk.red(`typescript error: ${error}`));
-  }
-
+  
 }
 exports.watchers = watchers;
 
+
+function babelized(cb) {
+  return new Promise((resolve,reject)=> {
+    try {
+      console.log('JS change detected...');
+      exec(` sh build-scripts/_build-js.sh`, (error) =>  errorman(error));
+      resolve(true);
+    }
+    catch(err) {
+      errorman(err);
+      reject('failed');
+    }
+  }),
+  cb();
+}
+
+function errorman(error) {
+  console.log(chalk.red(`typescript error: ${error}`));
+}
+
+function watchJS(cb) {
+  const watchjs = watch([`${srcPath}/js/modules/**/*.{js,ts,tsx}`]);
+
+  watchjs.on('change', babelfry);
+
+  watchjs.on('add', function(path, stats) {
+    console.log(`File ${path} was added`);
+    exec(`ncp ${path} www/assets/js`, (error) =>  errorman(error));
+  });
+
+  watchjs.on('unlink', function(path, stats) {
+    console.log(`File ${path} was removed`);
+  });
+
+  // watchjs.close();
+  cb();
+}
+exports.watchJS = watchJS;
 // var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
 // // close the server
 // function close_server(cb) {
