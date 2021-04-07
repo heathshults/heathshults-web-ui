@@ -1,93 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Montserrat:wght@400;600;700&family=Nothing+You+Could+Do&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="/assets/img/favicon.ico" />
+<head>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Montserrat:wght@400;600;700&family=Nothing+You+Could+Do&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="shortcut icon" href="/assets/img/favicon.ico" />
 
-    <title>Heath Shults - Software Developer+</title>
+  <title>Heath Shults - Software Developer+</title>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Portfolio website for Heath Shults - Web Developer Manager &amp; Director">
-    <meta name="author" content="">
-    
-    <script type="module" src="/components/heathscript-ui.esm.js"></script>
-    <script nomodule src="/components/heathscript-ui.js"> </script>
-    <script src="/assets/js/vendor/123/framekit-highlight-code.js"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio website for Heath Shults - Web Developer Manager &amp; Director">
+  <meta name="author" content="">
 
-    <!-- Bootstrap Core CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <script type="module" src="/components/heathscript-ui.esm.js"></script>
+  <script nomodule src="/components/heathscript-ui.js"> </script>
+  <script src="/assets/js/vendor/123/framekit-highlight-code.js"></script>
 
-    <!-- Custom Fonts -->
-    <link rel="stylesheet" href="/global/variables.css">
-    <link href="/assets/css/fontawesome.css" rel="stylesheet" type="text/css">
+  <!-- Bootstrap Core CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="/assets/js/vendor/perfect-scrollbar-1.4.0/css/perfect-scrollbar.css">
-    
-    <!-- Theme CSS -->
-    <link href="/assets/css/HeathStyle.built.css" rel="stylesheet">
-    <link disabled id="darkmode" rel="stylesheet" href="/assets/css/theme-dark-mode.css">
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" href="/global/variables.css">
+  <link href="/assets/css/fontawesome.css" rel="stylesheet" type="text/css">
 
-    <script>
-      var lsGetMode = localStorage.getItem('dark_mode')
-      var dm_btn = document.getElementById('mode_widget')
-      if (lsGetMode === "true") {
-        document.querySelector('#darkmode').disabled = false;
-        // document.querySelector('link[href="css/theme-dark-mode.css"]').disabled = false;
-      }
+  <link rel="stylesheet" href="/assets/js/vendor/perfect-scrollbar-1.4.0/css/perfect-scrollbar.css">
 
-    </script>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
+  <!-- Theme CSS -->
+  <link href="/assets/css/HeathStyle.built.css" rel="stylesheet">
+  <link disabled id="darkmode" rel="stylesheet" href="/assets/css/theme-dark-mode.css">
+
+  <script>
+    var lsGetMode = localStorage.getItem('dark_mode')
+    var dm_btn = document.getElementById('mode_widget')
+    if (lsGetMode === "true") {
+      document.querySelector('#darkmode').disabled = false;
+      // document.querySelector('link[href="css/theme-dark-mode.css"]').disabled = false;
+    }
+
+  </script>
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-  </head>
+</head>
 
-  <body id="home" class="index scroll" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="0"
-    tabindex="0" style="position: relative;">
-    <!-- Navigation -->
-    <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-      <div class="container">
-        <button class="btn btn-dark navbar-toggler" 
-          type="button" 
-          data-bs-toggle="collapse" 
-          data-bs-target="#mobileNav"
-          aria-label="Toggle navigation"
-          data-bs-target="#mainNav" 
-          aria-controls="navbarSupportedContent" 
-          aria-expanded="false" >
-          <span class="hs-text-white navbar-toggler-ico">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-              class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-              <path
-                d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z">
-              </path>
-            </svg>
-          </span>
-        </button>
-        <a class="navbar-brand js-scroll-trigger site-logo" href="/"><span
-            class="hs-brand-symbol">@</span><span>HeathShults.com</span></a>
-        <div class="collapse navbar-collapse mobile-nav" id="mobileNav">
-          <ul class="navbar-nav nav mx-auto mt-2 mt-lg-0">
-            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
-            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>
-            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
-          </ul>
-          <div class="widget-container my-2 my-lg-0 position-relative">
-            <button class="hs-mode-widget" id="mode_widget"></button>
-            <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+<body id="home" class="index scroll" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="0" tabindex="0"
+  style="position: relative;">
+  <!-- Navigation -->
+  <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <button class="btn btn-dark navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav"
+        aria-label="Toggle navigation" data-bs-target="#mainNav" aria-controls="navbarSupportedContent"
+        aria-expanded="false">
+        <span class="hs-text-white navbar-toggler-ico">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+            <path
+              d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z">
+            </path>
+          </svg>
+        </span>
+      </button>
+      <a class="navbar-brand js-scroll-trigger site-logo" href="/"><span
+          class="hs-brand-symbol">@</span><span>HeathShults.com</span></a>
+      <div class="collapse navbar-collapse mobile-nav" id="mobileNav">
+        <ul class="navbar-nav nav mx-auto mt-2 mt-lg-0">
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+        </ul>
+        <div class="widget-container my-2 my-lg-0 position-relative">
+          <button class="hs-mode-widget" id="mode_widget"></button>
+          <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
-          </div>
         </div>
       </div>
-    </nav>
-    <div data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="0" tabindex="0">
+    </div>
+  </nav>
+  <div data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="0" tabindex="0">
     <!-- Header -->
     <header id="header" class="d-flex align-items-stretch hs-header">
       <div class="container">
@@ -96,8 +94,8 @@
 
           <div id="greetingLine" class="greeting-container">
             <!-- <p class="hs-intro-lead-in"> -->
-              <p class="hs-intro-subheading m-0 p-0">Hello, <br>
-                I'm Heath.</p>
+            <p class="hs-intro-subheading m-0 p-0">Hello, <br>
+              I'm Heath.</p>
             <!-- <p class="hs-intro-subheading">
               First time here?
               
@@ -152,7 +150,8 @@
                       </div>
                     </div>
                     <div class="hs-divider d-flex align-items-center"></div>
-                    <p class="hs-hs-text-muted position-relative"><span class="hs-skill-result-label offset-down-20">Markdaown 90%</span></p>
+                    <p class="hs-hs-text-muted position-relative"><span
+                        class="hs-skill-result-label offset-down-20">Markdaown 90%</span></p>
                     <div class="hs-ranking-bar-stacker mt-4">
                       <div class="hs-ranking">
                         <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Adv"
@@ -161,9 +160,9 @@
                       </div>
                     </div>
                   </hs-card-body>
-                   <hs-card-footer color-tone="" slot="card-footer" class="w-100 hs-card_footer">
+                  <hs-card-footer color-tone="" slot="card-footer" class="w-100 hs-card_footer">
                     <div class="hs-card_content p-2">&nbsp;</div>
-                  </hs-card-footer> 
+                  </hs-card-footer>
                 </hs-card>
               </div>
 
@@ -185,7 +184,8 @@
                       </div>
                     </div>
                     <div class="hs-divider d-flex align-items-center"></div>
-                    <p class="hs-text-muted  position-relative"><span class="hs-skill-result-label offset-down-20">SASS 100%</span></p>
+                    <p class="hs-text-muted  position-relative"><span class="hs-skill-result-label offset-down-20">SASS
+                        100%</span></p>
                     <div class="hs-ranking-bar-stacker mt-4">
                       <div class="hs-ranking">
                         <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Expert"
@@ -221,7 +221,8 @@
                     </div>
 
                     <div class="hs-divider d-flex align-items-center"></div>
-                    <p class="hs-text-muted  position-relative"><span class="hs-skill-result-label offset-down-20">Angular 90%</span></p>
+                    <p class="hs-text-muted  position-relative"><span
+                        class="hs-skill-result-label offset-down-20">Angular 90%</span></p>
                     <div class="hs-ranking-bar-stacker mt-4">
 
                       <div class="hs-ranking">
@@ -260,7 +261,8 @@
                       </div>
                     </div>
                     <div class="hs-divider d-flex align-items-center"></div>
-                    <p class="hs-text-muted  position-relative"><span class="hs-skill-result-label offset-down-20">PHP 60%</span></p>
+                    <p class="hs-text-muted  position-relative"><span class="hs-skill-result-label offset-down-20">PHP
+                        60%</span></p>
                     <div class="hs-ranking-bar-stacker mt-4">
                       <div class="hs-ranking">
                         <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Good"
@@ -281,7 +283,7 @@
                   <div slot="card-header" card-size="" class="container-fluid  p-2 pt-4">
 
                     <img src="/assets/img/logos/sql-server.png" alt="SQL Server" class="hs-skills-logo ml-4"
-                    width="45%" />
+                      width="45%" />
                     <img src="/assets/img/logos/mysql.png" alt="mySQL" class="hs-skills-logo mr-2" height="65" />
 
                   </div>
@@ -296,7 +298,8 @@
                       </div>
                     </div>
                     <div class="hs-divider d-flex align-items-center"></div>
-                    <p class="hs-text-muted  position-relative"><span class="hs-skill-result-label offset-down-20">SQL Server 85%</span></p>
+                    <p class="hs-text-muted  position-relative"><span class="hs-skill-result-label offset-down-20">SQL
+                        Server 85%</span></p>
                     <div class="hs-ranking-bar-stacker mt-4">
                       <div class="hs-ranking">
                         <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Adv"
@@ -325,14 +328,15 @@
                       <div class="hs-ranking">
                         <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Adv"
                           aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                         </div>
+                        </div>
                       </div>
                     </div>
                     <div class="hs-divider d-flex align-items-center"></div>
-                    <p class="hs-text-muted  position-relative"><span class="hs-skill-result-label offset-down-20">Gulp 100%</span></p>
+                    <p class="hs-text-muted  position-relative"><span class="hs-skill-result-label offset-down-20">Gulp
+                        100%</span></p>
                     <div class="hs-ranking-bar-stacker mt-4">
                       <div class="hs-ranking">
-                        <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Expert" 
+                        <div class="hs-ranking-bar bg-heavy-yellow1" role="hs-rankingbar" data-level="Expert"
                           aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                         </div>
                       </div>
@@ -363,100 +367,104 @@
           </div>
         </div>
         <div class="hs-divider d-flex align-items-center"></div>
-      <div class="portfolio-cards-grid">
-        <div class="c1">
-          <hs-card card-id="01" color-tone="" card-size="" img-path="/assets/img/portfolio/USAA/usaa-ema-01.jpg"
-          data-bs-toggle="modal" data-bs-target="#usaaDetails">
+        <div class="portfolio-cards-grid">
+          <div class="c1">
+            <hs-card card-id="01" color-tone="" card-size="" img-path="/assets/img/portfolio/USAA/usaa-ema-01.jpg"
+              data-bs-toggle="modal" data-bs-target="#usaaDetails">
 
-          <hs-card-body id="card01Body" content-classes="w-100" slot="card-body" class="hs-card_body text-center">
+              <hs-card-body id="card01Body" content-classes="w-100" slot="card-body" class="hs-card_body text-center">
 
-            <h2 class="hs-card_title mb-0">Mobile Applications</h2>
-            <p>
-              <span class="hs-card_subtitle">Productivity Apps for USAA Employees</span>
-            </p>
+                <h2 class="hs-card_title mb-0">Mobile Applications</h2>
+                <p>
+                  <span class="hs-card_subtitle">Productivity Apps for USAA Employees</span>
+                </p>
 
-            <p>
-              <strong class="hs-card_text-emphisized">USAA </strong><br>
-              Banking * Insurance <br>
-              Full Stack Software Engineer
-            </p>
-            <div class="text-center">
-              <hs-card-button css-class="hs-card_button hs-card_button-shadowlined--lightest" button-text="More" url="" url-params="_blank" data-bs-toggle="modal" data-bs-target="#usaaDetails"></hs-card-button>
-            </div>
-          </hs-card-body>
-        </hs-card>
-      </div>
-        <div class="c2">
-          <hs-card card-id="02" color-tone="" card-size=""
-          img-path="/assets/img/portfolio/Fannie-Mae/blueprint-card-header.jpg" data-bs-toggle="modal" data-bs-target="#fanniemaeDetails">
+                <p>
+                  <strong class="hs-card_text-emphisized">USAA </strong><br>
+                  Banking * Insurance <br>
+                  Full Stack Software Engineer
+                </p>
+                <div class="text-center">
+                  <hs-card-button css-class="hs-card_button hs-card_button-shadowlined--lightest" button-text="More"
+                    url="" url-params="_blank" data-bs-toggle="modal" data-bs-target="#usaaDetails"></hs-card-button>
+                </div>
+              </hs-card-body>
+            </hs-card>
+          </div>
+          <div class="c2">
+            <hs-card card-id="02" color-tone="" card-size=""
+              img-path="/assets/img/portfolio/Fannie-Mae/blueprint-card-header.jpg" data-bs-toggle="modal"
+              data-bs-target="#fanniemaeDetails">
 
-          <hs-card-body id="card02Body" slot="card-body" content-classes="w-100" class="hs-card_body text-center">
+              <hs-card-body id="card02Body" slot="card-body" content-classes="w-100" class="hs-card_body text-center">
 
-            <h2 class="hs-card_title mb-0">Design System</h2>
-            <p>
-              <span class="hs-card_subtitle">SCSS, CSS, Web Components &amp; Guides</span>
-            </p>
+                <h2 class="hs-card_title mb-0">Design System</h2>
+                <p>
+                  <span class="hs-card_subtitle">SCSS, CSS, Web Components &amp; Guides</span>
+                </p>
 
-            <p>
-              <strong class="hs-card_text-emphisized">
-                Fannie Mae, Inc.</strong><br>
-              Interaction Designer<br>
-              - UI/UX Developer
-            </p>
-            <div class="text-center">
-              <hs-card-button css-class="hs-card_button" button-text="More" url="" url-params="_blank"
-                data-bs-toggle="modal" data-bs-target="#fanniemaeDetails"></hs-card-button>
-            </div>
-          </hs-card-body>
-          </hs-card>
+                <p>
+                  <strong class="hs-card_text-emphisized">
+                    Fannie Mae, Inc.</strong><br>
+                  Interaction Designer<br>
+                  - UI/UX Developer
+                </p>
+                <div class="text-center">
+                  <hs-card-button css-class="hs-card_button" button-text="More" url="" url-params="_blank"
+                    data-bs-toggle="modal" data-bs-target="#fanniemaeDetails"></hs-card-button>
+                </div>
+              </hs-card-body>
+            </hs-card>
+          </div>
+          <div class="c3">
+            <hs-card card-id="03" color-tone="" card-size="" window-target="_self"
+              img-path="/assets/img/portfolio/BlueStarSports/BSS-card-heading.jpg" data-bs-toggle="modal"
+              data-bs-target="#bluestarDetails">
+
+              <hs-card-body id="card04Body" content-classes="" slot="card-body" class="hs-card_body text-center">
+
+                <h2 class="hs-card_title mb-0">USA Football Database</h2>
+                <p>
+                  <span class="hs-card_subtitle">Little League Player Stats &amp; Tracking</span>
+                </p>
+
+                <p>
+                  <strong class="hs-card_text-emphisized">Blue Star Sports</strong>
+                  <br>
+                  Data Services<br>
+                  UI Software Engineer
+                </p>
+                <div class="text-center">
+                  <hs-card-button css-class="hs-card_button" button-text="More" url="" url-params="_blank"
+                    data-bs-toggle="modal" data-bs-target="#bluestarDetails"></hs-card-button>
+                </div>
+              </hs-card-body>
+            </hs-card>
+          </div>
+          <div class="c4">
+            <hs-card card-id="04" color-tone="" card-size="" window-target="_self"
+              img-path="/assets/img/portfolio/bowlopolis/bowlopolis-headerImg.jpg" data-bs-toggle="modal"
+              data-bs-target="#bowlopolisDetails">
+
+              <hs-card-body id="card04Body" slot="card-body" class="hs-card_body text-center">
+
+                <h2 class="hs-card_title mb-0">Bowlopolis</h2>
+                <p>
+                  <span class="hs-card_subtitle">Kids 3D Cartoons, Videos & Games</span>
+                </p>
+                <p>
+                  <strong class="hs-card_text-emphisized"> BPAA, Inc.</strong><br>
+                  Proprietor Association<br>
+                  Director Technology - App Dev
+                </p>
+                <div class="text-center">
+                  <button class="hs-card_button" data-bs-toggle="modal" data-bs-target="#bowlopolisDetails"
+                    onclick="carouselHeight(this);">More</button>
+                </div>
+              </hs-card-body>
+            </hs-card>
+          </div>
         </div>
-        <div class="c3">
-          <hs-card card-id="03" color-tone="" card-size="" window-target="_self"
-          img-path="/assets/img/portfolio/BlueStarSports/BSS-card-heading.jpg" data-bs-toggle="modal"
-          data-bs-target="#bluestarDetails">
-
-          <hs-card-body id="card04Body" content-classes="" slot="card-body" class="hs-card_body text-center">
-
-            <h2 class="hs-card_title mb-0">USA Football Database</h2>
-            <p>
-              <span class="hs-card_subtitle">Little League Player Stats &amp; Tracking</span>
-            </p>
-
-            <p>
-              <strong class="hs-card_text-emphisized">Blue Star Sports</strong>
-              <br>
-              Data Services<br>
-              UI Software Engineer
-            </p>
-            <div class="text-center">
-              <hs-card-button css-class="hs-card_button" button-text="More" url="" url-params="_blank"
-              data-bs-toggle="modal" data-bs-target="#bluestarDetails"></hs-card-button>
-            </div>
-          </hs-card-body>
-          </hs-card>
-        </div>
-        <div class="c4">
-          <hs-card card-id="04" color-tone="" card-size="" window-target="_self"
-          img-path="/assets/img/portfolio/bowlopolis/bowlopolis-headerImg.jpg" data-bs-toggle="modal" data-bs-target="#bowlopolisDetails">
-
-          <hs-card-body id="card04Body" slot="card-body" class="hs-card_body text-center">
-
-            <h2 class="hs-card_title mb-0">Bowlopolis</h2>
-            <p>
-              <span class="hs-card_subtitle">Kids 3D Cartoons, Videos & Games</span>
-            </p>
-            <p>
-              <strong class="hs-card_text-emphisized"> BPAA, Inc.</strong><br>
-              Proprietor Association<br>
-              Director Technology - App Dev
-            </p>
-            <div class="text-center">
-              <button class="hs-card_button" data-bs-toggle="modal" data-bs-target="#bowlopolisDetails" onclick="carouselHeight(this);">More</button>
-            </div>
-          </hs-card-body>
-          </hs-card>
-        </div>
-      </div>
 
 
       </div>
@@ -499,10 +507,13 @@
                   <div class="hs-timeline__content text-component">
                     <h2>Sessions College of Professional Design</h2>
                     <div class="hs-quotes">
-                      <p class="color-contrast-medium">So I thought "This whole internet thing might just stick around for a while. If I'm going to do this website thing,
-                        perhaps I'll go all in and attend college online". <em>(using 128kbp dial-up and the net gateway of the early years - AOL :)</em></p>
-                      </div>
-                      <p class="text-center mt-4">Graphic Design <span class="hs-text-yellow">&#10038;</span> Web Design <span class="hs-text-yellow">&#10038;</span> New Media </p>
+                      <p class="color-contrast-medium">So I thought "This whole internet thing might just stick around
+                        for a while. If I'm going to do this website thing,
+                        perhaps I'll go all in and attend college online". <em>(using 128kbp dial-up and the net gateway
+                          of the early years - AOL :)</em></p>
+                    </div>
+                    <p class="text-center mt-4">Graphic Design <span class="hs-text-yellow">&#10038;</span> Web Design
+                      <span class="hs-text-yellow">&#10038;</span> New Media </p>
 
                     <div class="flex justify-between items-center">
                       <span class="hs-timeline__date">Jan. 2002</span>
@@ -523,7 +534,8 @@
 
                   <div class="hs-timeline__content text-component">
                     <h2>Title of section 2</h2>
-                    <p class="color-contrast-medium">Coming Soon - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto,
+                    <p class="color-contrast-medium">Coming Soon - Lorem ipsum dolor sit amet, consectetur adipisicing
+                      elit. Iusto,
                       optio, dolorum
                       provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde?</p>
 
@@ -546,11 +558,13 @@
 
                   <div class="hs-timeline__content text-component">
                     <h2>Title of section 3</h2>
-                    <p class="color-contrast-medium">Coming Soon - Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    <p class="color-contrast-medium">Coming Soon - Lorem ipsum dolor sit amet, consectetur adipisicing
+                      elit.
                       Excepturi, obcaecati,
                       quisquam id molestias eaque asperiores voluptatibus cupiditate error assumenda delectus odit
                       similique earum
-                      voluptatem doComing Soon - Loremque doComing Soon - Lorem ipsam quae rerum quis. Odit, itaque, deserunt corporis vero ipsum
+                      voluptatem doComing Soon - Loremque doComing Soon - Lorem ipsam quae rerum quis. Odit, itaque,
+                      deserunt corporis vero ipsum
                       nisi eius odio
                       natus ullam provident pariatur temporibus quia eos repellat consequuntur perferendis enim amet
                       quae quasi
@@ -577,7 +591,8 @@
 
                   <div class="hs-timeline__content text-component">
                     <h2>Title of section 4</h2>
-                    <p class="color-contrast-medium">Coming Soon - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto,
+                    <p class="color-contrast-medium">Coming Soon - Lorem ipsum dolor sit amet, consectetur adipisicing
+                      elit. Iusto,
                       optio, dolorum
                       provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste
                       voluptatibus minus
@@ -602,7 +617,8 @@
 
                   <div class="hs-timeline__content text-component">
                     <h2>Title of section 5</h2>
-                    <p class="color-contrast-medium">Coming Soon - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto,
+                    <p class="color-contrast-medium">Coming Soon - Lorem ipsum dolor sit amet, consectetur adipisicing
+                      elit. Iusto,
                       optio, dolorum
                       provident rerum.</p>
 
@@ -653,24 +669,25 @@
         </div>
         <div class="row">
           <div class="col-lg-12 pt-4">
-            <h2>Just started redoing this form. It's inactive now but if you need to get in touch - heatheshults@gmail.com</h2>
+            <h2>Just started redoing this form. It's inactive now but if you need to get in touch -
+              heatheshults@gmail.com</h2>
             <form name="sentMessage" autocomplete="off" id="ezform" class="mt-5" novalidate>
               <div class="row">
                 <div class="col-md-6">
 
-                  <label for="name" class="form-group" title="Name *">
-                    <input type="text" class="form-control" name="name" id="name" required/>
+                  <label for="name" class="form-group w-100" title="Name *">
+                    <input type="text" class="form-control" name="name" id="name" required />
                     <span class="help-block text-danger required">I need your name.</span>
                     <span class="error-message">That name looks invalid.</span>
                   </label>
 
-                  <label class="form-group" title="Email *">
+                  <label class="form-group w-100" title="Email *">
                     <input type="email" class="form-control" id="email" name="email" required />
                     <span class="help-block text-danger required">Got to have an email address.</span>
                     <span class="error-message">The email address you entered is not valid.</span>
                   </label>
 
-                  <label class="form-group" title="Phone *">
+                  <label class="form-group w-100" title="Phone *">
                     <input type="tel" class="form-control" id="phone" name="phone" />
                     <p class="help-block"></p>
                   </label>
@@ -684,467 +701,26 @@
                     <span class="error-message">Need more info. Keep going!</span>
                   </label>
                 </div>
-              </div>
-              </form>
-                  <!-- slidebutton -->
-<style>
-/* animated checkbox */
-@keyframes draw {
-  0% {
-    stroke-dashoffset: -400;
-  }
+                <div id="slideButton" class="slide-button-wrapper"></div>
+                <div id="success"></div>
 
-  100% {
-    stroke-dashoffset: 400;
-  }
-}
-
-@keyframes check {
-  0% {
-    stroke-dashoffset: -400;
-  }
-
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
-
-@media (max-width: 360px) {
-  body {
-    overflow: scroll;
-  }
-}
-
-/* end animated checkbox */
-
-/* animated arrows */
-@keyframes arrow-anim {
-  from {
-    fill: transparent;
-    stroke-width: 2px;
-    stroke: transparent;
-    transform: translateX(1rem);
-  }
-
-  50% {
-    fill: #FFF;
-    stroke-width: 2px;
-    stroke: #FFF;
-  }
-
-  90% {
-    z-index: 2;
-    transition: all .25s ease-out;
-  }
-
-  to {
-    transform: translateX(9rem);
-    fill: transparent;
-    stroke-width: 2px;
-    stroke: transparent;
-  }
-}
-
-@keyframes arrow-fixed-anim {
-  5% {
-    opacity: 0;
-  }
-
-  20% {
-    opacity: 0.4;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fadein {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    width: 0px;
-    height: 0px;
-    opacity: 1;
-  }
-}
-
-@keyframes fadeout {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    width: 0px;
-    height: 0px;
-    opacity: 0;
-  }
-}
-
-.shrinkaway{
-  transform-origin: 50% 50%;
-  animation: shrinkaway-kf linear 2s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards; /* when the spec is finished */
-}
-
-@keyframes shrinkaway-kf{
-  0% {
-    opacity: 1;
-    transform: translate(0px, 0px)  scaleX(1.00) scaleY(1.00);
-  }
-  30% {
-    opacity: 1;
-    transform: translate(0px, 0px)  scaleX(1.00) scaleY(1.00);
-  }
-  46% {
-    opacity: 1;
-    transform: translate(0px, 0px)  scaleX(0.40) scaleY(0.40);
-  }
-  61% {
-    opacity: 1;
-    transform: translate(0px, 0px);
-  }
-  75% {
-    opacity: 1;
-    transform: translate(120px, 0px);
-  }
-  100% {
-    opacity: 0;
-    transform: translate(200px, 0px)  scaleX(0.40) scaleY(0.40);
-  }
-}
-
-.fadein {
-  animation: fadein ease-in-out .5s;
-}
-.fadeout {
-  transition: all .25s ease-in-out,;
-  animation-name: fadeout;
-  animation-duration: .25s;
-  animation-timing-function: ease-in-out
-}
-
-.hs-slide-button__label {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 1000;
-  flex: 1 1 auto;
-  font-family: "Montserrat", "Segoe UI", "Roboto", "Helvetica Neue", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", Arial, sans-serif, -apple-system, BlinkMacSystemFont;
-  font-weight: 900;
-  color: var(--hs-color-1);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  transform: translate(-50%, -50%);
-}
-
-.hs-animated-arrow-container {
-  position: absolute;
-  left: 4px;
-  z-index: -1;
-  display: flex;
-  align-items: center;
-  height: 32px;
-}
-
-.hs-animated-arrow-container .hs-animated-arrow {
-  width: 22px;
-  height: auto;
-  margin: 0 2rem 0 -15px;
-  overflow: visible;
-  cursor: move;
-}
-
-.hs-animated-arrow-container .hs-animated-arrow polygon,
-.hs-animated-arrow-container .hs-animated-arrow path {
-  transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
-  fill: transparent;
-  stroke: transparent;
-  stroke-width: 2px;
-}
-
-.hs-animated-arrow-container .hs-animated-arrow .hs-arrow {
-  animation-name: arrow-anim;
-  animation-duration: 2.5s;
-  animation-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
-  animation-iteration-count: infinite;
-  fill: transparent;
-}
-
-.hs-animated-arrow-container .hs-animated-arrow .hs-arrow.a-3 {
-  animation-delay: 0.25s;
-}
-
-.hs-animated-arrow-container .hs-animated-arrow .hs-arrow.a-2 {
-  animation-delay: 0.15s;
-}
-
-.hs-animated-arrow-container .hs-animated-arrow .hs-arrow.a-1 {
-  animation-delay: 0s;
-}
-
-.hs-animated-arrow-container .hs-animated-arrow .hs-arrow-fixed {
-  animation: arrow-fixed-anim 2.5s cubic-bezier(0.2, 1, 0.3, 1) infinite;
-}
-
-/* end animated arrows */
-
-/* slide-button */
-.slide-button-wrapper {
-  position: relative;
-  display: inline-block;
-  width: 250px;
-  height: 42px;
-  margin: auto;
-}
-.slide-button-grid {
-  position: relative;
-
-  /* z-index: 1; */
-  display: grid;
-  grid-template-columns: 42px 1fr 42px;
-  gap: 0px 0px;
-  grid-template-areas: "grid__left grid__center grid__right";
-  width: 250px;
-  padding: 2px;
-  margin: auto;
-  background-color: rgba(255, 255, 255, 0.5);
-  border: 2px solid #fff;
-}
-
-.slide-button-grid .slide-button-grid__left {
-  grid-area: grid__left;
-  display: flex;
-  flex: 0 0 42px;
-  align-items: center;
-  height: 42px;
-}
-
-.slide-button-grid .slide-button-grid__left .grid-left__inner {
-  position: relative;
-  align-self: stretch;
-  width: 100%;
-  height: 100%;
-  padding: 2px;
-  border: 2px solid transparent;
-}
-
-.slide-button-grid .slide-button-grid__center {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 42px;
-  font-size: .9rem;
-  font-weight: 700;
-  text-align: center;
-  grid-area: grid__center;
-}
-
-.slide-button-grid .slide-button-grid__right {
-  grid-area: grid__right;
-  display: flex;
-  align-items: center;
-  height: 42px;
-}
-
-.hs-animated-checkbox-container {
-  position: absolute;
-  z-index: 3;
-}
-
-.slide-button {
-  /* position: absolute;
-  z-index: 1000; */
-  width: 32px;
-  height: 32px;
-  cursor: move;
-  background-image: url('../assets/img/svg/slide-submit-button.svg');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 32px 32px;
-}
-
-.slide-button.drag {
-  position: absolute;
-  z-index: 1000;
-  background-color: #fff;
-  box-shadow: -8px 0px 6px 10px rgb(0 0 0 / 25%);
-}
-
-.dropzone {
-  position: absolute;
-  z-index: 1;
-  width: 40px;
-  height: 40px;
-
-  /* overflow: hidden; */
-  font-size: .8rem;
-  font-weight: 700px;
-  line-height: .7rem;
-  text-align: center;
-  background: var(--hs-white--a40);
-  border: 2px dashed #fff;
-  transition: all .35s ease-in-out
-}
-
-.dropzone.dropzone-indicator {
-
-  border-color: var(--hs-flip2code-color-core-blue-70);
-  transition: all .35s ease-in-out
-}
-
-
-
-.dropzone.drag-enter {
-  border-color: #d15400;
-  transition: all .35s ease-in-out;
-  transform: scale(2);
-}
-
-.dropzone.drop-ready {
-  background-color: var(--hs-green);
-  background-image:
-    linear-gradient(
-      135deg,
-      rgba(255, 255, 255, .15) 35%,
-      transparent 25%,
-      transparent 50%,
-      rgba(255, 255, 255, .15) 60%,
-      rgba(255, 255, 255, .15) 85%,
-      transparent 85%,
-      transparent
-    );
-  background-size: 15px 15px;
-
-  border-color: var(--hs-green);
-  transition: all .15s ease-in-out;
-  transform: scale(1.2);
-  animation-name: animate-stripes;
-  animation-duration: 2s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: normal;
-  animation-fill-mode: forwards;
-}
-
-.slide-button.dropped {
-  display: none;
-  transition: all 2s ease-in-out;
-  transform: scale(0);
-}
-
-.dropzone.border-white {
-  background: rgba(255, 255, 255, .5);
-  border-color: #fff;
-  transition: all 2s ease-in-out;
-  transform: scale(1);
-}
-
-.svg-checkmark {
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-}
-
-.check {
-  stroke: #005c00;
-
-  /* red */
-  stroke: green;
-
-  /* blue */
-  fill: none;
-  stroke-width: 20;
-  stroke-dasharray: 400;
-  stroke-dashoffset: 400;
-  stroke-miterlimit: 5;
-  stroke-linecap: square;
-
-  animation: check .75s linear forwards;
-}
-
-.svg .box {
-  stroke: #cc181e;
-  stroke: #387ea9;
-  stroke-width: 12;
-  fill: none;
-  stroke-dasharray: 400;
-  stroke-dashoffset: 400;
-  animation: draw 1s linear forwards;
-}
-
-@keyframes animate-stripes {
-  0% {
-    background-position: 0 0;
-  }
-
-  100% {
-    background-position: 60px 0;
-  }
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-.stripes-background {
-  background-color: var(--hs-gray-600);
-  background-image:
-    linear-gradient(
-      135deg,
-      rgba(255, 255, 255, .15) 35%,
-      transparent 25%,
-      transparent 50%,
-      rgba(255, 255, 255, .15) 60%,
-      rgba(255, 255, 255, .15) 85%,
-      transparent 85%,
-      transparent
-    );
-  background-size: 15px 15px;
-  animation-name: animate-stripes;
-  animation-duration: 2s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: normal;
-  animation-fill-mode: forwards;
-}
-
-</style>
-                  <div id="slideButton" class="slide-button-wrapper"></div>
-                  
-                  <div id="success"></div>
-                </div>
-                </div>
-                <!-- anibutton -->
-<script>
-  document.addEventListener('readySubmit', sendForm(ev), false);
-
-  function sendForm(e) {
-    
-  }
-</script>
+               
                 <div class="row">
                   <div class="col-log-12">
 
-                    
+
+
 
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-log-12">
 
-                    
+
 
                   </div>
                 </div>
+                
               </div>
             </form>
           </div>
@@ -1194,6 +770,7 @@
             <span class="copyright">Copyright &copy; HeathShults.com
               <script>
                 document.write(new Date().getFullYear());
+
               </script>
             </span>
           </div>
@@ -1224,304 +801,331 @@
       </div>
     </footer>
   </div>
-  
+
   <!--  Portfolio Modals -->
-    <div class="modal fade" id="usaaDetails" tabindex="-1" aria-labelledby="USAADetailsTitle" aria-hidden="true"
-      modal-title="USAA">
-      <div class="modal-dialog modal-fullscreen">
-        <div class="modal-content">
-          <div class="modal-header">
-            <div class="container-sm">
-              <div class="row">
-                <div class="col-md-10 mx-auto">
-                  <h5 class="modal-title text-xl mr-3" id="USAADetailsTitle">USAA
-                    <div class="text-center"
-                      style="display: inline-block; flex: 1 1 auto; margin-left: 20px; font-size: 14px">
-                      Employee Mobile Apps 
-                    </div>
-                  </h5>
-                </div>
+  <div class="modal fade" id="usaaDetails" tabindex="-1" aria-labelledby="USAADetailsTitle" aria-hidden="true"
+    modal-title="USAA">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="container-sm">
+            <div class="row">
+              <div class="col-md-10 mx-auto">
+                <h5 class="modal-title text-xl mr-3" id="USAADetailsTitle">USAA
+                  <div class="text-center"
+                    style="display: inline-block; flex: 1 1 auto; margin-left: 20px; font-size: 14px">
+                    Employee Mobile Apps
+                  </div>
+                </h5>
               </div>
             </div>
-
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
           </div>
-          <div class="modal-body">
-            
-            <div class="container-sm">
-              <div class="row">
-                <div class="col-md-10 mx-auto">
 
-                  <p class="hs-paragraph lead">
-                    Mobile app development &amp; maintenance for the employees at USAA. The employee apps are data sensitive so what you see below is the commercial apps.
-                  </p>
-                  <p class="hs-paragraph">
-                    <div class="row">
-                      <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>Company</strong>:</div>
-                      <div class="col-md-10">United Services Automobile Association</div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>Description </strong>:</div>
-                      <div class="col-md-10"> Productivity apps for 35,000 employees world wide. </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>My Roles</strong>:</div>
-                      <div class="col-md-10">UI Engineering <span class="hs-text-yellow">&#10038;</span> Ops Developer <span class="hs-text-yellow">&#10038;</span>
-                        </div>
-                    </div>
-                  </p>
-
-                  
-                </div>
-                <p class="hs-paragraph text-center">
-                  <img class="img-fluid img-centered" src="/assets/img/bg/usaa-mobile.jpg" alt="USAA Mobile Apps"/>
-                </p>
-              </div>
-            </div>
-            <!-- end front face -->
-            <!-- back face -->
-            
-            
-            <!-- end back face -->
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
-          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
         </div>
-    </div>
-    </div>
-    <div class="modal fade" id="fanniemaeDetails" tabindex="-1" aria-labelledby="fanniemaeDetails" aria-hidden="true"
-    modal-title="Fannie Mae">
-      <div class="modal-dialog modal-fullscreen">
-        <div class="modal-content">
-          <div class="modal-header">
-            <div class="container-sm">
-              <div class="row">
-                <div class="col-md-10 mx-auto">
-                  <h5 class="modal-title text-xl mr-3" id="USAADetailsTitle">Fannie Mae
-                    <div class="text-center"
-                      style="display: inline-block; flex: 1 1 auto; margin-left: 20px; font-size: 14px">
-                      Enterprise Design System
-                    </div>
-                  </h5>
-                </div>
-              </div>
-            </div>
+        <div class="modal-body">
 
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
-          </div>
-          <div class="modal-body">
-            
-            <div class="container-sm">
-              <div class="row">
-                <div class="col-md-10 mx-auto">
+          <div class="container-sm">
+            <div class="row">
+              <div class="col-md-10 mx-auto">
 
-                  <p class="hs-paragraph lead">
-                    Design System Design &amp; Development for Fannie Mae Designers and Developers.
-                  </p>
-                  <p class="hs-paragraph">
-                    <div class="row">
-                      <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>Company</strong>:</div>
-                      <div class="col-md-10">Fannie Mae</div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>Description</strong>:</div>
-                      <div class="col-md-10">Enterprise design system to aid in consistency of corporate identity and quality of public facing digital assets.</div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>My Roles</strong>:</div>
-                      <div class="col-md-10">Interaction Design <span class="hs-text-yellow">&#10038;</span> Product Design &amp; Prototyping <span class="hs-text-yellow">&#10038;</span>
-                      <div class="col-md-2 info-title"></div>
-                      <div class="col-md-10">UI Engineer <span class="hs-text-yellow">&#10038;</span> Mockups &amp; Converting creative to interactive web digital <span class="hs-text-yellow">&#10038;</span>
-                        </div>
-                    </div>
-                  </p>
-
-                  
-                </div>
-                <p class="hs-paragraph text-center">
-                  <img class="img-fluid img-centered" src="../assets/img/portfolio/Fannie-Mae/blueprint-design-system.jpg" alt="UBlue Star Sports"/>
+                <p class="hs-paragraph lead">
+                  Mobile app development &amp; maintenance for the employees at USAA. The employee apps are data
+                  sensitive so what you see below is the commercial apps.
                 </p>
-              </div>
-            </div>
-            <!-- end front face -->
-            <!-- back face -->
-            
-            
-            <!-- end back face -->
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-    </div>
-    </div>
-    <div class="modal fade" id="bluestarDetails" tabindex="-1" aria-labelledby="bluestarDetails" aria-hidden="true"
-    modal-title="Blue Star Sports">
-      <div class="modal-dialog modal-fullscreen">
-        <div class="modal-content">
-          <div class="modal-header">
-            <div class="container-sm">
-              <div class="row">
-                <div class="col-md-10 mx-auto">
-                  <h5 class="modal-title text-xl mr-3" id="USAADetailsTitle">Blue Star Sports
-                    <div class="text-center"
-                      style="display: inline-block; flex: 1 1 auto; margin-left: 20px; font-size: 14px">
-                      Youth Athlete Tracking System 
-                    </div>
-                  </h5>
-                </div>
-              </div>
-            </div>
-
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
-          </div>
-          <div class="modal-body">
-            
-            <div class="container-sm">
-              <div class="row">
-                <div class="col-md-10 mx-auto">
-
-                  <p class="hs-paragraph lead">
-                    Progressive Web App Design &amp; CRM Development for youth league football.
-                  </p>
-                  <p class="hs-paragraph">
-                    <div class="row">
-                      <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>Company</strong>:</div>
-                      <div class="col-md-10">Blue Star Sports</div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>Description</strong>:</div>
-                      <div class="col-md-10"> Youth athlete management and stats tracking. </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>My Roles</strong>:</div>
-                      <div class="col-md-10">UI Engineer <span class="hs-text-yellow">&#10038;</span> Product Design &amp; Prototyping <span class="hs-text-yellow">&#10038;</span>
-                        </div>
-                    </div>
-                  </p>
-
-                  
-                </div>
-                <p class="hs-paragraph text-center">
-                  <img class="img-fluid img-centered" src="../assets/img/portfolio/BlueStarSports/collage-of-stuff-blue-star-sports.jpg" alt="UBlue Star Sports"/>
-                </p>
-              </div>
-            </div>
-            <!-- end front face -->
-            <!-- back face -->
-            
-            
-            <!-- end back face -->
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-    </div>
-    </div>
-    <div class="modal fade" id="bowlopolisDetails" tabindex="-1" aria-labelledby="bowlopolisDetails" aria-hidden="true"
-      modal-title="Bowlopolis">
-      <div class="modal-dialog modal-fullscreen">
-        <div class="modal-content">
-          <div class="modal-header">
-            <div class="container-sm">
-              <div class="row">
-                <div class="col-md-10 mx-auto">
-                  <h5 class="modal-title text-xl mr-3 d-inline-block" id="bowlopolisDetailsTitle">Bowlopoli.com </h5>
-                  <div class="text-center" style="display: inline-block; flex: none; margin-left: 20px; font-size: 14px">
-                    <span class="mx-2">/</span> Website <span class="mx-2">/</span> Games <span class="mx-2">/</span> 3D
-                    Cartoons videos <span class="mx-2">/</span></div>
-                </div>
-              </div>
-            </div>
-            
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
-          </div>
-          
-          <div class="modal-body">
-            <div class="container-sm">
-              <div class="row">
-                <div class="col-md-10 mx-auto">
-
-                  <p class="hs-paragraph lead">
-                    Web design/development &amp; game development for retention/frequency.
-                  </p>
-                  <p class="hs-paragraph">
-                    <div class="row">
-                      <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>Company</strong>:</div>
-                      <div class="col-md-10">Bowling Proprietors' Association of America</div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>Description </strong>:</div>
-                      <div class="col-md-10">Kids program designed to build lifetime bowling customers through games
-                        videos, kids club, tracking  </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>My Roles</strong>:</div>
-                      <div class="col-md-10">UI/UX Design <span class="hs-text-yellow">&#10038;</span> UI Developer 
-                        <span class="hs-text-yellow">&#10038;</span> Quality Assurance</div>
-                    </div>
-                  </p>
+                <p class="hs-paragraph">
                   <div class="row">
-                    <div class="col-md-12 hs-paragraph text-center">
-                      <!-- hs-rotator3d -->
-                      <hs-flip2code-dev flipcode-language="javascript" flip-height="auto" flip-width="100%">
-                        <div slot="front" class="flip2code-frontslot">
-                          <hs-rotator3d data-gap="10" class="mt-5" mode="modal"></hs-rotator3d>
-                        </div>
-                        <div id="codeblock01" class="flip2code-backslot" slot="back"> 
-                          <fk-highlight-code
-                            style="display: block; margin-left: 10%;"
-                            line-numbers="true"
-                            id="rotate3D"
-                            terminal="none"
-                            src="https://raw.githubusercontent.com/heathshults/heathshults-web-ui/master/src/js/inDev/toggler-system/toggler.js"
-                          >
-                      </div>
-                      </hs-flip2code-dev>
-                      <!-- /hs-rotator3d -->
+                    <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>Company</strong>:
                     </div>
+                    <div class="col-md-10">United Services Automobile Association</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>Description </strong>:
+                    </div>
+                    <div class="col-md-10"> Productivity apps for 35,000 employees world wide. </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>My Roles</strong>:
+                    </div>
+                    <div class="col-md-10">UI Engineering <span class="hs-text-yellow">&#10038;</span> Ops Developer
+                      <span class="hs-text-yellow">&#10038;</span>
+                    </div>
+                  </div>
+                </p>
+
+
+              </div>
+              <p class="hs-paragraph text-center">
+                <img class="img-fluid img-centered" src="/assets/img/bg/usaa-mobile.jpg" alt="USAA Mobile Apps" />
+              </p>
+            </div>
+          </div>
+          <!-- end front face -->
+          <!-- back face -->
+
+
+          <!-- end back face -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="modal fade" id="fanniemaeDetails" tabindex="-1" aria-labelledby="fanniemaeDetails" aria-hidden="true"
+    modal-title="Fannie Mae">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="container-sm">
+            <div class="row">
+              <div class="col-md-10 mx-auto">
+                <h5 class="modal-title text-xl mr-3" id="USAADetailsTitle">Fannie Mae
+                  <div class="text-center"
+                    style="display: inline-block; flex: 1 1 auto; margin-left: 20px; font-size: 14px">
+                    Enterprise Design System
+                  </div>
+                </h5>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+        </div>
+        <div class="modal-body">
+
+          <div class="container-sm">
+            <div class="row">
+              <div class="col-md-10 mx-auto">
+
+                <p class="hs-paragraph lead">
+                  Design System Design &amp; Development for Fannie Mae Designers and Developers.
+                </p>
+                <p class="hs-paragraph">
+                  <div class="row">
+                    <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>Company</strong>:
+                    </div>
+                    <div class="col-md-10">Fannie Mae</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>Description</strong>:
+                    </div>
+                    <div class="col-md-10">Enterprise design system to aid in consistency of corporate identity and
+                      quality of public facing digital assets.</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>My Roles</strong>:
+                    </div>
+                    <div class="col-md-10">Interaction Design <span class="hs-text-yellow">&#10038;</span> Product
+                      Design &amp; Prototyping <span class="hs-text-yellow">&#10038;</span>
+                      <div class="col-md-2 info-title"></div>
+                      <div class="col-md-10">UI Engineer <span class="hs-text-yellow">&#10038;</span> Mockups &amp;
+                        Converting creative to interactive web digital <span class="hs-text-yellow">&#10038;</span>
+                      </div>
+                    </div>
+                </p>
+
+
+              </div>
+              <p class="hs-paragraph text-center">
+                <img class="img-fluid img-centered" src="../assets/img/portfolio/Fannie-Mae/blueprint-design-system.jpg"
+                  alt="UBlue Star Sports" />
+              </p>
+            </div>
+          </div>
+          <!-- end front face -->
+          <!-- back face -->
+
+
+          <!-- end back face -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="modal fade" id="bluestarDetails" tabindex="-1" aria-labelledby="bluestarDetails" aria-hidden="true"
+    modal-title="Blue Star Sports">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="container-sm">
+            <div class="row">
+              <div class="col-md-10 mx-auto">
+                <h5 class="modal-title text-xl mr-3" id="USAADetailsTitle">Blue Star Sports
+                  <div class="text-center"
+                    style="display: inline-block; flex: 1 1 auto; margin-left: 20px; font-size: 14px">
+                    Youth Athlete Tracking System
+                  </div>
+                </h5>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+        </div>
+        <div class="modal-body">
+
+          <div class="container-sm">
+            <div class="row">
+              <div class="col-md-10 mx-auto">
+
+                <p class="hs-paragraph lead">
+                  Progressive Web App Design &amp; CRM Development for youth league football.
+                </p>
+                <p class="hs-paragraph">
+                  <div class="row">
+                    <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>Company</strong>:
+                    </div>
+                    <div class="col-md-10">Blue Star Sports</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>Description</strong>:
+                    </div>
+                    <div class="col-md-10"> Youth athlete management and stats tracking. </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>My Roles</strong>:
+                    </div>
+                    <div class="col-md-10">UI Engineer <span class="hs-text-yellow">&#10038;</span> Product Design &amp;
+                      Prototyping <span class="hs-text-yellow">&#10038;</span>
+                    </div>
+                  </div>
+                </p>
+
+
+              </div>
+              <p class="hs-paragraph text-center">
+                <img class="img-fluid img-centered"
+                  src="../assets/img/portfolio/BlueStarSports/collage-of-stuff-blue-star-sports.jpg"
+                  alt="UBlue Star Sports" />
+              </p>
+            </div>
+          </div>
+          <!-- end front face -->
+          <!-- back face -->
+
+
+          <!-- end back face -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="modal fade" id="bowlopolisDetails" tabindex="-1" aria-labelledby="bowlopolisDetails" aria-hidden="true"
+    modal-title="Bowlopolis">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="container-sm">
+            <div class="row">
+              <div class="col-md-10 mx-auto">
+                <h5 class="modal-title text-xl mr-3 d-inline-block" id="bowlopolisDetailsTitle">Bowlopoli.com </h5>
+                <div class="text-center" style="display: inline-block; flex: none; margin-left: 20px; font-size: 14px">
+                  <span class="mx-2">/</span> Website <span class="mx-2">/</span> Games <span class="mx-2">/</span> 3D
+                  Cartoons videos <span class="mx-2">/</span></div>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+        </div>
+
+        <div class="modal-body">
+          <div class="container-sm">
+            <div class="row">
+              <div class="col-md-10 mx-auto">
+
+                <p class="hs-paragraph lead">
+                  Web design/development &amp; game development for retention/frequency.
+                </p>
+                <p class="hs-paragraph">
+                  <div class="row">
+                    <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>Company</strong>:
+                    </div>
+                    <div class="col-md-10">Bowling Proprietors' Association of America</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>Description </strong>:
+                    </div>
+                    <div class="col-md-10">Kids program designed to build lifetime bowling customers through games
+                      videos, kids club, tracking </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-2 info-title"><strong><span class="hs-text-yellow">@</span>My Roles</strong>:
+                    </div>
+                    <div class="col-md-10">UI/UX Design <span class="hs-text-yellow">&#10038;</span> UI Developer
+                      <span class="hs-text-yellow">&#10038;</span> Quality Assurance</div>
+                  </div>
+                </p>
+                <div class="row">
+                  <div class="col-md-12 hs-paragraph text-center">
+                    <!-- hs-rotator3d -->
+                    <hs-flip2code-dev flipcode-language="javascript" flip-height="auto" flip-width="100%">
+                      <div slot="front" class="flip2code-frontslot">
+                        <hs-rotator3d data-gap="10" class="mt-5" mode="modal"></hs-rotator3d>
+                      </div>
+                      <div id="codeblock01" class="flip2code-backslot" slot="back">
+                        <fk-highlight-code style="display: block; margin-left: 10%;" line-numbers="true" id="rotate3D"
+                          terminal="none"
+                          src="https://raw.githubusercontent.com/heathshults/heathshults-web-ui/master/src/js/inDev/toggler-system/toggler.js">
+                      </div>
+                    </hs-flip2code-dev>
+                    <!-- /hs-rotator3d -->
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          
-          <div class="modal-footer">
-            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
-          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
+  </div>
   <!-- end modals-->
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <script src="/assets/js/vendor/perfect-scrollbar-1.4.0/dist/perfect-scrollbar.js" type="module"></script>
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+  </script>
+  <!-- <script src="/assets/js/vendor/perfect-scrollbar-1.4.0/dist/perfect-scrollbar.js" type="module"></script> -->
 
-    <!-- Theme JavaScript -->
-    <script src="/assets/js/HeathScript.bundle.js" type="module"></script>
-    <script>
-      var blueStarModal = new bootstrap.Modal(document.getElementById('bluestarDetails'), {
-        keyboard: false
-      })
-        var bowlopolisModal = new bootstrap.Modal(document.getElementById('bowlopolisDetails'), {
-        keyboard: false
-      })
-      var fannieMaefModal = new bootstrap.Modal(document.getElementById('fanniemaeDetails'), {
-        keyboard: false
-      })
-      var usaaModal = new bootstrap.Modal(document.getElementById('usaaDetails'), {
-        keyboard: false
-      })
-      // const ezform = new EZForm('#ezform');
-      // ezformInit('#ezform');
-    </script>
-   
-    
-  </body>
+  <!-- Theme JavaScript -->
+  <script src="/assets/js/HeathScript.bundle.js" type="module"></script>
+  <script src="/assets/js/plain-draggable.min.js"type="module" defer></script>
+  <script>
+    const draggable = new PlainDraggable(document.querySelector('#slidebutton'));
+    console.log(draggable)
+    const self = draggable.setOptions(options)
+    draggable.containment = {left: 2, top: 2, width: 200, height: 0};
+    draggable.autoScroll = true;
+
+    var blueStarModal = new bootstrap.Modal(document.getElementById('bluestarDetails'), {
+      keyboard: false
+    })
+    var bowlopolisModal = new bootstrap.Modal(document.getElementById('bowlopolisDetails'), {
+      keyboard: false
+    })
+    var fannieMaefModal = new bootstrap.Modal(document.getElementById('fanniemaeDetails'), {
+      keyboard: false
+    })
+    var usaaModal = new bootstrap.Modal(document.getElementById('usaaDetails'), {
+      keyboard: false
+    })
+    // const ezform = new EZForm('#ezform');
+    // ezformInit('#ezform');
+
+  </script>
+
+
+</body>
 
 </html>
