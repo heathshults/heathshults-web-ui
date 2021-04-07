@@ -1,0 +1,58 @@
+// ======= MOVING STRIPES BACKGROUND ====== //
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+.stripes-background--grreen {
+  background-color: var(--hs-green);
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, .15) 35%,
+      transparent 25%,
+      transparent 50%,
+      rgba(255, 255, 255, .15) 60%,
+      rgba(255, 255, 255, .15) 85%,
+      transparent 85%,
+      transparent
+    );
+  background-size: 15px 15px;
+
+  border-color: var(--hs-green);
+  transition: all .15s ease-in-out;
+  transform: scale(1.2);
+  animation-name: animate-stripes;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+
+.stripes-background--grey {
+  background-color: var(--hs-gray-600);
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, .15) 35%,
+      transparent 25%,
+      transparent 50%,
+      rgba(255, 255, 255, .15) 60%,
+      rgba(255, 255, 255, .15) 85%,
+      transparent 85%,
+      transparent
+    );
+  background-size: 15px 15px;
+  animation-name: animate-stripes;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}

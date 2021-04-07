@@ -1,0 +1,12 @@
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="32px" height="32px" viewBox="-3 -3 32 32" enable-background="new -3 -3 32 32" xml:space="preserve">
+<g id="background" opacity="0.5">
+	<rect class="slide-submit__background" x="-3" y="-3" fill="#FFFFFF" width="32" height="32"/>
+</g>
+<g id="outline">
+	<path class="slide-submit__outline" fill="#FFFFFF" d="M27-1v28H-1V-1H27 M29-3H-3v32h32V-3L29-3z"/>
+</g>
+<path class="slide-submit__arrow" fill="#6f6f6f" id="arrow" d="M19.896,13.93L9.214,24.613c-0.516,0.516-1.353,0.516-1.866,0l-1.244-1.244c-0.516-0.516-0.517-1.35-0.002-1.865
+	L14.564,13L6.102,4.495c-0.515-0.516-0.514-1.35,0.002-1.863l1.244-1.244c0.516-0.517,1.352-0.517,1.866,0l10.682,10.682
+	C20.412,12.583,20.412,13.415,19.896,13.93z"/>
+</svg>

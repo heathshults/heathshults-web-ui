@@ -227,42 +227,69 @@ function typeScript(cb) {
 }
 exports.typeScript = typeScript;
 
-function babelfry(cb) {
-  browserify(`${srcPath}/js/modules/bundle.js`, { entry: true, debug: true, extensions: ['.ts', '.js', '.tsx', '.jsx'] })
-  .transform(babelify, {
-    "extensions": ['.ts', '.js', '.tsx', '.jsx'],
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-typescript",
-      "@babel/preset-react"
-    ],
-    "plugins": [
-      ["@babel/plugin-transform-typescript", {"allowDeclareFields": true, "isTSX": true}],
-      "@babel/plugin-transform-modules-commonjs",
-      ["babel-plugin-transform-class-properties", { "legacy": true }],
-      "@babel/plugin-transform-runtime"
-    ],
-    "compact": false,
-    "sourceMap": true
-  })
-  .bundle()
-  .on("error", function (err) { console.log(chalk.red("Error: " + err.message)) })
-  .pipe(fs.createWriteStream(`${wwwPath}/assets/js/HeathScript.bundle.js`));
-  
-  console.log(chalk.green('Babelifried JS'));
+function errorHandler(e) {
+  console.log(e);
+  throw new Error(e.message);
+}
+// gulp.task('make:game', function(){
+//   return browserify({
+//     entries: [
+//       'index.js'
+//     ]
+//   })
+//   .transform('babelify')
+//   .bundle()
+//   .pipe(source('index.js'))
+//   .pipe(gulp.dest('app/'));
+// });
 
-   return () => {
-    let file = '';
-    if (typeof cb === 'function') {
-      cb(null, file);
-      called = true;
+function babelfry(cb) {
+  return new Promise((resolve, reject) => {
+    try{
+       setTimeout(() => {
+        browserify(`${srcPath}/js/modules/bundle.ts`, { entry: true, debug: true, extensions: ['.ts', '.js', '.tsx', '.jsx'] })
+          .transform(babelify, {
+            extensions: ['.ts', '.js', '.tsx', '.jsx'],
+            presets: [
+              "@babel/preset-env",
+              "@babel/preset-typescript",
+              "@babel/preset-react"
+            ],
+            plugins: [
+              ["@babel/plugin-transform-typescript", {"allowDeclareFields": true, "isTSX": true}],
+              ["babel-plugin-transform-class-properties", { "legacy": true }]
+            ],
+            compact: false,
+            sourceMap: true
+          })
+          .bundle()
+          .on("error", function (err) { console.log(chalk.red("Error: " + err.message)) })
+          .pipe(fs.createWriteStream(`${wwwPath}/assets/js/HeathScript.bundle.js`));
+           console.log(chalk.green('Babelifried JS'));
+           resolve(cb);
+       }, 0);
+    } catch(e) {
+      console.log(chalk.red("Error: " + e.message));
+      reject(errorHandler(e));
     }
-  };
+  });
+  
+ 
+    
+    
+    //  (() => {
+    //   let file = '';
+    //   if (typeof cb === 'function') {
+    //     cb(null, file);
+    //     called = true;
+    //   }
+    // });
 
 
  
 }
 exports.babelfry = babelfry;
+
 // exports.babelfry = series(typeScript, babelJS);
 // function babelfry(cb){
 
@@ -610,44 +637,31 @@ function connect_sync(cb) {
     });
     
   });
-  watchers;
-  
-  
-  // jsWatcher = watch([`${srcPath}/js/modules/**/*.ts`, `${srcPath}/js/modules/**/*.js`, `${srcPath}/js/modules/**/*.tsx`, `${srcPath}/js/modules/**/*.jsx`]);
-  
-  // // const droppath = '/home/heathshults/_appdev/heathshults-web-ui/heathshults.com/src/js/modules';
+  var callback = ()=>{if (typeof cb === 'function') {return cb()}return};
+  watch(`${srcPath}/views/*.ejs`, ejsit).on('change', browserSync.reload), callback;
+  watch([`${srcPath}/assets/img/**/*.{jpg,png,gif,svg}`, `${srcPath}/assets/content/**/*.{jpg,png,gif,svg}`], ra.copy_images).on('change', browserSync.reload), callback;
+  watch([`${srcPath}/scss/**/*.scss`], compileCSS).on('change', browserSync.reload), callback;
+  watch([`${srcPath}/**/*.html`], ra.copy_html).on('change', browserSync.reload), callback;
+  watch([`${srcPath}/assets/**/*.css`], ra.copy_css).on('change', browserSync.reload), callback;
+  watch([`${srcPath}/assets/**/*.css`], ra.copy_css).on('change', browserSync.reload), callback;
+  watch([`${srcPath}/js/modules/**/*.{js,ts,tsx}`], babelfry).on('change', browserSync.reload), callback;
 
-  // jsWatcher.on('change', function(path, stats) {
-  //   exec(` sh build-scripts/_build-js.sh`, (error) => {
-  //     console.log(chalk.red(`typescript error: ${error}`));
-  //   });
+  const watchjs = watch([`${srcPath}/js/modules/**/*.{js,ts,tsx}`]);
 
-  //   // exec(`tsc --project ./tsconfig.build.json`, 
-  //   // (error) => console.log(chalk.red(`typescript error: ${error}`)));
+  watchjs.on('change', babelfry);
 
-  //   // exec(`npx babel src/js/temp/${path.replace(droppath, '').replace(/.ts/, '.js')} -o www/assets/js/${path.replace(droppath, '').replace(/.ts/, '.js')}`, 
-  //   // (error) => console.log(chalk.red(`error: ${error}`)));
+  watchjs.on('add', function(path, stats) {
+    console.log(`File ${path} was added`);
+    exec(`ncp ${path} www/assets/js`, (error) =>  errorman(error));
+  });
 
-  //   // exec(`npx browserify src/js/temp/${path.replace(droppath, '').replace(/.ts/, '.js')} -o www/assets/js/${path.replace(droppath, '').replace(/.ts/, '.js')}`, 
-  //   // (error) => console.log(chalk.red(`error: ${error}`)));
-  // });
+  watchjs.on('unlink', function(path, stats) {
+    console.log(`File ${path} was removed`);
+  });
 
-  // jsWatcher.on('add', function(path, stats) {
-  //     console.log(`File ${path.replace(/^.*[\\\/]/, '').replace(/.ts/, '.js')} was added`);
-  // }), browserSync.reload;
-
-  // jsWatcher.on('unlink', function(path, stats) {
-  //   console.log(`File ${path.replace(/^.*[\\\/]/, '').replace(/.ts/, '.js')} was removed`);
-  // }), browserSync.reload;
-
-  // jsWatcher.close();
-
-    // let file = '';
-    // if (typeof cb === 'function') {
-    //   cb(null, file);
-    //   called = true;
-    // }
-  
+  // watchjs.close();
+  cb();
+    
 }
 
 exports.connect_sync = connect_sync;

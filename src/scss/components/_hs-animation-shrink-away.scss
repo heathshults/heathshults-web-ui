@@ -1,0 +1,41 @@
+// ====== SHRINK AWAY ====== //@at-root
+.shrinkaway {
+  transform-origin: 50% 50%;
+  animation: shrinkaway-kf linear 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+
+  /* when the spec is finished */
+}
+
+@keyframes shrinkaway-kf {
+  0% {
+    opacity: 1;
+    transform: translate(0px, 0px) scaleX(1.00) scaleY(1.00);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translate(0px, 0px) scaleX(1.00) scaleY(1.00);
+  }
+
+  46% {
+    opacity: 1;
+    transform: translate(0px, 0px) scaleX(0.40) scaleY(0.40);
+  }
+
+  61% {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+
+  75% {
+    opacity: 1;
+    transform: translate(120px, 0px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(200px, 0px) scaleX(0.40) scaleY(0.40);
+  }
+}

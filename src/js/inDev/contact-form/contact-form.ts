@@ -79,28 +79,28 @@
           firstName = firstName.split(' ').slice(0, -1).join(' ');
       }
       // TODO: Implement this instead of jq
-      (async () => {
-        const rawResponse = await fetch('https://httpbin.org/post', {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({a: 1, b: 'Textual content'})
-        });
-        const content = await rawResponse.json();
+      // (async () => {
+      //   const rawResponse = await fetch('https://httpbin.org/post', {
+      //     method: 'POST',
+      //     headers: {
+      //       'Accept': 'application/json',
+      //       'Content-Type': 'application/json'
+      //     },
+      //     body: JSON.stringify({a: 1, b: 'Textual content'})
+      //   });
+      //   const content = await rawResponse.json();
       
-        console.log(content);
-      })();
+      //   console.log(content);
+      // })();
 
-      fetch(api_url, {
-          method: 'post',
-          body: JSON.stringify(opts)
-        }).then(function(response) {
-          return response.json();
-        }).then(function(data) {
-          ChromeSamples.log('Created Gist:', data.html_url);
-        });
+      // fetch(api_url, {
+      //     method: 'post',
+      //     body: JSON.stringify(opts)
+      //   }).then(function(response) {
+      //     return response.json();
+      //   }).then(function(data) {
+      //     ChromeSamples.log('Created Gist:', data.html_url);
+      //   });
       }
 
       

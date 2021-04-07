@@ -1,6 +1,8 @@
+/* eslint-disable no-async-promise-executor */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import {Component, Prop, Watch, Element, Method, EventEmitter, Event, Listen, h} from '@stencil/core';
 
-import Prism from 'prismjs';
+import Prism from '../../js/vendor/prismjs/prism.js';
 
 import {FramekitHighlightCodeAnchor} from '../declarations/fk-highlight-code-anchor';
 
@@ -17,15 +19,15 @@ export class FramekitHighlightCode {
 
   @Prop() src: string;
 
-  @Prop() anchor: string = '// Framekit';
-  @Prop() anchorZoom: string = '// FramekitZoom';
-  @Prop() hideAnchor: boolean = true;
+  @Prop() anchor = '// Framekit';
+  @Prop() anchorZoom = '// FramekitZoom';
+  @Prop() hideAnchor = true;
 
-  @Prop() language: string = 'javascript';
+  @Prop() language = 'javascript';
 
   @Prop() highlightLines: string;
 
-  private anchorOffsetTop: number = 0;
+  private anchorOffsetTop = 0;
 
   async componentDidLoad() {
     await this.loadLanguage();
@@ -209,9 +211,9 @@ export class FramekitHighlightCode {
           if (containerCode && containerCode.hasChildNodes()) {
             const elements: HTMLElement[] = Array.prototype.slice.call(containerCode.childNodes);
 
-            let rowIndex: number = -1;
-            let lastOffsetTop: number = -1;
-            let offsetHeight: number = -1;
+            let rowIndex = -1;
+            let lastOffsetTop = -1;
+            let offsetHeight = -1;
 
             elements.forEach((element: HTMLElement) => {
 
@@ -246,7 +248,7 @@ export class FramekitHighlightCode {
               if (rows.indexOf(rowsIndexToCompare) > -1) {
                 editElement.classList.add('hs-highlight-code-line');
               }
-            })
+            });
           }
 
         }
@@ -258,7 +260,7 @@ export class FramekitHighlightCode {
 
   private findRowsToHighlight(): Promise<number[]> {
     return new Promise<number[]>((resolve) => {
-      let results: number[] = [];
+      const results: number[] = [];
 
       const rows: string[] = this.highlightLines.split(' ');
 

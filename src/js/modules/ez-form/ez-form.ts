@@ -91,7 +91,7 @@ class EZForm {
     // Disable the inputs for the duration of the fetch post sendData. Intentionaly placed after json.stringify
     // Disabled form elements will not be processed.
     document.querySelector(this.formSelector).setAttribute('disabled', `${true}`);
-    this.createCSS = this.styles();
+    this.createCSS = EZForm.styles();
     
     // Validate form data
     EZForm.prototype.validate = ()=> {
@@ -174,7 +174,7 @@ class EZForm {
       return this.resetForm();
     }
 
-    formError(e): void {
+    formError(e: Event): void {
       this.theForm.classList.add('shake animated');
       this.messageBox.innerHTML = `${this.getStatusMsg(0)}; From server:<br>${e}`; 
       this.messageBox.classList.add('hs-message-box--destructive is-visible');

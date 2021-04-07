@@ -54,8 +54,11 @@ node build-scripts/build-scss.js &&
 
 echo "Copying supporting files..." 
 file_copy() {
-  npx ncp src/assets www/assets/
-  # npx ncp "src/js/temp/**/*" www/assets/js/
+  npx ncp src/assets/_data www/assets/_data/
+  npx ncp src/assets/css www/assets/css/
+  npx ncp src/assets/webfonts www/assets/webfonts/
+
+  npx ncp src/assets/img www/assets/img/
   npx ncp src/js/vendor www/assets/js/vendor/
   npx ncp src/global www/global/
   npx ncp src/php www/php/

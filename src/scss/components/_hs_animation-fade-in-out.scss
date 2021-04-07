@@ -1,0 +1,33 @@
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    width: 0px;
+    height: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+  }
+}
+.fadein {
+  animation: fadein ease-in-out .5s;
+}
+
+.fadeout {
+  transition: all .25s ease-in-out,;
+  animation-name: fadeout;
+  animation-duration: .25s;
+  animation-timing-function: ease-in-out
+}

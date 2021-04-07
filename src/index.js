@@ -14,6 +14,7 @@ require('./js/modules/show-more-fadebar/show-more');
 require('./js/modules/time-stamper/time-stamper');
 require('./js/modules/validate-url/validate-url');
 require('./js/modules/hs-slide-button/slide-button');
+require('./js/vendor/plain-draggable/index');
 require('./js/modules/HeathScript');
 
 

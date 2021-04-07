@@ -1,5 +1,5 @@
-"use strict";
-
+// "use strict";;
+// let PlainDraggable = require('../../vendor/plain-draggable.min');
 // require('@babel/register')({
 //   extensions: ['.ts', '.cjs', '.jsx', '.js', '.mjs'],
 //   cache: true
@@ -19,5 +19,4 @@ import './show-more-fadebar/show-more.ts';
 import './time-stamper/time-stamper.ts';
 import './validate-url/validate-url.ts';
 import './hs-slide-button/slide-button.ts';
-
 import './HeathScript.js';

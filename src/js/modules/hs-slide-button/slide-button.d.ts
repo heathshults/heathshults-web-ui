@@ -25,11 +25,11 @@ export default class SlideButton {
     dragonEnter(ev: DragEvent): string;
     dragonLeave(ev: DragEvent): string;
     dragonOver(ev: DragEvent): void;
-    dropHandler(ev: any): any;
+    dropHandler(ev: DragEvent): any;
     drop(ev: DragEvent): void;
     animatedCheckmark(): HTMLElement;
-    resetSlideButton(ev: any): any;
-    static init(loc: any): any;
+    resetSlideButton(ev: Event): any;
+    static init(loc: string): any;
     /**
      * Math.random should be unique because of its seeding algorithm.
      * Convert it to base 36 (numbers + letters), and grab the first 9 characters

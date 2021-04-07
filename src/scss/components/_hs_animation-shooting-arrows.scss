@@ -1,0 +1,112 @@
+// ======= ARROWS MOVING FROM LEFT TO RIGHT WITH FADEOUT ====== //
+
+/**
+ * The HTML looks like this *
+  <div id="arrowsContainer" class="hs-animated-arrow-container">
+    <svg id="arrows" class="hs-animated-arrow" width="18px" height="17px" viewBox="-1 0 18 17" version="1.1"
+      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <g>
+        <polygon class="hs-arrow a-3"
+          points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596">
+        </polygon>
+        <polygon class="hs-arrow a-2"
+          points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596">
+        </polygon>
+        <polygon class="hs-arrow a-1"
+          points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596">
+        </polygon>
+        <polygon class="hs-arrow-fixed"
+          points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596">
+        </polygon>
+      </g>
+    </svg>
+  </div>
+ */
+@keyframes arrow-anim {
+  from {
+    fill: transparent;
+    stroke-width: 2px;
+    stroke: transparent;
+    transform: translateX(1rem);
+  }
+
+  50% {
+    fill: #FFF;
+    stroke-width: 2px;
+    stroke: #FFF;
+  }
+
+  90% {
+    z-index: 2;
+    transition: all .25s ease-out;
+  }
+
+  to {
+    transform: translateX(9rem);
+    fill: transparent;
+    stroke-width: 2px;
+    stroke: transparent;
+  }
+}
+
+@keyframes arrow-fixed-anim {
+  5% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+.hs-animated-arrow-container {
+  position: absolute;
+  left: 4px;
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  height: 32px;
+}
+
+.hs-animated-arrow-container .hs-animated-arrow {
+  width: 22px;
+  height: auto;
+  margin: 0 2rem 0 -15px;
+  overflow: visible;
+  cursor: move;
+}
+
+.hs-animated-arrow-container .hs-animated-arrow polygon,
+.hs-animated-arrow-container .hs-animated-arrow path {
+  transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
+  fill: transparent;
+  stroke: transparent;
+  stroke-width: 2px;
+}
+
+.hs-animated-arrow-container .hs-animated-arrow .hs-arrow {
+  animation-name: arrow-anim;
+  animation-duration: 2.5s;
+  animation-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  animation-iteration-count: infinite;
+  fill: transparent;
+}
+
+.hs-animated-arrow-container .hs-animated-arrow .hs-arrow.a-3 {
+  animation-delay: 0.25s;
+}
+
+.hs-animated-arrow-container .hs-animated-arrow .hs-arrow.a-2 {
+  animation-delay: 0.15s;
+}
+
+.hs-animated-arrow-container .hs-animated-arrow .hs-arrow.a-1 {
+  animation-delay: 0s;
+}
+
+.hs-animated-arrow-container .hs-animated-arrow .hs-arrow-fixed {
+  animation: arrow-fixed-anim 2.5s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+}

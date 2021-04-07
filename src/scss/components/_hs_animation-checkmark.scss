@@ -1,0 +1,75 @@
+
+// ======= ANIMATED DRAWING OF AN SVG CHECKBOX ====== //
+
+/*
+  The html
+  <svg class="hs-animated-svg-checkmark" x="0px" y="0px" viewBox="0 0 135 110" width="35px" height="43px">
+    <path class="s-animated-svg-checkmark--green" d="M126.8,14L55.7,85.1L29.2,63.4"/>
+  </svg>
+
+*/
+
+@keyframes draw {
+  0% {
+    stroke-dashoffset: -400;
+  }
+
+  100% {
+    stroke-dashoffset: 400;
+  }
+}
+
+@keyframes check {
+  0% {
+    stroke-dashoffset: -400;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.hs-animated-checkbox-container {
+  position: absolute;
+  z-index: 3;
+}
+
+.hs-animated-svg-checkmark {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+}
+
+.hs-animated-svg-checkmark--green {
+  stroke: #005c00;
+
+  /* red */
+  stroke: green;
+
+  /* blue */
+  fill: none;
+  stroke-width: 20;
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  stroke-miterlimit: 5;
+  stroke-linecap: square;
+
+  animation: check .75s linear forwards;
+}
+
+.hs-animated-svg-checkmark-box--blue{
+  stroke: #cc181e;
+  stroke: #387ea9;
+  stroke-width: 12;
+  fill: none;
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: draw 1s linear forwards;
+}
+
+
+@media (max-width: 360px) {
+  body {
+    overflow: scroll;
+  }
+}
