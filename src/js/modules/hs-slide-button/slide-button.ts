@@ -1,15 +1,16 @@
-
-import { EZForm } from '../ez-form';
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+import {
+  EZForm
+} from '../ez-form';
 const l = console.log;
 export default class SlideButton {
-  public dragonDrop: any;
   public validateIssue: boolean;
-  public slidebutton?: HTMLElement;
-  public dropzone?: HTMLElement;
-  public gridLeftInner?: HTMLDivElement;
-  public gridRightInner?: HTMLDivElement;
-  public createButton?: any;
-  public arrows?: any;
+  public slidebutton ? : HTMLElement;
+  public dropzone ? : HTMLElement;
+  public gridLeftInner ? : HTMLDivElement;
+  public gridRightInner ? : HTMLDivElement;
+  public createButton ? : any;
+  public arrows ? : any;
   public active = false;
   public origin: number | any;
   public currentX: number | any;
@@ -24,23 +25,36 @@ export default class SlideButton {
   public cloner: HTMLElement;
   public cloneId: string | any;
   public redoButton: HTMLAnchorElement;
+  public isMouseDown = false;
+
+  // initial mouse X and Y for `mousedown`
+  public mouseX;
+  public mouseY;
+
+  // element X and Y before and after move
+  public elementX = 0;
+  public elementY = 0;
 
 
   constructor(
-    location: string, 
-    buttonContainer?: HTMLElement,
+    location: string,
+    buttonContainer ? : HTMLElement,
   ) {
-    // const makeStles = EZForm.styles();
-    const l = console.log;
-    this.validateIssue = false;
-    buttonContainer = document.querySelector(location);
-        // listener
-    document.addEventListener('readySubmit', function (e) {
-      // const ez = new EZForm('#ezform');
-    }, false);
-   
-    // HTML structure
-    const skeleton = `
+      const makeStles = EZForm.styles();
+      const l = console.log;
+      this.validateIssue = false;
+      buttonContainer = document.querySelector(location);
+      // listener
+      document.addEventListener(
+        'readySubmit',
+        function (e) {
+          const ez = new EZForm('#ezform');
+        },
+        false
+      );
+
+      // HTML structure
+      const skeleton = `
       <div class="slide-button-grid">
         <div class="slide-button-grid__left">
           <div class="grid-left__inner"></div>
@@ -71,71 +85,119 @@ export default class SlideButton {
         </div>
       </div>
       <div class="mx-auto"><a id="redoButton" href="javascript:void(0);">Reset Button</a></div>`;
-    buttonContainer.innerHTML = skeleton;
+      buttonContainer.innerHTML = skeleton;
 
-    this.arrows = document.querySelector('.hs-animated-arrow-container');
-    console.log(this.arrows);
+      this.arrows = document.querySelector('.hs-animated-arrow-container');
+      console.log(this.arrows);
 
-    // Create button and add it to the component
-    this.slidebutton = document.createElement('div');
-    Object.assign(this.slidebutton, {
-      className: 'slide-button',
-      id: 'slidebutton',
-    });
+      // Create button and add it to the component
+      this.slidebutton = document.createElement('div');
+      setTimeout(() => {
+        Object.assign(this.slidebutton, {
+          className: 'slide-button',
+          id: 'slidebutton',
+          draggable: true, // pixels
+          ondragstart: (e) => this.dragonStart(e),
+          ondrag: (e) => this.drag(e),
+          ondragend: (e) => this.dragonEnd(e),
+        });
+      }, 0);
 
+      /**
+       * Listens to `mousedown` event.
+       *
+       * @param {Object} event - The event.
+       */
+      const onMouseDown = (event) => {
+        this.mouseX = event.clientX;
+        this.mouseY = event.clientY;
+        this.isMouseDown = true;
+      };
 
-    // Append slide button to the grid
-    this.gridLeftInner = document.querySelector('#slideButton > div.slide-button-grid > div.slide-button-grid__left > div.grid-left__inner');
-    l(this.gridLeftInner);
-    this.gridLeftInner.appendChild(this.slidebutton);
+      // mouse button down over the element
+      this.slidebutton.addEventListener('mousedown', onMouseDown);
 
-    // Create the this.dropzone and add it to the component
-    this.dropzone = document.createElement('div');
+      /**
+       * Listens to `mouseup` event.
+       *
+       * @param {Object} event - The event.
+       */
+      const onMouseUp = (event) => {
+        this.isMouseDown = false;
+        this.elementX = parseInt(this.slidebutton.style.left) || 0;
+        this.elementY = parseInt(this.slidebutton.style.top) || 0;
+      };
 
-    Object.assign(this.dropzone, {
-      className: 'dropzone',
-      id: 'dropzone', // pixels
-    });
+      // mouse button released
+      this.slidebutton.addEventListener('mouseup', onMouseUp);
 
-    this.gridRightInner = document.querySelector('.slide-button-grid__right');
-    this.gridRightInner.appendChild(this.dropzone);
-    // this.dragonDrop.containment = {left: 2, top: 2, width: 200, height: 32};
-    // this.dragonDrop.snap = '50%';
-    this.redoButton = document.querySelector('#redoButton');
-    // this.redoButton.addEventListener('click', this.resetSlideButton);
+      // Append slide button to the grid
+      this.gridLeftInner = document.querySelector(
+        '#slideButton > div.slide-button-grid > div.slide-button-grid__left > div.grid-left__inner'
+      );
+      l(this.gridLeftInner);
+      this.gridLeftInner.appendChild(this.slidebutton);
+
+      // Create the this.dropzone and add it to the component
+      this.dropzone = document.createElement('div');
+      setTimeout(() => {
+        Object.assign(this.dropzone, {
+          className: 'dropzone',
+          id: 'dropzone', // pixels
+          ondragenter: (e) => this.dragonEnter(e),
+          ondragleave: (e) => this.dragonLeave(e),
+          ondragover: (e) => this.dragonOver(e),
+          ondrop: (e) => this.drop(e),
+        });
+      }, 0);
+      this.gridRightInner = document.querySelector('.slide-button-grid__right');
+      this.gridRightInner.appendChild(this.dropzone);
+
+      this.redoButton = document.querySelector('#redoButton');
+      this.redoButton.addEventListener('click', this.resetSlideButton);
+
+      /**
+       * Listens to `mousemove` event.
+       *
+       * @param {Object} event - The event.
+       */
+      function onMouseMove(event) {
+        if (!this.isMouseDown) return;
+        const deltaX = event.clientX - this.mouseX;
+        const deltaY = event.clientY - this.mouseY;
+        this.slidebutton.style.left = this.elementX + deltaX + 'px';
+        this.slidebutton.style.top = this.elementY + deltaY + 'px';
+      }
   }
 
   // Custom event and emitter to for next steps
   readyToSend = new Event('readySubmit');
 
-  // setTranslate(xPos, yPos, el) {
-  //   el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
-  // }
-    
+
   /**
    * Event that occurs at the start of the drag
    * @param  {DragEvent} ev 
    * @return  
    * @memberof SlideButton
    */
-  // public dragonStart(ev: DragEvent) {
-  //   this.eventtarget = ev.target as HTMLElement;
-  //   this.eventtarget.classList.add('fadeout');
-  //   this.eventtarget.addEventListener('mouseup', this.dropHandler);
-  //   this.dragParent = this.eventtarget.parentElement;
+  public dragonStart(ev: DragEvent) {
+    this.eventtarget = ev.target as HTMLElement;
+    this.eventtarget.classList.add('fadeout');
+    this.eventtarget.addEventListener('mouseup', this.dropHandler);
+    this.dragParent = this.eventtarget.parentElement;
 
-  //   // const dragImg = new Image();
-  //   // dragImg.src = '/assets/img/icons/drag-right.png';
-  //   // ev.dataTransfer.setDragImage(dragImg, 0, 0);
-  //   ev.dataTransfer.setData('text/plain',this.eventtarget.id);
-  //   ev.dataTransfer.effectAllowed = "move";
+    // const dragImg = new Image();
+    // dragImg.src = '/assets/img/icons/drag-right.png';
+    // ev.dataTransfer.setDragImage(dragImg, 0, 0);
+    ev.dataTransfer.setData('text/plain', this.eventtarget.id);
+    ev.dataTransfer.effectAllowed = "move";
 
-  //   if (ev.target === this.slidebutton) {
-  //     this.active = true;
-  //   }
+    if (ev.target === this.slidebutton) {
+      this.active = true;
+    }
 
-  //   return;
-  // }
+    return;
+  }
 
   /**
    * Event fires while dragging
@@ -143,19 +205,19 @@ export default class SlideButton {
    * @return  
    * @memberof SlideButton
    */
-  // public drag(ev: DragEvent) {
-  //   this.eventtarget = ev.target as HTMLElement;
-  //   // ev.dataTransfer.setData("text", this.eventtarget.id);
+  public drag(ev: DragEvent) {
+    this.eventtarget = ev.target as HTMLElement;
+    // ev.dataTransfer.setData("text", this.eventtarget.id);
 
 
-  //   if (this.active) {
-  //     this.eventtarget.classList.add('drag');
-  //     this.dropzone.classList.add('stripes-background');
-  //     // this.arrows.style.display = 'none';
-  //   }
+    if (this.active) {
+      this.eventtarget.classList.add('drag');
+      this.dropzone.classList.add('stripes-background');
+      // this.arrows.style.display = 'none';
+    }
 
-  //   return;
-  // }
+    return;
+  }
 
   /**
    * Event when the drag ends outside of the dropzone
@@ -163,30 +225,30 @@ export default class SlideButton {
    * @return  
    * @memberof SlideButton
    */
-  // public dragonEnd(ev: DragEvent) {
-  //   ev.preventDefault();
-  //   this.eventtarget = ev.target as HTMLElement;
-  //   this.dragParent.appendChild(this.eventtarget);
-  //   // this.slidebutton.style.transform = `translate3d('0px', '0px', 0)`;
-  //   this.active = false;
+  public dragonEnd(ev: DragEvent) {
+    ev.preventDefault();
+    this.eventtarget = ev.target as HTMLElement;
+    this.dragParent.appendChild(this.eventtarget);
+    // this.slidebutton.style.transform = `translate3d('0px', '0px', 0)`;
+    this.active = false;
 
-  //   return;
-  // }
- 
+    return;
+  }
+
   /**
    * Event when you enter the dropzone
    * @param  {DragEvent} ev 
    * @return  
    * @memberof SlideButton
    */
-  // public dragonEnter(ev: DragEvent) {
-  //   ev.preventDefault();
-  //   this.eventtarget = ev.target as HTMLElement;
-  //   this.dropzone.classList.add('drop-ready');
-   
-  //   return this.arrows.style.opacity = '0';
-    
-  // }
+  public dragonEnter(ev: DragEvent) {
+    ev.preventDefault();
+    this.eventtarget = ev.target as HTMLElement;
+    this.dropzone.classList.add('drop-ready');
+
+    return this.arrows.style.opacity = '0';
+
+  }
 
   /**
    * Event when you move out of the dropzone
@@ -205,91 +267,79 @@ export default class SlideButton {
    * @return  
    * @memberof SlideButton
    */
-  // public dragonOver(ev: DragEvent) {
-  //   ev.preventDefault();
-  //   this.eventtarget = ev.target as HTMLElement;
-  //   // ev.dataTransfer.dropEffect = "move";
-    
-  //   return;
-  // }
+  public dragonOver(ev: DragEvent) {
+    ev.preventDefault();
+    this.eventtarget = ev.target as HTMLElement;
+    // ev.dataTransfer.dropEffect = "move";
 
-  /**
+    return;
+  }
+ /**
    * Key up event simultaneous with drop
    * @param  {any} ev 
    * @return * 
    * @memberof SlideButton
    */
-  // public dropHandler(ev): any {
-  //   ev.stopPropagation();
-  //   this.eventtarget = ev.target as HTMLElement;
-  //   this.slidebutton.classList.add('fadeout');
-  //   this.slidebutton.setAttribute('style', '');
-  //   this.slidebutton.classList.remove('shadow', 'drag');
+  public dropHandler(ev): any {
+    ev.stopPropagation();
+    this.eventtarget = ev.target as HTMLElement;
+    this.slidebutton.classList.add('fadeout');
+    this.slidebutton.setAttribute('style', '');
+    this.slidebutton.classList.remove('shadow', 'drag');
 
-  //    // remove the 'mouseup' listener
-  //   window.removeEventListener('mouseup', this.dropHandler);
-  //   this.slidebutton.classList.replace('fadeout', 'fadein');
-  //   this.gridLeftInner.appendChild(this.slidebutton);
-    
+    // remove the 'mouseup' listener
+    window.removeEventListener('mouseup', this.dropHandler);
+    this.slidebutton.classList.replace('fadeout', 'fadein');
+    this.gridLeftInner.appendChild(this.slidebutton);
 
-  //   // ev.stopPropagation();
-  // }
 
-  /**
-   * Drop event
-   * @param  {DragEvent} ev 
-   * @return  
-   * @memberof SlideButton
-   */
-  // public drop(ev: DragEvent) {
-  //   ev.preventDefault();
-  //   this.eventtarget = ev.target as HTMLElement;
-  //   const data = ev.dataTransfer.getData("text/plain");
-  //   this.cloner = document.getElementById(data).cloneNode(true) as HTMLElement;
-  //   this.cloneId = this.generateID();
-  //   this.cloner.id = this.cloneId;
-    
-  //   l('dropped in dropzone');
-  //   this.eventtarget.appendChild(this.cloner as Node);
-  //   this.cloner.classList.add('shrinkaway');
+    // ev.stopPropagation();
+  }
 
-  
-  //   this.eventtarget.classList.remove('drop-ready', 'stripes-background');
-  //   this.animatedCheckmark();
-    
-  //   document.dispatchEvent(this.readyToSend);
-    
-  //   return;
-  // }
+  public drop(ev: DragEvent) {
+    ev.preventDefault();
+    this.eventtarget = ev.target as HTMLElement;
+    const data = ev.dataTransfer.getData("text/plain");
+    this.cloner = document.getElementById(data).cloneNode(true) as HTMLElement;
+    this.cloneId = this.generateID();
+    this.cloner.id = this.cloneId;
 
-  /**
-   * Animated checkmark signals completion
-   * @return  
-   * @memberof SlideButton
-   */
-  // animatedCheckmark() {
-  //   const animatedCheckMark = document.createElement('svg');
-  //   Object.assign(animatedCheckMark, {
-  //     className: 'svg-checkmark',
-  //     id: 'aniCheck',
-  //     x: '0px',
-  //     y: '0px',
-  //     viewBox: '0 0 135 110',
-  //     width: '35px',
-  //     height: '43px'
-  //   });
-  //   animatedCheckMark.innerHTML = `
-  //   <svg class="hs-animated-svg-checkmark" x="0px" y="0px" viewBox="0 0 135 110" width="35px" height="43px">
-  //     <path class="hs-animated-svg-checkmark--green" d="M126.8,14L55.7,85.1L29.2,63.4"/>
-  //   </svg>`;
+    l('dropped in dropzone');
+    this.eventtarget.appendChild(this.cloner as Node);
+    this.cloner.classList.add('shrinkaway');
 
-  //   this.checky = document.createElement('span');
-  //   this.checky.classList.add('hs-animated-checkbox-container');
-  //   this.checky.innerHTML = animatedCheckMark;
-    
-  //   return this.dropzone.appendChild(animatedCheckMark);
-  // }
 
+    this.eventtarget.classList.remove('drop-ready', 'stripes-background');
+    this.animatedCheckmark();
+
+    document.dispatchEvent(this.readyToSend);
+
+    return;
+  }
+
+
+  animatedCheckmark() {
+    const animatedCheckMark = document.createElement('svg');
+    Object.assign(animatedCheckMark, {
+      className: 'svg-checkmark',
+      id: 'aniCheck',
+      x: '0px',
+      y: '0px',
+      viewBox: '0 0 135 110',
+      width: '35px',
+      height: '43px'
+    });
+    animatedCheckMark.innerHTML = `
+    <svg class="hs-animated-svg-checkmark" x="0px" y="0px" viewBox="0 0 135 110" width="35px" height="43px">
+      <path class="hs-animated-svg-checkmark--green" d="M126.8,14L55.7,85.1L29.2,63.4"/>
+    </svg>`;
+
+    this.checky = document.createElement('span');
+    this.checky.classList.add('hs-animated-checkbox-container');
+    this.checky.innerHTML = animatedCheckMark;
+
+    return this.dropzone.appendChild(animatedCheckMark);
+  }
 
   /**
    * Resets the slide button
@@ -297,16 +347,16 @@ export default class SlideButton {
    * @return * 
    * @memberof SlideButton
    */
-  // resetSlideButton(ev): any {
-  //   this.dropzone.classList.remove('dropped', 'drop-ready', 'border-white');
-  //   this.dropzone.querySelector('.hs_animated-svg-checkmark').remove();
-  //   this.cloner.remove();
-  //   // this.gridLeftInner.insertAdjacentElement('beforeend', this.slidebutton);
+  resetSlideButton(ev): any {
+    this.dropzone.classList.remove('dropped', 'drop-ready', 'border-white');
+    this.dropzone.querySelector('.hs_animated-svg-checkmark').remove();
+    this.cloner.remove();
+    // this.gridLeftInner.insertAdjacentElement('beforeend', this.slidebutton);
 
-  //   this.arrows.style.display = 'unset';
-  // }
+    this.arrows.style.display = 'unset';
+  }
 
-  static init(loc: string): any {
+  static init(loc): any {
     return new this(loc);
   }
 
@@ -321,8 +371,9 @@ export default class SlideButton {
    * o[privateName] = 'bar';
    * @memberof SlideButton
    */
-  generateID = (): string => `${'_' + Math.random().toString(36).substr(2, 9)}`;
-  
+  generateID = () => {
+    return '_' + Math.random().toString(36).substr(2, 9);
+  };
 }
 
 document.addEventListener('load', SlideButton.init('#slideButton'));

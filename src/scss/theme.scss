@@ -352,7 +352,7 @@ body {
 
 .hs-section {
   width: 100%;
-  padding: 6rem 0;
+  // padding: 6rem 0;
 
   .hs-section-heading {
     margin-top: 0;
@@ -642,6 +642,7 @@ select:-webkit-autofill:focus {
   border: 2px solid $hs-primary !important;
   -webkit-text-fill-color: $hs-white;
   -webkit-box-shadow: 0 0 0px 1000px rgba(0, 0, 0, .75) inset;
+  -webkit-transition: background-color 50000s ease-in-out 0s;
   transition: background-color 50000s ease-in-out 0s;
 }
 // input:-internal-autofill-selected,
@@ -653,7 +654,9 @@ select:-webkit-autofill:focus {
 //   appearance: menulist-button;
 // }
 /* stylelint-disable: comment-no-empty */
+@-webkit-keyframes onAutoFillStart { from { /*  f */ }  to { /* f */ } }
 @keyframes onAutoFillStart { from { /*  f */ }  to { /* f */ } }
+@-webkit-keyframes onAutoFillCancel { from { /* f */ }  to { /* f */ } }
 @keyframes onAutoFillCancel { from { /* f */ }  to { /* f */ } }
 
 
@@ -661,15 +664,18 @@ input:-webkit-autofill {
   background-color: transparent;
 
   // Make the background color become yellow really slowly
+  -webkit-transition: background-color 50000s ease-in-out 0s;
   transition: background-color 50000s ease-in-out 0s;
   // Expose a hook for JavaScript when autofill is shown
   // JavaScript can capture 'animationstart' events
-  animation-name: onAutoFillStart;
+  -webkit-animation-name: onAutoFillStart;
+          animation-name: onAutoFillStart;
 }
 input:not(:-webkit-autofill) {
   // Expose a hook for JS onAutoFillCancel
   // JavaScript can capture 'animationstart' events
-  animation-name: onAutoFillCancel;
+  -webkit-animation-name: onAutoFillCancel;
+          animation-name: onAutoFillCancel;
 }
 
 
@@ -1022,9 +1028,18 @@ input:not(:-webkit-autofill) {
 //     animation: draw 1s linear forwards;
 //   }
 // }
+@-webkit-keyframes draw {
+  0% { stroke-dashoffset: -400; }
+  100% { stroke-dashoffset: 400; }
+}
 @keyframes draw {
   0% { stroke-dashoffset: -400; }
   100% { stroke-dashoffset: 400; }
+}
+
+@-webkit-keyframes check {
+  0% { stroke-dashoffset: -400; }
+  100% { stroke-dashoffset: 0; }
 }
 
 @keyframes check {
@@ -1048,4 +1063,3 @@ input:not(:-webkit-autofill) {
   }
 
 }
-

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { EZForm } from '../ez-form';
+import {EZForm} from '../ez-form';
 const l = console.log;
 export default class SlideButton {
   public validateIssue: boolean;
@@ -24,20 +24,20 @@ export default class SlideButton {
   public cloneId: string | any;
   public redoButton: HTMLAnchorElement;
 
-
-  constructor(
-    location: string, 
-    buttonContainer?: HTMLElement,
-  ) {
+  constructor(location: string, buttonContainer?: HTMLElement) {
     const makeStles = EZForm.styles();
     const l = console.log;
     this.validateIssue = false;
     buttonContainer = document.querySelector(location);
-        // listener
-    document.addEventListener('readySubmit', function (e) {
-      const ez = new EZForm('#ezform');
-    }, false);
-   
+    // listener
+    document.addEventListener(
+      'readySubmit',
+      function (e) {
+        const ez = new EZForm('#ezform');
+      },
+      false
+    );
+
     // HTML structure
     const skeleton = `
       <div class="slide-button-grid">
@@ -77,33 +77,34 @@ export default class SlideButton {
 
     // Create button and add it to the component
     this.slidebutton = document.createElement('div');
-    setTimeout(()=>{
+    setTimeout(() => {
       Object.assign(this.slidebutton, {
         className: 'slide-button',
         id: 'slidebutton',
         draggable: true, // pixels
-        ondragstart: (e)=> this.dragonStart(e),
-        ondrag: (e)=> this.drag(e),
-        ondragend: (e)=> this.dragonEnd(e)
+        ondragstart: (e) => this.dragonStart(e),
+        ondrag: (e) => this.drag(e),
+        ondragend: (e) => this.dragonEnd(e),
       });
     }, 0);
-    
 
     // Append slide button to the grid
-    this.gridLeftInner = document.querySelector('#slideButton > div.slide-button-grid > div.slide-button-grid__left > div.grid-left__inner');
+    this.gridLeftInner = document.querySelector(
+      '#slideButton > div.slide-button-grid > div.slide-button-grid__left > div.grid-left__inner'
+    );
     l(this.gridLeftInner);
     this.gridLeftInner.appendChild(this.slidebutton);
 
     // Create the this.dropzone and add it to the component
     this.dropzone = document.createElement('div');
-    setTimeout(()=>{
+    setTimeout(() => {
       Object.assign(this.dropzone, {
         className: 'dropzone',
         id: 'dropzone', // pixels
-        ondragenter: (e)=> this.dragonEnter(e),
-        ondragleave: (e)=> this.dragonLeave(e),
-        ondragover: (e)=>  this.dragonOver(e),
-        ondrop: (e)=> this.drop(e)
+        ondragenter: (e) => this.dragonEnter(e),
+        ondragleave: (e) => this.dragonLeave(e),
+        ondragover: (e) => this.dragonOver(e),
+        ondrop: (e) => this.drop(e),
       });
     }, 0);
     this.gridRightInner = document.querySelector('.slide-button-grid__right');
@@ -119,11 +120,11 @@ export default class SlideButton {
   // setTranslate(xPos, yPos, el) {
   //   el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
   // }
-    
+
   /**
    * Event that occurs at the start of the drag
-   * @param  {DragEvent} ev 
-   * @return  
+   * @param  {DragEvent} ev
+   * @return
    * @memberof SlideButton
    */
   public dragonStart(ev: DragEvent) {
@@ -135,8 +136,8 @@ export default class SlideButton {
     // const dragImg = new Image();
     // dragImg.src = '/assets/img/icons/drag-right.png';
     // ev.dataTransfer.setDragImage(dragImg, 0, 0);
-    ev.dataTransfer.setData('text/plain',this.eventtarget.id);
-    ev.dataTransfer.effectAllowed = "move";
+    ev.dataTransfer.setData('text/plain', this.eventtarget.id);
+    ev.dataTransfer.effectAllowed = 'move';
 
     if (ev.target === this.slidebutton) {
       this.active = true;
@@ -147,14 +148,13 @@ export default class SlideButton {
 
   /**
    * Event fires while dragging
-   * @param  {DragEvent} ev 
-   * @return  
+   * @param  {DragEvent} ev
+   * @return
    * @memberof SlideButton
    */
   public drag(ev: DragEvent) {
     this.eventtarget = ev.target as HTMLElement;
     // ev.dataTransfer.setData("text", this.eventtarget.id);
-
 
     if (this.active) {
       this.eventtarget.classList.add('drag');
@@ -167,8 +167,8 @@ export default class SlideButton {
 
   /**
    * Event when the drag ends outside of the dropzone
-   * @param  {DragEvent} ev 
-   * @return  
+   * @param  {DragEvent} ev
+   * @return
    * @memberof SlideButton
    */
   public dragonEnd(ev: DragEvent) {
@@ -180,51 +180,50 @@ export default class SlideButton {
 
     return;
   }
- 
+
   /**
    * Event when you enter the dropzone
-   * @param  {DragEvent} ev 
-   * @return  
+   * @param  {DragEvent} ev
+   * @return
    * @memberof SlideButton
    */
   public dragonEnter(ev: DragEvent) {
     ev.preventDefault();
     this.eventtarget = ev.target as HTMLElement;
     this.dropzone.classList.add('drop-ready');
-   
-    return this.arrows.style.opacity = '0';
-    
+
+    return (this.arrows.style.opacity = '0');
   }
 
   /**
    * Event when you move out of the dropzone
-   * @param  {DragEvent} ev 
-   * @return  
+   * @param  {DragEvent} ev
+   * @return
    * @memberof SlideButton
    */
   public dragonLeave(ev: DragEvent) {
     this.dropzone.classList.remove('drop-ready');
-    return this.arrows.style.opacity = '1';
+    return (this.arrows.style.opacity = '1');
   }
 
   /**
    * Event when you drag directly on top ofthe dropzone
-   * @param  {DragEvent} ev 
-   * @return  
+   * @param  {DragEvent} ev
+   * @return
    * @memberof SlideButton
    */
   public dragonOver(ev: DragEvent) {
     ev.preventDefault();
     this.eventtarget = ev.target as HTMLElement;
     // ev.dataTransfer.dropEffect = "move";
-    
+
     return;
   }
 
   /**
    * Key up event simultaneous with drop
-   * @param  {any} ev 
-   * @return * 
+   * @param  {any} ev
+   * @return *
    * @memberof SlideButton
    */
   public dropHandler(ev): any {
@@ -234,45 +233,43 @@ export default class SlideButton {
     this.slidebutton.setAttribute('style', '');
     this.slidebutton.classList.remove('shadow', 'drag');
 
-     // remove the 'mouseup' listener
+    // remove the 'mouseup' listener
     window.removeEventListener('mouseup', this.dropHandler);
     this.slidebutton.classList.replace('fadeout', 'fadein');
     this.gridLeftInner.appendChild(this.slidebutton);
-    
 
     // ev.stopPropagation();
   }
 
   /**
    * Drop event
-   * @param  {DragEvent} ev 
-   * @return  
+   * @param  {DragEvent} ev
+   * @return
    * @memberof SlideButton
    */
   public drop(ev: DragEvent) {
     ev.preventDefault();
     this.eventtarget = ev.target as HTMLElement;
-    const data = ev.dataTransfer.getData("text/plain");
+    const data = ev.dataTransfer.getData('text/plain');
     this.cloner = document.getElementById(data).cloneNode(true) as HTMLElement;
     this.cloneId = this.generateID();
     this.cloner.id = this.cloneId;
-    
+
     l('dropped in dropzone');
     this.eventtarget.appendChild(this.cloner as Node);
     this.cloner.classList.add('shrinkaway');
 
-  
     this.eventtarget.classList.remove('drop-ready', 'stripes-background');
     this.animatedCheckmark();
-    
+
     document.dispatchEvent(this.readyToSend);
-    
+
     return;
   }
 
   /**
    * Animated checkmark signals completion
-   * @return  
+   * @return
    * @memberof SlideButton
    */
   animatedCheckmark() {
@@ -284,7 +281,7 @@ export default class SlideButton {
       y: '0px',
       viewBox: '0 0 135 110',
       width: '35px',
-      height: '43px'
+      height: '43px',
     });
     animatedCheckMark.innerHTML = `
     <svg class="hs-animated-svg-checkmark" x="0px" y="0px" viewBox="0 0 135 110" width="35px" height="43px">
@@ -294,15 +291,14 @@ export default class SlideButton {
     this.checky = document.createElement('span');
     this.checky.classList.add('hs-animated-checkbox-container');
     this.checky.innerHTML = animatedCheckMark;
-    
+
     return this.dropzone.appendChild(animatedCheckMark);
   }
 
-
   /**
    * Resets the slide button
-   * @param  {any} ev 
-   * @return * 
+   * @param  {any} ev
+   * @return *
    * @memberof SlideButton
    */
   resetSlideButton(ev): any {
@@ -318,12 +314,11 @@ export default class SlideButton {
     return new this(loc);
   }
 
-
   /**
    * Math.random should be unique because of its seeding algorithm.
    * Convert it to base 36 (numbers + letters), and grab the first 9 characters
    * after the decimal.
-   * @tutorial 
+   * @tutorial
    * var privateName = ID();
    * var o = { 'public': 'foo' };
    * o[privateName] = 'bar';

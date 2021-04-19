@@ -1,21 +1,88 @@
 // Styling for the footer
+:root {
+  --hs-footer-bg-color: #161b1e;
+  --hs-footer-bg-color2: #07141c;
+  --hs-section-title-font: "Montserrat", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif", "-apple-system";
+}
+.d-flex-none {
+  display: block !important;
+  flex: none !important;
+}
 .footer {
-  padding: 1.5rem;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 600px;
+  padding: 3rem 2rem;
   font-family: $headings-font-family;
   font-size: 0.9rem;
   color: var(--hs-white);
   text-align: center;
-  background: var(--hs-blueGray-light);
+  background: var(--hs-footer-bg-color2);
 
+  &.hs-footer-section {
+    padding: 3rem 2rem;
+    text-align: left;
+    .hs-footer-content {
+      .hs-section-title {
+        font-family: var(--hs-section-title-font);
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+      .hs-footer-logo {
+        width: 250px;
+        -webkit-filter: drop-shadow(3px 3px 5px #000);
+        filter: drop-shadow(3px 3px 5px #000);
+        &:hover {
+          background: transparent !important;
+          -webkit-filter: drop-shadow(0px -1px 0px  rgba(255, 240, 206, 0.671));
+          filter: drop-shadow(0px -1px 0px  rgba(255, 240, 206, 0.671));
 
+        }
+      }
+      .two-columns {
+        -moz-columns: auto 2;
+        columns: auto 2;
+      }
+    }
+    .nav {
+      box-sizing: border-box;
+      .nav-item {
+        box-sizing: border-box;
+        white-space: nowrap;
+        &:hover {
+          height: 37px;
+          text-decoration: none;
+          background: var(--hs-black--a50);
+        }
+        .nav-link {
+          box-sizing: border-box;
+          font-family: var(--hs-font-primary);
+          color: var(--hs-color-yellow);
+          @include states;
+          &:hover {
+            text-decoration: none;
+            background: transparent;
+          }
+        }
 
-
-
-
-  a:link {
-    color: var(--hs-color-yellow);
-    @include states;
-
-
+      }
+    }
+  }
+}
+.nav-link {
+  box-sizing: border-box;
+  &:hover {
+    text-decoration: none;
+    background: var(--hs-black--a50);
+    div .nav-link {
+      box-sizing: border-box;
+      &:hover {
+        text-decoration: none;
+        background: var(--hs-black--a50);
+      }
+    }
   }
 }

@@ -91,29 +91,358 @@
         from { fill-opacity: 0; }
         to { fill-opacity: 1; }
       }
-      </style>
+    </style>
+    
+    <!--ANIMATED CHECKMARK -->
+    
+    <svg id="40d74f06-7bcb-4fa8-83d7-fe4849e923a7" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" >
+      <defs>
+        <style>.b3923ed5-d817-4490-83ed-173754ea24b3{ fill: #231f20; }</style>
+      <title>checkmark</title>
+        <g id="circlegroup">
+          <path id="circle" class="circle-shape" d="M172.93,113.49a77.45,77.45,0,1,1-25.12-28.84l17.71-15.9a100.68,100.68,0,1,0,25.24,28.74Z" transform="translate(-3 -10.83)"/>
+          <path id="check" class="check-shape" d="M52.82,141.33l27-27L104.4,148.4s74-93.06,164.45-137.57c0,0-111.83,86.66-168.93,194.83C99.92,205.66,72.19,162.9,52.82,141.33Z" transform="translate(-3 -10.83)"/>
+        </g>
+      </defs>
+    </svg>
+    <svg id="Logo" class="Animate-Path" width="100%" height="100%" viewBox="0 0 612 792" xml:space="preserve">
+      <use id="Draw-Circle" class="Animate-Draw" xlink:href="#circle" />
+      <use id="Draw-Check" class="Animate-Draw" xlink:href="#check" />
+      <!--<use class="Animate-Fill" xlink:href="#Logo-Group" /> -->
+    </svg>
       
-      <!--ANIMATED CHECKMARK -->
-      
-      <svg id="40d74f06-7bcb-4fa8-83d7-fe4849e923a7" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" >
-          <defs>
-              <style>.b3923ed5-d817-4490-83ed-173754ea24b3{ fill: #231f20; }
+<!-- Another way -->
+
+<style>
+  @keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 60px 0;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+  @keyframes arrow-anim {
+  from {
+    fill: transparent;
+    stroke-width: 2px;
+    stroke: transparent;
+    transform: translateX(1rem);
+  }
+
+  50% {
+    fill: #FFF;
+    stroke-width: 2px;
+    stroke: #FFF;
+  }
+
+  90% {
+    z-index: 2;
+    transition: all .25s ease-out;
+  }
+
+  to {
+    transform: translateX(9rem);
+    fill: transparent;
+    stroke-width: 2px;
+    stroke: transparent;
+  }
+}
+
+@keyframes arrow-fixed-anim {
+  5% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+// /* end animated arrows */
+.hs-animated-arrow-container {
+  position: relative;
+  display: inline-block;
+  max-width: 150px;
+  height: 42px;
+  margin: auto;
+}
+
+.hs-animated-arrow {
+  width: 22px;
+  height: auto;
+  margin: 0 2rem 0 -15px;
+  overflow: visible;
+  cursor: move;
+}
+
+.hs-animated-arrow polygon,
+.hs-animated-arrow path {
+  transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
+  fill: transparent;
+  stroke: transparent;
+  stroke-width: 2px;
+}
+
+.hs-animated-arrow .hs-arrow {
+  animation-name: 'arrow-anim';
+  animation-duration: 2.5s;
+  animation-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  animation-iteration-count: infinite;
+  fill: transparent;
+}
+
+.hs-animated-arrow .hs-arrow.a-3 {
+  animation-delay: 0.25s;
+}
+
+.hs-animated-arrow .hs-arrow.a-2 {
+  animation-delay: 0.15s;
+}
+
+.hs-animated-arrow .hs-arrow.a-1 {
+  animation-delay: 0s;
+}
+
+.hs-animated-arrow .hs-arrow-fixed {
+  animation: 'arrow-fixed-anim' 2.5s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+}
+  #element {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background: skyblue;
+    position: relative;
+    box-sizing: border-box;
+    transition: all .25s linear;
+  }
+  .betweenEls {
+    display: inline-block;
+    width: 200px;
+    height: 100px;
+    padding: .5rem;
+    background: #dedede;
+    box-sizing: border-box;
+  }
+  .dropzone {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background: #65ff65;
+    box-sizing: border-box;
+  }
+  .dropzone.ready-bg {
+    background-color: green;
+    background-image:
+      linear-gradient(
+        135deg,
+        rgba(255, 255, 255, .15) 35%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, .15) 60%,
+        rgba(255, 255, 255, .15) 85%,
+        transparent 85%,
+        transparent
+      );
+    background-size: 15px 15px;
+    border-color: green;
+    transition: all .15s ease-in-out;
+    transform: scale(1.2);
+    animation-name: animate-stripes;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+  }
+  .#element.accepted {
+    width: 10%;
+    height: 10%;
+    transition: all .35s linear;
+  }
+  .goHome {
+    transform: translate(initMouseX, initMouseY);
+  }
 </style>
-          <title>checkmark</title>
-              <g id="circlegroup">
-                  <path id="circle" class="circle-shape" d="M172.93,113.49a77.45,77.45,0,1,1-25.12-28.84l17.71-15.9a100.68,100.68,0,1,0,25.24,28.74Z" transform="translate(-3 -10.83)"/>
-                  <path id="check" class="check-shape" d="M52.82,141.33l27-27L104.4,148.4s74-93.06,164.45-137.57c0,0-111.83,86.66-168.93,194.83C99.92,205.66,72.19,162.9,52.82,141.33Z" transform="translate(-3 -10.83)"/>
-              </g>
-          </defs>
-      </svg>
+
+<div id="element"></div><div class="betweenEls"></div><div class="dropzone"></div>
+
+<script>
+'use strict';
+
+
+
+/**
+ * Makes an element draggable.
+ *
+ * @param {HTMLElement} element - The element.
+ */
+function draggable(element) {
+  var dz = document.querySelector('.dropzone');
+  var sb = document.querySelector('#element') || element;
+	var isMouseDown = false;
+
+  // initial mouse X and Y for `mousedown`
+  var initMouseX = sb.clientX;
+  var initMouseY = sb.clientY;
+  var mouseX;
+  var mouseY;
+
+  // element X and Y before and after move
+  var sbX = 0;
+  var sbY = 0;
+
+  const doElsCollide = (btn, drzn) => {
+    btn.offsetBottom = btn.offsetTop + btn.offsetHeight;
+    btn.offsetRight = btn.offsetLeft + btn.offsetWidth;
+    drzn.offsetBottom = drzn.offsetTop + drzn.offsetHeight;
+    drzn.offsetRight = drzn.offsetLeft + drzn.offsetWidth;
+
+    return !((btn.offsetBottom < drzn.offsetTop) ||
+             (btn.offsetTop > drzn.offsetBottom) ||
+             (btn.offsetRight < drzn.offsetLeft) ||
+             (btn.offsetLeft > drzn.offsetRight))
+  };
+
+  // mouse button down over the element
+  element.addEventListener('mousedown', onMouseDown);
+
+  /**
+   * Listens to `mousedown` event.
+   *
+   * @param {Object} event - The event.
+   */
+  function onMouseDown(event) {
+      mouseX = event.clientX;
+      mouseY = event.clientY;
+      isMouseDown = true;
+  }
+
+    // need to attach to the entire document
+  // in order to take full width and height
+  // this ensures the sb keeps up with the mouse
+  document.addEventListener('mousemove', onMouseMove);
+  dz.addEventListener('mouseover', onMouseOver(event));
+  dz.addEventListener('mouseout', onMouseOut(event));
+  sb.addEventListener('mouseup', onMouseUp);
+  const collisionEvent = new Event('collision');
+// listener
+document.addEventListener('collisionEvent',  (e)=> { onMouseOver(e)}, false);
+// Returns a function, that, as long as it continues to be invoked, will not
+// be triggered. The function will be called after it stops being called for
+// N milliseconds. If `immediate` is passed, trigger the function on the
+// leading edge, instead of the trailing.
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};
+
+  /**
+   * Listens to `mousemove` event.
+   *
+   * @param {Object} event - The event.
+   */
+  function onMouseMove(event) {
+    if (!isMouseDown) return;
+      var deltaX = event.clientX - mouseX;
+      var deltaY = event.clientY - mouseY;
+      sb.style.left = sbX + deltaX + 'px';
+      sb.style.top = sbY + 0 + 'px';
+
+      const isColliding = debounceDoElsCollide();
+
+  }
+  const debounceDoElsCollide = debounce(()=> {
+    doElsCollide(sb, dz);
+    if (doElsCollide) document.dispatch('collisionEvent');
+  }, 250)
+  
+
+  function onMouseOver(ev) {
+    if (isMouseDown) {
+      ev.preventDefault();
+      ev.target.classList.add('ready-bg');
+    }
+  }
+  function onMouseOut(ev) {
+    if (isMouseDown) {
+      ev.preventDefault();
+      dz.classList.remove('ready-bg');
+    }
+  }
+
+  /**
+   * Listens to `mouseup` event.
+   *
+   * @param {Object} event - The event.
+   */
+  function onMouseUp(event) {
+   event.preventDefault();
+      try {
+        isMouseDown = false;
+        sbX = parseInt(sb.style.left) || 0;
+        sbY = parseInt(sb.style.top) || 0;
+        console.log(sb.classList);
+        
+        if (doElsCollide) {
+          console.log('mouseover!')
+          sb.classList.add('.accepted');
+          dz.appendChild(sb);
+        } else {
+          sb.classList.add('go-home');
+        }
+        console.log('looky shrink!')
+      } catch {
+        console.log('oops!');
+      }
       
-      
-      <svg id="Logo" class="Animate-Path" width="100%" height="100%" viewBox="0 0 612 792" xml:space="preserve">
-        <use id="Draw-Circle" class="Animate-Draw" xlink:href="#circle" />
-        <use id="Draw-Check" class="Animate-Draw" xlink:href="#check" />
-        <!--<use class="Animate-Fill" xlink:href="#Logo-Group" /> -->
-      </svg>
-      
-    <script src="" async defer></script>
+      function reset(event) {
+        try{
+          sb.classList.remove('.accepted');
+          document.querySelector('.betweenEls').insertAdjacentHTML('beforBegin', sb)
+          
+        } catch {
+          console.log('oops!');
+        }
+}
+      setTimeout(reset(event), 7000)
+  }
+
+  
+
+
+
+  // ondrop(event) {
+  //   event.preventDefault();
+  //   dz.appendChild(this.slidebutton)
+  //   this.slidebutton.style = 'width: 90px; height: 90px;'
+  // }
+}
+</script>
+<script src="draggable-example.js"></script>
+<script>
+    draggable(document.getElementById('element'));
+</script>
   </body>
 </html>
