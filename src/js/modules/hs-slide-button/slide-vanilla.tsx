@@ -8,8 +8,8 @@ function draggable(element) {
 	let isMouseDown = false;
 
     // initial mouse X and Y for `mousedown`
-    let mouseX;
-    let mouseY;
+    let initialX;
+    let initialY;
 
     // element X and Y before and after move
     let elementX = 0;
@@ -26,8 +26,8 @@ function draggable(element) {
      * @param {Object} event - The event.
      */
 	function onMouseDown({clientX, clientY}) {
-        mouseX = clientX;
-        mouseY = clientY;
+        initialX = clientX;
+        initialY = clientY;
         isMouseDown = true;
   }
 
@@ -57,8 +57,8 @@ function draggable(element) {
  */
   function onMouseMove({clientX, clientY}) {
     if (!isMouseDown) return;
-    deltaX = clientX - mouseX;
-    deltaY = clientY - mouseY;
+    deltaX = clientX - initialX;
+    deltaY = clientY - initialY;
 
     element.style.left = `${elementX + deltaX}px`;
     element.style.top = `${elementY + deltaY}px`;

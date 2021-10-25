@@ -8,7 +8,8 @@
     ["@babel/plugin-transform-typescript", {"allowDeclareFields": true, "isTSX": true}],
     "@babel/plugin-transform-modules-commonjs",
     ["babel-plugin-transform-class-properties", { "legacy": true }],
-    "@babel/plugin-transform-runtime"
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-syntax-jsx",
   ],
   "compact": false,
   "sourceMap": true
