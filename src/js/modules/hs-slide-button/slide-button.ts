@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import {
-  EZForm
-} from '../ez-form';
+import { EZForm } from '../ez-form';
 const l = console.log;
 export default class SlideButton {
   public validateIssue: boolean;

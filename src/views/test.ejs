@@ -1,3 +1,7 @@
+  <script>
+    const { debounce } = require('debounce');
+  </script>
+
 <!DOCTYPE html>
 
 <html>
@@ -24,7 +28,7 @@
         height: 100%;
         margin: auto;
         fill: green;
-        stroke: green;
+        stroke: #005700;
         stroke-miterlimit: 5;
       }
 
@@ -337,26 +341,25 @@ function draggable(element) {
   dz.addEventListener('mouseout', onMouseOut(event));
   sb.addEventListener('mouseup', onMouseUp);
   const collisionEvent = new Event('collision');
-// listener
-document.addEventListener('collisionEvent',  (e)=> { onMouseOver(e)}, false);
-// Returns a function, that, as long as it continues to be invoked, will not
-// be triggered. The function will be called after it stops being called for
-// N milliseconds. If `immediate` is passed, trigger the function on the
-// leading edge, instead of the trailing.
-function debounce(func, wait, immediate) {
-	var timeout;
-	return function() {
-		var context = this, args = arguments;
-		var later = function() {
-			timeout = null;
-			if (!immediate) func.apply(context, args);
-		};
-		var callNow = immediate && !timeout;
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
-		if (callNow) func.apply(context, args);
-	};
-};
+
+  document.addEventListener('collisionEvent',  (e)=> { onMouseOver(e)}, false);
+  // Returns a function, that, as long as it continues to be invoked, will not
+  // be triggered. The function will be called after it stops being called for
+  // N milliseconds. If `immediate` is passed, trigger the function on the
+  // leading edge, instead of the trailing.
+  const debounce = (func, timeout = 300) -=>{
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => { func.apply(this, args); }, timeout);
+    };
+  }
+  const saveInput = ()=>{
+    console.log('Saving data');
+  }
+  const processChange = debounce(() => saveInput());
+  }
+
 
   /**
    * Listens to `mousemove` event.
@@ -370,14 +373,14 @@ function debounce(func, wait, immediate) {
       sb.style.left = sbX + deltaX + 'px';
       sb.style.top = sbY + 0 + 'px';
 
-      const isColliding = debounceDoElsCollide();
+     
 
   }
-  const debounceDoElsCollide = debounce(()=> {
+  const debounceElsCollide = debounce(()=> {
     doElsCollide(sb, dz);
     if (doElsCollide) document.dispatch('collisionEvent');
   }, 250)
-  
+  window.addEventListener('mousemove', debounceElsCollide)
 
   function onMouseOver(ev) {
     if (isMouseDown) {
@@ -425,8 +428,8 @@ function debounce(func, wait, immediate) {
         } catch {
           console.log('oops!');
         }
-}
-      setTimeout(reset(event), 7000)
+      }
+        setTimeout(reset(event), 7000)
   }
 
   
@@ -438,9 +441,8 @@ function debounce(func, wait, immediate) {
   //   dz.appendChild(this.slidebutton)
   //   this.slidebutton.style = 'width: 90px; height: 90px;'
   // }
-}
+
 </script>
-<script src="draggable-example.js"></script>
 <script>
     draggable(document.getElementById('element'));
 </script>

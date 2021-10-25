@@ -15,6 +15,8 @@ function draggable(element) {
     let elementX = 0;
     let elementY = 0;
 
+    let deltaX;
+    let deltaY;
 	// mouse button down over the element
     element.addEventListener('mousedown', onMouseDown);
 
@@ -49,19 +51,20 @@ function draggable(element) {
     document.addEventListener('mousemove', onMouseMove);
 
 	/**
-     * Listens to `mousemove` event.
-     *
-     * @param {Object} event - The event.
-     */
-	function onMouseMove({clientX, clientY}) {
+ * Listens to `mousemove` event.
+ *
+ * @param {Object} event - The event.
+ */
+  function onMouseMove({clientX, clientY}) {
     if (!isMouseDown) return;
-      const deltaX = clientX - mouseX;
-      const deltaY = clientY - mouseY;
-      element.style.left = `${elementX + deltaX}px`;
-      element.style.top = `${elementY + deltaY}px`;
-      element.style.transform = 'scale(.8)';
+    deltaX = clientX - mouseX;
+    deltaY = clientY - mouseY;
 
-      doElsCollide(sb, dz)
+    element.style.left = `${elementX + deltaX}px`;
+    element.style.top = `${elementY + deltaY}px`;
+    element.style.transform = 'scale(.8)';
+
+    doElsCollide(sb, dz);
   }
 }
 

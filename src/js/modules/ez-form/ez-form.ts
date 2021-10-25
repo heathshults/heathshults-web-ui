@@ -5,7 +5,7 @@ const dateTime = new TimeStamper('datetime');
 const qs= document.querySelector;
 const l = console.log;
 
-class EZForm {
+export default class EZForm {
   public formFields: any;
   public formSelector: any;
   public messageBox: HTMLElement;
@@ -194,7 +194,7 @@ class EZForm {
     
     return response;
   }).then(response => {
-    l('ok');
+    l('ok:' + response);
 
   }).catch(error => {
     l(error);
