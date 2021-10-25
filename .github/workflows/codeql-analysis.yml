@@ -16,14 +16,27 @@ on:
     branches: [ master ]
   pull_request:
     # The branches below must be a subset of the branches above
+<<<<<<< HEAD
     branches: [ master ]
   schedule:
     - cron: '23 16 * * 3'
+=======
+    branches: [ develop ]
+  schedule:
+    - cron: '18 21 * * 1'
+>>>>>>> 750ba1fa8d4deef411c4253ea344c5406f4ae232
 
 jobs:
   analyze:
     name: Analyze
     runs-on: ubuntu-latest
+<<<<<<< HEAD
+=======
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+>>>>>>> 750ba1fa8d4deef411c4253ea344c5406f4ae232
 
     strategy:
       fail-fast: false
